@@ -47,4 +47,4 @@ Within 24–48 hours: publish replay, highlights, and follow-ups. If this isn’
 
 ## If you want this executed for you
 
-If you’re planning a large initiative and want a team that can run delivery end-to-end—virtual events, branding/marketing execution, or AI/agentic workflows—email **scooter@westpeek.ventures** with a 3–5 sentence overview and your target date. We’ll respond with the fastest viable plan and a quote.
+If you want a fast quote, email **scooter@westpeek.ventures** with a brief 3–5 sentence description of your project.

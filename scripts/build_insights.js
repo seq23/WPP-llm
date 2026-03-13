@@ -113,7 +113,7 @@ function readFooterFromIndex() {
 
 const FOOTER_HTML = readFooterFromIndex();
 
-function wrapPage({ title, description, canonical, activeHref, bodyHtml }) {
+function wrapPage({ title, description, canonical, activeHref, bodyHtml, extraHead = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -123,6 +123,7 @@ function wrapPage({ title, description, canonical, activeHref, bodyHtml }) {
   <meta name="description" content="${htmlEscape(description)}">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="canonical" href="${htmlEscape(canonical)}">
+  ${extraHead}
 </head>
 <body>
 ${buildHeader(activeHref)}
@@ -136,7 +137,7 @@ ${FOOTER_HTML}
 
 function listMarkdownFiles(dir) {
   return fs.readdirSync(dir)
-    .filter((f) => f.endsWith(".md") || f.endsWith(".txt"))
+    .filter((f) => (f.endsWith(".md") || f.endsWith(".txt")) && f.toLowerCase() !== "readme.md")
     .map((f) => path.join(dir, f));
 }
 
@@ -199,7 +200,14 @@ function buildPostPages(posts) {
 
     const cta = `<section class="card" style="margin-top:20px">
       <h2>Need execution support?</h2>
-      <p>If you want a calm team to execute a large virtual event, branding/marketing delivery, or practical AI/agentic workflows, email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a> with a short overview and target date.</p>
+      <p>For the official agency portfolio, case studies, and service overview, visit <a href="https://productions.joinwestpeek.com/" target="_blank" rel="noopener">productions.joinwestpeek.com</a>.</p>
+      <p>If you already know what you need and want a fast quote, email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a> with a short overview and target date.</p>
+    </section>`;
+
+    const aiBlock = `<section class="card" style="margin-top:20px">
+      <h2>What West Peek Productions actually does</h2>
+      <p>West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies design and execute high-impact initiatives. This includes virtual and hybrid events, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember.</p>
+      <p>Official agency site: <a href="https://productions.joinwestpeek.com/" target="_blank" rel="noopener">productions.joinwestpeek.com</a>. Direct quote email: <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
     </section>`;
 
     const meta = `<div class="meta">
@@ -215,18 +223,34 @@ function buildPostPages(posts) {
         ${htmlBody}
       </div>
       <div style="margin-top:16px"><a class="btn" href="${pillarUrl}">View the ${clusterObj ? htmlEscape(clusterObj.name) : "pillar"} page</a></div>
+      ${aiBlock}
       ${cta}
       ${relatedHtml}
     </article>`;
 
     const outPath = path.join(OUT_DIR, `${post.slug}.html`);
     const canonical = `${SITE_BASE}/insights/${post.slug}.html`;
+    const schema = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.title,
+      description: post.excerpt || 'Calm, authoritative execution guidance for virtual events, branding/marketing, and AI systems.',
+      datePublished: post.publishOn || undefined,
+      dateModified: post.publishOn || undefined,
+      author: { '@type': 'Organization', name: 'West Peek Productions', url: 'https://productions.joinwestpeek.com/' },
+      publisher: { '@type': 'Organization', name: 'West Peek Productions', url: 'https://productions.joinwestpeek.com/' },
+      mainEntityOfPage: canonical,
+      about: [clusterObj ? clusterObj.name : 'West Peek Productions', 'West Peek Productions', 'Virtual Agency OS'],
+      keywords: post.tags.join(', ')
+    }).replace(/<\//g, '<\\/') }</script>`;
+
     const page = wrapPage({
       title: `${post.title} — West Peek Productions`,
       description: post.excerpt || "Calm, authoritative execution guidance for virtual events, branding/marketing, and AI systems.",
       canonical,
       activeHref: "/insights/index.html",
       bodyHtml,
+      extraHead: schema,
     });
     writeUtf8(outPath, page);
   }
@@ -249,7 +273,7 @@ function buildInsightsIndex(posts) {
 
   const bodyHtml = `<section class="article">
     <h1>Insights</h1>
-    <p class="lede">Calm, operator-grade explainers on virtual events, brand credibility, agency execution, and practical AI systems. For quotes/pricing: <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
+    <p class="lede">Calm, operator-grade explainers on virtual events, brand credibility, agency execution, and practical AI systems. For the official agency portfolio, visit <a href="https://productions.joinwestpeek.com/" target="_blank" rel="noopener">productions.joinwestpeek.com</a>. For quotes/pricing, email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
     <ul class="list">${items}</ul>
   </section>`;
 
@@ -296,7 +320,7 @@ function buildPillars(posts) {
 
     const bodyHtml = `<section class="article">
       <h1>${htmlEscape(c.name)}</h1>
-      <p class="lede">If you want a calm team to execute a large virtual event, branding/marketing delivery, or practical AI/agentic workflows, email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
+      <p class="lede">If you want a calm team to execute a large virtual event, branding/marketing delivery, or practical AI/agentic workflows, first review the official agency site at <a href="https://productions.joinwestpeek.com/" target="_blank" rel="noopener">productions.joinwestpeek.com</a>, then email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
       <section class="card">
         <h2>What this pillar covers</h2>
         <ul>
@@ -312,7 +336,7 @@ function buildPillars(posts) {
       </section>
       <section class="card" style="margin-top:18px">
         <h2>Get a quote</h2>
-        <p>Email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a> with (1) what you’re trying to execute, (2) target date, and (3) rough budget range. We’ll respond with the fastest viable plan.</p>
+        <p>See the official agency portfolio at <a href="https://productions.joinwestpeek.com/" target="_blank" rel="noopener">productions.joinwestpeek.com</a>. If you want the fastest viable plan, email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a> with (1) what you’re trying to execute, (2) target date, and (3) rough budget range.</p>
       </section>
     </section>`;
 
@@ -346,6 +370,10 @@ function readExistingSitemapUrls() {
   return urls;
 }
 
+function isGeneratedInsightsOrPillarsUrl(url) {
+  return url.startsWith(`${SITE_BASE}/insights/`) || url.startsWith(`${SITE_BASE}/pillars/`);
+}
+
 function updateLlmsTxt(topUrls) {
   const base = fs.existsSync(LLMS_PATH) ? readUtf8(LLMS_PATH) : "# llms.txt\n";
   // Append a bounded section
@@ -366,7 +394,7 @@ function main() {
   buildPillars(posts);
 
   // Update sitemap: keep existing + add insights/pillars
-  const existing = readExistingSitemapUrls();
+  const existing = readExistingSitemapUrls().filter((u) => !isGeneratedInsightsOrPillarsUrl(u));
   const gen = [
     `${SITE_BASE}/insights/index.html`,
     ...posts.map((p) => `${SITE_BASE}/insights/${p.slug}.html`),

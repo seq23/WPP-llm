@@ -54,6 +54,9 @@ jobs:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: node scripts/build_insights.js
 
+      - name: Validate repo
+        run: node scripts/validate_insights.js
+
       - name: IndexNow ping (non-blocking)
         continue-on-error: true
         env:
@@ -64,7 +67,7 @@ jobs:
             exit 0
           fi
 
-          HOST="westpeekproductions.com"
+          HOST="virtualagency-os.com"
           payload=$(printf '{"host":"%s","key":"%s","keyLocation":"https://%s/indexnow.txt","urlList":["https://%s/sitemap.xml","https://%s/"]}' \
             "$HOST" "$INDEXNOW_KEY" "$HOST" "$HOST" "$HOST")
 

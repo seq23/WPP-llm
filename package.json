@@ -5,7 +5,8 @@
   "description": "Static site + insights generator for virtualagency-os.com",
   "scripts": {
     "build:insights": "node scripts/build_insights.js",
-    "release:one": "node scripts/release_one_draft.js"
+    "release:one": "node scripts/release_one_draft.js",
+    "validate:all": "node scripts/validate_insights.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
