@@ -58,9 +58,13 @@ function main() {
   const to = path.join(CONTENT_DIR, normalized);
 
   if (fs.existsSync(to)) {
-    console.error(`Release blocked: ${path.basename(to)} already exists.`);
-    console.error('Pick a distinct title/slug instead of creating a numeric duplicate.');
-    process.exit(1);
+    const skippedDir = path.join(CONTENT_DIR, '_skipped');
+    fs.mkdirSync(skippedDir, { recursive: true });
+    const skippedTo = path.join(skippedDir, pick);
+    fs.renameSync(from, skippedTo);
+    console.warn(`WARNING: Duplicate slug already published for ${pick}.`);
+    console.warn(`Moved duplicate draft to content/insights/_skipped/${pick} and continuing.`);
+    process.exit(0);
   }
 
   fs.renameSync(from, to);
