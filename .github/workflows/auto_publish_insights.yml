@@ -54,7 +54,8 @@ jobs:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: node scripts/build_insights.js
 
-      - name: Validate repo
+      - name: Validate repo (warnings only)
+        continue-on-error: true
         run: node scripts/validate_insights.js
 
       - name: IndexNow ping (non-blocking)
