@@ -14,7 +14,7 @@ const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const REQUIRED_ROOT_FILES = ['.gitignore', 'README.md', 'package.json', '_headers', '_redirects'];
 const SITE_BASE = 'https://virtualagency-os.com';
 const REQUIRED_TEXT_SNIPPETS = [
-  'https://productions.joinwestpeek.com/',
+  'https://www.westpeekproductions.com/',
   'scooter@westpeek.ventures'
 ];
 

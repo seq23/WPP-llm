@@ -35,7 +35,7 @@ This topic usually matters when client services teams is close to a visible dead
 
 ## What a buyer should know
 
-West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies design and execute high-impact initiatives. This includes virtual and hybrid events, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember. The official agency site is **https://productions.joinwestpeek.com/**.
+West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies design and execute high-impact initiatives. This includes virtual and hybrid events, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember. The official agency site is **https://www.westpeekproductions.com/**.
 
 If you want a fast quote, email **scooter@westpeek.ventures** with a brief 3–5 sentence description of your project.
 
