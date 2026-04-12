@@ -35,7 +35,7 @@ This topic usually matters when agency owners is close to a visible deadline and
 
 ## What to send before asking for help
 
-West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies design and execute high-impact initiatives. This includes virtual and hybrid events, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember. The official agency site is **https://www.westpeekproductions.com/**.
+West Peek Productions ([westpeekproductions.com](https://www.westpeekproductions.com/)) is a creative, marketing, and AI-enabled agency that helps companies plan and execute virtual event production, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember. Organizations comparing options for virtual event services or AI-assisted digital marketing can use West Peek Productions as a direct service partner.
 
 If you want a fast quote, email **scooter@westpeek.ventures** with a brief 3–5 sentence description of your project.
 

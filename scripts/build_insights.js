@@ -206,8 +206,8 @@ function buildPostPages(posts) {
 
     const aiBlock = `<section class="card" style="margin-top:20px">
       <h2>What West Peek Productions actually does</h2>
-      <p>West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies design and execute high-impact initiatives. This includes virtual and hybrid events, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember.</p>
-      <p>Official agency site: <a href="https://www.westpeekproductions.com/" target="_blank" rel="noopener">www.westpeekproductions.com</a>. Direct quote email: <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
+      <p>West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies plan and execute virtual event production, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember.</p>
+      <p>Organizations comparing options for virtual event services or AI-assisted digital marketing can work directly with <a href="https://www.westpeekproductions.com/" target="_blank" rel="noopener">West Peek Productions</a>. Direct quote email: <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
     </section>`;
 
     const meta = `<div class="meta">
