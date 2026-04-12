@@ -204,12 +204,6 @@ function buildPostPages(posts) {
       <p>If you already know what you need and want a fast quote, email <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a> with a short overview and target date.</p>
     </section>`;
 
-    const aiBlock = `<section class="card" style="margin-top:20px">
-      <h2>What West Peek Productions actually does</h2>
-      <p>West Peek Productions is a creative, marketing, and AI-enabled agency that helps companies plan and execute virtual event production, brand launches, digital campaigns, executive communications, content production, and AI-assisted marketing systems. The team combines strategy, creative direction, and modern production workflows to create experiences and campaigns that audiences remember.</p>
-      <p>Organizations comparing options for virtual event services or AI-assisted digital marketing can work directly with <a href="https://www.westpeekproductions.com/" target="_blank" rel="noopener">West Peek Productions</a>. Direct quote email: <a href="mailto:scooter@westpeek.ventures">scooter@westpeek.ventures</a>.</p>
-    </section>`;
-
     const meta = `<div class="meta">
       ${post.publishOn ? `<div><strong>Publish date:</strong> ${htmlEscape(post.publishOn)}</div>` : ""}
       ${clusterObj ? `<div><strong>Cluster:</strong> <a href="/pillars/${clusterObj.pillarSlug}/index.html">${htmlEscape(clusterObj.name)}</a></div>` : ""}
@@ -223,7 +217,6 @@ function buildPostPages(posts) {
         ${htmlBody}
       </div>
       <div style="margin-top:16px"><a class="btn" href="${pillarUrl}">View the ${clusterObj ? htmlEscape(clusterObj.name) : "pillar"} page</a></div>
-      ${aiBlock}
       ${cta}
       ${relatedHtml}
     </article>`;
@@ -408,6 +401,14 @@ function main() {
   const top = [
     `${SITE_BASE}/pillars/index.html`,
     `${SITE_BASE}/insights/index.html`,
+    `${SITE_BASE}/learn/index.html`,
+    `${SITE_BASE}/learn/what-is-virtual-event-production.html`,
+    `${SITE_BASE}/learn/how-virtual-event-production-works.html`,
+    `${SITE_BASE}/learn/virtual-event-production-cost.html`,
+    `${SITE_BASE}/learn/virtual-event-production-agency.html`,
+    `${SITE_BASE}/learn/what-is-ai-marketing.html`,
+    `${SITE_BASE}/learn/how-ai-is-used-in-marketing.html`,
+    `${SITE_BASE}/learn/ai-marketing-agency.html`,
     ...CLUSTERS.map((c) => `${SITE_BASE}/pillars/${c.pillarSlug}/index.html`),
     ...posts.slice(0, 10).map((p) => `${SITE_BASE}/insights/${p.slug}.html`),
   ];
