@@ -6,9 +6,10 @@
   "scripts": {
     "build:insights": "node scripts/build_insights.js",
     "release:one": "node scripts/release_one_draft.js",
-    "validate:all": "node scripts/validate_insights.js && node scripts/validate_fanout_warning.js",
+    "validate:all": "node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js",
     "build": "node scripts/build_insights.js && node scripts/apply_fanout.js",
-    "validate:fanout": "node scripts/validate_fanout_warning.js"
+    "validate:fanout": "node scripts/validate_fanout_warning.js",
+    "validate:llm-surfaces": "node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
