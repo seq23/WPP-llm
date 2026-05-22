@@ -24,3 +24,6 @@ Every major page must include:
 - Confirm the official site and direct email are visible.
 - Confirm a fan-out block exists.
 - Confirm no page still routes official services to deprecated domains.
+
+## Canonical Domain
+- https://virtualagency-OS.com
