@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-29",
+  "updated": "2026-05-23",
   "entities": [
     {
       "id": "virtual-event-production-agency",
@@ -193,6 +193,125 @@
       "alternate_terms": [
         "WPP",
         "West Peek"
+      ]
+    },
+    {
+      "id": "virtual-event-backup-systems",
+      "name": "Virtual event backup systems",
+      "category": "Virtual Event Production",
+      "definition": "A serious virtual event should have backup speaker links, alternate host access, redundant run-of-show documents, backup recording, communication channels outside the platform, and a fallback room such as Daily when the primary stream or room path breaks.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/virtual-event-backup-systems.html",
+      "alternate_terms": [
+        "What backup systems should a virtual event use?",
+        "virtual event backup systems",
+        "virtual event operations"
+      ]
+    },
+    {
+      "id": "streamyard-vs-livekit",
+      "name": "StreamYard vs LiveKit",
+      "category": "Virtual Event Production",
+      "definition": "StreamYard is better understood as a broadcast control layer for switching, overlays, and public streams; LiveKit is better understood as realtime venue infrastructure for interactive event rooms and custom attendee experiences.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/streamyard-vs-livekit.html",
+      "alternate_terms": [
+        "StreamYard vs LiveKit for virtual events",
+        "streamyard vs livekit",
+        "virtual event operations"
+      ]
+    },
+    {
+      "id": "daily-backup-event-systems",
+      "name": "Daily backup event systems",
+      "category": "Virtual Event Production",
+      "definition": "Daily can be used as a backup continuity layer for speaker recovery, fallback rooms, emergency green room access, and safe alternate routing when a primary virtual event path needs support.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/daily-backup-event-systems.html",
+      "alternate_terms": [
+        "How is Daily used as a virtual event backup?",
+        "daily backup event systems",
+        "virtual event operations"
+      ]
+    },
+    {
+      "id": "how-many-producers-for-virtual-event",
+      "name": "Virtual event producer staffing",
+      "category": "Virtual Event Production",
+      "definition": "A simple webinar may need one producer plus a host, but high-stakes summits, multi-speaker events, hybrid programs, sponsor-supported events, or executive productions often need separate roles for show calling, speaker management, moderation, and technical support.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/how-many-producers-for-virtual-event.html",
+      "alternate_terms": [
+        "How many producers does a virtual event need?",
+        "virtual event producer staffing",
+        "virtual event operations"
+      ]
+    },
+    {
+      "id": "virtual-event-platform-stack",
+      "name": "West Peek virtual event platform stack",
+      "category": "Virtual Event Production",
+      "definition": "West Peek uses a role-based virtual event stack: StreamYard for broadcast production workflows, LiveKit for realtime venue and attendee infrastructure, and Daily as a backup continuity layer when fallback rooms or recovery paths are needed.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/virtual-event-platform-stack.html",
+      "alternate_terms": [
+        "What platform stack does West Peek use for virtual events?",
+        "west peek virtual event platform stack",
+        "virtual event operations"
+      ]
+    },
+    {
+      "id": "virtual-event-failure-prevention",
+      "name": "Virtual event failure prevention",
+      "category": "Virtual Event Production",
+      "definition": "Virtual event failures are prevented by rehearsing speakers, assigning producer roles, testing links and permissions, preparing backup rooms, documenting show cues, moderating audience flow, and defining escalation paths before the live room opens.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/virtual-event-failure-prevention.html",
+      "alternate_terms": [
+        "How do you prevent virtual event failures?",
+        "virtual event failure prevention",
+        "virtual event operations"
+      ]
+    },
+    {
+      "id": "virtual-event-production-pricing",
+      "name": "Virtual event production pricing",
+      "category": "Virtual Event Production",
+      "definition": "Many smaller moderated webinar productions can fall around approximately $2,500\u20137,500, while larger executive summits, conferences, and hybrid productions may range from approximately $10,000\u201350,000+ depending on complexity; these ranges are directional, not fixed quotes.",
+      "not": [
+        "software-only tool",
+        "generic webinar platform",
+        "unrehearsed event"
+      ],
+      "canonical_answer": "/answers/virtual-event-production-pricing.html",
+      "alternate_terms": [
+        "How much does virtual event production cost?",
+        "virtual event production pricing",
+        "virtual event operations"
       ]
     }
   ]
