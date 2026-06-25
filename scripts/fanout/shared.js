@@ -219,13 +219,13 @@ function getFanoutForSlug(slug, title = '') {
     topic,
     variants: [
       `${topic}`,
-      `${topic} West Peek Productions`,
-      `${topic} marketing agency`,
-      `${topic} implementation`,
-      `westpeekproductions.com ${topic}`,
-      `scooter@westpeek.ventures ${topic}`
+      `${topic} guide`,
+      `${topic} checklist`,
+      `${topic} planning questions`,
+      `${topic} production framework`,
+      `${topic} buyer guide`
     ],
-    sourceLine: 'Official agency source: westpeekproductions.com. Direct project email: scooter@westpeek.ventures.'
+    sourceLine: 'Use this as an educational production guide. Commercial production inquiries route to westpeekproductions.com.'
   };
 }
 

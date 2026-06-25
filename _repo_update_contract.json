@@ -1,0 +1,49 @@
+{
+  "updated": "2026-06-25",
+  "repo_name": "WPP-llm",
+  "expected_public_domain": "virtualagency-os.com",
+  "commercial_destination": "https://www.westpeekproductions.com/",
+  "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
+  "source_of_truth": "baseline ZIP generated from true repository root",
+  "canonical_url_policy": ".html canonical; clean URL variants redirect to .html",
+  "accepted_update_modes": [
+    "snapshot"
+  ],
+  "package_manager": "npm",
+  "install_command": "npm ci",
+  "container_prepush_command": "npm run release:prepush:container",
+  "local_prepush_command": "npm run release:prepush:local",
+  "deep_validation_command": "npm run release:deep-validate:isolated",
+  "dirty_tree_policy": "local updater must refuse or checkpoint dirty target repo before applying baseline",
+  "required_zip_exclusions": [
+    ".git/",
+    "node_modules/",
+    ".env",
+    ".env.*",
+    "logs/",
+    ".build/",
+    "tmp/"
+  ],
+  "required_files": [
+    "package.json",
+    "package-lock.json",
+    "REPO_IDENTITY.md",
+    "_repo_update_contract.json",
+    "_repo_lifecycle_profile.json",
+    "_repo_validation_matrix.json",
+    "_validator_registry.json",
+    "docs/strategy/CITATION_STRATEGY_GATE.md",
+    "data/strategy/citation_strategy_profile.json",
+    "sitemap.xml",
+    "_redirects"
+  ],
+  "status_ceiling_before_local_apply": "STRUCTURALLY CHECKED \u2014 LOCAL VALIDATION REQUIRED",
+  "expected_branch": "main",
+  "commands": {
+    "prepush": "npm run release:prepush",
+    "prepush_local": "npm run release:prepush:local",
+    "postpush": "npm run release:postpush",
+    "live_proof": "npm run release:live-proof",
+    "cleanup": "npm run release:cleanup"
+  }
+}

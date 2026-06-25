@@ -74,3 +74,21 @@ footer{
 @media (max-width:720px){ .footer-grid{grid-template-columns:1fr} .hero h1{font-size:26px} }
 small{color:var(--muted)}
 ul{margin:0 0 14px 18px}
+
+.card{margin:20px 0; padding:16px; border:1px solid var(--line); border-radius:16px; background: color-mix(in srgb, var(--card) 92%, transparent)}
+.article{max-width:880px; margin:0 auto}
+.article h1{font-size:34px; line-height:1.14; margin:0 0 12px}
+.lede{font-size:18px; color:var(--muted)}
+.eyebrow{margin:0 0 8px; color:var(--link); text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700}
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px; border:1px solid var(--link); background:var(--link); color:#081018; font-weight:700; text-decoration:none}
+.btn:hover{text-decoration:none; filter:brightness(1.06)}
+.btn.secondary{background:transparent; color:var(--link)}
+.cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+.cta-band{margin:24px 0; padding:18px; border:1px solid var(--link); border-radius:18px; background:linear-gradient(135deg, color-mix(in srgb, var(--link) 18%, transparent), color-mix(in srgb, var(--card) 95%, transparent)); display:flex; gap:16px; justify-content:space-between; align-items:center}
+.cta-band p{margin:4px 0 0}
+.grid.two{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+.tile{display:flex; flex-direction:column; gap:4px; border:1px solid var(--line); border-radius:14px; padding:14px; background: color-mix(in srgb, var(--card) 88%, transparent)}
+.tile span{color:var(--muted); font-size:14px}
+.conversion-hero{border-color:color-mix(in srgb, var(--link) 45%, var(--line))}
+@media (max-width:720px){.grid.two{grid-template-columns:1fr}.cta-band{align-items:flex-start; flex-direction:column}.article h1{font-size:28px}}
+

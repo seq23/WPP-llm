@@ -1,0 +1,72 @@
+[
+  {
+    "id": "strategy-gate",
+    "command": "node scripts/validate_strategy_gate.js",
+    "exit_status": 0
+  },
+  {
+    "id": "master-plan-completion",
+    "command": "node scripts/validate_master_plan_completion.js",
+    "exit_status": 0
+  },
+  {
+    "id": "validator-registry",
+    "command": "node scripts/validate_validator_registry.js",
+    "exit_status": 0
+  },
+  {
+    "id": "canonical-routes",
+    "command": "node scripts/validate_canonical_routes.js",
+    "exit_status": 0
+  },
+  {
+    "id": "priority-pages",
+    "command": "node scripts/validate_priority_pages.js",
+    "exit_status": 0
+  },
+  {
+    "id": "homepage-ctas",
+    "command": "node scripts/validate_homepage_ctas.js",
+    "exit_status": 0
+  },
+  {
+    "id": "backlink-remediation",
+    "command": "node scripts/validate_backlink_remediation.js",
+    "exit_status": 0
+  },
+  {
+    "id": "release-plan",
+    "command": "node scripts/validate_release_plan.js",
+    "exit_status": 0
+  },
+  {
+    "id": "insights",
+    "command": "node scripts/validate_insights.js",
+    "exit_status": 0
+  },
+  {
+    "id": "fanout",
+    "command": "node scripts/validate_fanout_warning.js",
+    "exit_status": 0
+  },
+  {
+    "id": "answer-coverage",
+    "command": "node scripts/validate_answer_coverage.js",
+    "exit_status": 0
+  },
+  {
+    "id": "entity-coverage",
+    "command": "node scripts/validate_entity_coverage.js",
+    "exit_status": 0
+  },
+  {
+    "id": "internal-links",
+    "command": "node scripts/validate_internal_links.js",
+    "exit_status": 0
+  },
+  {
+    "id": "sitemap-coverage",
+    "command": "node scripts/validate_sitemap_coverage.js",
+    "exit_status": 0
+  }
+]

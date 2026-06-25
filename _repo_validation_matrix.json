@@ -1,0 +1,152 @@
+{
+  "updated": "2026-06-25",
+  "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
+  "allowed_severities": [
+    "HARD_FAIL",
+    "STRONG_WARNING",
+    "WARNING",
+    "INFO"
+  ],
+  "commands": [
+    {
+      "id": "strategy-gate",
+      "command": "node scripts/validate_strategy_gate.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent off-strategy release drift.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "master-plan-completion",
+      "command": "node scripts/validate_master_plan_completion.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure cumulative master-plan deliverables exist and route families match the lock.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "validator-registry",
+      "command": "node scripts/validate_validator_registry.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure validation pipeline remains registered, matrixed, and common-sense.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "canonical-routes",
+      "command": "node scripts/validate_canonical_routes.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure .html canonical and redirect coverage.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "priority-pages",
+      "command": "node scripts/validate_priority_pages.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure 0-6 month priority pages exist and route to WPP.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "homepage-ctas",
+      "command": "node scripts/validate_homepage_ctas.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure homepage CTAs route beginning, middle, and end to WPP.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "backlink-remediation",
+      "command": "node scripts/validate_backlink_remediation.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure disavow and earned citation ledgers exist.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "release-plan",
+      "command": "node scripts/validate_release_plan.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure strategy-gated release plan has existing non-blocked units.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "insights",
+      "command": "node scripts/validate_insights.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure insights are published deterministically with no active draft queue leakage.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "answer-coverage",
+      "command": "node scripts/validate_answer_coverage.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure answer cards have required JSON and HTML surfaces.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "entity-coverage",
+      "command": "node scripts/validate_entity_coverage.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure entity coverage remains present for LLM surfaces.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "internal-links",
+      "command": "node scripts/validate_internal_links.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent broken internal links.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "sitemap-coverage",
+      "command": "node scripts/validate_sitemap_coverage.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure every canonical HTML page appears in sitemap.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "fanout-source",
+      "command": "node scripts/validate_fanout_warning.js",
+      "severity": "STRONG_WARNING",
+      "purpose": "Ensure pages carry source/citation fanout block.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "report_and_continue"
+    }
+  ]
+}

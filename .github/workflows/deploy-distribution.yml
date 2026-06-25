@@ -23,9 +23,15 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install google-api-python-client google-auth google-auth-httplib2 google-auth-oauthlib
 
-      - name: Recreate GSC service account file
+      - name: Recreate GSC service account file when configured
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
         run: |
-          printf '%s' '${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}' > gsc-service-account.json
+          if [ -n "${GSC_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" > gsc-service-account.json
+          else
+            echo "GSC_SERVICE_ACCOUNT_JSON not set; GSC submission will be skipped."
+          fi
 
       - name: Ensure scripts are executable
         run: |

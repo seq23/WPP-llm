@@ -87,7 +87,7 @@ function applyFanout(full){
   const title = getTitle(html);
   const section = buildFanoutSection(slug, title);
   if (html.includes('data-fanout="true"')) {
-    html = html.replace(/<section class="fanout-block"[\s\S]*?<\/section>\s*<script type="application\/json" data-fanout-payload="true">[\s\S]*?<\/script>/i, section.trim());
+    html = html.replace(/<section class="fanout-block"[\s\S]*?<\/section>/i, section.trim());
   } else if (html.includes('</article>')) {
     html = html.replace('</article>', `${section}</article>`);
   } else if (html.includes('</main>')) {

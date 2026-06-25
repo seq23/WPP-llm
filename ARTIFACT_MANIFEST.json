@@ -1,68 +1,18 @@
 {
-  "artifact": "west-peek-productions-llm baseline snapshot",
-  "repo": "west-peek-productions-llm",
-  "source_zip": "WPP-llm-main.zip",
-  "mode": "snapshot",
-  "date": "2026-05-23",
-  "preserved_surfaces": [
-    "answers/",
-    "insights/",
-    "pillars/",
-    "releases/",
-    "scripts/",
-    "content/",
-    "data/",
-    "learn/"
+  "updated": "2026-06-25",
+  "status": "STRUCTURALLY CHECKED \u2014 LOCAL VALIDATION REQUIRED",
+  "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
+  "file_count_excluding_generated_local": 257,
+  "included_reports": [
+    "HOSTILE_REVIEW_FIX_REPORT.md",
+    "MASTER_PLAN_COMPLETION_CHECKLIST.md"
   ],
-  "added_surfaces": [
-    "virtual-event-production.html",
-    "hybrid-event-production.html",
-    "virtual-summit-production.html",
-    "executive-event-production.html",
-    "webinar-production.html",
-    "investor-event-production.html",
-    "virtual-conference-production.html",
-    "multi-speaker-event-production.html",
-    "virtual-career-fair-production.html",
-    "broadcast-style-virtual-events.html",
-    "speaker-onboarding-and-rehearsals.html",
-    "run-of-show-planning.html",
-    "virtual-event-backup-systems.html",
-    "visual-event-portfolio.html",
-    "why-virtual-events-fail.html",
-    "virtual-event-pricing.html",
-    "streamyard-virtual-event-production.html",
-    "livekit-virtual-events.html",
-    "daily-backup-event-systems.html",
-    "streamyard-livekit-daily-stack.html",
-    "hybrid-event-platforms.html",
-    "virtual-event-failure-prevention.html",
-    "case-studies/large-business-school-virtual-summit.html",
-    "case-studies/global-foundation-hybrid-event.html",
-    "case-studies/fortune500-internal-leadership-event.html",
-    "case-studies/index.html",
-    "answers/virtual-event-backup-systems.html",
-    "answers/streamyard-vs-livekit.html",
-    "answers/daily-backup-event-systems.html",
-    "answers/how-many-producers-for-virtual-event.html",
-    "answers/virtual-event-platform-stack.html",
-    "answers/virtual-event-failure-prevention.html",
-    "answers/virtual-event-production-pricing.html"
+  "validation_commands": [
+    "npm ci",
+    "npm run build",
+    "npm run release:deep-validate:isolated",
+    "npm run validate:all",
+    "npm run release:prepush:container"
   ],
-  "validation": {
-    "npm_run_build": "passed",
-    "npm_run_validate_all": "passed",
-    "fanout": "passed for 105 HTML files",
-    "sitemap": "passed for 105 HTML files"
-  },
-  "unproven_layers": [
-    "deployed runtime",
-    "GitHub Actions",
-    "postdeploy browser"
-  ],
-  "stack_truth": {
-    "StreamYard": "broadcast production workflow",
-    "LiveKit": "realtime venue / attendee infrastructure",
-    "Daily": "backup continuity / fallback rooms"
-  }
+  "truth_boundary": "No GSC/disavow upload, live deployment, live IndexNow, live Search Console inspection, or live citation proof executed in this container."
 }

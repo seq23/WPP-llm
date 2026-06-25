@@ -28,8 +28,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-[[ -n "$GSC_CREDS" ]] || { echo "ERROR: --creds is required" >&2; exit 1; }
-[[ -n "$GSC_SITE_URL" ]] || { echo "ERROR: --gsc-site is required" >&2; exit 1; }
+if [[ -z "$GSC_CREDS" || -z "$GSC_SITE_URL" ]]; then
+  echo "WARNING: GSC credentials/site missing; GSC sitemap submission and URL inspection will be skipped."
+fi
 
 if [[ -z "$ARTIFACT_DIR" ]]; then
   if [[ -f ".build/indexnow-priority.txt" && -f ".build/indexnow-batch.txt" ]]; then

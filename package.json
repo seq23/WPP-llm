@@ -6,10 +6,18 @@
   "scripts": {
     "build:insights": "node scripts/build_insights.js",
     "release:one": "node scripts/release_one_draft.js",
-    "validate:all": "node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js",
-    "build": "node scripts/build_insights.js && node scripts/apply_fanout.js",
+    "validate:all": "npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js",
+    "build": "node scripts/add_answer_schema.js && node scripts/build_insights.js && node scripts/apply_fanout.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && node scripts/generate_citation_release_plan.js",
     "validate:fanout": "node scripts/validate_fanout_warning.js",
-    "validate:llm-surfaces": "node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js"
+    "validate:llm-surfaces": "node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js",
+    "validate:governance": "node scripts/validate_strategy_gate.js && node scripts/validate_master_plan_completion.js && node scripts/validate_validator_registry.js && node scripts/validate_canonical_routes.js && node scripts/validate_priority_pages.js && node scripts/validate_homepage_ctas.js && node scripts/validate_backlink_remediation.js && node scripts/validate_release_plan.js",
+    "release:plan": "node scripts/generate_citation_release_plan.js",
+    "release:self-heal": "npm run build && npm run release:deep-validate:isolated && npm run validate:all",
+    "release:prepush:container": "npm run release:self-heal",
+    "release:prepush:local": "npm run release:self-heal",
+    "release:prepush": "npm run release:prepush:container",
+    "build:seo": "node scripts/add_answer_schema.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && node scripts/generate_citation_release_plan.js",
+    "release:deep-validate:isolated": "node scripts/deep_validate_isolated.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
