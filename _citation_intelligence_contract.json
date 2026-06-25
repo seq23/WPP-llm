@@ -1,0 +1,26 @@
+{
+  "version": "1.2-wpp",
+  "status": "active",
+  "strategy": "broader virtual + hybrid + executive broadcast production help",
+  "zero_paid_provider_default": true,
+  "primary_collectors": [
+    "google_search_console",
+    "gemini_prompt_panel_when_secret_exists",
+    "benchmark_query_panel",
+    "owned_social_signal_ledger",
+    "manual_citation_observations",
+    "site_inventory"
+  ],
+  "forbidden_default_dependencies": [
+    "paid_seo_tools",
+    "paid_llm_apis",
+    "browser_automation_vendor",
+    "manual_upload_required_for_daily_cadence"
+  ],
+  "evidence_paths": [
+    "data/signals/",
+    "data/query_atlas/query_universe.json",
+    "data/opportunities/",
+    "artifacts/release/"
+  ]
+}

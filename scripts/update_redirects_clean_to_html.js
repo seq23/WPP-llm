@@ -3,26 +3,15 @@
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
-const SKIP = new Set(['.git','node_modules','.build','releases']);
-function walk(dir, out=[]) {
-  for (const name of fs.readdirSync(dir)) {
-    if (SKIP.has(name)) continue;
-    const full = path.join(dir, name);
-    const st = fs.statSync(full);
-    if (st.isDirectory()) walk(full, out);
-    else if (name.endsWith('.html')) out.push(path.relative(ROOT, full).replace(/\\/g,'/'));
-  }
-  return out;
-}
-const lines = ['# Canonical policy: .html pages are canonical; clean URL variants redirect to .html.'];
-// manual alias redirects preserved across build
-lines.push('/virtual-event-production-for-nonprofit /virtual-event-production-for-nonprofits.html 301');
-lines.push('/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits.html 301');
-for (const rel of walk(ROOT).sort()) {
-  if (rel === 'index.html' || rel.endsWith('/index.html')) continue;
-  const clean = '/' + rel.replace(/\.html$/, '');
-  const target = '/' + rel;
-  lines.push(`${clean} ${target} 301`);
-}
-fs.writeFileSync(path.join(ROOT, '_redirects'), lines.join('\n') + '\n');
-console.log(`Updated _redirects with ${lines.length-1} clean-to-html redirects.`);
+const OUT = path.join(ROOT, '_redirects');
+const lines = [
+  '# Canonical policy: clean URLs are canonical.',
+  '# Do NOT redirect clean URLs to .html. Most static hosts strip .html automatically;',
+  '# adding reverse redirects creates ERR_TOO_MANY_REDIRECTS on navigation.',
+  '# Only legacy aliases that do not point to .html are allowed here.',
+  '/virtual-event-production-for-nonprofit /virtual-event-production-for-nonprofits 301',
+  '/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301',
+  ''
+];
+fs.writeFileSync(OUT, lines.join('\n'));
+console.log('Updated _redirects with clean-canonical anti-loop policy.');

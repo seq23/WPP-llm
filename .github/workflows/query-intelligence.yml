@@ -1,0 +1,76 @@
+name: Query Intelligence - GSC Gemini and $0 Signals
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_changes:
+        description: Commit regenerated query intelligence artifacts
+        type: boolean
+        default: true
+  schedule:
+    - cron: '10 12 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: query-intelligence
+  cancel-in-progress: false
+
+jobs:
+  collect_score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci --no-audit --no-fund
+      - run: python -m pip install --upgrade pip && python -m pip install google-api-python-client google-auth google-auth-httplib2
+      - name: Validate workflow syntax
+        run: npm run actions:validate
+      - name: Generate owned query universe and public atlas
+        run: npm run query:atlas
+      - name: Collect Search Console query signals
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+        run: python distribution_scripts/gsc_collect_query_signals.py
+      - name: Collect normalized $0 signals including optional Gemini prompt panel
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run signals:collect
+      - name: Score AEO and GEO opportunities
+        run: npm run opportunities:score
+      - name: Build controlled release plan preview
+        run: npm run release:plan
+      - name: Validate query intelligence
+        run: npm run validate:autonomous
+      - name: Commit query intelligence artifacts
+        if: ${{ github.event_name == 'schedule' || inputs.commit_changes == true }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Update $0 query intelligence atlas"
+            git push
+          else
+            echo "No query intelligence changes."
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: query-intelligence-evidence
+          path: |
+            data/signals/
+            data/opportunities/
+            data/query_atlas/
+            artifacts/release/
+          if-no-files-found: ignore

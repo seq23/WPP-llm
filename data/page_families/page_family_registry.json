@@ -1,0 +1,804 @@
+{
+  "updated": "2026-06-25",
+  "families": [
+    {
+      "family_id": "production_guide",
+      "purpose": "production guide page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "service_explainer",
+      "purpose": "service explainer page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "service_page",
+      "purpose": "service page page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "platform_comparison",
+      "purpose": "platform comparison page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "listicle_comparison",
+      "purpose": "listicle comparison page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "planning_guide",
+      "purpose": "planning guide page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "marketing_guide",
+      "purpose": "marketing guide page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "trend_report",
+      "purpose": "trend report page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "how_to",
+      "purpose": "how to page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "industry_programmatic",
+      "purpose": "industry programmatic page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "event_type_programmatic",
+      "purpose": "event type programmatic page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "checklist",
+      "purpose": "checklist page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "troubleshooting",
+      "purpose": "troubleshooting page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "executive_broadcast",
+      "purpose": "executive broadcast page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "cost_guide",
+      "purpose": "cost guide page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "decision_framework",
+      "purpose": "decision framework page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    },
+    {
+      "family_id": "answer_card",
+      "purpose": "answer card page for WPP virtual/hybrid/event production query capture",
+      "allowed_verticals": [
+        "virtual_event_production"
+      ],
+      "route_pattern": "/{slug}",
+      "intended_query_types": [
+        "informational",
+        "commercial",
+        "answer_engine_question",
+        "industry_modifier",
+        "event_type_modifier"
+      ],
+      "required_sections": [
+        "answer",
+        "decision criteria",
+        "risks",
+        "checklist",
+        "West Peek route"
+      ],
+      "required_atom_types": [
+        "definition_atom",
+        "decision_atom",
+        "warning_atom",
+        "cta_atom",
+        "disclosure_atom"
+      ],
+      "forbidden_atom_types": [
+        "local_modifier_atom_without_evidence"
+      ],
+      "required_schema": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "canonical_rules": "clean URL canonical; no clean-to-html redirects",
+      "internal_link_rules": "link to query atlas, relevant hub, and WPP CTA",
+      "CTA_rules": "commercial buyer-intent routes to westpeekproductions.com",
+      "min_substance_threshold": 450,
+      "dedupe_rules": "route_candidate must be unique in page admission registry",
+      "noindex_rules": "noindex only if thin, duplicate, or off-strategy",
+      "validation_ids": [
+        "page-family-contract",
+        "page-admission",
+        "programmatic-substance"
+      ]
+    }
+  ]
+}

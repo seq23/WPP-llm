@@ -53,7 +53,7 @@ for (const rel of requiredFiles) if (!fs.existsSync(path.join(ROOT, rel))) bad.p
 for (const p of priorityPages) if (!fs.existsSync(path.join(ROOT, p.replace(/^\//, '')))) bad.push(`missing master-plan priority page: ${p}`);
 if (fs.existsSync(path.join(ROOT, 'virtual-event-production-for-nonprofit.html'))) bad.push('singular nonprofit page should redirect, not exist as duplicate HTML');
 const redirects = fs.existsSync(path.join(ROOT, '_redirects')) ? fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8') : '';
-if (!redirects.includes('/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits.html 301')) bad.push('missing singular nonprofit alias redirect');
+if (!redirects.includes('/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301')) bad.push('missing singular nonprofit clean alias redirect');
 const gscListPath = path.join(ROOT, 'seo/gsc-priority-indexing-list.json');
 if (fs.existsSync(gscListPath)) {
   const gscText = fs.readFileSync(gscListPath, 'utf8');

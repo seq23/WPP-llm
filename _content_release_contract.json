@@ -1,0 +1,28 @@
+{
+  "version": "1.2-wpp",
+  "status": "controlled_release_mode",
+  "cutover_date": "2026-06-25",
+  "canonical_engine": "scripts/citation_intelligence/*",
+  "cadence": {
+    "class": "CADENCE_DAILY_STANDARD_STARTING_CONTROLLED",
+    "start_date": "2026-06-25",
+    "max_new_pages_per_day": 5,
+    "max_repairs_per_day": 10,
+    "max_route_mutations_per_day": 15,
+    "six_month_route_target": 900
+  },
+  "strategy_targets": {
+    "six_month_citation_events": "5-15 observed citation events after indexation/authority repair",
+    "twelve_month_citation_events": "20-50 observed citation events",
+    "tracked_query_target": 1000
+  },
+  "publication_rules": [
+    "strategy_gate_required",
+    "atom_contract_required",
+    "page_family_contract_required",
+    "page_admission_required",
+    "source_claim_required",
+    "sitemap_parity_required",
+    "no_clean_to_html_redirects"
+  ]
+}

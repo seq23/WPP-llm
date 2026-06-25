@@ -1,0 +1,1202 @@
+{
+  "generated_at": "2026-06-25T22:07:14.561Z",
+  "validation_summary": [
+    {
+      "id": "github-actions-workflows",
+      "command": "node scripts/validate_workflows.js",
+      "exit_status": 0
+    },
+    {
+      "id": "strategy-gate",
+      "command": "node scripts/validate_strategy_gate.js",
+      "exit_status": 0
+    },
+    {
+      "id": "master-plan-completion",
+      "command": "node scripts/validate_master_plan_completion.js",
+      "exit_status": 0
+    },
+    {
+      "id": "validator-registry",
+      "command": "node scripts/validate_validator_registry.js",
+      "exit_status": 0
+    },
+    {
+      "id": "canonical-routes",
+      "command": "node scripts/validate_canonical_routes.js",
+      "exit_status": 0
+    },
+    {
+      "id": "priority-pages",
+      "command": "node scripts/validate_priority_pages.js",
+      "exit_status": 0
+    },
+    {
+      "id": "homepage-ctas",
+      "command": "node scripts/validate_homepage_ctas.js",
+      "exit_status": 0
+    },
+    {
+      "id": "backlink-remediation",
+      "command": "node scripts/validate_backlink_remediation.js",
+      "exit_status": 0
+    },
+    {
+      "id": "release-plan",
+      "command": "node scripts/validate_release_plan.js",
+      "exit_status": 0
+    },
+    {
+      "id": "atom-contract",
+      "command": "node scripts/validators/validate_atom_contract.js",
+      "exit_status": 0
+    },
+    {
+      "id": "page-family-contract",
+      "command": "node scripts/validators/validate_page_family_contract.js",
+      "exit_status": 0
+    },
+    {
+      "id": "page-admission",
+      "command": "node scripts/validators/validate_page_admission.js",
+      "exit_status": 0
+    },
+    {
+      "id": "query-atlas",
+      "command": "node scripts/validate_query_atlas.js",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-engine",
+      "command": "node scripts/validate_programmatic_release_engine.js",
+      "exit_status": 0
+    },
+    {
+      "id": "workflow-data-trace",
+      "command": "node scripts/validators/validate_workflow_data_trace.js",
+      "exit_status": 0
+    },
+    {
+      "id": "citation-goal-sizing",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing",
+      "exit_status": 0
+    },
+    {
+      "id": "free-aeo-mode-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js free-aeo-mode-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-release-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-release-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "citation-intelligence-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-intelligence-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "agent-run-artifact-intake",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
+      "exit_status": 0
+    },
+    {
+      "id": "normalized-agent-run-schema",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
+      "exit_status": 0
+    },
+    {
+      "id": "release-plan-integrity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js release-plan-integrity",
+      "exit_status": 0
+    },
+    {
+      "id": "content-release-trace",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-release-trace",
+      "exit_status": 0
+    },
+    {
+      "id": "page-release-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js page-release-law",
+      "exit_status": 0
+    },
+    {
+      "id": "generated-content-gate",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js generated-content-gate",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-substance",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
+      "exit_status": 0
+    },
+    {
+      "id": "canonical-routing-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js canonical-routing-law",
+      "exit_status": 0
+    },
+    {
+      "id": "search-quality-basics",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
+      "exit_status": 0
+    },
+    {
+      "id": "sitemap-parity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js sitemap-parity",
+      "exit_status": 0
+    },
+    {
+      "id": "content-safety",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-safety",
+      "exit_status": 0
+    },
+    {
+      "id": "strategy-integrity-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js strategy-integrity-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "deterministic-build",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js deterministic-build",
+      "exit_status": 0
+    },
+    {
+      "id": "repo-hygiene",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js repo-hygiene",
+      "exit_status": 0
+    },
+    {
+      "id": "insights",
+      "command": "node scripts/validate_insights.js",
+      "exit_status": 0
+    },
+    {
+      "id": "fanout",
+      "command": "node scripts/validate_fanout_warning.js",
+      "exit_status": 0
+    },
+    {
+      "id": "answer-coverage",
+      "command": "node scripts/validate_answer_coverage.js",
+      "exit_status": 0
+    },
+    {
+      "id": "entity-coverage",
+      "command": "node scripts/validate_entity_coverage.js",
+      "exit_status": 0
+    },
+    {
+      "id": "internal-links",
+      "command": "node scripts/validate_internal_links.js",
+      "exit_status": 0
+    },
+    {
+      "id": "sitemap-coverage",
+      "command": "node scripts/validate_sitemap_coverage.js",
+      "exit_status": 0
+    }
+  ],
+  "workflow_trace": {
+    "generated_at": "2026-06-25T22:04:24.249Z",
+    "workflow_count": 5,
+    "workflows": [
+      "ci.yml",
+      "credential-check.yml",
+      "distribution.yml",
+      "programmatic-release.yml",
+      "query-intelligence.yml"
+    ],
+    "traces": [
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 3,
+        "name": "npm ci --no-audit --no-fund",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 4,
+        "name": "npm run actions:validate",
+        "npm_script": "actions:validate",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 5,
+        "name": "npm run release:self-heal",
+        "npm_script": "release:self-heal",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 3,
+        "name": "npm ci --no-audit --no-fund",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 4,
+        "name": "npm run credentials:check",
+        "npm_script": "credentials:check",
+        "direct_paths": [],
+        "env_keys": [
+          "INDEXNOW_KEY",
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL",
+          "GEMINI_API_KEY",
+          "PUBLIC_SITE_URL"
+        ]
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 3,
+        "name": "actions/setup-python@v5",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 4,
+        "name": "npm ci --no-audit --no-fund",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 5,
+        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 6,
+        "name": "npm run release:self-heal",
+        "npm_script": "release:self-heal",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 7,
+        "name": "Recreate GSC credential file when configured",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON"
+        ]
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 8,
+        "name": "Run credential-safe distribution",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "INDEXNOW_KEY",
+          "GSC_SITE_URL"
+        ]
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 3,
+        "name": "actions/setup-python@v5",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 4,
+        "name": "npm ci --no-audit --no-fund",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 5,
+        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 6,
+        "name": "Run GSC primary collector",
+        "npm_script": null,
+        "direct_paths": [
+          "distribution_scripts/gsc_collect_query_signals.py"
+        ],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL"
+        ]
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 7,
+        "name": "Run controlled autonomous content release",
+        "npm_script": "release:autonomous",
+        "direct_paths": [],
+        "env_keys": [
+          "GEMINI_API_KEY",
+          "MAX_NEW_PAGES_PER_DAY",
+          "MAX_REPAIRS_PER_DAY"
+        ]
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 8,
+        "name": "Commit generated pages and registries",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+        "job": "release",
+        "step": 9,
+        "name": "actions/upload-artifact@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 3,
+        "name": "actions/setup-python@v5",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 4,
+        "name": "npm ci --no-audit --no-fund",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 5,
+        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 6,
+        "name": "Validate workflow syntax",
+        "npm_script": "actions:validate",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 7,
+        "name": "Generate owned query universe and public atlas",
+        "npm_script": "query:atlas",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 8,
+        "name": "Collect Search Console query signals",
+        "npm_script": null,
+        "direct_paths": [
+          "distribution_scripts/gsc_collect_query_signals.py"
+        ],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL"
+        ]
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 9,
+        "name": "Collect normalized $0 signals including optional Gemini prompt panel",
+        "npm_script": "signals:collect",
+        "direct_paths": [],
+        "env_keys": [
+          "GEMINI_API_KEY"
+        ]
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 10,
+        "name": "Score AEO and GEO opportunities",
+        "npm_script": "opportunities:score",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 11,
+        "name": "Build controlled release plan preview",
+        "npm_script": "release:plan",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 12,
+        "name": "Validate query intelligence",
+        "npm_script": "validate:autonomous",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 13,
+        "name": "Commit query intelligence artifacts",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 14,
+        "name": "actions/upload-artifact@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      }
+    ],
+    "required_data": [
+      {
+        "path": "_citation_intelligence_contract.json",
+        "exists": true
+      },
+      {
+        "path": "_content_release_contract.json",
+        "exists": true
+      },
+      {
+        "path": "_self_heal_contract.json",
+        "exists": true
+      },
+      {
+        "path": "data/query_atlas/query_universe.json",
+        "exists": true
+      },
+      {
+        "path": "data/signals/normalized_records.json",
+        "exists": true
+      },
+      {
+        "path": "data/opportunities/aeo_geo_opportunities.json",
+        "exists": true
+      },
+      {
+        "path": "data/releases/daily_release_plan.json",
+        "exists": true
+      },
+      {
+        "path": "artifacts/release/apply_release_plan_summary.json",
+        "exists": true
+      },
+      {
+        "path": ".build/indexnow-priority.txt",
+        "exists": true
+      },
+      {
+        "path": ".build/indexnow-batch.txt",
+        "exists": true
+      }
+    ],
+    "errors": []
+  },
+  "release_plan": {
+    "generated_at": "2026-06-25T22:07:14.103Z",
+    "mode": "controlled_6_month_cadence",
+    "max_new_pages_per_day": 5,
+    "max_repairs_per_day": 10,
+    "max_route_mutations_per_day": 15,
+    "units": [
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production accessibility",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-accessibility",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 1
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production analytics",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-analytics",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 2
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production attendee experience",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-attendee-experience",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 3
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production backup plan",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-backup-plan",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 4
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production best practices",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-best-practices",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 5
+      },
+      {
+        "opportunity_id": "opp_b25saW5lIGNvbmZlcmVuY2Ug",
+        "query": "online conference platforms",
+        "cluster": "online-conference-platforms",
+        "target_route": "/online-conference-platforms",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 880,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 1
+      },
+      {
+        "opportunity_id": "opp_aHlicmlkIGV2ZW50IHBsYXRm",
+        "query": "hybrid event platform",
+        "cluster": "hybrid-event-platform",
+        "target_route": "/hybrid-event-platform",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 720,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 2
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBzZXJ2",
+        "query": "virtual event services",
+        "cluster": "virtual-event-services",
+        "target_route": "/virtual-event-services",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 590,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 3
+      },
+      {
+        "opportunity_id": "opp_YmVzdCB2aXJ0dWFsIGV2ZW50",
+        "query": "best virtual event platforms",
+        "cluster": "best-virtual-event-platforms",
+        "target_route": "/best-virtual-event-platforms",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 480,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 4
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production agency",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-agency",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 5
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production checklist",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-checklist",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 6
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production companies",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-companies",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 7
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production cost",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-cost",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 8
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production pricing",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-pricing",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 9
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production timeline",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-timeline",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 10
+      }
+    ],
+    "release_units": [
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production accessibility",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-accessibility",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 1
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production analytics",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-analytics",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 2
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production attendee experience",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-attendee-experience",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 3
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production backup plan",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-backup-plan",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 4
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production best practices",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-best-practices",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "exists_now": false,
+        "release_action": "create",
+        "release_order": 5
+      },
+      {
+        "opportunity_id": "opp_b25saW5lIGNvbmZlcmVuY2Ug",
+        "query": "online conference platforms",
+        "cluster": "online-conference-platforms",
+        "target_route": "/online-conference-platforms",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 880,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 1
+      },
+      {
+        "opportunity_id": "opp_aHlicmlkIGV2ZW50IHBsYXRm",
+        "query": "hybrid event platform",
+        "cluster": "hybrid-event-platform",
+        "target_route": "/hybrid-event-platform",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 720,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 2
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBzZXJ2",
+        "query": "virtual event services",
+        "cluster": "virtual-event-services",
+        "target_route": "/virtual-event-services",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 590,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 3
+      },
+      {
+        "opportunity_id": "opp_YmVzdCB2aXJ0dWFsIGV2ZW50",
+        "query": "best virtual event platforms",
+        "cluster": "best-virtual-event-platforms",
+        "target_route": "/best-virtual-event-platforms",
+        "page_family": "programmatic_opportunity",
+        "source": "trusted_semrush_seed",
+        "demand_estimate": 480,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 4
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production agency",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-agency",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 5
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production checklist",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-checklist",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 6
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production companies",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-companies",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": true,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 7
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production cost",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-cost",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 8
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production pricing",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-pricing",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 9
+      },
+      {
+        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+        "query": "virtual event production timeline",
+        "cluster": "virtual-event-production",
+        "target_route": "/virtual-event-production-timeline",
+        "page_family": "programmatic_opportunity",
+        "source": "strategy_seed",
+        "demand_estimate": 238,
+        "score": 100,
+        "exists": false,
+        "action": "repair_or_expand",
+        "status": "admitted_candidate",
+        "exists_now": true,
+        "release_action": "repair",
+        "release_order": 10
+      }
+    ],
+    "blocked": []
+  },
+  "content_state": {
+    "updated": "2026-06-25T21:53:08.838Z",
+    "published_routes": [
+      "/virtual-event-production-checklist",
+      "/virtual-event-production-timeline",
+      "/virtual-event-production-cost",
+      "/virtual-event-production-pricing",
+      "/virtual-event-production-agency",
+      "/online-conference-platforms",
+      "/hybrid-event-platform",
+      "/virtual-event-services",
+      "/best-virtual-event-platforms",
+      "/virtual-event-production-companies",
+      "/virtual-event-production-for-professional-services",
+      "/virtual-event-production",
+      "/virtual-event-planning",
+      "/virtual-event-management",
+      "/host-virtual-events"
+    ],
+    "blocked_routes": [],
+    "last_release_run": {
+      "created": 5,
+      "repaired": 10,
+      "at": "2026-06-25T21:53:08.838Z"
+    }
+  },
+  "query_universe_count": 1200
+}

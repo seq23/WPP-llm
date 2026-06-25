@@ -158,21 +158,22 @@ function validateSitemapParity() {
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const urlSet = new Set(urls);
 
-  const insightHtml = listHtmlFiles(HTML_INSIGHTS_DIR).map((full) => `${SITE_BASE}/insights/${path.basename(full)}`);
-  const pillarHtml = listHtmlFiles(HTML_PILLARS_DIR).map((full) => {
-    const rel = path.relative(HTML_PILLARS_DIR, full).replace(/\\/g, '/');
-    return `${SITE_BASE}/pillars/${rel}`;
-  });
+  function cleanForFull(full) {
+    const rel = path.relative(ROOT, full).replace(/\\/g, '/');
+    if (rel === 'index.html') return `${SITE_BASE}/`;
+    if (rel.endsWith('/index.html')) return `${SITE_BASE}/${rel.slice(0, -'index.html'.length)}`;
+    return `${SITE_BASE}/${rel.replace(/\.html$/, '')}`;
+  }
+  const insightHtml = listHtmlFiles(HTML_INSIGHTS_DIR).map(cleanForFull);
+  const pillarHtml = listHtmlFiles(HTML_PILLARS_DIR).map(cleanForFull);
 
   for (const url of [...insightHtml, ...pillarHtml]) {
-    if (!urlSet.has(url)) fail(`Sitemap missing generated URL: ${url}`);
+    if (!urlSet.has(url)) fail(`Sitemap missing generated clean URL: ${url}`);
   }
 
   for (const url of urls) {
-    if (url.startsWith(`${SITE_BASE}/insights/`) && !url.endsWith('/insights/index.html')) {
-      const name = url.split('/').pop();
-      if (!fs.existsSync(path.join(HTML_INSIGHTS_DIR, name))) fail(`Sitemap has stale insights URL: ${url}`);
-    }
+    if (url.includes('/insights/') && url.endsWith('.html')) fail(`Sitemap has stale .html insights URL: ${url}`);
+    if (url.includes('/pillars/') && url.endsWith('.html')) fail(`Sitemap has stale .html pillars URL: ${url}`);
   }
 }
 

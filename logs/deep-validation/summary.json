@@ -1,5 +1,10 @@
 [
   {
+    "id": "github-actions-workflows",
+    "command": "node scripts/validate_workflows.js",
+    "exit_status": 0
+  },
+  {
     "id": "strategy-gate",
     "command": "node scripts/validate_strategy_gate.js",
     "exit_status": 0
@@ -37,6 +42,126 @@
   {
     "id": "release-plan",
     "command": "node scripts/validate_release_plan.js",
+    "exit_status": 0
+  },
+  {
+    "id": "atom-contract",
+    "command": "node scripts/validators/validate_atom_contract.js",
+    "exit_status": 0
+  },
+  {
+    "id": "page-family-contract",
+    "command": "node scripts/validators/validate_page_family_contract.js",
+    "exit_status": 0
+  },
+  {
+    "id": "page-admission",
+    "command": "node scripts/validators/validate_page_admission.js",
+    "exit_status": 0
+  },
+  {
+    "id": "query-atlas",
+    "command": "node scripts/validate_query_atlas.js",
+    "exit_status": 0
+  },
+  {
+    "id": "programmatic-engine",
+    "command": "node scripts/validate_programmatic_release_engine.js",
+    "exit_status": 0
+  },
+  {
+    "id": "workflow-data-trace",
+    "command": "node scripts/validators/validate_workflow_data_trace.js",
+    "exit_status": 0
+  },
+  {
+    "id": "citation-goal-sizing",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing",
+    "exit_status": 0
+  },
+  {
+    "id": "free-aeo-mode-contract",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js free-aeo-mode-contract",
+    "exit_status": 0
+  },
+  {
+    "id": "programmatic-release-contract",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-release-contract",
+    "exit_status": 0
+  },
+  {
+    "id": "citation-intelligence-contract",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js citation-intelligence-contract",
+    "exit_status": 0
+  },
+  {
+    "id": "agent-run-artifact-intake",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
+    "exit_status": 0
+  },
+  {
+    "id": "normalized-agent-run-schema",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
+    "exit_status": 0
+  },
+  {
+    "id": "release-plan-integrity",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js release-plan-integrity",
+    "exit_status": 0
+  },
+  {
+    "id": "content-release-trace",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js content-release-trace",
+    "exit_status": 0
+  },
+  {
+    "id": "page-release-law",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js page-release-law",
+    "exit_status": 0
+  },
+  {
+    "id": "generated-content-gate",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js generated-content-gate",
+    "exit_status": 0
+  },
+  {
+    "id": "programmatic-substance",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
+    "exit_status": 0
+  },
+  {
+    "id": "canonical-routing-law",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js canonical-routing-law",
+    "exit_status": 0
+  },
+  {
+    "id": "search-quality-basics",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
+    "exit_status": 0
+  },
+  {
+    "id": "sitemap-parity",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js sitemap-parity",
+    "exit_status": 0
+  },
+  {
+    "id": "content-safety",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js content-safety",
+    "exit_status": 0
+  },
+  {
+    "id": "strategy-integrity-contract",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js strategy-integrity-contract",
+    "exit_status": 0
+  },
+  {
+    "id": "deterministic-build",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js deterministic-build",
+    "exit_status": 0
+  },
+  {
+    "id": "repo-hygiene",
+    "command": "node scripts/validators/validate_master_contract_pipeline.js repo-hygiene",
     "exit_status": 0
   },
   {

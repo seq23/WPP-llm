@@ -2,17 +2,30 @@
   "updated": "2026-06-25",
   "status": "STRUCTURALLY CHECKED \u2014 LOCAL VALIDATION REQUIRED",
   "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
-  "file_count_excluding_generated_local": 257,
+  "github_actions_spine": "overhauled_into_five_workflows",
+  "workflow_files": [
+    "ci.yml",
+    "citation-ops.yml",
+    "distribution.yml",
+    "credential-check.yml",
+    "zero-cost-query-testing.yml"
+  ],
+  "zero_cost_query_testing": "implemented via benchmark panel, manual log packet generator, monthly workflow, optional GSC API pull",
+  "file_count_excluding_generated_local": 268,
   "included_reports": [
+    "GITHUB_ACTIONS_OVERHAUL_REPORT.md",
     "HOSTILE_REVIEW_FIX_REPORT.md",
     "MASTER_PLAN_COMPLETION_CHECKLIST.md"
   ],
   "validation_commands": [
-    "npm ci",
+    "npm ci --no-audit --no-fund",
+    "npm run actions:validate",
     "npm run build",
     "npm run release:deep-validate:isolated",
     "npm run validate:all",
-    "npm run release:prepush:container"
+    "npm run query:test:zero-cost",
+    "npm run release:prepush:container",
+    "npm run release:postpush"
   ],
-  "truth_boundary": "No GSC/disavow upload, live deployment, live IndexNow, live Search Console inspection, or live citation proof executed in this container."
+  "truth_boundary": "No live GitHub Actions run, GSC/disavow upload, live deployment proof, live IndexNow proof, or live AI citation proof executed in this container."
 }

@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Usage:
-# ./deploy_distribution.sh --creds service-account.json --gsc-site "sc-domain:example.com"
-# Optional overrides:
-#   --host example.com
-#   --key YOURKEY
-#   --artifact-dir .build|dist
-#   --allow-mixed
+# Credential-safe distribution wrapper.
+# It never fails just because optional credentials are missing.
+# It does fail for malformed local artifacts because those are repo defects.
 
 HOST=""
 KEY=""
@@ -28,10 +24,6 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ -z "$GSC_CREDS" || -z "$GSC_SITE_URL" ]]; then
-  echo "WARNING: GSC credentials/site missing; GSC sitemap submission and URL inspection will be skipped."
-fi
-
 if [[ -z "$ARTIFACT_DIR" ]]; then
   if [[ -f ".build/indexnow-priority.txt" && -f ".build/indexnow-batch.txt" ]]; then
     ARTIFACT_DIR=".build"
@@ -45,85 +37,76 @@ fi
 
 PRIORITY_FILE="${ARTIFACT_DIR}/indexnow-priority.txt"
 BATCH_FILE="${ARTIFACT_DIR}/indexnow-batch.txt"
-
 [[ -f "$PRIORITY_FILE" ]] || { echo "ERROR: missing $PRIORITY_FILE" >&2; exit 1; }
 [[ -f "$BATCH_FILE" ]] || { echo "ERROR: missing $BATCH_FILE" >&2; exit 1; }
 
-if [[ -z "$KEY" ]]; then
-  keyfile="$(find . -maxdepth 1 -type f -name "*.txt" | grep -E './[0-9a-fA-F-]{32,64}\.txt$' | head -1 || true)"
-  [[ -n "$keyfile" ]] || { echo "ERROR: could not auto-detect root key file; pass --key" >&2; exit 1; }
-  KEY="$(basename "$keyfile" .txt)"
-fi
-
-detect_host() {
-  local f="$1"
-  python3 - <<'PY' "$f"
-import sys, urllib.parse, pathlib
-p = pathlib.Path(sys.argv[1])
-hosts = set()
-for raw in p.read_text(encoding="utf-8").splitlines():
-    line = raw.strip().replace("<loc>", "").replace("</loc>", "").strip()
-    if not line:
-        continue
-    u = urllib.parse.urlparse(line)
-    if u.scheme in ("http","https") and u.netloc:
-        hosts.add(u.netloc)
-print("\n".join(sorted(hosts)))
-PY
-}
-
 if [[ -z "$HOST" ]]; then
-  hosts="$(detect_host "$PRIORITY_FILE")"
-  host_count="$(printf "%s\n" "$hosts" | sed '/^$/d' | wc -l | tr -d ' ')"
-  if [[ "$host_count" != "1" ]]; then
-    echo "ERROR: priority file contains multiple hosts; pass --host with split files or use --allow-mixed intentionally" >&2
-    printf "%s\n" "$hosts" >&2
-    exit 1
-  fi
-  HOST="$(printf "%s\n" "$hosts" | head -1)"
+  HOST="virtualagency-os.com"
 fi
+
+mkdir -p "${ARTIFACT_DIR}"
+
+cat > "${ARTIFACT_DIR}/distribution-summary.json" <<JSON
+{
+  "generated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "host": "$HOST",
+  "artifact_dir": "$ARTIFACT_DIR",
+  "indexnow_configured": $( [[ -n "$KEY" ]] && echo true || echo false ),
+  "gsc_configured": $( [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]] && echo true || echo false )
+}
+JSON
 
 echo "== Distribution config =="
 echo "HOST=$HOST"
-echo "KEY=$KEY"
 echo "ARTIFACT_DIR=$ARTIFACT_DIR"
-echo "PRIORITY_FILE=$PRIORITY_FILE"
-echo "BATCH_FILE=$BATCH_FILE"
+echo "INDEXNOW_CONFIGURED=$( [[ -n "$KEY" ]] && echo yes || echo no )"
+echo "GSC_CONFIGURED=$( [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]] && echo yes || echo no )"
 echo
 
-echo "== 1) Submit Google sitemaps =="
-sitemaps=("https://${HOST}/sitemap.xml")
-if [[ -f "sitemap-fresh.xml" ]]; then
-  sitemaps+=("https://${HOST}/sitemap-fresh.xml")
-fi
-python3 distribution_scripts/gsc_submit_sitemaps.py \
-  "$GSC_CREDS" \
-  "$GSC_SITE_URL" \
-  "${sitemaps[@]}"
-
-echo
-echo "== 2) Submit IndexNow priority URLs =="
-if [[ "$ALLOW_MIXED" == "1" ]]; then
-  distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE" --allow-mixed
+if [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]]; then
+  echo "== 1) Submit Google sitemap =="
+  python3 distribution_scripts/gsc_submit_sitemaps.py "$GSC_CREDS" "$GSC_SITE_URL" "https://${HOST}/sitemap.xml"
 else
-  distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE"
+  echo "== 1) Submit Google sitemap =="
+  echo "SKIP: GSC credentials/site not configured."
 fi
 
 echo
-echo "== 3) Submit IndexNow batch URLs =="
-if [[ "$ALLOW_MIXED" == "1" ]]; then
-  distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE" --allow-mixed
+if [[ -n "$KEY" ]]; then
+  echo "== 2) Submit IndexNow priority URLs =="
+  if [[ "$ALLOW_MIXED" == "1" ]]; then
+    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE" --allow-mixed
+  else
+    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE"
+  fi
+  echo
+  echo "== 3) Submit IndexNow batch URLs =="
+  if [[ "$ALLOW_MIXED" == "1" ]]; then
+    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE" --allow-mixed
+  else
+    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE"
+  fi
 else
-  distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE"
+  echo "== 2-3) Submit IndexNow URLs =="
+  echo "SKIP: INDEXNOW_KEY not configured."
 fi
 
 echo
-echo "== 4) Inspect priority URLs in GSC API =="
-python3 distribution_scripts/gsc_inspect_urls.py \
-  "$GSC_CREDS" \
-  "$GSC_SITE_URL" \
-  "$PRIORITY_FILE" \
-  "${ARTIFACT_DIR}/inspection-results.json"
+if [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]]; then
+  echo "== 4) Inspect priority URLs in GSC API =="
+  python3 distribution_scripts/gsc_inspect_urls.py "$GSC_CREDS" "$GSC_SITE_URL" "$PRIORITY_FILE" "${ARTIFACT_DIR}/inspection-results.json"
+else
+  echo "== 4) Inspect priority URLs in GSC API =="
+  echo "SKIP: GSC credentials/site not configured."
+fi
 
 echo
+if [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" && -f "data/seo/benchmark_query_panel.json" ]]; then
+  echo "== 5) Pull $0 Search Console query performance =="
+  python3 distribution_scripts/gsc_query_performance.py "$GSC_CREDS" "$GSC_SITE_URL" "data/seo/benchmark_query_panel.json" "logs/query-testing/gsc-query-performance.json"
+else
+  echo "== 5) Pull $0 Search Console query performance =="
+  echo "SKIP: GSC credentials/site or query panel not configured."
+fi
+
 echo "Done."

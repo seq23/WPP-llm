@@ -1,0 +1,17 @@
+{
+  "version": "1.2-wpp",
+  "status": "active",
+  "self_heal_command": "npm run release:self-heal",
+  "stages": [
+    "query_atlas_regeneration",
+    "build_insights",
+    "answer_schema",
+    "fanout",
+    "anti_loop_redirects",
+    "clean_sitemap",
+    "release_plan",
+    "deep_validation",
+    "reporting"
+  ],
+  "failure_policy": "block release on hard failures; never hide failed content admission or redirect loops"
+}

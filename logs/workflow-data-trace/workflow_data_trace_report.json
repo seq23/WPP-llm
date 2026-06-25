@@ -1,0 +1,483 @@
+{
+  "generated_at": "2026-06-25T22:07:17.073Z",
+  "workflow_count": 5,
+  "workflows": [
+    "ci.yml",
+    "credential-check.yml",
+    "distribution.yml",
+    "programmatic-release.yml",
+    "query-intelligence.yml"
+  ],
+  "traces": [
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 3,
+      "name": "npm ci --no-audit --no-fund",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 4,
+      "name": "npm run actions:validate",
+      "npm_script": "actions:validate",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 5,
+      "name": "npm run release:self-heal",
+      "npm_script": "release:self-heal",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "credential-check.yml",
+      "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+      "job": "check",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "credential-check.yml",
+      "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+      "job": "check",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "credential-check.yml",
+      "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+      "job": "check",
+      "step": 3,
+      "name": "npm ci --no-audit --no-fund",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "credential-check.yml",
+      "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+      "job": "check",
+      "step": 4,
+      "name": "npm run credentials:check",
+      "npm_script": "credentials:check",
+      "direct_paths": [],
+      "env_keys": [
+        "INDEXNOW_KEY",
+        "GSC_SERVICE_ACCOUNT_JSON",
+        "GSC_SITE_URL",
+        "GEMINI_API_KEY",
+        "PUBLIC_SITE_URL"
+      ]
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 3,
+      "name": "actions/setup-python@v5",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 4,
+      "name": "npm ci --no-audit --no-fund",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 5,
+      "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 6,
+      "name": "npm run release:self-heal",
+      "npm_script": "release:self-heal",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 7,
+      "name": "Recreate GSC credential file when configured",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "GSC_SERVICE_ACCOUNT_JSON"
+      ]
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 8,
+      "name": "Run credential-safe distribution",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "INDEXNOW_KEY",
+        "GSC_SITE_URL"
+      ]
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 3,
+      "name": "actions/setup-python@v5",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 4,
+      "name": "npm ci --no-audit --no-fund",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 5,
+      "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 6,
+      "name": "Run GSC primary collector",
+      "npm_script": null,
+      "direct_paths": [
+        "distribution_scripts/gsc_collect_query_signals.py"
+      ],
+      "env_keys": [
+        "GSC_SERVICE_ACCOUNT_JSON",
+        "GSC_SITE_URL"
+      ]
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 7,
+      "name": "Run controlled autonomous content release",
+      "npm_script": "release:autonomous",
+      "direct_paths": [],
+      "env_keys": [
+        "GEMINI_API_KEY",
+        "MAX_NEW_PAGES_PER_DAY",
+        "MAX_REPAIRS_PER_DAY"
+      ]
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 8,
+      "name": "Commit generated pages and registries",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "job": "release",
+      "step": 9,
+      "name": "actions/upload-artifact@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 3,
+      "name": "actions/setup-python@v5",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 4,
+      "name": "npm ci --no-audit --no-fund",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 5,
+      "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 6,
+      "name": "Validate workflow syntax",
+      "npm_script": "actions:validate",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 7,
+      "name": "Generate owned query universe and public atlas",
+      "npm_script": "query:atlas",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 8,
+      "name": "Collect Search Console query signals",
+      "npm_script": null,
+      "direct_paths": [
+        "distribution_scripts/gsc_collect_query_signals.py"
+      ],
+      "env_keys": [
+        "GSC_SERVICE_ACCOUNT_JSON",
+        "GSC_SITE_URL"
+      ]
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 9,
+      "name": "Collect normalized $0 signals including optional Gemini prompt panel",
+      "npm_script": "signals:collect",
+      "direct_paths": [],
+      "env_keys": [
+        "GEMINI_API_KEY"
+      ]
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 10,
+      "name": "Score AEO and GEO opportunities",
+      "npm_script": "opportunities:score",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 11,
+      "name": "Build controlled release plan preview",
+      "npm_script": "release:plan",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 12,
+      "name": "Validate query intelligence",
+      "npm_script": "validate:autonomous",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 13,
+      "name": "Commit query intelligence artifacts",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 14,
+      "name": "actions/upload-artifact@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    }
+  ],
+  "required_data": [
+    {
+      "path": "_citation_intelligence_contract.json",
+      "exists": true
+    },
+    {
+      "path": "_content_release_contract.json",
+      "exists": true
+    },
+    {
+      "path": "_self_heal_contract.json",
+      "exists": true
+    },
+    {
+      "path": "data/query_atlas/query_universe.json",
+      "exists": true
+    },
+    {
+      "path": "data/signals/normalized_records.json",
+      "exists": true
+    },
+    {
+      "path": "data/opportunities/aeo_geo_opportunities.json",
+      "exists": true
+    },
+    {
+      "path": "data/releases/daily_release_plan.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/release/apply_release_plan_summary.json",
+      "exists": true
+    },
+    {
+      "path": ".build/indexnow-priority.txt",
+      "exists": true
+    },
+    {
+      "path": ".build/indexnow-batch.txt",
+      "exists": true
+    }
+  ],
+  "errors": []
+}

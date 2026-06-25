@@ -1,0 +1,71 @@
+name: Programmatic Content Release - Controlled 6 Month Cadence
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_new_pages:
+        description: Max new pages for this run
+        type: number
+        default: 5
+      max_repairs:
+        description: Max repairs for this run
+        type: number
+        default: 10
+  schedule:
+    - cron: '35 12 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: programmatic-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci --no-audit --no-fund
+      - run: python -m pip install --upgrade pip && python -m pip install google-api-python-client google-auth google-auth-httplib2
+      - name: Run GSC primary collector
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+        run: python distribution_scripts/gsc_collect_query_signals.py
+      - name: Run controlled autonomous content release
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MAX_NEW_PAGES_PER_DAY: ${{ github.event_name == 'workflow_dispatch' && inputs.max_new_pages || 5 }}
+          MAX_REPAIRS_PER_DAY: ${{ github.event_name == 'workflow_dispatch' && inputs.max_repairs || 10 }}
+        run: npm run release:autonomous
+      - name: Commit generated pages and registries
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Run controlled programmatic content release"
+            git push
+          else
+            echo "No programmatic release changes."
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: programmatic-release-evidence
+          path: |
+            data/releases/
+            releases/
+            artifacts/release/
+            logs/deep-validation/
+          if-no-files-found: ignore

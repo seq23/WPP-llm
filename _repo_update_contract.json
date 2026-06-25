@@ -37,10 +37,10 @@
     "sitemap.xml",
     "_redirects"
   ],
-  "status_ceiling_before_local_apply": "STRUCTURALLY CHECKED \u2014 LOCAL VALIDATION REQUIRED",
+  "status_ceiling_before_local_apply": "STRUCTURALLY CHECKED — LOCAL VALIDATION REQUIRED",
   "expected_branch": "main",
   "commands": {
-    "prepush": "npm run release:prepush",
+    "prepush": "npm run release:prepush:container",
     "prepush_local": "npm run release:prepush:local",
     "postpush": "npm run release:postpush",
     "live_proof": "npm run release:live-proof",

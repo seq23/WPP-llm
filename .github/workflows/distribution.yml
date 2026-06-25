@@ -1,0 +1,51 @@
+name: Distribution - IndexNow and Search Console
+
+on:
+  workflow_run:
+    workflows:
+      - CI - Build and Validate
+      - Programmatic Content Release - Controlled 6 Month Cadence
+    branches: [main]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: distribution-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  distribute:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci --no-audit --no-fund
+      - run: python -m pip install --upgrade pip && python -m pip install google-api-python-client google-auth google-auth-httplib2
+      - run: npm run release:self-heal
+      - name: Recreate GSC credential file when configured
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${GSC_SERVICE_ACCOUNT_JSON:-}" ]; then
+            umask 077
+            printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" > .gsc-service-account.json
+          fi
+      - name: Run credential-safe distribution
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+        run: |
+          args=(--host virtualagency-os.com --artifact-dir .build)
+          if [ -n "${INDEXNOW_KEY:-}" ]; then args+=(--key "$INDEXNOW_KEY"); fi
+          if [ -f .gsc-service-account.json ] && [ -n "${GSC_SITE_URL:-}" ]; then args+=(--creds .gsc-service-account.json --gsc-site "$GSC_SITE_URL"); fi
+          ./distribution_scripts/deploy_distribution.sh "${args[@]}"

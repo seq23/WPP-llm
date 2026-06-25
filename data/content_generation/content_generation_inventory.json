@@ -1,0 +1,44 @@
+{
+  "updated": "2026-06-25",
+  "generators": [
+    {
+      "generator_id": "legacy_draft_release",
+      "generator_type": "markdown_draft_queue",
+      "path": "content/insights/_drafts",
+      "trigger_type": "legacy_scheduled",
+      "output_paths": [
+        "content/insights",
+        "insights/*.html"
+      ],
+      "status": "quarantined",
+      "risk_level": "high",
+      "recommended_disposition": "disabled_by_cutover"
+    },
+    {
+      "generator_id": "insights_builder",
+      "generator_type": "markdown_to_html",
+      "path": "scripts/build_insights.js",
+      "trigger_type": "build",
+      "output_paths": [
+        "insights/*.html"
+      ],
+      "status": "wrapped",
+      "risk_level": "medium",
+      "recommended_disposition": "keep_under_build_only"
+    },
+    {
+      "generator_id": "canonical_citation_intelligence_engine",
+      "generator_type": "atom_page_contract_pipeline",
+      "path": "scripts/citation_intelligence",
+      "trigger_type": "github_actions_daily_and_manual",
+      "output_paths": [
+        "*.html",
+        "query-atlas/*.html",
+        "data/releases/*.json"
+      ],
+      "status": "canonical",
+      "risk_level": "controlled",
+      "recommended_disposition": "primary"
+    }
+  ]
+}

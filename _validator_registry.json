@@ -1,7 +1,14 @@
 {
-  "updated": "2026-06-25",
+  "updated": "2026-06-25Tdeep-validation-repair",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
+    {
+      "id": "github-actions-workflows",
+      "command": "node scripts/validate_workflows.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent broken GitHub Actions YAML and unsafe workflow drift.",
+      "owner": "repo"
+    },
     {
       "id": "strategy-gate",
       "command": "node scripts/validate_strategy_gate.js",
@@ -27,7 +34,7 @@
       "id": "canonical-routes",
       "command": "node scripts/validate_canonical_routes.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure .html canonical and redirect coverage.",
+      "purpose": "Ensure clean URL canonical policy and prevent clean-to-html redirect loops.",
       "owner": "repo"
     },
     {
@@ -98,6 +105,188 @@
       "command": "node scripts/validate_fanout_warning.js",
       "severity": "STRONG_WARNING",
       "purpose": "Ensure pages carry source/citation fanout block.",
+      "owner": "repo"
+    },
+    {
+      "id": "atom-contract",
+      "command": "node scripts/validators/validate_atom_contract.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure every programmatic page is built from governed atoms.",
+      "owner": "repo"
+    },
+    {
+      "id": "page-family-contract",
+      "command": "node scripts/validators/validate_page_family_contract.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure page families have route, atom, schema, CTA, and noindex rules.",
+      "owner": "repo"
+    },
+    {
+      "id": "page-admission",
+      "command": "node scripts/validators/validate_page_admission.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent unadmitted programmatic routes and duplicate query-target releases.",
+      "owner": "repo"
+    },
+    {
+      "id": "query-atlas",
+      "command": "node scripts/validate_query_atlas.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure public atlas contains the 6-month query universe.",
+      "owner": "repo"
+    },
+    {
+      "id": "programmatic-engine",
+      "command": "node scripts/validate_programmatic_release_engine.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure canonical autonomous release contracts and registries exist.",
+      "owner": "repo"
+    },
+    {
+      "id": "workflow-data-trace",
+      "command": "node scripts/validators/validate_workflow_data_trace.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "owner": "repo"
+    },
+    {
+      "id": "citation-goal-sizing",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure 6-month route/query target matches approved citation strategy.",
+      "owner": "repo"
+    },
+    {
+      "id": "free-aeo-mode-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js free-aeo-mode-contract",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure $0 mode forbids paid providers by default.",
+      "owner": "repo"
+    },
+    {
+      "id": "programmatic-release-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-release-contract",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure controlled cadence caps and release contract.",
+      "owner": "repo"
+    },
+    {
+      "id": "citation-intelligence-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-intelligence-contract",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure GSC-first and $0 intelligence contract.",
+      "owner": "repo"
+    },
+    {
+      "id": "agent-run-artifact-intake",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure agent/artifact intake lane exists even when GSC is primary.",
+      "owner": "repo"
+    },
+    {
+      "id": "normalized-agent-run-schema",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure normalized artifact schema exists.",
+      "owner": "repo"
+    },
+    {
+      "id": "velocity-intake-workflow",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js velocity-intake-workflow",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure intake/cutover compatibility map exists.",
+      "owner": "repo"
+    },
+    {
+      "id": "release-plan-integrity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js release-plan-integrity",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure release plan units obey caps and schema.",
+      "owner": "repo"
+    },
+    {
+      "id": "content-release-trace",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-release-trace",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure release writes proof artifacts.",
+      "owner": "repo"
+    },
+    {
+      "id": "page-release-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js page-release-law",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure admitted routes are tracked and non-duplicate.",
+      "owner": "repo"
+    },
+    {
+      "id": "generated-content-gate",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js generated-content-gate",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure generated content is governed by atoms and page families.",
+      "owner": "repo"
+    },
+    {
+      "id": "programmatic-substance",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure generated pages are not thin placeholder pages.",
+      "owner": "repo"
+    },
+    {
+      "id": "canonical-routing-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js canonical-routing-law",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure clean canonical URLs and no redirect loops.",
+      "owner": "repo"
+    },
+    {
+      "id": "search-quality-basics",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure pages have title, description, canonical.",
+      "owner": "repo"
+    },
+    {
+      "id": "sitemap-parity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js sitemap-parity",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure sitemap includes key canonical routes.",
+      "owner": "repo"
+    },
+    {
+      "id": "content-safety",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-safety",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent unsafe/guaranteed SEO claims.",
+      "owner": "repo"
+    },
+    {
+      "id": "strategy-integrity-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js strategy-integrity-contract",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure strategy remains WPP / virtual-event scope.",
+      "owner": "repo"
+    },
+    {
+      "id": "deterministic-build",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js deterministic-build",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure lockfile-based deterministic build.",
+      "owner": "repo"
+    },
+    {
+      "id": "repo-hygiene",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js repo-hygiene",
+      "severity": "HARD_FAIL",
+      "purpose": "Block secrets/runtime cache artifacts.",
+      "owner": "repo"
+    },
+    {
+      "id": "validate-release",
+      "command": "node scripts/validate_release.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Validate release plan, content trace, page release law, generated content gate, and programmatic substance.",
       "owner": "repo"
     }
   ]
