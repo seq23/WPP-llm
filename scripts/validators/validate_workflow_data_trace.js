@@ -22,6 +22,12 @@ const scripts = pkgScripts();
 const wfDir = path.join(ROOT,'.github','workflows');
 const files = fs.readdirSync(wfDir).filter(f=>/\.ya?ml$/.test(f)).sort();
 const docs = {}; const names = {}; const errors=[]; const traces=[];
+const lockText = exists('package-lock.json') ? read('package-lock.json') : '';
+if (/packages\.applied-caas|artifactory\/api\/npm|internal\.api\.openai/.test(lockText)) errors.push('package-lock.json contains internal/proxy npm registry URL');
+if (!exists('.npmrc')) errors.push('missing .npmrc');
+else if (!read('.npmrc').includes('registry=https://registry.npmjs.org/')) errors.push('.npmrc does not force public npm registry');
+if (!exists('scripts/ci_npm_install.sh')) errors.push('missing scripts/ci_npm_install.sh hardened installer');
+
 for (const file of files) {
   const text = read(path.join('.github','workflows',file));
   let doc; try { doc = YAML.parse(text); } catch(e) { errors.push(`${file}: YAML parse failed: ${e.message}`); continue; }
@@ -35,6 +41,7 @@ for (const file of files) {
     for (const p of directPaths(run)) {
       if (p.includes('distribution_scripts/indexnow_submit.sh') && !run.includes('bash distribution_scripts/indexnow_submit.sh')) errors.push(`${file}:${jobId}:${idx} invokes indexnow_submit.sh without bash`);
       if (!exists(p)) errors.push(`${file}:${jobId}:${idx} references missing path ${p}`);
+      if (String(run).includes('npm ci') && !String(run).includes('ci_npm_install.sh')) errors.push(`${file}:${jobId}:${idx} uses raw npm ci instead of hardened installer`);
       if (p.endsWith('.sh')) {
         const st = fs.statSync(path.join(ROOT,p));
         if (!(st.mode & 0o111) && !run.includes(`bash ${p}`)) errors.push(`${file}:${jobId}:${idx} references non-executable shell script ${p}`);
@@ -49,6 +56,15 @@ for (const [file, doc] of Object.entries(docs)) {
     const arr = Array.isArray(wr.workflows) ? wr.workflows : [wr.workflows].filter(Boolean);
     for (const n of arr) if (!names[n]) errors.push(`${file}: workflow_run references missing workflow name ${n}`);
   }
+}
+for (const file of files) {
+  const text = read(path.join('.github','workflows',file));
+  if (!text.includes("registry-url: 'https://registry.npmjs.org'")) errors.push(`${file}: setup-node missing public registry-url`);
+  if (!text.includes('bash scripts/ci_npm_install.sh')) errors.push(`${file}: missing hardened npm install step`);
+}
+if (exists('.github/workflows/distribution.yml')) {
+  const distributionText = read('.github/workflows/distribution.yml');
+  if (!distributionText.includes('INDEXNOW_KEY_VAR') || !distributionText.includes('indexnow_key')) errors.push('distribution.yml missing IndexNow secret/variable fallback wiring');
 }
 const requiredData = ['_citation_intelligence_contract.json','_content_release_contract.json','_self_heal_contract.json','data/query_atlas/query_universe.json','data/signals/normalized_records.json','data/opportunities/aeo_geo_opportunities.json','data/releases/daily_release_plan.json','artifacts/release/apply_release_plan_summary.json','.build/indexnow-priority.txt','.build/indexnow-batch.txt'];
 const missing = requiredData.filter(p=>!exists(p));

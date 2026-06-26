@@ -27,5 +27,10 @@
     "npm run release:prepush:container",
     "npm run release:postpush"
   ],
-  "truth_boundary": "No live GitHub Actions run, GSC/disavow upload, live deployment proof, live IndexNow proof, or live AI citation proof executed in this container."
+  "truth_boundary": "No live GitHub Actions run, GSC/disavow upload, live deployment proof, live IndexNow proof, or live AI citation proof executed in this container.",
+  "runtime_fix": {
+    "date": "2026-06-26",
+    "summary": "Harden GitHub Actions npm install runtime and IndexNow key fallback",
+    "report": "GITHUB_ACTIONS_RUNTIME_FIX_REPORT.md"
+  }
 }

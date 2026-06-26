@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T14:51:57.614Z",
+  "generated_at": "2026-06-26T15:20:52.144Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -198,7 +198,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-06-26T14:47:31.573Z",
+    "generated_at": "2026-06-26T15:05:58.078Z",
     "workflow_count": 5,
     "workflows": [
       "ci.yml",
@@ -233,9 +233,11 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 3,
-        "name": "npm ci --no-audit --no-fund",
+        "name": "bash scripts/ci_npm_install.sh",
         "npm_script": null,
-        "direct_paths": [],
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
         "env_keys": []
       },
       {
@@ -283,9 +285,11 @@
         "workflow_name": "Credential Check - Secrets and Public Key Readiness",
         "job": "check",
         "step": 3,
-        "name": "npm ci --no-audit --no-fund",
+        "name": "bash scripts/ci_npm_install.sh",
         "npm_script": null,
-        "direct_paths": [],
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
         "env_keys": []
       },
       {
@@ -293,13 +297,17 @@
         "workflow_name": "Credential Check - Secrets and Public Key Readiness",
         "job": "check",
         "step": 4,
-        "name": "npm run credentials:check",
+        "name": "export INDEXNOW_KEY=\"${INDEXNOW_KEY_SECRET:-${INDEXNOW_KEY_VAR:-${INDEXNOW_KEY_SECRET_LOWE",
         "npm_script": "credentials:check",
         "direct_paths": [],
         "env_keys": [
-          "INDEXNOW_KEY",
+          "INDEXNOW_KEY_SECRET",
+          "INDEXNOW_KEY_VAR",
+          "INDEXNOW_KEY_SECRET_LOWER",
+          "INDEXNOW_KEY_VAR_LOWER",
           "GSC_SERVICE_ACCOUNT_JSON",
-          "GSC_SITE_URL",
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR",
           "GEMINI_API_KEY",
           "PUBLIC_SITE_URL"
         ]
@@ -339,9 +347,11 @@
         "workflow_name": "Distribution - IndexNow and Search Console",
         "job": "distribute",
         "step": 4,
-        "name": "npm ci --no-audit --no-fund",
+        "name": "bash scripts/ci_npm_install.sh",
         "npm_script": null,
-        "direct_paths": [],
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
         "env_keys": []
       },
       {
@@ -385,8 +395,12 @@
         "npm_script": null,
         "direct_paths": [],
         "env_keys": [
-          "INDEXNOW_KEY",
-          "GSC_SITE_URL"
+          "INDEXNOW_KEY_SECRET",
+          "INDEXNOW_KEY_VAR",
+          "INDEXNOW_KEY_SECRET_LOWER",
+          "INDEXNOW_KEY_VAR_LOWER",
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR"
         ]
       },
       {
@@ -434,9 +448,11 @@
         "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
         "job": "release",
         "step": 4,
-        "name": "npm ci --no-audit --no-fund",
+        "name": "bash scripts/ci_npm_install.sh",
         "npm_script": null,
-        "direct_paths": [],
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
         "env_keys": []
       },
       {
@@ -481,7 +497,8 @@
         ],
         "env_keys": [
           "GSC_SERVICE_ACCOUNT_JSON",
-          "GSC_SITE_URL"
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR"
         ]
       },
       {
@@ -551,9 +568,11 @@
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
         "step": 4,
-        "name": "npm ci --no-audit --no-fund",
+        "name": "bash scripts/ci_npm_install.sh",
         "npm_script": null,
-        "direct_paths": [],
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
         "env_keys": []
       },
       {
@@ -608,7 +627,8 @@
         ],
         "env_keys": [
           "GSC_SERVICE_ACCOUNT_JSON",
-          "GSC_SITE_URL"
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR"
         ]
       },
       {
@@ -719,7 +739,7 @@
     "errors": []
   },
   "release_plan": {
-    "generated_at": "2026-06-26T14:51:57.140Z",
+    "generated_at": "2026-06-26T15:20:51.677Z",
     "mode": "controlled_6_month_cadence",
     "max_new_pages_per_day": 5,
     "max_repairs_per_day": 10,

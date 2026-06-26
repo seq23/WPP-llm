@@ -46,6 +46,18 @@ fi
 
 mkdir -p "${ARTIFACT_DIR}" logs/query-testing
 
+# Prefer explicit GitHub secret/variable, but fall back to the public repo-hosted
+# IndexNow key file. This prevents false SKIP when the key is already committed
+# as indexnow.txt / <key>.txt for public verification.
+if [[ -z "$KEY" ]]; then
+  if [[ -f "indexnow.txt" ]]; then
+    KEY="$(tr -d '[:space:]' < indexnow.txt)"
+  else
+    keyfile="$(find . -maxdepth 1 -type f -name "*.txt" | grep -E './[0-9a-fA-F-]{32,64}\.txt$' | head -1 || true)"
+    if [[ -n "$keyfile" ]]; then KEY="$(basename "$keyfile" .txt)"; fi
+  fi
+fi
+
 cat > "${ARTIFACT_DIR}/distribution-summary.json" <<JSON
 {
   "generated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
@@ -100,7 +112,7 @@ if [[ -n "$KEY" ]]; then
   fi
 else
   echo "== Submit IndexNow URLs =="
-  echo "SKIP: INDEXNOW_KEY not configured."
+  echo "SKIP: IndexNow key not configured and no public key file was found."
 fi
 
 echo

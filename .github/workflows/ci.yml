@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: '20'
           cache: npm
-      - run: npm ci --no-audit --no-fund
+          registry-url: 'https://registry.npmjs.org'
+      - run: bash scripts/ci_npm_install.sh
       - run: npm run actions:validate
       - run: npm run release:self-heal

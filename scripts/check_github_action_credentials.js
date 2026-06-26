@@ -20,12 +20,23 @@ function add(id, status, detail) {
   summary.checks.push({ id, status, detail });
 }
 
+
+function readPublicIndexNowKey() {
+  const explicit = path.join(ROOT, 'indexnow.txt');
+  if (fs.existsSync(explicit)) return fs.readFileSync(explicit, 'utf8').trim();
+  const hexFile = fs.readdirSync(ROOT).find((name) => /^[0-9a-fA-F-]{32,64}\.txt$/.test(name));
+  return hexFile ? path.basename(hexFile, '.txt') : '';
+}
+
 const indexNow = process.env.INDEXNOW_KEY || '';
-if (indexNow) {
-  const safeShape = /^[A-Za-z0-9_-]{8,128}$/.test(indexNow);
-  add('INDEXNOW_KEY', safeShape ? 'present_valid_shape' : 'present_suspicious_shape', safeShape ? 'IndexNow key exists and has a safe key-like shape.' : 'IndexNow key exists but shape is unusual; verify in GitHub secret.');
+const publicIndexNow = readPublicIndexNowKey();
+const effectiveIndexNow = indexNow || publicIndexNow;
+if (effectiveIndexNow) {
+  const safeShape = /^[A-Za-z0-9_-]{8,128}$/.test(effectiveIndexNow);
+  const source = indexNow ? 'secret_or_variable' : 'repo_public_key_file';
+  add('INDEXNOW_KEY', safeShape ? `present_valid_shape_${source}` : `present_suspicious_shape_${source}`, safeShape ? `IndexNow key is available via ${source}.` : `IndexNow key source ${source} exists but shape is unusual; verify GitHub secret or root key file.`);
 } else {
-  add('INDEXNOW_KEY', 'missing_skip_indexnow', 'IndexNow submission will be skipped until this secret exists.');
+  add('INDEXNOW_KEY', 'missing_skip_indexnow', 'IndexNow submission will be skipped until a GitHub secret/variable or public root key file exists.');
 }
 
 const gscJson = process.env.GSC_SERVICE_ACCOUNT_JSON || '';
