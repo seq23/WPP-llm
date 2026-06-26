@@ -21,7 +21,21 @@ for (const unit of plan.units || []) {
   const route=unit.target_route.replace(/^\//,''); const file=path.join(ROOT,route+'.html');
   if (unit.release_action === 'create' && !fs.existsSync(file)) { fs.writeFileSync(file, htmlFor(unit)); created++; }
   else if (unit.release_action === 'repair' && fs.existsSync(file)) { repaired++; }
-  admissions.admissions.push({route:unit.target_route, query:unit.query, page_family:unit.page_family, action:unit.release_action, admitted_at:new Date().toISOString(), evidence:['query_universe','normalized_signals'], status:'admitted'});
+  const keyRoute = unit.target_route;
+  const keyQuery = unit.query;
+  const existingIndex = (admissions.admissions || []).findIndex(a => a.route === keyRoute && a.query === keyQuery);
+  const admission = {
+    route: keyRoute,
+    query: keyQuery,
+    page_family: unit.page_family,
+    action: unit.release_action,
+    admitted_at: existingIndex >= 0 ? admissions.admissions[existingIndex].admitted_at : new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    evidence: ['query_universe','normalized_signals'],
+    status: 'admitted'
+  };
+  if (existingIndex >= 0) admissions.admissions[existingIndex] = { ...admissions.admissions[existingIndex], ...admission };
+  else admissions.admissions.push(admission);
   if (!state.published_routes.includes(unit.target_route)) state.published_routes.push(unit.target_route);
 }
 admissions.updated=new Date().toISOString(); state.updated=new Date().toISOString(); state.last_release_run={created,repaired,at:new Date().toISOString()};

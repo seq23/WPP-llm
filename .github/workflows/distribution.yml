@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: distribution-${{ github.ref }}
+  group: wpp-distribution-main
   cancel-in-progress: false
 
 jobs:
@@ -49,3 +49,11 @@ jobs:
           if [ -n "${INDEXNOW_KEY:-}" ]; then args+=(--key "$INDEXNOW_KEY"); fi
           if [ -f .gsc-service-account.json ] && [ -n "${GSC_SITE_URL:-}" ]; then args+=(--creds .gsc-service-account.json --gsc-site "$GSC_SITE_URL"); fi
           ./distribution_scripts/deploy_distribution.sh "${args[@]}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: distribution-evidence
+          path: |
+            .build/
+            logs/query-testing/
+          if-no-files-found: ignore

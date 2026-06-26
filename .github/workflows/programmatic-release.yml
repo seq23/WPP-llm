@@ -17,8 +17,13 @@ on:
 permissions:
   contents: write
 
+env:
+  CI_AUTONOMOUS_BRANCH: main
+  MAX_NEW_PAGES_PER_DAY: '5'
+  MAX_REPAIRS_PER_DAY: '10'
+
 concurrency:
-  group: programmatic-release
+  group: wpp-autonomous-writer-main
   cancel-in-progress: false
 
 jobs:
@@ -37,6 +42,10 @@ jobs:
           python-version: '3.11'
       - run: npm ci --no-audit --no-fund
       - run: python -m pip install --upgrade pip && python -m pip install google-api-python-client google-auth google-auth-httplib2
+      - name: Sync latest main before autonomous release
+        run: git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
+      - name: Validate workflow syntax
+        run: npm run actions:validate
       - name: Run GSC primary collector
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
@@ -45,9 +54,12 @@ jobs:
       - name: Run controlled autonomous content release
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MAX_NEW_PAGES_PER_DAY: ${{ github.event_name == 'workflow_dispatch' && inputs.max_new_pages || 5 }}
-          MAX_REPAIRS_PER_DAY: ${{ github.event_name == 'workflow_dispatch' && inputs.max_repairs || 10 }}
-        run: npm run release:autonomous
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            export MAX_NEW_PAGES_PER_DAY="${{ github.event.inputs.max_new_pages }}"
+            export MAX_REPAIRS_PER_DAY="${{ github.event.inputs.max_repairs }}"
+          fi
+          npm run release:autonomous
       - name: Commit generated pages and registries
         run: |
           if [ -n "$(git status --porcelain)" ]; then
@@ -55,7 +67,8 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "Run controlled programmatic content release"
-            git push
+            git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
+            git push origin "HEAD:$CI_AUTONOMOUS_BRANCH"
           else
             echo "No programmatic release changes."
           fi

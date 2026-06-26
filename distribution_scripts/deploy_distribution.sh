@@ -2,8 +2,8 @@
 set -euo pipefail
 
 # Credential-safe distribution wrapper.
-# It never fails just because optional credentials are missing.
-# It does fail for malformed local artifacts because those are repo defects.
+# External submit/inspection tasks are treated as best-effort because they depend
+# on Search Console/IndexNow credentials and external APIs. Repo defects still fail.
 
 HOST=""
 KEY=""
@@ -44,7 +44,7 @@ if [[ -z "$HOST" ]]; then
   HOST="virtualagency-os.com"
 fi
 
-mkdir -p "${ARTIFACT_DIR}"
+mkdir -p "${ARTIFACT_DIR}" logs/query-testing
 
 cat > "${ARTIFACT_DIR}/distribution-summary.json" <<JSON
 {
@@ -52,9 +52,22 @@ cat > "${ARTIFACT_DIR}/distribution-summary.json" <<JSON
   "host": "$HOST",
   "artifact_dir": "$ARTIFACT_DIR",
   "indexnow_configured": $( [[ -n "$KEY" ]] && echo true || echo false ),
-  "gsc_configured": $( [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]] && echo true || echo false )
+  "gsc_configured": $( [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]] && echo true || echo false ),
+  "mode": "credential_safe_best_effort"
 }
 JSON
+
+run_external(){
+  local label="$1"; shift
+  echo "== $label =="
+  if "$@"; then
+    echo "OK: $label"
+  else
+    local code=$?
+    echo "::warning::$label failed with exit code $code; continuing because this is credential-bound/external."
+    echo "${label}: failed code=${code}" >> "${ARTIFACT_DIR}/distribution-warnings.log"
+  fi
+}
 
 echo "== Distribution config =="
 echo "HOST=$HOST"
@@ -64,48 +77,45 @@ echo "GSC_CONFIGURED=$( [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CRE
 echo
 
 if [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]]; then
-  echo "== 1) Submit Google sitemap =="
-  python3 distribution_scripts/gsc_submit_sitemaps.py "$GSC_CREDS" "$GSC_SITE_URL" "https://${HOST}/sitemap.xml"
+  run_external "Submit Google sitemap" python3 distribution_scripts/gsc_submit_sitemaps.py "$GSC_CREDS" "$GSC_SITE_URL" "https://${HOST}/sitemap.xml"
 else
-  echo "== 1) Submit Google sitemap =="
+  echo "== Submit Google sitemap =="
   echo "SKIP: GSC credentials/site not configured."
 fi
 
 echo
 if [[ -n "$KEY" ]]; then
-  echo "== 2) Submit IndexNow priority URLs =="
+  echo "== Submit IndexNow priority URLs =="
   if [[ "$ALLOW_MIXED" == "1" ]]; then
-    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE" --allow-mixed
+    run_external "Submit IndexNow priority URLs" bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE" --allow-mixed
   else
-    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE"
+    run_external "Submit IndexNow priority URLs" bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$PRIORITY_FILE"
   fi
   echo
-  echo "== 3) Submit IndexNow batch URLs =="
+  echo "== Submit IndexNow batch URLs =="
   if [[ "$ALLOW_MIXED" == "1" ]]; then
-    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE" --allow-mixed
+    run_external "Submit IndexNow batch URLs" bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE" --allow-mixed
   else
-    bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE"
+    run_external "Submit IndexNow batch URLs" bash distribution_scripts/indexnow_submit.sh --host "$HOST" --key "$KEY" --file "$BATCH_FILE"
   fi
 else
-  echo "== 2-3) Submit IndexNow URLs =="
+  echo "== Submit IndexNow URLs =="
   echo "SKIP: INDEXNOW_KEY not configured."
 fi
 
 echo
 if [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" ]]; then
-  echo "== 4) Inspect priority URLs in GSC API =="
-  python3 distribution_scripts/gsc_inspect_urls.py "$GSC_CREDS" "$GSC_SITE_URL" "$PRIORITY_FILE" "${ARTIFACT_DIR}/inspection-results.json"
+  run_external "Inspect priority URLs in GSC API" python3 distribution_scripts/gsc_inspect_urls.py "$GSC_CREDS" "$GSC_SITE_URL" "$PRIORITY_FILE" "${ARTIFACT_DIR}/inspection-results.json"
 else
-  echo "== 4) Inspect priority URLs in GSC API =="
+  echo "== Inspect priority URLs in GSC API =="
   echo "SKIP: GSC credentials/site not configured."
 fi
 
 echo
 if [[ -n "$GSC_CREDS" && -n "$GSC_SITE_URL" && -f "$GSC_CREDS" && -f "data/seo/benchmark_query_panel.json" ]]; then
-  echo "== 5) Pull $0 Search Console query performance =="
-  python3 distribution_scripts/gsc_query_performance.py "$GSC_CREDS" "$GSC_SITE_URL" "data/seo/benchmark_query_panel.json" "logs/query-testing/gsc-query-performance.json"
+  run_external "Pull zero-cost Search Console query performance" python3 distribution_scripts/gsc_query_performance.py "$GSC_CREDS" "$GSC_SITE_URL" "data/seo/benchmark_query_panel.json" "logs/query-testing/gsc-query-performance.json"
 else
-  echo "== 5) Pull $0 Search Console query performance =="
+  echo "== Pull zero-cost Search Console query performance =="
   echo "SKIP: GSC credentials/site or query panel not configured."
 fi
 
