@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-07-10T15:16:36.301Z",
-  "workflow_count": 5,
+  "generated_at": "2026-07-10T20:43:43.952Z",
+  "workflow_count": 6,
   "workflows": [
+    "admin-command.yml",
     "ci.yml",
     "credential-check.yml",
     "distribution.yml",
@@ -9,6 +10,86 @@
     "query-intelligence.yml"
   ],
   "traces": [
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 3,
+      "name": "bash scripts/ci_npm_install.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/ci_npm_install.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 4,
+      "name": "Enforce confirmation",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "ACTION",
+        "CONFIRMATION"
+      ]
+    },
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 5,
+      "name": "Apply runtime state command",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "ACTION"
+      ]
+    },
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 6,
+      "name": "Dispatch allowlisted workflow",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "GH_TOKEN",
+        "ACTION"
+      ]
+    },
+    {
+      "workflow": "admin-command.yml",
+      "workflow_name": "Admin Command - Full Flow Controls",
+      "job": "command",
+      "step": 7,
+      "name": "Write action receipt",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
     {
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
@@ -216,7 +297,7 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 1,
       "name": "actions/checkout@v4",
@@ -226,7 +307,7 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 2,
       "name": "actions/setup-node@v4",
@@ -236,7 +317,7 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 3,
       "name": "actions/setup-python@v5",
@@ -246,7 +327,7 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 4,
       "name": "bash scripts/ci_npm_install.sh",
@@ -258,9 +339,19 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 5,
+      "name": "node scripts/runtime_guard.mjs",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+      "job": "release",
+      "step": 6,
       "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
       "npm_script": null,
       "direct_paths": [],
@@ -268,9 +359,9 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 6,
+      "step": 7,
       "name": "Sync latest main before autonomous release",
       "npm_script": null,
       "direct_paths": [],
@@ -278,9 +369,9 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 7,
+      "step": 8,
       "name": "Validate workflow syntax",
       "npm_script": "actions:validate",
       "direct_paths": [],
@@ -288,9 +379,9 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 8,
+      "step": 9,
       "name": "Run GSC primary collector",
       "npm_script": null,
       "direct_paths": [
@@ -304,9 +395,9 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 9,
+      "step": 10,
       "name": "Run controlled autonomous content release",
       "npm_script": "release:autonomous",
       "direct_paths": [],
@@ -316,9 +407,9 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 10,
+      "step": 11,
       "name": "Commit generated pages and registries",
       "npm_script": null,
       "direct_paths": [],
@@ -326,9 +417,9 @@
     },
     {
       "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Controlled 6 Month Cadence",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 11,
+      "step": 12,
       "name": "actions/upload-artifact@v4",
       "npm_script": null,
       "direct_paths": [],
@@ -381,7 +472,7 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 5,
-      "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+      "name": "node scripts/runtime_guard.mjs",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -391,7 +482,7 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 6,
-      "name": "Sync latest main before writing artifacts",
+      "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -401,6 +492,16 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 7,
+      "name": "Sync latest main before writing artifacts",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 8,
       "name": "Validate workflow syntax",
       "npm_script": "actions:validate",
       "direct_paths": [],
@@ -410,7 +511,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 8,
+      "step": 9,
       "name": "Generate owned query universe and public atlas",
       "npm_script": "query:atlas",
       "direct_paths": [],
@@ -420,7 +521,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 9,
+      "step": 10,
       "name": "Collect Search Console query signals",
       "npm_script": null,
       "direct_paths": [
@@ -436,7 +537,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 10,
+      "step": 11,
       "name": "Collect normalized $0 signals including optional Gemini prompt panel",
       "npm_script": "signals:collect",
       "direct_paths": [],
@@ -448,7 +549,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 11,
+      "step": 12,
       "name": "Score AEO and GEO opportunities",
       "npm_script": "opportunities:score",
       "direct_paths": [],
@@ -458,7 +559,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 12,
+      "step": 13,
       "name": "Build controlled release plan preview",
       "npm_script": "release:plan",
       "direct_paths": [],
@@ -468,7 +569,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 13,
+      "step": 14,
       "name": "Validate query intelligence",
       "npm_script": "validate:autonomous",
       "direct_paths": [],
@@ -478,7 +579,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 14,
+      "step": 15,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [],
@@ -488,7 +589,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 15,
+      "step": 16,
       "name": "actions/upload-artifact@v4",
       "npm_script": null,
       "direct_paths": [],

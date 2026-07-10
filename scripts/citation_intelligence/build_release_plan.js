@@ -23,15 +23,12 @@ fs.mkdirSync(path.join(ROOT, 'releases'), { recursive: true });
 fs.mkdirSync(path.join(ROOT, '.build'), { recursive: true });
 fs.mkdirSync(path.join(ROOT, 'artifacts/release'), { recursive: true });
 
-const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 5, max_repairs_per_day: 10 } });
+const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 50, max_repairs_per_day: 100 } });
 const opps = readJson('data/opportunities/aeo_geo_opportunities.json', { opportunities: [] }).opportunities || [];
 const priority = readJson('data/seo/priority_pages.json', { pages: [] }).pages || [];
-const maxNew = Number(process.env.MAX_NEW_PAGES_PER_DAY || contract.cadence?.max_new_pages_per_day || 5);
-const maxRepairs = Number(process.env.MAX_REPAIRS_PER_DAY || contract.cadence?.max_repairs_per_day || 10);
-if (maxNew > 5 && !process.env.ALLOW_CADENCE_PROMOTION) {
-  console.error(`Refusing maxNew=${maxNew}; controlled cadence cap is 5 without ALLOW_CADENCE_PROMOTION.`);
-  process.exit(1);
-}
+const maxNew = Number(process.env.MAX_NEW_PAGES_PER_DAY || contract.cadence?.max_new_pages_per_day || 50);
+const maxRepairs = Number(process.env.MAX_REPAIRS_PER_DAY || contract.cadence?.max_repairs_per_day || 100);
+if (maxNew < 0 || maxNew > 100 || maxRepairs < 0 || maxRepairs > 250) { console.error('Full-flow caps out of governed range.'); process.exit(1); }
 
 const normalized = opps
   .filter(o => o && o.query && o.target_route)
@@ -44,7 +41,7 @@ const units = [...create, ...repairs];
 
 const plan = {
   generated_at: new Date().toISOString(),
-  mode: 'controlled_6_month_cadence',
+  mode: 'full_flow_aggressive_90_day',
   max_new_pages_per_day: maxNew,
   max_repairs_per_day: maxRepairs,
   max_route_mutations_per_day: maxNew + maxRepairs,
@@ -84,4 +81,4 @@ fs.writeFileSync(path.join(ROOT, 'artifacts/release/release_plan_distribution_tr
   batch_url_count: batchUrls.length,
   files: ['.build/indexnow-priority.txt', '.build/indexnow-batch.txt', '.build/citation_release_trace.json']
 }, null, 2));
-console.log(`Built controlled release plan: ${create.length} creates, ${repairs.length} repairs; distribution URLs priority=${priorityUrls.length}, batch=${batchUrls.length}.`);
+console.log(`Built full-flow release plan: ${create.length} creates, ${repairs.length} repairs; distribution URLs priority=${priorityUrls.length}, batch=${batchUrls.length}.`);

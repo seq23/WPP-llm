@@ -21,9 +21,9 @@ const atoms = readJson('data/atoms/atom_registry.json', {atoms:[]});
 
 const checks = {
   'citation-goal-sizing': () => {
-    const target = strategy.citation_goal?.route_target_6_months || contentContract.cadence?.six_month_route_target || universe.counts?.target_6_month_routes;
-    if (Number(target) < 900) fail(`six-month route target too small: ${target}`);
-    if ((universe.queries||[]).length < 900) fail(`query universe too small: ${(universe.queries||[]).length}`);
+    const target = strategy.citation_goal?.route_target_90_days || contentContract.cadence?.ninety_day_route_target || universe.counts?.target_90_day_routes || strategy.citation_goal?.route_target_6_months;
+    if (Number(target) < 900) fail(`authority route target too small: ${target}`);
+    if ((universe.queries||[]).length < 1000) fail(`query universe too small: ${(universe.queries||[]).length}`);
   },
   'free-aeo-mode-contract': () => {
     if (citationContract.zero_paid_provider_default !== true) fail('zero_paid_provider_default must be true');
@@ -32,8 +32,8 @@ const checks = {
   },
   'programmatic-release-contract': () => {
     if (!exists('_content_release_contract.json')) fail('missing _content_release_contract.json');
-    if ((contentContract.cadence?.max_new_pages_per_day || 0) > 5) fail('controlled max_new_pages_per_day exceeds 5');
-    if ((contentContract.cadence?.max_repairs_per_day || 0) > 10) fail('controlled max_repairs_per_day exceeds 10');
+    if ((contentContract.cadence?.max_new_pages_per_day || 0) > 100) fail('governed max_new_pages_per_day exceeds 100');
+    if ((contentContract.cadence?.max_repairs_per_day || 0) > 250) fail('governed max_repairs_per_day exceeds 250');
   },
   'citation-intelligence-contract': () => {
     if (!exists('_citation_intelligence_contract.json')) fail('missing _citation_intelligence_contract.json');
@@ -55,8 +55,8 @@ const checks = {
   'release-plan-integrity': () => {
     const units = releasePlan.units || releasePlan.release_units || [];
     if (!units.length) fail('release plan has no units');
-    if (units.filter(u=>u.release_action==='create').length > 5) fail('release plan exceeds create cap');
-    if (units.filter(u=>u.release_action==='repair').length > 10) fail('release plan exceeds repair cap');
+    if (units.filter(u=>u.release_action==='create').length > (contentContract.cadence?.max_new_pages_per_day || 50)) fail('release plan exceeds create cap');
+    if (units.filter(u=>u.release_action==='repair').length > (contentContract.cadence?.max_repairs_per_day || 100)) fail('release plan exceeds repair cap');
     for (const u of units) if (!u.query || !u.target_route || !u.release_action) fail('release unit missing query/route/action');
   },
   'content-release-trace': () => {

@@ -16,7 +16,7 @@
     "opportunities:score": "node scripts/citation_intelligence/score_opportunities.js",
     "query:atlas": "node scripts/citation_intelligence/generate_query_universe.js && node scripts/citation_intelligence/generate_query_atlas_pages.js",
     "query:test:zero-cost": "node scripts/generate_zero_cost_query_report.js",
-    "release:autonomous": "npm run query:atlas && npm run citation:collect-free && npm run citation:normalize-artifacts && npm run opportunities:score && npm run release:plan && npm run release:content && npm run build && npm run citation:compile-artifact && npm run release:reports && npm run validate:autonomous && npm run validate:release && npm run validate:all",
+    "release:autonomous": "npm run query:atlas && npm run citation:collect-free && npm run citation:normalize-artifacts && npm run opportunities:score && npm run release:plan && npm run release:content && npm run build && npm run citation:compile-artifact && npm run release:reports && npm run validate:autonomous && npm run validate:release && npm run growth:build && npm run validate:all && npm run validate:repo-work-os-completeness && npm run validate:full-flow-citation-engine",
     "release:cleanup": "node scripts/cleanup_release_artifacts.js",
     "release:content": "node scripts/citation_intelligence/apply_release_plan.js",
     "release:deep-validate:isolated": "node scripts/deep_validate_isolated.js",
@@ -45,7 +45,17 @@
     "validate:programmatic-engine": "node scripts/validate_programmatic_release_engine.js",
     "validate:query-atlas": "node scripts/validate_query_atlas.js",
     "validate:release": "node scripts/validate_release.js",
-    "validate:workflow-data-trace": "node scripts/validators/validate_workflow_data_trace.js"
+    "validate:workflow-data-trace": "node scripts/validators/validate_workflow_data_trace.js",
+    "validate:authority-system": "node scripts/validators/validate_authority_system.mjs",
+    "validate:admin-command-center": "node scripts/validators/validate_admin_command_center.mjs",
+    "validate:artifact-consistency-e2e": "python3 scripts/validation/artifact_consistency_e2e.py",
+    "validate:workflow-faux-trace": "python3 scripts/validation/faux_trace_all_workflows.py",
+    "validate:packaging-parity": "node scripts/validators/validate_packaging_parity.mjs",
+    "validate:repo-work-os-upgrade": "npm run validate:authority-system && npm run validate:admin-command-center && npm run validate:artifact-consistency-e2e && npm run validate:workflow-faux-trace && npm run validate:packaging-parity",
+    "growth:build": "node scripts/build_growth_health.mjs",
+    "validate:repo-work-os-completeness": "node scripts/validators/validate_repo_work_os_completeness.mjs",
+    "validate:full-flow-citation-engine": "node scripts/validators/validate_full_flow_citation_engine.mjs",
+    "validate:hostile-full-flow": "npm run validate:repo-work-os-upgrade && npm run validate:repo-work-os-completeness && npm run validate:full-flow-citation-engine && npm run validate:governance && npm run validate:all"
   },
   "dependencies": {
     "marked": "^12.0.2"

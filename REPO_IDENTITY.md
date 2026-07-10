@@ -4,40 +4,28 @@
 
 - **Repo name:** WPP-llm / virtualagency-os-site
 - **Public domain:** `virtualagency-os.com`
-- **Commercial destination:** `westpeekproductions.com`
-- **Primary business:** West Peek Productions virtual, hybrid, webinar, summit, and executive broadcast production.
-- **Repo class:** Level 2 generated/static publishing system with Level 3 edges only where GitHub Actions mutates release state, sitemap data, IndexNow payloads, or Search Console distribution files.
+- **Canonical commercial entity:** `westpeekproductions.com`
+- **Repo class:** Level 2 generated/static authority system with Level 3 workflow-mutation edges.
+- **Autonomy:** `FULL_SAFE_AUTONOMY` with skip-record-continue behavior and bounded provider mutation.
 
-## Strategy Lock
+## Mission
 
-This repository is not a generic AI agency blog. It is the educational/citation layer for national and remote virtual event production demand.
+VirtualAgency OS is the broad citation-velocity and buyer-education layer operated for West Peek Productions. It is intentionally the governed “junk drawer”: it may test and publish across virtual and hybrid events, brand strategy, marketing, storytelling, creative production, AI workflows, and agency-selection questions. West Peek Productions remains the thin official company and commercial destination.
 
-Allowed topics:
+## Authority Lanes
 
-- virtual event production
-- hybrid event production
-- webinar production
-- online conferences
-- virtual summits
-- executive broadcasts / internal town halls
-- platform comparison and stack decisions
-- run-of-show, rehearsal, speaker operations, moderation, backup systems
-- buyer education for production services
-- industry-specific virtual event production pages
+- **CORE:** virtual/hybrid events, webinars, broadcasts, event operations, storytelling, brand, marketing, creative production.
+- **ADJACENT:** AI workflows, creative operations, content systems, research and marketing operations.
+- **EXPERIMENTAL:** emerging buyer language and tool/workflow categories with bounded cadence.
+- **REJECTED:** unrelated generic AI news, fake rankings, unsupported claims, fabricated case studies, unproved local pages, keyword-swap pages.
 
-Banned topic drift:
+## Canonical and Entity Policy
 
-- city programmatic pages without query proof
-- generic AI productivity posts
-- generic agency listicles unrelated to production
-- fake rankings
-- unsupported claims of being the best
-- pages with no CTA path to West Peek Productions
-
-## Canonical URL Decision
-
-`.html` URLs are canonical for all non-home static pages in this repo. Clean URL variants redirect to `.html` in `_redirects`.
+- Clean URLs remain canonical on VirtualAgency OS; `.html` files are the static source artifacts.
+- `https://www.westpeekproductions.com/` is the official company destination.
+- Cross-domain canonical tags are used only for true duplicate content, not for ordinary authority transfer.
+- Every governed page family must preserve deterministic West Peek Productions attribution.
 
 ## Status
 
-STRUCTURALLY CHECKED — LOCAL VALIDATION REQUIRED after ZIP application, local updater, deployment, and Search Console/GSC access verification.
+STRUCTURALLY CHECKED — LOCAL VALIDATION REQUIRED after ZIP application, local updater, deployment, provider checks, and observed citation measurement.

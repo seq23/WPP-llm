@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "classes": [
+    "RUNTIME_REQUIRED",
+    "CANONICAL_PROOF",
+    "PRESENTATION_ONLY",
+    "EPHEMERAL",
+    "CACHE",
+    "DIAGNOSTIC"
+  ],
+  "no_op_states": [
+    "NO_INPUT",
+    "ALL_SKIPPED",
+    "COMPLETED_NO_CHANGES"
+  ],
+  "reconciliation": [
+    "input = selected + skipped + rejected + deferred",
+    "planned = applied + runtime_skipped + failed"
+  ],
+  "artifacts": [
+    {
+      "path": "data/query_atlas/query_universe.json",
+      "class": "CANONICAL_PROOF",
+      "required_in_zip": true,
+      "allow_empty": false
+    },
+    {
+      "path": "data/releases/daily_release_plan.json",
+      "class": "CANONICAL_PROOF",
+      "required_in_zip": true,
+      "allow_empty": true
+    },
+    {
+      "path": "artifacts/release/apply_release_plan_summary.json",
+      "class": "CANONICAL_PROOF",
+      "required_in_zip": true,
+      "allow_empty": true
+    },
+    {
+      "path": "logs/**",
+      "class": "DIAGNOSTIC",
+      "required_in_zip": false,
+      "allow_empty": true
+    },
+    {
+      "path": "reports/**",
+      "class": "PRESENTATION_ONLY",
+      "required_in_zip": false,
+      "allow_empty": true
+    }
+  ]
+}

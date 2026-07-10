@@ -1,11 +1,10 @@
-# Workflow Spine
+# Workflow Surface
 
-This repo intentionally uses five workflows instead of one monolithic YAML:
+1. `admin-command.yml` — authenticated allowlisted controls, pause/resume/emergency stop, and workflow dispatch.
+2. `query-intelligence.yml` — twice-daily query discovery, normalization, scoring, and planning.
+3. `programmatic-release.yml` — twice-daily full-flow create/repair/self-heal/validate/commit lane.
+4. `ci.yml` — build and validation.
+5. `distribution.yml` — provider-safe IndexNow/Search Console distribution after successful upstream runs.
+6. `credential-check.yml` — provider readiness without secret disclosure.
 
-1. `ci.yml` — hard build/validation gate.
-2. `citation-ops.yml` — strategy-gated content/release maintenance.
-3. `distribution.yml` — credential-safe IndexNow and Search Console distribution.
-4. `credential-check.yml` — secret presence/shape checks without printing secrets.
-5. `zero-cost-query-testing.yml` — $0 benchmark query panel and optional GSC reporting.
-
-Do not add ad hoc workflows without registering the reason in `docs/runbooks/GITHUB_ACTIONS_OPERATING_SPINE.md`.
+Writer workflows share concurrency and enforce runtime state.

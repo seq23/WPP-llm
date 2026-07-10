@@ -1,0 +1,79 @@
+{
+  "version": "2.0-full-flow",
+  "mode": "FULL_SAFE_AUTONOMY",
+  "states": [
+    "ACTIVE",
+    "PAUSED",
+    "EMERGENCY_STOP",
+    "DEGRADED_PROVIDER",
+    "NO_INPUT",
+    "ALL_SKIPPED",
+    "PARTIAL_WITH_RECORDED_SKIPS",
+    "COMPLETED_NO_CHANGES",
+    "COMPLETED_WITH_CHANGES",
+    "FAILED"
+  ],
+  "lanes": {
+    "CORE": {
+      "autopublish": true,
+      "max_new_pages_per_run": 30,
+      "requires": [
+        "query ownership",
+        "distinct answer value",
+        "West Peek attribution",
+        "source-safe claims"
+      ]
+    },
+    "ADJACENT": {
+      "autopublish": true,
+      "max_new_pages_per_run": 15,
+      "requires": [
+        "practical West Peek relationship",
+        "human-in-the-loop framing",
+        "source-safe claims"
+      ]
+    },
+    "EXPERIMENTAL": {
+      "autopublish": true,
+      "max_new_pages_per_run": 5,
+      "requires": [
+        "experimental label",
+        "duplicate check",
+        "measurement plan",
+        "no unsupported service claim"
+      ]
+    },
+    "REJECTED": {
+      "autopublish": false,
+      "action": "skip_record_continue"
+    }
+  },
+  "hard_fail": [
+    "secret exposure",
+    "ungoverned workflow mutation",
+    "conflicting route ownership with attempted write",
+    "fabricated evidence",
+    "invalid canonical entity",
+    "irreconcilable canonical artifact counts"
+  ],
+  "warning_only": [
+    "page count target",
+    "query count target",
+    "cadence shortfall",
+    "word count preference",
+    "optional report absence",
+    "target citation volume"
+  ],
+  "operating_state": "ACTIVE",
+  "stretch_target": {
+    "observed_external_citations": 100000,
+    "days": 90,
+    "guaranteed": false
+  },
+  "global_caps": {
+    "new_pages_per_run": 50,
+    "repairs_per_run": 100,
+    "runs_per_day": 2,
+    "route_mutations_per_day": 300
+  }
+}

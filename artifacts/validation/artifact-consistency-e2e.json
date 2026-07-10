@@ -1,0 +1,111 @@
+{
+  "scenario_count": 26,
+  "passed": 26,
+  "failed": [],
+  "scenarios": [
+    {
+      "scenario": "valid_no_input",
+      "passed": true
+    },
+    {
+      "scenario": "valid_all_skipped",
+      "passed": true
+    },
+    {
+      "scenario": "valid_no_changes",
+      "passed": true
+    },
+    {
+      "scenario": "required_query_universe",
+      "passed": true
+    },
+    {
+      "scenario": "required_release_plan",
+      "passed": true
+    },
+    {
+      "scenario": "required_apply_summary",
+      "passed": true
+    },
+    {
+      "scenario": "optional_reports",
+      "passed": true
+    },
+    {
+      "scenario": "diagnostics_optional",
+      "passed": true
+    },
+    {
+      "scenario": "reconciliation_input",
+      "passed": true
+    },
+    {
+      "scenario": "reconciliation_planned",
+      "passed": true
+    },
+    {
+      "scenario": "mixed_counts",
+      "passed": true
+    },
+    {
+      "scenario": "count_mismatch_rejected",
+      "passed": true
+    },
+    {
+      "scenario": "partial_apply",
+      "passed": true
+    },
+    {
+      "scenario": "duplicate_identical_dedup",
+      "passed": true
+    },
+    {
+      "scenario": "conflicting_duplicate_detected",
+      "passed": true
+    },
+    {
+      "scenario": "null_vs_zero",
+      "passed": true
+    },
+    {
+      "scenario": "timestamp_only_no_semantic_change",
+      "passed": true
+    },
+    {
+      "scenario": "protected_write_hard_fail",
+      "passed": true
+    },
+    {
+      "scenario": "missing_canonical_hard_fail",
+      "passed": true
+    },
+    {
+      "scenario": "additive_schema_allowed",
+      "passed": true
+    },
+    {
+      "scenario": "stale_plan_skip",
+      "passed": true
+    },
+    {
+      "scenario": "provider_unavailable_continue",
+      "passed": true
+    },
+    {
+      "scenario": "workflow_no_commit_valid",
+      "passed": true
+    },
+    {
+      "scenario": "distribution_withheld_after_ci_fail",
+      "passed": true
+    },
+    {
+      "scenario": "receipt_exit_disagreement_fail",
+      "passed": true
+    },
+    {
+      "scenario": "zip_parity_required",
+      "passed": true
+    }
+  ]
+}

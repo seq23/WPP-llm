@@ -1,4 +1,4 @@
-name: Programmatic Content Release - Controlled 6 Month Cadence
+name: Programmatic Content Release - Full Flow 90 Day
 
 on:
   workflow_dispatch:
@@ -6,21 +6,21 @@ on:
       max_new_pages:
         description: Max new pages for this run
         type: number
-        default: 5
+        default: 50
       max_repairs:
         description: Max repairs for this run
         type: number
-        default: 10
+        default: 100
   schedule:
-    - cron: '35 12 * * *'
+    - cron: '35 8,20 * * *'
 
 permissions:
   contents: write
 
 env:
   CI_AUTONOMOUS_BRANCH: main
-  MAX_NEW_PAGES_PER_DAY: '5'
-  MAX_REPAIRS_PER_DAY: '10'
+  MAX_NEW_PAGES_PER_DAY: '50'
+  MAX_REPAIRS_PER_DAY: '100'
 
 concurrency:
   group: wpp-autonomous-writer-main
@@ -42,12 +42,17 @@ jobs:
         with:
           python-version: '3.11'
       - run: bash scripts/ci_npm_install.sh
+      - id: runtime
+        run: node scripts/runtime_guard.mjs
       - run: python -m pip install --upgrade pip && python -m pip install google-api-python-client google-auth google-auth-httplib2
       - name: Sync latest main before autonomous release
+        if: steps.runtime.outputs.allowed == 'true'
         run: git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
       - name: Validate workflow syntax
+        if: steps.runtime.outputs.allowed == 'true'
         run: npm run actions:validate
       - name: Run GSC primary collector
+        if: steps.runtime.outputs.allowed == 'true'
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_SITE_URL_SECRET: ${{ secrets.GSC_SITE_URL }}
@@ -56,6 +61,7 @@ jobs:
           export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
           python distribution_scripts/gsc_collect_query_signals.py
       - name: Run controlled autonomous content release
+        if: steps.runtime.outputs.allowed == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -65,6 +71,7 @@ jobs:
           fi
           npm run release:autonomous
       - name: Commit generated pages and registries
+        if: steps.runtime.outputs.allowed == 'true'
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"

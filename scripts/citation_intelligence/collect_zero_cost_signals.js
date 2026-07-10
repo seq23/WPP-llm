@@ -10,7 +10,7 @@ async function geminiPanel(universe){
   const out = {source:'gemini_prompt_panel', status:key?'configured':'skipped_missing_secret', records:[]};
   if (!key || typeof fetch !== 'function') return out;
   const model = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
-  const prompt = `Return JSON with 25 search and AEO query opportunities for a production company targeting virtual events, hybrid events, webinars, virtual summits, and executive broadcasts. Fields: query, intent, cluster, reason. Do not include prose.`;
+  const prompt = `Return JSON with 50 search, AEO, GEO, and LLM citation opportunities for West Peek Productions across virtual and hybrid events, brand strategy, storytelling, marketing, creative consulting, AI workflows, and agency-selection decisions. Fields: query, intent, cluster, reason. Do not include prose.`;
   try {
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:0.2}})});
     const data = await res.json();
@@ -29,7 +29,7 @@ async function geminiPanel(universe){
   const social = readJson('data/signals/social_signal_ledger.json',{records:[]});
   const gemini = await geminiPanel(universe);
   const normalized = [];
-  for (const q of universe.queries || []) normalized.push({source:q.source||'query_universe', query_or_topic:q.query, cluster:q.cluster, target_route:q.route_candidate, signal_type:'query_opportunity', strength:q.priority || 50, demand_estimate:q.demand_estimate||0, observed_at:new Date().toISOString(), actionability:'create_or_repair'});
+  for (const q of universe.queries || []) normalized.push({source:q.source||'query_universe', query_or_topic:q.query, cluster:q.cluster, pillar:q.pillar, authority_lane:q.authority_lane, page_family:q.page_family, entity_binding:q.entity_binding, target_route:q.route_candidate, signal_type:'query_opportunity', strength:q.priority || 50, demand_estimate:q.demand_estimate||0, observed_at:new Date().toISOString(), actionability:'create_or_repair'});
   for (const r of gsc.records || []) normalized.push({...r, source:'gsc'});
   for (const r of manual.records || []) normalized.push({...r, source:'manual_citation'});
   for (const r of social.records || []) normalized.push({...r, source:'social'});

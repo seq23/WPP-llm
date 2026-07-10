@@ -8,7 +8,7 @@ on:
         type: boolean
         default: true
   schedule:
-    - cron: '10 12 * * *'
+    - cron: '10 7,19 * * *'
 
 permissions:
   contents: write
@@ -36,14 +36,20 @@ jobs:
         with:
           python-version: '3.11'
       - run: bash scripts/ci_npm_install.sh
+      - id: runtime
+        run: node scripts/runtime_guard.mjs
       - run: python -m pip install --upgrade pip && python -m pip install google-api-python-client google-auth google-auth-httplib2
       - name: Sync latest main before writing artifacts
+        if: steps.runtime.outputs.allowed == 'true'
         run: git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
       - name: Validate workflow syntax
+        if: steps.runtime.outputs.allowed == 'true'
         run: npm run actions:validate
       - name: Generate owned query universe and public atlas
+        if: steps.runtime.outputs.allowed == 'true'
         run: npm run query:atlas
       - name: Collect Search Console query signals
+        if: steps.runtime.outputs.allowed == 'true'
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_SITE_URL_SECRET: ${{ secrets.GSC_SITE_URL }}
@@ -52,17 +58,21 @@ jobs:
           export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
           python distribution_scripts/gsc_collect_query_signals.py
       - name: Collect normalized $0 signals including optional Gemini prompt panel
+        if: steps.runtime.outputs.allowed == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run signals:collect
       - name: Score AEO and GEO opportunities
+        if: steps.runtime.outputs.allowed == 'true'
         run: npm run opportunities:score
       - name: Build controlled release plan preview
+        if: steps.runtime.outputs.allowed == 'true'
         run: npm run release:plan
       - name: Validate query intelligence
+        if: steps.runtime.outputs.allowed == 'true'
         run: npm run validate:autonomous
       - name: Commit query intelligence artifacts
-        if: ${{ github.event_name == 'schedule' || github.event.inputs.commit_changes == 'true' }}
+        if: ${{ steps.runtime.outputs.allowed == 'true' && (github.event_name == 'schedule' || github.event.inputs.commit_changes == 'true') }}
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"

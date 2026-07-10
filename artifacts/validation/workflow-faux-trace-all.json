@@ -1,0 +1,137 @@
+{
+  "workflow_count": 6,
+  "scenario_count": 26,
+  "errors": [],
+  "traces": [
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "pause-confirmed",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "pause-unconfirmed",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "resume-confirmed",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "emergency-stop",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "run-query",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "run-release-confirmed",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "run-distribution",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "reject-arbitrary-action",
+      "trace_only": true
+    },
+    {
+      "workflow": "ci.yml",
+      "scenario": "push",
+      "trace_only": true
+    },
+    {
+      "workflow": "ci.yml",
+      "scenario": "pull_request",
+      "trace_only": true
+    },
+    {
+      "workflow": "ci.yml",
+      "scenario": "manual",
+      "trace_only": true
+    },
+    {
+      "workflow": "credential-check.yml",
+      "scenario": "manual",
+      "trace_only": true
+    },
+    {
+      "workflow": "distribution.yml",
+      "scenario": "workflow-success",
+      "trace_only": true
+    },
+    {
+      "workflow": "distribution.yml",
+      "scenario": "workflow-failure",
+      "trace_only": true
+    },
+    {
+      "workflow": "distribution.yml",
+      "scenario": "missing-provider",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "manual",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "scheduled-active",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "no-input",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "all-skipped",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "no-changes",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "provider-degraded",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "manual",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "scheduled-active",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "missing-gsc",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "missing-gemini",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "no-signals",
+      "trace_only": true
+    }
+  ]
+}

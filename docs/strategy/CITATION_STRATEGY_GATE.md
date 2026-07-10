@@ -72,7 +72,7 @@ The repo is being advanced as if the first six months of foundational work happe
 ### 6-month target
 
 - 50–75 indexed pages.
-- 5–15 observed citation events.
+- 100,000 observed external citations as a 90-day stretch target, never a guarantee.
 - 20–40 benchmark queries with impressions.
 - 3–8 qualified CTA clicks/month to `westpeekproductions.com`.
 - 5 real external links or updated earned citations.
@@ -80,7 +80,7 @@ The repo is being advanced as if the first six months of foundational work happe
 ### 12-month target
 
 - 90+ indexed pages.
-- 20–50 observed citation events.
+- continued verified citation growth after the 90-day sprint.
 - 75–150 benchmark queries with impressions.
 - 10–25 qualified CTA clicks/month.
 - 10–20 real external links/domain mentions.

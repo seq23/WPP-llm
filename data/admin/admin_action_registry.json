@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "backend": "github_actions",
+  "arbitrary_inputs_allowed": false,
+  "actions": [
+    {
+      "id": "run_query_intelligence",
+      "workflow": "query-intelligence.yml",
+      "confirmation": false
+    },
+    {
+      "id": "run_full_release",
+      "workflow": "programmatic-release.yml",
+      "confirmation": true
+    },
+    {
+      "id": "run_distribution",
+      "workflow": "distribution.yml",
+      "confirmation": false
+    },
+    {
+      "id": "run_validation",
+      "workflow": "ci.yml",
+      "confirmation": false
+    },
+    {
+      "id": "check_credentials",
+      "workflow": "credential-check.yml",
+      "confirmation": false
+    },
+    {
+      "id": "pause",
+      "workflow": "admin-command.yml",
+      "confirmation": true
+    },
+    {
+      "id": "resume",
+      "workflow": "admin-command.yml",
+      "confirmation": true
+    },
+    {
+      "id": "emergency_stop",
+      "workflow": "admin-command.yml",
+      "confirmation": true
+    }
+  ]
+}

@@ -26,8 +26,8 @@ Cutover date: 2026-06-25
 
 The 6-month cadence starts now in controlled release mode:
 
-- 5 new pages/day max;
-- 10 repairs/day max;
+- 50 new pages/run max;
+- 100 repairs/run max;
 - 900 route opportunity backlog;
 - GSC as primary signal source because credentials already exist;
 - Gemini prompt-panel collector enabled when `GEMINI_API_KEY` exists;

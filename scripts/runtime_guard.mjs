@@ -1,0 +1,1 @@
+import fs from 'node:fs';const c=JSON.parse(fs.readFileSync('data/admin/runtime_control.json','utf8'));const allowed=c.state==='ACTIVE'&&!c.emergency_stop;console.log(`Runtime state: ${c.state}; allowed=${allowed}`);if(process.env.GITHUB_OUTPUT)fs.appendFileSync(process.env.GITHUB_OUTPUT,`allowed=${allowed}\nstate=${c.state}\n`);

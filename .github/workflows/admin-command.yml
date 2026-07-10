@@ -1,0 +1,86 @@
+name: Admin Command - Full Flow Controls
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: Allowlisted action
+        type: choice
+        required: true
+        options:
+          - pause
+          - resume
+          - emergency_stop
+          - run_query_intelligence
+          - run_full_release
+          - run_distribution
+          - run_validation
+          - check_credentials
+      confirmation:
+        description: Type CONFIRM for pause, resume, emergency stop, or full release
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: wpp-admin-command-main
+  cancel-in-progress: false
+
+jobs:
+  command:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+      - run: bash scripts/ci_npm_install.sh
+      - name: Enforce confirmation
+        env:
+          ACTION: ${{ inputs.action }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          case "$ACTION" in
+            pause|resume|emergency_stop|run_full_release) [ "$CONFIRMATION" = "CONFIRM" ] || { echo "CONFIRM required"; exit 1; } ;;
+          esac
+      - name: Apply runtime state command
+        if: ${{ inputs.action == 'pause' || inputs.action == 'resume' || inputs.action == 'emergency_stop' }}
+        env:
+          ACTION: ${{ inputs.action }}
+        run: |
+          node - <<'NODE'
+          const fs=require('fs'); const p='data/admin/runtime_control.json'; const c=JSON.parse(fs.readFileSync(p)); const a=process.env.ACTION; c.state=a==='resume'?'ACTIVE':a==='pause'?'PAUSED':'EMERGENCY_STOP'; c.emergency_stop=a==='emergency_stop'; c.updated_at=new Date().toISOString(); fs.writeFileSync(p,JSON.stringify(c,null,2)+'\n');
+          NODE
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/admin/runtime_control.json
+          git commit -m "Admin command: $ACTION"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Dispatch allowlisted workflow
+        if: ${{ inputs.action != 'pause' && inputs.action != 'resume' && inputs.action != 'emergency_stop' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ACTION: ${{ inputs.action }}
+        run: |
+          case "$ACTION" in
+            run_query_intelligence) wf=query-intelligence.yml ;;
+            run_full_release) wf=programmatic-release.yml ;;
+            run_distribution) wf=distribution.yml ;;
+            run_validation) wf=ci.yml ;;
+            check_credentials) wf=credential-check.yml ;;
+            *) echo "Action not allowlisted"; exit 1 ;;
+          esac
+          gh workflow run "$wf" --ref main
+      - name: Write action receipt
+        if: always()
+        run: |
+          mkdir -p artifacts/admin-receipts
+          printf '%s\n' '{"action":"${{ inputs.action }}","actor":"${{ github.actor }}","run_id":"${{ github.run_id }}","at":"'"$(date -u +%FT%TZ)"'"}' > artifacts/admin-receipts/latest.json

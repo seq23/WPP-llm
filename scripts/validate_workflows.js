@@ -11,7 +11,8 @@ const required = [
   'query-intelligence.yml',
   'programmatic-release.yml',
   'distribution.yml',
-  'credential-check.yml'
+  'credential-check.yml',
+  'admin-command.yml'
 ];
 const bad = [];
 

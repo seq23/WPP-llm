@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "lanes": [
+    {
+      "id": "query-intelligence",
+      "owns": [
+        "data/signals/**",
+        "data/opportunities/**",
+        "data/query_atlas/**",
+        "artifacts/release/**"
+      ],
+      "must_not_mutate": [
+        "public HTML directly",
+        "protected hand-authored pages"
+      ]
+    },
+    {
+      "id": "programmatic-release",
+      "owns": [
+        "admitted generated pages",
+        "data/content/**",
+        "data/releases/**",
+        "releases/**"
+      ],
+      "must_not_mutate": [
+        "protected hand-authored pages",
+        "provider credentials"
+      ]
+    },
+    {
+      "id": "distribution",
+      "owns": [
+        ".build/indexnow-*",
+        "distribution receipts"
+      ],
+      "must_not_mutate": [
+        "page content",
+        "query plans"
+      ]
+    },
+    {
+      "id": "ci",
+      "owns": [
+        "validation evidence"
+      ],
+      "must_not_mutate": [
+        "production content"
+      ]
+    },
+    {
+      "id": "admin-observability",
+      "owns": [
+        "data/admin/**"
+      ],
+      "must_not_mutate": [
+        "arbitrary repo files",
+        "arbitrary workflows"
+      ]
+    }
+  ]
+}

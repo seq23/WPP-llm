@@ -1,0 +1,26 @@
+{
+  "status": "READY_FOR_RUNTIME_CHECK",
+  "providers": {
+    "github_actions": {
+      "required": true,
+      "state": "configured_by_repo"
+    },
+    "cloudflare_pages": {
+      "required": true,
+      "state": "runtime_unverified"
+    },
+    "google_search_console": {
+      "required": false,
+      "state": "credential_dependent"
+    },
+    "indexnow": {
+      "required": false,
+      "state": "credential_dependent"
+    },
+    "gemini": {
+      "required": false,
+      "state": "optional_degraded_mode_supported"
+    }
+  },
+  "truth_rule": "No provider action is reported as submitted or accepted without a provider receipt."
+}

@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "status": "ACTIVE",
+  "target": {
+    "observed_external_citations": 100000,
+    "days": 90,
+    "guaranteed": false
+  },
+  "capacity": {
+    "query_records": 10000,
+    "new_pages_per_run": 50,
+    "repairs_per_run": 100,
+    "runs_per_day": 2,
+    "max_new_pages_90_days": 9000
+  },
+  "pillars": [
+    "experiences",
+    "brand",
+    "storytelling",
+    "marketing",
+    "creative",
+    "ai-workflows",
+    "agency-decisions"
+  ],
+  "truth_metrics": [
+    "owned_surfaces",
+    "submitted_urls",
+    "indexed_urls",
+    "impressions",
+    "clicks",
+    "observed_external_citations"
+  ],
+  "full_flow": [
+    "query_discovery",
+    "normalization",
+    "scoring",
+    "create_expand_merge_refresh_decisions",
+    "content_generation",
+    "self_heal",
+    "validation",
+    "distribution",
+    "measurement"
+  ],
+  "safety": [
+    "source-safe claims",
+    "no fabricated proof",
+    "semantic duplicate prevention",
+    "lane ownership",
+    "skip-record-continue",
+    "provider degraded mode"
+  ]
+}

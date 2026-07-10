@@ -288,6 +288,70 @@
       "severity": "HARD_FAIL",
       "purpose": "Validate release plan, content trace, page release law, generated content gate, and programmatic substance.",
       "owner": "repo"
+    },
+    {
+      "id": "authority-system",
+      "command": "npm run validate:authority-system",
+      "severity": "HARD_FAIL",
+      "purpose": "Validate seven-pillar authority, entity and autonomy contracts.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "admin-command-center",
+      "command": "npm run validate:admin-command-center",
+      "severity": "HARD_FAIL",
+      "purpose": "Validate truthful static admin and allowlisted operations.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "artifact-consistency-e2e",
+      "command": "npm run validate:artifact-consistency-e2e",
+      "severity": "HARD_FAIL",
+      "purpose": "Validate no-op, reconciliation and mismatch semantics.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "workflow-faux-trace",
+      "command": "npm run validate:workflow-faux-trace",
+      "severity": "HARD_FAIL",
+      "purpose": "Trace workflow scenarios without live execution.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "packaging-parity",
+      "command": "npm run validate:packaging-parity",
+      "severity": "HARD_FAIL",
+      "purpose": "Validate canonical artifact requirements in packaged shape.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "repo-work-os-completeness",
+      "command": "node scripts/validators/validate_repo_work_os_completeness.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure all applicable Repo Work OS Pass 13.1 capabilities and operator artifacts are present.",
+      "owner": "repo"
+    },
+    {
+      "id": "full-flow-citation-engine",
+      "command": "node scripts/validators/validate_full_flow_citation_engine.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure aggressive 90-day full-flow settings, seven pillars, and citation truth rules remain active.",
+      "owner": "repo"
     }
   ]
 }

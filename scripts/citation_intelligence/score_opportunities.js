@@ -12,7 +12,7 @@ const scored = signals.filter(r=>r.query_or_topic && r.target_route).map(r=>{
   const gscBoost = r.source === 'gsc' ? 30 : 0;
   const createBoost = exists ? 0 : 12;
   const score = Math.min(100, Math.round((r.strength||50) + commercial + gscBoost + createBoost));
-  return {opportunity_id:'opp_'+Buffer.from(r.query_or_topic).toString('base64').replace(/[^a-zA-Z0-9]/g,'').slice(0,24), query:r.query_or_topic, cluster:r.cluster||'unclustered', target_route:r.target_route, page_family:r.page_family||'programmatic_opportunity', source:r.source, demand_estimate:r.demand_estimate||0, score, exists, action: exists ? 'repair_or_expand' : 'create', status:'admitted_candidate'};
+  return {opportunity_id:'opp_'+Buffer.from(r.query_or_topic).toString('base64').replace(/[^a-zA-Z0-9]/g,'').slice(0,24), query:r.query_or_topic, cluster:r.cluster||'unclustered', pillar:r.pillar||'experiences', authority_lane:r.authority_lane||'CORE', entity_binding:r.entity_binding||'west_peek_productions', target_route:r.target_route, page_family:r.page_family||'programmatic_opportunity', source:r.source, demand_estimate:r.demand_estimate||0, score, exists, action: exists ? 'repair_or_expand' : 'create', status:'admitted_candidate'};
 }).sort((a,b)=>b.score-a.score || b.demand_estimate-a.demand_estimate);
 fs.writeFileSync(path.join(ROOT,'data/opportunities/aeo_geo_opportunities.json'), JSON.stringify({generated_at:new Date().toISOString(), count:scored.length, opportunities:scored},null,2));
 console.log(`Scored ${scored.length} AEO/GEO opportunities.`);

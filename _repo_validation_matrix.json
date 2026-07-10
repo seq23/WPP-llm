@@ -417,6 +417,26 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "repo-work-os-completeness",
+      "command": "node scripts/validators/validate_repo_work_os_completeness.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure all applicable Repo Work OS Pass 13.1 capabilities and operator artifacts are present.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "full-flow-citation-engine",
+      "command": "node scripts/validators/validate_full_flow_citation_engine.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure aggressive 90-day full-flow settings, seven pillars, and citation truth rules remain active.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ]
 }

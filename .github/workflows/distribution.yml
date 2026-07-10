@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows:
       - CI - Build and Validate
-      - Programmatic Content Release - Controlled 6 Month Cadence
+      - Programmatic Content Release - Full Flow 90 Day
     branches: [main]
     types: [completed]
   workflow_dispatch:
