@@ -49,8 +49,21 @@ const priorityPages = [
   '/virtual-event-production-for-real-estate.html'
 ];
 const bad = [];
+function cleanRoute(route) {
+  const r = String(route || '/').replace(/^https?:\/\/[^/]+/,'').replace(/\.html$/,'').replace(/\/index$/,'/');
+  return r.startsWith('/') ? r : '/' + r;
+}
+function routeExists(route) {
+  const rel = cleanRoute(route).replace(/^\//, '');
+  const candidates = [
+    (rel || 'index') + (rel ? '.html' : '.html'),
+    path.join(rel, 'index.html'),
+    path.join('programmatic', `${rel}.html`)
+  ];
+  return candidates.some((candidate) => fs.existsSync(path.join(ROOT, candidate)));
+}
 for (const rel of requiredFiles) if (!fs.existsSync(path.join(ROOT, rel))) bad.push(`missing required master-plan file: ${rel}`);
-for (const p of priorityPages) if (!fs.existsSync(path.join(ROOT, p.replace(/^\//, '')))) bad.push(`missing master-plan priority page: ${p}`);
+for (const p of priorityPages) if (!routeExists(p)) bad.push(`missing master-plan priority page: ${p}`);
 if (fs.existsSync(path.join(ROOT, 'virtual-event-production-for-nonprofit.html'))) bad.push('singular nonprofit page should redirect, not exist as duplicate HTML');
 const redirects = fs.existsSync(path.join(ROOT, '_redirects')) ? fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8') : '';
 if (!redirects.includes('/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301')) bad.push('missing singular nonprofit clean alias redirect');

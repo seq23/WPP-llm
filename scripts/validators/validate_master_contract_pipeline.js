@@ -7,7 +7,25 @@ function exists(p){ return fs.existsSync(path.join(ROOT,p)); }
 function readJson(p,f=null){ try { return JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8')); } catch { return f; } }
 function fail(msg){ console.error(`${checkId} failed: ${msg}`); process.exit(1); }
 function cleanRoute(route){ const r=String(route||'').replace(/^https?:\/\/[^/]+/,'').replace(/\.html$/,'').replace(/\/index$/,'/'); return r.startsWith('/')?r:'/'+r; }
-function routeExists(route){ const rel=cleanRoute(route).replace(/^\//,''); return exists((rel||'index') + (rel?'.html':'.html')) || exists(path.join(rel,'index.html')); }
+function walkHtml(dir, out = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (['.git','node_modules','.build','logs','artifacts','admin'].includes(entry.name)) continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkHtml(full, out);
+    else if (entry.name.endsWith('.html')) out.push(path.relative(ROOT, full).replace(/\\/g, '/'));
+  }
+  return out;
+}
+function fileForRoute(route){
+  const rel=cleanRoute(route).replace(/^\//,'');
+  const candidates = [
+    (rel||'index') + (rel?'.html':'.html'),
+    path.join(rel,'index.html'),
+    path.join('programmatic', `${rel}.html`)
+  ];
+  return candidates.find(exists);
+}
+function routeExists(route){ return Boolean(fileForRoute(route)); }
 const strategy = readJson('data/strategy/citation_strategy_profile.json', {});
 const contentContract = readJson('_content_release_contract.json', {});
 const citationContract = readJson('_citation_intelligence_contract.json', {});
@@ -80,8 +98,8 @@ const checks = {
   'programmatic-substance': () => {
     const units = releasePlan.units || [];
     for (const u of units.filter(x=>x.release_action==='create')) {
-      const rel = cleanRoute(u.target_route).replace(/^\//,'') + '.html';
-      if (exists(rel)) {
+      const rel = fileForRoute(u.target_route);
+      if (rel && exists(rel)) {
         const text = fs.readFileSync(path.join(ROOT, rel),'utf8').replace(/<[^>]+>/g,' ');
         if (text.split(/\s+/).filter(Boolean).length < 450) fail(`generated page thin: ${rel}`);
         if (!/West Peek Productions/.test(text)) fail(`generated page lacks WPP entity: ${rel}`);
@@ -95,7 +113,7 @@ const checks = {
     if (/<loc>[^<]+\.html<\/loc>/.test(sitemap)) fail('sitemap contains .html canonical URLs');
   },
   'search-quality-basics': () => {
-    for (const f of fs.readdirSync(ROOT).filter(f=>f.endsWith('.html')).slice(0,200)) {
+    for (const f of walkHtml(ROOT).slice(0,200)) {
       const html = fs.readFileSync(path.join(ROOT,f),'utf8');
       if (!/<title>/.test(html) || !/meta name="description"/.test(html) || !/rel="canonical"/.test(html)) fail(`missing SEO basics: ${f}`);
     }
@@ -108,7 +126,7 @@ const checks = {
   },
   'content-safety': () => {
     const bad = [];
-    for (const f of fs.readdirSync(ROOT).filter(f=>f.endsWith('.html'))) {
+    for (const f of walkHtml(ROOT)) {
       const txt = fs.readFileSync(path.join(ROOT,f),'utf8');
       if (/guaranteed\s+(rankings|citations|AI Overviews)/i.test(txt)) bad.push(f);
       if (/fake rankings|trust us bro/i.test(txt)) bad.push(f);

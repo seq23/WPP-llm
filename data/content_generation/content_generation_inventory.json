@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25",
+  "updated": "2026-07-22-root-hygiene-repair",
   "generators": [
     {
       "generator_id": "legacy_draft_release",
@@ -32,13 +32,14 @@
       "path": "scripts/citation_intelligence",
       "trigger_type": "github_actions_daily_and_manual",
       "output_paths": [
-        "*.html",
+        "programmatic/*.html",
         "query-atlas/*.html",
         "data/releases/*.json"
       ],
       "status": "canonical",
       "risk_level": "controlled",
-      "recommended_disposition": "primary"
+      "recommended_disposition": "primary",
+      "layout_policy": "generated authority pages must not be emitted at repo root"
     }
   ]
 }

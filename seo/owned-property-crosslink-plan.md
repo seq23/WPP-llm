@@ -15,9 +15,9 @@ The following owned or related domains should remain trusted authority bridges a
 Add a visible resources or production-help link from each owned property to:
 
 - `https://www.westpeekproductions.com/`
-- `https://virtualagency-os.com/virtual-event-production-companies.html`
-- `https://virtualagency-os.com/virtual-event-management.html`
-- `https://virtualagency-os.com/best-virtual-event-platforms.html`
+- `https://virtualagency-os.com/programmatic/virtual-event-production-companies`
+- `https://virtualagency-os.com/programmatic/virtual-event-management`
+- `https://virtualagency-os.com/programmatic/best-virtual-event-platforms`
 
 ## Suggested anchor language
 

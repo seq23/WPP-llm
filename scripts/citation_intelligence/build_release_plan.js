@@ -9,8 +9,25 @@ function cleanRoute(route) {
   const r = String(route || '/').replace(/^https?:\/\/[^/]+/,'').replace(/\.html$/,'').replace(/\/index$/,'/');
   return r.startsWith('/') ? r : '/' + r;
 }
+const TOP_LEVEL_ROUTES = new Set([
+  '/',
+  '/articles',
+  '/atlas',
+  '/query-atlas',
+  '/selected-work',
+  '/started-business',
+  '/how-west-peek-helps',
+  '/ai-helps-breaks',
+  '/ai-human-os',
+  '/glossary'
+]);
+function governedRoute(route) {
+  const r = cleanRoute(route);
+  if (TOP_LEVEL_ROUTES.has(r) || r.startsWith('/answers/') || r.startsWith('/insights/') || r.startsWith('/query-atlas/') || r.startsWith('/pillars/') || r.startsWith('/case-studies/') || r.startsWith('/programmatic/')) return r;
+  return '/programmatic' + r;
+}
 function fileFor(route) {
-  const rel = cleanRoute(route).replace(/^\//, '');
+  const rel = governedRoute(route).replace(/^\//, '');
   if (!rel || rel === '/') return path.join(ROOT, 'index.html');
   return path.join(ROOT, rel + '.html');
 }
@@ -32,7 +49,7 @@ if (maxNew < 0 || maxNew > 100 || maxRepairs < 0 || maxRepairs > 250) { console.
 
 const normalized = opps
   .filter(o => o && o.query && o.target_route)
-  .map(o => ({ ...o, target_route: cleanRoute(o.target_route), exists_now: existsRoute(o.target_route) }))
+  .map(o => ({ ...o, target_route: governedRoute(o.target_route), source_route: cleanRoute(o.target_route), exists_now: existsRoute(o.target_route) }))
   .sort((a, b) => (b.score || 0) - (a.score || 0) || (b.demand_estimate || 0) - (a.demand_estimate || 0) || a.target_route.localeCompare(b.target_route));
 
 const create = normalized.filter(o => !o.exists_now).slice(0, maxNew).map((o, i) => ({ ...o, release_action: 'create', release_order: i + 1, action: 'create' }));

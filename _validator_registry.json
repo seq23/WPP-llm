@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25Tdeep-validation-repair",
+  "updated": "2026-07-22-root-hygiene-repair",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
     {
@@ -35,6 +35,13 @@
       "command": "node scripts/validate_canonical_routes.js",
       "severity": "HARD_FAIL",
       "purpose": "Ensure clean URL canonical policy and prevent clean-to-html redirect loops.",
+      "owner": "repo"
+    },
+    {
+      "id": "root-hygiene",
+      "command": "node scripts/validate_root_hygiene.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent generated authority pages from flattening into repository root.",
       "owner": "repo"
     },
     {
@@ -146,7 +153,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo"
     },
     {

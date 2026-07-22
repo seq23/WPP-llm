@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25Tdeep-validation-repair",
+  "updated": "2026-07-22-root-hygiene-repair",
   "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
   "allowed_severities": [
     "HARD_FAIL",
@@ -57,6 +57,13 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "root-hygiene",
+      "command": "node scripts/validate_root_hygiene.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent generated authority pages from flattening into repository root.",
+      "tier": "V2"
     },
     {
       "id": "priority-pages",
@@ -212,7 +219,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",

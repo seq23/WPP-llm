@@ -37,7 +37,7 @@
     "validate:atom-contract": "node scripts/validators/validate_atom_contract.js",
     "validate:autonomous": "npm run validate:atom-contract && npm run validate:page-family-contract && npm run validate:page-admission && npm run validate:query-atlas && npm run validate:programmatic-engine && npm run validate:workflow-data-trace && npm run validate:master-contract-pipeline",
     "validate:fanout": "node scripts/validate_fanout_warning.js",
-    "validate:governance": "node scripts/validate_strategy_gate.js && node scripts/validate_master_plan_completion.js && node scripts/validate_validator_registry.js && node scripts/validate_canonical_routes.js && node scripts/validate_priority_pages.js && node scripts/validate_homepage_ctas.js && node scripts/validate_backlink_remediation.js && node scripts/validate_release_plan.js && npm run validate:autonomous",
+    "validate:governance": "node scripts/validate_strategy_gate.js && node scripts/validate_master_plan_completion.js && node scripts/validate_validator_registry.js && node scripts/validate_canonical_routes.js && node scripts/validate_root_hygiene.js && node scripts/validate_priority_pages.js && node scripts/validate_homepage_ctas.js && node scripts/validate_backlink_remediation.js && node scripts/validate_release_plan.js && npm run validate:autonomous",
     "validate:llm-surfaces": "node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js",
     "validate:master-contract-pipeline": "node scripts/validators/validate_master_contract_pipeline.js all",
     "validate:page-admission": "node scripts/validators/validate_page_admission.js",
@@ -55,7 +55,8 @@
     "growth:build": "node scripts/build_growth_health.mjs",
     "validate:repo-work-os-completeness": "node scripts/validators/validate_repo_work_os_completeness.mjs",
     "validate:full-flow-citation-engine": "node scripts/validators/validate_full_flow_citation_engine.mjs",
-    "validate:hostile-full-flow": "npm run validate:repo-work-os-upgrade && npm run validate:repo-work-os-completeness && npm run validate:full-flow-citation-engine && npm run validate:governance && npm run validate:all"
+    "validate:hostile-full-flow": "npm run validate:repo-work-os-upgrade && npm run validate:repo-work-os-completeness && npm run validate:full-flow-citation-engine && npm run validate:governance && npm run validate:all",
+    "validate:root-hygiene": "node scripts/validate_root_hygiene.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
