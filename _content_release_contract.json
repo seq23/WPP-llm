@@ -10,7 +10,8 @@
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 150,
     "scheduled_runs_per_day": 2,
-    "ninety_day_route_target": 4500
+    "ninety_day_route_target": 4500,
+    "daily_ceiling_semantics": "PORTFOLIO_DAILY_CEILING_SHARED_ACROSS_ALL_SCHEDULED_RUNS_NOT_PER_RUN_QUOTA"
   },
   "strategy_targets": {
     "stretch_observed_external_citations_90_days": 100000,
@@ -30,6 +31,13 @@
     "query_ownership_required",
     "semantic_duplicate_check_required",
     "safe_harbor_skip_record_continue",
-    "citation_truth_metrics_separated"
-  ]
+    "citation_truth_metrics_separated",
+    "accepted_output_freeze_required",
+    "exact_route_thaw_repair_refreeze_required",
+    "max_fanout_opportunity_not_page_quota"
+  ],
+  "max_fanout_surfacing_standard": "data/authority_scale/surfacing_strategy_contract.json",
+  "fanout_reference_runway": "data/authority_scale/fanout_100k/index.json",
+  "accepted_output_freeze_contract": "data/release/accepted_output_freeze_contract.json",
+  "velocity_governor": "data/authority_scale/velocity_governor.json"
 }

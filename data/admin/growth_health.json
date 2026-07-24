@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-22T10:39:10.699Z",
+  "generated_at": "2026-07-24T19:43:15.938Z",
   "full_flow_state": "ACTIVE",
-  "owned_html_surfaces": 1420,
-  "tracked_queries": 2596,
+  "owned_html_surfaces": 1648,
+  "tracked_queries": 10000,
   "submitted_urls": null,
   "indexed_urls": null,
   "impressions": null,
@@ -10,8 +10,9 @@
   "observed_external_citations": 0,
   "stretch_target_observed_external_citations_90_days": 100000,
   "guaranteed": false,
-  "new_page_capacity_per_run": 50,
-  "repair_capacity_per_run": 100,
+  "new_page_capacity_per_day": 50,
+  "repair_capacity_per_day": 100,
   "scheduled_runs_per_day": 2,
+  "daily_ceiling_shared_across_runs": true,
   "truth_rule": "Null means unmeasured; owned surfaces are not external citations."
 }

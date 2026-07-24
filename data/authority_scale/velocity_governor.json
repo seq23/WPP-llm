@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "effective_date": "2026-07-24",
+  "mode": "DYNAMIC_SAFETY_CEILING_NOT_QUOTA",
+  "scheduled_runs_per_day": 2,
+  "daily_ceiling": {
+    "new_pages": 50,
+    "repairs": 100,
+    "route_mutations": 150
+  },
+  "per_run_budget_rule": "A scheduled run may consume only the remaining daily budget recorded in the daily release ledger; two runs do not double the daily ceiling.",
+  "scale_tiers": [5, 15, 25, 50, 75, 100],
+  "upshift_requires": [
+    "qualified_distinct_backlog",
+    "source_and_claim_coverage",
+    "validation_health",
+    "low_semantic_duplicate_rate",
+    "indexation_capacity",
+    "observed_surfacing_yield"
+  ],
+  "downshift_on": [
+    "validator_failure",
+    "source_freshness_failure",
+    "duplicate_intent_spike",
+    "thin_content_risk",
+    "indexation_backlog",
+    "unsafe_claim_risk"
+  ]
+}

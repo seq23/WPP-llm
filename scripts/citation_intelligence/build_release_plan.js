@@ -17,6 +17,7 @@ const TOP_LEVEL_ROUTES = new Set([
   '/selected-work',
   '/started-business',
   '/how-west-peek-helps',
+  '/community-as-a-service',
   '/ai-helps-breaks',
   '/ai-human-os',
   '/glossary'
@@ -43,9 +44,16 @@ fs.mkdirSync(path.join(ROOT, 'artifacts/release'), { recursive: true });
 const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 50, max_repairs_per_day: 100 } });
 const opps = readJson('data/opportunities/aeo_geo_opportunities.json', { opportunities: [] }).opportunities || [];
 const priority = readJson('data/seo/priority_pages.json', { pages: [] }).pages || [];
-const maxNew = Number(process.env.MAX_NEW_PAGES_PER_DAY || contract.cadence?.max_new_pages_per_day || 50);
-const maxRepairs = Number(process.env.MAX_REPAIRS_PER_DAY || contract.cadence?.max_repairs_per_day || 100);
-if (maxNew < 0 || maxNew > 100 || maxRepairs < 0 || maxRepairs > 250) { console.error('Full-flow caps out of governed range.'); process.exit(1); }
+const dailyNewCeiling = Number(process.env.MAX_NEW_PAGES_PER_DAY || contract.cadence?.max_new_pages_per_day || 50);
+const dailyRepairCeiling = Number(process.env.MAX_REPAIRS_PER_DAY || contract.cadence?.max_repairs_per_day || 100);
+if (dailyNewCeiling < 0 || dailyNewCeiling > 100 || dailyRepairCeiling < 0 || dailyRepairCeiling > 250) { console.error('Full-flow caps out of governed range.'); process.exit(1); }
+const today = new Date().toISOString().slice(0,10);
+const velocityLedger = readJson('data/releases/daily_velocity_ledger.json', { date: today, new_pages_used: 0, repairs_used: 0 });
+const sameDay = velocityLedger.date === today;
+const usedNew = sameDay ? Number(velocityLedger.new_pages_used || 0) : 0;
+const usedRepairs = sameDay ? Number(velocityLedger.repairs_used || 0) : 0;
+const maxNew = Math.max(0, dailyNewCeiling - usedNew);
+const maxRepairs = Math.max(0, dailyRepairCeiling - usedRepairs);
 
 const normalized = opps
   .filter(o => o && o.query && o.target_route)
@@ -59,9 +67,15 @@ const units = [...create, ...repairs];
 const plan = {
   generated_at: new Date().toISOString(),
   mode: 'full_flow_aggressive_90_day',
-  max_new_pages_per_day: maxNew,
-  max_repairs_per_day: maxRepairs,
-  max_route_mutations_per_day: maxNew + maxRepairs,
+  daily_new_page_ceiling: dailyNewCeiling,
+  daily_repair_ceiling: dailyRepairCeiling,
+  daily_new_pages_already_used: usedNew,
+  daily_repairs_already_used: usedRepairs,
+  max_new_pages_this_run: maxNew,
+  max_repairs_this_run: maxRepairs,
+  max_new_pages_per_day: dailyNewCeiling,
+  max_repairs_per_day: dailyRepairCeiling,
+  max_route_mutations_per_day: dailyNewCeiling + dailyRepairCeiling,
   units,
   release_units: units,
   blocked: normalized.filter(o => !o.query || !o.target_route).map(o => ({ reason: 'missing_query_or_route', target_route: o.target_route || null }))

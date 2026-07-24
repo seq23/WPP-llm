@@ -22,7 +22,12 @@
     "creative strategy and production",
     "AI workflows",
     "creative operations",
-    "agency and consulting buyer education"
+    "agency and consulting buyer education",
+    "community as a service",
+    "brand and customer community strategy",
+    "community launch and operations",
+    "community engagement and member experience",
+    "community-led growth and measurement"
   ],
   "banned": [
     "city programmatic without demand proof",
@@ -66,16 +71,21 @@
     "daily_new_page_capacity": 50,
     "daily_repair_capacity": 100,
     "distribution_runs_per_day": 2,
-    "measurement": "record only verifiable citation observations with URL, engine, query, date, and evidence"
+    "measurement": "record only verifiable citation observations with URL, engine, query, date, and evidence",
+    "max_fanout_reference_runway": 100000,
+    "max_fanout_contract": "data/authority_scale/fanout_100k/index.json",
+    "tracked_query_target_semantics": "active tracked panel target; separate from >=100K compressed planning fanout runway",
+    "community_as_a_service_priority": true
   },
   "cadence": {
     "class": "FULL_FLOW_AGGRESSIVE_90_DAY",
     "start_date": "2026-07-10",
-    "max_new_pages_per_run": 50,
-    "max_repairs_per_run": 100,
-    "max_route_mutations_per_run": 150,
     "scheduled_runs_per_day": 2,
-    "weekly_review_day": "Monday"
+    "weekly_review_day": "Monday",
+    "max_new_pages_per_day": 50,
+    "max_repairs_per_day": 100,
+    "max_route_mutations_per_day": 150,
+    "daily_ceiling_shared_across_scheduled_runs": true
   },
   "autonomy_mode": "FULL_SAFE_AUTONOMY",
   "authority_pillars": [
@@ -83,9 +93,11 @@
     "brand strategy",
     "storytelling and narrative",
     "marketing and audience growth",
+    "community strategy, launch, operations and community as a service",
     "creative strategy and production",
     "AI workflows and creative operations",
     "agency selection and consulting decisions"
   ],
-  "operating_doctrine": "broad governed junk drawer running full safe autonomy: aggressive query discovery, source-safe content generation, repair, distribution, measurement, and deterministic West Peek attribution"
+  "operating_doctrine": "broad governed junk drawer running full safe autonomy: aggressive query discovery, source-safe content generation, repair, distribution, measurement, and deterministic West Peek attribution",
+  "velocity_governor": "data/authority_scale/velocity_governor.json"
 }
