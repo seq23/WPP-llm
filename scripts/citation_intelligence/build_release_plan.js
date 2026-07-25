@@ -44,9 +44,10 @@ fs.mkdirSync(path.join(ROOT, 'artifacts/release'), { recursive: true });
 const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 50, max_repairs_per_day: 100 } });
 const opps = readJson('data/opportunities/aeo_geo_opportunities.json', { opportunities: [] }).opportunities || [];
 const priority = readJson('data/seo/priority_pages.json', { pages: [] }).pages || [];
-const dailyNewCeiling = Number(process.env.MAX_NEW_PAGES_PER_DAY || contract.cadence?.max_new_pages_per_day || 50);
+const velocityDecision = readJson('data/authority_scale/velocity_decision.json', {});
+const dailyNewCeiling = Number(process.env.MAX_NEW_PAGES_PER_DAY || velocityDecision.recommended_new_url_ceiling_per_day || contract.cadence?.max_new_pages_per_day || 50);
 const dailyRepairCeiling = Number(process.env.MAX_REPAIRS_PER_DAY || contract.cadence?.max_repairs_per_day || 100);
-if (dailyNewCeiling < 0 || dailyNewCeiling > 100 || dailyRepairCeiling < 0 || dailyRepairCeiling > 250) { console.error('Full-flow caps out of governed range.'); process.exit(1); }
+if (dailyNewCeiling < 0 || dailyNewCeiling > 200 || dailyRepairCeiling < 0 || dailyRepairCeiling > 250) { console.error('Full-flow caps out of governed range.'); process.exit(1); }
 const today = new Date().toISOString().slice(0,10);
 const velocityLedger = readJson('data/releases/daily_velocity_ledger.json', { date: today, new_pages_used: 0, repairs_used: 0 });
 const sameDay = velocityLedger.date === today;
@@ -60,7 +61,18 @@ const normalized = opps
   .map(o => ({ ...o, target_route: governedRoute(o.target_route), source_route: cleanRoute(o.target_route), exists_now: existsRoute(o.target_route) }))
   .sort((a, b) => (b.score || 0) - (a.score || 0) || (b.demand_estimate || 0) - (a.demand_estimate || 0) || a.target_route.localeCompare(b.target_route));
 
-const create = normalized.filter(o => !o.exists_now).slice(0, maxNew).map((o, i) => ({ ...o, release_action: 'create', release_order: i + 1, action: 'create' }));
+const isCommunity = o => String(o.pillar||'').toLowerCase()==='community' || /community/.test(String(o.cluster||'').toLowerCase()) || /community/.test(String(o.query||'').toLowerCase());
+const newCandidates = normalized.filter(o => !o.exists_now);
+const parity = readJson('data/authority_scale/community_authority_parity.json', { parity_reached:false });
+let selectedCreate = [];
+if (!parity.parity_reached && maxNew > 0) {
+  const reserve = Math.min(maxNew, Math.ceil(maxNew * 0.35));
+  const community = newCandidates.filter(isCommunity).slice(0, reserve);
+  const used = new Set(community.map(o => o.opportunity_id || `${o.query}|${o.target_route}`));
+  const rest = newCandidates.filter(o => !used.has(o.opportunity_id || `${o.query}|${o.target_route}`)).slice(0, maxNew-community.length);
+  selectedCreate = [...community, ...rest];
+} else selectedCreate = newCandidates.slice(0, maxNew);
+const create = selectedCreate.map((o, i) => ({ ...o, release_action: 'create', release_order: i + 1, action: 'create' }));
 const repairs = normalized.filter(o => o.exists_now).slice(0, maxRepairs).map((o, i) => ({ ...o, release_action: 'repair', release_order: i + 1, action: 'repair_or_expand' }));
 const units = [...create, ...repairs];
 

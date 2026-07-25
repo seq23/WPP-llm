@@ -9,7 +9,13 @@
     "route_mutations": 150
   },
   "per_run_budget_rule": "A scheduled run may consume only the remaining daily budget recorded in the daily release ledger; two runs do not double the daily ceiling.",
-  "scale_tiers": [5, 15, 25, 50, 75, 100],
+  "scale_tiers": [
+    50,
+    75,
+    100,
+    150,
+    200
+  ],
   "upshift_requires": [
     "qualified_distinct_backlog",
     "source_and_claim_coverage",
@@ -25,5 +31,11 @@
     "thin_content_risk",
     "indexation_backlog",
     "unsafe_claim_risk"
-  ]
+  ],
+  "current_default_new_page_ceiling_per_day": 50,
+  "community_priority_until_strategic_parity": {
+    "minimum_share_of_qualified_new_url_budget": 0.35,
+    "maximum_share": 0.5,
+    "rule": "Reserve qualified capacity for Community as a Service until strategic layer parity is proven; never manufacture thin pages to hit the share."
+  }
 }
