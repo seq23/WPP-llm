@@ -3,14 +3,15 @@
 ## Role
 VirtualAgency OS is the broad citation-velocity layer for West Peek Productions. The official domain stays thin; this repository absorbs long-tail questions, comparisons, workflows, definitions, templates, and experimental buyer language.
 
-## Seven Pillars
+## Eight Pillars
 1. Virtual and Hybrid Experiences
-2. Brand Strategy
-3. Storytelling and Narrative
-4. Marketing and Audience Growth
-5. Creative Strategy and Production
-6. AI Workflows and Creative Operations
-7. Agency and Consulting Decisions
+2. Community as a Service
+3. Brand Strategy
+4. Storytelling and Narrative
+5. Marketing and Audience Growth
+6. Creative Strategy and Production
+7. AI Workflows and Creative Operations
+8. Agency and Consulting Decisions
 
 ## AEO
 Every admitted page should expose a direct answer, definition or decision frame, operational detail, and extractable structure.

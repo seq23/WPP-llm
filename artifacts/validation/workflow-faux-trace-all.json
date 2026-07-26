@@ -1,136 +1,417 @@
 {
+  "schema_version": "2.0",
   "workflow_count": 6,
-  "scenario_count": 26,
+  "scenario_count": 51,
+  "passed": 51,
+  "failed": [],
   "errors": [],
   "traces": [
     {
-      "workflow": "admin-command.yml",
-      "scenario": "pause-confirmed",
+      "workflow": "programmatic-release.yml",
+      "scenario": "autonomous-transaction-order",
+      "expected": "prepare -> mutate -> build -> validate release -> refreeze -> clear -> final validation",
+      "passed": true,
+      "detail": "{'authority:scale:prepare-scope': 192, 'release:content': 233, 'npm run build': 272, 'validate:release': 392, 'authority:scale:freeze': 536, 'authority:scale:clear-scope': 570, 'validate:all': 609}",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "no-authority-validation-while-thawed",
+      "expected": "authority-scale validation cannot run before refreeze/clear",
+      "passed": true,
+      "detail": "clean",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "final-authority-proof",
+      "expected": "validate:all runs after clear-scope and includes validate:authority-scale",
+      "passed": true,
+      "detail": "npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
-      "scenario": "pause-unconfirmed",
+      "scenario": "pause-requires-confirmation",
+      "expected": "CONFIRM required",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
-      "scenario": "resume-confirmed",
+      "scenario": "resume-requires-confirmation",
+      "expected": "CONFIRM required",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
-      "scenario": "emergency-stop",
+      "scenario": "emergency_stop-requires-confirmation",
+      "expected": "CONFIRM required",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
-      "scenario": "run-query",
+      "scenario": "run_full_release-requires-confirmation",
+      "expected": "CONFIRM required",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
-      "scenario": "run-release-confirmed",
+      "scenario": "dispatch-run_query_intelligence",
+      "expected": "query-intelligence.yml",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
-      "scenario": "run-distribution",
+      "scenario": "dispatch-run_full_release",
+      "expected": "programmatic-release.yml",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "dispatch-run_distribution",
+      "expected": "distribution.yml",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "dispatch-run_validation",
+      "expected": "ci.yml",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "dispatch-check_credentials",
+      "expected": "credential-check.yml",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "admin-command.yml",
       "scenario": "reject-arbitrary-action",
+      "expected": "unknown actions exit 1",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "runtime-state-receipt",
+      "expected": "state mutation is committed and receipt written",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "ci.yml",
       "scenario": "push",
+      "expected": "actions validation + self heal",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "ci.yml",
       "scenario": "pull_request",
+      "expected": "actions validation + self heal",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "ci.yml",
-      "scenario": "manual",
+      "scenario": "workflow_dispatch",
+      "expected": "actions validation + self heal",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "credential-check.yml",
       "scenario": "manual",
+      "expected": "credential checker runs",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "credential-check.yml",
+      "scenario": "missing-provider",
+      "expected": "missing credentials produce SKIP states",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "credential-check.yml",
+      "scenario": "no-secret-echo",
+      "expected": "secrets are not echoed",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "distribution.yml",
       "scenario": "workflow-success",
+      "expected": "runs after successful upstream workflow",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "distribution.yml",
       "scenario": "workflow-failure",
+      "expected": "does not distribute after failed upstream workflow",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "distribution.yml",
+      "scenario": "manual",
+      "expected": "manual dispatch allowed",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "distribution.yml",
       "scenario": "missing-provider",
+      "expected": "provider steps skip or warn and continue",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
-      "workflow": "programmatic-release.yml",
-      "scenario": "manual",
+      "workflow": "distribution.yml",
+      "scenario": "required-artifact-boundary",
+      "expected": "missing .build URL lists hard fail",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "programmatic-release.yml",
       "scenario": "scheduled-active",
+      "expected": "runtime guard gates release",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "programmatic-release.yml",
-      "scenario": "no-input",
-      "trace_only": true
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "scenario": "all-skipped",
-      "trace_only": true
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "scenario": "no-changes",
+      "scenario": "manual-inputs",
+      "expected": "manual daily ceilings are passed to release",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "programmatic-release.yml",
       "scenario": "provider-degraded",
+      "expected": "missing GSC/Gemini does not block internal release",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "no-changes",
+      "expected": "empty git status is a valid completion",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "scenario": "serialized-writes",
+      "expected": "writer workflows share one concurrency group",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "query-intelligence.yml",
-      "scenario": "manual",
+      "scenario": "command-query:atlas",
+      "expected": "npm run query:atlas",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "query-intelligence.yml",
-      "scenario": "scheduled-active",
+      "scenario": "command-signals:collect",
+      "expected": "npm run signals:collect",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "command-opportunities:score",
+      "expected": "npm run opportunities:score",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "command-release:plan",
+      "expected": "npm run release:plan",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "command-validate:autonomous",
+      "expected": "npm run validate:autonomous",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "query-intelligence.yml",
       "scenario": "missing-gsc",
+      "expected": "GSC collector may produce an empty/skip artifact",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "query-intelligence.yml",
       "scenario": "missing-gemini",
+      "expected": "Gemini is optional",
+      "passed": true,
+      "detail": "",
       "trace_only": true
     },
     {
       "workflow": "query-intelligence.yml",
       "scenario": "no-signals",
+      "expected": "owned query universe still scores and plans",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "serialized-writes",
+      "expected": "shares writer concurrency group",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:_citation_intelligence_contract.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "_citation_intelligence_contract.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:_content_release_contract.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "_content_release_contract.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:_self_heal_contract.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "_self_heal_contract.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:data/query_atlas/query_universe.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "data/query_atlas/query_universe.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:data/signals/normalized_records.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "data/signals/normalized_records.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:data/opportunities/aeo_geo_opportunities.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "data/opportunities/aeo_geo_opportunities.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:data/releases/daily_release_plan.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "data/releases/daily_release_plan.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:artifacts/release/apply_release_plan_summary.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "artifacts/release/apply_release_plan_summary.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:.build/indexnow-priority.txt",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": ".build/indexnow-priority.txt",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:.build/indexnow-batch.txt",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": ".build/indexnow-batch.txt",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:data/release/accepted_output_freeze_contract.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "data/release/accepted_output_freeze_contract.json",
+      "trace_only": true
+    },
+    {
+      "workflow": "workflow-spine",
+      "scenario": "data:data/release/frozen_output_registry.json",
+      "expected": "required handoff exists",
+      "passed": true,
+      "detail": "data/release/frozen_output_registry.json",
       "trace_only": true
     }
   ]

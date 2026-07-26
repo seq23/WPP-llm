@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-26",
+  "repo": "WPP-llm",
+  "status": "PASS",
+  "root_cause": "authority-scale validation ran before accepted-output refreeze and mutation-scope cleanup",
+  "repairs": [
+    "reordered autonomous release transaction",
+    "allowed valid zero-unit budget-exhausted/no-op release plans",
+    "reconciled eight authority pillars including Community as a Service",
+    "made daily fanout/query build metadata deterministic",
+    "strengthened faux workflow data tracing"
+  ],
+  "fresh_autonomous_replay": {
+    "passed": true,
+    "created": 50,
+    "repair_decisions": 100,
+    "skipped": 0,
+    "admitted_existing_outputs": 1535,
+    "extra_static_outputs": 2,
+    "frozen_outputs": 1537,
+    "active_mutation_routes": 0,
+    "unscoped_drift": 0,
+    "missing_rendered": 0
+  },
+  "validation": {
+    "validate_package_scripts": {
+      "passed": 26,
+      "failed": 0
+    },
+    "deep_isolated_components": {
+      "passed": 39,
+      "failed": 0
+    },
+    "artifact_consistency_scenarios": {
+      "passed": 26,
+      "failed": 0
+    },
+    "workflow_faux_scenarios": {
+      "workflows": 6,
+      "steps": 53,
+      "passed": 51,
+      "failed": 0
+    },
+    "deterministic_build_parity": {
+      "artifacts_compared": 1757,
+      "differences": 0
+    },
+    "browserless_clean_route_proof": {
+      "urls": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    "authority_scale": {
+      "fanout_records": 100000,
+      "shards": 10,
+      "frozen_outputs": 1537
+    },
+    "site_integrity": {
+      "html_files": 1739,
+      "clean_sitemap_urls": 1739,
+      "tracked_queries": 10000,
+      "authority_pillars": 8
+    }
+  },
+  "external_not_executed": [
+    "real GitHub Actions",
+    "live GSC mutation",
+    "live IndexNow acceptance",
+    "Cloudflare deployment mutation"
+  ],
+  "environment_note": "Node 22.16.0; temporary external PyYAML-backed YAML parse shim used because network package installation was unavailable. Shim not packaged."
+}

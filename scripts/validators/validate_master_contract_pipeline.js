@@ -72,7 +72,14 @@ const checks = {
   },
   'release-plan-integrity': () => {
     const units = releasePlan.units || releasePlan.release_units || [];
-    if (!units.length) fail('release plan has no units');
+    if (!units.length) {
+      const maxNew = Number(releasePlan.max_new_pages_this_run ?? releasePlan.max_new_pages_per_day ?? 0);
+      const maxRepairs = Number(releasePlan.max_repairs_this_run ?? releasePlan.max_repairs_per_day ?? 0);
+      const allowedStates = new Set(['NO_INPUT','ALL_SKIPPED','COMPLETED_NO_CHANGES']);
+      const validNoOp = (maxNew === 0 && maxRepairs === 0) || allowedStates.has(releasePlan.status);
+      if (!validNoOp) fail('release plan has no units without a valid no-op/budget-exhausted state');
+      return;
+    }
     if (units.filter(u=>u.release_action==='create').length > (contentContract.cadence?.max_new_pages_per_day || 50)) fail('release plan exceeds create cap');
     if (units.filter(u=>u.release_action==='repair').length > (contentContract.cadence?.max_repairs_per_day || 100)) fail('release plan exceeds repair cap');
     for (const u of units) if (!u.query || !u.target_route || !u.release_action) fail('release unit missing query/route/action');

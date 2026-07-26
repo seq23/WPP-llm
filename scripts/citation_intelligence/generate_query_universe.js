@@ -22,8 +22,10 @@ const patterns=['why it fails','how to brief a partner','what to prepare before 
 for(const [pillar,heads] of Object.entries(pillars))for(const head of heads)for(const p of patterns)add(`${head}: ${p}`,pillar,head,p,84);
 
 const fanoutWindowPath=path.join(ROOT,'data/query_atlas/max_fanout_window.json');
+let fanoutWindowPacket={queries:[],generated_at:null};
 if(fs.existsSync(fanoutWindowPath)){
-  const window=JSON.parse(fs.readFileSync(fanoutWindowPath,'utf8')).queries||[];
+  fanoutWindowPacket=JSON.parse(fs.readFileSync(fanoutWindowPath,'utf8'));
+  const window=fanoutWindowPacket.queries||[];
   for(const r of window){
     const query=String(r.query||'').trim(); if(!query||seen.has(query)) continue;
     const head=String(r.topic||r.entity||r.pillar||'authority opportunity');
@@ -34,5 +36,6 @@ if(fs.existsSync(fanoutWindowPath)){
 }
 
 const strategy={updated:'2026-07-10',goal:'Full-flow citation-velocity program: 10,000 actively tracked query records backed by a rotating >=100K planning runway, with a shared ceiling of 50 new pages/day and 100 repairs/day across two scheduled runs.',commercial_destination:'https://www.westpeekproductions.com/',stretch_target_observed_external_citations:100000,guaranteed:false};
-const out={strategy,counts:{total_queries:qs.length,target_90_day_routes:4500,max_new_pages_per_day:50,max_repairs_per_day:100,scheduled_runs_per_day:2,daily_ceiling_shared_across_runs:true},generated_at:new Date().toISOString(),queries:qs.slice(0,10000)};
+const deterministicGeneratedAt=fanoutWindowPacket.generated_at||`${process.env.BUILD_DATE||new Date().toISOString().slice(0,10)}T00:00:00.000Z`;
+const out={strategy,counts:{total_queries:qs.length,target_90_day_routes:4500,max_new_pages_per_day:50,max_repairs_per_day:100,scheduled_runs_per_day:2,daily_ceiling_shared_across_runs:true},generated_at:deterministicGeneratedAt,queries:qs.slice(0,10000)};
 fs.mkdirSync(path.join(ROOT,'data/query_atlas'),{recursive:true});fs.writeFileSync(path.join(ROOT,'data/query_atlas/query_universe.json'),JSON.stringify(out,null,2));console.log(`Generated full-flow query universe with ${out.queries.length} opportunities across ${Object.keys(pillars).length} pillars.`);
