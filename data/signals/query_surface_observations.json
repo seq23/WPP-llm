@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-08-08",
+  "records": [],
+  "required_fields": [
+    "observed_at",
+    "surface",
+    "query_id",
+    "query",
+    "own_url_surfaced",
+    "own_url",
+    "competitors_observed"
+  ],
+  "source": "manual_zero_cost_query_testing_panel",
+  "truth_rule": "Only entries filled from an actual manual or GSC-backed check belong here. An empty/absent row is UNPROVEN, not a negative result. Provider/observation failure must never be recorded as 'not surfaced'."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-08-08T00:00:00.000Z",
+  "ceilings": {
+    "gsc_requests_per_day": 48,
+    "gemini_requests_per_day": 12,
+    "manual_ingest_runs_per_day": 10
+  },
+  "today": {
+    "date": null,
+    "gsc_requests": 0,
+    "gemini_requests": 0,
+    "manual_ingest_runs": 0
+  },
+  "history": [],
+  "truth_rule": "Counts only increment when the corresponding collector actually attempted a live provider call (not on skipped_missing_credentials/skipped_missing_secret runs). This is a request/volume ledger, not a dollar-cost ledger, because the wired collectors are zero-paid-provider by contract."
+}

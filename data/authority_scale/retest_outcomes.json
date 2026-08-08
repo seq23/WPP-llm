@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-08-08T13:42:58.351Z",
+  "outcomes": [
+    "IMPROVED",
+    "UNCHANGED",
+    "REGRESSED",
+    "INCONCLUSIVE"
+  ],
+  "events": [],
+  "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status."
+}

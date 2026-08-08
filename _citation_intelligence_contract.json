@@ -21,6 +21,19 @@
     "data/signals/",
     "data/query_atlas/query_universe.json",
     "data/opportunities/",
-    "artifacts/release/"
-  ]
+    "artifacts/release/",
+    "data/signals/query_surface_observations.json",
+    "data/opportunities/page_diagnostics.json",
+    "data/release/repair_receipts/",
+    "data/authority_scale/retest_queue.json",
+    "data/authority_scale/retest_outcomes.json",
+    "data/admin/cost_ledger.json"
+  ],
+  "closed_loop_lifecycle": "observe (gsc + benchmark_query_panel manual log) -> diagnose (evidence + static technical scan) -> free_win_candidate -> bounded repair (AUTO/AUTO_WATCH only) -> validate/refreeze -> publish (existing static build) -> retest_queue (delayed) -> retest_outcomes (IMPROVED/UNCHANGED/REGRESSED/INCONCLUSIVE)",
+  "repair_lane_commands": {
+    "observe_ingest": "npm run query:observe:ingest",
+    "diagnose": "npm run repairs:diagnose",
+    "apply_repairs": "npm run repairs:apply",
+    "retest": "npm run repairs:retest"
+  }
 }

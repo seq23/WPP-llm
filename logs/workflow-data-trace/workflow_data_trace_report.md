@@ -1,8 +1,8 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-08-08T08:51:18.868Z
+Generated: 2026-08-08T13:45:45.876Z
 
-Workflows: 6
+Workflows: 7
 
 ## Required data files
 - PASS _citation_intelligence_contract.json
@@ -70,6 +70,18 @@ Workflows: 6
 - query-intelligence.yml :: collect_score #14 :: Validate query intelligence :: npm:validate:autonomous
 - query-intelligence.yml :: collect_score #15 :: Commit query intelligence artifacts
 - query-intelligence.yml :: collect_score #16 :: actions/upload-artifact@v4
+- search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v4
+- search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v4
+- search-repair-retest.yml :: diagnose_repair_retest #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
+- search-repair-retest.yml :: diagnose_repair_retest #4 :: node scripts/runtime_guard.mjs
+- search-repair-retest.yml :: diagnose_repair_retest #5 :: Sync latest main before writing artifacts
+- search-repair-retest.yml :: diagnose_repair_retest #6 :: Validate workflow syntax :: npm:actions:validate
+- search-repair-retest.yml :: diagnose_repair_retest #7 :: Ingest any filled manual query-surface observation log :: npm:query:observe:ingest
+- search-repair-retest.yml :: diagnose_repair_retest #8 :: Diagnose pages (evidence + technical) :: npm:repairs:diagnose
+- search-repair-retest.yml :: diagnose_repair_retest #9 :: Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze) :: npm:repairs:apply
+- search-repair-retest.yml :: diagnose_repair_retest #10 :: Sweep delayed retest queue for real evidence :: npm:repairs:retest
+- search-repair-retest.yml :: diagnose_repair_retest #11 :: Commit search repair and retest artifacts
+- search-repair-retest.yml :: diagnose_repair_retest #12 :: actions/upload-artifact@v4
 
 ## Errors
 - none
