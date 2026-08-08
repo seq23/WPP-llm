@@ -1,13 +1,14 @@
 {
-  "generated_at": "2026-08-08T08:51:18.868Z",
-  "workflow_count": 6,
+  "generated_at": "2026-08-08T13:45:45.876Z",
+  "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
     "ci.yml",
     "credential-check.yml",
     "distribution.yml",
     "programmatic-release.yml",
-    "query-intelligence.yml"
+    "query-intelligence.yml",
+    "search-repair-retest.yml"
   ],
   "traces": [
     {
@@ -590,6 +591,128 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 16,
+      "name": "actions/upload-artifact@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 1,
+      "name": "actions/checkout@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 2,
+      "name": "actions/setup-node@v4",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 3,
+      "name": "bash scripts/ci_npm_install.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/ci_npm_install.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 4,
+      "name": "node scripts/runtime_guard.mjs",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 5,
+      "name": "Sync latest main before writing artifacts",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 6,
+      "name": "Validate workflow syntax",
+      "npm_script": "actions:validate",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 7,
+      "name": "Ingest any filled manual query-surface observation log",
+      "npm_script": "query:observe:ingest",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 8,
+      "name": "Diagnose pages (evidence + technical)",
+      "npm_script": "repairs:diagnose",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 9,
+      "name": "Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)",
+      "npm_script": "repairs:apply",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 10,
+      "name": "Sweep delayed retest queue for real evidence",
+      "npm_script": "repairs:retest",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 11,
+      "name": "Commit search repair and retest artifacts",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 12,
       "name": "actions/upload-artifact@v4",
       "npm_script": null,
       "direct_paths": [],

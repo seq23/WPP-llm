@@ -1,0 +1,81 @@
+name: Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_changes:
+        description: Commit diagnostics/repair/retest artifacts
+        type: boolean
+        default: true
+  schedule:
+    - cron: '40 10 * * *'
+
+permissions:
+  contents: write
+
+env:
+  CI_AUTONOMOUS_BRANCH: main
+
+concurrency:
+  group: wpp-autonomous-writer-main
+  cancel-in-progress: false
+
+jobs:
+  diagnose_repair_retest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+      - run: bash scripts/ci_npm_install.sh
+      - id: runtime
+        run: node scripts/runtime_guard.mjs
+      - name: Sync latest main before writing artifacts
+        if: steps.runtime.outputs.allowed == 'true'
+        run: git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
+      - name: Validate workflow syntax
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run actions:validate
+      - name: Ingest any filled manual query-surface observation log
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run query:observe:ingest
+      - name: Diagnose pages (evidence + technical)
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run repairs:diagnose
+      - name: Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run repairs:apply
+      - name: Sweep delayed retest queue for real evidence
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run repairs:retest
+      - name: Commit search repair and retest artifacts
+        if: ${{ steps.runtime.outputs.allowed == 'true' && (github.event_name == 'schedule' || github.event.inputs.commit_changes == 'true') }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Search repair/retest sweep: diagnose, bounded repair, delayed retest"
+            git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
+            git push origin "HEAD:$CI_AUTONOMOUS_BRANCH"
+          else
+            echo "No search repair/retest changes."
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: search-repair-retest-evidence
+          path: |
+            data/opportunities/page_diagnostics.json
+            data/release/repair_receipts/
+            data/release/repair_receipts_index.json
+            data/authority_scale/retest_queue.json
+            data/authority_scale/retest_outcomes.json
+            data/admin/cost_ledger.json
+            artifacts/release/apply_repairs_summary.json
+          if-no-files-found: ignore

@@ -12,7 +12,8 @@ const required = [
   'programmatic-release.yml',
   'distribution.yml',
   'credential-check.yml',
-  'admin-command.yml'
+  'admin-command.yml',
+  'search-repair-retest.yml'
 ];
 const bad = [];
 

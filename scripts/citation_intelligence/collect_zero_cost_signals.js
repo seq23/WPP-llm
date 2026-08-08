@@ -37,5 +37,18 @@ async function geminiPanel(universe){
   const packet = {generated_at:new Date().toISOString(), gsc_status:(gsc.records||[]).length?'records_present':'no_records_file_or_empty', gemini_status:gemini.status, record_count:normalized.length, records:normalized};
   fs.writeFileSync(path.join(ROOT,'data/signals/normalized_records.json'), JSON.stringify(packet,null,2));
   fs.writeFileSync(path.join(ROOT,'artifacts/release/zero_cost_signal_collection.json'), JSON.stringify({generated_at:packet.generated_at, gsc_status:packet.gsc_status, gemini_status:packet.gemini_status, record_count:packet.record_count},null,2));
+
+  // Provider request/volume metering. Only increments when a live provider call was
+  // actually attempted (not on skipped_missing_credentials/skipped_missing_secret).
+  const cost = readJson('data/admin/cost_ledger.json', null);
+  if (cost) {
+    const today = new Date().toISOString().slice(0,10);
+    if (cost.today.date !== today) cost.today = {date:today, gsc_requests:0, gemini_requests:0, manual_ingest_runs:0};
+    if (gsc.status && gsc.status !== 'skipped_missing_credentials') cost.today.gsc_requests += 1;
+    if (!['skipped_missing_secret'].includes(gemini.status)) cost.today.gemini_requests += 1;
+    cost.updated_at = new Date().toISOString();
+    fs.writeFileSync(path.join(ROOT,'data/admin/cost_ledger.json'), JSON.stringify(cost,null,2)+'\n');
+  }
+
   console.log(`Collected ${normalized.length} normalized $0 signal records (GSC: ${packet.gsc_status}; Gemini: ${packet.gemini_status}).`);
 })();

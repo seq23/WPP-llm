@@ -56,8 +56,8 @@ const panelPath = path.join(ROOT, 'data/seo/benchmark_query_panel.json');
 fs.writeFileSync(panelPath, JSON.stringify({ updated_at: new Date().toISOString(), strategy: profile.goal_class || profile.citation_goal_class || 'C2', queries: panel }, null, 2));
 
 const csvLines = [
-  ['date','surface','query_id','query','target_page','observed_citation_url','observed_rank_or_position','notes'].join(','),
-  ...panel.map((q) => ['', '', q.id, JSON.stringify(q.query), q.target_page || '', '', '', ''].join(','))
+  ['date','surface','query_id','query','target_page','own_url_surfaced','observed_citation_url','observed_rank_or_position','competitor_domains_observed','notes'].join(','),
+  ...panel.map((q) => ['', '', q.id, JSON.stringify(q.query), q.target_page || '', '', '', '', '', ''].join(','))
 ];
 fs.writeFileSync(path.join(outDir, 'manual-citation-log-template.csv'), csvLines.join('\n') + '\n');
 
@@ -71,6 +71,7 @@ md.push('');
 md.push('- Benchmark query panel generated from trusted SEMrush baseline, locked strategy, and industry page family.');
 md.push('- Manual citation log template generated for ChatGPT, Perplexity, Gemini, and Google Search checks.');
 md.push('- Search Console API pull can run for $0 when GSC credentials are present.');
+md.push('- Fill in the template, save it as `logs/query-testing/manual-citation-log.csv`, then run `npm run query:observe:ingest` to record own-surfacing and competitor-domain evidence.');
 md.push('');
 md.push('## What is not claimed');
 md.push('');
