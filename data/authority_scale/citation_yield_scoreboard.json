@@ -25,12 +25,12 @@
   "current_new_url_ceiling_per_day": 50,
   "next_tier": 75,
   "next_tier_eligible": false,
-  "next_tier_reason": "insufficient_explicit_evidence_for_upshift",
+  "next_tier_reason": "semantic_duplicate_regression",
   "decision_policy": {
     "prefer_existing_repair_when": "an existing page is a strong intent match and a specific evidence-backed improvement is available",
     "create_new_url_when": "intent is materially distinct, the surface is not already covered, and the page can meet substance/duplication/source gates"
   },
   "truth_note": "This scoreboard does not infer citations from fanout, pages, indexation, search impressions, or LLM mentions.",
-  "velocity_decision": "HOLD",
+  "velocity_decision": "DOWNSHIFT_ONE_TIER",
   "recommended_new_url_ceiling_per_day": 50
 }

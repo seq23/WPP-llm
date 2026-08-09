@@ -1,10 +1,984 @@
 {
-  "generated_at": "2026-08-09T15:53:10.501Z",
-  "validation_summary": [],
-  "workflow_trace": null,
+  "generated_at": "2026-08-09T20:48:27.118Z",
+  "validation_summary": [
+    {
+      "id": "github-actions-workflows",
+      "command": "node scripts/validate_workflows.js",
+      "exit_status": 0
+    },
+    {
+      "id": "strategy-gate",
+      "command": "node scripts/validate_strategy_gate.js",
+      "exit_status": 0
+    },
+    {
+      "id": "master-plan-completion",
+      "command": "node scripts/validate_master_plan_completion.js",
+      "exit_status": 0
+    },
+    {
+      "id": "validator-registry",
+      "command": "node scripts/validate_validator_registry.js",
+      "exit_status": 0
+    },
+    {
+      "id": "artifact-manifest",
+      "command": "node scripts/validate_artifact_manifest.js",
+      "exit_status": 0
+    },
+    {
+      "id": "canonical-routes",
+      "command": "node scripts/validate_canonical_routes.js",
+      "exit_status": 0
+    },
+    {
+      "id": "priority-pages",
+      "command": "node scripts/validate_priority_pages.js",
+      "exit_status": 0
+    },
+    {
+      "id": "homepage-ctas",
+      "command": "node scripts/validate_homepage_ctas.js",
+      "exit_status": 0
+    },
+    {
+      "id": "backlink-remediation",
+      "command": "node scripts/validate_backlink_remediation.js",
+      "exit_status": 0
+    },
+    {
+      "id": "release-plan",
+      "command": "node scripts/validate_release_plan.js",
+      "exit_status": 0
+    },
+    {
+      "id": "atom-contract",
+      "command": "node scripts/validators/validate_atom_contract.js",
+      "exit_status": 0
+    },
+    {
+      "id": "page-family-contract",
+      "command": "node scripts/validators/validate_page_family_contract.js",
+      "exit_status": 0
+    },
+    {
+      "id": "page-admission",
+      "command": "node scripts/validators/validate_page_admission.js",
+      "exit_status": 0
+    },
+    {
+      "id": "query-atlas",
+      "command": "node scripts/validate_query_atlas.js",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-engine",
+      "command": "node scripts/validate_programmatic_release_engine.js",
+      "exit_status": 0
+    },
+    {
+      "id": "workflow-data-trace",
+      "command": "node scripts/validators/validate_workflow_data_trace.js",
+      "exit_status": 0
+    },
+    {
+      "id": "citation-goal-sizing",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing",
+      "exit_status": 0
+    },
+    {
+      "id": "free-aeo-mode-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js free-aeo-mode-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-release-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-release-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "citation-intelligence-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-intelligence-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "agent-run-artifact-intake",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
+      "exit_status": 0
+    },
+    {
+      "id": "normalized-agent-run-schema",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
+      "exit_status": 0
+    },
+    {
+      "id": "release-plan-integrity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js release-plan-integrity",
+      "exit_status": 0
+    },
+    {
+      "id": "content-release-trace",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-release-trace",
+      "exit_status": 0
+    },
+    {
+      "id": "page-release-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js page-release-law",
+      "exit_status": 0
+    },
+    {
+      "id": "generated-content-gate",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js generated-content-gate",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-substance",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
+      "exit_status": 0
+    },
+    {
+      "id": "programmatic-quality",
+      "command": "npm run content:quality:validate",
+      "exit_status": 0
+    },
+    {
+      "id": "canonical-routing-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js canonical-routing-law",
+      "exit_status": 0
+    },
+    {
+      "id": "search-quality-basics",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
+      "exit_status": 0
+    },
+    {
+      "id": "sitemap-parity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js sitemap-parity",
+      "exit_status": 0
+    },
+    {
+      "id": "content-safety",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-safety",
+      "exit_status": 0
+    },
+    {
+      "id": "strategy-integrity-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js strategy-integrity-contract",
+      "exit_status": 0
+    },
+    {
+      "id": "deterministic-build",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js deterministic-build",
+      "exit_status": 0
+    },
+    {
+      "id": "repo-hygiene",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js repo-hygiene",
+      "exit_status": 0
+    },
+    {
+      "id": "insights",
+      "command": "node scripts/validate_insights.js",
+      "exit_status": 0
+    },
+    {
+      "id": "fanout",
+      "command": "node scripts/validate_fanout_warning.js",
+      "exit_status": 0
+    },
+    {
+      "id": "answer-coverage",
+      "command": "node scripts/validate_answer_coverage.js",
+      "exit_status": 0
+    },
+    {
+      "id": "entity-coverage",
+      "command": "node scripts/validate_entity_coverage.js",
+      "exit_status": 0
+    },
+    {
+      "id": "internal-links",
+      "command": "node scripts/validate_internal_links.js",
+      "exit_status": 0
+    },
+    {
+      "id": "sitemap-coverage",
+      "command": "node scripts/validate_sitemap_coverage.js",
+      "exit_status": 0
+    }
+  ],
+  "workflow_trace": {
+    "generated_at": "2026-08-09T19:23:10.941Z",
+    "workflow_count": 7,
+    "workflows": [
+      "admin-command.yml",
+      "ci.yml",
+      "credential-check.yml",
+      "distribution.yml",
+      "programmatic-release.yml",
+      "query-intelligence.yml",
+      "search-repair-retest.yml"
+    ],
+    "traces": [
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 3,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 4,
+        "name": "Enforce confirmation",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "ACTION",
+          "CONFIRMATION"
+        ]
+      },
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 5,
+        "name": "Apply runtime state command",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "ACTION"
+        ]
+      },
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 6,
+        "name": "Dispatch allowlisted workflow",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "GH_TOKEN",
+          "ACTION"
+        ]
+      },
+      {
+        "workflow": "admin-command.yml",
+        "workflow_name": "Admin Command - Full Flow Controls",
+        "job": "command",
+        "step": 7,
+        "name": "Write action receipt",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 3,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 4,
+        "name": "npm run actions:validate",
+        "npm_script": "actions:validate",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 5,
+        "name": "npm run release:self-heal",
+        "npm_script": "release:self-heal",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 3,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "credential-check.yml",
+        "workflow_name": "Credential Check - Secrets and Public Key Readiness",
+        "job": "check",
+        "step": 4,
+        "name": "export INDEXNOW_KEY=\"${INDEXNOW_KEY_SECRET:-${INDEXNOW_KEY_VAR:-${INDEXNOW_KEY_SECRET_LOWE",
+        "npm_script": "credentials:check",
+        "direct_paths": [],
+        "env_keys": [
+          "INDEXNOW_KEY_SECRET",
+          "INDEXNOW_KEY_VAR",
+          "INDEXNOW_KEY_SECRET_LOWER",
+          "INDEXNOW_KEY_VAR_LOWER",
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR",
+          "GEMINI_API_KEY",
+          "PUBLIC_SITE_URL"
+        ]
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 3,
+        "name": "actions/setup-python@v5",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 4,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 5,
+        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 6,
+        "name": "npm run release:self-heal",
+        "npm_script": "release:self-heal",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 7,
+        "name": "Recreate GSC credential file when configured",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON"
+        ]
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 8,
+        "name": "Run credential-safe distribution",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "INDEXNOW_KEY_SECRET",
+          "INDEXNOW_KEY_VAR",
+          "INDEXNOW_KEY_SECRET_LOWER",
+          "INDEXNOW_KEY_VAR_LOWER",
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR"
+        ]
+      },
+      {
+        "workflow": "distribution.yml",
+        "workflow_name": "Distribution - IndexNow and Search Console",
+        "job": "distribute",
+        "step": 9,
+        "name": "actions/upload-artifact@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 3,
+        "name": "actions/setup-python@v5",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 4,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 5,
+        "name": "node scripts/runtime_guard.mjs",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 6,
+        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 7,
+        "name": "Sync latest main before autonomous release",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 8,
+        "name": "Validate workflow syntax",
+        "npm_script": "actions:validate",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 9,
+        "name": "Run GSC primary collector",
+        "npm_script": null,
+        "direct_paths": [
+          "distribution_scripts/gsc_collect_query_signals.py"
+        ],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR"
+        ]
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 10,
+        "name": "Run controlled autonomous content release",
+        "npm_script": "release:autonomous",
+        "direct_paths": [],
+        "env_keys": [
+          "GEMINI_API_KEY"
+        ]
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 11,
+        "name": "Commit generated pages and registries",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "programmatic-release.yml",
+        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+        "job": "release",
+        "step": 12,
+        "name": "actions/upload-artifact@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 3,
+        "name": "actions/setup-python@v5",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 4,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 5,
+        "name": "node scripts/runtime_guard.mjs",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 6,
+        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 7,
+        "name": "Sync latest main before writing artifacts",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 8,
+        "name": "Validate workflow syntax",
+        "npm_script": "actions:validate",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 9,
+        "name": "Generate owned query universe and public atlas",
+        "npm_script": "query:atlas",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 10,
+        "name": "Collect Search Console query signals",
+        "npm_script": null,
+        "direct_paths": [
+          "distribution_scripts/gsc_collect_query_signals.py"
+        ],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL_SECRET",
+          "GSC_SITE_URL_VAR"
+        ]
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 11,
+        "name": "Collect normalized $0 signals including optional Gemini prompt panel",
+        "npm_script": "signals:collect",
+        "direct_paths": [],
+        "env_keys": [
+          "GEMINI_API_KEY"
+        ]
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 12,
+        "name": "Score AEO and GEO opportunities",
+        "npm_script": "opportunities:score",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 13,
+        "name": "Build controlled release plan preview",
+        "npm_script": "release:plan",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 14,
+        "name": "Validate query intelligence",
+        "npm_script": "validate:autonomous",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 15,
+        "name": "Commit query intelligence artifacts",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 16,
+        "name": "actions/upload-artifact@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 1,
+        "name": "actions/checkout@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 2,
+        "name": "actions/setup-node@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 3,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 4,
+        "name": "node scripts/runtime_guard.mjs",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 5,
+        "name": "Sync latest main before writing artifacts",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 6,
+        "name": "Validate workflow syntax",
+        "npm_script": "actions:validate",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 7,
+        "name": "Ingest any filled manual query-surface observation log",
+        "npm_script": "query:observe:ingest",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 8,
+        "name": "Diagnose pages (evidence + technical)",
+        "npm_script": "repairs:diagnose",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 9,
+        "name": "Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)",
+        "npm_script": "repairs:apply",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 10,
+        "name": "Sweep delayed retest queue for real evidence",
+        "npm_script": "repairs:retest",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 11,
+        "name": "Commit search repair and retest artifacts",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 12,
+        "name": "actions/upload-artifact@v4",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      }
+    ],
+    "required_data": [
+      {
+        "path": "_citation_intelligence_contract.json",
+        "exists": true
+      },
+      {
+        "path": "_content_release_contract.json",
+        "exists": true
+      },
+      {
+        "path": "_self_heal_contract.json",
+        "exists": true
+      },
+      {
+        "path": "data/query_atlas/query_universe.json",
+        "exists": true
+      },
+      {
+        "path": "data/signals/normalized_records.json",
+        "exists": true
+      },
+      {
+        "path": "data/opportunities/aeo_geo_opportunities.json",
+        "exists": true
+      },
+      {
+        "path": "data/releases/daily_release_plan.json",
+        "exists": true
+      },
+      {
+        "path": "artifacts/release/apply_release_plan_summary.json",
+        "exists": true
+      }
+    ],
+    "runtime_generated_data": [
+      {
+        "path": ".build/indexnow-priority.txt",
+        "exists": true,
+        "packaged": false
+      },
+      {
+        "path": ".build/indexnow-batch.txt",
+        "exists": true,
+        "packaged": false
+      }
+    ],
+    "errors": []
+  },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-08-09T15:53:08.800Z",
+    "generated_at": "2026-08-09T20:48:18.781Z",
     "mode": "quality_gated_full_safe_autonomy",
     "target_semantics": "publication ceilings are safety capacity, never page quotas; creates require distinct answer value and repairs target proven thin/duplicate legacy pages",
     "daily_new_page_ceiling": 50,
@@ -17,7 +991,7 @@
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 150,
     "quality_snapshot": {
-      "corpus_fingerprint": "07ed1360995627d5816652e51faf493e79e4f787ad955c0bef175b8a201fda6c",
+      "corpus_fingerprint": "3fe4ea84390c02e6014c4fba3ec6cfe80495236c9f14e334f09f3e3ad8629b66",
       "legacy_backlog": 2200,
       "thin_pages": 2200,
       "exact_duplicate_pages": 0,
@@ -9031,7 +10005,7 @@
     "status": "READY"
   },
   "content_state": {
-    "updated": "2026-08-08T20:46:16.462Z",
+    "updated": "2026-08-09T20:48:20.760Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -11176,14 +12150,65 @@
       "/programmatic/podcast-strategy-consulting-scope-of-work",
       "/programmatic/podcast-strategy-consulting-services",
       "/programmatic/podcast-strategy-consulting-strategy-framework",
-      "/programmatic/podcast-strategy-consulting-template"
+      "/programmatic/podcast-strategy-consulting-template",
+      "/programmatic/podcast-strategy-consulting-timeline",
+      "/programmatic/presentation-storytelling-2026",
+      "/programmatic/rebrand-strategy-2026",
+      "/programmatic/rebrand-strategy-agency",
+      "/programmatic/rebrand-strategy-best-practices",
+      "/programmatic/rebrand-strategy-case-pattern",
+      "/programmatic/rebrand-strategy-deliverables",
+      "/programmatic/rebrand-strategy-examples",
+      "/programmatic/rebrand-strategy-for-enterprise-teams",
+      "/programmatic/rebrand-strategy-how-to-choose",
+      "/programmatic/rebrand-strategy-implementation-guide",
+      "/programmatic/rebrand-strategy-measurement",
+      "/programmatic/rebrand-strategy-operating-model",
+      "/programmatic/rebrand-strategy-pricing",
+      "/programmatic/rebrand-strategy-questions-to-ask",
+      "/programmatic/rebrand-strategy-red-flags",
+      "/programmatic/rebrand-strategy-roi-factors",
+      "/programmatic/rebrand-strategy-scope-of-work",
+      "/programmatic/rebrand-strategy-template",
+      "/programmatic/rebrand-strategy-vs-in-house-team",
+      "/programmatic/rebrand-strategy-when-to-hire",
+      "/programmatic/startup-brand-strategy-2026",
+      "/programmatic/video-content-strategy-2026",
+      "/programmatic/virtual-event-production-2026",
+      "/programmatic/virtual-summit-production-2026",
+      "/programmatic/webinar-production-2026",
+      "/programmatic/what-is-agency-rfp-questions",
+      "/programmatic/what-is-ai-consultant-vs-automation-agency",
+      "/programmatic/what-is-ai-content-operations",
+      "/programmatic/what-is-ai-creative-workflows",
+      "/programmatic/what-is-ai-knowledge-systems-for-marketing",
+      "/programmatic/what-is-ai-marketing-workflows",
+      "/programmatic/what-is-ai-workflow-consulting",
+      "/programmatic/what-is-audience-growth-strategy",
+      "/programmatic/what-is-brand-agency-vs-marketing-agency",
+      "/programmatic/what-is-brand-community-strategy",
+      "/programmatic/what-is-brand-messaging-architecture",
+      "/programmatic/what-is-brand-narrative-strategy",
+      "/programmatic/what-is-brand-positioning-strategy",
+      "/programmatic/what-is-brand-storytelling",
+      "/programmatic/what-is-brand-strategy-consulting",
+      "/programmatic/what-is-branded-content-development",
+      "/programmatic/what-is-campaign-narrative-strategy",
+      "/programmatic/what-is-community-as-a-service",
+      "/programmatic/what-is-community-led-growth",
+      "/programmatic/what-is-content-marketing-operations",
+      "/programmatic/what-is-corporate-storytelling",
+      "/programmatic/what-is-creative-agency-vs-production-company",
+      "/programmatic/what-is-creative-direction-agency",
+      "/programmatic/what-is-creative-operations"
     ],
     "blocked_routes": [],
     "last_release_run": {
-      "created": 0,
-      "repaired": 0,
+      "created": 50,
+      "repaired": 100,
       "skipped": 0,
-      "at": "2026-08-08T20:46:16.462Z"
+      "quality_rejected": 0,
+      "at": "2026-08-09T20:48:20.760Z"
     }
   },
   "query_universe_count": 10000
