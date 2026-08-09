@@ -38,7 +38,7 @@
     "keyword swap pages without distinct answer value",
     "manual-only release dependencies"
   ],
-  "goal_class": "C4 aggressive 90-day citation-velocity stretch",
+  "goal_class": "C4 quality-gated citation-velocity stretch",
   "priority_pages": [
     "virtual-event-production-companies.html",
     "virtual-event-management.html",
@@ -75,10 +75,12 @@
     "max_fanout_reference_runway": 100000,
     "max_fanout_contract": "data/authority_scale/fanout_100k/index.json",
     "tracked_query_target_semantics": "active tracked panel target; separate from >=100K compressed planning fanout runway",
-    "community_as_a_service_priority": true
+    "community_as_a_service_priority": true,
+    "route_target_90_days_semantics": "planning capacity reference, not a publication quota",
+    "publication_rule": "new routes require materially distinct answer value; thin or near-duplicate candidates are rejected before write; legacy quality debt is repaired in bounded batches"
   },
   "cadence": {
-    "class": "FULL_FLOW_AGGRESSIVE_90_DAY",
+    "class": "QUALITY_GATED_FULL_SAFE_AUTONOMY",
     "start_date": "2026-07-10",
     "scheduled_runs_per_day": 2,
     "weekly_review_day": "Monday",

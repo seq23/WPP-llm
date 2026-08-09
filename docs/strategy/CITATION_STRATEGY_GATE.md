@@ -85,6 +85,20 @@ The repo is being advanced as if the first six months of foundational work happe
 - 10–25 qualified CTA clicks/month.
 - 10–20 real external links/domain mentions.
 
+## 6.1 Quality-Gated Velocity Reconciliation
+
+The 4,500-route figure in the release contract is a **planning-capacity reference, not a publication quota**. It does not override the bottleneck diagnosis above. New URLs may be created only when they provide materially distinct answer value and pass the repo's substance and duplicate gates before write.
+
+Publication velocity is governed by evidence, in this order:
+
+1. distinct-answer and minimum-substance gate;
+2. source/claim and canonical safety gates;
+3. clean validation;
+4. distribution and indexation health;
+5. observed search/citation yield where measurable.
+
+When those conditions are weak or unknown, the system must hold, skip, or repair rather than fill a page-count target. Existing thin or near-duplicate programmatic pages are treated as legacy quality debt and repaired in bounded batches; they do not authorize additional low-value fanout.
+
 ## 6. Automation Rule
 
 Automation may select, repair, validate, sitemap, and submit existing approved pages. Automation may not publish off-strategy content, city programmatic pages, fake rankings, or unapproved topic families.

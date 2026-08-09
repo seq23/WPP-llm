@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22-root-hygiene-repair",
+  "updated": "2026-08-09-quality-gated-content-repair",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
     {
@@ -153,7 +153,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
+      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -359,6 +359,26 @@
       "severity": "HARD_FAIL",
       "purpose": "Ensure aggressive 90-day full-flow settings, seven pillars, and citation truth rules remain active.",
       "owner": "repo"
+    },
+    {
+      "id": "programmatic-quality",
+      "command": "npm run content:quality:validate",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure changed programmatic routes meet minimum substance and duplicate-suppression gates while legacy quality debt remains explicitly reported.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "artifact-manifest",
+      "command": "node scripts/validate_artifact_manifest.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure artifact manifest workflow inventory and archived receipt references match the repository tree.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ]
 }

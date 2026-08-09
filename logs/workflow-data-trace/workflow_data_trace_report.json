@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T10:52:08.466Z",
+  "generated_at": "2026-08-09T15:53:17.305Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -751,14 +751,18 @@
     {
       "path": "artifacts/release/apply_release_plan_summary.json",
       "exists": true
-    },
+    }
+  ],
+  "runtime_generated_data": [
     {
       "path": ".build/indexnow-priority.txt",
-      "exists": true
+      "exists": true,
+      "packaged": false
     },
     {
       "path": ".build/indexnow-batch.txt",
-      "exists": true
+      "exists": true,
+      "packaged": false
     }
   ],
   "errors": []

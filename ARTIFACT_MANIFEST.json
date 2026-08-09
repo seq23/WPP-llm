@@ -2,20 +2,25 @@
   "updated": "2026-06-25",
   "status": "STRUCTURALLY CHECKED — LOCAL VALIDATION REQUIRED",
   "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
-  "github_actions_spine": "overhauled_into_five_workflows",
+  "github_actions_spine": "generated_from_.github/workflows",
   "workflow_files": [
+    "admin-command.yml",
     "ci.yml",
-    "citation-ops.yml",
-    "distribution.yml",
     "credential-check.yml",
-    "zero-cost-query-testing.yml"
+    "distribution.yml",
+    "programmatic-release.yml",
+    "query-intelligence.yml",
+    "search-repair-retest.yml"
   ],
   "zero_cost_query_testing": "implemented via benchmark panel, manual log packet generator, monthly workflow, optional GSC API pull",
   "file_count_excluding_generated_local": 268,
   "included_reports": [
-    "GITHUB_ACTIONS_OVERHAUL_REPORT.md",
-    "HOSTILE_REVIEW_FIX_REPORT.md",
-    "MASTER_PLAN_COMPLETION_CHECKLIST.md"
+    "docs/receipts/archive/GITHUB_ACTIONS_OVERHAUL_REPORT.md",
+    "docs/receipts/archive/HOSTILE_REVIEW_FIX_REPORT.md",
+    "docs/receipts/archive/MASTER_PLAN_COMPLETION_CHECKLIST.md",
+    "docs/receipts/archive/GITHUB_ACTIONS_RUNTIME_FIX_REPORT.md",
+    "docs/receipts/archive/PROGRAMMATIC_CADENCE_REPAIR_REPORT.md",
+    "docs/receipts/archive/EXECUTION_REPORT.md"
   ],
   "validation_commands": [
     "npm ci --no-audit --no-fund",
@@ -31,6 +36,11 @@
   "runtime_fix": {
     "date": "2026-06-26",
     "summary": "Harden GitHub Actions npm install runtime and IndexNow key fallback",
-    "report": "GITHUB_ACTIONS_RUNTIME_FIX_REPORT.md"
+    "report": "docs/receipts/archive/GITHUB_ACTIONS_RUNTIME_FIX_REPORT.md"
+  },
+  "content_quality": {
+    "report": "data/content/programmatic_quality_report.json",
+    "remediation_manifest": "data/content/programmatic_remediation_manifest.json",
+    "policy": "new pages preflight substance+similarity before write; legacy quality debt repaired in bounded batches"
   }
 }

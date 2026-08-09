@@ -1,10 +1,10 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-08-09T10:52:08.466Z
+Generated: 2026-08-09T15:53:17.305Z
 
 Workflows: 7
 
-## Required data files
+## Required persistent data files
 - PASS _citation_intelligence_contract.json
 - PASS _content_release_contract.json
 - PASS _self_heal_contract.json
@@ -13,8 +13,10 @@ Workflows: 7
 - PASS data/opportunities/aeo_geo_opportunities.json
 - PASS data/releases/daily_release_plan.json
 - PASS artifacts/release/apply_release_plan_summary.json
-- PASS .build/indexnow-priority.txt
-- PASS .build/indexnow-batch.txt
+
+## Runtime-generated data (excluded from baseline ZIP by contract)
+- PRESENT .build/indexnow-priority.txt
+- PRESENT .build/indexnow-batch.txt
 
 ## Step trace
 - admin-command.yml :: command #1 :: actions/checkout@v4

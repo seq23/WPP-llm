@@ -78,7 +78,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "Update $0 query intelligence atlas"
+            git commit -m 'query-intelligence: update governed query atlas'
             git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
             git push origin "HEAD:$CI_AUTONOMOUS_BRANCH"
           else

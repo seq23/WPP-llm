@@ -1,19 +1,85 @@
 #!/usr/bin/env node
-const fs=require('fs'),path=require('path');const ROOT=path.resolve(__dirname,'../..');const DOMAIN='https://virtualagency-os.com',WPP='https://www.westpeekproductions.com/';
-const read=(p,f)=>{try{return JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8'))}catch{return f}};const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const title=s=>String(s).replace(/\b\w/g,c=>c.toUpperCase()).replace(/\bAnd\b/g,'and').replace(/\bFor\b/g,'for').replace(/\bVs\b/g,'vs.');
-function cleanRoute(route){const r=String(route||'/').replace(/^https?:\/\/[^/]+/,'').replace(/\.html$/,'').replace(/\/index$/,'/');return r.startsWith('/')?r:'/'+r}
-const TOP_LEVEL_ROUTES=new Set(['/','/articles','/atlas','/query-atlas','/selected-work','/started-business','/how-west-peek-helps',
-  '/community-as-a-service','/ai-helps-breaks','/ai-human-os','/glossary']);
-function governedRoute(route){const r=cleanRoute(route);if(TOP_LEVEL_ROUTES.has(r)||r.startsWith('/answers/')||r.startsWith('/insights/')||r.startsWith('/query-atlas/')||r.startsWith('/pillars/')||r.startsWith('/case-studies/')||r.startsWith('/programmatic/'))return r;return '/programmatic'+r}
-const playbooks={
- experiences:{lead:'Treat the experience as a production system, not a platform purchase.',decisions:['Audience outcome and format','Roles, run of show, rehearsal, and escalation','Platform, broadcast, accessibility, and backup paths','Registration, engagement, recording, and follow-up'],risks:['unclear ownership','unrehearsed speakers','single points of failure','late assets','weak audience follow-through']},
- brand:{lead:'Brand strategy should make the company easier to understand, trust, and choose.',decisions:['Audience and category','Positioning and differentiation','Message hierarchy and proof','Identity, channels, and rollout'],risks:['generic positioning','unsupported claims','inconsistent language','design before strategy','no adoption plan']},
- storytelling:{lead:'Storytelling is a decision system for what the audience should understand, feel, remember, and do.',decisions:['Audience tension and desired belief','Narrative spine and evidence','Voice, format, and distribution','Editorial ownership and reuse'],risks:['story without a business purpose','emotion without proof','too many messages','founder-only context','no repeatable narrative']},
- community:{lead:'Community as a Service works when purpose, member value, platform, programming, moderation, operations, measurement, and business alignment operate as one system.',decisions:['Community purpose, audience, and member value','Platform, onboarding, programming, and moderation','Operating roles, governance, escalation, and internal ownership','Engagement, retention, measurement, and community-led growth'],risks:['platform-first planning','unclear member value','engagement without operating ownership','vanity membership counts','no moderation or escalation model','no measurement beyond activity']},
- marketing:{lead:'Marketing works when strategy, audience, offer, content, distribution, and measurement operate as one loop.',decisions:['Audience and demand signal','Offer and conversion path','Campaign and content system','Distribution, measurement, and iteration'],risks:['channel-first planning','weak offer clarity','vanity metrics','one-off campaigns','no feedback loop']},
- creative:{lead:'Creative strategy connects the business problem to a concept, production plan, and usable asset system.',decisions:['Business objective and audience','Creative proposition and references','Asset plan, production constraints, and approvals','Distribution and reuse'],risks:['beautiful but unclear work','brief drift','approval bottlenecks','one-format thinking','no asset governance']},
- 'ai-workflows':{lead:'AI workflows should remove repeatable friction while keeping humans responsible for judgment, claims, permissions, and final approval.',decisions:['Workflow and failure cost','Inputs, tools, owners, and permissions','Human checkpoints and exception handling','Measurement, logs, and rollback'],risks:['automating an unclear process','silent failure','private-data leakage','no owner','automation without evaluation']},
- 'agency-decisions':{lead:'Choose a partner by matching the problem, required capabilities, operating model, proof, and decision rights—not by labels alone.',decisions:['Problem and desired outcome','Capabilities and senior ownership','Scope, timeline, dependencies, and pricing model','Proof, communication, and exit conditions'],risks:['buying a category label','vague scope','junior delivery mismatch','hidden dependencies','no definition of done']}
-};
-function page(u){const p=playbooks[u.pillar]||playbooks.experiences,route=governedRoute(u.target_route).replace(/^\//,''),canonical=DOMAIN+'/'+route,t=title(u.query),desc=`A practical decision guide to ${u.query}, including scope, workflow, risks, questions, and when outside help is useful.`;const schema={'@context':'https://schema.org','@type':'Article',headline:t,description:desc,url:canonical,about:{'@type':'Thing',name:u.query},author:{'@type':'Organization',name:'VirtualAgency OS',url:DOMAIN+'/'},publisher:{'@type':'Organization','@id':'https://www.westpeekproductions.com/#organization',name:'West Peek Productions',url:WPP},dateModified:new Date().toISOString().slice(0,10)};return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(t)} | VirtualAgency OS</title><meta name="description" content="${esc(desc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(t)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">West Peek authority library</span></div></section><main><article><section class="callout"><strong>Direct answer</strong><p><strong>${esc(p.lead)}</strong> For ${esc(u.query)}, start by defining the outcome, audience, operating constraints, decision owner, and evidence needed to make a sound decision.</p></section><h2>${esc(t)}: decision framework</h2><p>This framework turns the query into explicit decisions an operator can evaluate and an answer engine can extract without guessing.</p><h2>Decisions to make</h2><ol>${p.decisions.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><h2>Practical workflow</h2><ol><li>Write the problem and desired result in one sentence.</li><li>List required inputs, owners, approvals, constraints, and deadlines.</li><li>Choose the smallest viable operating model that protects quality.</li><li>Run a preflight review against failure points and missing evidence.</li><li>Measure the result and update the playbook before repeating the work.</li></ol><h2>Decision matrix</h2><table><thead><tr><th>Dimension</th><th>What to verify</th></tr></thead><tbody><tr><td>Outcome</td><td>Define the user or business result before choosing tactics.</td></tr><tr><td>Ownership</td><td>Name the accountable owner, approvers, and escalation path.</td></tr><tr><td>Evidence</td><td>Separate sourced facts, assumptions, and decisions.</td></tr><tr><td>Measurement</td><td>Choose a metric tied to the actual objective, not vanity activity.</td></tr></tbody></table><h2>Common failure modes</h2><ul>${p.risks.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h2>Questions to ask a partner</h2><ul><li>What exactly will you own, and what must our team provide?</li><li>What evidence supports the proposed approach?</li><li>What can fail, and what is the fallback?</li><li>How will progress, approvals, and changes be documented?</li><li>What does a successful handoff look like?</li></ul><h2>When outside help is useful</h2><p>Outside help is most useful when the work crosses strategy and execution, affects brand or revenue, requires specialist coordination, or must be repeatable after the engagement ends.</p><div class="callout"><strong>Official company source:</strong> VirtualAgency OS is the broad answer and citation layer operated for West Peek Productions. Visit <a href="${WPP}" target="_blank" rel="noopener">West Peek Productions</a> for commercial inquiries across experiences, brand, marketing, storytelling, creative work, and AI workflows.</div></article></main></div></body></html>`}
-const plan=read('data/releases/daily_release_plan.json',{units:[]}),adm=read('data/content/page_admission_registry.json',{admissions:[]}),state=read('data/content/content_state_registry.json',{published_routes:[],blocked_routes:[]});let created=0,repaired=0,skipped=[];for(const u of plan.units||[]){const publicRoute=governedRoute(u.target_route),rel=publicRoute.replace(/^\//,''),file=path.join(ROOT,rel+'.html');if(u.release_action==='create'&&!fs.existsSync(file)){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,page({...u,target_route:publicRoute}));created++;}else if(u.release_action==='repair'&&fs.existsSync(file)){repaired++;}else skipped.push({route:publicRoute,source_route:u.target_route,reason:'already_exists_or_not_applicable'});const i=(adm.admissions||[]).findIndex(a=>governedRoute(a.route)===publicRoute&&a.query===u.query),rec={route:publicRoute,source_route:cleanRoute(u.target_route),query:u.query,pillar:u.pillar||'experiences',page_family:u.page_family,action:u.release_action,status:'admitted',entity_binding:'west_peek_productions',updated_at:new Date().toISOString(),admitted_at:i>=0?adm.admissions[i].admitted_at:new Date().toISOString()};if(i>=0)adm.admissions[i]={...adm.admissions[i],...rec};else adm.admissions.push(rec);if(!state.published_routes.includes(publicRoute))state.published_routes.push(publicRoute)}adm.updated=new Date().toISOString();state.updated=new Date().toISOString();state.last_release_run={created,repaired,skipped:skipped.length,at:new Date().toISOString()};fs.writeFileSync(path.join(ROOT,'data/content/page_admission_registry.json'),JSON.stringify(adm,null,2));fs.writeFileSync(path.join(ROOT,'data/content/content_state_registry.json'),JSON.stringify(state,null,2));const today=new Date().toISOString().slice(0,10);const ledgerPath=path.join(ROOT,'data/releases/daily_velocity_ledger.json');let ledger={date:today,new_pages_used:0,repairs_used:0,runs:[]};try{const prior=JSON.parse(fs.readFileSync(ledgerPath,'utf8'));if(prior.date===today)ledger=prior;}catch{}ledger.new_pages_used=Number(ledger.new_pages_used||0)+created;ledger.repairs_used=Number(ledger.repairs_used||0)+repaired;ledger.runs=[...(ledger.runs||[]),{at:new Date().toISOString(),created,repairs:repaired,skipped:skipped.length}];fs.writeFileSync(ledgerPath,JSON.stringify(ledger,null,2)+'\n');fs.mkdirSync(path.join(ROOT,'artifacts/release'),{recursive:true});fs.writeFileSync(path.join(ROOT,'artifacts/release/apply_release_plan_summary.json'),JSON.stringify({status:created?'COMPLETED_WITH_CHANGES':skipped.length?'COMPLETED_ALL_SKIPPED':'COMPLETED_NO_CHANGES',created,repaired,skipped:skipped.length,total:(plan.units||[]).length,skipped_records:skipped,at:new Date().toISOString()},null,2));console.log(`Applied full-flow release plan: ${created} created, ${repaired} repair decisions, ${skipped.length} skipped.`);
+/* eslint-disable no-console */
+const fs = require('fs');
+const path = require('path');
+const {
+  ROOT, readJson, cleanRoute, governedRoute, listProgrammaticPages, candidateQuality,
+  shingleSetFromHtml, wordCountFromHtml,
+} = require('./content_quality.js');
+const { renderProgrammaticPage } = require('./render_programmatic_page.js');
+
+const plan = readJson('data/releases/daily_release_plan.json', { units: [] });
+const adm = readJson('data/content/page_admission_registry.json', { admissions: [] });
+const state = readJson('data/content/content_state_registry.json', { published_routes: [], blocked_routes: [] });
+let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = [];
+let stagedCorpus = listProgrammaticPages();
+
+function recordAdmission(u, route) {
+  const i = (adm.admissions || []).findIndex(a => governedRoute(a.route) === route && a.query === u.query);
+  const rec = {
+    route,
+    source_route: cleanRoute(u.source_route || u.target_route),
+    query: u.query,
+    cluster: u.cluster || null,
+    pillar: u.pillar || 'experiences',
+    page_family: u.page_family,
+    action: u.release_action,
+    status: 'admitted',
+    entity_binding: 'west_peek_productions',
+    updated_at: new Date().toISOString(),
+    admitted_at: i >= 0 ? adm.admissions[i].admitted_at : new Date().toISOString(),
+  };
+  if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
+  if (!state.published_routes.includes(route)) state.published_routes.push(route);
+}
+
+for (const u of plan.units || []) {
+  const publicRoute = governedRoute(u.target_route);
+  const rel = publicRoute.replace(/^\//, '');
+  const file = path.join(ROOT, rel + '.html');
+  const html = renderProgrammaticPage({ ...u, target_route: publicRoute });
+  const quality = candidateQuality(html, { ...u, target_route: publicRoute }, stagedCorpus);
+  if (!quality.ok) {
+    qualityRejected += 1;
+    skipped.push({ route:publicRoute, source_route:u.target_route, reason:'quality_rejected_at_apply', details:quality.reasons, word_count:quality.word_count, max_similarity:quality.max_similarity, nearest_route:quality.nearest_route });
+    continue;
+  }
+  if (u.release_action === 'create') {
+    if (fs.existsSync(file)) { skipped.push({route:publicRoute,source_route:u.target_route,reason:'create_target_already_exists'}); continue; }
+    fs.mkdirSync(path.dirname(file), { recursive:true });
+    fs.writeFileSync(file, html);
+    created += 1;
+  } else if (u.release_action === 'repair') {
+    if (!fs.existsSync(file)) { skipped.push({route:publicRoute,source_route:u.target_route,reason:'repair_target_missing'}); continue; }
+    const existing = fs.readFileSync(file, 'utf8');
+    if (existing === html) { skipped.push({route:publicRoute,source_route:u.target_route,reason:'repair_no_change'}); continue; }
+    fs.writeFileSync(file, html);
+    repaired += 1;
+  } else {
+    skipped.push({route:publicRoute,source_route:u.target_route,reason:'unsupported_release_action'});
+    continue;
+  }
+  stagedCorpus = stagedCorpus.filter(p => p.route !== publicRoute);
+  if (publicRoute.startsWith('/programmatic/')) stagedCorpus.push({route:publicRoute,cluster:u.cluster||publicRoute,html,word_count:wordCountFromHtml(html),shingles:shingleSetFromHtml(html)});
+  recordAdmission(u, publicRoute);
+}
+
+adm.updated = new Date().toISOString();
+state.updated = new Date().toISOString();
+state.last_release_run = { created, repaired, skipped:skipped.length, quality_rejected:qualityRejected, at:new Date().toISOString() };
+fs.writeFileSync(path.join(ROOT,'data/content/page_admission_registry.json'),JSON.stringify(adm,null,2)+'\n');
+fs.writeFileSync(path.join(ROOT,'data/content/content_state_registry.json'),JSON.stringify(state,null,2)+'\n');
+
+const today = new Date().toISOString().slice(0,10);
+const ledgerPath = path.join(ROOT,'data/releases/daily_velocity_ledger.json');
+let ledger={date:today,new_pages_used:0,repairs_used:0,runs:[]};
+try { const prior=JSON.parse(fs.readFileSync(ledgerPath,'utf8')); if(prior.date===today) ledger=prior; } catch {}
+ledger.new_pages_used=Number(ledger.new_pages_used||0)+created;
+ledger.repairs_used=Number(ledger.repairs_used||0)+repaired;
+ledger.runs=[...(ledger.runs||[]),{at:new Date().toISOString(),created,repairs:repaired,skipped:skipped.length,quality_rejected:qualityRejected}];
+fs.writeFileSync(ledgerPath,JSON.stringify(ledger,null,2)+'\n');
+
+fs.mkdirSync(path.join(ROOT,'artifacts/release'),{recursive:true});
+const status=(created||repaired)?'COMPLETED_WITH_CHANGES':skipped.length?'COMPLETED_ALL_SKIPPED':'COMPLETED_NO_CHANGES';
+fs.writeFileSync(path.join(ROOT,'artifacts/release/apply_release_plan_summary.json'),JSON.stringify({status,plan_generated_at:plan.generated_at||null,created,repaired,quality_rejected:qualityRejected,skipped:skipped.length,total:(plan.units||[]).length,skipped_records:skipped,at:new Date().toISOString()},null,2)+'\n');
+console.log(`Applied quality-gated release plan: ${created} created, ${repaired} pages substantively repaired, ${qualityRejected} quality-rejected, ${skipped.length} total skipped.`);

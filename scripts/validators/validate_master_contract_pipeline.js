@@ -30,6 +30,8 @@ const strategy = readJson('data/strategy/citation_strategy_profile.json', {});
 const contentContract = readJson('_content_release_contract.json', {});
 const citationContract = readJson('_citation_intelligence_contract.json', {});
 const releasePlan = readJson('data/releases/daily_release_plan.json', {units:[]});
+const applySummary = readJson('artifacts/release/apply_release_plan_summary.json', null);
+const releasePlanApplied = Boolean(applySummary && releasePlan.generated_at && applySummary.plan_generated_at === releasePlan.generated_at && Number(applySummary.total || 0) === (releasePlan.units || []).length);
 const universe = readJson('data/query_atlas/query_universe.json', {queries:[]});
 const signals = readJson('data/signals/normalized_records.json', {records:[]});
 const opps = readJson('data/opportunities/aeo_geo_opportunities.json', {opportunities:[]});
@@ -104,12 +106,23 @@ const checks = {
   },
   'programmatic-substance': () => {
     const units = releasePlan.units || [];
-    for (const u of units.filter(x=>x.release_action==='create')) {
+    const minWords = Number(contentContract.quality?.min_programmatic_words || 700);
+    const qualityReport = readJson('data/content/programmatic_quality_report.json', null);
+    const qualityByRoute = new Map((qualityReport?.pages || []).map(p => [cleanRoute(p.route), p]));
+    if (!releasePlanApplied) return;
+    for (const u of units.filter(x=>['create','repair'].includes(x.release_action))) {
       const rel = fileForRoute(u.target_route);
-      if (rel && exists(rel)) {
-        const text = fs.readFileSync(path.join(ROOT, rel),'utf8').replace(/<[^>]+>/g,' ');
-        if (text.split(/\s+/).filter(Boolean).length < 450) fail(`generated page thin: ${rel}`);
-        if (!/West Peek Productions/.test(text)) fail(`generated page lacks WPP entity: ${rel}`);
+      if (!rel || !exists(rel)) fail(`release page missing after apply: ${u.target_route}`);
+      const text = fs.readFileSync(path.join(ROOT, rel),'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ');
+      const words = text.split(/\s+/).filter(Boolean).length;
+      if (words < minWords) fail(`generated page thin: ${rel} (${words}<${minWords})`);
+      if (!/West Peek Productions/.test(text)) fail(`generated page lacks WPP entity: ${rel}`);
+      if (cleanRoute(u.target_route).startsWith('/programmatic/')) {
+        if (!qualityReport) fail('missing programmatic quality report; run content:quality:report');
+        const row = qualityByRoute.get(cleanRoute(u.target_route));
+        if (!row) fail(`missing quality evidence for changed route: ${u.target_route}`);
+        const blocking = (row.flags || []).filter(f=>['thin','exact_duplicate','near_duplicate'].includes(f));
+        if (blocking.length) fail(`changed route fails programmatic quality: ${u.target_route}:${blocking.join(',')}`);
       }
     }
   },

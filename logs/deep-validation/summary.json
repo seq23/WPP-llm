@@ -20,6 +20,11 @@
     "exit_status": 0
   },
   {
+    "id": "artifact-manifest",
+    "command": "node scripts/validate_artifact_manifest.js",
+    "exit_status": 0
+  },
+  {
     "id": "canonical-routes",
     "command": "node scripts/validate_canonical_routes.js",
     "exit_status": 0
@@ -127,6 +132,11 @@
   {
     "id": "programmatic-substance",
     "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
+    "exit_status": 0
+  },
+  {
+    "id": "programmatic-quality",
+    "command": "npm run content:quality:validate",
     "exit_status": 0
   },
   {
