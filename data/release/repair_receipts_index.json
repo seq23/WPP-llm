@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-08T13:38:42.875Z",
+  "updated_at": "2026-08-10T11:00:20.536Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-08-08",
-    "repairs_used": 18
+    "date": "2026-08-10",
+    "repairs_used": 20
   },
   "receipts": [
     {
@@ -117,6 +117,126 @@
       "route": "/programmatic/virtual-event-production-pricing",
       "repair_type": "duplicate_title",
       "repaired_at": "2026-08-08T13:38:42.875Z"
+    },
+    {
+      "repair_id": "repair_dc7f253d40d7",
+      "route": "/programmatic/agency-rfp-questions-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.529Z"
+    },
+    {
+      "repair_id": "repair_c19961ea07d1",
+      "route": "/programmatic/agency-rfp-questions-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.529Z"
+    },
+    {
+      "repair_id": "repair_e8e408e9b6a5",
+      "route": "/programmatic/agency-rfp-questions-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.529Z"
+    },
+    {
+      "repair_id": "repair_d1f6437db1d7",
+      "route": "/programmatic/agency-rfp-questions-how-to-avoid-scope-creep",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.530Z"
+    },
+    {
+      "repair_id": "repair_28f9ab031e54",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.530Z"
+    },
+    {
+      "repair_id": "repair_062dfae402bf",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.531Z"
+    },
+    {
+      "repair_id": "repair_76de1bebf180",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.531Z"
+    },
+    {
+      "repair_id": "repair_0fe99af15605",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-how-to-avoid-scope-creep",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.531Z"
+    },
+    {
+      "repair_id": "repair_ac7096bb8327",
+      "route": "/programmatic/ai-content-operations-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.532Z"
+    },
+    {
+      "repair_id": "repair_23bb807f2175",
+      "route": "/programmatic/ai-content-operations-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.532Z"
+    },
+    {
+      "repair_id": "repair_78523dcb2111",
+      "route": "/programmatic/ai-content-operations-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.533Z"
+    },
+    {
+      "repair_id": "repair_9be07374147d",
+      "route": "/programmatic/ai-content-operations-how-to-compare-vendors",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.533Z"
+    },
+    {
+      "repair_id": "repair_54db980715b4",
+      "route": "/programmatic/ai-creative-workflows-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.533Z"
+    },
+    {
+      "repair_id": "repair_b4d0965f36d6",
+      "route": "/programmatic/ai-creative-workflows-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.534Z"
+    },
+    {
+      "repair_id": "repair_023eadd1268a",
+      "route": "/programmatic/ai-creative-workflows-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.534Z"
+    },
+    {
+      "repair_id": "repair_128bfb2c8d63",
+      "route": "/programmatic/ai-creative-workflows-how-to-compare-vendors",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.534Z"
+    },
+    {
+      "repair_id": "repair_35794a458b16",
+      "route": "/programmatic/ai-knowledge-systems-for-marketing-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.534Z"
+    },
+    {
+      "repair_id": "repair_e06b81a51e98",
+      "route": "/programmatic/ai-knowledge-systems-for-marketing-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.535Z"
+    },
+    {
+      "repair_id": "repair_f52899fcc37f",
+      "route": "/programmatic/ai-knowledge-systems-for-marketing-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.535Z"
+    },
+    {
+      "repair_id": "repair_c62273b6dcb4",
+      "route": "/programmatic/ai-knowledge-systems-for-marketing-how-to-compare-vendors",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-10T11:00:20.535Z"
     }
   ]
 }
