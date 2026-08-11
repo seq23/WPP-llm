@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "analysis_version": "wpp-content-quality-v1",
-  "corpus_fingerprint": "3a2ed220a4c5137f91b5cea05fa193b44fcf8dffe73449fc0b4fe03b5909bca2",
+  "corpus_fingerprint": "5d8cd9baef2c4c033428cbf9c76d6f96dc0c5d3573b5d8b9e91c308b638f6fd2",
   "config": {
     "min_programmatic_words": 700,
     "duplicate_block_threshold": 0.9,
@@ -12,12 +12,12 @@
     "repair_policy": "only count a repair when the page content actually changes and passes the same substance and duplicate gate"
   },
   "summary": {
-    "pages_scanned": 2300,
-    "blocking_legacy_pages": 2000,
-    "thin_pages": 2000,
+    "pages_scanned": 2350,
+    "blocking_legacy_pages": 1900,
+    "thin_pages": 1900,
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0,
-    "similarity_warning_pages": 8,
+    "similarity_warning_pages": 10,
     "status": "LEGACY_REMEDIATION_REQUIRED"
   },
   "pages": [
@@ -308,8 +308,21 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1112,
-      "max_similarity": 0.525672,
-      "nearest_route": "/programmatic/what-is-agency-rfp-questions",
+      "max_similarity": 0.588682,
+      "nearest_route": "/programmatic/agency-rfp-questions-how-to-brief-a-partner",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-how-to-brief-a-partner",
+      "file": "programmatic/agency-rfp-questions-how-to-brief-a-partner.html",
+      "query": "agency RFP questions: how to brief a partner",
+      "cluster": "agency-rfp-questions",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1118,
+      "max_similarity": 0.588682,
+      "nearest_route": "/programmatic/agency-rfp-questions-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -884,6 +897,19 @@
       "page_family": "operational_guide",
       "word_count": 1138,
       "max_similarity": 0.629662,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-how-to-brief-a-partner",
+      "file": "programmatic/ai-consultant-vs-automation-agency-how-to-brief-a-partner.html",
+      "query": "AI consultant vs automation agency: how to brief a partner",
+      "cluster": "ai-consultant-vs-automation-agency",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1148,
+      "max_similarity": 0.565,
       "nearest_route": "/programmatic/ai-consultant-vs-automation-agency",
       "exact_duplicate_routes": [],
       "flags": []
@@ -4933,7 +4959,20 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1146,
-      "max_similarity": 0.560166,
+      "max_similarity": 0.561723,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-brief-a-partner",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/brand-agency-vs-marketing-agency-how-to-brief-a-partner",
+      "file": "programmatic/brand-agency-vs-marketing-agency-how-to-brief-a-partner.html",
+      "query": "brand agency vs marketing agency: how to brief a partner",
+      "cluster": "brand-agency-vs-marketing-agency",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1142,
+      "max_similarity": 0.598807,
       "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-agency",
       "exact_duplicate_routes": [],
       "flags": []
@@ -6117,6 +6156,19 @@
       ]
     },
     {
+      "route": "/programmatic/brand-messaging-architecture-how-to-compare-vendors",
+      "file": "programmatic/brand-messaging-architecture-how-to-compare-vendors.html",
+      "query": "brand messaging architecture: how to compare vendors",
+      "cluster": "brand-messaging-architecture",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1079,
+      "max_similarity": 0.525661,
+      "nearest_route": "/programmatic/brand-messaging-architecture-for-marketing-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-messaging-architecture-implementation-guide",
       "file": "programmatic/brand-messaging-architecture-implementation-guide.html",
       "query": "brand messaging architecture implementation guide",
@@ -6681,6 +6733,19 @@
       ]
     },
     {
+      "route": "/programmatic/brand-narrative-strategy-how-to-compare-vendors",
+      "file": "programmatic/brand-narrative-strategy-how-to-compare-vendors.html",
+      "query": "brand narrative strategy: how to compare vendors",
+      "cluster": "brand-narrative-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1078,
+      "max_similarity": 0.546444,
+      "nearest_route": "/programmatic/what-is-brand-narrative-strategy",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-narrative-strategy-implementation-guide",
       "file": "programmatic/brand-narrative-strategy-implementation-guide.html",
       "query": "brand narrative strategy implementation guide",
@@ -7243,6 +7308,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
+      "file": "programmatic/brand-positioning-strategy-how-to-compare-vendors.html",
+      "query": "brand positioning strategy: how to compare vendors",
+      "cluster": "brand-positioning-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1080,
+      "max_similarity": 0.537822,
+      "nearest_route": "/programmatic/what-is-brand-positioning-strategy",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/brand-positioning-strategy-implementation-guide",
@@ -7815,6 +7893,19 @@
       ]
     },
     {
+      "route": "/programmatic/brand-storytelling-how-to-compare-vendors",
+      "file": "programmatic/brand-storytelling-how-to-compare-vendors.html",
+      "query": "brand storytelling: how to compare vendors",
+      "cluster": "brand-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1076,
+      "max_similarity": 0.502811,
+      "nearest_route": "/programmatic/what-is-brand-storytelling",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-storytelling-implementation-guide",
       "file": "programmatic/brand-storytelling-implementation-guide.html",
       "query": "brand storytelling implementation guide",
@@ -8377,6 +8468,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/brand-strategy-consulting-how-to-compare-vendors",
+      "file": "programmatic/brand-strategy-consulting-how-to-compare-vendors.html",
+      "query": "brand strategy consulting: how to compare vendors",
+      "cluster": "brand-strategy-consulting",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1078,
+      "max_similarity": 0.531509,
+      "nearest_route": "/programmatic/what-is-brand-strategy-consulting",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/brand-strategy-consulting-implementation-guide",
@@ -8945,6 +9049,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/branded-content-development-how-to-compare-vendors",
+      "file": "programmatic/branded-content-development-how-to-compare-vendors.html",
+      "query": "branded content development: how to compare vendors",
+      "cluster": "branded-content-development",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1087,
+      "max_similarity": 0.551781,
+      "nearest_route": "/programmatic/what-is-branded-content-development",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/branded-content-development-implementation-guide",
@@ -9543,6 +9660,19 @@
       ]
     },
     {
+      "route": "/programmatic/campaign-narrative-strategy-how-to-compare-vendors",
+      "file": "programmatic/campaign-narrative-strategy-how-to-compare-vendors.html",
+      "query": "campaign narrative strategy: how to compare vendors",
+      "cluster": "campaign-narrative-strategy",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1095,
+      "max_similarity": 0.565109,
+      "nearest_route": "/programmatic/what-is-campaign-narrative-strategy",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/campaign-narrative-strategy-implementation-guide",
       "file": "programmatic/campaign-narrative-strategy-implementation-guide.html",
       "query": "campaign narrative strategy implementation guide",
@@ -9835,8 +9965,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1157,
-      "max_similarity": 0.598706,
-      "nearest_route": "/programmatic/what-is-community-as-a-service",
+      "max_similarity": 0.629752,
+      "nearest_route": "/programmatic/community-as-a-service-red-flags",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9848,8 +9978,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1072,
-      "max_similarity": 0.712862,
-      "nearest_route": "/programmatic/community-as-a-service-companies",
+      "max_similarity": 0.774224,
+      "nearest_route": "/programmatic/community-as-a-service-how-to-choose",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9861,8 +9991,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1083,
-      "max_similarity": 0.630942,
-      "nearest_route": "/programmatic/community-as-a-service-agency",
+      "max_similarity": 0.65873,
+      "nearest_route": "/programmatic/community-as-a-service-workflow",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9873,13 +10003,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1096,
+      "max_similarity": 0.655923,
+      "nearest_route": "/programmatic/community-as-a-service-red-flags",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-case-pattern",
@@ -9888,13 +10016,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1104,
+      "max_similarity": 0.637153,
+      "nearest_route": "/programmatic/community-as-a-service-process",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-checklist",
@@ -9904,8 +10030,8 @@
       "pillar": "community",
       "page_family": "template_checklist",
       "word_count": 1089,
-      "max_similarity": 0.603242,
-      "nearest_route": "/programmatic/community-as-a-service-measurement",
+      "max_similarity": 0.619948,
+      "nearest_route": "/programmatic/community-as-a-service-best-practices",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9916,13 +10042,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1107,
+      "max_similarity": 0.659593,
+      "nearest_route": "/programmatic/community-as-a-service-how-to-choose",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-companies",
@@ -9932,8 +10056,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1086,
-      "max_similarity": 0.766355,
-      "nearest_route": "/programmatic/community-as-a-service-consultant",
+      "max_similarity": 0.767507,
+      "nearest_route": "/programmatic/community-as-a-service-how-to-choose",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9973,8 +10097,8 @@
       "pillar": "community",
       "page_family": "cost_scope",
       "word_count": 1090,
-      "max_similarity": 0.615451,
-      "nearest_route": "/programmatic/community-as-a-service-implementation-guide",
+      "max_similarity": 0.632846,
+      "nearest_route": "/programmatic/community-as-a-service-roi-factors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9986,8 +10110,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1074,
-      "max_similarity": 0.60963,
-      "nearest_route": "/programmatic/community-as-a-service-examples",
+      "max_similarity": 0.649956,
+      "nearest_route": "/programmatic/community-as-a-service-how-to-choose",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9999,8 +10123,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1072,
-      "max_similarity": 0.60963,
-      "nearest_route": "/programmatic/community-as-a-service-deliverables",
+      "max_similarity": 0.637467,
+      "nearest_route": "/programmatic/community-as-a-service-best-practices",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -10089,13 +10213,24 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1114,
+      "max_similarity": 0.774224,
+      "nearest_route": "/programmatic/community-as-a-service-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-as-a-service-how-to-compare-vendors",
+      "file": "programmatic/community-as-a-service-how-to-compare-vendors.html",
+      "query": "community as a service: how to compare vendors",
+      "cluster": "community-as-a-service",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1123,
+      "max_similarity": 0.652476,
+      "nearest_route": "/programmatic/community-as-a-service-when-to-hire",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-implementation-guide",
@@ -10105,8 +10240,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1090,
-      "max_similarity": 0.615451,
-      "nearest_route": "/programmatic/community-as-a-service-cost",
+      "max_similarity": 0.657293,
+      "nearest_route": "/programmatic/community-as-a-service-operating-model",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -10130,13 +10265,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-as-a-service-process",
+      "word_count": 1070,
+      "max_similarity": 0.648246,
+      "nearest_route": "/programmatic/community-as-a-service-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-operating-model",
@@ -10145,13 +10278,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1106,
+      "max_similarity": 0.657293,
+      "nearest_route": "/programmatic/community-as-a-service-implementation-guide",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-pricing",
@@ -10175,13 +10306,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1076,
+      "max_similarity": 0.657293,
+      "nearest_route": "/programmatic/community-as-a-service-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-questions-to-ask",
@@ -10190,13 +10319,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1109,
+      "max_similarity": 0.643168,
+      "nearest_route": "/programmatic/community-as-a-service-measurement",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-red-flags",
@@ -10205,13 +10332,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1106,
+      "max_similarity": 0.655923,
+      "nearest_route": "/programmatic/community-as-a-service-best-practices",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-roi-factors",
@@ -10220,13 +10345,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1109,
+      "max_similarity": 0.650131,
+      "nearest_route": "/programmatic/community-as-a-service-timeline",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-scope-of-work",
@@ -10235,13 +10358,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1110,
+      "max_similarity": 0.641182,
+      "nearest_route": "/programmatic/community-as-a-service-how-to-compare-vendors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-services",
@@ -10250,13 +10371,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1075,
+      "max_similarity": 0.653205,
+      "nearest_route": "/programmatic/community-as-a-service-template",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-strategy-framework",
@@ -10265,13 +10384,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1090,
+      "max_similarity": 0.625967,
+      "nearest_route": "/programmatic/community-as-a-service-best-practices",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-template",
@@ -10281,8 +10398,8 @@
       "pillar": "community",
       "page_family": "template_checklist",
       "word_count": 1084,
-      "max_similarity": 0.629213,
-      "nearest_route": "/programmatic/community-as-a-service-agency",
+      "max_similarity": 0.653205,
+      "nearest_route": "/programmatic/community-as-a-service-services",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -10293,13 +10410,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1082,
+      "max_similarity": 0.650131,
+      "nearest_route": "/programmatic/community-as-a-service-roi-factors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-vs-in-house-team",
@@ -10323,13 +10438,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1132,
+      "max_similarity": 0.652476,
+      "nearest_route": "/programmatic/community-as-a-service-how-to-compare-vendors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-as-a-service-workflow",
@@ -10338,13 +10451,11 @@
       "cluster": "community-as-a-service",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-as-a-service-mistakes",
+      "word_count": 1073,
+      "max_similarity": 0.65873,
+      "nearest_route": "/programmatic/community-as-a-service-audit",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-budget-planning-framework",
@@ -10506,13 +10617,11 @@
       "cluster": "community-building-for-brands",
       "pillar": "community",
       "page_family": "cost_scope",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-building-for-brands-pricing",
+      "word_count": 1224,
+      "max_similarity": 0.62682,
+      "nearest_route": "/programmatic/community-building-for-brands-template",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-building-for-brands-deliverables",
@@ -10634,6 +10743,19 @@
       ]
     },
     {
+      "route": "/programmatic/community-building-for-brands-how-to-compare-vendors",
+      "file": "programmatic/community-building-for-brands-how-to-compare-vendors.html",
+      "query": "community building for brands: how to compare vendors",
+      "cluster": "community-building-for-brands",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1290,
+      "max_similarity": 0.643351,
+      "nearest_route": "/programmatic/community-building-for-brands-process",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-building-for-brands-implementation-guide",
       "file": "programmatic/community-building-for-brands-implementation-guide.html",
       "query": "community building for brands implementation guide",
@@ -10694,13 +10816,11 @@
       "cluster": "community-building-for-brands",
       "pillar": "community",
       "page_family": "cost_scope",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-building-for-brands-cost",
+      "word_count": 1220,
+      "max_similarity": 0.628332,
+      "nearest_route": "/programmatic/community-building-for-brands-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-building-for-brands-process",
@@ -10710,8 +10830,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1222,
-      "max_similarity": 0.627871,
-      "nearest_route": "/programmatic/community-building-for-brands-workflow",
+      "max_similarity": 0.643351,
+      "nearest_route": "/programmatic/community-building-for-brands-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -11113,13 +11233,11 @@
       "cluster": "community-engagement-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1217,
+      "max_similarity": 0.768201,
       "nearest_route": "/programmatic/community-engagement-strategy-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-engagement-strategy-for-marketing-teams",
@@ -11141,13 +11259,11 @@
       "cluster": "community-engagement-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1207,
+      "max_similarity": 0.768201,
       "nearest_route": "/programmatic/community-engagement-strategy-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-engagement-strategy-for-small-teams",
@@ -11169,13 +11285,11 @@
       "cluster": "community-engagement-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-engagement-strategy-for-founders",
+      "word_count": 1213,
+      "max_similarity": 0.752483,
+      "nearest_route": "/programmatic/community-engagement-strategy-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-engagement-strategy-how-to-choose",
@@ -11191,6 +11305,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-engagement-strategy-how-to-compare-vendors",
+      "file": "programmatic/community-engagement-strategy-how-to-compare-vendors.html",
+      "query": "community engagement strategy: how to compare vendors",
+      "cluster": "community-engagement-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1108,
+      "max_similarity": 0.507188,
+      "nearest_route": "/programmatic/what-is-community-engagement-strategy",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-engagement-strategy-implementation-guide",
@@ -11737,13 +11864,11 @@
       "cluster": "community-launch-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-launch-strategy-for-nonprofits",
+      "word_count": 1212,
+      "max_similarity": 0.766277,
+      "nearest_route": "/programmatic/community-launch-strategy-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-launch-strategy-for-marketing-teams",
@@ -11765,13 +11890,11 @@
       "cluster": "community-launch-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-launch-strategy-for-founders",
+      "word_count": 1210,
+      "max_similarity": 0.742175,
+      "nearest_route": "/programmatic/community-launch-strategy-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-launch-strategy-for-small-teams",
@@ -11781,8 +11904,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1232,
-      "max_similarity": 0.723439,
-      "nearest_route": "/programmatic/community-launch-strategy-for-enterprise-teams",
+      "max_similarity": 0.743421,
+      "nearest_route": "/programmatic/community-launch-strategy-for-founders",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -11793,13 +11916,11 @@
       "cluster": "community-launch-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1208,
+      "max_similarity": 0.766277,
       "nearest_route": "/programmatic/community-launch-strategy-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-launch-strategy-how-to-choose",
@@ -11815,6 +11936,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-launch-strategy-how-to-compare-vendors",
+      "file": "programmatic/community-launch-strategy-how-to-compare-vendors.html",
+      "query": "community launch strategy: how to compare vendors",
+      "cluster": "community-launch-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1108,
+      "max_similarity": 0.549884,
+      "nearest_route": "/programmatic/community-launch-strategy-for-small-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-launch-strategy-implementation-guide",
@@ -12303,13 +12437,11 @@
       "cluster": "community-led-growth",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-led-growth-for-nonprofits",
+      "word_count": 1213,
+      "max_similarity": 0.746888,
+      "nearest_route": "/programmatic/community-led-growth-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-led-growth-for-marketing-teams",
@@ -12331,13 +12463,11 @@
       "cluster": "community-led-growth",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-led-growth-for-founders",
+      "word_count": 1203,
+      "max_similarity": 0.778246,
+      "nearest_route": "/programmatic/community-led-growth-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-led-growth-for-small-teams",
@@ -12361,13 +12491,11 @@
       "cluster": "community-led-growth",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1208,
+      "max_similarity": 0.72363,
       "nearest_route": "/programmatic/community-led-growth-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-led-growth-framework",
@@ -12398,6 +12526,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-led-growth-how-to-compare-vendors",
+      "file": "programmatic/community-led-growth-how-to-compare-vendors.html",
+      "query": "community-led growth: how to compare vendors",
+      "cluster": "community-led-growth",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1117,
+      "max_similarity": 0.537279,
+      "nearest_route": "/programmatic/community-led-growth-for-founders",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-led-growth-implementation-guide",
@@ -12872,8 +13013,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1220,
-      "max_similarity": 0.721405,
-      "nearest_route": "/programmatic/community-management-services-for-marketing-teams",
+      "max_similarity": 0.76619,
+      "nearest_route": "/programmatic/community-management-services-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -12884,13 +13025,11 @@
       "cluster": "community-management-services",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-management-services-for-nonprofits",
+      "word_count": 1203,
+      "max_similarity": 0.787724,
+      "nearest_route": "/programmatic/community-management-services-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-management-services-for-marketing-teams",
@@ -12912,13 +13051,11 @@
       "cluster": "community-management-services",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1202,
+      "max_similarity": 0.777966,
       "nearest_route": "/programmatic/community-management-services-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-management-services-for-small-teams",
@@ -12928,8 +13065,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1236,
-      "max_similarity": 0.717886,
-      "nearest_route": "/programmatic/community-management-services-for-marketing-teams",
+      "max_similarity": 0.750623,
+      "nearest_route": "/programmatic/community-management-services-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -12940,13 +13077,24 @@
       "cluster": "community-management-services",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1201,
+      "max_similarity": 0.787724,
       "nearest_route": "/programmatic/community-management-services-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-management-services-how-to-avoid-scope-creep",
+      "file": "programmatic/community-management-services-how-to-avoid-scope-creep.html",
+      "query": "community management services: how to avoid scope creep",
+      "cluster": "community-management-services",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1129,
+      "max_similarity": 0.645704,
+      "nearest_route": "/programmatic/community-management-services",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-management-services-how-to-choose",
@@ -13530,6 +13678,19 @@
       ]
     },
     {
+      "route": "/programmatic/community-marketing-how-to-compare-vendors",
+      "file": "programmatic/community-marketing-how-to-compare-vendors.html",
+      "query": "community marketing: how to compare vendors",
+      "cluster": "community-marketing",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "word_count": 1072,
+      "max_similarity": 0.08547,
+      "nearest_route": "/programmatic/community-marketing-how-to-choose",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-marketing-implementation-guide",
       "file": "programmatic/community-marketing-implementation-guide.html",
       "query": "community marketing implementation guide",
@@ -14014,13 +14175,11 @@
       "cluster": "community-member-experience",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-member-experience-for-nonprofits",
+      "word_count": 1220,
+      "max_similarity": 0.784693,
+      "nearest_route": "/programmatic/community-member-experience-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-member-experience-for-marketing-teams",
@@ -14044,13 +14203,11 @@
       "cluster": "community-member-experience",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-member-experience-for-founders",
+      "word_count": 1213,
+      "max_similarity": 0.740164,
+      "nearest_route": "/programmatic/community-member-experience-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-member-experience-for-small-teams",
@@ -14074,13 +14231,11 @@
       "cluster": "community-member-experience",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1218,
+      "max_similarity": 0.784693,
       "nearest_route": "/programmatic/community-member-experience-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-member-experience-how-to-choose",
@@ -14096,6 +14251,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-member-experience-how-to-compare-vendors",
+      "file": "programmatic/community-member-experience-how-to-compare-vendors.html",
+      "query": "community member experience: how to compare vendors",
+      "cluster": "community-member-experience",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1120,
+      "max_similarity": 0.519637,
+      "nearest_route": "/programmatic/community-member-experience-for-startups",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-member-experience-implementation-guide",
@@ -14374,13 +14542,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1081,
+      "max_similarity": 0.771267,
       "nearest_route": "/programmatic/community-metrics-and-measurement-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-agency",
@@ -14389,12 +14555,12 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1073,
+      "max_similarity": 0.836098,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-consultant",
       "exact_duplicate_routes": [],
       "flags": [
-        "thin"
+        "similarity_warning"
       ]
     },
     {
@@ -14404,13 +14570,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1088,
+      "max_similarity": 0.63089,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-services",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-best-practices",
@@ -14419,13 +14583,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1101,
+      "max_similarity": 0.667851,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-case-pattern",
@@ -14434,13 +14596,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1093,
+      "max_similarity": 0.801724,
+      "nearest_route": "/programmatic/community-metrics-and-measurement",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-checklist",
@@ -14450,8 +14610,8 @@
       "pillar": "community",
       "page_family": "template_checklist",
       "word_count": 1107,
-      "max_similarity": 0.596774,
-      "nearest_route": "/programmatic/community-metrics-and-measurement",
+      "max_similarity": 0.627807,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-audit",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -14463,8 +14623,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "max_similarity": 0.806584,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-how-to-choose",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -14477,13 +14637,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1082,
+      "max_similarity": 0.77979,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-services",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-comparison",
@@ -14507,12 +14665,12 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1086,
+      "max_similarity": 0.836098,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-agency",
       "exact_duplicate_routes": [],
       "flags": [
-        "thin"
+        "similarity_warning"
       ]
     },
     {
@@ -14522,13 +14680,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "cost_scope",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-pricing",
+      "word_count": 1078,
+      "max_similarity": 0.635652,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-deliverables",
@@ -14537,13 +14693,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1079,
+      "max_similarity": 0.819672,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-examples",
@@ -14552,13 +14706,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1080,
+      "max_similarity": 0.63913,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-measurement",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-for-enterprise-teams",
@@ -14646,12 +14798,25 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "max_similarity": 0.806584,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-common-failure-points",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-metrics-and-measurement-how-to-compare-vendors",
+      "file": "programmatic/community-metrics-and-measurement-how-to-compare-vendors.html",
+      "query": "community metrics and measurement: how to compare vendors",
+      "cluster": "community-metrics-and-measurement",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1132,
+      "max_similarity": 0.652972,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-red-flags",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-implementation-guide",
@@ -14660,13 +14825,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1081,
+      "max_similarity": 0.635017,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-pricing",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-measurement",
@@ -14676,8 +14839,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1070,
-      "max_similarity": 0.737963,
-      "nearest_route": "/programmatic/community-metrics-and-measurement",
+      "max_similarity": 0.765698,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-case-pattern",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -14688,13 +14851,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1076,
+      "max_similarity": 0.622625,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-case-pattern",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-operating-model",
@@ -14703,13 +14864,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1087,
+      "max_similarity": 0.620035,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-implementation-guide",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-pricing",
@@ -14718,13 +14877,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "cost_scope",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-cost",
+      "word_count": 1072,
+      "max_similarity": 0.635017,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-implementation-guide",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-process",
@@ -14733,13 +14890,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1082,
+      "max_similarity": 0.627586,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-red-flags",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-questions-to-ask",
@@ -14749,8 +14904,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "max_similarity": 0.806584,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-common-failure-points",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -14763,13 +14918,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1104,
+      "max_similarity": 0.652972,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-how-to-compare-vendors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-roi-factors",
@@ -14778,13 +14931,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.811594,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1086,
+      "max_similarity": 0.791346,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-services",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-scope-of-work",
@@ -14794,8 +14945,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "max_similarity": 0.806584,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-common-failure-points",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -14808,13 +14959,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1073,
+      "max_similarity": 0.808923,
+      "nearest_route": "/programmatic/community-metrics-and-measurement",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-strategy-framework",
@@ -14823,13 +14972,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 463,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1096,
+      "max_similarity": 0.674067,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-timeline",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-template",
@@ -14839,8 +14986,8 @@
       "pillar": "community",
       "page_family": "template_checklist",
       "word_count": 1079,
-      "max_similarity": 0.603229,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-measurement",
+      "max_similarity": 0.629758,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -14851,13 +14998,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1072,
+      "max_similarity": 0.674067,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-strategy-framework",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement-vs-in-house-team",
@@ -14882,8 +15027,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 474,
-      "max_similarity": 0.809917,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "max_similarity": 0.806584,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-common-failure-points",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -14896,13 +15041,11 @@
       "cluster": "community-metrics-and-measurement",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-2026",
+      "word_count": 1072,
+      "max_similarity": 0.635652,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-cost",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-metrics-and-measurement",
@@ -14912,8 +15055,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1058,
-      "max_similarity": 0.737963,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-measurement",
+      "max_similarity": 0.808923,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-services",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -15120,8 +15263,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1239,
-      "max_similarity": 0.767055,
-      "nearest_route": "/programmatic/community-moderation-strategy-for-marketing-teams",
+      "max_similarity": 0.771739,
+      "nearest_route": "/programmatic/community-moderation-strategy-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -15132,13 +15275,11 @@
       "cluster": "community-moderation-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-moderation-strategy-for-nonprofits",
+      "word_count": 1206,
+      "max_similarity": 0.741749,
+      "nearest_route": "/programmatic/community-moderation-strategy-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-moderation-strategy-for-marketing-teams",
@@ -15160,13 +15301,11 @@
       "cluster": "community-moderation-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-moderation-strategy-for-founders",
+      "word_count": 1220,
+      "max_similarity": 0.748562,
+      "nearest_route": "/programmatic/community-moderation-strategy-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-moderation-strategy-for-small-teams",
@@ -15188,13 +15327,11 @@
       "cluster": "community-moderation-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-moderation-strategy-for-founders",
+      "word_count": 1208,
+      "max_similarity": 0.771739,
+      "nearest_route": "/programmatic/community-moderation-strategy-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-moderation-strategy-how-to-choose",
@@ -15210,6 +15347,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-moderation-strategy-how-to-compare-vendors",
+      "file": "programmatic/community-moderation-strategy-how-to-compare-vendors.html",
+      "query": "community moderation strategy: how to compare vendors",
+      "cluster": "community-moderation-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1104,
+      "max_similarity": 0.502634,
+      "nearest_route": "/programmatic/community-moderation-strategy-for-startups",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-moderation-strategy-implementation-guide",
@@ -15711,13 +15861,11 @@
       "cluster": "community-monetization-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-monetization-strategy-for-nonprofits",
+      "word_count": 1213,
+      "max_similarity": 0.748557,
+      "nearest_route": "/programmatic/community-monetization-strategy-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-monetization-strategy-for-marketing-teams",
@@ -15727,8 +15875,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1232,
-      "max_similarity": 0.748148,
-      "nearest_route": "/programmatic/community-monetization-strategy-for-small-teams",
+      "max_similarity": 0.775168,
+      "nearest_route": "/programmatic/community-monetization-strategy-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -15739,13 +15887,11 @@
       "cluster": "community-monetization-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-monetization-strategy-for-founders",
+      "word_count": 1210,
+      "max_similarity": 0.775168,
+      "nearest_route": "/programmatic/community-monetization-strategy-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-monetization-strategy-for-small-teams",
@@ -15767,13 +15913,11 @@
       "cluster": "community-monetization-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-monetization-strategy-for-founders",
+      "word_count": 1220,
+      "max_similarity": 0.741988,
+      "nearest_route": "/programmatic/community-monetization-strategy-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-monetization-strategy-how-to-choose",
@@ -15789,6 +15933,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-monetization-strategy-how-to-compare-vendors",
+      "file": "programmatic/community-monetization-strategy-how-to-compare-vendors.html",
+      "query": "community monetization strategy: how to compare vendors",
+      "cluster": "community-monetization-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1112,
+      "max_similarity": 0.533384,
+      "nearest_route": "/programmatic/community-monetization-strategy-for-nonprofits",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-monetization-strategy-implementation-guide",
@@ -16082,13 +16239,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1121,
+      "max_similarity": 0.582645,
+      "nearest_route": "/programmatic/community-operations-deliverables",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-agency",
@@ -16097,13 +16252,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1050,
+      "max_similarity": 0.725417,
+      "nearest_route": "/programmatic/community-operations-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-audit",
@@ -16112,13 +16265,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1057,
+      "max_similarity": 0.617596,
+      "nearest_route": "/programmatic/community-operations-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-best-practices",
@@ -16128,8 +16279,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16143,8 +16294,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16173,8 +16324,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16187,13 +16338,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1043,
+      "max_similarity": 0.816585,
+      "nearest_route": "/programmatic/community-operations-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-comparison",
@@ -16203,8 +16352,8 @@
       "pillar": "community",
       "page_family": "comparison",
       "word_count": 429,
-      "max_similarity": 0.790598,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.772443,
+      "nearest_route": "/programmatic/community-operations-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16217,13 +16366,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1050,
+      "max_similarity": 0.816585,
+      "nearest_route": "/programmatic/community-operations-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-cost",
@@ -16247,13 +16394,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
+      "word_count": 1035,
+      "max_similarity": 0.612191,
       "nearest_route": "/programmatic/community-operations",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-examples",
@@ -16262,13 +16407,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1052,
+      "max_similarity": 0.655049,
+      "nearest_route": "/programmatic/community-operations-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-for-enterprise-teams",
@@ -16291,8 +16434,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.783231,
+      "nearest_route": "/programmatic/community-operations-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16319,8 +16462,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.783231,
+      "nearest_route": "/programmatic/community-operations-for-founders",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16347,8 +16490,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.783231,
+      "nearest_route": "/programmatic/community-operations-for-founders",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16362,12 +16505,25 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-operations-how-to-compare-vendors",
+      "file": "programmatic/community-operations-how-to-compare-vendors.html",
+      "query": "community operations: how to compare vendors",
+      "cluster": "community-operations",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1093,
+      "max_similarity": 0.596733,
+      "nearest_route": "/programmatic/community-operations-workflow",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-implementation-guide",
@@ -16377,8 +16533,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.794926,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.761134,
+      "nearest_route": "/programmatic/community-operations-strategy-framework",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16391,13 +16547,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
+      "word_count": 1038,
+      "max_similarity": 0.597368,
       "nearest_route": "/programmatic/community-operations",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-mistakes",
@@ -16406,13 +16560,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1044,
+      "max_similarity": 0.655049,
+      "nearest_route": "/programmatic/community-operations-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-operating-model",
@@ -16422,8 +16574,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16451,13 +16603,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1045,
+      "max_similarity": 0.677828,
+      "nearest_route": "/programmatic/community-operations-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-questions-to-ask",
@@ -16467,8 +16617,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16482,8 +16632,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16497,8 +16647,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16512,8 +16662,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16526,13 +16676,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1038,
+      "max_similarity": 0.612707,
+      "nearest_route": "/programmatic/community-operations-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-strategy-framework",
@@ -16542,8 +16690,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.794926,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.761134,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16571,13 +16719,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1044,
+      "max_similarity": 0.609036,
+      "nearest_route": "/programmatic/community-operations-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-vs-in-house-team",
@@ -16602,8 +16748,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-operations",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-operations-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -16616,13 +16762,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations",
+      "word_count": 1030,
+      "max_similarity": 0.630742,
+      "nearest_route": "/programmatic/community-operations-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations",
@@ -16631,13 +16775,11 @@
       "cluster": "community-operations",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 419,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-operations-2026",
+      "word_count": 1031,
+      "max_similarity": 0.628832,
+      "nearest_route": "/programmatic/community-operations-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-platform-decision-matrix",
@@ -16869,13 +17011,11 @@
       "cluster": "community-platform-selection",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-platform-selection-for-nonprofits",
+      "word_count": 1215,
+      "max_similarity": 0.736327,
+      "nearest_route": "/programmatic/community-platform-selection-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-platform-selection-for-marketing-teams",
@@ -16897,13 +17037,11 @@
       "cluster": "community-platform-selection",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-platform-selection-for-founders",
+      "word_count": 1203,
+      "max_similarity": 0.764657,
+      "nearest_route": "/programmatic/community-platform-selection-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-platform-selection-for-small-teams",
@@ -16925,13 +17063,24 @@
       "cluster": "community-platform-selection",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1208,
+      "max_similarity": 0.764657,
+      "nearest_route": "/programmatic/community-platform-selection-for-nonprofits",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-platform-selection-how-to-avoid-scope-creep",
+      "file": "programmatic/community-platform-selection-how-to-avoid-scope-creep.html",
+      "query": "community platform selection: how to avoid scope creep",
+      "cluster": "community-platform-selection",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1126,
+      "max_similarity": 0.505247,
       "nearest_route": "/programmatic/community-platform-selection-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-platform-selection-how-to-choose",
@@ -17225,13 +17374,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1120,
+      "max_similarity": 0.612468,
+      "nearest_route": "/programmatic/community-programming-services",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-agency",
@@ -17240,13 +17387,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1053,
+      "max_similarity": 0.761321,
+      "nearest_route": "/programmatic/community-programming-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-audit",
@@ -17255,13 +17400,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1045,
+      "max_similarity": 0.610581,
+      "nearest_route": "/programmatic/community-programming-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-best-practices",
@@ -17271,8 +17414,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17286,8 +17429,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17316,8 +17459,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17330,13 +17473,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1053,
+      "max_similarity": 0.725508,
+      "nearest_route": "/programmatic/community-programming-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-comparison",
@@ -17346,8 +17487,8 @@
       "pillar": "community",
       "page_family": "comparison",
       "word_count": 429,
-      "max_similarity": 0.790598,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.772443,
+      "nearest_route": "/programmatic/community-programming-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17360,13 +17501,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1053,
+      "max_similarity": 0.761321,
+      "nearest_route": "/programmatic/community-programming-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-cost",
@@ -17390,13 +17529,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1035,
+      "max_similarity": 0.622807,
+      "nearest_route": "/programmatic/community-programming-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-examples",
@@ -17405,13 +17542,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1045,
+      "max_similarity": 0.58677,
+      "nearest_route": "/programmatic/community-programming-measurement",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-for-enterprise-teams",
@@ -17434,8 +17569,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.783231,
+      "nearest_route": "/programmatic/community-programming-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17462,8 +17597,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.783231,
+      "nearest_route": "/programmatic/community-programming-for-founders",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17490,8 +17625,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.783231,
+      "nearest_route": "/programmatic/community-programming-for-founders",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17505,12 +17640,25 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-programming-how-to-compare-vendors",
+      "file": "programmatic/community-programming-how-to-compare-vendors.html",
+      "query": "community programming: how to compare vendors",
+      "cluster": "community-programming",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1093,
+      "max_similarity": 0.609524,
+      "nearest_route": "/programmatic/community-programming-measurement",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-implementation-guide",
@@ -17520,8 +17668,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.794926,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.761134,
+      "nearest_route": "/programmatic/community-programming-strategy-framework",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17534,13 +17682,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1044,
+      "max_similarity": 0.618134,
+      "nearest_route": "/programmatic/community-programming-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-mistakes",
@@ -17549,13 +17695,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
+      "word_count": 1043,
+      "max_similarity": 0.62467,
       "nearest_route": "/programmatic/community-programming",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-operating-model",
@@ -17565,8 +17709,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17594,13 +17738,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1046,
+      "max_similarity": 0.624014,
+      "nearest_route": "/programmatic/community-programming-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-questions-to-ask",
@@ -17610,8 +17752,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17625,8 +17767,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17640,8 +17782,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.793249,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.759596,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17655,8 +17797,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17669,13 +17811,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1045,
+      "max_similarity": 0.618214,
+      "nearest_route": "/programmatic/community-programming-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-strategy-framework",
@@ -17685,8 +17825,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 441,
-      "max_similarity": 0.794926,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.761134,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17714,13 +17854,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1031,
+      "max_similarity": 0.605035,
+      "nearest_route": "/programmatic/community-programming-audit",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-vs-in-house-team",
@@ -17745,8 +17883,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 452,
-      "max_similarity": 0.791579,
-      "nearest_route": "/programmatic/community-programming",
+      "max_similarity": 0.758065,
+      "nearest_route": "/programmatic/community-programming-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -17759,13 +17897,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 430,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming",
+      "word_count": 1030,
+      "max_similarity": 0.595447,
+      "nearest_route": "/programmatic/community-programming-deliverables",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming",
@@ -17774,13 +17910,11 @@
       "cluster": "community-programming",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 419,
-      "max_similarity": 0.812095,
-      "nearest_route": "/programmatic/community-programming-2026",
+      "word_count": 1036,
+      "max_similarity": 0.62467,
+      "nearest_route": "/programmatic/community-programming-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-retention-playbook",
@@ -18042,13 +18176,11 @@
       "cluster": "community-staffing-model",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-staffing-model-for-nonprofits",
+      "word_count": 1212,
+      "max_similarity": 0.748344,
+      "nearest_route": "/programmatic/community-staffing-model-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-staffing-model-for-marketing-teams",
@@ -18070,13 +18202,11 @@
       "cluster": "community-staffing-model",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-staffing-model-for-founders",
+      "word_count": 1206,
+      "max_similarity": 0.75,
+      "nearest_route": "/programmatic/community-staffing-model-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-staffing-model-for-small-teams",
@@ -18098,13 +18228,11 @@
       "cluster": "community-staffing-model",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/community-staffing-model-for-founders",
+      "word_count": 1213,
+      "max_similarity": 0.75,
+      "nearest_route": "/programmatic/community-staffing-model-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/community-staffing-model-how-to-choose",
@@ -18120,6 +18248,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-staffing-model-how-to-compare-vendors",
+      "file": "programmatic/community-staffing-model-how-to-compare-vendors.html",
+      "query": "community staffing model: how to compare vendors",
+      "cluster": "community-staffing-model",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1116,
+      "max_similarity": 0.585944,
+      "nearest_route": "/programmatic/community-staffing-model",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-staffing-model-implementation-guide",
@@ -18382,8 +18523,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1046,
-      "max_similarity": 0.644425,
-      "nearest_route": "/programmatic/community-staffing-model-operating-model",
+      "max_similarity": 0.684838,
+      "nearest_route": "/programmatic/community-staffing-model-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -18680,6 +18821,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/content-marketing-operations-how-to-compare-vendors",
+      "file": "programmatic/content-marketing-operations-how-to-compare-vendors.html",
+      "query": "content marketing operations: how to compare vendors",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "word_count": 1082,
+      "max_similarity": 0.528317,
+      "nearest_route": "/programmatic/content-marketing-operations-for-marketing-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/content-marketing-operations-implementation-guide",
@@ -19252,6 +19406,19 @@
       ]
     },
     {
+      "route": "/programmatic/corporate-storytelling-how-to-compare-vendors",
+      "file": "programmatic/corporate-storytelling-how-to-compare-vendors.html",
+      "query": "corporate storytelling: how to compare vendors",
+      "cluster": "corporate-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1076,
+      "max_similarity": 0.509282,
+      "nearest_route": "/programmatic/what-is-corporate-storytelling",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/corporate-storytelling-implementation-guide",
       "file": "programmatic/corporate-storytelling-implementation-guide.html",
       "query": "corporate storytelling implementation guide",
@@ -19799,6 +19966,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/creative-agency-vs-production-company-how-to-avoid-scope-creep",
+      "file": "programmatic/creative-agency-vs-production-company-how-to-avoid-scope-creep.html",
+      "query": "creative agency vs production company: how to avoid scope creep",
+      "cluster": "creative-agency-vs-production-company",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1154,
+      "max_similarity": 0.567881,
+      "nearest_route": "/programmatic/what-is-creative-agency-vs-production-company",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-how-to-choose",
@@ -20361,6 +20541,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/creative-direction-agency-how-to-avoid-scope-creep",
+      "file": "programmatic/creative-direction-agency-how-to-avoid-scope-creep.html",
+      "query": "creative direction agency: how to avoid scope creep",
+      "cluster": "creative-direction-agency",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1109,
+      "max_similarity": 0.573367,
+      "nearest_route": "/programmatic/creative-direction-agency-agency",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/creative-direction-agency-how-to-choose",
@@ -20946,6 +21139,19 @@
       ]
     },
     {
+      "route": "/programmatic/creative-operations-how-to-compare-vendors",
+      "file": "programmatic/creative-operations-how-to-compare-vendors.html",
+      "query": "creative operations: how to compare vendors",
+      "cluster": "creative-operations",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1079,
+      "max_similarity": 0.510501,
+      "nearest_route": "/programmatic/what-is-creative-operations",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/creative-operations-implementation-guide",
       "file": "programmatic/creative-operations-implementation-guide.html",
       "query": "creative operations implementation guide",
@@ -21510,6 +21716,19 @@
       ]
     },
     {
+      "route": "/programmatic/creative-strategy-consulting-how-to-compare-vendors",
+      "file": "programmatic/creative-strategy-consulting-how-to-compare-vendors.html",
+      "query": "creative strategy consulting: how to compare vendors",
+      "cluster": "creative-strategy-consulting",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1086,
+      "max_similarity": 0.537891,
+      "nearest_route": "/programmatic/what-is-creative-strategy-consulting",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/creative-strategy-consulting-implementation-guide",
       "file": "programmatic/creative-strategy-consulting-implementation-guide.html",
       "query": "creative strategy consulting implementation guide",
@@ -21997,8 +22216,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1235,
-      "max_similarity": 0.718447,
-      "nearest_route": "/programmatic/customer-community-strategy-for-marketing-teams",
+      "max_similarity": 0.770833,
+      "nearest_route": "/programmatic/customer-community-strategy-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -22009,13 +22228,11 @@
       "cluster": "customer-community-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/customer-community-strategy-for-nonprofits",
+      "word_count": 1212,
+      "max_similarity": 0.753515,
+      "nearest_route": "/programmatic/customer-community-strategy-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/customer-community-strategy-for-marketing-teams",
@@ -22025,8 +22242,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1237,
-      "max_similarity": 0.718447,
-      "nearest_route": "/programmatic/customer-community-strategy-for-enterprise-teams",
+      "max_similarity": 0.737274,
+      "nearest_route": "/programmatic/customer-community-strategy-for-founders",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -22037,13 +22254,11 @@
       "cluster": "customer-community-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/customer-community-strategy-for-founders",
+      "word_count": 1219,
+      "max_similarity": 0.788673,
+      "nearest_route": "/programmatic/customer-community-strategy-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/customer-community-strategy-for-small-teams",
@@ -22053,8 +22268,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1226,
-      "max_similarity": 0.718447,
-      "nearest_route": "/programmatic/customer-community-strategy-for-enterprise-teams",
+      "max_similarity": 0.735029,
+      "nearest_route": "/programmatic/customer-community-strategy-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -22065,13 +22280,11 @@
       "cluster": "customer-community-strategy",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/customer-community-strategy-for-founders",
+      "word_count": 1220,
+      "max_similarity": 0.788673,
+      "nearest_route": "/programmatic/customer-community-strategy-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/customer-community-strategy-framework",
@@ -22102,6 +22315,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/customer-community-strategy-how-to-compare-vendors",
+      "file": "programmatic/customer-community-strategy-how-to-compare-vendors.html",
+      "query": "customer community strategy: how to compare vendors",
+      "cluster": "customer-community-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1103,
+      "max_similarity": 0.523592,
+      "nearest_route": "/programmatic/customer-community-strategy-for-small-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/customer-community-strategy-implementation-guide",
@@ -22683,6 +22909,19 @@
       ]
     },
     {
+      "route": "/programmatic/event-audience-engagement-how-to-compare-vendors",
+      "file": "programmatic/event-audience-engagement-how-to-compare-vendors.html",
+      "query": "event audience engagement: how to compare vendors",
+      "cluster": "event-audience-engagement",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1104,
+      "max_similarity": 0.555187,
+      "nearest_route": "/programmatic/what-is-event-audience-engagement",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/event-audience-engagement-implementation-guide",
       "file": "programmatic/event-audience-engagement-implementation-guide.html",
       "query": "event audience engagement implementation guide",
@@ -23247,6 +23486,19 @@
       ]
     },
     {
+      "route": "/programmatic/event-content-repurposing-how-to-compare-vendors",
+      "file": "programmatic/event-content-repurposing-how-to-compare-vendors.html",
+      "query": "event content repurposing: how to compare vendors",
+      "cluster": "event-content-repurposing",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1098,
+      "max_similarity": 0.530713,
+      "nearest_route": "/programmatic/what-is-event-content-repurposing",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/event-content-repurposing-implementation-guide",
       "file": "programmatic/event-content-repurposing-implementation-guide.html",
       "query": "event content repurposing implementation guide",
@@ -23809,6 +24061,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/event-marketing-strategy-how-to-compare-vendors",
+      "file": "programmatic/event-marketing-strategy-how-to-compare-vendors.html",
+      "query": "event marketing strategy: how to compare vendors",
+      "cluster": "event-marketing-strategy",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "word_count": 1080,
+      "max_similarity": 0.520885,
+      "nearest_route": "/programmatic/what-is-event-marketing-strategy",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/event-marketing-strategy-implementation-guide",
@@ -24390,6 +24655,19 @@
       ]
     },
     {
+      "route": "/programmatic/event-run-of-show-how-to-compare-vendors",
+      "file": "programmatic/event-run-of-show-how-to-compare-vendors.html",
+      "query": "event run of show: how to compare vendors",
+      "cluster": "event-run-of-show",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1119,
+      "max_similarity": 0.496426,
+      "nearest_route": "/programmatic/what-is-event-run-of-show",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/event-run-of-show-implementation-guide",
       "file": "programmatic/event-run-of-show-implementation-guide.html",
       "query": "event run of show implementation guide",
@@ -24952,6 +25230,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/executive-broadcast-production-how-to-compare-vendors",
+      "file": "programmatic/executive-broadcast-production-how-to-compare-vendors.html",
+      "query": "executive broadcast production: how to compare vendors",
+      "cluster": "executive-broadcast-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1104,
+      "max_similarity": 0.529027,
+      "nearest_route": "/programmatic/what-is-executive-broadcast-production",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/executive-broadcast-production-implementation-guide",
@@ -25554,6 +25845,19 @@
       ]
     },
     {
+      "route": "/programmatic/founder-storytelling-how-to-compare-vendors",
+      "file": "programmatic/founder-storytelling-how-to-compare-vendors.html",
+      "query": "founder storytelling: how to compare vendors",
+      "cluster": "founder-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1072,
+      "max_similarity": 0.552873,
+      "nearest_route": "/programmatic/what-is-founder-storytelling",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/founder-storytelling-implementation-guide",
       "file": "programmatic/founder-storytelling-implementation-guide.html",
       "query": "founder storytelling implementation guide",
@@ -25861,8 +26165,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1098,
-      "max_similarity": 0.731371,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency",
+      "max_similarity": 0.769594,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -26114,6 +26418,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/how-to-choose-a-creative-agency-how-to-avoid-scope-creep",
+      "file": "programmatic/how-to-choose-a-creative-agency-how-to-avoid-scope-creep.html",
+      "query": "how to choose a creative agency: how to avoid scope creep",
+      "cluster": "how-to-choose-a-creative-agency",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1151,
+      "max_similarity": 0.769594,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-agency",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-how-to-choose",
@@ -26393,8 +26710,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1096,
-      "max_similarity": 0.731371,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-agency",
+      "max_similarity": 0.732225,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -30132,8 +30449,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1228,
-      "max_similarity": 0.741776,
-      "nearest_route": "/programmatic/outsourced-community-management-for-marketing-teams",
+      "max_similarity": 0.752271,
+      "nearest_route": "/programmatic/outsourced-community-management-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -30144,13 +30461,11 @@
       "cluster": "outsourced-community-management",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/outsourced-community-management-for-nonprofits",
+      "word_count": 1208,
+      "max_similarity": 0.769874,
+      "nearest_route": "/programmatic/outsourced-community-management-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/outsourced-community-management-for-marketing-teams",
@@ -30172,13 +30487,11 @@
       "cluster": "outsourced-community-management",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
-      "nearest_route": "/programmatic/outsourced-community-management-for-founders",
+      "word_count": 1210,
+      "max_similarity": 0.760399,
+      "nearest_route": "/programmatic/outsourced-community-management-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/outsourced-community-management-for-small-teams",
@@ -30200,13 +30513,11 @@
       "cluster": "outsourced-community-management",
       "pillar": "community",
       "page_family": "operational_guide",
-      "word_count": 452,
-      "max_similarity": 0.813278,
+      "word_count": 1214,
+      "max_similarity": 0.769874,
       "nearest_route": "/programmatic/outsourced-community-management-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/outsourced-community-management-how-to-choose",
@@ -31009,6 +31320,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/podcast-strategy-consulting-when-to-hire",
+      "file": "programmatic/podcast-strategy-consulting-when-to-hire.html",
+      "query": "podcast strategy consulting when to hire",
+      "cluster": "podcast-strategy-consulting",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1091,
+      "max_similarity": 0.585034,
+      "nearest_route": "/programmatic/podcast-strategy-consulting-timeline",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/podcast-strategy-consulting",
       "file": "programmatic/podcast-strategy-consulting.html",
       "query": "podcast strategy consulting",
@@ -31050,6 +31374,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/presentation-storytelling-audit",
+      "file": "programmatic/presentation-storytelling-audit.html",
+      "query": "presentation storytelling audit",
+      "cluster": "presentation-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1041,
+      "max_similarity": 0.594618,
+      "nearest_route": "/programmatic/presentation-storytelling-agency",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/presentation-storytelling",
       "file": "programmatic/presentation-storytelling.html",
       "query": "presentation storytelling",
@@ -31057,8 +31394,8 @@
       "pillar": "storytelling",
       "page_family": "operational_guide",
       "word_count": 333,
-      "max_similarity": 0.077922,
-      "nearest_route": "/programmatic/presentation-storytelling-agency",
+      "max_similarity": 0.078652,
+      "nearest_route": "/programmatic/presentation-storytelling-audit",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -31158,6 +31495,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/rebrand-strategy-common-failure-points",
+      "file": "programmatic/rebrand-strategy-common-failure-points.html",
+      "query": "rebrand strategy common failure points",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1043,
+      "max_similarity": 0.617516,
+      "nearest_route": "/programmatic/rebrand-strategy-services",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/rebrand-strategy-deliverables",
       "file": "programmatic/rebrand-strategy-deliverables.html",
       "query": "rebrand strategy deliverables",
@@ -31191,8 +31541,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1174,
-      "max_similarity": 0.693509,
-      "nearest_route": "/programmatic/rebrand-strategy-for-founders",
+      "max_similarity": 0.760443,
+      "nearest_route": "/programmatic/rebrand-strategy-for-marketing-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -31204,7 +31554,20 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1160,
-      "max_similarity": 0.693509,
+      "max_similarity": 0.70462,
+      "nearest_route": "/programmatic/rebrand-strategy-for-marketing-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/rebrand-strategy-for-marketing-teams",
+      "file": "programmatic/rebrand-strategy-for-marketing-teams.html",
+      "query": "rebrand strategy for marketing teams",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1179,
+      "max_similarity": 0.760443,
       "nearest_route": "/programmatic/rebrand-strategy-for-enterprise-teams",
       "exact_duplicate_routes": [],
       "flags": []
@@ -31362,6 +31725,19 @@
       "word_count": 998,
       "max_similarity": 0.629061,
       "nearest_route": "/programmatic/rebrand-strategy-questions-to-ask",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/rebrand-strategy-strategy-framework",
+      "file": "programmatic/rebrand-strategy-strategy-framework.html",
+      "query": "rebrand strategy strategy framework",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1032,
+      "max_similarity": 0.59861,
+      "nearest_route": "/programmatic/rebrand-strategy-case-pattern",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -31526,8 +31902,21 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1030,
-      "max_similarity": 0.558376,
-      "nearest_route": "/programmatic/what-is-startup-brand-strategy",
+      "max_similarity": 0.574249,
+      "nearest_route": "/programmatic/startup-brand-strategy-audit",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/startup-brand-strategy-audit",
+      "file": "programmatic/startup-brand-strategy-audit.html",
+      "query": "startup brand strategy audit",
+      "cluster": "startup-brand-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1029,
+      "max_similarity": 0.574249,
+      "nearest_route": "/programmatic/startup-brand-strategy-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -31539,8 +31928,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 332,
-      "max_similarity": 0.07872,
-      "nearest_route": "/programmatic/startup-brand-strategy-agency",
+      "max_similarity": 0.07913,
+      "nearest_route": "/programmatic/startup-brand-strategy-audit",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -31597,8 +31986,21 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 1050,
-      "max_similarity": 0.546474,
-      "nearest_route": "/programmatic/video-content-strategy-2026",
+      "max_similarity": 0.601206,
+      "nearest_route": "/programmatic/video-content-strategy-audit",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/video-content-strategy-audit",
+      "file": "programmatic/video-content-strategy-audit.html",
+      "query": "video content strategy audit",
+      "cluster": "video-content-strategy",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1047,
+      "max_similarity": 0.601206,
+      "nearest_route": "/programmatic/video-content-strategy-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -31610,8 +32012,8 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 340,
-      "max_similarity": 0.077513,
-      "nearest_route": "/programmatic/video-content-strategy-agency",
+      "max_similarity": 0.077579,
+      "nearest_route": "/programmatic/video-content-strategy-audit",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -32223,8 +32625,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1043,
-      "max_similarity": 0.538645,
-      "nearest_route": "/programmatic/virtual-event-production-2026",
+      "max_similarity": 0.575552,
+      "nearest_route": "/programmatic/virtual-event-production-case-pattern",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32287,6 +32689,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/virtual-event-production-case-pattern",
+      "file": "programmatic/virtual-event-production-case-pattern.html",
+      "query": "virtual event production case pattern",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1065,
+      "max_similarity": 0.575552,
+      "nearest_route": "/programmatic/virtual-event-production-audit",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-checklist",
@@ -33196,8 +33611,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1123,
-      "max_similarity": 0.513365,
-      "nearest_route": "/programmatic/virtual-summit-production-agency",
+      "max_similarity": 0.514442,
+      "nearest_route": "/programmatic/virtual-summit-production-audit",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33211,6 +33626,19 @@
       "word_count": 1038,
       "max_similarity": 0.578231,
       "nearest_route": "/programmatic/what-is-virtual-summit-production",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/virtual-summit-production-audit",
+      "file": "programmatic/virtual-summit-production-audit.html",
+      "query": "virtual summit production audit",
+      "cluster": "virtual-summit-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1067,
+      "max_similarity": 0.543874,
+      "nearest_route": "/programmatic/virtual-summit-production-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33252,8 +33680,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1114,
-      "max_similarity": 0.513514,
-      "nearest_route": "/programmatic/webinar-production-agency",
+      "max_similarity": 0.568482,
+      "nearest_route": "/programmatic/webinar-production-audit",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33265,8 +33693,21 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1035,
-      "max_similarity": 0.553691,
-      "nearest_route": "/programmatic/what-is-webinar-production",
+      "max_similarity": 0.554894,
+      "nearest_route": "/programmatic/webinar-production-audit",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/webinar-production-audit",
+      "file": "programmatic/webinar-production-audit.html",
+      "query": "webinar production audit",
+      "cluster": "webinar-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1036,
+      "max_similarity": 0.568482,
+      "nearest_route": "/programmatic/webinar-production-2026",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33278,8 +33719,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 316,
-      "max_similarity": 0.021097,
-      "nearest_route": "/programmatic/webinar-production-agency",
+      "max_similarity": 0.021151,
+      "nearest_route": "/programmatic/webinar-production-audit",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -33293,8 +33734,8 @@
       "pillar": "agency-decisions",
       "page_family": "definition",
       "word_count": 1065,
-      "max_similarity": 0.525672,
-      "nearest_route": "/programmatic/agency-rfp-questions-how-to-avoid-scope-creep",
+      "max_similarity": 0.553438,
+      "nearest_route": "/programmatic/agency-rfp-questions-how-to-brief-a-partner",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33423,8 +33864,8 @@
       "pillar": "brand",
       "page_family": "definition",
       "word_count": 1054,
-      "max_similarity": 0.492401,
-      "nearest_route": "/programmatic/brand-messaging-architecture-for-marketing-teams",
+      "max_similarity": 0.523888,
+      "nearest_route": "/programmatic/brand-messaging-architecture-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33436,8 +33877,8 @@
       "pillar": "brand",
       "page_family": "definition",
       "word_count": 1053,
-      "max_similarity": 0.474436,
-      "nearest_route": "/programmatic/brand-narrative-strategy-for-enterprise-teams",
+      "max_similarity": 0.546444,
+      "nearest_route": "/programmatic/brand-narrative-strategy-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33449,8 +33890,8 @@
       "pillar": "brand",
       "page_family": "definition",
       "word_count": 1051,
-      "max_similarity": 0.467066,
-      "nearest_route": "/programmatic/brand-positioning-strategy-for-small-teams",
+      "max_similarity": 0.537822,
+      "nearest_route": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33462,8 +33903,8 @@
       "pillar": "storytelling",
       "page_family": "definition",
       "word_count": 1055,
-      "max_similarity": 0.074576,
-      "nearest_route": "/programmatic/brand-storytelling",
+      "max_similarity": 0.502811,
+      "nearest_route": "/programmatic/brand-storytelling-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33475,8 +33916,8 @@
       "pillar": "brand",
       "page_family": "definition",
       "word_count": 1051,
-      "max_similarity": 0.483774,
-      "nearest_route": "/programmatic/brand-strategy-consulting-for-marketing-teams",
+      "max_similarity": 0.531509,
+      "nearest_route": "/programmatic/brand-strategy-consulting-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33488,8 +33929,8 @@
       "pillar": "creative",
       "page_family": "definition",
       "word_count": 1069,
-      "max_similarity": 0.438901,
-      "nearest_route": "/programmatic/branded-content-development-for-enterprise-teams",
+      "max_similarity": 0.551781,
+      "nearest_route": "/programmatic/branded-content-development-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33501,8 +33942,8 @@
       "pillar": "storytelling",
       "page_family": "definition",
       "word_count": 1064,
-      "max_similarity": 0.444283,
-      "nearest_route": "/programmatic/campaign-narrative-strategy-for-enterprise-teams",
+      "max_similarity": 0.565109,
+      "nearest_route": "/programmatic/campaign-narrative-strategy-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33514,8 +33955,8 @@
       "pillar": "community",
       "page_family": "definition",
       "word_count": 1107,
-      "max_similarity": 0.598706,
-      "nearest_route": "/programmatic/community-as-a-service-2026",
+      "max_similarity": 0.629693,
+      "nearest_route": "/programmatic/community-as-a-service-red-flags",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33533,6 +33974,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/what-is-community-engagement-strategy",
+      "file": "programmatic/what-is-community-engagement-strategy.html",
+      "query": "what is community engagement strategy",
+      "cluster": "community-engagement-strategy",
+      "pillar": "community",
+      "page_family": "definition",
+      "word_count": 1083,
+      "max_similarity": 0.507188,
+      "nearest_route": "/programmatic/community-engagement-strategy-how-to-compare-vendors",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/what-is-community-led-growth",
       "file": "programmatic/what-is-community-led-growth.html",
       "query": "what is community-led growth",
@@ -33540,8 +33994,8 @@
       "pillar": "community",
       "page_family": "definition",
       "word_count": 1085,
-      "max_similarity": 0.44069,
-      "nearest_route": "/programmatic/community-led-growth-for-enterprise-teams",
+      "max_similarity": 0.505564,
+      "nearest_route": "/programmatic/community-led-growth-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33553,8 +34007,8 @@
       "pillar": "marketing",
       "page_family": "definition",
       "word_count": 1060,
-      "max_similarity": 0.468796,
-      "nearest_route": "/programmatic/content-marketing-operations-for-marketing-teams",
+      "max_similarity": 0.517945,
+      "nearest_route": "/programmatic/content-marketing-operations-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33566,8 +34020,8 @@
       "pillar": "storytelling",
       "page_family": "definition",
       "word_count": 1051,
-      "max_similarity": 0.075616,
-      "nearest_route": "/programmatic/corporate-storytelling",
+      "max_similarity": 0.509282,
+      "nearest_route": "/programmatic/corporate-storytelling-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33579,8 +34033,8 @@
       "pillar": "agency-decisions",
       "page_family": "definition",
       "word_count": 1116,
-      "max_similarity": 0.472141,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-enterprise-teams",
+      "max_similarity": 0.567881,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33592,8 +34046,8 @@
       "pillar": "creative",
       "page_family": "definition",
       "word_count": 1076,
-      "max_similarity": 0.544472,
-      "nearest_route": "/programmatic/creative-direction-agency",
+      "max_similarity": 0.554726,
+      "nearest_route": "/programmatic/creative-direction-agency-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33605,8 +34059,8 @@
       "pillar": "creative",
       "page_family": "definition",
       "word_count": 1052,
-      "max_similarity": 0.072402,
-      "nearest_route": "/programmatic/creative-operations",
+      "max_similarity": 0.510501,
+      "nearest_route": "/programmatic/creative-operations-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33618,8 +34072,8 @@
       "pillar": "creative",
       "page_family": "definition",
       "word_count": 1061,
-      "max_similarity": 0.484621,
-      "nearest_route": "/programmatic/creative-strategy-consulting-for-small-teams",
+      "max_similarity": 0.537891,
+      "nearest_route": "/programmatic/creative-strategy-consulting-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33631,8 +34085,8 @@
       "pillar": "community",
       "page_family": "definition",
       "word_count": 1097,
-      "max_similarity": 0.489993,
-      "nearest_route": "/programmatic/customer-community-strategy-for-marketing-teams",
+      "max_similarity": 0.505171,
+      "nearest_route": "/programmatic/customer-community-strategy-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33644,8 +34098,8 @@
       "pillar": "experiences",
       "page_family": "definition",
       "word_count": 1077,
-      "max_similarity": 0.467407,
-      "nearest_route": "/programmatic/event-audience-engagement-for-enterprise-teams",
+      "max_similarity": 0.555187,
+      "nearest_route": "/programmatic/event-audience-engagement-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33657,8 +34111,8 @@
       "pillar": "experiences",
       "page_family": "definition",
       "word_count": 1065,
-      "max_similarity": 0.452085,
-      "nearest_route": "/programmatic/event-content-repurposing-for-marketing-teams",
+      "max_similarity": 0.530713,
+      "nearest_route": "/programmatic/event-content-repurposing-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33670,8 +34124,8 @@
       "pillar": "marketing",
       "page_family": "definition",
       "word_count": 1060,
-      "max_similarity": 0.474311,
-      "nearest_route": "/programmatic/event-marketing-strategy-for-marketing-teams",
+      "max_similarity": 0.520885,
+      "nearest_route": "/programmatic/event-marketing-strategy-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33696,8 +34150,8 @@
       "pillar": "experiences",
       "page_family": "definition",
       "word_count": 1069,
-      "max_similarity": 0.467407,
-      "nearest_route": "/programmatic/executive-broadcast-production-for-marketing-teams",
+      "max_similarity": 0.529027,
+      "nearest_route": "/programmatic/executive-broadcast-production-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33709,8 +34163,8 @@
       "pillar": "storytelling",
       "page_family": "definition",
       "word_count": 1051,
-      "max_similarity": 0.075745,
-      "nearest_route": "/programmatic/founder-storytelling",
+      "max_similarity": 0.552873,
+      "nearest_route": "/programmatic/founder-storytelling-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33878,8 +34332,8 @@
       "pillar": "creative",
       "page_family": "definition",
       "word_count": 1061,
-      "max_similarity": 0.506063,
-      "nearest_route": "/programmatic/video-content-strategy-agency",
+      "max_similarity": 0.516287,
+      "nearest_route": "/programmatic/video-content-strategy-audit",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33891,8 +34345,8 @@
       "pillar": "experiences",
       "page_family": "definition",
       "word_count": 1089,
-      "max_similarity": 0.504823,
-      "nearest_route": "/programmatic/virtual-event-production-audit",
+      "max_similarity": 0.539852,
+      "nearest_route": "/programmatic/virtual-event-production-case-pattern",
       "exact_duplicate_routes": [],
       "flags": []
     },
