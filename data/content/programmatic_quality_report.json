@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "analysis_version": "wpp-content-quality-v1",
-  "corpus_fingerprint": "5b4e993263c54f78697fb60c89f556d512bfe412f381a1a96dad3077f26e1bee",
+  "corpus_fingerprint": "2863eaafbbbd72159c1df4ee15cf9feafea37dc11ebf806ac9194d2f82202c91",
   "config": {
     "min_programmatic_words": 700,
     "duplicate_block_threshold": 0.9,
@@ -12,12 +12,12 @@
     "repair_policy": "only count a repair when the page content actually changes and passes the same substance and duplicate gate"
   },
   "summary": {
-    "pages_scanned": 2450,
-    "blocking_legacy_pages": 1700,
-    "thin_pages": 1700,
+    "pages_scanned": 2500,
+    "blocking_legacy_pages": 1600,
+    "thin_pages": 1600,
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0,
-    "similarity_warning_pages": 10,
+    "similarity_warning_pages": 14,
     "status": "LEGACY_REMEDIATION_REQUIRED"
   },
   "pages": [
@@ -308,8 +308,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1112,
-      "max_similarity": 0.588682,
-      "nearest_route": "/programmatic/agency-rfp-questions-how-to-brief-a-partner",
+      "max_similarity": 0.622184,
+      "nearest_route": "/programmatic/agency-rfp-questions-how-to-measure-success",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -364,6 +364,19 @@
       "word_count": 1097,
       "max_similarity": 0.572264,
       "nearest_route": "/programmatic/agency-rfp-questions-how-to-brief-a-partner",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-how-to-measure-success",
+      "file": "programmatic/agency-rfp-questions-how-to-measure-success.html",
+      "query": "agency RFP questions: how to measure success",
+      "cluster": "agency-rfp-questions",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1095,
+      "max_similarity": 0.622184,
+      "nearest_route": "/programmatic/agency-rfp-questions-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -717,13 +730,11 @@
       "cluster": "ai-consultant-vs-automation-agency",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-template",
+      "word_count": 1089,
+      "max_similarity": 0.630662,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/ai-consultant-vs-automation-agency-common-failure-points",
@@ -850,13 +861,11 @@
       "cluster": "ai-consultant-vs-automation-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-nonprofits",
+      "word_count": 1231,
+      "max_similarity": 0.770588,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/ai-consultant-vs-automation-agency-for-marketing-teams",
@@ -878,13 +887,11 @@
       "cluster": "ai-consultant-vs-automation-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
+      "word_count": 1239,
+      "max_similarity": 0.737664,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/ai-consultant-vs-automation-agency-for-small-teams",
@@ -894,8 +901,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1248,
-      "max_similarity": 0.755408,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-enterprise-teams",
+      "max_similarity": 0.770588,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -906,13 +913,11 @@
       "cluster": "ai-consultant-vs-automation-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
+      "word_count": 1237,
+      "max_similarity": 0.744417,
       "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/ai-consultant-vs-automation-agency-how-to-avoid-scope-creep",
@@ -922,8 +927,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1138,
-      "max_similarity": 0.629662,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency",
+      "max_similarity": 0.630662,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -948,8 +953,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1158,
-      "max_similarity": 0.597623,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-how-to-brief-a-partner",
+      "max_similarity": 0.663717,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-template",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -978,6 +983,19 @@
       "word_count": 1135,
       "max_similarity": 0.614923,
       "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-how-to-brief-a-partner",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
+      "file": "programmatic/ai-consultant-vs-automation-agency-how-to-measure-success.html",
+      "query": "AI consultant vs automation agency: how to measure success",
+      "cluster": "ai-consultant-vs-automation-agency",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1131,
+      "max_similarity": 0.721461,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -1168,13 +1186,11 @@
       "cluster": "ai-consultant-vs-automation-agency",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-checklist",
+      "word_count": 1087,
+      "max_similarity": 0.663717,
+      "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/ai-consultant-vs-automation-agency-timeline",
@@ -1522,6 +1538,19 @@
       "page_family": "operational_guide",
       "word_count": 1222,
       "max_similarity": 0.712644,
+      "nearest_route": "/programmatic/ai-content-operations-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/ai-content-operations-for-saas-companies",
+      "file": "programmatic/ai-content-operations-for-saas-companies.html",
+      "query": "AI content operations for SaaS companies",
+      "cluster": "ai-content-operations",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "word_count": 1215,
+      "max_similarity": 0.608596,
       "nearest_route": "/programmatic/ai-content-operations-for-financial-services-teams",
       "exact_duplicate_routes": [],
       "flags": []
@@ -2068,8 +2097,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 1229,
-      "max_similarity": 0.742525,
-      "nearest_route": "/programmatic/ai-creative-workflows-for-small-teams",
+      "max_similarity": 0.78109,
+      "nearest_route": "/programmatic/ai-creative-workflows-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -2126,6 +2155,19 @@
       "word_count": 1236,
       "max_similarity": 0.733937,
       "nearest_route": "/programmatic/ai-creative-workflows-for-enterprise-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/ai-creative-workflows-for-saas-companies",
+      "file": "programmatic/ai-creative-workflows-for-saas-companies.html",
+      "query": "AI creative workflows for SaaS companies",
+      "cluster": "ai-creative-workflows",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "word_count": 1210,
+      "max_similarity": 0.78109,
+      "nearest_route": "/programmatic/ai-creative-workflows-for-financial-services-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -2733,6 +2775,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/ai-knowledge-systems-for-marketing-for-saas-companies",
+      "file": "programmatic/ai-knowledge-systems-for-marketing-for-saas-companies.html",
+      "query": "AI knowledge systems for marketing for SaaS companies",
+      "cluster": "ai-knowledge-systems-for-marketing",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "word_count": 1267,
+      "max_similarity": 0.642138,
+      "nearest_route": "/programmatic/ai-knowledge-systems-for-marketing-for-small-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/ai-knowledge-systems-for-marketing-for-small-teams",
       "file": "programmatic/ai-knowledge-systems-for-marketing-for-small-teams.html",
       "query": "AI knowledge systems for marketing for small teams",
@@ -3261,8 +3316,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 1205,
-      "max_similarity": 0.742097,
-      "nearest_route": "/programmatic/ai-marketing-workflows-for-financial-services-teams",
+      "max_similarity": 0.752508,
+      "nearest_route": "/programmatic/ai-marketing-workflows-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -3331,6 +3386,19 @@
       "page_family": "operational_guide",
       "word_count": 1227,
       "max_similarity": 0.789608,
+      "nearest_route": "/programmatic/ai-marketing-workflows-for-marketing-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/ai-marketing-workflows-for-saas-companies",
+      "file": "programmatic/ai-marketing-workflows-for-saas-companies.html",
+      "query": "AI marketing workflows for SaaS companies",
+      "cluster": "ai-marketing-workflows",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "word_count": 1212,
+      "max_similarity": 0.767872,
       "nearest_route": "/programmatic/ai-marketing-workflows-for-marketing-teams",
       "exact_duplicate_routes": [],
       "flags": []
@@ -3864,8 +3932,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 1207,
-      "max_similarity": 0.777211,
-      "nearest_route": "/programmatic/ai-workflow-consulting-for-marketing-teams",
+      "max_similarity": 0.783576,
+      "nearest_route": "/programmatic/ai-workflow-consulting-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -3935,6 +4003,19 @@
       "word_count": 1226,
       "max_similarity": 0.736973,
       "nearest_route": "/programmatic/ai-workflow-consulting-for-small-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/ai-workflow-consulting-for-saas-companies",
+      "file": "programmatic/ai-workflow-consulting-for-saas-companies.html",
+      "query": "AI workflow consulting for SaaS companies",
+      "cluster": "ai-workflow-consulting",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "word_count": 1204,
+      "max_similarity": 0.783576,
+      "nearest_route": "/programmatic/ai-workflow-consulting-for-enterprise-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -4542,6 +4623,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/audience-growth-strategy-for-saas-companies",
+      "file": "programmatic/audience-growth-strategy-for-saas-companies.html",
+      "query": "audience growth strategy for SaaS companies",
+      "cluster": "audience-growth-strategy",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "word_count": 1211,
+      "max_similarity": 0.619784,
+      "nearest_route": "/programmatic/audience-growth-strategy-for-enterprise-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/audience-growth-strategy-for-small-teams",
       "file": "programmatic/audience-growth-strategy-for-small-teams.html",
       "query": "audience growth strategy for small teams",
@@ -4905,8 +4999,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1081,
-      "max_similarity": 0.770321,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency",
+      "max_similarity": 0.791786,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-measure-success",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -4962,13 +5056,11 @@
       "cluster": "brand-agency-vs-marketing-agency",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-template",
+      "word_count": 1088,
+      "max_similarity": 0.65371,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-brief-a-partner",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-agency-vs-marketing-agency-common-failure-points",
@@ -5095,13 +5187,11 @@
       "cluster": "brand-agency-vs-marketing-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
+      "word_count": 1230,
+      "max_similarity": 0.728911,
       "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-agency-vs-marketing-agency-for-marketing-teams",
@@ -5111,8 +5201,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1264,
-      "max_similarity": 0.748355,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-small-teams",
+      "max_similarity": 0.770711,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -5123,13 +5213,11 @@
       "cluster": "brand-agency-vs-marketing-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-founders",
+      "word_count": 1235,
+      "max_similarity": 0.788721,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-agency-vs-marketing-agency-for-small-teams",
@@ -5139,8 +5227,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1260,
-      "max_similarity": 0.767887,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-enterprise-teams",
+      "max_similarity": 0.788721,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -5151,13 +5239,11 @@
       "cluster": "brand-agency-vs-marketing-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-founders",
+      "word_count": 1244,
+      "max_similarity": 0.770711,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-agency-vs-marketing-agency-how-to-avoid-scope-creep",
@@ -5180,8 +5266,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1142,
-      "max_similarity": 0.598807,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-agency",
+      "max_similarity": 0.65371,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -5223,6 +5309,19 @@
       "word_count": 1132,
       "max_similarity": 0.620362,
       "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-build-an-internal-workflow",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/brand-agency-vs-marketing-agency-how-to-measure-success",
+      "file": "programmatic/brand-agency-vs-marketing-agency-how-to-measure-success.html",
+      "query": "brand agency vs marketing agency: how to measure success",
+      "cluster": "brand-agency-vs-marketing-agency",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1124,
+      "max_similarity": 0.791786,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -5413,13 +5512,11 @@
       "cluster": "brand-agency-vs-marketing-agency",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-checklist",
+      "word_count": 1087,
+      "max_similarity": 0.610589,
+      "nearest_route": "/programmatic/what-is-brand-agency-vs-marketing-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-agency-vs-marketing-agency-timeline",
@@ -5750,6 +5847,19 @@
       "word_count": 1255,
       "max_similarity": 0.687151,
       "nearest_route": "/programmatic/brand-community-strategy-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/brand-community-strategy-for-saas-companies",
+      "file": "programmatic/brand-community-strategy-for-saas-companies.html",
+      "query": "brand community strategy for SaaS companies",
+      "cluster": "brand-community-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1241,
+      "max_similarity": 0.60863,
+      "nearest_route": "/programmatic/brand-community-strategy-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -6367,6 +6477,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/brand-messaging-architecture-for-saas-companies",
+      "file": "programmatic/brand-messaging-architecture-for-saas-companies.html",
+      "query": "brand messaging architecture for SaaS companies",
+      "cluster": "brand-messaging-architecture",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1198,
+      "max_similarity": 0.602623,
+      "nearest_route": "/programmatic/brand-messaging-architecture-for-enterprise-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-messaging-architecture-for-small-teams",
       "file": "programmatic/brand-messaging-architecture-for-small-teams.html",
       "query": "brand messaging architecture for small teams",
@@ -6966,6 +7089,19 @@
       "word_count": 1209,
       "max_similarity": 0.740959,
       "nearest_route": "/programmatic/brand-narrative-strategy-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/brand-narrative-strategy-for-saas-companies",
+      "file": "programmatic/brand-narrative-strategy-for-saas-companies.html",
+      "query": "brand narrative strategy for SaaS companies",
+      "cluster": "brand-narrative-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1204,
+      "max_similarity": 0.615683,
+      "nearest_route": "/programmatic/brand-narrative-strategy-for-small-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -7573,6 +7709,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/brand-positioning-strategy-for-saas-companies",
+      "file": "programmatic/brand-positioning-strategy-for-saas-companies.html",
+      "query": "brand positioning strategy for SaaS companies",
+      "cluster": "brand-positioning-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1204,
+      "max_similarity": 0.612403,
+      "nearest_route": "/programmatic/brand-positioning-strategy-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-positioning-strategy-for-small-teams",
       "file": "programmatic/brand-positioning-strategy-for-small-teams.html",
       "query": "brand positioning strategy for small teams",
@@ -8100,13 +8249,11 @@
       "cluster": "brand-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
+      "word_count": 1208,
+      "max_similarity": 0.706362,
       "nearest_route": "/programmatic/brand-storytelling-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-storytelling-for-financial-services-teams",
@@ -8143,13 +8290,11 @@
       "cluster": "brand-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/brand-storytelling-for-enterprise-teams",
+      "word_count": 1192,
+      "max_similarity": 0.771841,
+      "nearest_route": "/programmatic/brand-storytelling-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-storytelling-for-nonprofits",
@@ -8180,19 +8325,30 @@
       "flags": []
     },
     {
+      "route": "/programmatic/brand-storytelling-for-saas-companies",
+      "file": "programmatic/brand-storytelling-for-saas-companies.html",
+      "query": "brand storytelling for SaaS companies",
+      "cluster": "brand-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1201,
+      "max_similarity": 0.582831,
+      "nearest_route": "/programmatic/brand-storytelling-for-small-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-storytelling-for-small-teams",
       "file": "programmatic/brand-storytelling-for-small-teams.html",
       "query": "brand storytelling for small teams",
       "cluster": "brand-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/brand-storytelling-for-enterprise-teams",
+      "word_count": 1192,
+      "max_similarity": 0.771841,
+      "nearest_route": "/programmatic/brand-storytelling-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/brand-storytelling-for-startups",
@@ -8781,6 +8937,19 @@
       "word_count": 1209,
       "max_similarity": 0.732997,
       "nearest_route": "/programmatic/brand-strategy-consulting-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/brand-strategy-consulting-for-saas-companies",
+      "file": "programmatic/brand-strategy-consulting-for-saas-companies.html",
+      "query": "brand strategy consulting for SaaS companies",
+      "cluster": "brand-strategy-consulting",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1207,
+      "max_similarity": 0.594636,
+      "nearest_route": "/programmatic/brand-strategy-consulting-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -9388,6 +9557,19 @@
       "word_count": 1222,
       "max_similarity": 0.701954,
       "nearest_route": "/programmatic/branded-content-development-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/branded-content-development-for-saas-companies",
+      "file": "programmatic/branded-content-development-for-saas-companies.html",
+      "query": "branded content development for SaaS companies",
+      "cluster": "branded-content-development",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1222,
+      "max_similarity": 0.592424,
+      "nearest_route": "/programmatic/branded-content-development-for-enterprise-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -10025,6 +10207,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/campaign-narrative-strategy-for-saas-companies",
+      "file": "programmatic/campaign-narrative-strategy-for-saas-companies.html",
+      "query": "campaign narrative strategy for SaaS companies",
+      "cluster": "campaign-narrative-strategy",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1215,
+      "max_similarity": 0.638414,
+      "nearest_route": "/programmatic/campaign-narrative-strategy-for-marketing-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/campaign-narrative-strategy-for-small-teams",
       "file": "programmatic/campaign-narrative-strategy-for-small-teams.html",
       "query": "campaign narrative strategy for small teams",
@@ -10615,6 +10810,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/community-as-a-service-for-saas-companies",
+      "file": "programmatic/community-as-a-service-for-saas-companies.html",
+      "query": "community as a service for SaaS companies",
+      "cluster": "community-as-a-service",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1271,
+      "max_similarity": 0.683555,
+      "nearest_route": "/programmatic/community-as-a-service-companies",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-as-a-service-for-small-teams",
       "file": "programmatic/community-as-a-service-for-small-teams.html",
       "query": "community as a service for small teams",
@@ -10925,8 +11133,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1221,
-      "max_similarity": 0.747541,
-      "nearest_route": "/programmatic/community-building-for-brands-companies",
+      "max_similarity": 0.757401,
+      "nearest_route": "/programmatic/community-building-for-brands-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -11003,8 +11211,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1228,
-      "max_similarity": 0.753504,
-      "nearest_route": "/programmatic/community-building-for-brands-consultant",
+      "max_similarity": 0.791282,
+      "nearest_route": "/programmatic/community-building-for-brands-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -11152,6 +11360,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/community-building-for-brands-for-saas-companies",
+      "file": "programmatic/community-building-for-brands-for-saas-companies.html",
+      "query": "community building for brands for SaaS companies",
+      "cluster": "community-building-for-brands",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1270,
+      "max_similarity": 0.791282,
+      "nearest_route": "/programmatic/community-building-for-brands-companies",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-building-for-brands-for-small-teams",
       "file": "programmatic/community-building-for-brands-for-small-teams.html",
       "query": "community building for brands for small teams",
@@ -11185,8 +11406,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1269,
-      "max_similarity": 0.702875,
-      "nearest_route": "/programmatic/community-building-for-brands-agency",
+      "max_similarity": 0.705507,
+      "nearest_route": "/programmatic/community-building-for-brands-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -11708,6 +11929,19 @@
       "word_count": 1245,
       "max_similarity": 0.734811,
       "nearest_route": "/programmatic/community-engagement-strategy-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-engagement-strategy-for-saas-companies",
+      "file": "programmatic/community-engagement-strategy-for-saas-companies.html",
+      "query": "community engagement strategy for SaaS companies",
+      "cluster": "community-engagement-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1242,
+      "max_similarity": 0.647541,
+      "nearest_route": "/programmatic/community-engagement-strategy-consultant",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -12337,6 +12571,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/community-launch-strategy-for-saas-companies",
+      "file": "programmatic/community-launch-strategy-for-saas-companies.html",
+      "query": "community launch strategy for SaaS companies",
+      "cluster": "community-launch-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1226,
+      "max_similarity": 0.656198,
+      "nearest_route": "/programmatic/community-launch-strategy-consultant",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-launch-strategy-for-small-teams",
       "file": "programmatic/community-launch-strategy-for-small-teams.html",
       "query": "community launch strategy for small teams",
@@ -12899,6 +13146,19 @@
       "page_family": "operational_guide",
       "word_count": 1247,
       "max_similarity": 0.768201,
+      "nearest_route": "/programmatic/community-led-growth-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-led-growth-for-saas-companies",
+      "file": "programmatic/community-led-growth-for-saas-companies.html",
+      "query": "community-led growth for SaaS companies",
+      "cluster": "community-led-growth",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1232,
+      "max_similarity": 0.64486,
       "nearest_route": "/programmatic/community-led-growth-for-financial-services-teams",
       "exact_duplicate_routes": [],
       "flags": []
@@ -13520,8 +13780,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1134,
-      "max_similarity": 0.585448,
-      "nearest_route": "/programmatic/community-management-services-services",
+      "max_similarity": 0.586062,
+      "nearest_route": "/programmatic/community-management-services-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -13552,6 +13812,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-management-services-how-to-compare-vendors",
+      "file": "programmatic/community-management-services-how-to-compare-vendors.html",
+      "query": "community management services: how to compare vendors",
+      "cluster": "community-management-services",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1108,
+      "max_similarity": 0.586062,
+      "nearest_route": "/programmatic/community-management-services-how-to-brief-a-partner",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-management-services-implementation-guide",
@@ -14101,6 +14374,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/community-marketing-for-saas-companies",
+      "file": "programmatic/community-marketing-for-saas-companies.html",
+      "query": "community marketing for SaaS companies",
+      "cluster": "community-marketing",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "word_count": 1192,
+      "max_similarity": 0.58626,
+      "nearest_route": "/programmatic/community-marketing-for-professional-services-firms",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-marketing-for-small-teams",
       "file": "programmatic/community-marketing-for-small-teams.html",
       "query": "community marketing for small teams",
@@ -14153,8 +14439,8 @@
       "pillar": "marketing",
       "page_family": "operational_guide",
       "word_count": 1072,
-      "max_similarity": 0.487141,
-      "nearest_route": "/programmatic/community-marketing-for-financial-services-teams",
+      "max_similarity": 0.515548,
+      "nearest_route": "/programmatic/what-is-community-marketing",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -14690,6 +14976,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/community-member-experience-for-saas-companies",
+      "file": "programmatic/community-member-experience-for-saas-companies.html",
+      "query": "community member experience for SaaS companies",
+      "cluster": "community-member-experience",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1236,
+      "max_similarity": 0.661424,
+      "nearest_route": "/programmatic/community-member-experience-consultant",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-member-experience-for-small-teams",
       "file": "programmatic/community-member-experience-for-small-teams.html",
       "query": "community member experience for small teams",
@@ -15216,8 +15515,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1231,
-      "max_similarity": 0.770903,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-for-marketing-teams",
+      "max_similarity": 0.80017,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -15229,8 +15528,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1246,
-      "max_similarity": 0.770903,
-      "nearest_route": "/programmatic/community-metrics-and-measurement-for-founders",
+      "max_similarity": 0.808184,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-for-saas-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -15257,6 +15556,19 @@
       "word_count": 1272,
       "max_similarity": 0.748968,
       "nearest_route": "/programmatic/community-metrics-and-measurement-for-startups",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-metrics-and-measurement-for-saas-companies",
+      "file": "programmatic/community-metrics-and-measurement-for-saas-companies.html",
+      "query": "community metrics and measurement for SaaS companies",
+      "cluster": "community-metrics-and-measurement",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1244,
+      "max_similarity": 0.808184,
+      "nearest_route": "/programmatic/community-metrics-and-measurement-for-marketing-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -15798,6 +16110,19 @@
       "word_count": 1239,
       "max_similarity": 0.693548,
       "nearest_route": "/programmatic/community-moderation-strategy-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-moderation-strategy-for-saas-companies",
+      "file": "programmatic/community-moderation-strategy-for-saas-companies.html",
+      "query": "community moderation strategy for SaaS companies",
+      "cluster": "community-moderation-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1241,
+      "max_similarity": 0.669154,
+      "nearest_route": "/programmatic/community-moderation-strategy-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -16372,6 +16697,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/community-monetization-strategy-for-saas-companies",
+      "file": "programmatic/community-monetization-strategy-for-saas-companies.html",
+      "query": "community monetization strategy for SaaS companies",
+      "cluster": "community-monetization-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1243,
+      "max_similarity": 0.667498,
+      "nearest_route": "/programmatic/community-monetization-strategy-consultant",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-monetization-strategy-for-small-teams",
       "file": "programmatic/community-monetization-strategy-for-small-teams.html",
       "query": "community monetization strategy for small teams",
@@ -16888,8 +17226,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1225,
-      "max_similarity": 0.673567,
-      "nearest_route": "/programmatic/community-operations-for-small-teams",
+      "max_similarity": 0.744013,
+      "nearest_route": "/programmatic/community-operations-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -16935,6 +17273,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-operations-for-professional-services-firms",
+      "file": "programmatic/community-operations-for-professional-services-firms.html",
+      "query": "community operations for professional services firms",
+      "cluster": "community-operations",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1234,
+      "max_similarity": 0.744013,
+      "nearest_route": "/programmatic/community-operations-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-operations-for-small-teams",
@@ -17573,6 +17924,19 @@
       ]
     },
     {
+      "route": "/programmatic/community-platform-selection-how-to-compare-vendors",
+      "file": "programmatic/community-platform-selection-how-to-compare-vendors.html",
+      "query": "community platform selection: how to compare vendors",
+      "cluster": "community-platform-selection",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1110,
+      "max_similarity": 0.657219,
+      "nearest_route": "/programmatic/community-platform-selection-services",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/community-platform-selection-implementation-guide",
       "file": "programmatic/community-platform-selection-implementation-guide.html",
       "query": "community platform selection implementation guide",
@@ -17716,8 +18080,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1056,
-      "max_similarity": 0.614918,
-      "nearest_route": "/programmatic/community-platform-selection-mistakes",
+      "max_similarity": 0.657219,
+      "nearest_route": "/programmatic/community-platform-selection-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -18020,8 +18384,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1235,
-      "max_similarity": 0.592593,
-      "nearest_route": "/programmatic/community-programming-services",
+      "max_similarity": 0.678855,
+      "nearest_route": "/programmatic/community-programming-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -18067,6 +18431,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/community-programming-for-professional-services-firms",
+      "file": "programmatic/community-programming-for-professional-services-firms.html",
+      "query": "community programming for professional services firms",
+      "cluster": "community-programming",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1229,
+      "max_similarity": 0.678855,
+      "nearest_route": "/programmatic/community-programming-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/community-programming-for-small-teams",
@@ -18276,8 +18653,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1045,
-      "max_similarity": 0.618214,
-      "nearest_route": "/programmatic/community-programming-mistakes",
+      "max_similarity": 0.621001,
+      "nearest_route": "/programmatic/community-programming-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -18641,8 +19018,8 @@
       "pillar": "community",
       "page_family": "operational_guide",
       "word_count": 1239,
-      "max_similarity": 0.683958,
-      "nearest_route": "/programmatic/community-staffing-model-for-nonprofits",
+      "max_similarity": 0.687949,
+      "nearest_route": "/programmatic/community-staffing-model-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -18682,6 +19059,19 @@
       "word_count": 1206,
       "max_similarity": 0.75,
       "nearest_route": "/programmatic/community-staffing-model-for-startups",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/community-staffing-model-for-professional-services-firms",
+      "file": "programmatic/community-staffing-model-for-professional-services-firms.html",
+      "query": "community staffing model for professional services firms",
+      "cluster": "community-staffing-model",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1249,
+      "max_similarity": 0.687949,
+      "nearest_route": "/programmatic/community-staffing-model-for-financial-services-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -19221,8 +19611,8 @@
       "pillar": "marketing",
       "page_family": "operational_guide",
       "word_count": 1220,
-      "max_similarity": 0.645899,
-      "nearest_route": "/programmatic/content-marketing-operations-for-marketing-teams",
+      "max_similarity": 0.75801,
+      "nearest_route": "/programmatic/content-marketing-operations-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -19268,6 +19658,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/content-marketing-operations-for-professional-services-firms",
+      "file": "programmatic/content-marketing-operations-for-professional-services-firms.html",
+      "query": "content marketing operations for professional services firms",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "word_count": 1217,
+      "max_similarity": 0.75801,
+      "nearest_route": "/programmatic/content-marketing-operations-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/content-marketing-operations-for-small-teams",
@@ -19320,8 +19723,8 @@
       "pillar": "marketing",
       "page_family": "operational_guide",
       "word_count": 1082,
-      "max_similarity": 0.528317,
-      "nearest_route": "/programmatic/content-marketing-operations-for-marketing-teams",
+      "max_similarity": 0.558195,
+      "nearest_route": "/programmatic/content-marketing-operations-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -19797,13 +20200,11 @@
       "cluster": "corporate-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
+      "word_count": 1204,
+      "max_similarity": 0.7257,
       "nearest_route": "/programmatic/corporate-storytelling-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/corporate-storytelling-for-financial-services-teams",
@@ -19813,8 +20214,8 @@
       "pillar": "storytelling",
       "page_family": "operational_guide",
       "word_count": 1212,
-      "max_similarity": 0.509878,
-      "nearest_route": "/programmatic/what-is-corporate-storytelling",
+      "max_similarity": 0.756711,
+      "nearest_route": "/programmatic/corporate-storytelling-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -19840,13 +20241,11 @@
       "cluster": "corporate-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/corporate-storytelling-for-enterprise-teams",
+      "word_count": 1194,
+      "max_similarity": 0.732231,
+      "nearest_route": "/programmatic/corporate-storytelling-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/corporate-storytelling-for-nonprofits",
@@ -19864,19 +20263,30 @@
       ]
     },
     {
+      "route": "/programmatic/corporate-storytelling-for-professional-services-firms",
+      "file": "programmatic/corporate-storytelling-for-professional-services-firms.html",
+      "query": "corporate storytelling for professional services firms",
+      "cluster": "corporate-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "word_count": 1206,
+      "max_similarity": 0.756711,
+      "nearest_route": "/programmatic/corporate-storytelling-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/corporate-storytelling-for-small-teams",
       "file": "programmatic/corporate-storytelling-for-small-teams.html",
       "query": "corporate storytelling for small teams",
       "cluster": "corporate-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/corporate-storytelling-for-enterprise-teams",
+      "word_count": 1194,
+      "max_similarity": 0.732231,
+      "nearest_route": "/programmatic/corporate-storytelling-for-marketing-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/corporate-storytelling-for-startups",
@@ -20198,13 +20608,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1162,
+      "max_similarity": 0.620921,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-agency",
@@ -20213,13 +20621,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
+      "word_count": 1078,
+      "max_similarity": 0.717431,
       "nearest_route": "/programmatic/creative-agency-vs-production-company",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-audit",
@@ -20228,13 +20634,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1077,
+      "max_similarity": 0.646181,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-best-practices",
@@ -20244,8 +20648,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-case-pattern",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20259,8 +20663,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20273,13 +20677,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-template",
+      "word_count": 1102,
+      "max_similarity": 0.631993,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-deliverables",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-common-failure-points",
@@ -20289,8 +20691,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20303,13 +20705,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
+      "word_count": 1096,
+      "max_similarity": 0.724518,
       "nearest_route": "/programmatic/creative-agency-vs-production-company",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-comparison",
@@ -20333,13 +20733,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
+      "word_count": 1088,
+      "max_similarity": 0.739332,
       "nearest_route": "/programmatic/creative-agency-vs-production-company",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-cost",
@@ -20363,13 +20761,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1075,
+      "max_similarity": 0.658059,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-examples",
@@ -20378,13 +20774,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1083,
+      "max_similarity": 0.641986,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-for-enterprise-teams",
@@ -20394,8 +20788,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1261,
-      "max_similarity": 0.727791,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-small-teams",
+      "max_similarity": 0.808547,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -20406,13 +20800,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-nonprofits",
+      "word_count": 1239,
+      "max_similarity": 0.768333,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-for-marketing-teams",
@@ -20422,8 +20814,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1262,
-      "max_similarity": 0.736498,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-small-teams",
+      "max_similarity": 0.739558,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-founders",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -20434,13 +20826,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-founders",
+      "word_count": 1242,
+      "max_similarity": 0.808547,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-for-small-teams",
@@ -20450,8 +20840,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1253,
-      "max_similarity": 0.736498,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-marketing-teams",
+      "max_similarity": 0.768333,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-founders",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -20462,13 +20852,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-founders",
+      "word_count": 1239,
+      "max_similarity": 0.757095,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-how-to-avoid-scope-creep",
@@ -20478,8 +20866,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1154,
-      "max_similarity": 0.595925,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-build-an-internal-workflow",
+      "max_similarity": 0.627046,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-companies",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -20491,8 +20879,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1146,
-      "max_similarity": 0.566305,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-build-an-internal-workflow",
+      "max_similarity": 0.646181,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-audit",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -20504,8 +20892,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1157,
-      "max_similarity": 0.595925,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-avoid-scope-creep",
+      "max_similarity": 0.735376,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-workflow",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -20517,12 +20905,25 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/creative-agency-vs-production-company-how-to-compare-vendors",
+      "file": "programmatic/creative-agency-vs-production-company-how-to-compare-vendors.html",
+      "query": "creative agency vs production company: how to compare vendors",
+      "cluster": "creative-agency-vs-production-company",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1127,
+      "max_similarity": 0.643799,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-process",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-implementation-guide",
@@ -20531,13 +20932,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1082,
+      "max_similarity": 0.634921,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-deliverables",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-measurement",
@@ -20546,13 +20945,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1080,
+      "max_similarity": 0.631854,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-compare-vendors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-mistakes",
@@ -20561,13 +20958,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1079,
+      "max_similarity": 0.639301,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-operating-model",
@@ -20577,8 +20972,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20606,13 +21001,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1077,
+      "max_similarity": 0.643799,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-compare-vendors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-questions-to-ask",
@@ -20622,8 +21015,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20637,8 +21030,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20652,8 +21045,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20667,8 +21060,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20681,13 +21074,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1072,
+      "max_similarity": 0.633421,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-strategy-framework",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-strategy-framework",
@@ -20696,13 +21087,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1100,
+      "max_similarity": 0.633421,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-services",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-template",
@@ -20711,13 +21100,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-checklist",
+      "word_count": 1079,
+      "max_similarity": 0.624567,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-strategy-framework",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-timeline",
@@ -20726,13 +21113,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1074,
+      "max_similarity": 0.634615,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company-vs-in-house-team",
@@ -20757,8 +21142,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -20771,13 +21156,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company",
+      "word_count": 1079,
+      "max_similarity": 0.735376,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-agency-vs-production-company",
@@ -20786,13 +21169,11 @@
       "cluster": "creative-agency-vs-production-company",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 368,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-2026",
+      "word_count": 1063,
+      "max_similarity": 0.739332,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/creative-direction-agency-2026",
@@ -21079,8 +21460,8 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 1109,
-      "max_similarity": 0.595908,
-      "nearest_route": "/programmatic/creative-direction-agency-how-to-brief-a-partner",
+      "max_similarity": 0.618842,
+      "nearest_route": "/programmatic/creative-direction-agency-how-to-compare-vendors",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -21124,6 +21505,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/creative-direction-agency-how-to-compare-vendors",
+      "file": "programmatic/creative-direction-agency-how-to-compare-vendors.html",
+      "query": "creative direction agency: how to compare vendors",
+      "cluster": "creative-direction-agency",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1099,
+      "max_similarity": 0.618842,
+      "nearest_route": "/programmatic/creative-direction-agency-how-to-avoid-scope-creep",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/creative-direction-agency-implementation-guide",
@@ -21611,8 +22005,8 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 1213,
-      "max_similarity": 0.485349,
-      "nearest_route": "/programmatic/what-is-creative-operations",
+      "max_similarity": 0.722543,
+      "nearest_route": "/programmatic/creative-operations-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -21660,6 +22054,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/creative-operations-for-professional-services-firms",
+      "file": "programmatic/creative-operations-for-professional-services-firms.html",
+      "query": "creative operations for professional services firms",
+      "cluster": "creative-operations",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1216,
+      "max_similarity": 0.722543,
+      "nearest_route": "/programmatic/creative-operations-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/creative-operations-for-small-teams",
@@ -22205,8 +22612,8 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 1228,
-      "max_similarity": 0.633256,
-      "nearest_route": "/programmatic/creative-strategy-consulting-for-marketing-teams",
+      "max_similarity": 0.706601,
+      "nearest_route": "/programmatic/creative-strategy-consulting-for-professional-services-firms",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -22252,6 +22659,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/creative-strategy-consulting-for-professional-services-firms",
+      "file": "programmatic/creative-strategy-consulting-for-professional-services-firms.html",
+      "query": "creative strategy consulting for professional services firms",
+      "cluster": "creative-strategy-consulting",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "word_count": 1219,
+      "max_similarity": 0.706601,
+      "nearest_route": "/programmatic/creative-strategy-consulting-for-financial-services-teams",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/creative-strategy-consulting-for-small-teams",
@@ -22781,6 +23201,19 @@
       "word_count": 1235,
       "max_similarity": 0.770833,
       "nearest_route": "/programmatic/customer-community-strategy-for-startups",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/customer-community-strategy-for-financial-services-teams",
+      "file": "programmatic/customer-community-strategy-for-financial-services-teams.html",
+      "query": "customer community strategy for financial services teams",
+      "cluster": "customer-community-strategy",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "word_count": 1245,
+      "max_similarity": 0.625096,
+      "nearest_route": "/programmatic/customer-community-strategy-for-enterprise-teams",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -26285,13 +26718,11 @@
       "cluster": "founder-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/founder-storytelling-for-marketing-teams",
+      "word_count": 1192,
+      "max_similarity": 0.800516,
+      "nearest_route": "/programmatic/founder-storytelling-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/founder-storytelling-for-founders",
@@ -26315,13 +26746,11 @@
       "cluster": "founder-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
+      "word_count": 1198,
+      "max_similarity": 0.701541,
       "nearest_route": "/programmatic/founder-storytelling-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/founder-storytelling-for-nonprofits",
@@ -26345,13 +26774,11 @@
       "cluster": "founder-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
+      "word_count": 1192,
+      "max_similarity": 0.800516,
       "nearest_route": "/programmatic/founder-storytelling-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/founder-storytelling-for-startups",
@@ -26688,12 +27115,12 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-audit",
+      "word_count": 1099,
+      "max_similarity": 0.832353,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-deliverables",
       "exact_duplicate_routes": [],
       "flags": [
-        "thin"
+        "similarity_warning"
       ]
     },
     {
@@ -26704,8 +27131,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1098,
-      "max_similarity": 0.769594,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-avoid-scope-creep",
+      "max_similarity": 0.779356,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-audit",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -26716,13 +27143,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1108,
+      "max_similarity": 0.801344,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
@@ -26732,8 +27157,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.791457,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.789474,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-case-pattern",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -26747,8 +27172,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.791457,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.789474,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -26761,13 +27186,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 388,
-      "max_similarity": 0.795455,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-template",
+      "word_count": 1099,
+      "max_similarity": 0.777251,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-common-failure-points",
@@ -26777,8 +27200,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 408,
-      "max_similarity": 0.789474,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.7875,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -26791,13 +27214,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1104,
+      "max_similarity": 0.801344,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-audit",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-comparison",
@@ -26821,13 +27242,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1102,
+      "max_similarity": 0.809204,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-timeline",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-cost",
@@ -26836,13 +27255,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "cost_scope",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-pricing",
+      "word_count": 1091,
+      "max_similarity": 0.815175,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-deliverables",
@@ -26851,12 +27268,12 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
+      "word_count": 1101,
+      "max_similarity": 0.832353,
       "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
       "exact_duplicate_routes": [],
       "flags": [
-        "thin"
+        "similarity_warning"
       ]
     },
     {
@@ -26866,13 +27283,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1113,
+      "max_similarity": 0.803059,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-for-enterprise-teams",
@@ -26894,13 +27309,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 398,
-      "max_similarity": 0.79397,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-nonprofits",
+      "word_count": 1253,
+      "max_similarity": 0.754357,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-for-marketing-teams",
@@ -26910,8 +27323,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1270,
-      "max_similarity": 0.764411,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-small-teams",
+      "max_similarity": 0.77862,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-nonprofits",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -26922,13 +27335,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 398,
-      "max_similarity": 0.79397,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-founders",
+      "word_count": 1253,
+      "max_similarity": 0.779647,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-startups",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-for-small-teams",
@@ -26950,13 +27361,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 398,
-      "max_similarity": 0.79397,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-founders",
+      "word_count": 1259,
+      "max_similarity": 0.779647,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-for-nonprofits",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-how-to-avoid-scope-creep",
@@ -26979,8 +27388,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1172,
-      "max_similarity": 0.783631,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-build-an-internal-workflow",
+      "max_similarity": 0.792417,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-examples",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -26992,8 +27401,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1178,
-      "max_similarity": 0.783631,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-brief-a-partner",
+      "max_similarity": 0.814176,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-process",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -27005,12 +27414,25 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 408,
-      "max_similarity": 0.789474,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.7875,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/how-to-choose-a-creative-agency-how-to-compare-vendors",
+      "file": "programmatic/how-to-choose-a-creative-agency-how-to-compare-vendors.html",
+      "query": "how to choose a creative agency: how to compare vendors",
+      "cluster": "how-to-choose-a-creative-agency",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1144,
+      "max_similarity": 0.804995,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-workflow",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-implementation-guide",
@@ -27019,12 +27441,12 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 398,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1118,
+      "max_similarity": 0.838364,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-timeline",
       "exact_duplicate_routes": [],
       "flags": [
-        "thin"
+        "similarity_warning"
       ]
     },
     {
@@ -27034,13 +27456,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1103,
+      "max_similarity": 0.79674,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-deliverables",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-mistakes",
@@ -27049,13 +27469,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
+      "word_count": 1101,
+      "max_similarity": 0.815713,
       "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-operating-model",
@@ -27065,8 +27483,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.791457,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.789474,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27079,13 +27497,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "cost_scope",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-cost",
+      "word_count": 1099,
+      "max_similarity": 0.775376,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-process",
@@ -27094,13 +27510,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1107,
+      "max_similarity": 0.814176,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-questions-to-ask",
@@ -27110,8 +27524,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 408,
-      "max_similarity": 0.789474,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.7875,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27125,8 +27539,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.791457,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.789474,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27140,8 +27554,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.791457,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.789474,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27155,8 +27569,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 408,
-      "max_similarity": 0.789474,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.7875,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27169,13 +27583,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1100,
+      "max_similarity": 0.791031,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-audit",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-strategy-framework",
@@ -27184,13 +27596,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 398,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1120,
+      "max_similarity": 0.813282,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-implementation-guide",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-template",
@@ -27199,13 +27609,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 388,
-      "max_similarity": 0.795455,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-checklist",
+      "word_count": 1109,
+      "max_similarity": 0.787879,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-brief-a-partner",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency-timeline",
@@ -27214,12 +27622,12 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1105,
+      "max_similarity": 0.838364,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-implementation-guide",
       "exact_duplicate_routes": [],
       "flags": [
-        "thin"
+        "similarity_warning"
       ]
     },
     {
@@ -27245,8 +27653,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 408,
-      "max_similarity": 0.789474,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "max_similarity": 0.7875,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27259,13 +27667,11 @@
       "cluster": "how-to-choose-a-creative-agency",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-2026",
+      "word_count": 1095,
+      "max_similarity": 0.815175,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-cost",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency",
@@ -27275,8 +27681,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1096,
-      "max_similarity": 0.772045,
-      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-how-to-brief-a-partner",
+      "max_similarity": 0.803059,
+      "nearest_route": "/programmatic/how-to-choose-a-creative-agency-examples",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -27302,13 +27708,11 @@
       "cluster": "human-in-the-loop-ai-systems",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "word_count": 1175,
+      "max_similarity": 0.553514,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-how-to-compare-vendors",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/human-in-the-loop-ai-systems-agency",
@@ -27317,13 +27721,11 @@
       "cluster": "human-in-the-loop-ai-systems",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "word_count": 1097,
+      "max_similarity": 0.635253,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-checklist",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/human-in-the-loop-ai-systems-audit",
@@ -27332,13 +27734,11 @@
       "cluster": "human-in-the-loop-ai-systems",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "word_count": 384,
-      "max_similarity": 0.793367,
+      "word_count": 1100,
+      "max_similarity": 0.635889,
       "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/human-in-the-loop-ai-systems-best-practices",
@@ -27348,8 +27748,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.791349,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.78934,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27363,8 +27763,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.791349,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.78934,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27377,13 +27777,11 @@
       "cluster": "human-in-the-loop-ai-systems",
       "pillar": "ai-workflows",
       "page_family": "template_checklist",
-      "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-template",
+      "word_count": 1109,
+      "max_similarity": 0.635253,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/human-in-the-loop-ai-systems-common-failure-points",
@@ -27393,8 +27791,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 404,
-      "max_similarity": 0.78934,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.787342,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27408,8 +27806,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-consultant",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27438,8 +27836,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27468,8 +27866,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27483,8 +27881,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27582,8 +27980,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 404,
-      "max_similarity": 0.78934,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.787342,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27597,8 +27995,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 1140,
-      "max_similarity": 0.510433,
-      "nearest_route": "/programmatic/what-is-human-in-the-loop-ai-systems",
+      "max_similarity": 0.599318,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -27610,8 +28008,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27625,8 +28023,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27640,8 +28038,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27655,8 +28053,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.791349,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.78934,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27685,8 +28083,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27700,8 +28098,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 404,
-      "max_similarity": 0.78934,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.787342,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27715,8 +28113,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.791349,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.78934,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27730,8 +28128,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.791349,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.78934,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27745,8 +28143,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 404,
-      "max_similarity": 0.78934,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.787342,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27760,8 +28158,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27775,8 +28173,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 394,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27790,8 +28188,8 @@
       "pillar": "ai-workflows",
       "page_family": "template_checklist",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-checklist",
+      "max_similarity": 0.766332,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-comparison",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27805,8 +28203,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27835,8 +28233,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 404,
-      "max_similarity": 0.78934,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.787342,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27850,8 +28248,8 @@
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
       "word_count": 384,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
+      "max_similarity": 0.791349,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-companies",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -27864,13 +28262,11 @@
       "cluster": "human-in-the-loop-ai-systems",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "word_count": 374,
-      "max_similarity": 0.793367,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-2026",
+      "word_count": 1083,
+      "max_similarity": 0.635889,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-audit",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/hybrid-event-platform",
@@ -28486,13 +28882,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1149,
+      "max_similarity": 0.603977,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-timeline",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-agency",
@@ -28501,13 +28895,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1087,
+      "max_similarity": 0.783554,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-companies",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-audit",
@@ -28516,13 +28908,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1084,
+      "max_similarity": 0.630245,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-timeline",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
@@ -28532,8 +28922,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-case-pattern",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28547,8 +28937,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28561,13 +28951,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-template",
+      "word_count": 1091,
+      "max_similarity": 0.623489,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-avoid-scope-creep",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-common-failure-points",
@@ -28577,8 +28965,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28591,13 +28979,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1086,
+      "max_similarity": 0.783554,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-comparison",
@@ -28621,13 +29007,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1087,
+      "max_similarity": 0.722527,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-cost",
@@ -28651,13 +29035,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1062,
+      "max_similarity": 0.665167,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-measurement",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-examples",
@@ -28666,13 +29048,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1084,
+      "max_similarity": 0.615917,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-timeline",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-for-enterprise-teams",
@@ -28696,13 +29076,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-nonprofits",
+      "word_count": 1245,
+      "max_similarity": 0.813617,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams",
@@ -28726,13 +29104,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-founders",
+      "word_count": 1239,
+      "max_similarity": 0.758478,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-for-small-teams",
@@ -28742,8 +29118,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1268,
-      "max_similarity": 0.746919,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-enterprise-teams",
+      "max_similarity": 0.813617,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-founders",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -28754,13 +29130,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.793451,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-founders",
+      "word_count": 1233,
+      "max_similarity": 0.766722,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-avoid-scope-creep",
@@ -28770,8 +29144,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1145,
-      "max_similarity": 0.589916,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-brief-a-partner",
+      "max_similarity": 0.637076,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-mistakes",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -28783,8 +29157,21 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 1148,
-      "max_similarity": 0.589916,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-avoid-scope-creep",
+      "max_similarity": 0.664602,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow",
+      "file": "programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow.html",
+      "query": "integrated agency vs specialist agencies: how to build an internal workflow",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "page_family": "operational_guide",
+      "word_count": 1152,
+      "max_similarity": 0.757318,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-workflow",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -28796,8 +29183,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28810,13 +29197,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1089,
+      "max_similarity": 0.645963,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-measurement",
@@ -28825,13 +29210,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1076,
+      "max_similarity": 0.665167,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-deliverables",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-mistakes",
@@ -28840,13 +29223,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1079,
+      "max_similarity": 0.638129,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-process",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-operating-model",
@@ -28856,8 +29237,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28885,13 +29266,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1070,
+      "max_similarity": 0.638129,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-mistakes",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-questions-to-ask",
@@ -28901,8 +29280,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28916,8 +29295,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28931,8 +29310,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 388,
-      "max_similarity": 0.792929,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.788945,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28946,8 +29325,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -28960,13 +29339,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1069,
+      "max_similarity": 0.645075,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-strategy-framework",
@@ -28975,13 +29352,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 388,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1108,
+      "max_similarity": 0.618842,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-template",
@@ -28990,13 +29365,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "template_checklist",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-checklist",
+      "word_count": 1080,
+      "max_similarity": 0.616379,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-timeline",
@@ -29005,13 +29378,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1072,
+      "max_similarity": 0.666368,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies-vs-in-house-team",
@@ -29036,8 +29407,8 @@
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
       "word_count": 398,
-      "max_similarity": 0.790932,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "max_similarity": 0.786967,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -29050,13 +29421,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 378,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "word_count": 1069,
+      "max_similarity": 0.757318,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies",
@@ -29065,13 +29434,11 @@
       "cluster": "integrated-agency-vs-specialist-agencies",
       "pillar": "agency-decisions",
       "page_family": "operational_guide",
-      "word_count": 368,
-      "max_similarity": 0.794937,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-2026",
+      "word_count": 1065,
+      "max_similarity": 0.752097,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/investor-event-production",
@@ -29290,13 +29657,11 @@
       "cluster": "investor-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/investor-storytelling-for-marketing-teams",
+      "word_count": 1192,
+      "max_similarity": 0.753344,
+      "nearest_route": "/programmatic/investor-storytelling-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/investor-storytelling-for-founders",
@@ -29320,13 +29685,11 @@
       "cluster": "investor-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
-      "nearest_route": "/programmatic/investor-storytelling-for-enterprise-teams",
+      "word_count": 1196,
+      "max_similarity": 0.718264,
+      "nearest_route": "/programmatic/investor-storytelling-for-small-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/investor-storytelling-for-nonprofits",
@@ -29350,13 +29713,11 @@
       "cluster": "investor-storytelling",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "word_count": 363,
-      "max_similarity": 0.794344,
+      "word_count": 1200,
+      "max_similarity": 0.753344,
       "nearest_route": "/programmatic/investor-storytelling-for-enterprise-teams",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/investor-storytelling-for-startups",
@@ -32060,8 +32421,21 @@
       "pillar": "storytelling",
       "page_family": "operational_guide",
       "word_count": 1061,
-      "max_similarity": 0.576041,
-      "nearest_route": "/programmatic/presentation-storytelling-audit",
+      "max_similarity": 0.652368,
+      "nearest_route": "/programmatic/presentation-storytelling-checklist",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/presentation-storytelling-checklist",
+      "file": "programmatic/presentation-storytelling-checklist.html",
+      "query": "presentation storytelling checklist",
+      "cluster": "presentation-storytelling",
+      "pillar": "storytelling",
+      "page_family": "template_checklist",
+      "word_count": 1046,
+      "max_similarity": 0.652368,
+      "nearest_route": "/programmatic/presentation-storytelling-case-pattern",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32073,8 +32447,8 @@
       "pillar": "storytelling",
       "page_family": "operational_guide",
       "word_count": 333,
-      "max_similarity": 0.078652,
-      "nearest_route": "/programmatic/presentation-storytelling-audit",
+      "max_similarity": 0.079062,
+      "nearest_route": "/programmatic/presentation-storytelling-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -32116,8 +32490,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1007,
-      "max_similarity": 0.721591,
-      "nearest_route": "/programmatic/rebrand-strategy-how-to-choose",
+      "max_similarity": 0.731988,
+      "nearest_route": "/programmatic/rebrand-strategy-consultant",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32194,8 +32568,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1019,
-      "max_similarity": 0.717371,
-      "nearest_route": "/programmatic/rebrand-strategy-how-to-choose",
+      "max_similarity": 0.727619,
+      "nearest_route": "/programmatic/rebrand-strategy-consultant",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32209,6 +32583,19 @@
       "word_count": 1015,
       "max_similarity": 0.665751,
       "nearest_route": "/programmatic/rebrand-strategy-how-to-compare-vendors",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/rebrand-strategy-consultant",
+      "file": "programmatic/rebrand-strategy-consultant.html",
+      "query": "rebrand strategy consultant",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1012,
+      "max_similarity": 0.790972,
+      "nearest_route": "/programmatic/rebrand-strategy-how-to-choose",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32285,8 +32672,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1161,
-      "max_similarity": 0.692623,
-      "nearest_route": "/programmatic/rebrand-strategy-for-marketing-teams",
+      "max_similarity": 0.772141,
+      "nearest_route": "/programmatic/rebrand-strategy-for-startups",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32304,6 +32691,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/rebrand-strategy-for-startups",
+      "file": "programmatic/rebrand-strategy-for-startups.html",
+      "query": "rebrand strategy for startups",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1162,
+      "max_similarity": 0.772141,
+      "nearest_route": "/programmatic/rebrand-strategy-for-nonprofits",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/rebrand-strategy-how-to-choose",
       "file": "programmatic/rebrand-strategy-how-to-choose.html",
       "query": "rebrand strategy how to choose",
@@ -32311,8 +32711,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1047,
-      "max_similarity": 0.721591,
-      "nearest_route": "/programmatic/rebrand-strategy-agency",
+      "max_similarity": 0.790972,
+      "nearest_route": "/programmatic/rebrand-strategy-consultant",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32337,8 +32737,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1014,
-      "max_similarity": 0.581212,
-      "nearest_route": "/programmatic/rebrand-strategy-timeline",
+      "max_similarity": 0.616071,
+      "nearest_route": "/programmatic/rebrand-strategy-consultant",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32633,8 +33033,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1101,
-      "max_similarity": 0.541063,
-      "nearest_route": "/programmatic/startup-brand-strategy-case-pattern",
+      "max_similarity": 0.566832,
+      "nearest_route": "/programmatic/startup-brand-strategy-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32646,8 +33046,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1030,
-      "max_similarity": 0.585492,
-      "nearest_route": "/programmatic/startup-brand-strategy-best-practices",
+      "max_similarity": 0.598604,
+      "nearest_route": "/programmatic/startup-brand-strategy-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32691,6 +33091,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/startup-brand-strategy-checklist",
+      "file": "programmatic/startup-brand-strategy-checklist.html",
+      "query": "startup brand strategy checklist",
+      "cluster": "startup-brand-strategy",
+      "pillar": "brand",
+      "page_family": "template_checklist",
+      "word_count": 1038,
+      "max_similarity": 0.598604,
+      "nearest_route": "/programmatic/startup-brand-strategy-agency",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/startup-brand-strategy",
       "file": "programmatic/startup-brand-strategy.html",
       "query": "startup brand strategy",
@@ -32698,8 +33111,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 332,
-      "max_similarity": 0.07913,
-      "nearest_route": "/programmatic/startup-brand-strategy-audit",
+      "max_similarity": 0.083042,
+      "nearest_route": "/programmatic/startup-brand-strategy-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -32782,8 +33195,8 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 1053,
-      "max_similarity": 0.570962,
-      "nearest_route": "/programmatic/video-content-strategy-2026",
+      "max_similarity": 0.588134,
+      "nearest_route": "/programmatic/video-content-strategy-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -32801,6 +33214,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/video-content-strategy-checklist",
+      "file": "programmatic/video-content-strategy-checklist.html",
+      "query": "video content strategy checklist",
+      "cluster": "video-content-strategy",
+      "pillar": "creative",
+      "page_family": "template_checklist",
+      "word_count": 1047,
+      "max_similarity": 0.588134,
+      "nearest_route": "/programmatic/video-content-strategy-best-practices",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/video-content-strategy",
       "file": "programmatic/video-content-strategy.html",
       "query": "video content strategy",
@@ -32808,8 +33234,8 @@
       "pillar": "creative",
       "page_family": "operational_guide",
       "word_count": 340,
-      "max_similarity": 0.077579,
-      "nearest_route": "/programmatic/video-content-strategy-audit",
+      "max_similarity": 0.079966,
+      "nearest_route": "/programmatic/video-content-strategy-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -33348,8 +33774,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1121,
-      "max_similarity": 0.538769,
-      "nearest_route": "/programmatic/virtual-event-production-common-failure-points",
+      "max_similarity": 0.55627,
+      "nearest_route": "/programmatic/virtual-event-production-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33375,13 +33801,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1052,
+      "max_similarity": 0.701097,
+      "nearest_route": "/programmatic/virtual-event-production-consultant",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-analytics",
@@ -33421,8 +33845,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1043,
-      "max_similarity": 0.575552,
-      "nearest_route": "/programmatic/virtual-event-production-case-pattern",
+      "max_similarity": 0.642921,
+      "nearest_route": "/programmatic/virtual-event-production-deliverables",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33448,13 +33872,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "word_count": 424,
-      "max_similarity": 0.79386,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1074,
+      "max_similarity": 0.607639,
+      "nearest_route": "/programmatic/virtual-event-production-common-failure-points",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-budget",
@@ -33494,8 +33916,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1065,
-      "max_similarity": 0.575552,
-      "nearest_route": "/programmatic/virtual-event-production-audit",
+      "max_similarity": 0.598107,
+      "nearest_route": "/programmatic/virtual-event-production-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33506,13 +33928,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "template_checklist",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-agency",
+      "word_count": 1066,
+      "max_similarity": 0.598107,
+      "nearest_route": "/programmatic/virtual-event-production-case-pattern",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-common-failure-points",
@@ -33522,8 +33942,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1080,
-      "max_similarity": 0.548117,
-      "nearest_route": "/programmatic/virtual-event-production-case-pattern",
+      "max_similarity": 0.607639,
+      "nearest_route": "/programmatic/virtual-event-production-best-practices",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33564,13 +33984,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "comparison",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1045,
+      "max_similarity": 0.621385,
+      "nearest_route": "/programmatic/virtual-event-production-agency",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-consultant",
@@ -33580,8 +33998,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1054,
-      "max_similarity": 0.574215,
-      "nearest_route": "/programmatic/virtual-event-production-audit",
+      "max_similarity": 0.701097,
+      "nearest_route": "/programmatic/virtual-event-production-agency",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -33607,13 +34025,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "cost_scope",
-      "word_count": 414,
-      "max_similarity": 0.795604,
+      "word_count": 1057,
+      "max_similarity": 0.578323,
       "nearest_route": "/programmatic/virtual-event-production-checklist",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-day-of-support",
@@ -33644,6 +34060,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/virtual-event-production-deliverables",
+      "file": "programmatic/virtual-event-production-deliverables.html",
+      "query": "virtual event production deliverables",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "word_count": 1034,
+      "max_similarity": 0.642921,
+      "nearest_route": "/programmatic/virtual-event-production-audit",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-engagement",
@@ -33697,13 +34126,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1048,
+      "max_similarity": 0.609266,
+      "nearest_route": "/programmatic/virtual-event-production-services",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-executive-briefing",
@@ -33923,8 +34350,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 434,
-      "max_similarity": 0.792123,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "max_similarity": 0.048529,
+      "nearest_route": "/programmatic/virtual-event-production",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -34057,13 +34484,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "cost_scope",
-      "word_count": 415,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1051,
+      "max_similarity": 0.588034,
+      "nearest_route": "/programmatic/virtual-event-production-template",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-producer-roles",
@@ -34207,13 +34632,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1034,
+      "max_similarity": 0.609266,
+      "nearest_route": "/programmatic/virtual-event-production-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-software",
@@ -34297,13 +34720,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "template_checklist",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1051,
+      "max_similarity": 0.598452,
+      "nearest_route": "/programmatic/virtual-event-production-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-timeline",
@@ -34312,13 +34733,11 @@
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "word_count": 414,
-      "max_similarity": 0.795604,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "word_count": 1054,
+      "max_similarity": 0.598107,
+      "nearest_route": "/programmatic/virtual-event-production-examples",
       "exact_duplicate_routes": [],
-      "flags": [
-        "thin"
-      ]
+      "flags": []
     },
     {
       "route": "/programmatic/virtual-event-production-vendor-questions",
@@ -34373,8 +34792,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 326,
-      "max_similarity": 0.054978,
-      "nearest_route": "/programmatic/virtual-event-production-checklist",
+      "max_similarity": 0.048529,
+      "nearest_route": "/programmatic/virtual-event-production-how-to-choose",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -34491,6 +34910,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/virtual-summit-production-checklist",
+      "file": "programmatic/virtual-summit-production-checklist.html",
+      "query": "virtual summit production checklist",
+      "cluster": "virtual-summit-production",
+      "pillar": "experiences",
+      "page_family": "template_checklist",
+      "word_count": 1068,
+      "max_similarity": 0.592466,
+      "nearest_route": "/programmatic/virtual-summit-production-best-practices",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/virtual-summit-production",
       "file": "programmatic/virtual-summit-production.html",
       "query": "virtual summit production",
@@ -34498,8 +34930,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 322,
-      "max_similarity": 0.023353,
-      "nearest_route": "/programmatic/virtual-summit-production-agency",
+      "max_similarity": 0.026756,
+      "nearest_route": "/programmatic/virtual-summit-production-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -34541,8 +34973,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 1035,
-      "max_similarity": 0.564037,
-      "nearest_route": "/programmatic/webinar-production-case-pattern",
+      "max_similarity": 0.565925,
+      "nearest_route": "/programmatic/webinar-production-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -34586,6 +35018,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/webinar-production-checklist",
+      "file": "programmatic/webinar-production-checklist.html",
+      "query": "webinar production checklist",
+      "cluster": "webinar-production",
+      "pillar": "experiences",
+      "page_family": "template_checklist",
+      "word_count": 1039,
+      "max_similarity": 0.583904,
+      "nearest_route": "/programmatic/webinar-production-best-practices",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/webinar-production",
       "file": "programmatic/webinar-production.html",
       "query": "webinar production",
@@ -34593,8 +35038,8 @@
       "pillar": "experiences",
       "page_family": "operational_guide",
       "word_count": 316,
-      "max_similarity": 0.021151,
-      "nearest_route": "/programmatic/webinar-production-audit",
+      "max_similarity": 0.021978,
+      "nearest_route": "/programmatic/webinar-production-checklist",
       "exact_duplicate_routes": [],
       "flags": [
         "thin"
@@ -34712,8 +35157,8 @@
       "pillar": "agency-decisions",
       "page_family": "definition",
       "word_count": 1111,
-      "max_similarity": 0.578727,
-      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency",
+      "max_similarity": 0.610589,
+      "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-template",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -34900,6 +35345,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/what-is-community-marketing",
+      "file": "programmatic/what-is-community-marketing.html",
+      "query": "what is community marketing",
+      "cluster": "community-marketing",
+      "pillar": "marketing",
+      "page_family": "definition",
+      "word_count": 1040,
+      "max_similarity": 0.515548,
+      "nearest_route": "/programmatic/community-marketing-how-to-compare-vendors",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/what-is-content-marketing-operations",
       "file": "programmatic/what-is-content-marketing-operations.html",
       "query": "what is content marketing operations",
@@ -34933,8 +35391,8 @@
       "pillar": "agency-decisions",
       "page_family": "definition",
       "word_count": 1116,
-      "max_similarity": 0.569641,
-      "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-build-an-internal-workflow",
+      "max_similarity": 0.592405,
+      "nearest_route": "/programmatic/creative-agency-vs-production-company-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -35089,8 +35547,8 @@
       "pillar": "ai-workflows",
       "page_family": "definition",
       "word_count": 1118,
-      "max_similarity": 0.510433,
-      "nearest_route": "/programmatic/human-in-the-loop-ai-systems-how-to-compare-vendors",
+      "max_similarity": 0.612682,
+      "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -35115,8 +35573,8 @@
       "pillar": "agency-decisions",
       "page_family": "definition",
       "word_count": 1113,
-      "max_similarity": 0.545603,
-      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-avoid-scope-creep",
+      "max_similarity": 0.589376,
+      "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-mistakes",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -35245,8 +35703,8 @@
       "pillar": "experiences",
       "page_family": "definition",
       "word_count": 1089,
-      "max_similarity": 0.539852,
-      "nearest_route": "/programmatic/virtual-event-production-case-pattern",
+      "max_similarity": 0.572628,
+      "nearest_route": "/programmatic/virtual-event-production-checklist",
       "exact_duplicate_routes": [],
       "flags": []
     },
