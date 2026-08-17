@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-08-17T07:33:54.728Z",
+  "generated_at": "2026-08-17T08:51:50.916Z",
   "mode": "quality_gated_full_safe_autonomy",
   "target_semantics": "publication ceilings are safety capacity, never page quotas; creates require distinct answer value and repairs target proven thin/duplicate legacy pages",
   "daily_new_page_ceiling": 50,
@@ -13,7 +13,7 @@
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 150,
   "quality_snapshot": {
-    "corpus_fingerprint": "7c2dc5bfa0f35bcb9ea7ecbbd6a95341e3f7a2f61ea331ca5bf06ea28a7be1ec",
+    "corpus_fingerprint": "86ad06d67050b748b6ff0b5f8b78a9fc518a8fcefc6b812694065941ece6f0a4",
     "legacy_backlog": 1400,
     "thin_pages": 1400,
     "exact_duplicate_pages": 0,
@@ -1421,126 +1421,6 @@
       "release_order": 50
     },
     {
-      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
-      "query": "virtual event producer job description",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-producer-roles",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 43,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-producer-roles",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 993,
-        "max_similarity": 0.002364,
-        "nearest_route": "/programmatic/virtual-event-planning-checklist",
-        "reasons": []
-      },
-      "release_order": 1
-    },
-    {
-      "opportunity_id": "opp_ZXhwZXJpZW5jZWQgcHJvZHVj",
-      "query": "experienced production team",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-production-team",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 50,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-production-team",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 963,
-        "max_similarity": 0.689282,
-        "nearest_route": "/programmatic/virtual-event-production-producer-roles",
-        "reasons": []
-      },
-      "release_order": 2
-    },
-    {
-      "opportunity_id": "opp_cmZwIHRlbXBsYXRlIHZpcnR1",
-      "query": "rfp template virtual events",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-rfp-questions",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 61,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-rfp-questions",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 998,
-        "max_similarity": 0.601656,
-        "nearest_route": "/programmatic/virtual-event-production-producer-roles",
-        "reasons": []
-      },
-      "release_order": 3
-    },
-    {
-      "opportunity_id": "opp_dGVjaG5pY2FsIHJlaGVhcnNh",
-      "query": "technical rehearsal",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-technical-rehearsal",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 44,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-technical-rehearsal",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 952,
-        "max_similarity": 0.782105,
-        "nearest_route": "/programmatic/virtual-event-production-production-team",
-        "reasons": []
-      },
-      "release_order": 4
-    },
-    {
       "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
       "query": "hybrid event production for founders",
       "cluster": "hybrid-event-production",
@@ -1568,7 +1448,7 @@
         "nearest_route": "/programmatic/hybrid-event-production-for-small-teams",
         "reasons": []
       },
-      "release_order": 5
+      "release_order": 1
     },
     {
       "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
@@ -1598,7 +1478,7 @@
         "nearest_route": "/programmatic/hybrid-event-production-for-founders",
         "reasons": []
       },
-      "release_order": 6
+      "release_order": 2
     },
     {
       "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
@@ -1628,7 +1508,7 @@
         "nearest_route": "/programmatic/hybrid-event-production-for-nonprofits",
         "reasons": []
       },
-      "release_order": 7
+      "release_order": 3
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -1658,7 +1538,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-template",
         "reasons": []
       },
-      "release_order": 8
+      "release_order": 4
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -1688,7 +1568,7 @@
         "nearest_route": "/programmatic/what-is-ai-consultant-vs-automation-agency",
         "reasons": []
       },
-      "release_order": 9
+      "release_order": 5
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -1718,7 +1598,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-pricing",
         "reasons": []
       },
-      "release_order": 10
+      "release_order": 6
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -1748,7 +1628,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-workflow",
         "reasons": []
       },
-      "release_order": 11
+      "release_order": 7
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -1778,7 +1658,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-strategy-framework",
         "reasons": []
       },
-      "release_order": 12
+      "release_order": 8
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -1808,7 +1688,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-process",
         "reasons": []
       },
-      "release_order": 13
+      "release_order": 9
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -1838,7 +1718,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-agency",
         "reasons": []
       },
-      "release_order": 14
+      "release_order": 10
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -1868,7 +1748,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-compare-vendors",
         "reasons": []
       },
-      "release_order": 15
+      "release_order": 11
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -1898,7 +1778,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-best-practices",
         "reasons": []
       },
-      "release_order": 16
+      "release_order": 12
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -1928,7 +1808,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-case-pattern",
         "reasons": []
       },
-      "release_order": 17
+      "release_order": 13
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -1958,7 +1838,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-deliverables",
         "reasons": []
       },
-      "release_order": 18
+      "release_order": 14
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -1988,7 +1868,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-measurement",
         "reasons": []
       },
-      "release_order": 19
+      "release_order": 15
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -2018,7 +1898,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-checklist",
         "reasons": []
       },
-      "release_order": 20
+      "release_order": 16
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -2048,7 +1928,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-compare-vendors",
         "reasons": []
       },
-      "release_order": 21
+      "release_order": 17
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -2078,7 +1958,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-workflow",
         "reasons": []
       },
-      "release_order": 22
+      "release_order": 18
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -2108,7 +1988,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-audit",
         "reasons": []
       },
-      "release_order": 23
+      "release_order": 19
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -2138,7 +2018,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-avoid-scope-creep",
         "reasons": []
       },
-      "release_order": 24
+      "release_order": 20
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -2168,7 +2048,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow",
         "reasons": []
       },
-      "release_order": 25
+      "release_order": 21
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -2198,7 +2078,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-checklist",
         "reasons": []
       },
-      "release_order": 26
+      "release_order": 22
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -2228,7 +2108,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-what-a-good-engagement-includes",
         "reasons": []
       },
-      "release_order": 27
+      "release_order": 23
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2258,7 +2138,7 @@
         "nearest_route": "/programmatic/creative-operations-for-small-teams",
         "reasons": []
       },
-      "release_order": 28
+      "release_order": 24
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2288,7 +2168,7 @@
         "nearest_route": "/programmatic/what-is-creative-operations",
         "reasons": []
       },
-      "release_order": 29
+      "release_order": 25
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2318,7 +2198,7 @@
         "nearest_route": "/programmatic/creative-operations-for-venture-backed-companies",
         "reasons": []
       },
-      "release_order": 30
+      "release_order": 26
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2348,7 +2228,7 @@
         "nearest_route": "/programmatic/creative-operations",
         "reasons": []
       },
-      "release_order": 31
+      "release_order": 27
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2378,7 +2258,7 @@
         "nearest_route": "/programmatic/creative-operations-agency",
         "reasons": []
       },
-      "release_order": 32
+      "release_order": 28
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2408,7 +2288,7 @@
         "nearest_route": "/programmatic/creative-operations-agency",
         "reasons": []
       },
-      "release_order": 33
+      "release_order": 29
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2438,7 +2318,7 @@
         "nearest_route": "/programmatic/creative-operations",
         "reasons": []
       },
-      "release_order": 34
+      "release_order": 30
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2468,7 +2348,7 @@
         "nearest_route": "/programmatic/creative-operations-consultant",
         "reasons": []
       },
-      "release_order": 35
+      "release_order": 31
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2498,7 +2378,7 @@
         "nearest_route": "/programmatic/creative-operations",
         "reasons": []
       },
-      "release_order": 36
+      "release_order": 32
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2528,7 +2408,7 @@
         "nearest_route": "/programmatic/creative-operations-agency",
         "reasons": []
       },
-      "release_order": 37
+      "release_order": 33
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2558,7 +2438,7 @@
         "nearest_route": "/programmatic/creative-operations-mistakes",
         "reasons": []
       },
-      "release_order": 38
+      "release_order": 34
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2588,7 +2468,7 @@
         "nearest_route": "/programmatic/creative-operations-process",
         "reasons": []
       },
-      "release_order": 39
+      "release_order": 35
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2618,7 +2498,7 @@
         "nearest_route": "/programmatic/creative-operations-measurement",
         "reasons": []
       },
-      "release_order": 40
+      "release_order": 36
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -2648,7 +2528,7 @@
         "nearest_route": "/programmatic/creative-operations-deliverables",
         "reasons": []
       },
-      "release_order": 41
+      "release_order": 37
     },
     {
       "opportunity_id": "opp_YnJhbmRlZCBjb250ZW50IGRl",
@@ -2678,7 +2558,7 @@
         "nearest_route": "/programmatic/branded-content-development-for-small-teams",
         "reasons": []
       },
-      "release_order": 42
+      "release_order": 38
     },
     {
       "opportunity_id": "opp_YnJhbmRlZCBjb250ZW50IGRl",
@@ -2708,7 +2588,7 @@
         "nearest_route": "/programmatic/branded-content-development-for-founders",
         "reasons": []
       },
-      "release_order": 43
+      "release_order": 39
     },
     {
       "opportunity_id": "opp_YnJhbmRlZCBjb250ZW50IGRl",
@@ -2738,7 +2618,7 @@
         "nearest_route": "/programmatic/branded-content-development-for-founders",
         "reasons": []
       },
-      "release_order": 44
+      "release_order": 40
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgZGlyZWN0aW9u",
@@ -2768,7 +2648,7 @@
         "nearest_route": "/programmatic/creative-direction-agency-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 45
+      "release_order": 41
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgZGlyZWN0aW9u",
@@ -2798,7 +2678,7 @@
         "nearest_route": "/programmatic/creative-direction-agency-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 46
+      "release_order": 42
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgZGlyZWN0aW9u",
@@ -2828,7 +2708,7 @@
         "nearest_route": "/programmatic/creative-direction-agency-for-founders",
         "reasons": []
       },
-      "release_order": 47
+      "release_order": 43
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
@@ -2858,7 +2738,7 @@
         "nearest_route": "/programmatic/creative-strategy-consulting-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 48
+      "release_order": 44
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
@@ -2888,7 +2768,7 @@
         "nearest_route": "/programmatic/creative-strategy-consulting-for-small-teams",
         "reasons": []
       },
-      "release_order": 49
+      "release_order": 45
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
@@ -2918,7 +2798,7 @@
         "nearest_route": "/programmatic/creative-strategy-consulting-for-nonprofits",
         "reasons": []
       },
-      "release_order": 50
+      "release_order": 46
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -2948,7 +2828,7 @@
         "nearest_route": "/programmatic/community-marketing-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 51
+      "release_order": 47
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -2978,7 +2858,7 @@
         "nearest_route": "/programmatic/community-marketing",
         "reasons": []
       },
-      "release_order": 52
+      "release_order": 48
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3008,7 +2888,7 @@
         "nearest_route": "/programmatic/community-marketing-for-venture-backed-companies",
         "reasons": []
       },
-      "release_order": 53
+      "release_order": 49
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3038,7 +2918,7 @@
         "nearest_route": "/programmatic/what-is-community-marketing",
         "reasons": []
       },
-      "release_order": 54
+      "release_order": 50
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3068,7 +2948,7 @@
         "nearest_route": "/programmatic/community-marketing-agency",
         "reasons": []
       },
-      "release_order": 55
+      "release_order": 51
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3098,7 +2978,7 @@
         "nearest_route": "/programmatic/community-marketing-companies",
         "reasons": []
       },
-      "release_order": 56
+      "release_order": 52
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3128,7 +3008,7 @@
         "nearest_route": "/programmatic/community-marketing-agency",
         "reasons": []
       },
-      "release_order": 57
+      "release_order": 53
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3158,7 +3038,7 @@
         "nearest_route": "/programmatic/community-marketing-deliverables",
         "reasons": []
       },
-      "release_order": 58
+      "release_order": 54
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3188,7 +3068,7 @@
         "nearest_route": "/programmatic/community-marketing",
         "reasons": []
       },
-      "release_order": 59
+      "release_order": 55
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3218,7 +3098,7 @@
         "nearest_route": "/programmatic/community-marketing-examples",
         "reasons": []
       },
-      "release_order": 60
+      "release_order": 56
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3248,7 +3128,7 @@
         "nearest_route": "/programmatic/community-marketing",
         "reasons": []
       },
-      "release_order": 61
+      "release_order": 57
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3278,7 +3158,7 @@
         "nearest_route": "/programmatic/community-marketing-agency",
         "reasons": []
       },
-      "release_order": 62
+      "release_order": 58
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3308,7 +3188,7 @@
         "nearest_route": "/programmatic/community-marketing-consultant",
         "reasons": []
       },
-      "release_order": 63
+      "release_order": 59
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -3338,7 +3218,7 @@
         "nearest_route": "/programmatic/community-marketing-process",
         "reasons": []
       },
-      "release_order": 64
+      "release_order": 60
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -3368,7 +3248,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
         "reasons": []
       },
-      "release_order": 65
+      "release_order": 61
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -3398,7 +3278,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-strategy-framework",
         "reasons": []
       },
-      "release_order": 66
+      "release_order": 62
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -3428,7 +3308,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-deliverables",
         "reasons": []
       },
-      "release_order": 67
+      "release_order": 63
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -3458,7 +3338,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-agency",
         "reasons": []
       },
-      "release_order": 68
+      "release_order": 64
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -3488,7 +3368,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-pricing",
         "reasons": []
       },
-      "release_order": 69
+      "release_order": 65
     },
     {
       "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
@@ -3518,7 +3398,7 @@
         "nearest_route": "/programmatic/audience-growth-strategy-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 70
+      "release_order": 66
     },
     {
       "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
@@ -3548,7 +3428,7 @@
         "nearest_route": "/programmatic/audience-growth-strategy-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 71
+      "release_order": 67
     },
     {
       "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
@@ -3578,7 +3458,7 @@
         "nearest_route": "/programmatic/audience-growth-strategy-for-nonprofits",
         "reasons": []
       },
-      "release_order": 72
+      "release_order": 68
     },
     {
       "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
@@ -3608,7 +3488,7 @@
         "nearest_route": "/programmatic/content-marketing-operations-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 73
+      "release_order": 69
     },
     {
       "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
@@ -3638,7 +3518,7 @@
         "nearest_route": "/programmatic/content-marketing-operations-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 74
+      "release_order": 70
     },
     {
       "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
@@ -3668,7 +3548,7 @@
         "nearest_route": "/programmatic/content-marketing-operations-for-founders",
         "reasons": []
       },
-      "release_order": 75
+      "release_order": 71
     },
     {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHN0",
@@ -3698,7 +3578,7 @@
         "nearest_route": "/programmatic/event-marketing-strategy-for-small-teams",
         "reasons": []
       },
-      "release_order": 76
+      "release_order": 72
     },
     {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHN0",
@@ -3728,7 +3608,7 @@
         "nearest_route": "/programmatic/event-marketing-strategy-for-founders",
         "reasons": []
       },
-      "release_order": 77
+      "release_order": 73
     },
     {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHN0",
@@ -3758,7 +3638,7 @@
         "nearest_route": "/programmatic/event-marketing-strategy-for-nonprofits",
         "reasons": []
       },
-      "release_order": 78
+      "release_order": 74
     },
     {
       "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
@@ -3788,7 +3668,7 @@
         "nearest_route": "/programmatic/launch-marketing-strategy-for-small-teams",
         "reasons": []
       },
-      "release_order": 79
+      "release_order": 75
     },
     {
       "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
@@ -3818,7 +3698,7 @@
         "nearest_route": "/programmatic/launch-marketing-strategy-for-founders",
         "reasons": []
       },
-      "release_order": 80
+      "release_order": 76
     },
     {
       "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
@@ -3848,7 +3728,7 @@
         "nearest_route": "/programmatic/launch-marketing-strategy-for-founders",
         "reasons": []
       },
-      "release_order": 81
+      "release_order": 77
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -3878,7 +3758,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails",
         "reasons": []
       },
-      "release_order": 82
+      "release_order": 78
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -3908,7 +3788,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-companies",
         "reasons": []
       },
-      "release_order": 83
+      "release_order": 79
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -3938,7 +3818,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
         "reasons": []
       },
-      "release_order": 84
+      "release_order": 80
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -3968,7 +3848,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-cost",
         "reasons": []
       },
-      "release_order": 85
+      "release_order": 81
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -3998,7 +3878,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-red-flags",
         "reasons": []
       },
-      "release_order": 86
+      "release_order": 82
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -4028,7 +3908,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-why-it-fails",
         "reasons": []
       },
-      "release_order": 87
+      "release_order": 83
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -4058,7 +3938,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-measure-success",
         "reasons": []
       },
-      "release_order": 88
+      "release_order": 84
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -4088,7 +3968,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-common-failure-points",
         "reasons": []
       },
-      "release_order": 89
+      "release_order": 85
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -4118,7 +3998,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-operating-model",
         "reasons": []
       },
-      "release_order": 90
+      "release_order": 86
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -4148,7 +4028,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-build-an-internal-workflow",
         "reasons": []
       },
-      "release_order": 91
+      "release_order": 87
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -4178,7 +4058,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-red-flags",
         "reasons": []
       },
-      "release_order": 92
+      "release_order": 88
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -4208,7 +4088,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-consultant",
         "reasons": []
       },
-      "release_order": 93
+      "release_order": 89
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -4238,7 +4118,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-common-failure-points",
         "reasons": []
       },
-      "release_order": 94
+      "release_order": 90
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -4268,7 +4148,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-mistakes",
         "reasons": []
       },
-      "release_order": 95
+      "release_order": 91
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -4298,7 +4178,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-common-failure-points",
         "reasons": []
       },
-      "release_order": 96
+      "release_order": 92
     },
     {
       "opportunity_id": "opp_aG93IHRvIGNob29zZSBhIGNy",
@@ -4328,7 +4208,7 @@
         "nearest_route": "/programmatic/how-to-choose-a-creative-agency-agency",
         "reasons": []
       },
-      "release_order": 97
+      "release_order": 93
     },
     {
       "opportunity_id": "opp_aG93IHRvIGNob29zZSBhIGNy",
@@ -4358,7 +4238,7 @@
         "nearest_route": "/programmatic/how-to-choose-a-creative-agency-implementation-guide",
         "reasons": []
       },
-      "release_order": 98
+      "release_order": 94
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -4388,7 +4268,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
         "reasons": []
       },
-      "release_order": 99
+      "release_order": 95
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -4416,6 +4296,126 @@
         "word_count": 1037,
         "max_similarity": 0.826866,
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-measure-success",
+        "reasons": []
+      },
+      "release_order": 96
+    },
+    {
+      "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
+      "query": "integrated agency vs specialist agencies questions to ask",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/integrated-agency-vs-specialist-agencies-questions-to-ask",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/integrated-agency-vs-specialist-agencies-questions-to-ask",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1021,
+        "max_similarity": 0.631818,
+        "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-deliverables",
+        "reasons": []
+      },
+      "release_order": 97
+    },
+    {
+      "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
+      "query": "integrated agency vs specialist agencies scope of work",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/integrated-agency-vs-specialist-agencies-scope-of-work",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/integrated-agency-vs-specialist-agencies-scope-of-work",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1035,
+        "max_similarity": 0.671684,
+        "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-choose",
+        "reasons": []
+      },
+      "release_order": 98
+    },
+    {
+      "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
+      "query": "integrated agency vs specialist agencies when to hire",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/integrated-agency-vs-specialist-agencies-when-to-hire",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/integrated-agency-vs-specialist-agencies-when-to-hire",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1054,
+        "max_similarity": 0.633778,
+        "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-strategy-framework",
+        "reasons": []
+      },
+      "release_order": 99
+    },
+    {
+      "opportunity_id": "opp_QUkga25vd2xlZGdlIHN5c3Rl",
+      "query": "AI knowledge systems for marketing best practices",
+      "cluster": "ai-knowledge-systems-for-marketing",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-knowledge-systems-for-marketing-best-practices",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-knowledge-systems-for-marketing-best-practices",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1161,
+        "max_similarity": 0.628458,
+        "nearest_route": "/programmatic/ai-knowledge-systems-for-marketing-for-startups",
         "reasons": []
       },
       "release_order": 100
@@ -5823,126 +5823,6 @@
       "release_order": 50
     },
     {
-      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
-      "query": "virtual event producer job description",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-producer-roles",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 43,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-producer-roles",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 993,
-        "max_similarity": 0.002364,
-        "nearest_route": "/programmatic/virtual-event-planning-checklist",
-        "reasons": []
-      },
-      "release_order": 1
-    },
-    {
-      "opportunity_id": "opp_ZXhwZXJpZW5jZWQgcHJvZHVj",
-      "query": "experienced production team",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-production-team",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 50,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-production-team",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 963,
-        "max_similarity": 0.689282,
-        "nearest_route": "/programmatic/virtual-event-production-producer-roles",
-        "reasons": []
-      },
-      "release_order": 2
-    },
-    {
-      "opportunity_id": "opp_cmZwIHRlbXBsYXRlIHZpcnR1",
-      "query": "rfp template virtual events",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-rfp-questions",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 61,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-rfp-questions",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 998,
-        "max_similarity": 0.601656,
-        "nearest_route": "/programmatic/virtual-event-production-producer-roles",
-        "reasons": []
-      },
-      "release_order": 3
-    },
-    {
-      "opportunity_id": "opp_dGVjaG5pY2FsIHJlaGVhcnNh",
-      "query": "technical rehearsal",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-production-technical-rehearsal",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 44,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/virtual-event-production-technical-rehearsal",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 952,
-        "max_similarity": 0.782105,
-        "nearest_route": "/programmatic/virtual-event-production-production-team",
-        "reasons": []
-      },
-      "release_order": 4
-    },
-    {
       "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
       "query": "hybrid event production for founders",
       "cluster": "hybrid-event-production",
@@ -5970,7 +5850,7 @@
         "nearest_route": "/programmatic/hybrid-event-production-for-small-teams",
         "reasons": []
       },
-      "release_order": 5
+      "release_order": 1
     },
     {
       "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
@@ -6000,7 +5880,7 @@
         "nearest_route": "/programmatic/hybrid-event-production-for-founders",
         "reasons": []
       },
-      "release_order": 6
+      "release_order": 2
     },
     {
       "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
@@ -6030,7 +5910,7 @@
         "nearest_route": "/programmatic/hybrid-event-production-for-nonprofits",
         "reasons": []
       },
-      "release_order": 7
+      "release_order": 3
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -6060,7 +5940,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-template",
         "reasons": []
       },
-      "release_order": 8
+      "release_order": 4
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -6090,7 +5970,7 @@
         "nearest_route": "/programmatic/what-is-ai-consultant-vs-automation-agency",
         "reasons": []
       },
-      "release_order": 9
+      "release_order": 5
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -6120,7 +6000,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-pricing",
         "reasons": []
       },
-      "release_order": 10
+      "release_order": 6
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -6150,7 +6030,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-workflow",
         "reasons": []
       },
-      "release_order": 11
+      "release_order": 7
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -6180,7 +6060,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-strategy-framework",
         "reasons": []
       },
-      "release_order": 12
+      "release_order": 8
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -6210,7 +6090,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-process",
         "reasons": []
       },
-      "release_order": 13
+      "release_order": 9
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -6240,7 +6120,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-agency",
         "reasons": []
       },
-      "release_order": 14
+      "release_order": 10
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -6270,7 +6150,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-compare-vendors",
         "reasons": []
       },
-      "release_order": 15
+      "release_order": 11
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -6300,7 +6180,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-best-practices",
         "reasons": []
       },
-      "release_order": 16
+      "release_order": 12
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -6330,7 +6210,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-case-pattern",
         "reasons": []
       },
-      "release_order": 17
+      "release_order": 13
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -6360,7 +6240,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-deliverables",
         "reasons": []
       },
-      "release_order": 18
+      "release_order": 14
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -6390,7 +6270,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-measurement",
         "reasons": []
       },
-      "release_order": 19
+      "release_order": 15
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -6420,7 +6300,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-checklist",
         "reasons": []
       },
-      "release_order": 20
+      "release_order": 16
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -6450,7 +6330,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-how-to-compare-vendors",
         "reasons": []
       },
-      "release_order": 21
+      "release_order": 17
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -6480,7 +6360,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-workflow",
         "reasons": []
       },
-      "release_order": 22
+      "release_order": 18
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -6510,7 +6390,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-audit",
         "reasons": []
       },
-      "release_order": 23
+      "release_order": 19
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -6540,7 +6420,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-avoid-scope-creep",
         "reasons": []
       },
-      "release_order": 24
+      "release_order": 20
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -6570,7 +6450,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-build-an-internal-workflow",
         "reasons": []
       },
-      "release_order": 25
+      "release_order": 21
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -6600,7 +6480,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-checklist",
         "reasons": []
       },
-      "release_order": 26
+      "release_order": 22
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -6630,7 +6510,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-what-a-good-engagement-includes",
         "reasons": []
       },
-      "release_order": 27
+      "release_order": 23
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6660,7 +6540,7 @@
         "nearest_route": "/programmatic/creative-operations-for-small-teams",
         "reasons": []
       },
-      "release_order": 28
+      "release_order": 24
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6690,7 +6570,7 @@
         "nearest_route": "/programmatic/what-is-creative-operations",
         "reasons": []
       },
-      "release_order": 29
+      "release_order": 25
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6720,7 +6600,7 @@
         "nearest_route": "/programmatic/creative-operations-for-venture-backed-companies",
         "reasons": []
       },
-      "release_order": 30
+      "release_order": 26
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6750,7 +6630,7 @@
         "nearest_route": "/programmatic/creative-operations",
         "reasons": []
       },
-      "release_order": 31
+      "release_order": 27
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6780,7 +6660,7 @@
         "nearest_route": "/programmatic/creative-operations-agency",
         "reasons": []
       },
-      "release_order": 32
+      "release_order": 28
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6810,7 +6690,7 @@
         "nearest_route": "/programmatic/creative-operations-agency",
         "reasons": []
       },
-      "release_order": 33
+      "release_order": 29
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6840,7 +6720,7 @@
         "nearest_route": "/programmatic/creative-operations",
         "reasons": []
       },
-      "release_order": 34
+      "release_order": 30
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6870,7 +6750,7 @@
         "nearest_route": "/programmatic/creative-operations-consultant",
         "reasons": []
       },
-      "release_order": 35
+      "release_order": 31
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6900,7 +6780,7 @@
         "nearest_route": "/programmatic/creative-operations",
         "reasons": []
       },
-      "release_order": 36
+      "release_order": 32
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6930,7 +6810,7 @@
         "nearest_route": "/programmatic/creative-operations-agency",
         "reasons": []
       },
-      "release_order": 37
+      "release_order": 33
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6960,7 +6840,7 @@
         "nearest_route": "/programmatic/creative-operations-mistakes",
         "reasons": []
       },
-      "release_order": 38
+      "release_order": 34
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -6990,7 +6870,7 @@
         "nearest_route": "/programmatic/creative-operations-process",
         "reasons": []
       },
-      "release_order": 39
+      "release_order": 35
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -7020,7 +6900,7 @@
         "nearest_route": "/programmatic/creative-operations-measurement",
         "reasons": []
       },
-      "release_order": 40
+      "release_order": 36
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
@@ -7050,7 +6930,7 @@
         "nearest_route": "/programmatic/creative-operations-deliverables",
         "reasons": []
       },
-      "release_order": 41
+      "release_order": 37
     },
     {
       "opportunity_id": "opp_YnJhbmRlZCBjb250ZW50IGRl",
@@ -7080,7 +6960,7 @@
         "nearest_route": "/programmatic/branded-content-development-for-small-teams",
         "reasons": []
       },
-      "release_order": 42
+      "release_order": 38
     },
     {
       "opportunity_id": "opp_YnJhbmRlZCBjb250ZW50IGRl",
@@ -7110,7 +6990,7 @@
         "nearest_route": "/programmatic/branded-content-development-for-founders",
         "reasons": []
       },
-      "release_order": 43
+      "release_order": 39
     },
     {
       "opportunity_id": "opp_YnJhbmRlZCBjb250ZW50IGRl",
@@ -7140,7 +7020,7 @@
         "nearest_route": "/programmatic/branded-content-development-for-founders",
         "reasons": []
       },
-      "release_order": 44
+      "release_order": 40
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgZGlyZWN0aW9u",
@@ -7170,7 +7050,7 @@
         "nearest_route": "/programmatic/creative-direction-agency-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 45
+      "release_order": 41
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgZGlyZWN0aW9u",
@@ -7200,7 +7080,7 @@
         "nearest_route": "/programmatic/creative-direction-agency-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 46
+      "release_order": 42
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgZGlyZWN0aW9u",
@@ -7230,7 +7110,7 @@
         "nearest_route": "/programmatic/creative-direction-agency-for-founders",
         "reasons": []
       },
-      "release_order": 47
+      "release_order": 43
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
@@ -7260,7 +7140,7 @@
         "nearest_route": "/programmatic/creative-strategy-consulting-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 48
+      "release_order": 44
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
@@ -7290,7 +7170,7 @@
         "nearest_route": "/programmatic/creative-strategy-consulting-for-small-teams",
         "reasons": []
       },
-      "release_order": 49
+      "release_order": 45
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
@@ -7320,7 +7200,7 @@
         "nearest_route": "/programmatic/creative-strategy-consulting-for-nonprofits",
         "reasons": []
       },
-      "release_order": 50
+      "release_order": 46
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7350,7 +7230,7 @@
         "nearest_route": "/programmatic/community-marketing-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 51
+      "release_order": 47
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7380,7 +7260,7 @@
         "nearest_route": "/programmatic/community-marketing",
         "reasons": []
       },
-      "release_order": 52
+      "release_order": 48
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7410,7 +7290,7 @@
         "nearest_route": "/programmatic/community-marketing-for-venture-backed-companies",
         "reasons": []
       },
-      "release_order": 53
+      "release_order": 49
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7440,7 +7320,7 @@
         "nearest_route": "/programmatic/what-is-community-marketing",
         "reasons": []
       },
-      "release_order": 54
+      "release_order": 50
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7470,7 +7350,7 @@
         "nearest_route": "/programmatic/community-marketing-agency",
         "reasons": []
       },
-      "release_order": 55
+      "release_order": 51
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7500,7 +7380,7 @@
         "nearest_route": "/programmatic/community-marketing-companies",
         "reasons": []
       },
-      "release_order": 56
+      "release_order": 52
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7530,7 +7410,7 @@
         "nearest_route": "/programmatic/community-marketing-agency",
         "reasons": []
       },
-      "release_order": 57
+      "release_order": 53
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7560,7 +7440,7 @@
         "nearest_route": "/programmatic/community-marketing-deliverables",
         "reasons": []
       },
-      "release_order": 58
+      "release_order": 54
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7590,7 +7470,7 @@
         "nearest_route": "/programmatic/community-marketing",
         "reasons": []
       },
-      "release_order": 59
+      "release_order": 55
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7620,7 +7500,7 @@
         "nearest_route": "/programmatic/community-marketing-examples",
         "reasons": []
       },
-      "release_order": 60
+      "release_order": 56
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7650,7 +7530,7 @@
         "nearest_route": "/programmatic/community-marketing",
         "reasons": []
       },
-      "release_order": 61
+      "release_order": 57
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7680,7 +7560,7 @@
         "nearest_route": "/programmatic/community-marketing-agency",
         "reasons": []
       },
-      "release_order": 62
+      "release_order": 58
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7710,7 +7590,7 @@
         "nearest_route": "/programmatic/community-marketing-consultant",
         "reasons": []
       },
-      "release_order": 63
+      "release_order": 59
     },
     {
       "opportunity_id": "opp_Y29tbXVuaXR5IG1hcmtldGlu",
@@ -7740,7 +7620,7 @@
         "nearest_route": "/programmatic/community-marketing-process",
         "reasons": []
       },
-      "release_order": 64
+      "release_order": 60
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -7770,7 +7650,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
         "reasons": []
       },
-      "release_order": 65
+      "release_order": 61
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -7800,7 +7680,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-strategy-framework",
         "reasons": []
       },
-      "release_order": 66
+      "release_order": 62
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -7830,7 +7710,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-deliverables",
         "reasons": []
       },
-      "release_order": 67
+      "release_order": 63
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -7860,7 +7740,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-agency",
         "reasons": []
       },
-      "release_order": 68
+      "release_order": 64
     },
     {
       "opportunity_id": "opp_aHVtYW4gaW4gdGhlIGxvb3Ag",
@@ -7890,7 +7770,7 @@
         "nearest_route": "/programmatic/human-in-the-loop-ai-systems-pricing",
         "reasons": []
       },
-      "release_order": 69
+      "release_order": 65
     },
     {
       "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
@@ -7920,7 +7800,7 @@
         "nearest_route": "/programmatic/audience-growth-strategy-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 70
+      "release_order": 66
     },
     {
       "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
@@ -7950,7 +7830,7 @@
         "nearest_route": "/programmatic/audience-growth-strategy-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 71
+      "release_order": 67
     },
     {
       "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
@@ -7980,7 +7860,7 @@
         "nearest_route": "/programmatic/audience-growth-strategy-for-nonprofits",
         "reasons": []
       },
-      "release_order": 72
+      "release_order": 68
     },
     {
       "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
@@ -8010,7 +7890,7 @@
         "nearest_route": "/programmatic/content-marketing-operations-for-marketing-teams",
         "reasons": []
       },
-      "release_order": 73
+      "release_order": 69
     },
     {
       "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
@@ -8040,7 +7920,7 @@
         "nearest_route": "/programmatic/content-marketing-operations-for-enterprise-teams",
         "reasons": []
       },
-      "release_order": 74
+      "release_order": 70
     },
     {
       "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
@@ -8070,7 +7950,7 @@
         "nearest_route": "/programmatic/content-marketing-operations-for-founders",
         "reasons": []
       },
-      "release_order": 75
+      "release_order": 71
     },
     {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHN0",
@@ -8100,7 +7980,7 @@
         "nearest_route": "/programmatic/event-marketing-strategy-for-small-teams",
         "reasons": []
       },
-      "release_order": 76
+      "release_order": 72
     },
     {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHN0",
@@ -8130,7 +8010,7 @@
         "nearest_route": "/programmatic/event-marketing-strategy-for-founders",
         "reasons": []
       },
-      "release_order": 77
+      "release_order": 73
     },
     {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHN0",
@@ -8160,7 +8040,7 @@
         "nearest_route": "/programmatic/event-marketing-strategy-for-nonprofits",
         "reasons": []
       },
-      "release_order": 78
+      "release_order": 74
     },
     {
       "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
@@ -8190,7 +8070,7 @@
         "nearest_route": "/programmatic/launch-marketing-strategy-for-small-teams",
         "reasons": []
       },
-      "release_order": 79
+      "release_order": 75
     },
     {
       "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
@@ -8220,7 +8100,7 @@
         "nearest_route": "/programmatic/launch-marketing-strategy-for-founders",
         "reasons": []
       },
-      "release_order": 80
+      "release_order": 76
     },
     {
       "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
@@ -8250,7 +8130,7 @@
         "nearest_route": "/programmatic/launch-marketing-strategy-for-founders",
         "reasons": []
       },
-      "release_order": 81
+      "release_order": 77
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -8280,7 +8160,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails",
         "reasons": []
       },
-      "release_order": 82
+      "release_order": 78
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -8310,7 +8190,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-companies",
         "reasons": []
       },
-      "release_order": 83
+      "release_order": 79
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -8340,7 +8220,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
         "reasons": []
       },
-      "release_order": 84
+      "release_order": 80
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -8370,7 +8250,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-cost",
         "reasons": []
       },
-      "release_order": 85
+      "release_order": 81
     },
     {
       "opportunity_id": "opp_QUkgY29uc3VsdGFudCB2cyBh",
@@ -8400,7 +8280,7 @@
         "nearest_route": "/programmatic/ai-consultant-vs-automation-agency-red-flags",
         "reasons": []
       },
-      "release_order": 86
+      "release_order": 82
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -8430,7 +8310,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-why-it-fails",
         "reasons": []
       },
-      "release_order": 87
+      "release_order": 83
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -8460,7 +8340,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-measure-success",
         "reasons": []
       },
-      "release_order": 88
+      "release_order": 84
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -8490,7 +8370,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-common-failure-points",
         "reasons": []
       },
-      "release_order": 89
+      "release_order": 85
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -8520,7 +8400,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-operating-model",
         "reasons": []
       },
-      "release_order": 90
+      "release_order": 86
     },
     {
       "opportunity_id": "opp_YnJhbmQgYWdlbmN5IHZzIG1h",
@@ -8550,7 +8430,7 @@
         "nearest_route": "/programmatic/brand-agency-vs-marketing-agency-how-to-build-an-internal-workflow",
         "reasons": []
       },
-      "release_order": 91
+      "release_order": 87
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -8580,7 +8460,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-red-flags",
         "reasons": []
       },
-      "release_order": 92
+      "release_order": 88
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -8610,7 +8490,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-consultant",
         "reasons": []
       },
-      "release_order": 93
+      "release_order": 89
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -8640,7 +8520,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-common-failure-points",
         "reasons": []
       },
-      "release_order": 94
+      "release_order": 90
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -8670,7 +8550,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-mistakes",
         "reasons": []
       },
-      "release_order": 95
+      "release_order": 91
     },
     {
       "opportunity_id": "opp_Y3JlYXRpdmUgYWdlbmN5IHZz",
@@ -8700,7 +8580,7 @@
         "nearest_route": "/programmatic/creative-agency-vs-production-company-common-failure-points",
         "reasons": []
       },
-      "release_order": 96
+      "release_order": 92
     },
     {
       "opportunity_id": "opp_aG93IHRvIGNob29zZSBhIGNy",
@@ -8730,7 +8610,7 @@
         "nearest_route": "/programmatic/how-to-choose-a-creative-agency-agency",
         "reasons": []
       },
-      "release_order": 97
+      "release_order": 93
     },
     {
       "opportunity_id": "opp_aG93IHRvIGNob29zZSBhIGNy",
@@ -8760,7 +8640,7 @@
         "nearest_route": "/programmatic/how-to-choose-a-creative-agency-implementation-guide",
         "reasons": []
       },
-      "release_order": 98
+      "release_order": 94
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -8790,7 +8670,7 @@
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-best-practices",
         "reasons": []
       },
-      "release_order": 99
+      "release_order": 95
     },
     {
       "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
@@ -8818,6 +8698,126 @@
         "word_count": 1037,
         "max_similarity": 0.826866,
         "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-measure-success",
+        "reasons": []
+      },
+      "release_order": 96
+    },
+    {
+      "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
+      "query": "integrated agency vs specialist agencies questions to ask",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/integrated-agency-vs-specialist-agencies-questions-to-ask",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/integrated-agency-vs-specialist-agencies-questions-to-ask",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1021,
+        "max_similarity": 0.631818,
+        "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-deliverables",
+        "reasons": []
+      },
+      "release_order": 97
+    },
+    {
+      "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
+      "query": "integrated agency vs specialist agencies scope of work",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/integrated-agency-vs-specialist-agencies-scope-of-work",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/integrated-agency-vs-specialist-agencies-scope-of-work",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1035,
+        "max_similarity": 0.671684,
+        "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-choose",
+        "reasons": []
+      },
+      "release_order": 98
+    },
+    {
+      "opportunity_id": "opp_aW50ZWdyYXRlZCBhZ2VuY3kg",
+      "query": "integrated agency vs specialist agencies when to hire",
+      "cluster": "integrated-agency-vs-specialist-agencies",
+      "pillar": "agency-decisions",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/integrated-agency-vs-specialist-agencies-when-to-hire",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/integrated-agency-vs-specialist-agencies-when-to-hire",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1054,
+        "max_similarity": 0.633778,
+        "nearest_route": "/programmatic/integrated-agency-vs-specialist-agencies-strategy-framework",
+        "reasons": []
+      },
+      "release_order": 99
+    },
+    {
+      "opportunity_id": "opp_QUkga25vd2xlZGdlIHN5c3Rl",
+      "query": "AI knowledge systems for marketing best practices",
+      "cluster": "ai-knowledge-systems-for-marketing",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-knowledge-systems-for-marketing-best-practices",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 264,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-knowledge-systems-for-marketing-best-practices",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1161,
+        "max_similarity": 0.628458,
+        "nearest_route": "/programmatic/ai-knowledge-systems-for-marketing-for-startups",
         "reasons": []
       },
       "release_order": 100
