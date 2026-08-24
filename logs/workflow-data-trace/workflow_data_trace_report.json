@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T19:19:54.310Z",
+  "generated_at": "2026-08-24T02:44:15.876Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -16,7 +16,7 @@
       "workflow_name": "Admin Command - Full Flow Controls",
       "job": "command",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -26,7 +26,7 @@
       "workflow_name": "Admin Command - Full Flow Controls",
       "job": "command",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -62,8 +62,10 @@
       "job": "command",
       "step": 5,
       "name": "Apply runtime state command",
-      "npm_script": null,
-      "direct_paths": [],
+      "npm_script": "actions:validate",
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
       "env_keys": [
         "ACTION"
       ]
@@ -96,7 +98,7 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -106,7 +108,7 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -138,6 +140,36 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 5,
+      "name": "npm run validate:workflow-data-trace",
+      "npm_script": "validate:workflow-data-trace",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 6,
+      "name": "npm run validate:workflow-faux-trace",
+      "npm_script": "validate:workflow-faux-trace",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 7,
+      "name": "npm run test:push-helper",
+      "npm_script": "test:push-helper",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 8,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -148,7 +180,7 @@
       "workflow_name": "Credential Check - Secrets and Public Key Readiness",
       "job": "check",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -158,7 +190,7 @@
       "workflow_name": "Credential Check - Secrets and Public Key Readiness",
       "job": "check",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -200,7 +232,7 @@
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -210,7 +242,7 @@
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -220,7 +252,7 @@
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
       "step": 3,
-      "name": "actions/setup-python@v5",
+      "name": "actions/setup-python@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -291,7 +323,7 @@
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
       "step": 9,
-      "name": "actions/upload-artifact@v4",
+      "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -301,7 +333,7 @@
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -311,7 +343,7 @@
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -321,7 +353,7 @@
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 3,
-      "name": "actions/setup-python@v5",
+      "name": "actions/setup-python@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -413,15 +445,19 @@
       "step": 11,
       "name": "Commit generated pages and registries",
       "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
+      "env_keys": [
+        "PRE_PUSH_VALIDATION_ARGV"
+      ]
     },
     {
       "workflow": "programmatic-release.yml",
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 12,
-      "name": "actions/upload-artifact@v4",
+      "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -431,7 +467,7 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -441,7 +477,7 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -451,7 +487,7 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 3,
-      "name": "actions/setup-python@v5",
+      "name": "actions/setup-python@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -583,15 +619,19 @@
       "step": 15,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
+      "env_keys": [
+        "PRE_PUSH_VALIDATION_ARGV"
+      ]
     },
     {
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 16,
-      "name": "actions/upload-artifact@v4",
+      "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -601,7 +641,7 @@
       "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
       "job": "diagnose_repair_retest",
       "step": 1,
-      "name": "actions/checkout@v4",
+      "name": "actions/checkout@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -611,7 +651,7 @@
       "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
       "job": "diagnose_repair_retest",
       "step": 2,
-      "name": "actions/setup-node@v4",
+      "name": "actions/setup-node@v6",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -705,15 +745,19 @@
       "step": 11,
       "name": "Commit search repair and retest artifacts",
       "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
+      "env_keys": [
+        "PRE_PUSH_VALIDATION_ARGV"
+      ]
     },
     {
       "workflow": "search-repair-retest.yml",
       "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
       "job": "diagnose_repair_retest",
       "step": 12,
-      "name": "actions/upload-artifact@v4",
+      "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
