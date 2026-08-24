@@ -24,10 +24,10 @@ jobs:
   diagnose_repair_retest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: npm
@@ -55,18 +55,12 @@ jobs:
         run: npm run repairs:retest
       - name: Commit search repair and retest artifacts
         if: ${{ steps.runtime.outputs.allowed == 'true' && (github.event_name == 'schedule' || github.event.inputs.commit_changes == 'true') }}
+        env:
+          PRE_PUSH_VALIDATION_ARGV: npm run release:push-gate
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "Search repair/retest sweep: diagnose, bounded repair, delayed retest"
-            git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
-            git push origin "HEAD:$CI_AUTONOMOUS_BRANCH"
-          else
-            echo "No search repair/retest changes."
-          fi
-      - uses: actions/upload-artifact@v4
+          bash .github/scripts/commit_and_push_if_changed.sh \
+            "Search repair/retest sweep: diagnose, bounded repair, delayed retest" search-repair-retest
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: search-repair-retest-evidence

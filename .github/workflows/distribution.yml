@@ -21,13 +21,13 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: npm
           registry-url: 'https://registry.npmjs.org'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - run: bash scripts/ci_npm_install.sh
@@ -56,7 +56,7 @@ jobs:
           if [ -n "${INDEXNOW_KEY:-}" ]; then args+=(--key "$INDEXNOW_KEY"); fi
           if [ -f .gsc-service-account.json ] && [ -n "${GSC_SITE_URL:-}" ]; then args+=(--creds .gsc-service-account.json --gsc-site "$GSC_SITE_URL"); fi
           ./distribution_scripts/deploy_distribution.sh "${args[@]}"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: distribution-evidence

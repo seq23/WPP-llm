@@ -52,6 +52,9 @@ function decodeEntities(text) {
 
 function extractVisibleText(html) {
   return decodeEntities(String(html || '')
+    // Fan-out is a shared discovery/navigation surface added after admission.
+    // It must not change the semantic-duplicate score of the primary page body.
+    .replace(/<section\b[^>]*data-fanout=["']true["'][^>]*>[\s\S]*?<\/section>/gi, ' ')
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
