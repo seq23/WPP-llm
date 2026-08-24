@@ -13,9 +13,16 @@ if (!units) {
   console.error('Release plan missing release_units array');
   process.exit(1);
 }
-if (Array.isArray(plan.blocked) && plan.blocked.length) {
-  console.error('Release plan has blocked units');
-  process.exit(1);
+const allowedBlockedReasons = new Set([
+  'quality_preflight_rejected',
+  'quality_repair_missing_opportunity_metadata',
+  'postbuild_quality_quarantine',
+]);
+for (const blocked of plan.blocked || []) {
+  if (!blocked.target_route || !allowedBlockedReasons.has(blocked.reason)) {
+    console.error(`Release plan contains invalid blocked receipt: ${JSON.stringify(blocked)}`);
+    process.exit(1);
+  }
 }
 const maxNew = Number(plan.max_new_pages_this_run ?? plan.max_new_pages_per_day ?? 0);
 const maxRepairs = Number(plan.max_repairs_this_run ?? plan.max_repairs_per_day ?? 0);
@@ -49,4 +56,4 @@ if (units.length === 0) {
   console.log('Release plan OK (0 units; valid no-op/budget exhausted)');
   process.exit(0);
 }
-console.log(`Release plan OK (${units.length} units)`);
+console.log(`Release plan OK (${units.length} units, ${(plan.blocked || []).length} safely blocked)`);

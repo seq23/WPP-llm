@@ -30,15 +30,15 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: npm
           registry-url: 'https://registry.npmjs.org'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - run: bash scripts/ci_npm_install.sh
@@ -72,18 +72,12 @@ jobs:
           npm run release:autonomous
       - name: Commit generated pages and registries
         if: steps.runtime.outputs.allowed == 'true'
+        env:
+          PRE_PUSH_VALIDATION_ARGV: npm run release:push-gate
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "Run controlled programmatic content release"
-            git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
-            git push origin "HEAD:$CI_AUTONOMOUS_BRANCH"
-          else
-            echo "No programmatic release changes."
-          fi
-      - uses: actions/upload-artifact@v4
+          bash .github/scripts/commit_and_push_if_changed.sh \
+            "Run controlled programmatic content release" programmatic-release
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: programmatic-release-evidence

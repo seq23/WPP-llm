@@ -74,6 +74,15 @@ for (const file of required) {
       bad.push(`${file}: raw npm ci on line ${idx + 1}; use scripts/ci_npm_install.sh for public registry/retry hardening`);
     }
   });
+  const deprecatedActions = [
+    'actions/checkout@v4',
+    'actions/setup-node@v4',
+    'actions/setup-python@v5',
+    'actions/upload-artifact@v4',
+  ];
+  for (const action of deprecatedActions) {
+    if (text.includes(action)) bad.push(`${file}: deprecated Node 20 action ${action}`);
+  }
 }
 
 const allowedWorkflowNames = new Set(required);
@@ -94,6 +103,15 @@ if (fs.existsSync(distribution)) {
   const text = fs.readFileSync(distribution, 'utf8');
   if (!text.includes('INDEXNOW_KEY_VAR') || !text.includes('indexnow_key')) bad.push('distribution.yml missing IndexNow secret/variable fallback wiring');
 }
+
+for (const file of ['admin-command.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml']) {
+  const text = fs.readFileSync(path.join(workflowDir, file), 'utf8');
+  if (!text.includes('group: wpp-autonomous-writer-main')) bad.push(`${file}: writer is outside the shared main serialization group`);
+  if (!text.includes('commit_and_push_if_changed.sh')) bad.push(`${file}: writer bypasses shared exact-SHA push helper`);
+  if (/(^|[;&|\s])git\s+push(?:\s|$)/m.test(text)) bad.push(`${file}: raw git push bypasses exact-SHA validation`);
+}
+const ciText = fs.readFileSync(path.join(workflowDir, 'ci.yml'), 'utf8');
+if (!ciText.includes('validate:workflow-faux-trace')) bad.push('ci.yml: missing all-workflow faux trace gate');
 
 if (bad.length) {
   console.error('GitHub workflow validation failed:\n- ' + bad.join('\n- '));

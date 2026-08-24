@@ -20,7 +20,8 @@ TRACES: list[dict] = []
 
 REQUIRED = {
     'admin-command.yml', 'ci.yml', 'credential-check.yml',
-    'distribution.yml', 'programmatic-release.yml', 'query-intelligence.yml'
+    'distribution.yml', 'programmatic-release.yml', 'query-intelligence.yml',
+    'search-repair-retest.yml'
 }
 
 
@@ -60,6 +61,10 @@ for name in files:
         require((R / path).exists(), f'{name}: missing referenced path {path}')
     require("registry-url: 'https://registry.npmjs.org'" in body, f'{name}: public npm registry not pinned')
     require('bash scripts/ci_npm_install.sh' in body, f'{name}: hardened npm install missing')
+    require('actions/checkout@v4' not in body, f'{name}: checkout still uses deprecated Node 20 action')
+    require('actions/setup-node@v4' not in body, f'{name}: setup-node still uses deprecated Node 20 action')
+    require('actions/setup-python@v5' not in body, f'{name}: setup-python still uses deprecated Node 20 action')
+    require('actions/upload-artifact@v4' not in body, f'{name}: upload-artifact still uses deprecated Node 20 action')
 
 # Autonomous transaction ordering: validate content first, then refreeze and
 # clear the scope, then run authority-scale-inclusive validate:all.
@@ -102,6 +107,8 @@ trace('admin-command.yml', 'reject-arbitrary-action', 'unknown actions exit 1',
       'Action not allowlisted' in admin and 'exit 1' in admin)
 trace('admin-command.yml', 'runtime-state-receipt', 'state mutation is committed and receipt written',
       'runtime_control.json' in admin and 'artifacts/admin-receipts/latest.json' in admin)
+trace('admin-command.yml', 'serialized-writes', 'admin state writes share the main writer lock',
+      'group: wpp-autonomous-writer-main' in admin and 'commit_and_push_if_changed.sh' in admin)
 
 # CI scenarios.
 ci = text('ci.yml')
@@ -140,9 +147,11 @@ trace('programmatic-release.yml', 'manual-inputs', 'manual daily ceilings are pa
 trace('programmatic-release.yml', 'provider-degraded', 'missing GSC/Gemini does not block internal release',
       'GSC_SERVICE_ACCOUNT_JSON' in prog and 'GEMINI_API_KEY' in prog and 'npm run release:autonomous' in prog)
 trace('programmatic-release.yml', 'no-changes', 'empty git status is a valid completion',
-      'No programmatic release changes.' in prog)
+      'commit_and_push_if_changed.sh' in prog)
 trace('programmatic-release.yml', 'serialized-writes', 'writer workflows share one concurrency group',
       'group: wpp-autonomous-writer-main' in prog and 'cancel-in-progress: false' in prog)
+trace('programmatic-release.yml', 'exact-sha-push-gate', 'candidate is validated before push',
+      'PRE_PUSH_VALIDATION_ARGV' in prog and 'release:push-gate' in prog)
 
 # Query intelligence scenarios.
 qi = text('query-intelligence.yml')
@@ -156,6 +165,17 @@ trace('query-intelligence.yml', 'no-signals', 'owned query universe still scores
       qi.find('query:atlas') < qi.find('signals:collect') < qi.find('opportunities:score') < qi.find('release:plan'))
 trace('query-intelligence.yml', 'serialized-writes', 'shares writer concurrency group',
       'group: wpp-autonomous-writer-main' in qi)
+trace('query-intelligence.yml', 'exact-sha-push-gate', 'candidate is validated before push',
+      'commit_and_push_if_changed.sh' in qi and 'PRE_PUSH_VALIDATION_ARGV' in qi)
+
+# Search repair/retest scenarios.
+repair = text('search-repair-retest.yml')
+for cmd in ('query:observe:ingest', 'repairs:diagnose', 'repairs:apply', 'repairs:retest'):
+    trace('search-repair-retest.yml', f'command-{cmd}', f'npm run {cmd}', f'npm run {cmd}' in repair)
+trace('search-repair-retest.yml', 'serialized-writes', 'shares writer concurrency group',
+      'group: wpp-autonomous-writer-main' in repair)
+trace('search-repair-retest.yml', 'governed-push', 'uses exact-SHA push helper',
+      'commit_and_push_if_changed.sh' in repair and 'PRE_PUSH_VALIDATION_ARGV' in repair)
 
 # Required data handoffs used across the workflow spine.
 required_data = [

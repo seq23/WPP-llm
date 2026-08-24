@@ -26,17 +26,17 @@ permissions:
   actions: write
 
 concurrency:
-  group: wpp-admin-command-main
+  group: wpp-autonomous-writer-main
   cancel-in-progress: false
 
 jobs:
   command:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: npm
@@ -58,12 +58,8 @@ jobs:
           node - <<'NODE'
           const fs=require('fs'); const p='data/admin/runtime_control.json'; const c=JSON.parse(fs.readFileSync(p)); const a=process.env.ACTION; c.state=a==='resume'?'ACTIVE':a==='pause'?'PAUSED':'EMERGENCY_STOP'; c.emergency_stop=a==='emergency_stop'; c.updated_at=new Date().toISOString(); fs.writeFileSync(p,JSON.stringify(c,null,2)+'\n');
           NODE
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/admin/runtime_control.json
-          git commit -m "Admin command: $ACTION"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          PRE_PUSH_VALIDATION_ARGV='npm run actions:validate && npm run validate:admin-command-center' \
+            bash .github/scripts/commit_and_push_if_changed.sh "Admin command: $ACTION" admin-command
       - name: Dispatch allowlisted workflow
         if: ${{ inputs.action != 'pause' && inputs.action != 'resume' && inputs.action != 'emergency_stop' }}
         env:

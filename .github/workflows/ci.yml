@@ -18,12 +18,15 @@ jobs:
   build_validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: npm
           registry-url: 'https://registry.npmjs.org'
       - run: bash scripts/ci_npm_install.sh
       - run: npm run actions:validate
+      - run: npm run validate:workflow-data-trace
+      - run: npm run validate:workflow-faux-trace
+      - run: npm run test:push-helper
       - run: npm run release:self-heal
