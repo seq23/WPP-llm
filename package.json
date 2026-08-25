@@ -53,7 +53,7 @@
     "validate:page-admission": "node scripts/validators/validate_page_admission.js",
     "validate:page-family-contract": "node scripts/validators/validate_page_family_contract.js",
     "validate:programmatic-engine": "node scripts/validate_programmatic_release_engine.js",
-    "validate:query-atlas": "node scripts/validate_query_atlas.js",
+    "validate:query-atlas": "node scripts/atlas/validate_query_atlas.mjs",
     "validate:release": "node scripts/validate_release.js",
     "validate:workflow-data-trace": "node scripts/validators/validate_workflow_data_trace.js",
     "validate:authority-system": "node scripts/validators/validate_authority_system.mjs",
@@ -83,7 +83,8 @@
     "content:quality:report": "node scripts/citation_intelligence/analyze_content_quality.js",
     "content:quality:validate": "node scripts/citation_intelligence/validate_programmatic_quality.js",
     "artifact:manifest:build": "node scripts/build_artifact_manifest.js",
-    "validate:artifact-manifest": "node scripts/validate_artifact_manifest.js"
+    "validate:artifact-manifest": "node scripts/validate_artifact_manifest.js",
+    "atlas:build": "node scripts/atlas/build_query_atlas.mjs"
   },
   "dependencies": {
     "marked": "^12.0.2"

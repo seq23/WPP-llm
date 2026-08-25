@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "note": "Evidence-backed queries only. evidence_tier is required. T4 (synthetic fanout) is never stored here - it is a hypothesis reserve and is not publishable.",
+  "tiers": {
+    "T1": "GSC-measured",
+    "T2a": "Bing/Keyword Planner measured",
+    "T2b": "Semrush modeled",
+    "T3": "real phrasing, no volume"
+  },
+  "source": "portfolio-search-packet.zip / query_universe_T2b.json",
+  "owned_domains": [
+    "virtualagency-os.com",
+    "westpeekproductions.com"
+  ],
+  "queries": [
+    {
+      "query": "webinar production services",
+      "evidence_tier": "T2b",
+      "source_type": "semrush_keyword_magic",
+      "volume": 210,
+      "keyword_difficulty": 0,
+      "weak_incumbent_score": 1.0,
+      "intent": "commercial",
+      "intent_method": "derived_from_modifier_syntax_and_cpc",
+      "serp_features": [],
+      "vertical": "events",
+      "target_domain": "virtualagency-os.com",
+      "cpc_usd": 56.58,
+      "paid_competition": 0.52,
+      "competitor_ranking_url": "NO_DATA"
+    },
+    {
+      "query": "webinar production",
+      "evidence_tier": "T2b",
+      "source_type": "semrush_keyword_magic",
+      "volume": 260,
+      "keyword_difficulty": 7,
+      "weak_incumbent_score": 0.93,
+      "intent": "informational",
+      "intent_method": "derived_from_modifier_syntax_and_cpc",
+      "serp_features": [],
+      "vertical": "events",
+      "target_domain": "virtualagency-os.com",
+      "cpc_usd": 22.62,
+      "paid_competition": 0.25,
+      "competitor_ranking_url": "NO_DATA"
+    },
+    {
+      "query": "virtual event production company",
+      "evidence_tier": "T2b",
+      "source_type": "semrush_keyword_magic",
+      "volume": 1300,
+      "keyword_difficulty": 8,
+      "weak_incumbent_score": 0.92,
+      "intent": "commercial",
+      "intent_method": "derived_from_modifier_syntax_and_cpc",
+      "serp_features": [],
+      "vertical": "events",
+      "target_domain": "virtualagency-os.com",
+      "cpc_usd": 8.18,
+      "paid_competition": 0.02,
+      "competitor_ranking_url": "NO_DATA"
+    },
+    {
+      "query": "hybrid event production",
+      "evidence_tier": "T2b",
+      "source_type": "semrush_keyword_magic",
+      "volume": 1600,
+      "keyword_difficulty": 9,
+      "weak_incumbent_score": 0.91,
+      "intent": "informational",
+      "intent_method": "derived_from_modifier_syntax_and_cpc",
+      "serp_features": [],
+      "vertical": "events",
+      "target_domain": "virtualagency-os.com",
+      "cpc_usd": 0.0,
+      "paid_competition": 0.33,
+      "competitor_ranking_url": "NO_DATA"
+    },
+    {
+      "query": "live stream production company",
+      "evidence_tier": "T2b",
+      "source_type": "semrush_keyword_magic",
+      "volume": 140,
+      "keyword_difficulty": 12,
+      "weak_incumbent_score": 0.88,
+      "intent": "commercial",
+      "intent_method": "derived_from_modifier_syntax_and_cpc",
+      "serp_features": [],
+      "vertical": "events",
+      "target_domain": "westpeekproductions.com",
+      "cpc_usd": 8.31,
+      "paid_competition": 0.06,
+      "competitor_ranking_url": "NO_DATA"
+    },
+    {
+      "query": "virtual event production",
+      "evidence_tier": "T2b",
+      "source_type": "semrush_keyword_magic",
+      "volume": 2900,
+      "keyword_difficulty": 13,
+      "weak_incumbent_score": 0.87,
+      "intent": "informational",
+      "intent_method": "derived_from_modifier_syntax_and_cpc",
+      "serp_features": [],
+      "vertical": "events",
+      "target_domain": "virtualagency-os.com",
+      "cpc_usd": 10.87,
+      "paid_competition": 0.03,
+      "competitor_ranking_url": "NO_DATA"
+    }
+  ]
+}
