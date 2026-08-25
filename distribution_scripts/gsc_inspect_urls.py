@@ -64,7 +64,10 @@ def main():
     stale = [u for u in urls if age_days(u) >= ttl_days]
     stale.sort(key=age_days, reverse=True)
     due = stale[:limit]
-    skipped = len(urls) - len(due)
+    # Distinguish the two reasons a URL was not inspected. Reporting both as
+    # "skipped_fresh" implied full coverage when a cold cache simply hit the cap.
+    fresh_count = len(urls) - len(stale)
+    deferred_count = max(0, len(stale) - len(due))
 
     fresh = {}
     for url in due:
@@ -91,7 +94,9 @@ def main():
         json.dump({"schema_version": "1.0", "updated_at": now.isoformat().replace("+00:00", "Z"), "ttl_days": ttl_days, "entries": cache}, f, indent=2)
 
     print(f"Wrote {len(results)} inspection results to {output_json}")
-    print(f"GSC inspection: inspected={len(due)} skipped_fresh={skipped} ttl_days={ttl_days} limit={limit}")
+    print(f"GSC inspection: inspected={len(due)} skipped_within_ttl={fresh_count} deferred_over_cap={deferred_count} ttl_days={ttl_days} limit={limit}")
+    if deferred_count:
+        print(f"GSC inspection: {deferred_count} URL(s) deferred to a later run by the per-run cap; coverage completes over subsequent runs.")
 
 if __name__ == "__main__":
     main()
