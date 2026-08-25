@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T20:46:46.814Z",
+  "generated_at": "2026-08-25T07:29:04.070Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -306,6 +306,16 @@
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
       "step": 8,
+      "name": "Restore GSC inspection cache",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "distribution.yml",
+      "workflow_name": "Distribution - IndexNow and Search Console",
+      "job": "distribute",
+      "step": 9,
       "name": "Run credential-safe distribution",
       "npm_script": null,
       "direct_paths": [],
@@ -315,14 +325,16 @@
         "INDEXNOW_KEY_SECRET_LOWER",
         "INDEXNOW_KEY_VAR_LOWER",
         "GSC_SITE_URL_SECRET",
-        "GSC_SITE_URL_VAR"
+        "GSC_SITE_URL_VAR",
+        "GSC_INSPECTION_TTL_DAYS",
+        "GSC_INSPECTION_LIMIT"
       ]
     },
     {
       "workflow": "distribution.yml",
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
-      "step": 9,
+      "step": 10,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

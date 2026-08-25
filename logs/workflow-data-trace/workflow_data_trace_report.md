@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-08-24T20:46:46.814Z
+Generated: 2026-08-25T07:29:04.070Z
 
 Workflows: 7
 
@@ -45,8 +45,9 @@ Workflows: 7
 - distribution.yml :: distribute #5 :: python -m pip install --upgrade pip && python -m pip install google-api-python-client goog
 - distribution.yml :: distribute #6 :: npm run release:self-heal :: npm:release:self-heal
 - distribution.yml :: distribute #7 :: Recreate GSC credential file when configured
-- distribution.yml :: distribute #8 :: Run credential-safe distribution
-- distribution.yml :: distribute #9 :: actions/upload-artifact@v7
+- distribution.yml :: distribute #8 :: Restore GSC inspection cache
+- distribution.yml :: distribute #9 :: Run credential-safe distribution
+- distribution.yml :: distribute #10 :: actions/upload-artifact@v7
 - programmatic-release.yml :: release #1 :: actions/checkout@v6
 - programmatic-release.yml :: release #2 :: actions/setup-node@v6
 - programmatic-release.yml :: release #3 :: actions/setup-python@v6
