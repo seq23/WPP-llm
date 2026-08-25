@@ -10,7 +10,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  # write is required because this workflow now commits the regenerated
+  # sitemap and IndexNow feeds; with contents: read the push 403s.
+  contents: write
 
 concurrency:
   group: wpp-distribution-main
