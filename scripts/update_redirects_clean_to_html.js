@@ -11,6 +11,21 @@ const lines = [
   '# Only legacy aliases that do not point to .html are allowed here.',
   '/virtual-event-production-for-nonprofit /virtual-event-production-for-nonprofits 301',
   '/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301',
+  '',
+  '# Cloudflare Pages deploys this repository root and offers no exclude list for',
+  '# a root deploy, so README.md, package.json, AGENTS.md and everything under',
+  '# scripts/ were served as raw text from virtualagency-os.com. These rules 404',
+  '# the non-public paths. Emitted here because this script owns _redirects.',
+  '/README.md /404 404',
+  '/package.json /404 404',
+  '/package-lock.json /404 404',
+  '/AGENTS.md /404 404',
+  '/scripts/* /404 404',
+  '/data/* /404 404',
+  '/docs/* /404 404',
+  '/reports/* /404 404',
+  '/artifacts/* /404 404',
+  '/tests/* /404 404',
   ''
 ];
 fs.writeFileSync(OUT, lines.join('\n'));
