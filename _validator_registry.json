@@ -399,6 +399,16 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "content-pattern-contract",
+      "command": "node scripts/validators/validate_content_pattern_contract.js",
+      "severity": "STRONG_WARNING",
+      "purpose": "Report pre-publish coverage of the blocks the external review agent repeatedly asks for (direct answer, h1 phrasing, populated tables, one conversion path, checklist, comparison table, concrete numbers, named sources, FAQ, JSON-LD). Reporting severity while 143 pages carry no direct-answer block; promote to HARD_FAIL at zero.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "report_and_continue"
     }
   ]
 }

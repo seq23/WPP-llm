@@ -1,0 +1,923 @@
+{
+  "schema_version": "1.0",
+  "validator": "content-pattern-contract",
+  "spec": ".clarity/content-pattern-spec.json",
+  "generated_at": "2026-08-25T21:51:18.338Z",
+  "enforcement": "report",
+  "pages_checked": 3190,
+  "status": "REPORTED",
+  "blocking_failures": 143,
+  "summary": [
+    {
+      "id": "direct_answer",
+      "blocking": true,
+      "pages_missing": 143,
+      "coverage_pct": 95.5,
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "id": "query_in_heading",
+      "blocking": true,
+      "pages_missing": 0,
+      "coverage_pct": 100,
+      "why": "h1 missing or too short to carry the searcher phrasing"
+    },
+    {
+      "id": "no_empty_table_cells",
+      "blocking": true,
+      "pages_missing": 0,
+      "coverage_pct": 100,
+      "why": "table ships empty cells - the agent calls these impossible to cite"
+    },
+    {
+      "id": "conversion_path",
+      "blocking": true,
+      "pages_missing": 0,
+      "coverage_pct": 100,
+      "why": "no conversion path - an answer-engine citation lands with nowhere to go"
+    },
+    {
+      "id": "checklist",
+      "blocking": false,
+      "pages_missing": 7,
+      "coverage_pct": 99.8,
+      "why": "no checklist or numbered protocol (agent request #1, 730 occurrences)"
+    },
+    {
+      "id": "comparison_table",
+      "blocking": false,
+      "pages_missing": 598,
+      "coverage_pct": 81.3,
+      "why": "no comparison or cost table (agent request #2, 529 occurrences)"
+    },
+    {
+      "id": "concrete_numbers",
+      "blocking": false,
+      "pages_missing": 3076,
+      "coverage_pct": 3.6,
+      "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
+    },
+    {
+      "id": "named_sources",
+      "blocking": false,
+      "pages_missing": 49,
+      "coverage_pct": 98.5,
+      "why": "no named primary source (agent request #6, 288 occurrences)"
+    },
+    {
+      "id": "faq",
+      "blocking": false,
+      "pages_missing": 3117,
+      "coverage_pct": 2.3,
+      "why": "no FAQ block or FAQPage schema (agent request #9)"
+    },
+    {
+      "id": "structured_data",
+      "blocking": false,
+      "pages_missing": 0,
+      "coverage_pct": 100,
+      "why": "no JSON-LD structured data (agent request #10)"
+    }
+  ],
+  "worst_gaps": {
+    "direct_answer": [],
+    "query_in_heading": [],
+    "no_empty_table_cells": [],
+    "conversion_path": [],
+    "checklist": [
+      "pillars/agency-decisions.html",
+      "pillars/ai-workflows.html",
+      "pillars/brand.html",
+      "pillars/creative.html",
+      "pillars/experiences.html",
+      "pillars/marketing.html",
+      "pillars/storytelling.html"
+    ],
+    "comparison_table": [
+      "ai-helps-breaks.html",
+      "ai-human-os.html",
+      "answers/agency-execution-system.html",
+      "answers/ai-marketing-agency.html",
+      "answers/brand-credibility-infrastructure.html",
+      "answers/daily-backup-event-systems.html",
+      "answers/how-many-producers-for-virtual-event.html",
+      "answers/human-in-the-loop-ai-workflows.html",
+      "answers/index.html",
+      "answers/marketing-ops-for-small-teams.html",
+      "answers/scope-creep-prevention.html",
+      "answers/software-vs-production-partner.html",
+      "answers/streamyard-vs-livekit.html",
+      "answers/virtual-event-backup-systems.html",
+      "answers/virtual-event-failure-prevention.html",
+      "answers/virtual-event-platform-stack.html",
+      "answers/virtual-event-production-agency.html",
+      "answers/virtual-event-production-cost.html",
+      "answers/virtual-event-production-pricing.html",
+      "answers/virtual-event-rehearsal.html",
+      "answers/webinar-production-agency.html",
+      "answers/west-peek-productions-fit.html",
+      "articles.html",
+      "case-studies/fortune500-internal-leadership-event.html",
+      "case-studies/global-foundation-hybrid-event.html"
+    ],
+    "concrete_numbers": [
+      "ai-helps-breaks.html",
+      "ai-human-os.html",
+      "answers/agency-execution-system.html",
+      "answers/ai-marketing-agency.html",
+      "answers/brand-credibility-infrastructure.html",
+      "answers/community-as-a-service-cost.html",
+      "answers/community-as-a-service-vs-in-house.html",
+      "answers/community-engagement-metrics.html",
+      "answers/community-member-retention.html",
+      "answers/community-moderation-governance.html",
+      "answers/community-staffing-model.html",
+      "answers/daily-backup-event-systems.html",
+      "answers/how-many-producers-for-virtual-event.html",
+      "answers/how-to-choose-community-platform.html",
+      "answers/how-to-measure-community-roi.html",
+      "answers/human-in-the-loop-ai-workflows.html",
+      "answers/index.html",
+      "answers/marketing-ops-for-small-teams.html",
+      "answers/scope-creep-prevention.html",
+      "answers/software-vs-production-partner.html",
+      "answers/streamyard-vs-livekit.html",
+      "answers/virtual-event-backup-systems.html",
+      "answers/virtual-event-failure-prevention.html",
+      "answers/virtual-event-platform-stack.html",
+      "answers/virtual-event-production-agency.html"
+    ],
+    "named_sources": [
+      "answers/community-as-a-service-cost.html",
+      "answers/community-as-a-service-vs-in-house.html",
+      "answers/community-engagement-metrics.html",
+      "answers/community-member-retention.html",
+      "answers/community-moderation-governance.html",
+      "answers/community-staffing-model.html",
+      "answers/how-long-to-launch-brand-community.html",
+      "answers/how-to-choose-community-platform.html",
+      "answers/how-to-measure-community-roi.html",
+      "answers/what-is-community-as-a-service.html",
+      "answers/what-is-included-in-community-as-a-service.html",
+      "answers/when-to-outsource-community-management.html",
+      "community-as-a-service.html",
+      "learn/community-governance-and-moderation.html",
+      "learn/community-measurement-framework.html",
+      "learn/community-member-lifecycle.html",
+      "learn/community-operating-model.html",
+      "learn/community-platform-decision-matrix.html",
+      "learn/community-staffing-and-roles.html",
+      "learn/how-community-as-a-service-works.html",
+      "learn/how-to-launch-a-brand-community.html",
+      "pillars/agency-decisions.html",
+      "pillars/ai-workflows.html",
+      "pillars/brand.html",
+      "pillars/community-as-a-service/index.html"
+    ],
+    "faq": [
+      "ai-human-os.html",
+      "answers/index.html",
+      "articles.html",
+      "atlas.html",
+      "case-studies/fortune500-internal-leadership-event.html",
+      "case-studies/global-foundation-hybrid-event.html",
+      "case-studies/index.html",
+      "case-studies/large-business-school-virtual-summit.html",
+      "glossary.html",
+      "how-west-peek-helps.html",
+      "index.html",
+      "insights/agency-kickoff-doc-what-to-include-so-clients-trust-you.html",
+      "insights/agentic-workflows-guardrails-that-prevent-silent-failure.html",
+      "insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing.html",
+      "insights/brand-credibility-checklist-for-startups-that-need-to-look-established.html",
+      "insights/client-feedback-system-that-stops-endless-revisions.html",
+      "insights/client-proof-stack-what-to-show-before-the-sales-call.html",
+      "insights/delegation-checklist-how-to-hand-off-work-without-rework.html",
+      "insights/execution-floor-the-minimum-daily-standard-that-compounds.html",
+      "insights/homepage-messaging-framework-that-reduces-confusion.html",
+      "insights/how-to-batch-decisions-to-stop-context-switching.html",
+      "insights/how-to-build-social-proof-assets-without-faking-anything.html",
+      "insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks.html",
+      "insights/how-to-operationalize-automations-so-they-survive-team-turnover.html",
+      "insights/how-to-prevent-scope-creep-with-one-page-of-rules.html"
+    ],
+    "structured_data": []
+  },
+  "blocking_backlog": [
+    {
+      "path": "ai-helps-breaks.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "ai-human-os.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "answers/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "articles.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "atlas.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "case-studies/fortune500-internal-leadership-event.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "case-studies/global-foundation-hybrid-event.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "case-studies/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "case-studies/large-business-school-virtual-summit.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "glossary.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "how-west-peek-helps.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "insights/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "learn/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/agency-decisions.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/agency-execution/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/ai-agentic-operations/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/ai-workflows.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/brand-growth-infrastructure/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/brand.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/community-as-a-service/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/creative.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/experiences.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/marketing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/operator-leverage/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/storytelling.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "pillars/virtual-events-os/index.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/best-virtual-event-platforms.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/brand-look-legit.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/branding-trust.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/event-not-a-mess.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/host-virtual-events.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/how-to-host-a-virtual-event.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/hybrid-event-platform.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/marketing-growth-2025.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/marketing-without-content-machine.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/online-conference-platforms.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/software-vs-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-management.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-marketing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-planning.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-companies.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-company.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-biotech.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-education.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-finance.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-government.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-healthcare.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-manufacturing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-nonprofits.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-professional-services.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-real-estate.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-production-for-saas.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-services.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-trends-2026.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-events-value.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/webinar-production-services.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/agency-rfp-questions.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/agency-selection-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/ai-consultant-vs-automation-agency.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/ai-content-operations.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/ai-creative-workflows.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/ai-knowledge-systems-for-marketing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/ai-marketing-workflows.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/ai-workflow-consulting.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/audience-growth-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/best-virtual-event-platforms.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-agency-vs-marketing-agency.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-community-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-messaging-architecture.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-narrative-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-positioning-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-storytelling.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/brand-strategy-consulting.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/branded-content-development.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/campaign-narrative-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-as-a-service.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-building-for-brands.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-content-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-engagement-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-events-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-launch-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-led-growth.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-management-services.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-marketing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-member-experience.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-metrics-and-measurement.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-moderation-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-monetization-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-onboarding.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-operations.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-platform-selection.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-programming.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-retention.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/community-staffing-model.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/content-marketing-operations.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/corporate-storytelling.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/creative-agency-vs-production-company.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/creative-direction-agency.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/creative-operations.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/creative-strategy-consulting.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/customer-advocacy-community.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/customer-community-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/event-audience-engagement.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/event-content-repurposing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/event-marketing-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/event-run-of-show.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/executive-broadcast-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/executive-broadcast.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/founder-community-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/founder-storytelling.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/host-virtual-events.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/how-to-choose-a-creative-agency.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/human-in-the-loop-ai-systems.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/hybrid-event-platform.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/hybrid-event-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/integrated-agency-vs-specialist-agencies.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/investor-storytelling.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/launch-marketing-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/marketing-strategy-consulting.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/membership-community-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/online-community-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/online-conference-platforms.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/outsourced-community-management.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/podcast-strategy-consulting.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/presentation-storytelling.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/professional-community-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/rebrand-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/startup-brand-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/town-hall-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/video-content-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-event-management.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-event-marketing.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-event-planning.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-event-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-event-services.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-event-trends.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/virtual-summit-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "query-atlas/webinar-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "selected-work.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "started-business.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    }
+  ]
+}
