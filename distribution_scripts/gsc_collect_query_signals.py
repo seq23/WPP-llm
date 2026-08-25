@@ -8,6 +8,23 @@ site = os.environ.get('GSC_SITE_URL','')
 creds_json = os.environ.get('GSC_SERVICE_ACCOUNT_JSON','')
 records=[]
 status='skipped_missing_credentials'
+
+# Never destroy previously collected data because *this* invocation lacked
+# credentials. release:autonomous chains citation:collect-free, which re-runs this
+# collector without the GSC env vars, six seconds after the credentialed step had
+# already written 891 real rows. The unauthenticated run overwrote the file with an
+# empty record set, so the normalizer downstream saw no_records_file_or_empty and
+# fell back to 10,000 synthetic signals. The entire measured-demand layer was being
+# silently erased on every programmatic release.
+if not (creds_json and site) and out.exists():
+    try:
+        prior = json.loads(out.read_text(encoding='utf-8'))
+        if prior.get('records'):
+            print(f"GSC query signal collection: skipped_missing_credentials_preserved_existing; records={len(prior['records'])}")
+            sys.exit(0)
+    except Exception:
+        pass
+
 try:
     if creds_json and site:
         import tempfile
