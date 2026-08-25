@@ -41,6 +41,17 @@ jobs:
             umask 077
             printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" > .gsc-service-account.json
           fi
+      # The inspection cache must survive between runs or the TTL never applies and
+      # every run re-inspects all 177 priority URLs (19 minutes). Rolling key: save
+      # under a unique key each run, restore from the most recent prefix match.
+      - name: Restore GSC inspection cache
+        uses: actions/cache@v4
+        with:
+          path: data/seo/gsc_inspection_cache.json
+          key: gsc-inspection-${{ github.run_id }}
+          restore-keys: |
+            gsc-inspection-
+
       - name: Run credential-safe distribution
         env:
           INDEXNOW_KEY_SECRET: ${{ secrets.INDEXNOW_KEY }}
@@ -49,6 +60,8 @@ jobs:
           INDEXNOW_KEY_VAR_LOWER: ${{ vars.indexnow_key }}
           GSC_SITE_URL_SECRET: ${{ secrets.GSC_SITE_URL }}
           GSC_SITE_URL_VAR: ${{ vars.GSC_SITE_URL }}
+          GSC_INSPECTION_TTL_DAYS: ${{ vars.GSC_INSPECTION_TTL_DAYS || '7' }}
+          GSC_INSPECTION_LIMIT: ${{ vars.GSC_INSPECTION_LIMIT || '50' }}
         run: |
           INDEXNOW_KEY="${INDEXNOW_KEY_SECRET:-${INDEXNOW_KEY_VAR:-${INDEXNOW_KEY_SECRET_LOWER:-${INDEXNOW_KEY_VAR_LOWER:-}}}}"
           GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
