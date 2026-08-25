@@ -69,6 +69,20 @@ jobs:
           if [ -n "${INDEXNOW_KEY:-}" ]; then args+=(--key "$INDEXNOW_KEY"); fi
           if [ -f .gsc-service-account.json ] && [ -n "${GSC_SITE_URL:-}" ]; then args+=(--creds .gsc-service-account.json --gsc-site "$GSC_SITE_URL"); fi
           ./distribution_scripts/deploy_distribution.sh "${args[@]}"
+      # release:self-heal runs npm run build, which regenerates sitemap.xml and the
+      # IndexNow feeds. Nothing committed that output, so the repo - and therefore
+      # what Cloudflare deploys - kept a stale sitemap. Newly generated pages went
+      # live but never appeared in the sitemap, so nothing discovered them.
+      # validate_sitemap_coverage passed in CI only because the build had just
+      # refreshed the file in the workspace.
+      - name: Commit regenerated distribution surfaces
+        if: always()
+        env:
+          PRE_PUSH_VALIDATION_ARGV: npm run validate:all
+        run: |
+          bash .github/scripts/commit_and_push_if_changed.sh \
+            "Refresh sitemap and distribution surfaces" distribution
+
       - uses: actions/upload-artifact@v7
         if: always()
         with:
