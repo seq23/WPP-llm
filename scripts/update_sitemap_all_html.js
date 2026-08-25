@@ -20,7 +20,12 @@ function cleanPath(rel) {
   if (rel.endsWith('/index.html')) return '/' + rel.slice(0, -'index.html'.length);
   return '/' + rel.replace(/\.html$/, '');
 }
-const pages = walk(ROOT).sort();
+// Never submit a noindex page. /admin/ and the 404 surface are deliberately
+// excluded from indexing, and listing them here is an error Search Console
+// reports against the whole sitemap.
+const isNoindex = (rel) => /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i
+  .test(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+const pages = walk(ROOT).filter((rel) => !isNoindex(rel)).sort();
 const now = new Date().toISOString().slice(0,10);
 const xml = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'];
 for (const rel of pages) {

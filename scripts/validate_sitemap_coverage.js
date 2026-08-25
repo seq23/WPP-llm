@@ -25,14 +25,22 @@ function fileForUrlPath(u){
   return p + '/index.html';
 }
 const html = walk(ROOT);
-const expected = new Set(html.map(cleanPath));
+// A noindex page must not be submitted in the sitemap - Search Console reports
+// that as an error. Excluding them keeps the coverage rule correct rather than
+// special-casing filenames, and a noindex page that IS listed is flagged below.
+const isNoindex = (rel) => /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i
+  .test(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+const noindexPaths = new Set(html.filter(isNoindex).map(cleanPath));
+const expected = new Set(html.filter((rel) => !isNoindex(rel)).map(cleanPath));
 const xml = fs.readFileSync(SITEMAP, 'utf8');
 const urls = [...xml.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g)].map(m => m[1] || '/');
 const got = new Set(urls);
 const missing = [...expected].filter(u => !got.has(u));
 const broken = urls.filter(u => !fs.existsSync(path.join(ROOT, fileForUrlPath(u))));
 const htmlUrls = urls.filter(u => u.endsWith('.html'));
-if (missing.length || broken.length || htmlUrls.length) {
+const wronglyListed = urls.filter((u) => noindexPaths.has(u));
+if (missing.length || broken.length || htmlUrls.length || wronglyListed.length) {
+  if (wronglyListed.length) console.error('Noindex pages listed in sitemap:', wronglyListed.slice(0, 50));
   if (missing.length) console.error('Canonical clean URLs missing from sitemap:', missing.slice(0, 50));
   if (broken.length) console.error('Sitemap URLs missing files:', broken.slice(0, 50));
   if (htmlUrls.length) console.error('Sitemap still contains .html URLs:', htmlUrls.slice(0, 50));
