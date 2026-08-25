@@ -57,6 +57,19 @@ jobs:
         run: |
           export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
           python distribution_scripts/gsc_collect_query_signals.py
+      # Measured demand must reach the atlas evidence gate, not just the repair
+      # lane. Without this the atlas publishes against six hand-seeded T2b rows.
+      # Runs before "Validate query intelligence" so a bad ingest blocks here.
+      - name: Ingest measured Search Console queries as T1 atlas evidence
+        if: steps.runtime.outputs.allowed == 'true'
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL_SECRET: ${{ secrets.GSC_SITE_URL }}
+          GSC_SITE_URL_VAR: ${{ vars.GSC_SITE_URL }}
+        run: |
+          export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
+          npm run queries:ingest
+          npm run atlas:build
       - name: Collect normalized $0 signals including optional Gemini prompt panel
         if: steps.runtime.outputs.allowed == 'true'
         env:

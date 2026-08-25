@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-08-25T21:51:11.989Z
+Generated: 2026-08-25T21:56:00.427Z
 
 Workflows: 7
 
@@ -57,9 +57,10 @@ Workflows: 7
 - programmatic-release.yml :: release #7 :: Sync latest main before autonomous release
 - programmatic-release.yml :: release #8 :: Validate workflow syntax :: npm:actions:validate
 - programmatic-release.yml :: release #9 :: Run GSC primary collector :: paths:distribution_scripts/gsc_collect_query_signals.py
-- programmatic-release.yml :: release #10 :: Run controlled autonomous content release :: npm:release:autonomous
-- programmatic-release.yml :: release #11 :: Commit generated pages and registries :: paths:.github/scripts/commit_and_push_if_changed.sh
-- programmatic-release.yml :: release #12 :: actions/upload-artifact@v7
+- programmatic-release.yml :: release #10 :: Ingest measured Search Console queries as T1 atlas evidence :: npm:queries:ingest
+- programmatic-release.yml :: release #11 :: Run controlled autonomous content release :: npm:release:autonomous
+- programmatic-release.yml :: release #12 :: Commit generated pages and registries :: paths:.github/scripts/commit_and_push_if_changed.sh
+- programmatic-release.yml :: release #13 :: actions/upload-artifact@v7
 - query-intelligence.yml :: collect_score #1 :: actions/checkout@v6
 - query-intelligence.yml :: collect_score #2 :: actions/setup-node@v6
 - query-intelligence.yml :: collect_score #3 :: actions/setup-python@v6
@@ -70,12 +71,13 @@ Workflows: 7
 - query-intelligence.yml :: collect_score #8 :: Validate workflow syntax :: npm:actions:validate
 - query-intelligence.yml :: collect_score #9 :: Generate owned query universe and public atlas :: npm:query:atlas
 - query-intelligence.yml :: collect_score #10 :: Collect Search Console query signals :: paths:distribution_scripts/gsc_collect_query_signals.py
-- query-intelligence.yml :: collect_score #11 :: Collect normalized $0 signals including optional Gemini prompt panel :: npm:signals:collect
-- query-intelligence.yml :: collect_score #12 :: Score AEO and GEO opportunities :: npm:opportunities:score
-- query-intelligence.yml :: collect_score #13 :: Build controlled release plan preview :: npm:release:plan
-- query-intelligence.yml :: collect_score #14 :: Validate query intelligence :: npm:validate:autonomous
-- query-intelligence.yml :: collect_score #15 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
-- query-intelligence.yml :: collect_score #16 :: actions/upload-artifact@v7
+- query-intelligence.yml :: collect_score #11 :: Ingest measured Search Console queries as T1 atlas evidence :: npm:queries:ingest
+- query-intelligence.yml :: collect_score #12 :: Collect normalized $0 signals including optional Gemini prompt panel :: npm:signals:collect
+- query-intelligence.yml :: collect_score #13 :: Score AEO and GEO opportunities :: npm:opportunities:score
+- query-intelligence.yml :: collect_score #14 :: Build controlled release plan preview :: npm:release:plan
+- query-intelligence.yml :: collect_score #15 :: Validate query intelligence :: npm:validate:autonomous
+- query-intelligence.yml :: collect_score #16 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
+- query-intelligence.yml :: collect_score #17 :: actions/upload-artifact@v7
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6
 - search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v6
 - search-repair-retest.yml :: diagnose_repair_retest #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh

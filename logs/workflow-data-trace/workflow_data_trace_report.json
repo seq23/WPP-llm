@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T21:51:11.989Z",
+  "generated_at": "2026-08-25T21:56:00.427Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -443,6 +443,20 @@
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
       "step": 10,
+      "name": "Ingest measured Search Console queries as T1 atlas evidence",
+      "npm_script": "queries:ingest",
+      "direct_paths": [],
+      "env_keys": [
+        "GSC_SERVICE_ACCOUNT_JSON",
+        "GSC_SITE_URL_SECRET",
+        "GSC_SITE_URL_VAR"
+      ]
+    },
+    {
+      "workflow": "programmatic-release.yml",
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+      "job": "release",
+      "step": 11,
       "name": "Run controlled autonomous content release",
       "npm_script": "release:autonomous",
       "direct_paths": [],
@@ -454,7 +468,7 @@
       "workflow": "programmatic-release.yml",
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 11,
+      "step": 12,
       "name": "Commit generated pages and registries",
       "npm_script": null,
       "direct_paths": [
@@ -468,7 +482,7 @@
       "workflow": "programmatic-release.yml",
       "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
       "job": "release",
-      "step": 12,
+      "step": 13,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
@@ -587,6 +601,20 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 11,
+      "name": "Ingest measured Search Console queries as T1 atlas evidence",
+      "npm_script": "queries:ingest",
+      "direct_paths": [],
+      "env_keys": [
+        "GSC_SERVICE_ACCOUNT_JSON",
+        "GSC_SITE_URL_SECRET",
+        "GSC_SITE_URL_VAR"
+      ]
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 12,
       "name": "Collect normalized $0 signals including optional Gemini prompt panel",
       "npm_script": "signals:collect",
       "direct_paths": [],
@@ -598,7 +626,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 12,
+      "step": 13,
       "name": "Score AEO and GEO opportunities",
       "npm_script": "opportunities:score",
       "direct_paths": [],
@@ -608,7 +636,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 13,
+      "step": 14,
       "name": "Build controlled release plan preview",
       "npm_script": "release:plan",
       "direct_paths": [],
@@ -618,7 +646,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 14,
+      "step": 15,
       "name": "Validate query intelligence",
       "npm_script": "validate:autonomous",
       "direct_paths": [],
@@ -628,7 +656,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 15,
+      "step": 16,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [
@@ -642,7 +670,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 16,
+      "step": 17,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

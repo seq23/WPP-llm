@@ -60,6 +60,18 @@ jobs:
         run: |
           export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
           python distribution_scripts/gsc_collect_query_signals.py
+      # Refresh the atlas evidence gate from measured demand before the release
+      # decides what to publish, and before release:autonomous validates.
+      - name: Ingest measured Search Console queries as T1 atlas evidence
+        if: steps.runtime.outputs.allowed == 'true'
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL_SECRET: ${{ secrets.GSC_SITE_URL }}
+          GSC_SITE_URL_VAR: ${{ vars.GSC_SITE_URL }}
+        run: |
+          export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
+          npm run queries:ingest
+          npm run atlas:build
       - name: Run controlled autonomous content release
         if: steps.runtime.outputs.allowed == 'true'
         env:

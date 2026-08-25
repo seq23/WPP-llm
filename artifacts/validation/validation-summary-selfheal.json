@@ -1,0 +1,547 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-25T21:55:55.866Z",
+  "source": "_validator_registry.json",
+  "results": [
+    {
+      "id": "github-actions-workflows",
+      "command": "node scripts/validate_workflows.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 60,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "strategy-gate",
+      "command": "node scripts/validate_strategy_gate.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 40,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "master-plan-completion",
+      "command": "node scripts/validate_master_plan_completion.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 38,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "validator-registry",
+      "command": "node scripts/validate_validator_registry.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 37,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "canonical-routes",
+      "command": "node scripts/validate_canonical_routes.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 125,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "root-hygiene",
+      "command": "node scripts/validate_root_hygiene.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 41,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "priority-pages",
+      "command": "node scripts/validate_priority_pages.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 39,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "homepage-ctas",
+      "command": "node scripts/validate_homepage_ctas.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 39,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "backlink-remediation",
+      "command": "node scripts/validate_backlink_remediation.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 35,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "release-plan",
+      "command": "node scripts/validate_release_plan.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 36,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "insights",
+      "command": "node scripts/validate_insights.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 55,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "answer-coverage",
+      "command": "node scripts/validate_answer_coverage.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 39,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "entity-coverage",
+      "command": "node scripts/validate_entity_coverage.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 38,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "internal-links",
+      "command": "node scripts/validate_internal_links.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 174,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "sitemap-coverage",
+      "command": "node scripts/validate_sitemap_coverage.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 85,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "fanout-source",
+      "command": "node scripts/validate_fanout_warning.js",
+      "severity": "STRONG_WARNING",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 137,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "atom-contract",
+      "command": "node scripts/validators/validate_atom_contract.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 38,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "page-family-contract",
+      "command": "node scripts/validators/validate_page_family_contract.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 37,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "page-admission",
+      "command": "node scripts/validators/validate_page_admission.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 43,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "query-atlas",
+      "command": "node scripts/validate_query_atlas.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 56,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "programmatic-engine",
+      "command": "node scripts/validate_programmatic_release_engine.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 38,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "workflow-data-trace",
+      "command": "node scripts/validators/validate_workflow_data_trace.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 62,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "citation-goal-sizing",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 82,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "free-aeo-mode-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js free-aeo-mode-contract",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 83,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "programmatic-release-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-release-contract",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 82,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "citation-intelligence-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-intelligence-contract",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 84,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "agent-run-artifact-intake",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 82,
+      "repair_command": "npm run citation:normalize-artifacts",
+      "tail": null
+    },
+    {
+      "id": "normalized-agent-run-schema",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
+      "severity": "HARD_FAIL",
+      "status": "FAIL",
+      "exit_code": 1,
+      "duration_ms": 81,
+      "repair_command": "npm run citation:normalize-artifacts",
+      "tail": "normalized-agent-run-schema failed: normalized agent-run packet schema invalid"
+    },
+    {
+      "id": "velocity-intake-workflow",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js velocity-intake-workflow",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 81,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "release-plan-integrity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js release-plan-integrity",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 82,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "content-release-trace",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-release-trace",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 83,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "page-release-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js page-release-law",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 83,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "generated-content-gate",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js generated-content-gate",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 81,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "programmatic-substance",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 85,
+      "repair_command": "npm run content:quality:report && npm run release:quality:self-heal",
+      "tail": null
+    },
+    {
+      "id": "canonical-routing-law",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js canonical-routing-law",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 82,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "search-quality-basics",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 105,
+      "repair_command": "npm run repairs:diagnose && npm run repairs:apply",
+      "tail": null
+    },
+    {
+      "id": "sitemap-parity",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js sitemap-parity",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 82,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "content-safety",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js content-safety",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 173,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "strategy-integrity-contract",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js strategy-integrity-contract",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 81,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "deterministic-build",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js deterministic-build",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 81,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "repo-hygiene",
+      "command": "node scripts/validators/validate_master_contract_pipeline.js repo-hygiene",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 95,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "validate-release",
+      "command": "node scripts/validate_release.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 436,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "authority-system",
+      "command": "npm run validate:authority-system",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 133,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "admin-command-center",
+      "command": "npm run validate:admin-command-center",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 129,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "artifact-consistency-e2e",
+      "command": "npm run validate:artifact-consistency-e2e",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 181,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "workflow-faux-trace",
+      "command": "npm run validate:workflow-faux-trace",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 121,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "packaging-parity",
+      "command": "npm run validate:packaging-parity",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 131,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "repo-work-os-completeness",
+      "command": "node scripts/validators/validate_repo_work_os_completeness.mjs",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 37,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "full-flow-citation-engine",
+      "command": "node scripts/validators/validate_full_flow_citation_engine.mjs",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 54,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "programmatic-quality",
+      "command": "npm run content:quality:validate",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 2969,
+      "repair_command": "npm run content:quality:report && npm run release:quality:self-heal",
+      "tail": null
+    },
+    {
+      "id": "artifact-manifest",
+      "command": "node scripts/validate_artifact_manifest.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 43,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "no-internal-instruction-leak",
+      "command": "node scripts/validators/validate_no_internal_instruction_leak.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 150,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "no-empty-table-cells",
+      "command": "node scripts/validators/validate_no_empty_table_cells.js",
+      "severity": "HARD_FAIL",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 116,
+      "repair_command": null,
+      "tail": null
+    },
+    {
+      "id": "content-pattern-contract",
+      "command": "node scripts/validators/validate_content_pattern_contract.js",
+      "severity": "STRONG_WARNING",
+      "status": "PASS",
+      "exit_code": 0,
+      "duration_ms": 432,
+      "repair_command": null,
+      "tail": null
+    }
+  ]
+}

@@ -189,14 +189,18 @@
       "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
       "severity": "HARD_FAIL",
       "purpose": "Ensure agent/artifact intake lane exists even when GSC is primary.",
-      "owner": "repo"
+      "owner": "repo",
+      "repair_command": "npm run citation:normalize-artifacts",
+      "repair_rationale": "The validator fails with the literal message \"missing normalized agent-run artifact packet; run citation:normalize-artifacts\". normalize_agent_run_artifacts.js is the only writer of data/agent_runs/normalized_agent_runs.json. The validator names its own repair."
     },
     {
       "id": "normalized-agent-run-schema",
       "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
       "severity": "HARD_FAIL",
       "purpose": "Ensure normalized artifact schema exists.",
-      "owner": "repo"
+      "owner": "repo",
+      "repair_command": "npm run citation:normalize-artifacts",
+      "repair_rationale": "The validator rejects data/agent_runs/normalized_agent_runs.json when records[] or mode is absent. That packet has exactly one producer, normalize_agent_run_artifacts.js, so regenerating it is the only thing that can fix a malformed packet."
     },
     {
       "id": "velocity-intake-workflow",
@@ -238,7 +242,9 @@
       "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
       "severity": "HARD_FAIL",
       "purpose": "Ensure generated pages are not thin placeholder pages.",
-      "owner": "repo"
+      "owner": "repo",
+      "repair_command": "npm run content:quality:report && npm run release:quality:self-heal",
+      "repair_rationale": "The programmatic-substance check reads data/content/programmatic_quality_report.json and fails on a missing report or on a changed /programmatic/ route flagged thin/exact_duplicate/near_duplicate - the same report and the same flag set the repair regenerates and quarantines. It also fails on \"release page missing after apply\", which the quarantine resolves by removing the unit from the plan, summary and distribution trace together."
     },
     {
       "id": "canonical-routing-law",
@@ -252,7 +258,9 @@
       "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
       "severity": "HARD_FAIL",
       "purpose": "Ensure pages have title, description, canonical.",
-      "owner": "repo"
+      "owner": "repo",
+      "repair_command": "npm run repairs:diagnose && npm run repairs:apply",
+      "repair_rationale": "The validator fails a page missing <title>, meta description, or rel=canonical. diagnose_pages.js emits exactly those defects as AUTO findings (missing_meta_description, meta_description_length, missing_canonical, duplicate_title) and apply_repairs.js writes those three tags on the diagnosed routes. The npm wrapper is used rather than the raw script deliberately: apply_repairs.js thaws routes via data/release/active_mutation_scope.json and the wrapper carries the required validate -> freeze -> clear-scope refreeze sequence."
     },
     {
       "id": "sitemap-parity",
@@ -368,7 +376,9 @@
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
-      "failure_action": "block_release"
+      "failure_action": "block_release",
+      "repair_command": "npm run content:quality:report && npm run release:quality:self-heal",
+      "repair_rationale": "validate_programmatic_quality.js fails in exactly two ways: the quality report is stale (it prints \"run npm run content:quality:report\"), or a route released this cycle carries thin/exact_duplicate/near_duplicate. content:quality:report regenerates that report; self_heal_release_quality.js quarantines pages carrying that identical three-flag BLOCKING set and reverts them to HEAD. Same defect, same flag set."
     },
     {
       "id": "artifact-manifest",
@@ -410,5 +420,6 @@
       "environment": "container_and_local",
       "failure_action": "report_and_continue"
     }
-  ]
+  ],
+  "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."
 }

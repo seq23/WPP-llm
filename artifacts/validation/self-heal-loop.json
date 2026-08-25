@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-25T21:56:06.333Z",
+  "validate_command": "npm run validate:all",
+  "max_attempts": 2,
+  "dry_run": false,
+  "registered_repairs": {
+    "agent-run-artifact-intake": "npm run citation:normalize-artifacts",
+    "normalized-agent-run-schema": "npm run citation:normalize-artifacts",
+    "programmatic-substance": "npm run content:quality:report && npm run release:quality:self-heal",
+    "search-quality-basics": "npm run repairs:diagnose && npm run repairs:apply",
+    "programmatic-quality": "npm run content:quality:report && npm run release:quality:self-heal"
+  },
+  "status": "CLEAN",
+  "safe_to_push": true,
+  "gate_tail": null,
+  "attempts": [
+    {
+      "attempt": 1,
+      "gate_exit": 1,
+      "failed": [
+        "normalized-agent-run-schema"
+      ],
+      "repaired": [
+        {
+          "id": "normalized-agent-run-schema",
+          "cmd": "npm run citation:normalize-artifacts",
+          "code": 0
+        }
+      ],
+      "result": "REPAIRED_RETRYING"
+    },
+    {
+      "attempt": 2,
+      "gate_exit": 0,
+      "failed": [],
+      "repaired": [],
+      "result": "CLEAN"
+    }
+  ]
+}

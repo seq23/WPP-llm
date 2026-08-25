@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
-  "workflow_count": 6,
-  "scenario_count": 51,
-  "passed": 51,
+  "workflow_count": 7,
+  "scenario_count": 60,
+  "passed": 60,
   "failed": [],
   "errors": [],
   "traces": [
@@ -11,7 +11,7 @@
       "scenario": "autonomous-transaction-order",
       "expected": "prepare -> mutate -> build -> validate release -> refreeze -> clear -> final validation",
       "passed": true,
-      "detail": "{'authority:scale:prepare-scope': 192, 'release:content': 233, 'npm run build': 272, 'validate:release': 392, 'authority:scale:freeze': 536, 'authority:scale:clear-scope': 570, 'validate:all': 609}",
+      "detail": "{'authority:scale:prepare-scope': 226, 'release:content': 267, 'npm run build': 306, 'validate:release': 463, 'authority:scale:freeze': 607, 'authority:scale:clear-scope': 641, 'validate:all': 680}",
       "trace_only": true
     },
     {
@@ -27,7 +27,7 @@
       "scenario": "final-authority-proof",
       "expected": "validate:all runs after clear-scope and includes validate:authority-scale",
       "passed": true,
-      "detail": "npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate",
+      "detail": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern",
       "trace_only": true
     },
     {
@@ -114,6 +114,14 @@
       "workflow": "admin-command.yml",
       "scenario": "runtime-state-receipt",
       "expected": "state mutation is committed and receipt written",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "admin-command.yml",
+      "scenario": "serialized-writes",
+      "expected": "admin state writes share the main writer lock",
       "passed": true,
       "detail": "",
       "trace_only": true
@@ -247,6 +255,14 @@
       "trace_only": true
     },
     {
+      "workflow": "programmatic-release.yml",
+      "scenario": "exact-sha-push-gate",
+      "expected": "candidate is validated before push",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
       "workflow": "query-intelligence.yml",
       "scenario": "command-query:atlas",
       "expected": "npm run query:atlas",
@@ -314,6 +330,62 @@
       "workflow": "query-intelligence.yml",
       "scenario": "serialized-writes",
       "expected": "shares writer concurrency group",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "scenario": "exact-sha-push-gate",
+      "expected": "candidate is validated before push",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "scenario": "command-query:observe:ingest",
+      "expected": "npm run query:observe:ingest",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "scenario": "command-repairs:diagnose",
+      "expected": "npm run repairs:diagnose",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "scenario": "command-repairs:apply",
+      "expected": "npm run repairs:apply",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "scenario": "command-repairs:retest",
+      "expected": "npm run repairs:retest",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "scenario": "serialized-writes",
+      "expected": "shares writer concurrency group",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "scenario": "governed-push",
+      "expected": "uses exact-SHA push helper",
       "passed": true,
       "detail": "",
       "trace_only": true
