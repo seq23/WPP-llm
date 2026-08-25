@@ -43,7 +43,7 @@
     "strategy:gate": "node scripts/validate_strategy_gate.js",
     "strategy:validate": "node scripts/validate_strategy_gate.js",
     "validate:agent-run-intake": "node scripts/validators/validate_agent_run_artifact_intake.js",
-    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate",
+    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate",
     "validate:atom-contract": "node scripts/validators/validate_atom_contract.js",
     "validate:autonomous": "npm run validate:atom-contract && npm run validate:page-family-contract && npm run validate:page-admission && npm run validate:query-atlas && npm run validate:programmatic-engine && npm run validate:workflow-data-trace && npm run validate:master-contract-pipeline",
     "validate:fanout": "node scripts/validate_fanout_warning.js",
@@ -84,7 +84,9 @@
     "content:quality:validate": "node scripts/citation_intelligence/validate_programmatic_quality.js",
     "artifact:manifest:build": "node scripts/build_artifact_manifest.js",
     "validate:artifact-manifest": "node scripts/validate_artifact_manifest.js",
-    "atlas:build": "node scripts/atlas/build_query_atlas.mjs"
+    "atlas:build": "node scripts/atlas/build_query_atlas.mjs",
+    "validate:no-instruction-leak": "node scripts/validators/validate_no_internal_instruction_leak.js",
+    "validate:no-empty-cells": "node scripts/validators/validate_no_empty_table_cells.js"
   },
   "dependencies": {
     "marked": "^12.0.2"

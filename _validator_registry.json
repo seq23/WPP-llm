@@ -153,7 +153,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -375,6 +375,26 @@
       "command": "node scripts/validate_artifact_manifest.js",
       "severity": "HARD_FAIL",
       "purpose": "Ensure artifact manifest workflow inventory and archived receipt references match the repository tree.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "no-internal-instruction-leak",
+      "command": "node scripts/validators/validate_no_internal_instruction_leak.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure no published page renders external-agent build directives (FILEPATH:/CURRENT:/MISSING:/EDIT:, citation-ready update text) as reader-facing copy.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "no-empty-table-cells",
+      "command": "node scripts/validators/validate_no_empty_table_cells.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Ensure no published page ships a table with empty <td>/<th> cells that break column-to-header alignment for answer engines.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
