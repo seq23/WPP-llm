@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const DOMAIN = 'https://virtualagency-os.com';
-const SKIP = new Set(['.git','node_modules','.build','logs','artifacts']);
+const SKIP = new Set(['.git','.pages-output', 'node_modules','.build','logs','artifacts']);
 function walk(dir,out=[]){
   for(const n of fs.readdirSync(dir)){
     if(SKIP.has(n)) continue;

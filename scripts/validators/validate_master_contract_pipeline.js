@@ -9,7 +9,7 @@ function fail(msg){ console.error(`${checkId} failed: ${msg}`); process.exit(1);
 function cleanRoute(route){ const r=String(route||'').replace(/^https?:\/\/[^/]+/,'').replace(/\.html$/,'').replace(/\/index$/,'/'); return r.startsWith('/')?r:'/'+r; }
 function walkHtml(dir, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (['.git','node_modules','.build','logs','artifacts','admin'].includes(entry.name)) continue;
+    if (['.git','.pages-output', 'node_modules','.build','logs','artifacts','admin'].includes(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walkHtml(full, out);
     else if (entry.name.endsWith('.html')) out.push(path.relative(ROOT, full).replace(/\\/g, '/'));
@@ -168,7 +168,7 @@ const checks = {
     // node_modules is allowed in local validation after npm ci, but must not be packaged.
     // Packaging checks verify ZIP entries separately.
     const pycache = [];
-    function walk(d){ for (const e of fs.readdirSync(d,{withFileTypes:true})) { const p=path.join(d,e.name); if (e.name==='__pycache__') pycache.push(path.relative(ROOT,p)); else if (e.isDirectory() && !['.git','node_modules'].includes(e.name)) walk(p); }}
+    function walk(d){ for (const e of fs.readdirSync(d,{withFileTypes:true})) { const p=path.join(d,e.name); if (e.name==='__pycache__') pycache.push(path.relative(ROOT,p)); else if (e.isDirectory() && !['.git','.pages-output', 'node_modules'].includes(e.name)) walk(p); }}
     walk(ROOT); if (pycache.length) fail(`__pycache__ packaged: ${pycache.join(', ')}`);
   }
 };

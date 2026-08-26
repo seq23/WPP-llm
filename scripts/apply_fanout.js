@@ -12,7 +12,7 @@ function walk(dir, out=[]) {
     const full = path.join(dir, name);
     const stat = fs.statSync(full);
     if (stat.isDirectory()) {
-      if (['node_modules','.git','.build','releases'].includes(name)) continue;
+      if (['.pages-output', 'node_modules','.git','.build','releases'].includes(name)) continue;
       walk(full, out);
     } else if (name.endsWith('.html')) out.push(full);
   }

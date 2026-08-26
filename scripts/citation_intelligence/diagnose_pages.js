@@ -31,7 +31,7 @@ function cleanRoute(route) {
 }
 function walkHtml(dir, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (['.git', 'node_modules', '.build', 'logs', 'artifacts', 'admin'].includes(entry.name)) continue;
+    if (['.git', '.pages-output', 'node_modules', '.build', 'logs', 'artifacts', 'admin'].includes(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walkHtml(full, out);
     else if (entry.name.endsWith('.html')) out.push(path.relative(ROOT, full).replace(/\\/g, '/'));
