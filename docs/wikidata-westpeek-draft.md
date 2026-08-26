@@ -159,6 +159,35 @@ richness reads as promotion.
 
 ---
 
+## Owner corrections — 2026-08-26
+
+Supplied directly by Scooter Taylor after the source review above. These override
+the inferences drawn from the external sources, which are older than the facts.
+
+1. **Tre'von Hill is a former co-founder and is no longer with West Peek
+   Productions.** The Better Events Podcast description (S9) is accurate as of its
+   recording date, not as of today. For Wikidata this matters in a specific way:
+   `P112 (founded by)` is a historical statement, so a departed co-founder is still
+   correctly a founder and would normally be filed with a qualifier rather than
+   omitted. Filing only one founder when a public source names two invites exactly
+   the "does not match the cited source" challenge that gets items deleted. Decide
+   deliberately: file both with `P582 (end time)` on the departure, or file neither.
+   Do not quietly file one.
+
+2. **New York is a current location.** The Atlanta-only picture in The Vendry (S7)
+   and the copywriter case study (S8) reflects an earlier period. NYC is not
+   contradicted by those sources; it postdates them. `P159 (headquarters location)`
+   can be filed as New York — but note that no *independent, published* source
+   currently states it, so it will rest on a self-published reference until one does.
+
+3. **Memphis is not a concern.** Owner is indifferent to whether it appears
+   externally. Omit it rather than filing an unsourced statement.
+
+**What has not changed:** the notability assessment above. These corrections fix
+what the item should *say*; they do not add independent coverage, which is the
+thing the deletion risk actually turns on.
+
+---
 ## Status of every fact you were asked to include
 
 | Fact | Verdict | Basis |
