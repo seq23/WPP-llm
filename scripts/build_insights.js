@@ -349,11 +349,24 @@ function buildPillars(posts) {
 }
 
 function updateSitemap(urls) {
-  const lastmod = new Date().toISOString().slice(0, 10);
+  // This used to stamp one `new Date()` on every URL, which claimed the whole
+  // library had been refreshed on the build day - false for every page that had
+  // not changed, and it destroys the freshness signal that correlates with
+  // being cited. Dates now come from the per-URL ledger, so a page that did not
+  // change keeps the date it already had.
+  //
+  // This pass only has URLs, not the files behind them, so it cannot hash
+  // anything: a URL the ledger already knows keeps its date, and one it does not
+  // gets the build date. scripts/update_sitemap_all_html.js runs later in
+  // `npm run build`, rewrites this file from content hashes, and is the ledger's
+  // only writer. This path matters for a standalone `npm run build:insights`.
+  const ledgerLib = require("./lib/lastmod_ledger");
+  const today = ledgerLib.buildDate();
+  const lastmods = ledgerLib.resolveKnownUrls(urls, ledgerLib.load(), today);
   const header = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
   const footer = `</urlset>\n`;
   const body = urls
-    .map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`)
+    .map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${lastmods[u]}</lastmod>\n  </url>`)
     .join("\n");
   writeUtf8(SITEMAP_PATH, header + body + "\n" + footer);
 }
