@@ -174,14 +174,30 @@ the inferences drawn from the external sources, which are older than the facts.
    deliberately: file both with `P582 (end time)` on the departure, or file neither.
    Do not quietly file one.
 
-2. **New York is a current location.** The Atlanta-only picture in The Vendry (S7)
-   and the copywriter case study (S8) reflects an earlier period. NYC is not
-   contradicted by those sources; it postdates them. `P159 (headquarters location)`
-   can be filed as New York — but note that no *independent, published* source
-   currently states it, so it will rest on a self-published reference until one does.
+2. **New York is the headquarters.** Confirmed directly by the owner as the
+   authoritative statement of fact: **West Peek is New York-based, with offices in
+   Atlanta and Memphis.** The Atlanta-only picture in The Vendry (S7) and the
+   copywriter case study (S8) reflects an earlier period; NYC is not contradicted
+   by those sources, it postdates them. File `P159 (headquarters location)` as
+   New York City.
 
-3. **Memphis is not a concern.** Owner is indifferent to whether it appears
-   externally. Omit it rather than filing an unsourced statement.
+   The caveat is evidential, not factual: no *independent, published* source
+   currently states the New York headquarters, so the statement will rest on a
+   self-published reference until one does. `docs/outreach/what-would-flip-wikidata.md`
+   identifies the Atlanta Journal-Constitution business desk as the most realistic
+   route to an independent source that states the location - which would resolve
+   this and the notability problem in one placement.
+
+3. **Memphis is a real office and may be filed.** Earlier guidance to omit it was
+   based on the owner being indifferent to whether it appeared externally. The
+   confirmed structure is NYC headquarters plus Atlanta and Memphis offices, so
+   Memphis belongs on the item as an office rather than being dropped. File the
+   three locations with `P159` reserved for New York and the other two recorded
+   as operating locations, so the hierarchy is not flattened.
+
+   Note that `scripts/lib/entity.mjs` already emits exactly this structure on every
+   page - New York flagged as headquarters, Atlanta and Memphis as offices - so the
+   site's structured data and this item will agree.
 
 **What has not changed:** the notability assessment above. These corrections fix
 what the item should *say*; they do not add independent coverage, which is the
