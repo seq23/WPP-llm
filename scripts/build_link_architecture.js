@@ -37,9 +37,26 @@
  *
  * Sibling links use a ring with fixed skips over each cluster's member list,
  * ordered so consecutive positions sit in different intent sections. Every page
- * gets exactly five siblings out and five in: even distribution, no page
+ * gets the same number of siblings out and in: even distribution, no page
  * accumulating link equity at the expense of the rest, and no page left at one
  * inbound link from its hub alone.
+ *
+ * Second pass, 2026-08-26. The first pass fixed reachability; it left the
+ * corpus at a median of 12 unique internal links out per page, against the 17
+ * measured on the most-cited property in the estate
+ * (local-guides-generator/docs/strategy/cited-property-profile.md), and it only
+ * ever touched /programmatic/. Three things changed:
+ *
+ *   - the sibling ring widened from five to eight,
+ *   - every generated page gained a short block of neighbouring topics inside
+ *     its own pillar, so a reader who has decided this is not their question
+ *     has somewhere sideways to go rather than only back up,
+ *   - the other 261 pages - /answers/, /query-atlas/, /learn/, /insights/,
+ *     /case-studies/, /pillars/ and the root pages - got breadcrumbs and a
+ *     related block of their own. 169 of them carried no BreadcrumbList at all.
+ *
+ * The second-pass blocks are sized to the page: a page already at the standard
+ * gets nothing, because filler links to hit a number are their own signal.
  *
  * Idempotent. Every injected region is delimited by <!--link-arch:NAME--> and
  * stripped before being rewritten, so re-running after a freeze/restore cycle
@@ -364,16 +381,26 @@ relatedSurface('query-atlas', '/query-atlas/');
 // Sibling ring
 // ---------------------------------------------------------------------------
 
-// Five skips, chosen coprime-ish to typical cluster sizes so the ring does not
-// close into small disconnected sub-rings on a 44- or 54-member cluster.
-const SKIPS = [1, 5, 13, 23, 37];
+// Skips chosen coprime-ish to typical cluster sizes so the ring does not close
+// into small disconnected sub-rings on a 44- or 54-member cluster. Each skip is
+// a fixed offset applied to every member, so each skip is a permutation of the
+// cluster: a page gets SIBLING_TARGET siblings out and, in a cluster larger
+// than the target, the same number in.
+//
+// The target was five. It is eight because the measured median for this corpus
+// was 12 unique internal links out per page against a standard of 17, and the
+// sibling block is the one per-page link surface where more links are more
+// useful rather than more noise: every one of them is another page in the same
+// cluster, i.e. another framing of the decision the reader is already on.
+const SIBLING_TARGET = 8;
+const SKIPS = [1, 5, 7, 13, 19, 23, 31, 37];
 for (const c of clusters.values()) {
   const n = c.members.length;
   c.members.forEach((m, i) => {
     const seen = new Set([m.route]);
     m.siblings = [];
     for (const s of SKIPS) {
-      if (m.siblings.length >= 5) break;
+      if (m.siblings.length >= SIBLING_TARGET) break;
       for (let k = 0; k < n; k++) {
         const t = c.members[(i + s + k) % n];
         if (seen.has(t.route)) continue;
@@ -381,6 +408,93 @@ for (const c of clusters.values()) {
         m.siblings.push(t);
         break;
       }
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Neighbouring topics
+// ---------------------------------------------------------------------------
+//
+// A sibling block only ever points inside one cluster, so a reader who has
+// decided this is not their question has nowhere to go but back up. The pillar
+// is the taxonomy that already answers "what is next to this" - it is carried
+// on every admission record - so each page also gets neighbouring topic hubs
+// from its own pillar, each with the one page that opens that topic.
+//
+// Which neighbours a page gets rotates by its position in the cluster. Three
+// thousand pages all pointing at the same three hubs would concentrate every
+// cross-topic link on three destinations; rotating spreads it across the
+// pillar, and means two pages in one cluster do not read identically.
+const NEIGHBOUR_TOPICS = 3;
+// Unique internal links out per page. The most-cited property in the estate
+// measures at 17; this leaves a link of headroom.
+const LINK_TARGET = 18;
+// What a generated page already links to before this script adds anything: the
+// main-nav entries. The breadcrumb hub, pillar page and siblings are counted
+// per page below.
+const NAV_ROUTES = ['/', '/topics', '/articles', '/query-atlas', '/how-west-peek-helps'];
+
+const byPillarClusters = new Map();
+for (const c of clusterList) {
+  if (!byPillarClusters.has(c.pillar)) byPillarClusters.set(c.pillar, []);
+  byPillarClusters.get(c.pillar).push(c);
+}
+
+/** The page that opens a topic: its overview, else its definition, else first. */
+function openerOf(c) {
+  return c.members.find((m) => m.suffix === '')
+    || c.members.find((m) => m.suffix === 'definition')
+    || c.members[0];
+}
+
+/**
+ * Topics related to `c`, nearest first: everything in its own pillar, then -
+ * only where the pillar is too small to fill the list - the closest topics
+ * elsewhere, ranked by how many slug tokens they share with it.
+ *
+ * The token overlap is not a new taxonomy. It reads the slugs the repo already
+ * assigned, so `founder-community-strategy` reaches `community-onboarding`
+ * and `community-retention` rather than an unrelated topic picked to pad a
+ * number. Pillars of six topics exist; without this a two-page cluster in one
+ * of them cannot fill a block from real neighbours at all.
+ */
+const tokensOf = (slug) => new Set(String(slug).split('-').filter((t) => t.length > 2));
+function relatedClusters(c, limit) {
+  const own = (byPillarClusters.get(c.pillar) || []).filter((o) => o.slug !== c.slug);
+  if (own.length >= limit) return own.slice(0, limit);
+  const taken = new Set([c.slug, ...own.map((o) => o.slug)]);
+  const mine = tokensOf(c.slug);
+  const rest = clusterList
+    .filter((o) => !taken.has(o.slug))
+    .map((o) => ({ o, shared: [...tokensOf(o.slug)].filter((t) => mine.has(t)).length }))
+    .filter((x) => x.shared > 0)
+    .sort((a, b) => b.shared - a.shared || a.o.label.localeCompare(b.o.label))
+    .map((x) => x.o);
+  return [...own, ...rest].slice(0, limit);
+}
+
+for (const c of clusters.values()) {
+  const ring = relatedClusters(c, Math.max(NEIGHBOUR_TOPICS * 4, 12));
+  c.members.forEach((m, i) => {
+    m.neighbours = [];
+    if (!ring.length) return;
+    // Projected unique link set for this page, so the top-up is measured
+    // rather than assumed.
+    const projected = new Set([
+      ...NAV_ROUTES,
+      `/topics/${c.slug}`,
+      ...(PILLAR_PAGE[c.pillar] ? [PILLAR_PAGE[c.pillar]] : []),
+      ...m.siblings.map((s) => s.route),
+    ]);
+    projected.delete(m.route);
+    for (let k = 0; k < ring.length; k++) {
+      if (m.neighbours.length >= NEIGHBOUR_TOPICS && projected.size >= LINK_TARGET) break;
+      const o = ring[(i + k) % ring.length];
+      const opener = openerOf(o);
+      m.neighbours.push({ cluster: o, opener });
+      projected.add(`/topics/${o.slug}`);
+      if (opener && opener.route !== m.route) projected.add(opener.route);
     }
   });
 }
@@ -475,10 +589,13 @@ function hubHtml(c) {
   }).join('\n');
 
   const pillarRoute = PILLAR_PAGE[c.pillar];
-  const siblingClusters = clusterList
-    .filter((o) => o.pillar === c.pillar && o.slug !== c.slug)
-    .slice(0, 8)
-    .map((o) => `<li><a href="/topics/${o.slug}">${esc(sentenceCase(o.label))}</a> <span class="hub-note">${o.members.length} pages</span></li>`)
+  // Twelve, not eight: a two-page cluster cannot carry a hub on its own members
+  // alone, and neighbouring topics are the next decision along rather than
+  // filler.
+  const siblingClusterList = relatedClusters(c, 12);
+  const crossPillar = siblingClusterList.some((o) => o.pillar !== c.pillar);
+  const siblingClusters = siblingClusterList
+    .map((o) => `<li><a href="/topics/${o.slug}">${esc(sentenceCase(o.label))}</a> <span class="hub-note">${o.members.length} pages${o.pillar !== c.pillar ? `, in ${esc(PILLAR_LABEL[o.pillar] || o.pillar)}` : ''}</span></li>`)
     .join('');
 
   const surfaces = (c.surfaces || []);
@@ -497,7 +614,7 @@ function hubHtml(c) {
 <h2>How to use this hub</h2><ol><li><strong>Name the decision.</strong> The ${present.length} section headings below are decisions, not subjects. Pick the one that matches where you actually are.</li><li><strong>Read the one page that matches it.</strong> Each page is written to settle one question, so reading three is usually a sign the decision is not yet framed.</li><li><strong>Take the checklist into the meeting.</strong> The templates section holds the artefacts meant to leave this site: briefs, vendor questions, and checklists.</li></ol>
 ${sectionsHtml}
 ${surfacesHtml}
-${siblingClusters ? `<section class="hub-section" id="related-topics"><h2>Related topics in ${esc(pillarLabel)}</h2><p>Neighbouring decisions that usually come up in the same conversation.</p><ul class="hub-list">${siblingClusters}</ul></section>` : ''}
+${siblingClusters ? `<section class="hub-section" id="related-topics"><h2>Related topics</h2><p>Neighbouring decisions in ${esc(pillarLabel)} that usually come up in the same conversation${crossPillar ? ', and the closest topics elsewhere in the library' : ''}.</p><ul class="hub-list">${siblingClusters}</ul></section>` : ''}
 <h2>Where this sits in the library</h2><p>Every page here is reachable from <a href="/topics/">the full topic directory</a>${pillarRoute ? `, and this topic belongs to the <a href="${pillarRoute}">${esc(pillarLabel)}</a> pillar` : ''}. The <a href="/query-atlas">query atlas</a> maps the same library by search phrasing rather than by decision, which is the better entry point if you already know the exact wording you would type.</p>
 ${CTA}
 </article></main></div>${SITE_FOOTER}</body></html>
@@ -603,6 +720,7 @@ function injectProgrammatic(page) {
 
   html = stripRegion(html, 'breadcrumb');
   html = stripRegion(html, 'related');
+  html = stripRegion(html, 'neighbours');
   html = addTopicsNav(html);
 
   const c = clusters.get(page.cluster);
@@ -636,6 +754,16 @@ function injectProgrammatic(page) {
 
   const closeIdx = html.lastIndexOf('</article>');
   html = html.slice(0, closeIdx) + related + '\n' + html.slice(closeIdx);
+
+  // Neighbouring topics: where to go when this is not the reader's question.
+  const nbrs = (page.neighbours || []).filter((n) => n.opener && n.opener.route !== page.route);
+  if (nbrs.length) {
+    const pillarLabel = PILLAR_LABEL[c.pillar] || sentenceCase(deslug(c.pillar));
+    const lis = nbrs.map((n) => `<li><a href="/topics/${n.cluster.slug}">${esc(sentenceCase(n.cluster.label))}</a> <span class="hub-note">${n.cluster.members.length} pages, opening with <a href="${n.opener.route}">${esc(n.opener.heading)}</a></span></li>`).join('');
+    const neighbours = `\n<!--link-arch:neighbours--><section class="related-links" data-related="neighbours"><h2>If this is not the decision in front of you</h2><p>Neighbouring topics in ${esc(pillarLabel)}, each with the page that opens it. ${pillarRoute ? `The <a href="${pillarRoute}">pillar overview</a> lists them all` : `<a href="/topics/">The topic directory</a> lists them all`}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:neighbours-->`;
+    const closeNbr = html.lastIndexOf('</article>');
+    html = html.slice(0, closeNbr) + neighbours + '\n' + html.slice(closeNbr);
+  }
 
   return { abs, html, changed: html !== before, route: page.route };
 }
@@ -686,6 +814,235 @@ function injectPillar(rel, pillarKey) {
 }
 
 // ---------------------------------------------------------------------------
+// The rest of the library
+// ---------------------------------------------------------------------------
+//
+// /programmatic/ is 3,052 of 3,313 pages, so it dominated the first pass. The
+// remaining 261 kept whatever their own generators gave them: 169 of them
+// carry no BreadcrumbList at all, and /query-atlas/ sits at a median of 7
+// unique internal links out against a corpus median of 12.
+//
+// Those pages are not a separate site. An /answers/ page and a /query-atlas/
+// page are the same topic in a different format - the hub generator already
+// files both under a cluster, in `c.surfaces` - so the same taxonomy places
+// them. Where a page belongs to no cluster (an insight, a case study, a pillar
+// overview) the directory it already ships in is the taxonomy.
+//
+// Nothing here invents a grouping: a page is filed by the cluster the repo
+// already assigns it, or by the directory it already ships in.
+
+const SITE_SECTION = {
+  answers: { name: 'Answers', index: '/answers/', kind: 'the short direct answer' },
+  'query-atlas': { name: 'Query atlas', index: '/query-atlas', kind: 'the query atlas entry' },
+  insights: { name: 'Insights', index: '/insights/', kind: 'a working note' },
+  learn: { name: 'Learn', index: '/learn/', kind: 'a sequenced explainer' },
+  pillars: { name: 'Pillars', index: '/pillars/', kind: 'a pillar overview' },
+  'case-studies': { name: 'Case studies', index: '/case-studies/', kind: 'a case study' },
+};
+// Directories whose pages are hubs in their own right, not one format of a
+// topic. Filing a pillar overview under a single cluster would be wrong: it
+// sits above several of them.
+const SITE_NO_CLUSTER_DIRS = new Set(['pillars']);
+// The block is sized to the page rather than fixed. A page already carrying 20
+// internal links does not need twelve more bolted on to satisfy a target, and a
+// /query-atlas/ entry sitting at 7 needs more than a fixed five. So a page at
+// or above LINK_TARGET gets no block at all; a page below it lists at least
+// SITE_RELATED_MIN and then only enough to reach the target, capped at
+// SITE_RELATED_MAX so no page turns into a list of links.
+const SITE_RELATED_MIN = 5;
+const SITE_RELATED_MAX = 14;
+// /admin is an internal console, not part of the reader-facing graph: it is the
+// one page the link report deliberately leaves orphaned, and it stays that way.
+// siteFiles() already skips it, along with 404.html.
+
+const normRoute = (r) => (r === '/' ? '/' : String(r).replace(/\/+$/, ''));
+const textOf = (v) => String(v || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
+function pageMeta(rel) {
+  const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const h1 = textOf((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '');
+  const title = textOf((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').split(' | ')[0];
+  const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
+  const parts = rel.split('/');
+  const dirIndex = parts[parts.length - 1] === 'index.html';
+  const route = dirIndex ? `/${parts.slice(0, -1).join('/')}/` : `/${rel.replace(/\.html$/, '')}`;
+  const dir = parts.length > 1 ? parts[0] : '';
+  // A directory index one level down (pillars/community-as-a-service/) is a
+  // page in its own right; a section index (answers/) is the section itself.
+  const isSectionIndex = dirIndex && parts.length === 2;
+  const slug = dirIndex ? (parts[parts.length - 2] || 'index') : path.basename(rel, '.html');
+  return {
+    rel, route: normRoute(route), dir, slug, isSectionIndex,
+    heading: h1 || title || slug, description: desc,
+  };
+}
+
+/** Collect the non-programmatic, non-hub pages and file each one. */
+function collectSitePages() {
+  const metas = siteFiles().map(pageMeta);
+  for (const m of metas) {
+    if (m.isSectionIndex || SITE_NO_CLUSTER_DIRS.has(m.dir)) continue;
+    const cluster = clusterFor(m.slug, m.route) || BY_LENGTH.find((c) => c.startsWith(`${m.slug}-`));
+    m.cluster = (cluster && clusters.get(cluster)) || null;
+  }
+  return metas;
+}
+
+function crumbRegion(trail, currentName, route) {
+  return `<!--link-arch:breadcrumb-->${breadcrumbHtml(trail, currentName)}<script type="application/ld+json">${breadcrumbLd([...trail, { name: currentName, route }])}</script><!--/link-arch:breadcrumb-->`;
+}
+
+function linkItem(t, noteText) {
+  const summary = noteText === undefined ? note(t.description, 120) : noteText;
+  return `<li><a href="${t.route}">${esc(t.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
+}
+
+/**
+ * Candidates for a page that belongs to no cluster: its neighbours in the
+ * directory it already ships in, taken in a rotating window so a section does
+ * not collapse into every page listing the same few, then the pillar
+ * overviews - the library's own published entry points, not an invented list -
+ * for sections too small to fill a block and for root pages with no section.
+ */
+function sectionCandidates(m, all) {
+  const pool = all.filter((o) => o.dir === m.dir && o.dir !== '' && !o.isSectionIndex
+    && o.route !== m.route && !o.cluster);
+  const out = [];
+  const start = Math.max(0, pool.findIndex((o) => o.slug > m.slug));
+  for (let k = 0; k < pool.length; k++) out.push({ page: pool[(start + k) % pool.length] });
+  const seen = new Set([m.route, ...out.map((x) => x.page.route)]);
+  for (const route of Object.values(PILLAR_PAGE)) {
+    const q = all.find((o) => o.route === normRoute(route));
+    if (!q || seen.has(q.route)) continue;
+    seen.add(q.route);
+    out.push({ page: q, why: 'pillar overview' });
+  }
+  return out;
+}
+
+/**
+ * The unique internal routes a page already links to, resolved the way
+ * scripts/link_graph_report.js resolves them. Links in this repo are
+ * root-relative clean URLs; `.html` and `/index.html` suffixes and trailing
+ * slashes are folded so `/topics/`, `/topics` and `/topics.html` count once.
+ * Measuring rather than assuming is the point: the same block is under target
+ * on a /query-atlas/ entry and padding on an /insights/ note.
+ */
+function uniqueInternalRoutes(html, selfRoute) {
+  const out = new Set();
+  const re = /<a\b[^>]*?href=["']([^"']+)["']/gi;
+  let mm;
+  while ((mm = re.exec(html))) {
+    let href = mm[1];
+    const absolute = href.match(/^https?:\/\/(?:www\.)?virtualagency-os\.com(\/[^\s"']*)?$/i);
+    if (absolute) href = absolute[1] || '/';
+    else if (/^(https?:|mailto:|tel:|javascript:|data:|#|\/\/)/i.test(href)) continue;
+    if (!href.startsWith('/')) continue;
+    let r = href.split('#')[0].split('?')[0];
+    r = normRoute(r.replace(/\/index\.html$/, '/').replace(/\.html$/, ''));
+    if (!r || r === normRoute(selfRoute)) continue;
+    out.add(r);
+  }
+  return out;
+}
+
+function injectSitePage(m, all) {
+  const abs = path.join(ROOT, m.rel);
+  let html = fs.readFileSync(abs, 'utf8');
+  const before = html;
+  html = stripRegion(html, 'breadcrumb');
+  html = stripRegion(html, 'site-related');
+  html = addTopicsNav(html);
+
+  const section = SITE_SECTION[m.dir];
+  const crumbName = m.heading.length > 70 ? sentenceCase(deslug(m.slug)) : m.heading;
+
+  // --- Breadcrumb. A page that already ships its own BreadcrumbList keeps it.
+  if (!/"@type"\s*:\s*"BreadcrumbList"/.test(html)) {
+    const trail = [{ name: 'Home', route: '/' }];
+    if (m.cluster) {
+      // The hub links down to this page in its "same topic in other formats"
+      // section, so hub -> page is a real parent-child edge, not a fiction.
+      trail.push({ name: 'Topics', route: '/topics/' });
+      trail.push({ name: sentenceCase(m.cluster.label), route: `/topics/${m.cluster.slug}` });
+    } else if (section && !m.isSectionIndex) {
+      trail.push({ name: section.name, route: section.index });
+    }
+    const mainIdx = html.search(/<main\b/);
+    if (mainIdx < 0) throw new Error(`no <main> in ${m.rel}`);
+    html = `${html.slice(0, mainIdx)}${crumbRegion(trail, crumbName, m.route)}${html.slice(mainIdx)}`;
+  }
+
+  // --- Related links, sized to what the page is short of.
+  const have = uniqueInternalRoutes(html, m.route);
+  let block = '';
+  const takeUntilTarget = (candidates) => {
+    // A page already at the standard gets nothing: a section index that lists
+    // its own children, an /insights/ note with a full nav, /atlas with 85
+    // links. Adding a block there would be filler.
+    if (have.size >= LINK_TARGET) return [];
+    const picks = [];
+    for (const cand of candidates) {
+      const route = normRoute(cand.page.route);
+      if (route === m.route || have.has(route)) continue;
+      if (picks.length >= SITE_RELATED_MIN && have.size >= LINK_TARGET) break;
+      if (picks.length >= SITE_RELATED_MAX) break;
+      picks.push(cand);
+      have.add(route);
+    }
+    return picks;
+  };
+
+  if (m.cluster) {
+    const c = m.cluster;
+    const span = Math.max(1, c.members.length);
+    const idx = Math.abs([...m.slug].reduce((h, ch) => ((h * 31 + ch.charCodeAt(0)) | 0), 7)) % span;
+    const ordered = [];
+    for (let k = 0; k < c.members.length; k++) ordered.push({ page: c.members[(idx + k * 5) % c.members.length] });
+    for (const su of c.surfaces || []) {
+      ordered.push({ page: su, why: su.kind === 'answers' ? 'direct answer' : 'query atlas entry' });
+    }
+    // A cluster of two members cannot fill a block on its own. Its pillar can:
+    // the neighbouring topics are the next decision along, and each opener is a
+    // page the library already publishes.
+    for (const o of relatedClusters(c, 12)) {
+      ordered.push({
+        page: { route: `/topics/${o.slug}`, heading: sentenceCase(o.label), description: '' },
+        why: `${o.members.length} pages on this topic`,
+      });
+      const opener = openerOf(o);
+      if (opener) ordered.push({ page: opener, why: `opens ${sentenceCase(o.label)}` });
+    }
+    const picks = takeUntilTarget(ordered);
+    if (picks.length) {
+      const pillarRoute = PILLAR_PAGE[c.pillar];
+      const lis = picks.map((x) => linkItem(x.page, x.why)).join('');
+      block = `<!--link-arch:site-related--><section class="related-links" data-related="cluster"><h2>The rest of the ${esc(c.label)} coverage</h2><p>This page is ${esc(section ? section.kind : 'one format')} on ${esc(c.label)}. The <a href="/topics/${c.slug}">${esc(sentenceCase(c.label))} hub</a> holds all ${c.members.length} pages on it${pillarRoute ? `, inside the <a href="${pillarRoute}">${esc(PILLAR_LABEL[c.pillar] || c.pillar)}</a> pillar` : ''}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:site-related-->`;
+    }
+  } else {
+    const picks = takeUntilTarget(sectionCandidates(m, all));
+    if (picks.length) {
+      const lis = picks.map((x) => linkItem(x.page, x.why)).join('');
+      const inSection = picks.some((x) => !x.why);
+      const where = section && inSection
+        ? `Other pages in <a href="${section.index}">${esc(section.name)}</a>, and the pillar overviews that place them.`
+        : 'The pillar overviews: the top-level areas this library covers, each with its own topics underneath.';
+      block = `<!--link-arch:site-related--><section class="related-links" data-related="section"><h2>Where to go next</h2><p>${where} <a href="/topics/">The topic directory</a> indexes the whole library by the decision each page settles.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:site-related-->`;
+    }
+  }
+
+  if (block) {
+    const mainClose = html.lastIndexOf('</main>');
+    const artClose = html.lastIndexOf('</article>');
+    const at = artClose > 0 && artClose < mainClose ? artClose : mainClose;
+    if (at < 0) throw new Error(`no </main> in ${m.rel}`);
+    html = `${html.slice(0, at)}\n${block}\n${html.slice(at)}`;
+  }
+
+  return { abs, html, changed: html !== before, route: m.route };
+}
+
+// ---------------------------------------------------------------------------
 // Run
 // ---------------------------------------------------------------------------
 
@@ -731,7 +1088,21 @@ for (const [pillarKey, route] of Object.entries(PILLAR_PAGE)) {
   if (!SCOPE_ONLY) pillarResults.push(injectPillar(rel, pillarKey));
 }
 
-// 4. One main-nav entry site-wide
+// 4. Everything that is neither a generated page nor a hub: breadcrumbs, and
+//    related links drawn from the cluster the page belongs to or the section
+//    it ships in.
+const sitePages = collectSitePages();
+let siteChanged = 0;
+let siteClusterFiled = 0;
+for (const m of sitePages) {
+  touchedRoutes.add(m.route);
+  if (m.cluster) siteClusterFiled += 1;
+  if (SCOPE_ONLY) continue;
+  const r = injectSitePage(m, sitePages);
+  if (r.changed) { fs.writeFileSync(r.abs, r.html); siteChanged += 1; }
+}
+
+// 5. One main-nav entry site-wide
 let navChanged = 0;
 for (const rel of siteFiles()) {
   const abs = path.join(ROOT, rel);
@@ -748,14 +1119,14 @@ for (const rel of siteFiles()) {
   }
 }
 
-// 5. Mutation scope, so the freeze transaction accepts exactly these routes.
+// 6. Mutation scope, so the freeze transaction accepts exactly these routes.
 const norm = (r) => (r === '/' ? '/' : r.replace(/\/+$/, ''));
 const routes = [...new Set([...touchedRoutes].map(norm))].sort();
 if (WRITE_SCOPE) fs.writeFileSync(SCOPE_FILE, `${JSON.stringify({
   schema_version: '1.0',
   generated_at: new Date().toISOString(),
   source: 'scripts/build_link_architecture.js',
-  reason: 'Internal link architecture: topic hubs, breadcrumbs, sibling links, one main-nav entry.',
+  reason: 'Internal link architecture: topic hubs, breadcrumbs, sibling links, neighbouring-topic links, section related links, one main-nav entry.',
   routes,
 }, null, 2)}\n`);
 
@@ -765,5 +1136,8 @@ console.log(JSON.stringify({
   programmatic_pages_updated: progChanged,
   pillar_hubs_updated: pillarResults.filter((r) => r.changed).length,
   nav_entries_added: navChanged,
+  site_pages_total: sitePages.length,
+  site_pages_updated: siteChanged,
+  site_pages_filed_under_a_cluster: siteClusterFiled,
   mutation_scope_routes: routes.length,
 }, null, 2));
