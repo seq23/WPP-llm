@@ -195,11 +195,22 @@ const sum = inboundValues.reduce((a, b) => a + b, 0);
 const sorted = [...inboundValues].sort((a, b) => a - b);
 const median = sorted.length ? sorted[Math.floor(sorted.length / 2)] : 0;
 
-/** Anchor-text diversity: the share of links to a page that repeat one phrase. */
-let repeatedAnchorPages = 0;
-for (const [r, texts] of anchorTexts) {
-  if ((inbound.get(r) || 0) >= 5 && texts.size <= 1) repeatedAnchorPages += 1;
+/**
+ * Anchor-text diversity across the corpus.
+ *
+ * The spam signal is not "every link to page X says the same thing" - one
+ * consistent descriptive anchor per destination is what good internal linking
+ * looks like. The signal is thousands of links sharing one anchor phrase
+ * regardless of where they point. So measure it corpus-wide: how many distinct
+ * anchor strings exist, and what share of all links the single most common
+ * anchor accounts for.
+ */
+const anchorCounts = new Map();
+for (const [, texts] of anchorTexts) {
+  for (const t of texts) anchorCounts.set(t, (anchorCounts.get(t) || 0) + 1);
 }
+const anchorTotal = [...anchorCounts.values()].reduce((a, b) => a + b, 0);
+const topAnchor = [...anchorCounts].sort((a, b) => b[1] - a[1])[0] || ['', 0];
 
 const byPrefix = {};
 for (const r of allRoutes) {
@@ -222,7 +233,10 @@ const report = {
   median_inbound_links_per_page: median,
   max_inbound_links: sorted.length ? sorted[sorted.length - 1] : 0,
   click_depth_histogram: depthHistogram,
-  pages_with_single_repeated_anchor_text: repeatedAnchorPages,
+  distinct_anchor_texts: anchorCounts.size,
+  anchor_text_diversity: Number((anchorCounts.size / (anchorTotal || 1)).toFixed(4)),
+  most_common_anchor: topAnchor[0].slice(0, 60),
+  most_common_anchor_share: Number((topAnchor[1] / (anchorTotal || 1)).toFixed(4)),
   by_section: byPrefix,
   total_href_attributes: [...hrefCounts.values()].reduce((a, b) => a + b, 0),
   total_visible_text_chars: [...visibleTextLen.values()].reduce((a, b) => a + b, 0),
