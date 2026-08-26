@@ -41,7 +41,7 @@ jobs:
         run: |
           if [ -n "${GSC_SERVICE_ACCOUNT_JSON:-}" ]; then
             umask 077
-            printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" > .gsc-service-account.json
+            printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/.gsc-service-account.json"
           fi
       # The inspection cache must survive between runs or the TTL never applies and
       # every run re-inspects all 177 priority URLs (19 minutes). Rolling key: save
@@ -69,7 +69,7 @@ jobs:
           GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
           args=(--host virtualagency-os.com --artifact-dir .build)
           if [ -n "${INDEXNOW_KEY:-}" ]; then args+=(--key "$INDEXNOW_KEY"); fi
-          if [ -f .gsc-service-account.json ] && [ -n "${GSC_SITE_URL:-}" ]; then args+=(--creds .gsc-service-account.json --gsc-site "$GSC_SITE_URL"); fi
+          if [ -f "$RUNNER_TEMP/.gsc-service-account.json" ] && [ -n "${GSC_SITE_URL:-}" ]; then args+=(--creds "$RUNNER_TEMP/.gsc-service-account.json" --gsc-site "$GSC_SITE_URL"); fi
           ./distribution_scripts/deploy_distribution.sh "${args[@]}"
       - uses: actions/upload-artifact@v7
         if: always()
