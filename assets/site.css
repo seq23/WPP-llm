@@ -98,3 +98,23 @@ ul{margin:0 0 14px 18px}
    article-flow top margin and its last child must not push the panel open. */
 .recommendation-summary > h2:first-child{margin-top:0}
 .recommendation-summary > :last-child{margin-bottom:0}
+
+/* Internal link architecture: breadcrumbs, topic hubs, sibling link blocks.
+   Built by scripts/build_link_architecture.js. The list rows are two-part -
+   a descriptive link taken from the target page's own question heading, and a
+   muted note taken from its description - so a reader can choose without
+   opening the page. */
+.breadcrumb{margin:14px 0 0; font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:2px; align-items:baseline}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--link)}
+.breadcrumb [aria-current="page"]{color:var(--fg)}
+.hub-section{margin:28px 0}
+.hub-section > h2{margin-bottom:4px}
+.hub-section > p{color:var(--muted); margin-top:0}
+.hub-list{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:10px}
+.hub-list li{padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:color-mix(in srgb, var(--card) 88%, transparent)}
+.hub-list li a{font-weight:600}
+.hub-note{display:block; color:var(--muted); font-size:14px; margin-top:2px}
+.related-links{margin:32px 0 0; padding-top:18px; border-top:1px solid var(--line)}
+.related-links > p{color:var(--muted)}
+@media (min-width:760px){ .hub-list{grid-template-columns:repeat(2,minmax(0,1fr))} }
