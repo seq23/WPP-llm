@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T10:51:54.914Z",
+  "generated_at": "2026-08-26T13:56:31.317Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -627,6 +627,18 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 13,
+      "name": "Observe whether answer engines cite us",
+      "npm_script": "citation:probe",
+      "direct_paths": [],
+      "env_keys": [
+        "GEMINI_API_KEY"
+      ]
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 14,
       "name": "Score AEO and GEO opportunities",
       "npm_script": "opportunities:score",
       "direct_paths": [],
@@ -636,7 +648,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 14,
+      "step": 15,
       "name": "Build controlled release plan preview",
       "npm_script": "release:plan",
       "direct_paths": [],
@@ -646,7 +658,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 15,
+      "step": 16,
       "name": "Validate query intelligence",
       "npm_script": "validate:autonomous",
       "direct_paths": [],
@@ -656,7 +668,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 16,
+      "step": 17,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [
@@ -670,7 +682,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 17,
+      "step": 18,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

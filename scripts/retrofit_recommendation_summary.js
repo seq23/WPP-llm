@@ -1,16 +1,29 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 /**
- * Retrofit a recommendation_summary block onto already-published source pages.
+ * Derive a recommendation_summary block on already-published source pages.
  *
  * recommendation_summary is the single most-requested block in the agent data:
  * .clarity/content-pattern-spec.json records it as asked for on 913 of 913
- * accepted recommendations, across every run. Before this script, coverage in
- * this repo was 0 of 3,190 pages.
+ * accepted recommendations, across every run.
  *
- * The extraction and the fold rules live in scripts/lib/recommendation_summary.js,
- * which the page generators call too. One implementation, so a retrofitted page
- * and a freshly generated page cannot drift apart.
+ * The first pass of this script bought coverage and lost the point. It put a
+ * block on 3,009 of 3,190 pages, but those 2,951 blocks contained 172 distinct
+ * texts - a distinctness ratio of 0.06 - and the single worst string sat on 952
+ * pages verbatim. A sentence that appears on 952 pages is not a summary of any
+ * of them; at that scale it is a duplicate-content signal, not an asset.
+ *
+ * So this script now measures what it produces:
+ *
+ *   1. Derivation happens in scripts/lib/recommendation_summary.js, which the
+ *      page generators call too. It refuses any candidate that is not tied to
+ *      the page's own subject, and emits nothing rather than filler.
+ *   2. Whatever survives derivation still has to be UNIQUE across the library.
+ *      Two pages carrying the same block is the same failure in miniature, so
+ *      every colliding block is withdrawn and reported. What ships is a set of
+ *      blocks no two of which are the same text.
+ *   3. Pages that end with no block are printed with the reason. That list is
+ *      the honest output of this script, not a gap to be papered over.
  *
  * This walks SOURCE pages only. .pages-output/ is deploy output assembled by
  * scripts/assemble_pages_output.js and is regenerated, never hand-edited.
@@ -32,7 +45,11 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { applyRecommendationSummary } = require('./lib/recommendation_summary.js');
+const {
+  applyRecommendationSummary,
+  stripRecommendationSummary,
+  recommendationSummaryText,
+} = require('./lib/recommendation_summary.js');
 
 const argv = process.argv.slice(2);
 const APPLY = argv.includes('--apply');
@@ -61,20 +78,48 @@ const targets = (dirs.length ? dirs : ['.']).flatMap((d) => walk(path.resolve(RO
   .filter((f) => !SKIP_FILES.has(path.relative(ROOT, f)))
   .sort();
 
-const byStrategy = new Map();
-const skipped = [];
-const mutated = [];
+const COLLIDED = 'the only recommendation this page could derive is one another page derives too';
+const links = (html) => (String(html).match(/<a\s[^>]*href/gi) || []).length;
+
+// Pass 1: derive.
+const derived = [];
+const byText = new Map();
 for (const file of targets) {
   const rel = path.relative(ROOT, file);
-  const html = fs.readFileSync(file, 'utf8');
-  const res = applyRecommendationSummary(html, { panelClass: process.env.RS_PANEL_CLASS });
-  byStrategy.set(res.strategy, (byStrategy.get(res.strategy) || 0) + 1);
-  if (!res.changed) {
-    if (res.strategy === 'skip') skipped.push({ rel, reason: res.reason });
+  const before = fs.readFileSync(file, 'utf8');
+  const res = applyRecommendationSummary(before, { panelClass: process.env.RS_PANEL_CLASS });
+  const text = recommendationSummaryText(res.html);
+  const row = { rel, file, before, after: res.html, strategy: res.strategy, reason: res.reason, text };
+  derived.push(row);
+  if (text) byText.set(text, (byText.get(text) || 0) + 1);
+}
+
+// Pass 2: a block two pages share is not a summary of either. Withdraw both.
+let collisions = 0;
+for (const row of derived) {
+  if (!row.text || byText.get(row.text) === 1) continue;
+  row.after = stripRecommendationSummary(row.after);
+  row.text = null;
+  row.strategy = 'withdrawn';
+  row.reason = COLLIDED;
+  collisions += 1;
+}
+
+// Pass 3: write, and refuse to ship a page that lost a link on the way through.
+const byStrategy = new Map();
+const withoutBlock = [];
+const mutated = [];
+const linkLoss = [];
+for (const row of derived) {
+  byStrategy.set(row.strategy, (byStrategy.get(row.strategy) || 0) + 1);
+  if (!row.text) withoutBlock.push(row);
+  if (row.after === row.before) continue;
+  if (links(row.after) < links(row.before)) {
+    linkLoss.push(`${row.rel} (${links(row.before)} -> ${links(row.after)})`);
     continue;
   }
-  mutated.push(rel);
-  if (APPLY) fs.writeFileSync(file, res.html);
+  mutated.push(row.rel);
+  if (APPLY) fs.writeFileSync(row.file, row.after);
 }
 
 // Accepted output is frozen. Mutating it outside a declared scope is drift that
@@ -84,30 +129,49 @@ if (WRITE_SCOPE) {
   const contract = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/release/accepted_output_freeze_contract.json'), 'utf8'));
   const registry = JSON.parse(fs.readFileSync(path.join(ROOT, contract.frozen_registry), 'utf8'));
   const routeByFile = new Map((registry.pages || []).map((p) => [p.rendered_file, p.route]));
-  const routes = [...new Set(mutated.map((rel) => routeByFile.get(rel)).filter(Boolean))].sort();
-  fs.writeFileSync(path.join(ROOT, contract.active_mutation_scope), `${JSON.stringify({
+  // A transaction can span more than one pass - derive, rebuild, re-derive - so
+  // the scope accumulates rather than replacing what an earlier pass declared.
+  // Dropping a route another pass already mutated would turn it into unscoped
+  // drift and fail the freeze.
+  const scopeFile = path.join(ROOT, contract.active_mutation_scope);
+  const open = fs.existsSync(scopeFile) ? (JSON.parse(fs.readFileSync(scopeFile, 'utf8')).routes || []) : [];
+  const routes = [...new Set(open.concat(mutated.map((rel) => routeByFile.get(rel)).filter(Boolean)))].sort();
+  fs.writeFileSync(scopeFile, `${JSON.stringify({
     schema_version: '1.0',
     generated_at: new Date().toISOString(),
     source: 'scripts/retrofit_recommendation_summary.js',
-    reason: 'recommendation_summary retrofit (.clarity/content-pattern-spec.json)',
+    reason: 'recommendation_summary re-derivation (.clarity/content-pattern-spec.json)',
     routes,
   }, null, 2)}\n`);
   console.log(`freeze transaction opened for ${routes.length} accepted route(s) in ${contract.active_mutation_scope}`);
 }
 
-const changed = (byStrategy.get('hoist_lead') || 0) + (byStrategy.get('fold_fit') || 0) + (byStrategy.get('fold_steps') || 0);
+const blocks = derived.filter((r) => r.text);
+const distinct = new Set(blocks.map((r) => r.text)).size;
 console.log(`recommendation_summary: ${targets.length} source pages scanned (${APPLY ? 'APPLIED' : 'dry run'})`);
-for (const key of ['hoist_lead', 'fold_fit', 'fold_steps', 'present', 'skip']) {
+for (const key of ['hoist_lead', 'fold_fit', 'fold_steps', 'withdrawn', 'skip']) {
   if (byStrategy.get(key)) console.log(`  ${key.padEnd(11)} ${byStrategy.get(key)}`);
 }
-console.log(`  changed     ${changed}`);
-if (skipped.length) {
+console.log(`  changed     ${mutated.length}`);
+console.log(`  blocks      ${blocks.length} (${(blocks.length / targets.length * 100).toFixed(1)}% of pages)`);
+console.log(`  distinct    ${distinct} texts -> distinctness ratio ${(distinct / (blocks.length || 1)).toFixed(4)}`);
+console.log(`  collisions  ${collisions} block(s) withdrawn for being identical to another page's`);
+
+if (linkLoss.length) {
+  console.error(`\nREFUSED: ${linkLoss.length} page(s) would have lost a link and were left unchanged:`);
+  for (const l of linkLoss.slice(0, 20)) console.error(`  ${l}`);
+}
+
+if (withoutBlock.length) {
   const groups = new Map();
-  for (const s of skipped) groups.set(s.reason, (groups.get(s.reason) || []).concat(s.rel));
-  console.log('\nno recommendation could be lifted from these pages - left unchanged rather than filled:');
-  for (const [reason, files] of groups) {
+  for (const r of withoutBlock) groups.set(r.reason, (groups.get(r.reason) || []).concat(r.rel));
+  console.log(`\n${withoutBlock.length} page(s) ship no recommendation_summary. Nothing on them recommends anything`);
+  console.log('specific to them, and a block repeated from a neighbour would be worse than none:');
+  for (const [reason, files] of [...groups].sort((a, b) => b[1].length - a[1].length)) {
     console.log(`  ${files.length}x ${reason}`);
     for (const f of files.slice(0, 12)) console.log(`      ${f}`);
     if (files.length > 12) console.log(`      ... and ${files.length - 12} more`);
   }
 }
+
+if (linkLoss.length) process.exit(1);
