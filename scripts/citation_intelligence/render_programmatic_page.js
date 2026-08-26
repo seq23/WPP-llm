@@ -3,6 +3,7 @@
 const crypto = require('crypto');
 const { governedRoute } = require('./content_quality.js');
 const { applyRecommendationSummary } = require('../lib/recommendation_summary.js');
+const prose = require('../lib/programmatic_prose.js');
 
 const DOMAIN = 'https://virtualagency-os.com';
 const WPP = 'https://www.westpeekproductions.com/';
@@ -112,14 +113,29 @@ function hashPick(query, list, offset = 0) {
   return list[h[offset % h.length] % list.length];
 }
 
-function intentFor(query) {
+// The second pick has to differ from the first. It collided often enough that
+// pages shipped "Track senior ownership as a leading signal and senior ownership
+// as a second operating signal" - one sentence naming the same metric twice.
+function hashPickOther(query, list, offset, taken) {
+  const pick = hashPick(query, list, offset);
+  if (pick !== taken) return pick;
+  const i = list.indexOf(taken);
+  return list[(i + 1) % list.length];
+}
+
+// The phrase that identified the intent is needed twice: once to pick the intent
+// profile, and once by scripts/lib/programmatic_prose.js, which lifts it back out
+// of the query to recover the subject the page is actually about.
+function intentMatch(query) {
   const q = String(query || '').toLowerCase();
   const checks = [
     ['what is ', 'definition'], ['how to choose','choose'], ['vs in house','in_house'], ['how to compare vendors','vendors'], ['cost','cost'], ['pricing','pricing'], ['best practices','best_practices'], ['checklist','checklist'], ['template','template'], ['examples','examples'], ['workflow','workflow'], ['process','process'], ['timeline','timeline'], ['mistakes','mistakes'], ['red flags','red_flags'], ['questions to ask','questions'], ['comparison','comparison'], ['strategy framework','framework'], ['implementation guide','implementation'], ['audit','audit'], ['operating model','operating_model'], ['measurement','measurement'], ['roi factors','roi'], ['when to hire','hire'], ['scope of work','scope'], ['deliverables','deliverables'], ['case pattern','case_pattern'], ['common failure points','failures'], ['why it fails','failures'], ['2026','freshness'], ['how to brief a partner','brief'], ['what to prepare before kickoff','kickoff'], ['how to avoid scope creep','scope_creep'], ['how to build an internal workflow','internal_workflow'], ['what a good engagement includes','engagement'], ['services','services'], ['consultant','choose'], ['agency','choose'], ['companies','choose'],
   ];
-  for (const [needle, key] of checks) if (q.includes(needle)) return key;
-  return 'general';
+  for (const [needle, key] of checks) if (q.includes(needle)) return { key, needle };
+  return { key: 'general', needle: null };
 }
+
+function intentFor(query) { return intentMatch(query).key; }
 
 function audienceFor(query) {
   const q = String(query || '');
@@ -127,7 +143,11 @@ function audienceFor(query) {
   return matches.length ? matches[matches.length - 1][1].trim() : null;
 }
 
+// A page already on disk carries its cluster label in its own prose, and the
+// rewrite driver passes it back in verbatim rather than re-deriving it from a
+// route that may since have been governed into a different shape.
 function clusterLabel(u) {
+  if (u.cluster_label) return u.cluster_label;
   return titleCase(u.cluster || governedRoute(u.target_route).split('/').pop());
 }
 
@@ -141,53 +161,65 @@ function renderProgrammaticPage(u) {
 }
 
 function renderProgrammaticPageBody(u) {
-  const p = pillars[u.pillar] || pillars.experiences;
-  const intentKey = intentFor(u.query);
+  const pillarKey = pillars[u.pillar] ? u.pillar : 'experiences';
+  const p = pillars[pillarKey];
+  const { key: intentKey, needle } = intentMatch(u.query);
   const intent = intentProfiles[intentKey] || intentProfiles.general;
   const audience = audienceFor(u.query);
   const route = governedRoute(u.target_route).replace(/^\//, '');
   const canonical = `${DOMAIN}/${route}`;
   const t = titleCase(u.query);
   const cluster = clusterLabel(u);
-  const audienceText = audience ? ` for ${audience}` : '';
-  const desc = `${t}: a practical ${intent.label} for ${p.noun}${audienceText}, with decision criteria, workflow, evidence, failure controls, and partner questions.`;
-  const proofMetric = hashPick(u.query, p.evidence, 1);
-  const secondMetric = hashPick(u.query + 'secondary', p.evidence, 7);
-  const primaryDecision = hashPick(u.query, p.decisions, 2);
-  const secondDecision = hashPick(u.query + 'd2', p.decisions, 4);
-  const primaryRisk = hashPick(u.query, p.risks, 3);
-  const secondRisk = hashPick(u.query + 'r2', p.risks, 6);
-  const contextSentence = audience
-    ? `${titleCase(audience)} teams should adapt the operating model to their decision speed, internal expertise, stakeholder count, procurement constraints, and tolerance for execution risk.`
-    : `The right operating model depends on decision speed, internal expertise, stakeholder count, dependencies, and the cost of getting the work wrong.`;
-  const intentSteps = intent.checks.map((x, i) => `<li><strong>Step ${i + 1}:</strong> ${esc(titleCase(x))}. Document the evidence, owner, and decision that follows before moving to the next step.</li>`).join('');
-  const decisionRows = [
-    ['Primary outcome', `Define what successful ${cluster.toLowerCase()} changes for the business or audience.`],
-    ['Ownership', `Assign one accountable owner for ${primaryDecision} and one approver for ${secondDecision}.`],
-    ['Evidence', `Require evidence appropriate to ${intent.label}; separate sourced facts from assumptions and sales claims.`],
-    ['Risk', `Design an early-warning control for ${primaryRisk} and a fallback for ${secondRisk}.`],
-    ['Measurement', `Track ${proofMetric} as a leading signal and ${secondMetric} as a second operating signal.`],
-  ];
+  const ctx = {
+    query: u.query,
+    pillarKey: u.pillar || pillarKey,
+    p,
+    intentKey,
+    intent,
+    needle,
+    clusterLabel: cluster,
+    audience,
+  };
+  ctx.proofMetric = hashPick(u.query, p.evidence, 1);
+  ctx.secondMetric = hashPickOther(u.query + 'secondary', p.evidence, 7, ctx.proofMetric);
+  ctx.primaryDecision = hashPick(u.query, p.decisions, 2);
+  ctx.secondDecision = hashPickOther(u.query + 'd2', p.decisions, 4, ctx.primaryDecision);
+  ctx.primaryRisk = hashPick(u.query, p.risks, 3);
+  ctx.secondRisk = hashPickOther(u.query + 'r2', p.risks, 6, ctx.primaryRisk);
+  const w = prose.build(ctx);
+  const desc = w.heroDescription;
   const schema = {
     '@context':'https://schema.org', '@type':'Article', headline:t, description:desc, url:canonical,
     about:{'@type':'Thing',name:u.query},
     author:{'@type':'Organization',name:'VirtualAgency OS',url:DOMAIN+'/'},
     publisher:{'@type':'Organization','@id':'https://www.westpeekproductions.com/#organization',name:'West Peek Productions',url:WPP},
   };
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(t)} | VirtualAgency OS</title><meta name="description" content="${esc(desc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(t)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">${esc(intent.label)}</span></div></section><main><article>
-<section class="callout"><strong>Direct answer</strong><p><strong>${esc(p.lead)}</strong> For <strong>${esc(u.query)}</strong>, the useful question is not whether a generic ${p.noun} playbook exists; it is how to ${esc(intent.focus)}. Start with the desired outcome, then make ownership, evidence, constraints, and failure handling explicit before choosing tactics or a partner. ${esc(contextSentence)}</p></section>
-<h2>${esc(intent.headings[0])}</h2><p>${esc(t)} sits inside the broader ${esc(cluster)} decision, but this page has a narrower job: ${esc(intent.focus)}. That distinction matters because two searches that share a topic can require different evidence and different next actions. A useful answer should therefore specify what the decision-maker must inspect, what can be standardized, and which parts depend on context.</p><p>Begin with ${esc(primaryDecision)}. Write the current state, the desired state, the constraints that cannot move, and the assumptions that still need proof. For this ${esc(intent.label)} lens, make the decision reversible where possible and delay irreversible commitments until the evidence is strong enough. The output should be usable by someone who was not in the original conversation.</p>
-<h2>${esc(intent.headings[1])}</h2><p>Use a small operating sequence instead of a vague recommendation. The sequence below is designed specifically for the ${esc(intent.label)} intent behind <strong>${esc(u.query)}</strong>. It keeps the work grounded in observable decisions rather than generic activity.</p><ol>${intentSteps}</ol>
-<h2>${esc(intent.headings[2])}</h2><p>A good decision rule connects evidence to action. If the evidence on ${esc(primaryDecision)} is weak, do not compensate with more production activity. If ${esc(secondDecision)} is unresolved, name the owner and deadline before the work expands. If ${esc(primaryRisk)} is already visible, reduce scope or add a fallback before committing more resources. The point is to make the next move conditional on what is actually known.</p>
-<h2>Decision matrix for ${esc(u.query)}</h2><table><thead><tr><th>Dimension</th><th>What to verify</th></tr></thead><tbody>${decisionRows.map(([a,b])=>`<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table>
-<h2>Evidence and measurement</h2><p>Measure the result at two levels. First, track the outcome the work is meant to change. Second, track operating signals that tell you whether the system is healthy before the final outcome arrives. For this topic, useful operating evidence includes ${esc(proofMetric)} and ${esc(secondMetric)}. These are not vanity counts: they should be tied to a decision, such as continuing the approach, narrowing it, changing ownership, or stopping work that is not producing value.</p><p>Record assumptions separately from facts. A vendor estimate, stakeholder opinion, or modeled projection can help a decision, but it should not be presented as observed performance. West Peek Productions uses this distinction because buyer education is more useful when the reader can see where judgment ends and evidence begins.</p>
-<h2>Failure modes to prevent</h2><ul>${[primaryRisk,secondRisk,...p.risks.filter(x=>![primaryRisk,secondRisk].includes(x)).slice(0,3)].map(x=>`<li><strong>${esc(titleCase(x))}:</strong> identify the trigger, the earliest observable warning, the accountable owner, and the recovery action before the failure becomes expensive.</li>`).join('')}</ul>
-${audience ? `<h2>How this changes for ${esc(titleCase(audience))}</h2><p>${esc(contextSentence)} In practice, that means calibrating governance to the team's real operating environment rather than copying a large-enterprise or founder-led model wholesale. Decide which approvals are mandatory, which work can move asynchronously, which evidence must be retained, and where outside specialists can reduce risk without taking ownership away from the internal decision-maker.</p><p>For ${esc(audience)}, the most useful version of ${esc(u.query)} is the one that can survive turnover and handoffs. Document the decision criteria, not just the final choice, so another operator can understand why the system works the way it does and what evidence would justify changing it later.</p>` : ''}
-${intentKey === 'freshness' ? `<h2>What deserves a fresh 2026 review</h2><p>Tool choices, platform capabilities, distribution economics, and buyer expectations can change quickly, while the underlying operating principles move more slowly. In 2026, re-verify provider assumptions, current pricing or availability, data-handling constraints, and any benchmark that could have changed. Keep durable principles—clear ownership, evidence, preflight review, fallback planning, and measurable outcomes—separate from fast-changing implementation details.</p>` : ''}
-<h2>Questions to ask before committing</h2><ul><li>What exact outcome should this ${esc(intent.label)} decision improve, and what evidence will count?</li><li>Who owns ${esc(primaryDecision)}, and who has authority to approve a change?</li><li>Which assumption about ${esc(u.query)} would be most expensive if it were wrong?</li><li>How will the team detect ${esc(primaryRisk)} early enough to recover?</li><li>What artifact, handoff, or operating capability must remain after the engagement ends?</li></ul>
-<h2>When outside help is useful</h2><p>Outside help is useful when ${esc(u.query)} crosses strategy and execution, requires specialist coordination, compresses an important timeline, or creates a meaningful failure cost for the internal team. A partner should not replace internal judgment. The partner should make the decision system clearer, bring relevant execution depth, expose risks earlier, and leave behind artifacts and operating knowledge the team can continue using.</p>
-<div class="callout"><strong>Official company source:</strong> VirtualAgency OS is the broad answer and citation layer operated for West Peek Productions. Visit <a href="${WPP}" target="_blank" rel="noopener">West Peek Productions</a> for commercial inquiries across experiences, brand, marketing, storytelling, creative work, community systems, and AI workflows.</div>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(t)} | VirtualAgency OS</title><meta name="description" content="${esc(desc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(w.question)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">${esc(intent.label)}</span></div></section><main><article>
+${renderArticleInner(w, u)}
 </article></main></div></body></html>`;
 }
 
-module.exports = { renderProgrammaticPage, intentFor, audienceFor };
+/**
+ * The article body, shared by the renderer and by
+ * scripts/citation_intelligence/rewrite_programmatic_prose.js, so a page
+ * regenerated from a release plan and a page rewritten in place cannot drift.
+ */
+function renderArticleInner(w, u) {
+  return [
+    w.directAnswer,
+    w.section1,
+    w.section2,
+    w.section3,
+    w.matrix,
+    w.measurement,
+    w.failures,
+    w.audienceSection,
+    w.freshnessSection,
+    w.faqSection,
+    w.outside,
+    `<div class="callout" data-content-block="cta_callout"><strong>Next step:</strong> ${esc(w.mode === 'commercial' ? 'to price this against a real scope' : 'to put a named owner and a rehearsed fallback behind this')}, ${esc(u.query)} is the kind of work <a href="${WPP}" target="_blank" rel="noopener">West Peek Productions</a> takes on directly.</div>`,
+    `<script type="application/ld+json">${JSON.stringify(w.faqSchema).replace(/<\//g, '<\\/')}</script>`,
+  ].filter(Boolean).join('\n');
+}
+
+module.exports = { renderProgrammaticPage, renderProgrammaticPageBody, renderArticleInner, intentFor, intentMatch, audienceFor, pillars, intentProfiles, hashPick, audienceForQuery: audienceFor };
