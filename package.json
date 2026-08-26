@@ -5,7 +5,7 @@
   "description": "Static site + insights generator for virtualagency-os.com",
   "scripts": {
     "actions:validate": "node scripts/validate_workflows.js",
-    "build": "npm run query:atlas && node scripts/add_answer_schema.js && npm run authority:community:build && node scripts/build_insights.js && node scripts/build_link_architecture.js && node scripts/apply_fanout.js && node scripts/apply_entity_attribution.mjs && PAGES_OUT_DIR=. node scripts/build_404.js && node scripts/normalize_clean_canonicals.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && npm run authority:scale:restore && node scripts/authority_scale/maybe_release_plan.mjs && node scripts/install_clarity.js",
+    "build": "npm run query:atlas && node scripts/add_answer_schema.js && npm run authority:community:build && node scripts/build_insights.js && node scripts/retrofit_recommendation_summary.js --apply insights && node scripts/build_link_architecture.js && node scripts/apply_fanout.js && node scripts/apply_entity_attribution.mjs && PAGES_OUT_DIR=. node scripts/build_404.js && node scripts/normalize_clean_canonicals.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && npm run authority:scale:restore && node scripts/authority_scale/maybe_release_plan.mjs && node scripts/install_clarity.js",
     "attribution:apply": "node scripts/apply_entity_attribution.mjs",
     "build:insights": "node scripts/build_insights.js",
     "build:link-architecture": "node scripts/build_link_architecture.js",
