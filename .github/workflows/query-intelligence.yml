@@ -75,6 +75,15 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run signals:collect
+      # The only step that observes whether an answer engine actually cites us.
+      # Everything else in this workflow measures demand or our own output. It
+      # does not fail the run when the key is absent - a measurement that breaks
+      # the build when it cannot measure gets deleted.
+      - name: Observe whether answer engines cite us
+        if: steps.runtime.outputs.allowed == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run citation:probe
       - name: Score AEO and GEO opportunities
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run opportunities:score
