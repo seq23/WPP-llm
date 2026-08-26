@@ -88,9 +88,20 @@ function sentences(text) {
 }
 
 // A direct answer must stay a usable direct answer after a sentence is lifted
-// out of it. A remainder shorter than a dozen words is a fragment, not an
-// answer, so the page is skipped instead of being degraded to buy coverage.
-const MIN_REMAINING_WORDS = 12;
+// out of it. What makes a remainder unusable is that it stops mid-thought, not
+// that it is short: "Treat the experience as a production system, not a
+// platform purchase." is eleven words, is a complete sentence, and is a
+// perfectly good direct answer. The original dozen-word floor was a proxy for
+// "not a fragment" and it measured the wrong thing - it refused 56 pages whose
+// direct answer survived the hoist intact, purely on length, and every one of
+// those 56 had a distinct page-specific sentence waiting to be lifted.
+//
+// So the test is now completeness first: the remainder has to finish a
+// sentence. The word floor stays only to refuse the genuine stubs ("Yes.",
+// "It depends.") that are complete sentences but not answers.
+const MIN_REMAINING_WORDS = 6;
+const ENDS_SENTENCE = /[.!?]["'’”)\]]*$/;
+const isSentence = (t) => ENDS_SENTENCE.test(String(t).trim());
 
 const DA_LABEL = '(?:The\\s+)?(?:Direct|Quick|Short)\\s+answer';
 // <section class="callout"><strong>Direct answer</strong><p>...</p></section>
@@ -228,8 +239,15 @@ const clauses = (text) => String(text || '').split(/[,;:.!?()\[\]"“”]|\s[-�
  *   1  carries a phrase from one ("brand strategy")
  *   0  could sit unchanged on any page in the library
  */
+// A page whose whole identity is made of stop words ("community as a service
+// for founders", "how ai is used in marketing") yields no two-word phrase,
+// because phrasesOf drops any pair containing one. Gating on phrases alone
+// therefore returned 0 for those pages before the subject loop below ever ran -
+// discarding the *stronger* piece of evidence because the weaker one was empty.
+// Eight pages carried their exact subject verbatim in the direct answer and
+// were scored as generic anyway.
 function specificity(text, identity) {
-  if (!identity || !identity.phrases.size) return 0;
+  if (!identity || (!identity.phrases.size && !identity.subjects.length)) return 0;
   let best = 0;
   for (const clause of clauses(text)) {
     const w = words(clause);
@@ -381,7 +399,9 @@ function hoistLead(da, identity) {
   const lead = parts[idx];
   if (!balanced(lead)) return null;
   const remaining = parts.filter((_, i) => i !== idx).join(' ');
-  if (!balanced(remaining) || words(strip(remaining)).length < MIN_REMAINING_WORDS) return null;
+  if (!balanced(remaining)) return null;
+  const remText = strip(remaining);
+  if (!isSentence(remText) || words(remText).length < MIN_REMAINING_WORDS) return null;
   // Keep the emphasis the page gave the sentence. Every one of these templates
   // bolds its lede, and dropping the <strong> would silently reformat the
   // library - and drop those pages out of the definition_callout check, which

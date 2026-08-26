@@ -212,6 +212,41 @@ for (const rel of pages) {
   }
 }
 
+// Coverage is not the goal; a page-specific recommendation is. A block on 94%
+// of pages that says the same thing on 1,032 of them scores better on coverage
+// than the honest version and is worth less than nothing, so the number that
+// would have caught that is measured here and printed next to the coverage.
+//
+// This also guards a live regression path. scripts/retrofit_recommendation_summary.js
+// withdraws a block two pages derive identically, but the page GENERATORS call
+// scripts/lib/recommendation_summary.js directly and have no such pass - the
+// community-authority family's "How to approach it" list is shared across the
+// answers/learn/programmatic mirrors of one topic, so a plain `npm run build`
+// re-emits ~26 duplicated blocks. Uniqueness cannot be decided from one page in
+// isolation, so it is checked here over the whole library instead.
+const { recommendationSummaryText } = require('../lib/recommendation_summary.js');
+function distinctness() {
+  const byText = new Map();
+  for (const rel of pages) {
+    const t = recommendationSummaryText(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+    if (!t) continue;
+    if (!byText.has(t)) byText.set(t, []);
+    byText.get(t).push(rel);
+  }
+  const total = [...byText.values()].reduce((s, v) => s + v.length, 0);
+  const repeated = [...byText.entries()].filter(([, v]) => v.length > 1)
+    .sort((a, b) => b[1].length - a[1].length);
+  return {
+    total_blocks: total,
+    distinct_texts: byText.size,
+    ratio: Number((byText.size / Math.max(total, 1)).toFixed(4)),
+    texts_on_more_than_one_page: repeated.length,
+    pages_carrying_a_repeated_text: repeated.reduce((s, [, v]) => s + v.length, 0),
+    worst: repeated.slice(0, 10).map(([text, files]) => ({ pages: files.length, text: text.slice(0, 120), sample: files.slice(0, 4) })),
+  };
+}
+const RS_DISTINCTNESS = distinctness();
+
 const summary = CHECKS.map((c) => {
   const missing = c.blocking
     ? blockingFailures.filter((f) => f.check === c.id).length
@@ -236,7 +271,11 @@ fs.writeFileSync(EVIDENCE, `${JSON.stringify({
   status: blockingFailures.length ? (ENFORCEMENT === 'block' ? 'FAIL' : 'REPORTED') : 'PASS',
   blocking_failures: blockingFailures.length,
   summary,
+  recommendation_summary_distinctness: RS_DISTINCTNESS,
   worst_gaps: Object.fromEntries(Object.entries(gaps).map(([k, v]) => [k, v.slice(0, 25)])),
+  // The whole gap list, not the first 25. The 25-item slice above is what let a
+  // 272-page skip list sit unexamined: nobody could read past the head of it.
+  gaps_full: gaps,
   blocking_backlog: blockingFailures.slice(0, 200),
 }, null, 2)}\n`);
 
@@ -244,6 +283,14 @@ console.log(`CONTENT PATTERN CONTRACT: ${pages.length} pages checked (enforcemen
 for (const s of summary) {
   const tag = s.blocking ? 'BLOCKING' : 'gap     ';
   console.log(`  ${tag} ${s.id.padEnd(22)} coverage ${String(s.coverage_pct).padStart(5)}%  missing on ${s.pages_missing}`);
+}
+const d = RS_DISTINCTNESS;
+console.log(`  recommendation_summary: ${d.total_blocks} blocks, ${d.distinct_texts} distinct (ratio ${d.ratio})`);
+if (d.texts_on_more_than_one_page) {
+  console.warn(`  WARNING ${d.texts_on_more_than_one_page} summary text(s) repeat across ${d.pages_carrying_a_repeated_text} pages -`);
+  console.warn('  a block two pages share is not a summary of either. Re-run'
+    + ' scripts/retrofit_recommendation_summary.js --apply, which withdraws collisions.');
+  for (const w of d.worst.slice(0, 5)) console.warn(`    x${w.pages} ${JSON.stringify(w.text.slice(0, 90))}`);
 }
 if (blockingFailures.length) {
   const log = ENFORCEMENT === 'block' ? console.error : console.warn;

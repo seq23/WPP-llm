@@ -58,7 +58,11 @@ const rootIdx = argv.indexOf('--root');
 const ROOT = rootIdx >= 0 ? path.resolve(argv[rootIdx + 1]) : path.resolve(__dirname, '..');
 const dirs = argv.filter((a, i) => !a.startsWith('--') && (rootIdx < 0 || i !== rootIdx + 1));
 
-const SKIP_DIR = /(^|\/)(node_modules|\.git|dist|\.pages-output|artifacts|coverage|_site|build|\.build|data|reports|logs|docs|releases)(\/|$)/;
+// data/, reports/ and content/ are INPUTS - agent evidence, validator evidence,
+// and the markdown the insights build reads. A retrofit that wrote into them
+// once corrupted raw agent evidence, so they stay refused here permanently.
+// content/ holds no .html today; it is listed so that stops being the reason.
+const SKIP_DIR = /(^|\/)(node_modules|\.git|dist|\.pages-output|artifacts|coverage|_site|build|\.build|data|reports|content|logs|docs|releases)(\/|$)/;
 // Operator and utility surfaces answer no search query and recommend nothing.
 const SKIP_FILES = new Set(['admin/index.html', '404.html', 'privacy.html', 'terms.html', 'disclaimer.html']);
 
