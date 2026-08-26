@@ -144,9 +144,19 @@ for (const file of docFiles()) {
       // vault the operator creates, a report a build emits - and its absence in
       // a clean checkout says nothing. Only a path that neither exists nor is
       // referenced anywhere in the tooling is genuinely stale.
+      const needle = bare.replace(/\/$/, '');
+      // A generated artifact is rarely written as a literal path. apply_fanout.js
+      // emits path.join(BUILD_DIR, 'fanout_missing.json'), so the full string
+      // ".build/fanout_missing.json" appears nowhere in the tooling even though
+      // the pipeline plainly still produces it. Under a build-output directory,
+      // match the basename too - how the path is composed is a style choice and
+      // should not decide whether the doc is stale. This only surfaced when the
+      // files stopped being tracked: before that they existed on disk and the
+      // producer check was never reached.
       ok = fs.existsSync(path.join(ROOT, ref))
         || fs.existsSync(path.join(ROOT, bare))
-        || scriptCorpus.includes(bare.replace(/\/$/, ''));
+        || scriptCorpus.includes(needle)
+        || (GENERATED.test(needle) && scriptCorpus.includes(`'${path.basename(needle)}'`));
     }
     if (!ok && !ALLOW.has(ref)) errors.push(`${rel}: stale reference: ${ref}`);
   }
