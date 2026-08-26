@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "validator": "content-pattern-contract",
   "spec": ".clarity/content-pattern-spec.json",
-  "generated_at": "2026-08-26T07:24:07.171Z",
+  "generated_at": "2026-08-26T08:52:17.984Z",
   "enforcement": "report",
-  "pages_checked": 3190,
+  "pages_checked": 3240,
   "status": "REPORTED",
   "blocking_failures": 143,
   "summary": [
@@ -12,7 +12,7 @@
       "id": "direct_answer",
       "blocking": true,
       "pages_missing": 143,
-      "coverage_pct": 95.5,
+      "coverage_pct": 95.6,
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
@@ -46,15 +46,15 @@
     {
       "id": "comparison_table",
       "blocking": false,
-      "pages_missing": 598,
-      "coverage_pct": 81.3,
+      "pages_missing": 512,
+      "coverage_pct": 84.2,
       "why": "no comparison or cost table (agent request #2, 529 occurrences)"
     },
     {
       "id": "concrete_numbers",
       "blocking": false,
-      "pages_missing": 3075,
-      "coverage_pct": 3.6,
+      "pages_missing": 3125,
+      "coverage_pct": 3.5,
       "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
     },
     {
@@ -67,7 +67,7 @@
     {
       "id": "faq",
       "blocking": false,
-      "pages_missing": 3117,
+      "pages_missing": 3167,
       "coverage_pct": 2.3,
       "why": "no FAQ block or FAQPage schema (agent request #9)"
     },
@@ -82,20 +82,20 @@
       "id": "recommendation_summary",
       "blocking": false,
       "pages_missing": 181,
-      "coverage_pct": 94.3,
+      "coverage_pct": 94.4,
       "why": "no recommendation summary - asked for on 913 of 913 agent recommendations, the single most requested block"
     },
     {
       "id": "definition_callout",
       "blocking": false,
-      "pages_missing": 680,
-      "coverage_pct": 78.7,
+      "pages_missing": 594,
+      "coverage_pct": 81.7,
       "why": "no definition callout (agent requested 196 times) - this is what an answer engine lifts for \"what is X\""
     },
     {
       "id": "trust_block",
       "blocking": false,
-      "pages_missing": 3190,
+      "pages_missing": 3240,
       "coverage_pct": 0,
       "why": "no trust or authorship block (agent requested 215 times) - entity clarity is a citation factor"
     },
@@ -110,20 +110,20 @@
       "id": "protocol",
       "blocking": false,
       "pages_missing": 178,
-      "coverage_pct": 94.4,
+      "coverage_pct": 94.5,
       "why": "no ordered protocol - ordered steps are what gets lifted for \"how do I\""
     },
     {
       "id": "cta_callout",
       "blocking": false,
-      "pages_missing": 3166,
-      "coverage_pct": 0.8,
+      "pages_missing": 3216,
+      "coverage_pct": 0.7,
       "why": "no next-step callout - the conversion link may exist but nothing frames it as the next action"
     },
     {
       "id": "prompt_template",
       "blocking": false,
-      "pages_missing": 3190,
+      "pages_missing": 3240,
       "coverage_pct": 0,
       "why": "no copy-ready prompt - the artifact this audience actually reuses"
     }
