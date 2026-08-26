@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-08-26T17:47:46.278Z
+Generated: 2026-08-26T17:56:23.887Z
 
 Workflows: 7
 
@@ -78,9 +78,8 @@ Workflows: 7
 - query-intelligence.yml :: collect_score #14 :: Score AEO and GEO opportunities :: npm:opportunities:score
 - query-intelligence.yml :: collect_score #15 :: Build controlled release plan preview :: npm:release:plan
 - query-intelligence.yml :: collect_score #16 :: Validate query intelligence :: npm:validate:autonomous
-- query-intelligence.yml :: collect_score #17 :: Observe whether answer engines cite us
-- query-intelligence.yml :: collect_score #18 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
-- query-intelligence.yml :: collect_score #19 :: actions/upload-artifact@v7
+- query-intelligence.yml :: collect_score #17 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
+- query-intelligence.yml :: collect_score #18 :: actions/upload-artifact@v7
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6
 - search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v6
 - search-repair-retest.yml :: diagnose_repair_retest #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
