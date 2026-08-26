@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 const crypto = require('crypto');
 const { governedRoute } = require('./content_quality.js');
+const { applyRecommendationSummary } = require('../lib/recommendation_summary.js');
 
 const DOMAIN = 'https://virtualagency-os.com';
 const WPP = 'https://www.westpeekproductions.com/';
@@ -130,7 +131,16 @@ function clusterLabel(u) {
   return titleCase(u.cluster || governedRoute(u.target_route).split('/').pop());
 }
 
+// recommendation_summary is requested on 913 of 913 agent recommendations
+// (.clarity/content-pattern-spec.json) - the single most-requested block. Emit it
+// at render time so a new page is born compliant instead of being retrofitted
+// later, and share the transform with scripts/retrofit_recommendation_summary.js
+// so a generated page and a retrofitted one cannot drift apart.
 function renderProgrammaticPage(u) {
+  return applyRecommendationSummary(renderProgrammaticPageBody(u)).html;
+}
+
+function renderProgrammaticPageBody(u) {
   const p = pillars[u.pillar] || pillars.experiences;
   const intentKey = intentFor(u.query);
   const intent = intentProfiles[intentKey] || intentProfiles.general;

@@ -23,6 +23,10 @@ const dist = path.join(root, '.pages-output');
 const EXCLUDE = new Set([
   '.pages-output', 'dist', 'node_modules', '.git', '.github', '.gitignore',
   'scripts', 'distribution_scripts', 'tests', 'test', 'docs', 'reports',
+  // logs/ holds validator and workflow run receipts - internal operating output
+  // that no sitemap URL points at, and which the credential guard below refuses
+  // to publish once `npm run credentials:check` has written its summary there.
+  'logs',
   'artifacts', 'validation', 'data', 'prompts', 'content-bank',
   'content-recipes', '.wrangler', '.astro', 'coverage',
   'package.json', 'package-lock.json', 'AGENTS.md', 'README.md',

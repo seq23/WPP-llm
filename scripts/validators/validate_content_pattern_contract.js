@@ -108,7 +108,10 @@ const CHECKS = [
   // counts what the review agent actually asked for across 913 accepted
   // recommendations. These three were being missed entirely by the earlier list.
   { id: 'recommendation_summary', blocking: false,
-    test: (h) => /data-bhpc-agent-block="recommendation_summary"|class="[^"]*recommendation-summary|<h[23][^>]*>\s*(?:What (?:we|this page) recommends?|Recommendation|Bottom line)/i.test(h),
+    // data-content-block is the marker scripts/lib/recommendation_summary.js emits
+    // in this repo; the other two forms are kept so a page authored by hand or by
+    // a sibling generator still counts.
+    test: (h) => /data-content-block="recommendation_summary"|data-bhpc-agent-block="recommendation_summary"|class="[^"]*recommendation-summary|<h[23][^>]*>\s*(?:What (?:we|this page) recommends?|Recommendation|Bottom line)/i.test(h),
     why: 'no recommendation summary - asked for on 913 of 913 agent recommendations, the single most requested block' },
   { id: 'definition_callout', blocking: false,
     test: (h) => /class="[^"]*citation-definition|data-bhpc-agent-block="definition_callout"|<(?:p|div)[^>]*>\s*<strong>[^<]{40,}<\/strong>/i.test(h),

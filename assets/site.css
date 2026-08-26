@@ -92,3 +92,9 @@ ul{margin:0 0 14px 18px}
 .conversion-hero{border-color:color-mix(in srgb, var(--link) 45%, var(--line))}
 @media (max-width:720px){.grid.two{grid-template-columns:1fr}.cta-band{align-items:flex-start; flex-direction:column}.article h1{font-size:28px}}
 
+
+/* recommendation_summary - the block the review agent asks for on every
+   recommendation. It opens a panel, so its heading must not carry the
+   article-flow top margin and its last child must not push the panel open. */
+.recommendation-summary > h2:first-child{margin-top:0}
+.recommendation-summary > :last-child{margin-bottom:0}

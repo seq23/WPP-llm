@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { marked } = require("marked");
+const { applyRecommendationSummary } = require("./lib/recommendation_summary.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT, "content", "insights");
@@ -183,7 +184,11 @@ function ensureCleanDirs() {
 
 function buildPostPages(posts) {
   for (const post of posts) {
-    const htmlBody = marked.parse(post.bodyMd);
+    // recommendation_summary: requested on 913 of 913 agent recommendations
+    // (.clarity/content-pattern-spec.json). The transform lifts the post's own
+    // recommendation sentence out of its direct answer; it invents nothing, and
+    // a post without a separable recommendation is left alone.
+    const htmlBody = applyRecommendationSummary(marked.parse(post.bodyMd)).html;
     const related = buildRelated(posts, post, 8);
     const clusterObj = CLUSTERS.find((c) => c.id === post.cluster);
 

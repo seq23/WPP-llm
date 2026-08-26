@@ -16,6 +16,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { SCOOTER_TAYLOR, WEST_PEEK_PRODUCTIONS, PERSON_ID, ORG_ID } from './lib/entity.mjs';
+import { createRequire } from 'node:module';
+// recommendation_summary: the block the review agent asked for on 913 of 913
+// recommendations (.clarity/content-pattern-spec.json). Shared with the retrofit
+// so generated and retrofitted pages carry an identical block.
+const { applyRecommendationSummary } = createRequire(import.meta.url)('./lib/recommendation_summary.js');
 
 const ROOT = process.cwd();
 const spec = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/content/wo3_production_pages.json'), 'utf8'));
@@ -107,7 +112,7 @@ for (const p of spec.pages) {
 `;
   const file = path.join(ROOT, 'programmatic', `${p.slug}.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, html);
+  fs.writeFileSync(file, applyRecommendationSummary(html).html);
   built++;
   console.log(`[wo3] built programmatic/${p.slug}.html  answer=${answerWords}w faqs=${p.faqs.length} sections=${p.sections.length}`);
 }
