@@ -30,3 +30,8 @@ jobs:
       - run: npm run validate:workflow-faux-trace
       - run: npm run test:push-helper
       - run: npm run release:self-heal
+      - name: Cadence gate
+        # Blocks publishing faster than the library can be kept inside the
+        # 91-day window where pages stay citable. Warnings are reported
+        # without failing the run.
+        run: npm run cadence:gate
