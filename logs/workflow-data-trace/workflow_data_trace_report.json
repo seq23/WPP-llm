@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T16:28:46.687Z",
+  "generated_at": "2026-08-26T17:47:46.278Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -172,6 +172,16 @@
       "step": 8,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 9,
+      "name": "Cadence gate",
+      "npm_script": "cadence:gate",
       "direct_paths": [],
       "env_keys": []
     },
@@ -669,6 +679,19 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 17,
+      "name": "Observe whether answer engines cite us",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "OPENROUTER_API_KEY",
+        "CITATION_PROBE_MODE"
+      ]
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 18,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [
@@ -682,7 +705,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 18,
+      "step": 19,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
