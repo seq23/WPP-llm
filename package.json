@@ -91,7 +91,8 @@
     "selfheal": "node scripts/selfheal/heal_until_clean.mjs",
     "selfheal:dry": "node scripts/selfheal/heal_until_clean.mjs --dry-run",
     "queries:ingest": "python3 scripts/queries/ingest_gsc_evidence.py",
-    "clarity:install": "node scripts/install_clarity.js"
+    "clarity:install": "node scripts/install_clarity.js",
+    "cadence:headroom": "node scripts/cadence/publish_headroom.mjs"
   },
   "dependencies": {
     "marked": "^12.0.2"
