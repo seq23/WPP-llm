@@ -446,7 +446,26 @@ function build(ctx) {
   // scripts/lib/recommendation_summary.js lifts this whole emphasised lede into
   // the "What this page recommends" panel at the top of the article, which is
   // where an extractor reaches it first.
-  const answer = `${cap(subject)} turns on two decisions: ${primaryDecision}, then ${secondDecision}. ${OPENERS[mode]} Require ${EVIDENCE_STANCE[mode]}, put an early warning on ${primaryRisk}, and treat ${proofMetric} as ${SIGNAL[mode]}.`;
+  //
+  // The length is a budget, not a coincidence. An extracted answer that runs past
+  // about sixty words stops being quotable as a unit, and the pillar records vary
+  // wildly in length - "engagement, retention, measurement, and community-led
+  // growth" is six words where "audience and category" is three - so a fixed
+  // sentence set lands anywhere between 45 and 71 words. Clauses are dropped in
+  // order of how little they carry until the whole thing fits.
+  const wc = (x) => String(x).split(/\s+/).filter(Boolean).length;
+  const s1 = `${cap(subject)} turns on two decisions: ${primaryDecision}, then ${secondDecision}.`;
+  const s1short = `${cap(subject)} turns on ${primaryDecision}.`;
+  const s2 = OPENERS[mode];
+  const s3 = `Require ${EVIDENCE_STANCE[mode]}, put an early warning on ${primaryRisk}, and treat ${proofMetric} as ${SIGNAL[mode]}.`;
+  const s3short = `Put an early warning on ${primaryRisk}, and treat ${proofMetric} as ${SIGNAL[mode]}.`;
+  const s4 = `Settle ${secondDecision} before the scope is agreed.`;
+  let answer = [s1, s2, s3].join(' ');
+  if (wc(answer) > 60) answer = [s1, s3].join(' ');
+  if (wc(answer) > 60) answer = [s1, s2, s3short].join(' ');
+  if (wc(answer) > 60) answer = [s1, s3short].join(' ');
+  if (wc(answer) > 60) answer = [s1short, s2, s3short].join(' ');
+  if (wc(answer) < 40) answer = [s1, s2, s3, s4].join(' ');
 
   // Stays in the Direct answer panel after the lede is hoisted, so that panel is
   // still an answer and still names its own subject.
