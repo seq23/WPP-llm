@@ -4,6 +4,11 @@ const crypto = require('crypto');
 const { governedRoute } = require('./content_quality.js');
 const { applyRecommendationSummary } = require('../lib/recommendation_summary.js');
 const prose = require('../lib/programmatic_prose.js');
+// A regenerated page must not come back indexed. The audience-permutation
+// decision lives in one module so the renderer and the on-disk reconciler
+// (scripts/apply_noindex_policy.js) cannot drift; a route that earns an
+// impression returns to index,follow here with no edit anywhere.
+const noindexPolicy = require('../lib/noindex_policy.js');
 
 const DOMAIN = 'https://virtualagency-os.com';
 const WPP = 'https://www.westpeekproductions.com/';
@@ -194,7 +199,7 @@ function renderProgrammaticPageBody(u) {
     author:{'@type':'Organization',name:'VirtualAgency OS',url:DOMAIN+'/'},
     publisher:{'@type':'Organization','@id':'https://www.westpeekproductions.com/#organization',name:'West Peek Productions',url:WPP},
   };
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(t)} | VirtualAgency OS</title><meta name="description" content="${esc(desc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(w.question)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">${esc(intent.label)}</span></div></section><main><article>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(t)} | VirtualAgency OS</title><meta name="description" content="${esc(desc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="${noindexPolicy.robotsFor(`/${route}`)}"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(w.question)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">${esc(intent.label)}</span></div></section><main><article>
 ${renderArticleInner(w, u)}
 </article></main></div></body></html>`;
 }
