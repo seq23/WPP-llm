@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "validator": "content-pattern-contract",
   "spec": ".clarity/content-pattern-spec.json",
-  "generated_at": "2026-08-26T22:18:22.672Z",
+  "generated_at": "2026-08-27T15:33:39.892Z",
   "enforcement": "report",
-  "pages_checked": 3312,
+  "pages_checked": 3316,
   "status": "REPORTED",
   "blocking_failures": 143,
   "summary": [
@@ -46,7 +46,7 @@
     {
       "id": "comparison_table",
       "blocking": false,
-      "pages_missing": 584,
+      "pages_missing": 585,
       "coverage_pct": 82.4,
       "why": "no comparison or cost table (agent request #2, 529 occurrences)"
     },
@@ -54,20 +54,20 @@
       "id": "concrete_numbers",
       "blocking": false,
       "pages_missing": 3197,
-      "coverage_pct": 3.5,
+      "coverage_pct": 3.6,
       "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
     },
     {
       "id": "named_sources",
       "blocking": false,
-      "pages_missing": 8,
-      "coverage_pct": 99.8,
+      "pages_missing": 10,
+      "coverage_pct": 99.7,
       "why": "no named primary source (agent request #6, 288 occurrences)"
     },
     {
       "id": "faq",
       "blocking": false,
-      "pages_missing": 237,
+      "pages_missing": 238,
       "coverage_pct": 92.8,
       "why": "no FAQ block or FAQPage schema (agent request #9)"
     },
@@ -81,21 +81,21 @@
     {
       "id": "recommendation_summary",
       "blocking": false,
-      "pages_missing": 182,
-      "coverage_pct": 94.5,
+      "pages_missing": 185,
+      "coverage_pct": 94.4,
       "why": "no recommendation summary - asked for on 913 of 913 agent recommendations, the single most requested block"
     },
     {
       "id": "definition_callout",
       "blocking": false,
-      "pages_missing": 594,
+      "pages_missing": 592,
       "coverage_pct": 82.1,
       "why": "no definition callout (agent requested 196 times) - this is what an answer engine lifts for \"what is X\""
     },
     {
       "id": "trust_block",
       "blocking": false,
-      "pages_missing": 3312,
+      "pages_missing": 3316,
       "coverage_pct": 0,
       "why": "no trust or authorship block (agent requested 215 times) - entity clarity is a citation factor"
     },
@@ -109,29 +109,29 @@
     {
       "id": "protocol",
       "blocking": false,
-      "pages_missing": 178,
+      "pages_missing": 179,
       "coverage_pct": 94.6,
       "why": "no ordered protocol - ordered steps are what gets lifted for \"how do I\""
     },
     {
       "id": "cta_callout",
       "blocking": false,
-      "pages_missing": 666,
-      "coverage_pct": 79.9,
+      "pages_missing": 663,
+      "coverage_pct": 80,
       "why": "no next-step callout - the conversion link may exist but nothing frames it as the next action"
     },
     {
       "id": "prompt_template",
       "blocking": false,
-      "pages_missing": 3312,
+      "pages_missing": 3316,
       "coverage_pct": 0,
       "why": "no copy-ready prompt - the artifact this audience actually reuses"
     }
   ],
   "recommendation_summary_distinctness": {
-    "total_blocks": 3130,
-    "distinct_texts": 3112,
-    "ratio": 0.9942,
+    "total_blocks": 3131,
+    "distinct_texts": 3113,
+    "ratio": 0.9943,
     "texts_on_more_than_one_page": 8,
     "pages_carrying_a_repeated_text": 26,
     "worst": [
@@ -278,7 +278,9 @@
       "pillars/creative.html",
       "pillars/experiences.html",
       "pillars/marketing.html",
-      "pillars/storytelling.html"
+      "pillars/storytelling.html",
+      "tools/index.html",
+      "tools/production-scoping-calculator.html"
     ],
     "faq": [
       "ai-human-os.html",
@@ -991,6 +993,7 @@
       "programmatic/why-virtual-events-fail.html",
       "selected-work.html",
       "started-business.html",
+      "tools/index.html",
       "topics/agency-rfp-questions.html",
       "topics/agency-selection-strategy.html",
       "topics/ai-consultant-vs-automation-agency.html",
@@ -1105,7 +1108,6 @@
       "community-as-a-service.html",
       "glossary.html",
       "how-west-peek-helps.html",
-      "index.html",
       "insights/agency-kickoff-doc-what-to-include-so-clients-trust-you.html",
       "insights/agentic-workflows-guardrails-that-prevent-silent-failure.html",
       "insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing.html",
@@ -4190,6 +4192,7 @@
       "programmatic/what-is-webinar-production.html",
       "selected-work.html",
       "started-business.html",
+      "tools/index.html",
       "topics/agency-rfp-questions.html",
       "topics/agency-selection-strategy.html",
       "topics/ai-consultant-vs-automation-agency.html",
@@ -4271,7 +4274,9 @@
       "pillars/creative.html",
       "pillars/experiences.html",
       "pillars/marketing.html",
-      "pillars/storytelling.html"
+      "pillars/storytelling.html",
+      "tools/index.html",
+      "tools/production-scoping-calculator.html"
     ],
     "faq": [
       "ai-human-os.html",
@@ -4439,6 +4444,7 @@
       "query-atlas/virtual-summit-production.html",
       "query-atlas/webinar-production.html",
       "selected-work.html",
+      "tools/index.html",
       "topics/agency-rfp-questions.html",
       "topics/agency-selection-strategy.html",
       "topics/ai-consultant-vs-automation-agency.html",
@@ -4542,6 +4548,7 @@
       "case-studies/global-foundation-hybrid-event.html",
       "case-studies/index.html",
       "case-studies/large-business-school-virtual-summit.html",
+      "contact.html",
       "glossary.html",
       "how-west-peek-helps.html",
       "index.html",
@@ -4695,7 +4702,9 @@
       "query-atlas/virtual-summit-production.html",
       "query-atlas/webinar-production.html",
       "selected-work.html",
-      "started-business.html"
+      "started-business.html",
+      "tools/index.html",
+      "tools/production-scoping-calculator.html"
     ],
     "definition_callout": [
       "ai-helps-breaks.html",
@@ -5115,7 +5124,6 @@
       "programmatic/streamyard-virtual-event-production.html",
       "programmatic/video-content-strategy.html",
       "programmatic/virtual-career-fair-production.html",
-      "programmatic/virtual-conference-production.html",
       "programmatic/virtual-event-backup-systems.html",
       "programmatic/virtual-event-failure-prevention.html",
       "programmatic/virtual-event-management.html",
@@ -5199,7 +5207,6 @@
       "programmatic/virtual-event-production-vendor-questions.html",
       "programmatic/virtual-event-production-what-can-go-wrong.html",
       "programmatic/virtual-event-production-when-to-hire-help.html",
-      "programmatic/virtual-event-production.html",
       "programmatic/virtual-event-services.html",
       "programmatic/virtual-event-trends-2026.html",
       "programmatic/virtual-events-value.html",
@@ -5335,6 +5342,7 @@
       "case-studies/index.html",
       "case-studies/large-business-school-virtual-summit.html",
       "community-as-a-service.html",
+      "contact.html",
       "glossary.html",
       "how-west-peek-helps.html",
       "index.html",
@@ -7816,6 +7824,7 @@
       "programmatic/hybrid-event-production-checklist.html",
       "programmatic/hybrid-event-production-common-failure-points.html",
       "programmatic/hybrid-event-production-companies.html",
+      "programmatic/hybrid-event-production-company.html",
       "programmatic/hybrid-event-production-comparison.html",
       "programmatic/hybrid-event-production-consultant.html",
       "programmatic/hybrid-event-production-cost.html",
@@ -8534,6 +8543,8 @@
       "query-atlas/webinar-production.html",
       "selected-work.html",
       "started-business.html",
+      "tools/index.html",
+      "tools/production-scoping-calculator.html",
       "topics/agency-rfp-questions.html",
       "topics/agency-selection-strategy.html",
       "topics/ai-consultant-vs-automation-agency.html",
@@ -8786,6 +8797,7 @@
       "query-atlas/webinar-production.html",
       "selected-work.html",
       "started-business.html",
+      "tools/index.html",
       "topics/index.html"
     ],
     "cta_callout": [
@@ -9219,7 +9231,6 @@
       "programmatic/hybrid-event-production-strategy-framework.html",
       "programmatic/hybrid-event-production-vs-in-house-team.html",
       "programmatic/hybrid-event-production-when-to-hire.html",
-      "programmatic/hybrid-event-production.html",
       "programmatic/investor-event-production.html",
       "programmatic/investor-storytelling-best-practices.html",
       "programmatic/investor-storytelling-case-pattern.html",
@@ -9294,7 +9305,6 @@
       "programmatic/streamyard-virtual-event-production.html",
       "programmatic/video-content-strategy.html",
       "programmatic/virtual-career-fair-production.html",
-      "programmatic/virtual-conference-production.html",
       "programmatic/virtual-event-backup-systems.html",
       "programmatic/virtual-event-failure-prevention.html",
       "programmatic/virtual-event-planning-accessibility.html",
@@ -9364,11 +9374,9 @@
       "programmatic/virtual-event-production-vendor-questions.html",
       "programmatic/virtual-event-production-what-can-go-wrong.html",
       "programmatic/virtual-event-production-when-to-hire-help.html",
-      "programmatic/virtual-event-production.html",
       "programmatic/virtual-events-value.html",
       "programmatic/virtual-summit-production.html",
       "programmatic/visual-event-portfolio.html",
-      "programmatic/webinar-production.html",
       "programmatic/why-virtual-events-fail.html",
       "query-atlas.html",
       "query-atlas/agency-rfp-questions.html",
@@ -9454,7 +9462,8 @@
       "query-atlas/virtual-summit-production.html",
       "query-atlas/webinar-production.html",
       "selected-work.html",
-      "started-business.html"
+      "started-business.html",
+      "tools/index.html"
     ],
     "prompt_template": [
       "ai-helps-breaks.html",
@@ -9498,6 +9507,7 @@
       "case-studies/index.html",
       "case-studies/large-business-school-virtual-summit.html",
       "community-as-a-service.html",
+      "contact.html",
       "glossary.html",
       "how-west-peek-helps.html",
       "index.html",
@@ -11979,6 +11989,7 @@
       "programmatic/hybrid-event-production-checklist.html",
       "programmatic/hybrid-event-production-common-failure-points.html",
       "programmatic/hybrid-event-production-companies.html",
+      "programmatic/hybrid-event-production-company.html",
       "programmatic/hybrid-event-production-comparison.html",
       "programmatic/hybrid-event-production-consultant.html",
       "programmatic/hybrid-event-production-cost.html",
@@ -12697,6 +12708,8 @@
       "query-atlas/webinar-production.html",
       "selected-work.html",
       "started-business.html",
+      "tools/index.html",
+      "tools/production-scoping-calculator.html",
       "topics/agency-rfp-questions.html",
       "topics/agency-selection-strategy.html",
       "topics/ai-consultant-vs-automation-agency.html",
