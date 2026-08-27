@@ -30,7 +30,7 @@
       <a href="/programmatic/webinar-production-services">Webinars</a>
       <a class="primary" href="/tools/production-scoping-calculator">Calculator</a>
       <a href="/selected-work">Work</a>
-      <a href="/contact">Scope a production</a>
+      <a href="https://www.westpeekproductions.com/?utm_source=virtualagency-os&amp;utm_medium=referral&amp;utm_campaign=nav&amp;utm_content=calculator" target="_blank" rel="noopener">Get production help</a>
     </nav>
   </div>
 </header>
@@ -217,10 +217,10 @@
 
     <section class="cta-band">
       <div>
-        <strong>Have a band? Send the brief.</strong>
-        <p>The scoping page carries your answers across and assembles a production brief addressed to Scooter Taylor. West Peek Productions is the commercial destination at <a href="https://www.westpeekproductions.com/" target="_blank" rel="noopener">westpeekproductions.com</a>.</p>
+        <strong>Have a band? Brief the work.</strong>
+        <p>West Peek Productions is the commercial destination. Take the band and the drivers this tool named into its inquiry form, and the first conversation starts with scope instead of a budget question.</p>
       </div>
-      <a class="btn" href="/contact" id="cta-contact">Scope a production</a>
+      <a class="btn" href="https://www.westpeekproductions.com/?utm_source=virtualagency-os&amp;utm_medium=referral&amp;utm_campaign=cta-band&amp;utm_content=calculator" target="_blank" rel="noopener" id="cta-wpp">Start an inquiry with West Peek Productions</a>
     </section>
 
     <section>
@@ -248,7 +248,7 @@
       <div>
         <div style="font-weight:650; color:var(--fg); margin-bottom:6px">Start here</div>
         <div style="display:flex; flex-direction:column; gap:6px">
-          <a href="/contact">Scope a production</a>
+          <a href="https://www.westpeekproductions.com/?utm_source=virtualagency-os&amp;utm_medium=referral&amp;utm_campaign=footer&amp;utm_content=calculator" target="_blank" rel="noopener">Get production help</a>
           <a href="/selected-work">Selected work</a>
           <a href="/programmatic/webinar-production-services">Webinar production services</a>
           <a href="/programmatic/virtual-event-production-company">Virtual event production companies</a>
@@ -357,20 +357,27 @@
     }
 
     next.innerHTML = '';
-    var link = document.createElement('a');
+    // The computed band decides which West Peek Productions service page the
+    // buyer lands on, and utm_content carries the band so the calculator's
+    // contribution stays separable from every other route into the commercial
+    // site.
+    var isWebinar = result.category === 'webinar';
+    var dest = isWebinar
+      ? 'https://www.westpeekproductions.com/services/webinar-production'
+      : 'https://www.westpeekproductions.com/services/virtual-and-hybrid-event-production';
     var params = new URLSearchParams();
-    params.set('type', result.typeValue);
-    ['c-audience', 'c-speakers', 'c-rehearsal'].forEach(function (id) {
-      var opt = selected(id);
-      if (!opt) return;
-      params.set(id.replace('c-', ''), opt.value);
-    });
-    params.set('budget', result.category === 'webinar'
-      ? '$2,500 to $7,500 (moderated webinar range)'
-      : '$10,000 to $50,000 (summit, conference, hybrid)');
-    link.href = '/contact?' + params.toString();
+    params.set('utm_source', 'virtualagency-os');
+    params.set('utm_medium', 'referral');
+    params.set('utm_campaign', 'calculator-result');
+    params.set('utm_content', isWebinar ? 'webinar-band' : 'summit-hybrid-band');
+    var link = document.createElement('a');
+    link.href = dest + '?' + params.toString() + '#start-inquiry';
+    link.target = '_blank';
+    link.rel = 'noopener';
     link.className = 'btn';
-    link.textContent = 'Carry these answers into a production brief';
+    link.textContent = isWebinar
+      ? 'Brief this webinar with West Peek Productions'
+      : 'Brief this production with West Peek Productions';
     next.appendChild(link);
   }
 

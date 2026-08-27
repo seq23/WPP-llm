@@ -8,19 +8,28 @@
 # Every path a buyer guesses when they want to talk to someone. Each of these
 # 404d across the whole sitemap while the property ranked for the highest-CPC
 # terms in the portfolio, so the only route to a human was a mailto buried in a
-# page footer. They all land on the scoping page now.
-/book /contact 301
-/booking /contact 301
-/contact-us /contact 301
-/get-started /contact 301
-/start /contact 301
-/hire-us /contact 301
-/quote /contact 301
-/get-a-quote /contact 301
-/request-a-quote /contact 301
-/scope /contact 301
-/scoping /contact 301
-/inquiry /contact 301
+# page footer.
+#
+# They used to land on /contact, an on-domain brief builder that assembled a
+# mailto in the browser. A mailto cannot capture a lead: it needs a configured
+# mail client and then an actual send, and nobody can ever count the buyers who
+# did neither. That is the same silent loss this redirect block exists to stop.
+# westpeekproductions.com carries a hosted inquiry form, so these routes and
+# /contact itself now land on its inquiry section. Each carries its own
+# utm_content so the guessed path that earned the visit stays legible.
+/contact https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=contact#start-inquiry 301
+/book https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=book#start-inquiry 301
+/booking https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=booking#start-inquiry 301
+/contact-us https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=contact-us#start-inquiry 301
+/get-started https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=get-started#start-inquiry 301
+/start https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=start#start-inquiry 301
+/hire-us https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=hire-us#start-inquiry 301
+/quote https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=quote#start-inquiry 301
+/get-a-quote https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=get-a-quote#start-inquiry 301
+/request-a-quote https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=request-a-quote#start-inquiry 301
+/scope https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=scope#start-inquiry 301
+/scoping https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=scoping#start-inquiry 301
+/inquiry https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=inquiry#start-inquiry 301
 /pricing /tools/production-scoping-calculator 301
 /calculator /tools/production-scoping-calculator 301
 
