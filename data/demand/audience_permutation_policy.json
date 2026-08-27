@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "sealed_at": "2026-08-27",
+  "what_this_is": "The audience-permutation class: programmatic routes formed by appending 'for <audience>' to a topic head. Measured 0.548 impressions per route against 3.169 for every other programmatic route - 5.8x worse. 777 routes on disk belong to it: 63 have measured demand or live Search Console impressions and are indexed and untouched; 714 have neither and are noindex.",
+  "what_this_is_not": "This file does NOT list which routes are noindex. Membership in the class is structural (the audience suffix); the noindex decision is recomputed from live demand and GSC signals every time scripts/lib/noindex_policy.js loads. A member that starts earning impressions stops being a noindex candidate on the next build without anyone editing a list, and a protected member can never be demoted by hand.",
+
+  "audience_slugs": [
+    "creative-teams",
+    "enterprise-teams",
+    "financial-services-teams",
+    "founders",
+    "marketing-teams",
+    "nonprofits",
+    "saas-companies",
+    "small-teams",
+    "startups",
+    "venture-backed-companies"
+  ],
+  "audience_slug_provenance": [
+    "scripts/citation_intelligence/generate_query_universe.js -> modifiers[] entries beginning 'for ' (startups, nonprofits, enterprise teams, founders, marketing teams, small teams)",
+    "scripts/citation_intelligence/generate_query_universe.js -> audiences[] (SaaS companies, creative teams, financial services teams)",
+    "data/authority_scale/fanout_dimensions.json -> audiences (venture backed companies, SaaS companies, financial services teams, marketing teams, founders)"
+  ],
+  "audience_slugs_note": "These ten are the audiences that actually materialized as pages. Other 'for <x>' suffixes exist on disk (companies 49, professional-services-firms 47, associations 9, ...) but never fanned out at scale, so gating them now would touch routes this change deliberately leaves alone pending traffic data. Rule B below is what stops one of them becoming the next 777.",
+
+  "new_audience_route_threshold": 60,
+  "new_audience_route_threshold_note": "Rule B tripwire. The largest ungoverned 'for <x>' suffix on disk today is 'companies' at 49 routes; every governed audience above materialized at 44-148. A suffix outside audience_slugs that crosses 60 indexable routes carrying neither demand nor impressions is a new audience fan-out going unbounded: add it to audience_slugs so Rule A gates it, rather than raising this number.",
+
+  "rules": {
+    "A_class_containment": "Every route in the audience-permutation class that is indexable must carry measured demand or GSC impressions. Zero tolerance - a newly generated member with no evidence must ship noindex or the build fails.",
+    "B_new_audience_tripwire": "No 'for <x>' suffix outside audience_slugs may exceed new_audience_route_threshold indexable routes with zero evidence."
+  },
+  "enforced_by": "scripts/validators/validate_audience_permutation_budget.js"
+}

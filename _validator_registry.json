@@ -433,6 +433,16 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "report_and_continue"
+    },
+    {
+      "id": "audience-permutation-budget",
+      "command": "node scripts/validators/validate_audience_permutation_budget.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Stop the audience-permutation fan-out regrowing. Rule A: every route in the class (777 today) that is indexable must carry measured demand or GSC impressions - the 714 with neither ship noindex. Rule B: no ungoverned \"for <x>\" suffix may exceed 60 indexable evidence-free routes without being gated under Rule A.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."
