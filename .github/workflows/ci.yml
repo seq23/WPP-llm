@@ -34,6 +34,12 @@ jobs:
         # Blocks publishing faster than the library can be kept inside the
         # 91-day window where pages stay citable. Warnings are reported
         # without failing the run.
+        #
+        # The integrity check runs first and is not optional: the gate used to
+        # rewrite the ledger it reads, so a blocked run cleared itself on the
+        # next invocation. A gate that cannot hold a verdict reports a status
+        # without enforcing anything, which is worse than having no gate.
         run: |
+          npm run validate:cadence-integrity
           npm run cadence:gate
           npm run cadence:template-share
