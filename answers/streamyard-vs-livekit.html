@@ -41,6 +41,21 @@
 </section>
 
 <section class="card"><h2>Direct answer</h2><p>StreamYard is better understood as a broadcast control layer for switching, overlays, and public streams; LiveKit is better understood as realtime venue infrastructure for interactive event rooms and custom attendee experiences.</p></section>
+<section class="card"><h2>StreamYard and LiveKit side by side</h2>
+<table>
+<thead><tr><th>Dimension</th><th>StreamYard</th><th>LiveKit</th></tr></thead>
+<tbody>
+<tr><td>How the vendor describes it</td><td>&#8220;A professional live streaming and recording studio in your browser.&#8221;</td><td>&#8220;The platform for voice, video, and physical AI agents&#8221;; the server repository describes &#8220;scalable, multi-user conferencing based on WebRTC.&#8221;</td></tr>
+<tr><td>What you are given</td><td>A finished studio interface you operate. Nothing is assembled by you.</td><td>A server and client SDKs you build an event experience on top of.</td></tr>
+<tr><td>Published licence</td><td>Commercial hosted product; no server licence is published.</td><td>Apache License 2.0, source at github.com/livekit/livekit.</td></tr>
+<tr><td>Underlying architecture, as published</td><td>Not published by the vendor.</td><td>A Selective Forwarding Unit written in Go, built on the Pion WebRTC implementation.</td></tr>
+<tr><td>Where the output goes</td><td>Out to public platforms &#8212; the vendor names broadcasting live to several at once, including Facebook and YouTube.</td><td>Into whatever room or application you build; there is no built-in public broadcast destination.</td></tr>
+<tr><td>Question it answers on an event</td><td>&#8220;What does the audience see, and who is on screen right now?&#8221;</td><td>&#8220;What can an attendee do in the room, and who is allowed to do it?&#8221;</td></tr>
+<tr><td>Role West Peek gives it</td><td>Broadcast production control: switching, overlays, and public stream discipline.</td><td>Realtime venue infrastructure: participant permissions, interaction, and room logic.</td></tr>
+</tbody>
+</table>
+<p class="source-note">Vendor rows are taken from the vendors&#8217; own pages, each fetched and checked on 27 August 2026: <a href="https://streamyard.com/" target="_blank" rel="noopener">streamyard.com</a>, <a href="https://docs.livekit.io/" target="_blank" rel="noopener">docs.livekit.io</a> and <a href="https://github.com/livekit/livekit" target="_blank" rel="noopener">github.com/livekit/livekit</a>. The last row is West Peek Productions&#8217; own operating assignment, not a vendor claim. Where a vendor does not publish a figure, this table says so rather than estimating one.</p>
+</section>
 <section class="card"><h2>West Peek production context</h2><p>West Peek Productions approaches this as an operating system, not a software-only decision: speaker prep, run-of-show, moderation, platform role clarity, and fallback planning all matter.</p></section>
 <section class="card"><h2>Related pages</h2><ul><li><a href="/programmatic/streamyard-livekit-daily-stack">StreamYard + LiveKit + Daily event stack</a></li><li><a href="/programmatic/virtual-event-production">Virtual event production</a></li><li><a href="/programmatic/speaker-onboarding-and-rehearsals">Speaker onboarding and rehearsals</a></li></ul></section>
 
