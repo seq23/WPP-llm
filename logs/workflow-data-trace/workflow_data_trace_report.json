@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T16:15:54.423Z",
+  "generated_at": "2026-08-27T22:34:23.219Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -181,7 +181,7 @@
       "job": "build_validate",
       "step": 9,
       "name": "Cadence gate",
-      "npm_script": "cadence:gate",
+      "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
       "env_keys": []
     },
