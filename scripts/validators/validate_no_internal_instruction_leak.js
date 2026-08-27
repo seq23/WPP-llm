@@ -39,6 +39,18 @@ const PATTERNS = [
   [/Citation-ready update:/i, 'instruction appended to the answer block'],
   [/Marker-only framework cards/i, 'build policy text rendered as page copy'],
   [/Required semantic acceptance:/i, 'build policy text rendered as page copy'],
+  // The homepage published <h2>CTA: route commercial buyers to the official
+  // site</h2> as visible body copy on the property that carries the portfolio's
+  // highest-CPC terms. It survived because validate_homepage_ctas.js accepted
+  // that exact string as proof a middle CTA existed, so the note was load-bearing
+  // and nothing could remove it. Both ends are fixed: the validator now looks for
+  // the CTA itself, and this pattern refuses the note.
+  //
+  // The shape is general - a heading whose text is an instruction to the builder
+  // ("CTA:", "TODO:", "NOTE:", "FIXME:", "Placeholder:") rather than a title a
+  // reader would recognise. An answer engine quotes headings.
+  [/<h[1-6][^>]*>\s*(?:CTA|TODO|FIXME|NOTE|PLACEHOLDER|TBD|DRAFT)\s*:/i,
+    'heading is a build instruction, not a title a reader would recognise'],
 ];
 
 const offenders = [];

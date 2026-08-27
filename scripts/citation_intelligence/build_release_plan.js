@@ -7,6 +7,7 @@ const {
   candidateQuality, shingleSetFromHtml, wordCountFromHtml,
 } = require('./content_quality.js');
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
+const demandGate = require('../lib/demand_gate.js');
 
 const DOMAIN = 'https://virtualagency-os.com';
 function fileFor(route) {
@@ -47,7 +48,11 @@ const maxRepairs = Math.max(0, dailyRepairCeiling - usedRepairs);
 const normalized = opps
   .filter(o => o && o.query && o.target_route)
   .map(o => ({ ...o, target_route: governedRoute(o.target_route), source_route: cleanRoute(o.target_route), exists_now: existsRoute(o.target_route) }))
-  .sort((a,b) => (b.score||0)-(a.score||0) || (b.demand_estimate||0)-(a.demand_estimate||0) || a.target_route.localeCompare(b.target_route));
+  // Ordered by measured volume first. The previous tiebreak was `demand_estimate`,
+  // a fabricated priority*3; ordering by it meant a made-up number chose which
+  // page got built each day. A candidate with no measurement sorts last and is
+  // refused below anyway, so its position is only about report readability.
+  .sort((a,b) => (demandGate.measuredVolume(b.query)||0)-(demandGate.measuredVolume(a.query)||0) || (b.score||0)-(a.score||0) || a.target_route.localeCompare(b.target_route));
 const byRoute = new Map();
 for (const o of normalized) if (!byRoute.has(o.target_route)) byRoute.set(o.target_route, o);
 
@@ -82,8 +87,22 @@ const seenCreate = new Set();
 for (const o of orderedCreates) {
   if (create.length >= maxNew) break;
   const key = keyFor(o); if (seenCreate.has(key)) continue; seenCreate.add(key);
+  // The demand gate, ahead of the quality gate on purpose. The quality gate
+  // asks "is this page well made?"; it has no opinion on whether the query is
+  // real, so a fluent 1,500-word answer to a string nobody has ever searched
+  // passed it every time. 3,052 programmatic pages exist and the site holds no
+  // top-3 position on any mapped head term. Refuse first, then judge quality.
+  const record = demandGate.demandRecord(o.query);
+  if (!record) {
+    blocked.push({ target_route: o.target_route, query: o.query, release_action: 'create', reason: 'no_demand_record', details: ['no row in data/authority_scale/query_atlas.json or data/demand/measured_demand.json'] });
+    continue;
+  }
   const unit = stageCandidate(o, 'create');
-  if (unit) { unit.release_order = create.length + 1; create.push(unit); }
+  if (unit) {
+    unit.release_order = create.length + 1;
+    unit.demand_evidence = { source_type: record.source_type, evidence_tier: record.evidence_tier || null, measured_volume: Number.isFinite(Number(record.volume)) ? Number(record.volume) : null, source_file: record.demand_source_file };
+    create.push(unit);
+  }
 }
 
 const quality = analyzeCorpus();
@@ -111,8 +130,14 @@ const units = [...create, ...repairs];
 const plan = {
   schema_version: '2.0-quality-gated',
   generated_at: new Date().toISOString(),
-  mode: 'quality_gated_full_safe_autonomy',
-  target_semantics: 'publication ceilings are safety capacity, never page quotas; creates require distinct answer value and repairs target proven thin/duplicate legacy pages',
+  mode: 'demand_gated_then_quality_gated',
+  target_semantics: 'a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached',
+  demand_gate: {
+    source_files: ['data/authority_scale/query_atlas.json', 'data/demand/measured_demand.json'],
+    demand_records_available: demandGate.allRecords().length,
+    candidates_considered: newCandidates.length,
+    refused_for_no_demand: blocked.filter(b => b.reason === 'no_demand_record').length,
+  },
   daily_new_page_ceiling: dailyNewCeiling,
   daily_repair_ceiling: dailyRepairCeiling,
   daily_new_pages_already_used: usedNew,

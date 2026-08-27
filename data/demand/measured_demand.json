@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "purpose": "The only queries this repo is allowed to generate a page for. A page with no record here has no evidence that anyone searches for it.",
+  "provenance": {
+    "source": "Semrush US database, live pull",
+    "packet": "Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet",
+    "pulled_at": "2026-08-24",
+    "evidence_tier": "T2b",
+    "measured_fields": [
+      "volume",
+      "keyword_difficulty",
+      "cpc_usd",
+      "paid_competition"
+    ],
+    "derived_fields": [
+      "intent (derived_from_modifier_syntax_and_cpc)",
+      "weak_incumbent_score"
+    ],
+    "not_measured": [
+      "serp_features",
+      "competitor_ranking_url for most rows"
+    ]
+  },
+  "owner_seed_policy": "An owner may add a record with source_type:\"owner_approved_seed\" and volume:null. It must carry approved_by and approved_at. Nothing else may create records.",
+  "domains": [
+    "virtualagency-os.com",
+    "westpeekproductions.com"
+  ],
+  "record_count": 7,
+  "records": [
+    {
+      "query": "webinar production services",
+      "query_normalized": "webinar production services",
+      "target_domain": "virtualagency-os.com",
+      "volume": 210,
+      "keyword_difficulty": 0,
+      "weak_incumbent_score": 1,
+      "intent": "commercial",
+      "cpc_usd": 56.58,
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b"
+    },
+    {
+      "query": "hybrid event production company",
+      "query_normalized": "hybrid event production company",
+      "target_domain": "virtualagency-os.com",
+      "volume": 590,
+      "keyword_difficulty": 7,
+      "paid_competition": 0.02,
+      "intent": "commercial",
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b",
+      "packet": "Portfolio Blue Ocean Packet",
+      "note": "Blue-ocean row from the same Semrush pull as the rest of this file. Recorded because /programmatic/hybrid-event-production-company had no demand record and the gate would have refused the page."
+    },
+    {
+      "query": "webinar production",
+      "query_normalized": "webinar production",
+      "target_domain": "virtualagency-os.com",
+      "volume": 260,
+      "keyword_difficulty": 7,
+      "weak_incumbent_score": 0.93,
+      "intent": "informational",
+      "cpc_usd": 22.62,
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b"
+    },
+    {
+      "query": "virtual event production company",
+      "query_normalized": "virtual event production company",
+      "target_domain": "virtualagency-os.com",
+      "volume": 1300,
+      "keyword_difficulty": 8,
+      "weak_incumbent_score": 0.92,
+      "intent": "commercial",
+      "cpc_usd": 8.18,
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b"
+    },
+    {
+      "query": "hybrid event production",
+      "query_normalized": "hybrid event production",
+      "target_domain": "virtualagency-os.com",
+      "volume": 1600,
+      "keyword_difficulty": 9,
+      "weak_incumbent_score": 0.91,
+      "intent": "informational",
+      "cpc_usd": 0,
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b"
+    },
+    {
+      "query": "live stream production company",
+      "query_normalized": "live stream production company",
+      "target_domain": "westpeekproductions.com",
+      "volume": 140,
+      "keyword_difficulty": 12,
+      "weak_incumbent_score": 0.88,
+      "intent": "commercial",
+      "cpc_usd": 8.31,
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b"
+    },
+    {
+      "query": "virtual event production",
+      "query_normalized": "virtual event production",
+      "target_domain": "virtualagency-os.com",
+      "volume": 2900,
+      "keyword_difficulty": 13,
+      "weak_incumbent_score": 0.87,
+      "intent": "informational",
+      "cpc_usd": 10.87,
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b"
+    }
+  ]
+}

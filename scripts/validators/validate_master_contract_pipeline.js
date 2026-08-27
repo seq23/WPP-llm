@@ -41,9 +41,14 @@ const atoms = readJson('data/atoms/atom_registry.json', {atoms:[]});
 
 const checks = {
   'citation-goal-sizing': () => {
-    const target = strategy.citation_goal?.route_target_90_days || contentContract.cadence?.ninety_day_route_target || universe.counts?.target_90_day_routes || strategy.citation_goal?.route_target_6_months;
-    if (Number(target) < 900) fail(`authority route target too small: ${target}`);
-    if ((universe.queries||[]).length < 1000) fail(`query universe too small: ${(universe.queries||[]).length}`);
+    // Both assertions here were floors on counts - a route target of at least
+    // 900, a universe of at least 1,000 - and a floor on a count is satisfiable
+    // by manufacture. They are replaced by the one question a count cannot
+    // answer: does every candidate marked publishable have evidence behind it?
+    const eligible = (universe.queries || []).filter(q => q.page_eligible);
+    if (!eligible.length) fail('no demand-backed queries in the universe: nothing may be published');
+    const unbacked = eligible.filter(q => !(Number(q.measured_volume) > 0) && q.demand_evidence !== 'owner_approved_seed');
+    if (unbacked.length) fail(`${unbacked.length} queries marked publishable with no measured volume, e.g. ${unbacked.slice(0,3).map(q=>q.query).join('; ')}`);
   },
   'free-aeo-mode-contract': () => {
     if (citationContract.zero_paid_provider_default !== true) fail('zero_paid_provider_default must be true');

@@ -23,7 +23,14 @@ const clusterLinks = [];
 for (const [cluster, items] of [...byCluster.entries()].sort()) {
   const file = `query-atlas/${cluster}.html`;
   clusterLinks.push(`<li><a href="/${file.replace(/\.html$/,'')}">${esc(titleCase(cluster))}</a> <span class="muted">${items.length} query opportunities</span></li>`);
-  const rows = items.sort((a,b)=>b.priority-a.priority).map(q=>`<tr><td>${esc(q.query)}</td><td>${esc(q.intent)}</td><td>${esc(q.page_family)}</td><td>${esc(q.route_candidate)}</td><td>${q.priority}</td><td>${q.demand_estimate}</td></tr>`).join('\n');
+  // The "Demand" column used to print `demand_estimate`, which was priority x 3.
+  // These 82 pages published a fabricated search-volume figure to the open web
+  // under a column header that read "Demand". Print the measurement, or print
+  // that there is none.
+  const demandCell = q => Number.isFinite(Number(q.measured_volume))
+    ? `${Number(q.measured_volume).toLocaleString('en-US')}/mo`
+    : '<span class="muted">not measured</span>';
+  const rows = items.sort((a,b)=>(Number(b.measured_volume)||0)-(Number(a.measured_volume)||0)||b.priority-a.priority).map(q=>`<tr><td>${esc(q.query)}</td><td>${esc(q.intent)}</td><td>${esc(q.page_family)}</td><td>${esc(q.route_candidate)}</td><td>${q.priority}</td><td>${demandCell(q)}</td></tr>`).join('\n');
   const body = `<p>This cluster is part of the complete query universe used by the autonomous content release engine. It is designed for answer-engine extraction, Search Console learning, Gemini prompt-panel testing, and programmatic page creation.</p><div class="callout"><strong>Commercial route:</strong> serious buyer-intent pages route to <a href="${WPP}" target="_blank" rel="noopener">West Peek Productions</a>.</div><table><thead><tr><th>Query</th><th>Intent</th><th>Page family</th><th>Route candidate</th><th>Priority</th><th>Demand</th></tr></thead><tbody>${rows}</tbody></table>`;
   fs.writeFileSync(path.join(ROOT,file), page(`${titleCase(cluster)} Query Atlas`, `${items.length} query opportunities for ${titleCase(cluster)} mapped to page families and route candidates.`, body, file));
 }
