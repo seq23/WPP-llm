@@ -4,6 +4,30 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, '_redirects');
+
+// virtualagency-os.com is the educational/citation layer; westpeekproductions.com
+// is the commercial destination and holds the only hosted inquiry form in the
+// portfolio. #start-inquiry is the section that form sits in.
+const WPP_INQUIRY = 'https://www.westpeekproductions.com/';
+function wppInquiry(content) {
+  return `${WPP_INQUIRY}?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=${content}#start-inquiry`;
+}
+const WPP_GUESSED_ROUTES = [
+  ['/contact', 'contact'],
+  ['/book', 'book'],
+  ['/booking', 'booking'],
+  ['/contact-us', 'contact-us'],
+  ['/get-started', 'get-started'],
+  ['/start', 'start'],
+  ['/hire-us', 'hire-us'],
+  ['/quote', 'quote'],
+  ['/get-a-quote', 'get-a-quote'],
+  ['/request-a-quote', 'request-a-quote'],
+  ['/scope', 'scope'],
+  ['/scoping', 'scoping'],
+  ['/inquiry', 'inquiry'],
+];
+
 const lines = [
   '# Canonical policy: clean URLs are canonical.',
   '# Do NOT redirect clean URLs to .html. Most static hosts strip .html automatically;',
@@ -15,19 +39,16 @@ const lines = [
   '# Every path a buyer guesses when they want to talk to someone. Each of these',
   '# 404d across the whole sitemap while the property ranked for the highest-CPC',
   '# terms in the portfolio, so the only route to a human was a mailto buried in a',
-  '# page footer. They all land on the scoping page now.',
-  '/book /contact 301',
-  '/booking /contact 301',
-  '/contact-us /contact 301',
-  '/get-started /contact 301',
-  '/start /contact 301',
-  '/hire-us /contact 301',
-  '/quote /contact 301',
-  '/get-a-quote /contact 301',
-  '/request-a-quote /contact 301',
-  '/scope /contact 301',
-  '/scoping /contact 301',
-  '/inquiry /contact 301',
+  '# page footer.',
+  '#',
+  '# They used to land on /contact, an on-domain brief builder that assembled a',
+  '# mailto in the browser. A mailto cannot capture a lead: it needs a configured',
+  '# mail client and then an actual send, and nobody can ever count the buyers who',
+  '# did neither. That is the same silent loss this redirect block exists to stop.',
+  '# westpeekproductions.com carries a hosted inquiry form, so these routes and',
+  '# /contact itself now land on its inquiry section. Each carries its own',
+  '# utm_content so the guessed path that earned the visit stays legible.',
+  ...WPP_GUESSED_ROUTES.map(([from, content]) => `${from} ${wppInquiry(content)} 301`),
   '/pricing /tools/production-scoping-calculator 301',
   '/calculator /tools/production-scoping-calculator 301',
   '',
