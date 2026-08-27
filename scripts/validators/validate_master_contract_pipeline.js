@@ -47,8 +47,14 @@ const checks = {
     // answer: does every candidate marked publishable have evidence behind it?
     const eligible = (universe.queries || []).filter(q => q.page_eligible);
     if (!eligible.length) fail('no demand-backed queries in the universe: nothing may be published');
-    const unbacked = eligible.filter(q => !(Number(q.measured_volume) > 0) && q.demand_evidence !== 'owner_approved_seed');
-    if (unbacked.length) fail(`${unbacked.length} queries marked publishable with no measured volume, e.g. ${unbacked.slice(0,3).map(q=>q.query).join('; ')}`);
+    // "Evidence" is checked in the unit the row actually carries. `measured_volume`
+    // was one field holding either monthly search volume or this site's own 90-day
+    // impressions, so this check used to pass on a number whose meaning was unknown.
+    const demandValue = q => q.demand_basis === 'search_volume' ? q.search_volume
+      : q.demand_basis === 'impressions_90d' ? q.impressions_90d
+      : null;
+    const unbacked = eligible.filter(q => !(Number(demandValue(q)) > 0) && q.demand_evidence !== 'owner_approved_seed');
+    if (unbacked.length) fail(`${unbacked.length} queries marked publishable with no demand evidence in either unit, e.g. ${unbacked.slice(0,3).map(q=>q.query).join('; ')}`);
   },
   'free-aeo-mode-contract': () => {
     if (citationContract.zero_paid_provider_default !== true) fail('zero_paid_provider_default must be true');

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "purpose": "The only queries this repo is allowed to generate a page for. A page with no record here has no evidence that anyone searches for it.",
   "provenance": {
     "source": "Semrush US database, live pull",
@@ -7,7 +7,7 @@
     "pulled_at": "2026-08-24",
     "evidence_tier": "T2b",
     "measured_fields": [
-      "volume",
+      "search_volume",
       "keyword_difficulty",
       "cpc_usd",
       "paid_competition"
@@ -21,7 +21,7 @@
       "competitor_ranking_url for most rows"
     ]
   },
-  "owner_seed_policy": "An owner may add a record with source_type:\"owner_approved_seed\" and volume:null. It must carry approved_by and approved_at. Nothing else may create records.",
+  "owner_seed_policy": "An owner may add a record with source_type:\"owner_approved_seed\" and search_volume:null. It must carry approved_by and approved_at. Nothing else may create records.",
   "domains": [
     "virtualagency-os.com",
     "westpeekproductions.com"
@@ -32,86 +32,114 @@
       "query": "webinar production services",
       "query_normalized": "webinar production services",
       "target_domain": "virtualagency-os.com",
-      "volume": 210,
       "keyword_difficulty": 0,
       "weak_incumbent_score": 1,
       "intent": "commercial",
       "cpc_usd": 56.58,
       "source_type": "semrush_keyword_magic",
-      "evidence_tier": "T2b"
+      "evidence_tier": "T2b",
+      "search_volume": 210,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     },
     {
       "query": "hybrid event production company",
       "query_normalized": "hybrid event production company",
       "target_domain": "virtualagency-os.com",
-      "volume": 590,
       "keyword_difficulty": 7,
       "paid_competition": 0.02,
       "intent": "commercial",
       "source_type": "semrush_keyword_magic",
       "evidence_tier": "T2b",
       "packet": "Portfolio Blue Ocean Packet",
-      "note": "Blue-ocean row from the same Semrush pull as the rest of this file. Recorded because /programmatic/hybrid-event-production-company had no demand record and the gate would have refused the page."
+      "note": "Blue-ocean row from the same Semrush pull as the rest of this file. Recorded because /programmatic/hybrid-event-production-company had no demand record and the gate would have refused the page.",
+      "search_volume": 590,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     },
     {
       "query": "webinar production",
       "query_normalized": "webinar production",
       "target_domain": "virtualagency-os.com",
-      "volume": 260,
       "keyword_difficulty": 7,
       "weak_incumbent_score": 0.93,
       "intent": "informational",
       "cpc_usd": 22.62,
       "source_type": "semrush_keyword_magic",
-      "evidence_tier": "T2b"
+      "evidence_tier": "T2b",
+      "search_volume": 260,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     },
     {
       "query": "virtual event production company",
       "query_normalized": "virtual event production company",
       "target_domain": "virtualagency-os.com",
-      "volume": 1300,
       "keyword_difficulty": 8,
       "weak_incumbent_score": 0.92,
       "intent": "commercial",
       "cpc_usd": 8.18,
       "source_type": "semrush_keyword_magic",
-      "evidence_tier": "T2b"
+      "evidence_tier": "T2b",
+      "search_volume": 1300,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     },
     {
       "query": "hybrid event production",
       "query_normalized": "hybrid event production",
       "target_domain": "virtualagency-os.com",
-      "volume": 1600,
       "keyword_difficulty": 9,
       "weak_incumbent_score": 0.91,
       "intent": "informational",
       "cpc_usd": 0,
       "source_type": "semrush_keyword_magic",
-      "evidence_tier": "T2b"
+      "evidence_tier": "T2b",
+      "search_volume": 1600,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     },
     {
       "query": "live stream production company",
       "query_normalized": "live stream production company",
       "target_domain": "westpeekproductions.com",
-      "volume": 140,
       "keyword_difficulty": 12,
       "weak_incumbent_score": 0.88,
       "intent": "commercial",
       "cpc_usd": 8.31,
       "source_type": "semrush_keyword_magic",
-      "evidence_tier": "T2b"
+      "evidence_tier": "T2b",
+      "search_volume": 140,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     },
     {
       "query": "virtual event production",
       "query_normalized": "virtual event production",
       "target_domain": "virtualagency-os.com",
-      "volume": 2900,
       "keyword_difficulty": 13,
       "weak_incumbent_score": 0.87,
       "intent": "informational",
       "cpc_usd": 10.87,
       "source_type": "semrush_keyword_magic",
-      "evidence_tier": "T2b"
+      "evidence_tier": "T2b",
+      "search_volume": 2900,
+      "impressions_90d": null,
+      "demand_basis": "search_volume",
+      "search_volume_source": "semrush_keyword_magic (Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet)"
     }
-  ]
+  ],
+  "unit_contract": {
+    "search_volume": "Monthly searches reported by a keyword tool. null when unknown.",
+    "impressions_90d": "This domain's own impressions over a measured 90-day GSC window. Always null in this file: every record here comes from a keyword tool, which cannot observe this site's impressions.",
+    "demand_basis": "Which field a consumer may score on: search_volume | impressions_90d | none.",
+    "removed_field": "`volume` is removed. Across this repo that one name held BOTH monthly search volume (keyword-tool rows) and this domain’s own 90-day impressions (GSC rows), so rank_score compared incompatible units. A missing key throws; a wrong number does not.",
+    "never": "Do not sum or compare across units."
+  }
 }

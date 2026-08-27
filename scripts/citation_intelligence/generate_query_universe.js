@@ -12,10 +12,10 @@
  * moderation strategy for foundations` (measured: nothing, because nobody has
  * measured it) were separated by 48 points of a made-up scale.
  *
- * Records now carry `measured_volume` and `demand_evidence`, both sourced from
- * scripts/lib/demand_gate.js. A candidate with no record gets `measured_volume:
- * null` and `demand_evidence: 'NONE'` - an absence, stated as an absence, which
- * the release planner refuses to build on.
+ * Records now carry `search_volume`, `impressions_90d`, `demand_basis` and
+ * `demand_evidence`, all sourced from scripts/lib/demand_gate.js. A candidate
+ * with no record gets both units null and `demand_evidence: 'NONE'` - an absence,
+ * stated as an absence, which the release planner refuses to build on.
  */
 const fs=require('fs'),path=require('path'); const ROOT=path.resolve(__dirname,'../..');
 const demandGate=require('../lib/demand_gate.js');
@@ -34,13 +34,24 @@ const modifiers=['what is','how to choose','cost','pricing','services','agency',
 const intents=m=>/cost|pricing|agency|consultant|companies|when to hire|scope|deliverables/.test(m)?'commercial':/vs |comparison|how to choose|questions/.test(m)?'decision':'informational';
 let qs=[]; const seen=new Set();
 /** The only source of a demand number on any record. Returns an absence as an
- *  absence: `measured_volume: null` and `demand_evidence: 'NONE'`. Nothing here
- *  invents a figure to stand in for one. */
+ *  absence: both units null and `demand_evidence: 'NONE'`. Nothing here invents a
+ *  figure to stand in for one.
+ *
+ *  These records used to carry a single `measured_volume`, copied straight out of
+ *  the demand record's `volume`. That field held monthly search volume on
+ *  keyword-tool rows and this domain's own 90-day impressions on GSC rows, so
+ *  `virtual event production cost` shipped as `measured_volume: 17` and the
+ *  cluster pages printed it as "17/mo" - 17 impressions of this site, published to
+ *  the open web as a search-volume figure. The two units are now separate fields
+ *  and `demand_basis` says which one a consumer may score on. */
 function demandFields(query){
   const rec=demandGate.demandRecord(query);
-  if(!rec) return {measured_volume:null,keyword_difficulty:null,demand_evidence:'NONE',page_eligible:false};
+  if(!rec) return {search_volume:null,impressions_90d:null,demand_basis:'none',keyword_difficulty:null,demand_evidence:'NONE',page_eligible:false};
+  const units=demandGate.demandUnits(rec);
   return {
-    measured_volume:Number.isFinite(Number(rec.volume))?Number(rec.volume):null,
+    search_volume:units.search_volume,
+    impressions_90d:units.impressions_90d,
+    demand_basis:units.demand_basis,
     keyword_difficulty:Number.isFinite(Number(rec.keyword_difficulty))?Number(rec.keyword_difficulty):null,
     demand_evidence:rec.source_type,
     demand_evidence_tier:rec.evidence_tier||null,

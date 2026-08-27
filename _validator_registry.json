@@ -143,6 +143,20 @@
       "owner": "repo"
     },
     {
+      "id": "query-atlas-evidence-gate",
+      "command": "node scripts/atlas/validate_query_atlas.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Refuse to publish a query atlas entry that carries no demand evidence in a named unit. Distinct from `query-atlas`, which validates the public HTML atlas built from data/query_atlas/query_universe.json.",
+      "owner": "repo"
+    },
+    {
+      "id": "atlas-unit-contract",
+      "command": "node scripts/atlas/validate_atlas_units.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Enforce the demand-unit contract: no row may carry the ambiguous `volume` key, a GSC row may not claim a search_volume without keyword-tool provenance, demand_basis must agree with the populated fields, rank_score must be banded, and no source file may read the removed field off a query row.",
+      "owner": "repo"
+    },
+    {
       "id": "programmatic-engine",
       "command": "node scripts/validate_programmatic_release_engine.js",
       "severity": "HARD_FAIL",

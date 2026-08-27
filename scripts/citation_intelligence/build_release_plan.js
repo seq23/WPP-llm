@@ -45,14 +45,33 @@ const usedRepairs = sameDay ? Number(velocityLedger.repairs_used || 0) : 0;
 const maxNew = Math.max(0, dailyNewCeiling - usedNew);
 const maxRepairs = Math.max(0, dailyRepairCeiling - usedRepairs);
 
+// Demand comes in two units that must never be compared: `search_volume` counts
+// searches the whole market runs, `impressions_90d` counts times this one site was
+// shown. Ordering is therefore band-major - all the market-volume candidates, then
+// all the own-impressions candidates, then the unmeasured - and the magnitude
+// comparison only ever happens inside a band.
+const DEMAND_BANDS = { search_volume: 0, impressions_90d: 1, none: 2 };
+const releaseBand = (o) => DEMAND_BANDS[(demandGate.demandSignal(o.query) || {}).demand_basis || 'none'];
+const demandWithinBand = (o) => {
+  const s = demandGate.demandSignal(o.query);
+  if (!s) return 0;
+  return (s.demand_basis === 'search_volume' ? s.search_volume : s.impressions_90d) || 0;
+};
+
 const normalized = opps
   .filter(o => o && o.query && o.target_route)
   .map(o => ({ ...o, target_route: governedRoute(o.target_route), source_route: cleanRoute(o.target_route), exists_now: existsRoute(o.target_route) }))
-  // Ordered by measured volume first. The previous tiebreak was `demand_estimate`,
-  // a fabricated priority*3; ordering by it meant a made-up number chose which
-  // page got built each day. A candidate with no measurement sorts last and is
-  // refused below anyway, so its position is only about report readability.
-  .sort((a,b) => (demandGate.measuredVolume(b.query)||0)-(demandGate.measuredVolume(a.query)||0) || (b.score||0)-(a.score||0) || a.target_route.localeCompare(b.target_route));
+  // Ordered by measured demand, BAND-MAJOR. The previous tiebreak was
+  // `demand_estimate`, a fabricated priority*3; ordering by it meant a made-up
+  // number chose which page got built each day. Its replacement then sorted every
+  // candidate on one `volume` field that held monthly search volume for some rows
+  // and this site's own 90-day impressions for others, so 1,300 searches and 8
+  // impressions sorted as peers. Candidates with a keyword-tool search_volume are
+  // ordered among themselves first, then candidates evidenced only by this site's
+  // own impressions, then the unmeasured - which are refused below anyway, so
+  // their position is only about report readability. Two numbers in different
+  // units are never subtracted from each other.
+  .sort((a,b) => (releaseBand(a)-releaseBand(b)) || (demandWithinBand(b)-demandWithinBand(a)) || (b.score||0)-(a.score||0) || a.target_route.localeCompare(b.target_route));
 const byRoute = new Map();
 for (const o of normalized) if (!byRoute.has(o.target_route)) byRoute.set(o.target_route, o);
 
@@ -100,7 +119,17 @@ for (const o of orderedCreates) {
   const unit = stageCandidate(o, 'create');
   if (unit) {
     unit.release_order = create.length + 1;
-    unit.demand_evidence = { source_type: record.source_type, evidence_tier: record.evidence_tier || null, measured_volume: Number.isFinite(Number(record.volume)) ? Number(record.volume) : null, source_file: record.demand_source_file };
+    const units = demandGate.demandUnits(record);
+    unit.demand_evidence = {
+      source_type: record.source_type,
+      evidence_tier: record.evidence_tier || null,
+      // Both units, named. A single `measured_volume` here reported this site's own
+      // impression count as though it were market search volume.
+      search_volume: units.search_volume,
+      impressions_90d: units.impressions_90d,
+      demand_basis: units.demand_basis,
+      source_file: record.demand_source_file
+    };
     create.push(unit);
   }
 }

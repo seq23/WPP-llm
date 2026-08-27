@@ -29,8 +29,8 @@ const ROOT = path.resolve(__dirname, '..', '..');
  * Two sources, unioned, both already evidence-tiered.
  *
  * `query_atlas.json` was here before this module and holds 522 queries with
- * real GSC volume, an `evidence_tier`, and a `policy` string that already says
- * the right thing: "Pages may only be generated against evidence_tier T1-T3.
+ * real GSC measurement, an `evidence_tier`, and a `policy` string that already
+ * says the right thing: "Pages may only be generated against evidence_tier T1-T3.
  * T4 synthetic permutations are a hypothesis reserve ... and never publish on
  * their own." Nothing read it. This module is the thing that finally enforces
  * the policy the file already declared.
@@ -43,6 +43,35 @@ const ATLAS_FILE = path.join(ROOT, 'data/authority_scale/query_atlas.json');
 const DEMAND_FILE = path.join(ROOT, 'data/demand/measured_demand.json');
 const ADMISSIBLE_TIERS = new Set(['T1', 'T2a', 'T2b', 'T3']);
 
+/**
+ * Demand arrives in TWO units and they are not interchangeable.
+ *
+ *   search_volume     monthly searches the whole market runs, from a keyword tool
+ *   impressions_90d   times THIS domain was shown, over a 90-day Search Console window
+ *
+ * Both were once written to one field named `volume`, and every consumer -
+ * including this gate - read that field as though it meant the first thing. It
+ * meant the second thing on 521 of 522 atlas rows. `virtual event production
+ * company` has 1,300 monthly searches and 8 of this site's own impressions; the
+ * gate was ranking it on the 8.
+ *
+ * Both units are real evidence that a query exists, so both still open the gate.
+ * Neither may be reported as the other, so callers get the basis alongside the
+ * number and there is no function here that returns "the demand" as one figure.
+ */
+function demandUnits(r) {
+  const num = (v) => (v === null || v === undefined || !Number.isFinite(Number(v)) ? null : Number(v));
+  const search_volume = num(r.search_volume);
+  const impressions_90d = num(r.impressions_90d);
+  return {
+    search_volume,
+    impressions_90d,
+    demand_basis: search_volume !== null ? 'search_volume'
+      : impressions_90d !== null ? 'impressions_90d'
+      : 'none'
+  };
+}
+
 /** Same normalization on both sides of every comparison, so a trailing space
  *  or a capital letter can never be the reason a real query is refused. */
 function normalize(query) {
@@ -54,18 +83,38 @@ let cache = null;
 function admit(byQuery, r, origin) {
   const key = normalize(r.query_normalized || r.query);
   if (!key) return;
-  // An owner-approved seed is allowed to carry no volume - that is the point of
-  // it - but it must say who approved it, or it is indistinguishable from a row
-  // someone appended to get past this gate.
+  // A record carrying the removed `volume` field is a record whose unit nobody
+  // can name. Refuse it loudly rather than guess which of the two it holds.
+  if (Object.prototype.hasOwnProperty.call(r, 'volume')) {
+    throw new Error(
+      `demand_gate: record "${r.query}" (${origin}) carries the removed ambiguous \`volume\` field. ` +
+      `That name held monthly search volume on keyword-tool rows and this domain's own 90-day ` +
+      `impressions on GSC rows. Write search_volume or impressions_90d instead.`
+    );
+  }
+  const units = demandUnits(r);
+  // An owner-approved seed is allowed to carry no measurement in either unit -
+  // that is the point of it - but it must say who approved it, or it is
+  // indistinguishable from a row someone appended to get past this gate.
   if (r.source_type === 'owner_approved_seed') {
     if (!r.approved_by) throw new Error(`demand_gate: owner_approved_seed "${r.query}" has no approved_by. Refusing to treat it as evidence.`);
   } else {
-    if (!(Number(r.volume) > 0)) throw new Error(`demand_gate: record "${r.query}" (${origin}) claims a measured source but has no volume. Refusing to treat it as evidence.`);
+    // Either unit is evidence that the query is real. Neither is a substitute for
+    // the other, which is why the basis travels with the record from here on.
+    const value = units.demand_basis === 'search_volume' ? units.search_volume
+      : units.demand_basis === 'impressions_90d' ? units.impressions_90d
+      : null;
+    if (!(value > 0)) {
+      throw new Error(
+        `demand_gate: record "${r.query}" (${origin}) claims a measured source but carries neither ` +
+        `a keyword-tool search_volume nor a measured impressions_90d. Refusing to treat it as evidence.`
+      );
+    }
     if (r.evidence_tier && !ADMISSIBLE_TIERS.has(r.evidence_tier)) return; // T4 is a hypothesis reserve, not a publishing queue.
   }
   // First writer wins, and the atlas is loaded second, so a Semrush record with
   // difficulty data is not overwritten by the bare GSC row for the same string.
-  if (!byQuery.has(key)) byQuery.set(key, { ...r, demand_source_file: origin });
+  if (!byQuery.has(key)) byQuery.set(key, { ...r, ...units, demand_source_file: origin });
 }
 
 function load() {
@@ -100,14 +149,24 @@ function hasDemand(query) {
   return demandRecord(query) !== null;
 }
 
-/** Measured monthly volume, or null when the record is an owner seed with no
- *  measurement. Never returns a fabricated number - a caller that wants to sort
- *  by demand must decide for itself what to do with null rather than receive a
- *  placeholder it will mistake for data. */
-function measuredVolume(query) {
+/** Monthly searches the MARKET runs for this query, from a keyword tool. Null
+ *  when no keyword tool has measured it - including when the only evidence is
+ *  this domain's own impressions, which are a different quantity and are never
+ *  substituted here. Never returns a fabricated number: a caller that wants to
+ *  sort by demand must decide for itself what to do with null rather than
+ *  receive a placeholder it will mistake for market volume. */
+function marketSearchVolume(query) {
   const r = demandRecord(query);
-  if (!r) return null;
-  return Number.isFinite(Number(r.volume)) ? Number(r.volume) : null;
+  return r ? demandUnits(r).search_volume : null;
+}
+
+/** The demand evidence behind a query, with its unit attached:
+ *  `{ search_volume, impressions_90d, demand_basis }`, or null when the query has
+ *  no record. Callers that need one number must read `demand_basis` to know what
+ *  the number counts; there is deliberately no accessor that hides that. */
+function demandSignal(query) {
+  const r = demandRecord(query);
+  return r ? demandUnits(r) : null;
 }
 
 function allRecords() {
@@ -118,4 +177,4 @@ function provenance() {
   return load().doc.provenance;
 }
 
-module.exports = { hasDemand, demandRecord, measuredVolume, allRecords, provenance, normalize, DEMAND_FILE };
+module.exports = { hasDemand, demandRecord, marketSearchVolume, demandSignal, demandUnits, allRecords, provenance, normalize, DEMAND_FILE };

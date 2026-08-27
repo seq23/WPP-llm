@@ -21,6 +21,11 @@ const commands = [
   ['page-family-contract', 'node scripts/validators/validate_page_family_contract.js'],
   ['page-admission', 'node scripts/validators/validate_page_admission.js'],
   ['query-atlas', 'node scripts/validate_query_atlas.js'],
+  // This array is hard-coded and does not read _validator_registry.json, so a
+  // release-blocking gate that exists only in the registry never runs here. Both
+  // atlas gates are listed by name for that reason.
+  ['query-atlas-evidence-gate', 'node scripts/atlas/validate_query_atlas.mjs'],
+  ['atlas-unit-contract', 'node scripts/atlas/validate_atlas_units.mjs'],
   ['programmatic-engine', 'node scripts/validate_programmatic_release_engine.js'],
   ['workflow-data-trace', 'node scripts/validators/validate_workflow_data_trace.js'],
   ['citation-goal-sizing', 'node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing'],

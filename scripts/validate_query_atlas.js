@@ -11,8 +11,16 @@ const u=JSON.parse(fs.readFileSync(path.join(ROOT,'data/query_atlas/query_univer
 for(const q of (u.queries||[])){
   const backed=demandGate.hasDemand(q.query);
   if(q.page_eligible!==backed) bad.push(`${q.query}: page_eligible=${q.page_eligible} but demand gate says ${backed}`);
-  if(backed && !(Number(q.measured_volume)>0) && q.demand_evidence!=='owner_approved_seed') bad.push(`${q.query}: marked demand-backed with no measured volume`);
-  if(!backed && q.measured_volume!==null) bad.push(`${q.query}: carries a volume figure with no demand record behind it`);
+  // Demand is carried in two named units - `search_volume` (monthly searches, from
+  // a keyword tool) and `impressions_90d` (this site's own 90-day impressions) -
+  // because one field called `measured_volume` used to hold either, and a row
+  // evidenced by 8 of this site's impressions was indistinguishable from one
+  // evidenced by 8 monthly searches. `demand_basis` names which unit is populated.
+  const value=q.demand_basis==='search_volume'?q.search_volume:q.demand_basis==='impressions_90d'?q.impressions_90d:null;
+  if(backed && !(Number(value)>0) && q.demand_evidence!=='owner_approved_seed') bad.push(`${q.query}: marked demand-backed with no demand evidence in either unit`);
+  if(!backed && !(q.search_volume===null && q.impressions_90d===null)) bad.push(`${q.query}: carries a demand figure with no demand record behind it`);
+  const expected=q.search_volume!==null&&q.search_volume!==undefined?'search_volume':q.impressions_90d!==null&&q.impressions_90d!==undefined?'impressions_90d':'none';
+  if(q.demand_basis!==expected) bad.push(`${q.query}: demand_basis=${q.demand_basis} disagrees with the populated fields (expected ${expected})`);
 }
 if(!fs.existsSync(path.join(ROOT,'query-atlas.html'))) bad.push('missing query-atlas.html');
 const clusters=new Set((u.queries||[]).map(q=>q.cluster)); for(const c of clusters) if(!fs.existsSync(path.join(ROOT,'query-atlas',`${c}.html`))) bad.push(`missing cluster page ${c}`);
