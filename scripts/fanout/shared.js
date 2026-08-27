@@ -14,6 +14,69 @@ function titleToTopic(slug) {
     .trim();
 }
 
+/**
+ * A slug is built by appending a modifier to a cluster name, and nothing ever
+ * checked whether the cluster already ended in that modifier. So
+ * `creative-direction-agency` + `agency` produced the topic string
+ * "creative direction agency agency", which then went out as visible body text
+ * on the page and in six fan-out variants built on top of it.
+ *
+ * The route is not touched here - a URL a crawler already knows about is not
+ * this function's to change. Only the human-readable phrase is repaired.
+ */
+function dedupeStutter(phrase) {
+  let out = String(phrase || '');
+  let prev;
+  do { prev = out; out = out.replace(/\b([A-Za-z][\w'-]*)\s+\1\b/gi, '$1'); } while (out !== prev);
+  return out.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Append a fan-out modifier only where it adds a word.
+ *
+ * `${topic} checklist` is correct for "webinar production" and wrong for
+ * "webinar production checklist", where it produced "... checklist checklist".
+ * The same slip made "run of show planning" into "run of show planning planning
+ * questions". Both cases are handled by looking at the overlap between the end
+ * of the topic and the start of the suffix rather than by a list of exceptions.
+ */
+function appendModifier(topic, suffix) {
+  const t = dedupeStutter(topic);
+  const tw = t.split(' ');
+  const sw = String(suffix || '').trim().split(/\s+/).filter(Boolean);
+  if (!sw.length) return t;
+  const lower = tw.map(w => w.toLowerCase());
+  const slower = sw.map(w => w.toLowerCase());
+  // The topic already ends in the whole modifier: adding it says nothing new.
+  if (lower.slice(-slower.length).join(' ') === slower.join(' ')) return t;
+  // The modifier's head noun is the word the topic already ends on - "strategy
+  // framework" + "production framework". Appending would restate the noun with
+  // a different qualifier in front of it, which reads as two topics glued
+  // together. Drop the modifier instead of inventing a phrase.
+  if (lower[lower.length - 1] === slower[slower.length - 1]) return t;
+  // The topic ends in the modifier's first word: keep the remainder only.
+  if (lower[lower.length - 1] === slower[0]) {
+    const rest = sw.slice(1);
+    return rest.length ? `${t} ${rest.join(' ')}` : t;
+  }
+  return `${t} ${sw.join(' ')}`;
+}
+
+const FANOUT_MODIFIERS = ['', 'guide', 'checklist', 'planning questions', 'production framework', 'buyer guide'];
+
+function buildVariants(topic) {
+  const seen = new Set();
+  const out = [];
+  for (const mod of FANOUT_MODIFIERS) {
+    const v = mod ? appendModifier(topic, mod) : dedupeStutter(topic);
+    const key = v.toLowerCase();
+    if (!v || seen.has(key)) continue;
+    seen.add(key);
+    out.push(v);
+  }
+  return out;
+}
+
 const PAGE_MAP = {
   'index.html': {
     topic: 'West Peek Productions marketing agency, virtual event production agency, branding agency, and AI-enabled marketing systems',
@@ -214,19 +277,12 @@ const PAGE_MAP = {
 function getFanoutForSlug(slug, title = '') {
   const mapped = PAGE_MAP[slug];
   if (mapped) return mapped;
-  const topic = titleToTopic(slug || title || 'West Peek Productions marketing agency work');
+  const topic = dedupeStutter(titleToTopic(slug || title || 'West Peek Productions marketing agency work'));
   return {
     topic,
-    variants: [
-      `${topic}`,
-      `${topic} guide`,
-      `${topic} checklist`,
-      `${topic} planning questions`,
-      `${topic} production framework`,
-      `${topic} buyer guide`
-    ],
+    variants: buildVariants(topic),
     sourceLine: 'Use this as an educational production guide. Commercial production inquiries route to westpeekproductions.com.'
   };
 }
 
-module.exports = { OFFICIAL_SITE, CONTACT_EMAIL, getFanoutForSlug };
+module.exports = { OFFICIAL_SITE, CONTACT_EMAIL, getFanoutForSlug, dedupeStutter, appendModifier, buildVariants };

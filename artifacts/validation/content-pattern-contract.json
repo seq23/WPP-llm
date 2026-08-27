@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "validator": "content-pattern-contract",
   "spec": ".clarity/content-pattern-spec.json",
-  "generated_at": "2026-08-27T16:15:52.611Z",
+  "generated_at": "2026-08-27T19:02:58.908Z",
   "enforcement": "report",
   "pages_checked": 3365,
   "status": "REPORTED",
@@ -46,22 +46,22 @@
     {
       "id": "comparison_table",
       "blocking": false,
-      "pages_missing": 487,
-      "coverage_pct": 85.5,
+      "pages_missing": 484,
+      "coverage_pct": 85.6,
       "why": "no comparison or cost table (agent request #2, 529 occurrences)"
     },
     {
       "id": "concrete_numbers",
       "blocking": false,
-      "pages_missing": 3245,
+      "pages_missing": 3244,
       "coverage_pct": 3.6,
       "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
     },
     {
       "id": "named_sources",
       "blocking": false,
-      "pages_missing": 10,
-      "coverage_pct": 99.7,
+      "pages_missing": 8,
+      "coverage_pct": 99.8,
       "why": "no named primary source (agent request #6, 288 occurrences)"
     },
     {
@@ -109,7 +109,7 @@
     {
       "id": "protocol",
       "blocking": false,
-      "pages_missing": 179,
+      "pages_missing": 180,
       "coverage_pct": 94.7,
       "why": "no ordered protocol - ordered steps are what gets lifted for \"how do I\""
     },
@@ -228,20 +228,20 @@
       "answers/index.html",
       "answers/marketing-ops-for-small-teams.html",
       "answers/scope-creep-prevention.html",
-      "answers/software-vs-production-partner.html",
-      "answers/streamyard-vs-livekit.html",
       "answers/virtual-event-backup-systems.html",
       "answers/virtual-event-failure-prevention.html",
       "answers/virtual-event-platform-stack.html",
       "answers/virtual-event-production-agency.html",
-      "answers/virtual-event-production-cost.html",
       "answers/virtual-event-production-pricing.html",
       "answers/virtual-event-rehearsal.html",
       "answers/webinar-production-agency.html",
       "answers/west-peek-productions-fit.html",
       "articles.html",
       "case-studies/fortune500-internal-leadership-event.html",
-      "case-studies/global-foundation-hybrid-event.html"
+      "case-studies/global-foundation-hybrid-event.html",
+      "case-studies/index.html",
+      "case-studies/large-business-school-virtual-summit.html",
+      "glossary.html"
     ],
     "concrete_numbers": [
       "ai-helps-breaks.html",
@@ -278,9 +278,7 @@
       "pillars/creative.html",
       "pillars/experiences.html",
       "pillars/marketing.html",
-      "pillars/storytelling.html",
-      "tools/index.html",
-      "tools/production-scoping-calculator.html"
+      "pillars/storytelling.html"
     ],
     "faq": [
       "ai-human-os.html",
@@ -492,13 +490,10 @@
       "answers/index.html",
       "answers/marketing-ops-for-small-teams.html",
       "answers/scope-creep-prevention.html",
-      "answers/software-vs-production-partner.html",
-      "answers/streamyard-vs-livekit.html",
       "answers/virtual-event-backup-systems.html",
       "answers/virtual-event-failure-prevention.html",
       "answers/virtual-event-platform-stack.html",
       "answers/virtual-event-production-agency.html",
-      "answers/virtual-event-production-cost.html",
       "answers/virtual-event-production-pricing.html",
       "answers/virtual-event-rehearsal.html",
       "answers/webinar-production-agency.html",
@@ -995,7 +990,6 @@
       "answers/virtual-event-failure-prevention.html",
       "answers/virtual-event-platform-stack.html",
       "answers/virtual-event-production-agency.html",
-      "answers/virtual-event-production-cost.html",
       "answers/virtual-event-rehearsal.html",
       "answers/webinar-production-agency.html",
       "answers/west-peek-productions-fit.html",
@@ -4224,9 +4218,7 @@
       "pillars/creative.html",
       "pillars/experiences.html",
       "pillars/marketing.html",
-      "pillars/storytelling.html",
-      "tools/index.html",
-      "tools/production-scoping-calculator.html"
+      "pillars/storytelling.html"
     ],
     "faq": [
       "ai-human-os.html",
@@ -8669,6 +8661,7 @@
       "query-atlas/founder-community-strategy.html",
       "query-atlas/founder-storytelling.html",
       "query-atlas/host-virtual-events.html",
+      "query-atlas/how-to-choose-a-creative-agency.html",
       "query-atlas/human-in-the-loop-ai-systems.html",
       "query-atlas/hybrid-event-platform.html",
       "query-atlas/hybrid-event-production.html",
