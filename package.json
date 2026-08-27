@@ -36,7 +36,7 @@
     "release:prepush:container": "node scripts/attest_prepush_profile.js container_structural && npm run release:self-heal",
     "release:prepush:local": "node scripts/attest_prepush_profile.js local && npm run release:self-heal",
     "release:reports": "node scripts/build_release_reports.js",
-    "release:self-heal": "npm run build && npm run content:quality:report && npm run actions:validate && npm run citation:normalize-artifacts && npm run citation:compile-artifact && npm run release:reports && npm run release:deep-validate:isolated && npm run validate:all",
+    "release:self-heal": "npm run build && npm run cta:attribute && npm run content:quality:report && npm run actions:validate && npm run citation:normalize-artifacts && npm run citation:compile-artifact && npm run release:reports && npm run release:deep-validate:isolated && npm run validate:all",
     "release:quality:self-heal": "node scripts/release/self_heal_release_quality.js",
     "release:push-gate": "npm run actions:validate && npm run validate:workflow-data-trace && npm run validate:workflow-faux-trace && npm run release:self-heal",
     "test:release-self-heal": "node scripts/release/test_release_self_heal_contract.js",
@@ -103,7 +103,8 @@
     "validate:demand-backed-pages": "node scripts/validators/validate_demand_backed_pages.js",
     "cadence:accept": "node scripts/cadence_accept.js",
     "validate:cadence-integrity": "node scripts/validators/validate_cadence_gate_integrity.js",
-    "validate:wpp-cta-attribution": "node scripts/validators/validate_wpp_cta_attribution.js"
+    "validate:wpp-cta-attribution": "node scripts/validators/validate_wpp_cta_attribution.js",
+    "cta:attribute": "node scripts/repair_unattributed_wpp_ctas.js --write"
   },
   "dependencies": {
     "marked": "^12.0.2"
