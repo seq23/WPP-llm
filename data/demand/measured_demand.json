@@ -3,7 +3,7 @@
   "purpose": "The only queries this repo is allowed to generate a page for. A page with no record here has no evidence that anyone searches for it.",
   "provenance": {
     "source": "Semrush US database, live pull",
-    "packet": "Portfolio Search Packet v2",
+    "packet": "Portfolio Search Packet v2; blue-ocean rows from Portfolio Blue Ocean Packet",
     "pulled_at": "2026-08-24",
     "evidence_tier": "T2b",
     "measured_fields": [
@@ -26,7 +26,7 @@
     "virtualagency-os.com",
     "westpeekproductions.com"
   ],
-  "record_count": 6,
+  "record_count": 7,
   "records": [
     {
       "query": "webinar production services",
@@ -39,6 +39,19 @@
       "cpc_usd": 56.58,
       "source_type": "semrush_keyword_magic",
       "evidence_tier": "T2b"
+    },
+    {
+      "query": "hybrid event production company",
+      "query_normalized": "hybrid event production company",
+      "target_domain": "virtualagency-os.com",
+      "volume": 590,
+      "keyword_difficulty": 7,
+      "paid_competition": 0.02,
+      "intent": "commercial",
+      "source_type": "semrush_keyword_magic",
+      "evidence_tier": "T2b",
+      "packet": "Portfolio Blue Ocean Packet",
+      "note": "Blue-ocean row from the same Semrush pull as the rest of this file. Recorded because /programmatic/hybrid-event-production-company had no demand record and the gate would have refused the page."
     },
     {
       "query": "webinar production",
