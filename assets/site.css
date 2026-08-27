@@ -118,3 +118,34 @@ ul{margin:0 0 14px 18px}
 .related-links{margin:32px 0 0; padding-top:18px; border-top:1px solid var(--line)}
 .related-links > p{color:var(--muted)}
 @media (min-width:760px){ .hub-list{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* Scoping form and calculator surfaces (/contact, /tools/*).
+   Added when the site got its first form: until then the stylesheet had no
+   input, select, textarea or table rule at all, so a form rendered as
+   browser-default light-on-dark and was unreadable against --bg. */
+.field{display:flex; flex-direction:column; gap:6px; margin:0 0 14px}
+.field label{font-size:14px; color:var(--muted); font-weight:600}
+.field .hint{font-size:13px; color:var(--muted)}
+input[type=text], input[type=email], input[type=date], input[type=number], select, textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  color:var(--fg);
+  font:inherit;
+  line-height:1.45;
+}
+input:focus, select:focus, textarea:focus{outline:2px solid var(--link); outline-offset:1px; border-color:var(--link)}
+textarea{min-height:120px; resize:vertical}
+select{appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%); background-position:calc(100% - 19px) calc(1em + 2px),calc(100% - 14px) calc(1em + 2px); background-size:5px 5px,5px 5px; background-repeat:no-repeat; padding-right:38px}
+button.btn{font:inherit; cursor:pointer}
+.form-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:6px}
+.form-note{color:var(--muted); font-size:14px; margin:10px 0 0}
+.brief-output{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:13px; min-height:220px}
+.readout{margin:16px 0 0; padding:14px; border:1px solid var(--link); border-radius:14px; background: color-mix(in srgb, var(--link) 10%, transparent)}
+.readout .band{font-size:22px; font-weight:750; margin:0 0 6px}
+.readout ul{margin:8px 0 0; padding-left:20px}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:15px}
+th, td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top}
+th{background: color-mix(in srgb, var(--card) 96%, transparent); font-weight:650}
