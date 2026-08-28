@@ -24,6 +24,9 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+// Shared with retest_repairs.js so the producer of a queue entry and its consumer
+// cannot drift apart on field names again.
+const signalMatch = require('../lib/signal_match.js');
 const ROOT = path.resolve(__dirname, '../..');
 const DOMAIN = 'https://virtualagency-os.com';
 
@@ -156,6 +159,19 @@ function main() {
   const scopeRoutes = new Set();
   const receiptsThisRun = [];
   const retestQueue = readJson('data/authority_scale/retest_queue.json', { entries: [] });
+  // The "before" side of every future retest, captured now.
+  //
+  // data/signals/gsc_query_signals.json is a single-day snapshot that each
+  // collection overwrites - every record in it is dated the day it was written -
+  // so by the time a repair becomes retest-eligible two weeks later, no row
+  // predating the repair can possibly still exist in that file. Without this
+  // snapshot the retest can only ever see an "after" side, and the contract's
+  // truth rule correctly refuses to call a one-sided reading IMPROVED. Taking
+  // the baseline at repair time is what lets the loop actually close.
+  const baselineSignals = signalMatch.datedRecords(
+    (readJson('data/signals/gsc_query_signals.json', { records: [] }).records || [])
+      .concat(readJson('data/signals/query_surface_observations.json', { records: [] }).records || [])
+  );
 
   for (const d of selected) {
     const file = path.join(ROOT, d.file);
@@ -204,9 +220,15 @@ function main() {
     d.repair_id = repairId;
     d.repaired_at = repairedAt;
 
+    const baselineEvidence = baselineSignals
+      .filter((r) => signalMatch.matchesTarget(r, { route: d.route, query: d.query || null }))
+      .slice(0, 10);
     retestQueue.entries.push({
       route: d.route,
       query: d.query || null,
+      baseline_evidence: baselineEvidence,
+      baseline_captured_at: repairedAt,
+      baseline_surfacing: baselineEvidence.length ? signalMatch.surfaced(baselineEvidence) : null,
       repair_id: repairId,
       diagnostic_id: d.id,
       repair_type: d.repair_type,

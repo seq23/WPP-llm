@@ -206,6 +206,28 @@ const plan = {
   status: units.length ? 'READY' : 'COMPLETED_NO_CHANGES',
 };
 
+// Rule 0: a stage may not finish having done nothing without naming why.
+//
+// Zero creates is this repo's correct terminal state, not a failure - the demand
+// gate is doing its job and the demand-backed pool is exhausted. But
+// COMPLETED_NO_CHANGES alone cannot tell that apart from a run where the
+// candidate list was empty because an upstream stage broke, or where every
+// candidate was rejected on quality. Those need different responses, so the plan
+// names which one happened rather than leaving all three looking identical.
+if (!create.length) {
+  const refusedNoDemand = blocked.filter((b) => b.release_action === 'create' && b.reason === 'no_demand_record').length;
+  const rejectedOnQuality = blocked.filter((b) => b.release_action === 'create' && b.reason !== 'no_demand_record').length;
+  plan.create_stop_reason = !newCandidates.length
+    ? 'NO_CANDIDATES_UPSTREAM'
+    : (maxNew <= 0
+      ? 'DAILY_CEILING_ALREADY_USED'
+      : (refusedNoDemand && !rejectedOnQuality
+        ? 'DEMAND_BACKED_POOL_EXHAUSTED'
+        : (rejectedOnQuality ? 'ALL_CANDIDATES_REJECTED_ON_QUALITY' : 'DEMAND_BACKED_POOL_EXHAUSTED')));
+  plan.create_stop_detail = `${newCandidates.length} candidate(s) considered, ${refusedNoDemand} refused for no demand record, ${rejectedOnQuality} rejected downstream, ceiling headroom ${maxNew}`;
+  plan.create_stop_is_legitimate = plan.create_stop_reason === 'DEMAND_BACKED_POOL_EXHAUSTED' || plan.create_stop_reason === 'DAILY_CEILING_ALREADY_USED';
+}
+
 fs.writeFileSync(path.join(ROOT,'data/releases/daily_release_plan.json'),JSON.stringify(plan,null,2)+'\n');
 fs.writeFileSync(path.join(ROOT,'releases/citation_release_plan.json'),JSON.stringify(plan,null,2)+'\n');
 fs.writeFileSync(path.join(ROOT,'.build/citation_release_trace.json'),JSON.stringify(plan,null,2)+'\n');
@@ -221,3 +243,7 @@ fs.writeFileSync(path.join(ROOT,'.build/indexnow-priority.txt'),priorityUrls.joi
 fs.writeFileSync(path.join(ROOT,'.build/indexnow-batch.txt'),batchUrls.join('\n')+'\n');
 fs.writeFileSync(path.join(ROOT,'artifacts/release/release_plan_distribution_trace.json'),JSON.stringify({generated_at:plan.generated_at,units:units.length,creates:create.length,repairs:repairs.length,quality_rejected:blocked.filter(x=>x.reason==='quality_preflight_rejected').length,priority_url_count:priorityUrls.length,batch_url_count:batchUrls.length,files:['.build/indexnow-priority.txt','.build/indexnow-batch.txt','.build/citation_release_trace.json']},null,2)+'\n');
 console.log(`Built quality-gated release plan: ${create.length} creates, ${repairs.length} substantive repairs, ${blocked.length} blocked/skipped candidates; distribution URLs priority=${priorityUrls.length}, batch=${batchUrls.length}.`);
+if (plan.create_stop_reason) {
+  const verdict = plan.create_stop_is_legitimate ? 'NAMED STOP' : 'NEEDS ATTENTION';
+  console.log(`Creates: ${verdict} (${plan.create_stop_reason}) - ${plan.create_stop_detail}.`);
+}

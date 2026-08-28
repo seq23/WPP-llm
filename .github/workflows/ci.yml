@@ -29,6 +29,13 @@ jobs:
       - run: npm run validate:workflow-data-trace
       - run: npm run validate:workflow-faux-trace
       - run: npm run test:push-helper
+      # Two instruments that reported nothing and were believed. The citation
+      # probe published a self-cited rate of 0 from a run where all 11 calls
+      # errored; the retest loop recorded zero outcomes for its entire life
+      # because it matched field names the signal file has never emitted. Both
+      # were green. These tests fail if either can happen again.
+      - run: npm run test:citation-probe-rate
+      - run: npm run test:retest-loop
       - run: npm run release:self-heal
       - name: Cadence gate
         # Blocks publishing faster than the library can be kept inside the
