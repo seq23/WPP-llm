@@ -30,6 +30,13 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+// OpenRouter bills the web plugin per REQUEST on the parallel engine, with 10
+// results included - measured at $0.00127 per call on this account, against
+// ~$0.04 on the default engine's per-result billing. Same url_citation schema,
+// so nothing downstream changes. Overridable if a deeper engine is ever wanted.
+const WEB_ENGINE = process.env.OPENROUTER_WEB_ENGINE || 'parallel';
+const WEB_MODE = process.env.OPENROUTER_WEB_MODE || 'turbo';
+
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -164,7 +171,7 @@ async function withTimeout(fn) {
 // only errors, reproducing an all-errored run offline. Production never sets it.
 const OR_BASE_URL = (process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1').replace(/\/+$/, '');
 const WEB_MAX_RESULTS = Number(process.env.PROBE_WEB_MAX_RESULTS || 10);
-const WEB_PLUGIN = { id: 'web', max_results: WEB_MAX_RESULTS };
+const WEB_PLUGIN = { id: 'web', engine: WEB_ENGINE, mode: WEB_MODE, max_results: WEB_MAX_RESULTS };
 
 function openRouterCitations(data) {
   const message = data?.choices?.[0]?.message || {};
