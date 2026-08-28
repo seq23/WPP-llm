@@ -1,12 +1,282 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-28T15:25:00.810Z",
+  "updated_at": "2026-08-28T17:19:11.863Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
     "REGRESSED",
     "INCONCLUSIVE"
   ],
-  "events": [],
-  "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status."
+  "events": [
+    {
+      "route": "/programmatic/ai-content-operations-for-marketing-teams",
+      "query": null,
+      "repair_id": "repair_23bb807f2175",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.816Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "agency content operations",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-content-operations-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 13,
+          "impressions": 13,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 73.3076923076923,
+          "observed_at": "2026-08-28T15:32:26.880232Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "ai content operations",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-content-operations-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 14,
+          "impressions": 14,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 76.14285714285714,
+          "observed_at": "2026-08-28T15:32:26.880341Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "content marketing operation services",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-content-operations-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 7,
+          "impressions": 7,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 99.14285714285714,
+          "observed_at": "2026-08-28T15:32:26.880761Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "content operations ai",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-content-operations-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 90,
+          "observed_at": "2026-08-28T15:32:26.880819Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "content ops assessment",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-content-operations-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 2,
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 84,
+          "observed_at": "2026-08-28T15:32:26.880848Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-marketing-workflows-for-marketing-teams",
+      "query": null,
+      "repair_id": "repair_73890ce434a8",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.824Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "digital marketing agency workflow",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-marketing-workflows-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 2,
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 95.5,
+          "observed_at": "2026-08-28T15:32:26.881054Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "marketing agency workflow",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-marketing-workflows-for-marketing-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 90,
+          "observed_at": "2026-08-28T15:32:26.881392Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy-for-enterprise-teams",
+      "query": null,
+      "repair_id": "repair_5ba38b775d2e",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.827Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "audience experience strategy",
+          "target_route": "https://virtualagency-os.com/programmatic/audience-growth-strategy-for-enterprise-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 99,
+          "observed_at": "2026-08-28T15:32:26.880400Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy-how-to-compare-vendors",
+      "query": null,
+      "repair_id": "repair_5b0b8f0e874c",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.829Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "how do i compare audience measurement vendors before making a decision?",
+          "target_route": "https://virtualagency-os.com/programmatic/audience-growth-strategy-how-to-compare-vendors",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9,
+          "observed_at": "2026-08-28T15:32:26.881194Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "looking for a framework to compare vendors on their ability to connect audience insights to content production to campaign delivery",
+          "target_route": "https://virtualagency-os.com/programmatic/audience-growth-strategy-how-to-compare-vendors",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 2,
+          "observed_at": "2026-08-28T15:32:26.881370Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
+      "query": null,
+      "repair_id": "repair_bc36aaad5750",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.843Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
+          "signal_type": "gsc_query_performance",
+          "strength": 3,
+          "impressions": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 61.666666666666664,
+          "observed_at": "2026-08-28T15:32:26.880298Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
+      "query": null,
+      "repair_id": "repair_32559b370a7f",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.853Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-for-founders",
+          "signal_type": "gsc_query_performance",
+          "strength": 4,
+          "impressions": 4,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 58.75,
+          "observed_at": "2026-08-28T15:32:26.880296Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
+      "query": null,
+      "repair_id": "repair_03fac8bd45e3",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-08-28T17:19:11.854Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 88,
+          "observed_at": "2026-08-28T15:32:26.880300Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    }
+  ],
+  "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
+  "last_sweep": {
+    "swept_at": "2026-08-28T17:19:11.863Z",
+    "eligible": 118,
+    "promoted": 0,
+    "retested_from_evidence": 7,
+    "closed_inconclusive_stale": 0,
+    "still_awaiting_evidence": 111,
+    "signal_records_matching_queue_routes": 15,
+    "outcomes_recorded": {
+      "INCONCLUSIVE": 7
+    },
+    "aged_out_inconclusive": [],
+    "stop_reason": null,
+    "stop_detail": null
+  }
 }

@@ -8,10 +8,15 @@
  * observed whether these pages are cited. Every statement about AEO progress up
  * to now has been inference from proxies.
  *
- * Gemini's free tier answers with Google Search grounding, and the response
- * carries the sources it actually grounded on. That is a citation observation:
- * the query, the engine, the domains it cited, and whether any of them are ours.
- * It costs nothing.
+ * A grounded answer carries the sources it was actually built from. That is a
+ * citation observation: the query, the engine, the domains it cited, and whether
+ * any of them are ours.
+ *
+ * A rate is only ever written when the provider actually answered. This is
+ * asserted below, not merely intended: on 2026-08-28 a run recorded
+ * "errored: 11 of 11" and published self_cited_rate_pct: 0 anyway. A dead
+ * instrument reported as a measurement of zero is worse than no instrument,
+ * because it looks like evidence.
  *
  * What this does not claim: one engine is not all engines, grounding metadata is
  * not identical to what a user sees in an AI Overview, and absence on a given
@@ -33,7 +38,9 @@ const DRY = argv.includes('--dry-run');
 const MODE = arg('--mode', process.env.CITATION_PROBE_MODE || 'knowledge');
 const GROUNDED = MODE === 'grounded';
 const LIMIT = Number(arg('--limit', '25'));
-const OUT = 'data/signals/llm_citation_observations.json';
+// Overridable so the rate-integrity contract test can drive a real run without
+// touching the live artifact. Production never sets it.
+const OUT = process.env.CITATION_PROBE_OUT || 'data/signals/llm_citation_observations.json';
 
 const CONFIG_PATH = 'data/signals/citation_probe_config.json';
 const config = fs.existsSync(path.join(ROOT, CONFIG_PATH))
@@ -62,10 +69,12 @@ const hostOf = (u) => { try { return new URL(u).hostname.toLowerCase().replace(/
 //   knowledge (default) - ask without tools and see whether the model names us
 //     unprompted. This measures whether we exist in the model's answer at all.
 //     It is free.
-//   grounded - ask with Google Search grounding and read the sources the answer
-//     was actually built from. This is a real citation observation, and it is
-//     the stronger signal, but grounding is not free-tier eligible: it returns
-//     quota errors on this key today.
+//   grounded - ask with a live web search and read the sources the answer was
+//     actually built from. This is a real citation observation and the stronger
+//     signal. It runs on OpenRouter's web plugin, which bills a fraction of a
+//     cent per query. Gemini's grounding is not usable: any request carrying
+//     tools:[{google_search:{}}] returns 429 on this key while ungrounded calls
+//     succeed, so grounded mode no longer routes there by default.
 //
 // Default is knowledge, because a probe that cannot run costs more than a weaker
 // probe that does.
@@ -103,12 +112,18 @@ if (!queries.length) { console.error('citation probe: no queries found'); proces
 // live search, which is the stronger measurement when its quota allows.
 const orKey = process.env.OPENROUTER_API_KEY || '';
 const key = process.env.GEMINI_API_KEY || process.env.GOOGLE_GEMINI_API_KEY || '';
-// Pick the provider that can actually do the job asked for. Gemini grounds via
-// Google Search; OpenRouter grounds via the ":online" suffix, which returns the
-// pages the answer was built from as url_citation annotations. Preferring a
-// provider we have no key for is how grounded mode silently skipped every run.
+// Pick the provider that can actually do the job asked for.
+//
+// Grounded mode is pinned to OpenRouter. Gemini's grounded path is hard-blocked
+// on this key: plain generateContent returns 200, but any request carrying
+// tools:[{google_search:{}}] returns 429 RESOURCE_EXHAUSTED - reproduced across
+// three models and persistent over hours, so it is a capability the key does not
+// have, not a burst to retry through. Preferring Gemini for grounded runs is what
+// produced the 2026-08-28 run of "errored: 11 of 11" that still published a
+// self-cited rate of 0. Gemini stays reachable only by an explicit
+// --provider gemini, so choosing the blocked path is a deliberate act.
 const PROVIDER = arg('--provider', GROUNDED
-  ? (key ? 'gemini' : (orKey ? 'openrouter' : 'gemini'))
+  ? 'openrouter'
   : (orKey ? 'openrouter' : 'gemini'));
 // Three small models rather than one, because a single model's idiosyncrasies
 // are not a measurement.
@@ -136,11 +151,20 @@ async function withTimeout(fn) {
   finally { clearTimeout(t); }
 }
 
-// ":online" runs the model against live web results. The pages it actually used
-// come back as url_citation annotations, which is the retrieval observation the
-// knowledge-mode call cannot produce - that one only shows whether the model
+// The web plugin runs the model against live web results. The pages it actually
+// used come back as url_citation annotations, which is the retrieval observation
+// the knowledge-mode call cannot produce - that one only shows whether the model
 // memorised us during training, which is not a citation.
-const onlineModel = (model) => (model.endsWith(':online') ? model : `${model}:online`);
+//
+// Declared as an explicit plugin rather than the ":online" model suffix so the
+// result count is ours to set: ":online" defaults to 5 sources, and a citation
+// measurement that only ever looks at the top 5 understates presence by
+// construction.
+// Overridable so the contract test can point the probe at a local endpoint that
+// only errors, reproducing an all-errored run offline. Production never sets it.
+const OR_BASE_URL = (process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1').replace(/\/+$/, '');
+const WEB_MAX_RESULTS = Number(process.env.PROBE_WEB_MAX_RESULTS || 10);
+const WEB_PLUGIN = { id: 'web', max_results: WEB_MAX_RESULTS };
 
 function openRouterCitations(data) {
   const message = data?.choices?.[0]?.message || {};
@@ -153,13 +177,13 @@ function openRouterCitations(data) {
 }
 
 async function askOpenRouter(query, model, grounded = false) {
-  const requestModel = grounded ? onlineModel(model) : model;
-  const res = await withTimeout((signal) => fetch('https://openrouter.ai/api/v1/chat/completions', {
+  const res = await withTimeout((signal) => fetch(`${OR_BASE_URL}/chat/completions`, {
     method: 'POST',
     signal,
     headers: { 'content-type': 'application/json', authorization: `Bearer ${orKey}` },
     body: JSON.stringify({
-      model: requestModel, temperature: 0, max_tokens: 400,
+      model, temperature: 0, max_tokens: 400,
+      ...(grounded ? { plugins: [WEB_PLUGIN] } : {}),
       messages: [{ role: 'user', content: query }],
     }),
   }));
@@ -173,8 +197,11 @@ const now = new Date().toISOString();
 
 const haveKey = PROVIDER === 'openrouter' ? Boolean(orKey) : Boolean(key);
 if (!haveKey || DRY) {
-  const reason = DRY ? 'dry_run' : 'no_api_key';
-  console.log(`citation probe: skipped (${reason}); mode=${MODE}; ${queries.length} queries ready, owned domains: ${OWNED.join(', ')}`);
+  const reason = DRY ? 'dry_run' : `no_api_key_for_${PROVIDER}`;
+  // A named legitimate stop: no measurement was attempted, and deliberately no
+  // summary is written - the file keeps its last real measurement rather than
+  // having it overwritten by the absence of one.
+  console.log(`citation probe: NAMED STOP (${reason}); mode=${MODE}; provider=${PROVIDER}; ${queries.length} queries ready, owned domains: ${OWNED.join(', ')}. No rate written.`);
   process.exit(0);
 }
 
@@ -186,7 +213,12 @@ const observations = [];
 // - and the thing being measured is which pages the retrieval layer returns,
 // which does not vary much by model. One model keeps a portfolio-wide run in
 // cents. Override with OPENROUTER_GROUNDED_MODELS.
-const GROUNDED_MODELS = (process.env.OPENROUTER_GROUNDED_MODELS || OR_MODELS[0] || 'mistralai/mistral-nemo')
+// gpt-4o-mini is the grounded default because it is the shape actually verified
+// against the web plugin end to end - ten url_citation annotations returned for a
+// real portfolio query. The cheap knowledge-mode models are not reliable here:
+// some accept the plugin and return an answer with no annotations at all, which
+// is a silent zero of exactly the kind this file exists to prevent.
+const GROUNDED_MODELS = (process.env.OPENROUTER_GROUNDED_MODELS || (config.openrouter_grounded_models || []).join(',') || 'openai/gpt-4o-mini')
   .split(',').map((m) => m.trim()).filter(Boolean);
 const engines = PROVIDER === 'openrouter' ? (GROUNDED ? GROUNDED_MODELS : OR_MODELS) : [model];
 for (const q of queries) {
@@ -220,23 +252,76 @@ for (const q of queries) {
  }
 }
 
-const prior = fs.existsSync(path.join(ROOT, OUT))
-  ? JSON.parse(fs.readFileSync(path.join(ROOT, OUT), 'utf8'))
+const OUT_PATH = path.resolve(ROOT, OUT);
+const prior = fs.existsSync(OUT_PATH)
+  ? JSON.parse(fs.readFileSync(OUT_PATH, 'utf8'))
   : { schema_version: '1.0', runs: [] };
 prior.runs = (prior.runs || []).slice(-49);
 prior.runs.push({ run_at: now, provider: PROVIDER, engines, mode: MODE, queries: queries.length, observations });
 
-const cited = observations.filter((o) => o.self_cited).length;
+// A rate is a statement about answers. It may only be divided by answers.
+//
+// The rule this enforces: self_cited_rate_pct exists if and only if the provider
+// actually answered at least once, and its denominator is the answered
+// observations - never the attempted ones. Both halves matter. On 2026-08-28 a
+// run recorded errored: 11 of 11 and still published self_cited_rate_pct: 0,
+// because the denominator was the attempt count and zero-over-eleven is a
+// perfectly well-formed 0%. A dead instrument was published as a measurement of
+// absence. Dividing by attempts would also let a half-failed run silently halve
+// the reported rate, which is the same lie in a smaller dose.
+const answered = observations.filter((o) => o.status === 'observed');
+const cited = answered.filter((o) => o.self_cited).length;
 const errored = observations.filter((o) => o.status === 'provider_error').length;
-prior.latest_summary = {
+const summary = {
   run_at: now, provider: PROVIDER, engines, mode: MODE,
-  queries: queries.length, observations: observations.length, self_cited: cited, errored,
+  queries: queries.length,
+  observations: observations.length,
+  answered: answered.length,
+  self_cited: cited,
+  errored,
   _mode_note: GROUNDED
     ? 'grounded: counted when the answer was built from one of our pages'
     : 'knowledge: counted when the model named us unprompted, with no retrieval. Weaker than a citation and must not be reported as one.',
-  self_cited_rate_pct: observations.length ? Number(((100 * cited) / observations.length).toFixed(1)) : 0,
+  _rate_rule: 'self_cited_rate_pct is present only when answered > 0, and is always self_cited / answered. Its absence means the probe did not measure, which is not the same as measuring zero.',
 };
+if (answered.length) {
+  summary.status = errored ? 'PARTIAL' : 'MEASURED';
+  summary.self_cited_rate_pct = Number(((100 * cited) / answered.length).toFixed(1));
+} else {
+  // Named, not silent, and carrying no number anyone could mistake for a result.
+  summary.status = 'NO_PROVIDER_ANSWER';
+  summary.error_state = 'every_call_errored';
+  summary.error_sample = [...new Set(observations.map((o) => String(o.error || '')).filter(Boolean))].slice(0, 3);
+}
 
-fs.mkdirSync(path.join(ROOT, path.dirname(OUT)), { recursive: true });
-fs.writeFileSync(path.join(ROOT, OUT), JSON.stringify(prior, null, 2) + '\n');
-console.log(`citation probe [${PROVIDER}/${MODE}]: ${cited}/${observations.length} observations named one of our domains (${prior.latest_summary.self_cited_rate_pct}%); ${errored} provider error(s). Recorded in ${OUT}`);
+// Asserted, not commented. A comment cannot fail a run; this can. It guards both
+// directions so neither a fabricated rate nor a dropped one can be written.
+function assertRateIntegrity(s) {
+  const hasRate = Object.prototype.hasOwnProperty.call(s, 'self_cited_rate_pct');
+  if (hasRate && !(s.answered > 0)) {
+    throw new Error(`citation probe: refusing to write self_cited_rate_pct with answered=${s.answered}. A rate over zero answers is not a measurement of zero.`);
+  }
+  if (!hasRate && s.answered > 0) {
+    throw new Error(`citation probe: answered=${s.answered} but no self_cited_rate_pct was computed; a real measurement must not be dropped.`);
+  }
+  if (hasRate && s.self_cited > s.answered) {
+    throw new Error(`citation probe: self_cited=${s.self_cited} exceeds answered=${s.answered}.`);
+  }
+  if (s.answered + s.errored !== s.observations) {
+    throw new Error(`citation probe: observation accounting does not balance (answered=${s.answered} + errored=${s.errored} != observations=${s.observations}).`);
+  }
+  return s;
+}
+prior.latest_summary = assertRateIntegrity(summary);
+
+fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
+fs.writeFileSync(OUT_PATH, JSON.stringify(prior, null, 2) + '\n');
+
+if (!answered.length) {
+  // Rule 0: a stage may not exit 0 having done nothing. Nothing was measured, so
+  // this run is a broken instrument, not a result. The workflow step is
+  // continue-on-error, so this is visible without breaking the daily loop.
+  console.error(`citation probe [${PROVIDER}/${MODE}]: NO_PROVIDER_ANSWER - ${errored}/${observations.length} calls errored, no rate written. ${summary.error_sample.join(' | ').slice(0, 200)}`);
+  process.exit(1);
+}
+console.log(`citation probe [${PROVIDER}/${MODE}]: ${cited}/${answered.length} answered observations named one of our domains (${summary.self_cited_rate_pct}%); ${errored} provider error(s) excluded from the rate. Recorded in ${OUT}`);

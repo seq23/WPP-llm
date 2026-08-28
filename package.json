@@ -41,6 +41,8 @@
     "release:push-gate": "npm run actions:validate && npm run validate:workflow-data-trace && npm run validate:workflow-faux-trace && npm run release:self-heal",
     "test:release-self-heal": "node scripts/release/test_release_self_heal_contract.js",
     "test:push-helper": "bash .github/scripts/test_commit_and_push_if_changed.sh",
+    "test:citation-probe-rate": "node scripts/test_citation_probe_rate_integrity.mjs",
+    "test:retest-loop": "node scripts/test_retest_loop_closes.js",
     "signals:collect": "node scripts/citation_intelligence/collect_zero_cost_signals.js",
     "strategy:gate": "node scripts/validate_strategy_gate.js",
     "strategy:validate": "node scripts/validate_strategy_gate.js",
