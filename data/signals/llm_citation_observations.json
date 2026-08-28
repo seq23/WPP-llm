@@ -1249,19 +1249,118 @@
           "answer_mentions_brand": false
         }
       ]
+    },
+    {
+      "run_at": "2026-08-28T10:47:52.435Z",
+      "provider": "gemini",
+      "engines": [
+        "gemini-3.6-flash"
+      ],
+      "mode": "grounded",
+      "queries": 11,
+      "observations": [
+        {
+          "query": "virtual event production companies",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "virtual event management",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "online conference platforms",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "hybrid event platform",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "virtual event services",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "virtual event marketing",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "virtual event trends",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "best virtual event platforms",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "host virtual events",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "how to host a virtual event",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        },
+        {
+          "query": "virtual event planning",
+          "engine": "gemini:gemini-3.6-flash",
+          "mode": "grounded",
+          "observed_at": "2026-08-28T10:47:52.435Z",
+          "status": "provider_error",
+          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+        }
+      ]
     }
   ],
   "latest_summary": {
-    "run_at": "2026-08-27T22:31:49.217Z",
-    "provider": "openrouter",
+    "run_at": "2026-08-28T10:47:52.435Z",
+    "provider": "gemini",
     "engines": [
-      "ibm-granite/granite-4.0-h-micro"
+      "gemini-3.6-flash"
     ],
     "mode": "grounded",
     "queries": 11,
     "observations": 11,
     "self_cited": 0,
-    "errored": 0,
+    "errored": 11,
     "_mode_note": "grounded: counted when the answer was built from one of our pages",
     "self_cited_rate_pct": 0
   }
