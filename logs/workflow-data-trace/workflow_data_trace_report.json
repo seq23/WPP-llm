@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T15:33:39.643Z",
+  "generated_at": "2026-08-28T21:53:23.355Z",
   "workflow_count": 7,
   "workflows": [
     "admin-command.yml",
@@ -170,6 +170,26 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 8,
+      "name": "npm run test:citation-probe-rate",
+      "npm_script": "test:citation-probe-rate",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 9,
+      "name": "npm run test:retest-loop",
+      "npm_script": "test:retest-loop",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 10,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -179,7 +199,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 9,
+      "step": 11,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
