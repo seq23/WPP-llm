@@ -11,27 +11,14 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { slugify } = require('./lib/wpp_cta.js');
+const { campaignForPage, contentForPage } = require('./lib/wpp_cta.js');
 
 const ROOT = process.cwd();
 const WRITE = process.argv.includes('--write');
 const SKIP = new Set(['node_modules', '.git', 'admin', '.build', 'artifacts', 'reports', 'logs']);
 
-function campaignFor(rel) {
-  const top = rel.split('/')[0];
-  if (rel === 'index.html') return 'home';
-  if (top === 'insights') return 'insight-page';
-  if (top === 'programmatic') return 'programmatic-page';
-  if (top === 'pillars') return 'pillar-page';
-  if (top === 'case-studies') return 'case-study';
-  if (top === 'answers') return 'answer-page';
-  if (top === 'learn') return 'learn-page';
-  if (top === 'topics') return 'topic-page';
-  return 'site-page';
-}
-function contentFor(rel) {
-  return slugify(rel.replace(/(?:\/index)?\.html$/, '').replace(/\//g, '-')) || 'home';
-}
+const campaignFor = campaignForPage;
+const contentFor = contentForPage;
 
 const files = [];
 (function walk(dir) {
@@ -53,7 +40,7 @@ for (const abs of files) {
     if (/utm_source=/.test(href)) { alreadyOk++; return m; }
     const [base, frag = ''] = href.split('#');
     const sep = base.includes('?') ? '&amp;' : '?';
-    const params = `utm_source=virtualagency-os&amp;utm_medium=referral&amp;utm_campaign=${slugify(campaignFor(rel))}&amp;utm_content=${contentFor(rel)}`;
+    const params = `utm_source=virtualagency-os&amp;utm_medium=referral&amp;utm_campaign=${campaignFor(rel)}&amp;utm_content=${contentFor(rel)}`;
     touched++;
     return `href="${base}${sep}${params}${frag ? '#' + frag : ''}"`;
   });
