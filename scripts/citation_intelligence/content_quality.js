@@ -30,7 +30,17 @@ function governedRoute(route) {
   const r = cleanRoute(route);
   if (r.startsWith('/programmatic/')) return r;
   const top = new Set(['/','/articles','/atlas','/query-atlas','/selected-work','/started-business','/how-west-peek-helps','/community-as-a-service','/ai-helps-breaks','/ai-human-os','/glossary']);
-  if (top.has(r) || r.startsWith('/answers/') || r.startsWith('/insights/') || r.startsWith('/query-atlas/') || r.startsWith('/pillars/') || r.startsWith('/case-studies/')) return r;
+  // Sections that are already published in their own right. A route here is left
+  // alone; anything else is a programmatic candidate and gets the /programmatic
+  // prefix. `/learn/` was missing from this list even though learn/ holds 16
+  // sitemapped pages, 8 of them in the admission registry: every /learn/<slug>
+  // opportunity was therefore rewritten to /programmatic/learn/<slug>, a route no
+  // file has. That made existing pages look absent (planned as creates) and put
+  // them in a programmatic subdirectory that listProgrammaticPages() -- a flat
+  // readdir of programmatic/ -- can never see, so the quality report had no row
+  // for them and the substance gate failed on evidence that could not exist.
+  const publishedSections = ['/answers/', '/insights/', '/query-atlas/', '/pillars/', '/case-studies/', '/learn/'];
+  if (top.has(r) || publishedSections.some(p => r.startsWith(p))) return r;
   return '/programmatic' + r;
 }
 
