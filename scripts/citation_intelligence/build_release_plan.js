@@ -103,9 +103,24 @@ if (!parity.parity_reached && maxNew > 0) {
 }
 const create = [];
 const seenCreate = new Set();
+// Two different notions of "already planned" have to agree here.
+//
+// keyFor() identifies an *opportunity*, so a synonym cluster - "virtual event
+// production", "virtual conference production", "online event production" and
+// three more - passes it as six distinct rows while every one of them resolves
+// to the same canonical route. validate_release_plan.js dedupes on
+// route|action, which is the thing that actually gets written, so a plan built
+// this way failed its own validator with "duplicate unit". A route can only be
+// created once; the extra queries are not lost, they are what that one page is
+// for. Keeping the first also keeps the highest-ranked, because orderedCreates
+// is already sorted.
+const seenCreateRoute = new Set();
+let collapsedSynonymCandidates = 0;
 for (const o of orderedCreates) {
   if (create.length >= maxNew) break;
   const key = keyFor(o); if (seenCreate.has(key)) continue; seenCreate.add(key);
+  const routeKey = `${o.target_route}|create`;
+  if (seenCreateRoute.has(routeKey)) { collapsedSynonymCandidates++; continue; }
   // The demand gate, ahead of the quality gate on purpose. The quality gate
   // asks "is this page well made?"; it has no opinion on whether the query is
   // real, so a fluent 1,500-word answer to a string nobody has ever searched
@@ -131,6 +146,7 @@ for (const o of orderedCreates) {
       source_file: record.demand_source_file
     };
     create.push(unit);
+    seenCreateRoute.add(`${o.target_route}|create`);
   }
 }
 
@@ -166,6 +182,7 @@ const plan = {
     demand_records_available: demandGate.allRecords().length,
     candidates_considered: newCandidates.length,
     refused_for_no_demand: blocked.filter(b => b.reason === 'no_demand_record').length,
+    collapsed_synonym_candidates: collapsedSynonymCandidates,
   },
   daily_new_page_ceiling: dailyNewCeiling,
   daily_repair_ceiling: dailyRepairCeiling,

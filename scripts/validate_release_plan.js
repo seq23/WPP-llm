@@ -13,10 +13,22 @@ if (!units) {
   console.error('Release plan missing release_units array');
   process.exit(1);
 }
+// Reasons the planner is allowed to refuse a unit for. A receipt carrying
+// anything else means the planner emitted a refusal this validator does not
+// recognise, which is worth failing on.
+//
+// 'no_demand_record' was added to the planner by c0f4433b0 ("Refuse to build a
+// page for a query nobody has searched for") and never added here - the planner
+// and this validator each kept their own list with no link between them. It
+// stayed dormant because the committed plan blocks nothing; the first plan that
+// actually refused a query on demand evidence failed the build for doing
+// exactly what that gate was built to do. Refusing to publish against a query
+// nobody has searched for is the safe outcome, not an error.
 const allowedBlockedReasons = new Set([
   'quality_preflight_rejected',
   'quality_repair_missing_opportunity_metadata',
   'postbuild_quality_quarantine',
+  'no_demand_record',
 ]);
 for (const blocked of plan.blocked || []) {
   if (!blocked.target_route || !allowedBlockedReasons.has(blocked.reason)) {
