@@ -4,12 +4,13 @@
   "mode": "DYNAMIC_SAFETY_CEILING_NOT_QUOTA",
   "scheduled_runs_per_day": 2,
   "daily_ceiling": {
-    "new_pages": 50,
+    "new_pages": 2,
     "repairs": 100,
-    "route_mutations": 150
+    "route_mutations": 102
   },
   "per_run_budget_rule": "A scheduled run may consume only the remaining daily budget recorded in the daily release ledger; two runs do not double the daily ceiling.",
   "scale_tiers": [
+    2,
     50,
     75,
     100,
@@ -32,10 +33,11 @@
     "indexation_backlog",
     "unsafe_claim_risk"
   ],
-  "current_default_new_page_ceiling_per_day": 50,
+  "current_default_new_page_ceiling_per_day": 2,
   "community_priority_until_strategic_parity": {
     "minimum_share_of_qualified_new_url_budget": 0.35,
     "maximum_share": 0.5,
     "rule": "Reserve qualified capacity for Community as a Service until strategic layer parity is proven; never manufacture thin pages to hit the share."
-  }
+  },
+  "cadence_policy_authority": "derived from data/cadence/policy.json: new_pages_per_week (2) over floor(refresh_window_days/7) = 13 weeks. data/cadence/policy.json is the single source of truth; every figure here is a safety cap that can only lower that allowance, never raise it. The ladder above is an upshift path that still requires every configured health gate plus observed yield evidence; it can never exceed the weekly allowance, which build_release_plan.js applies with Math.min after this ceiling."
 }

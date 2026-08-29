@@ -28,11 +28,26 @@ fs.mkdirSync(path.join(ROOT, 'releases'), { recursive: true });
 fs.mkdirSync(path.join(ROOT, '.build'), { recursive: true });
 fs.mkdirSync(path.join(ROOT, 'artifacts/release'), { recursive: true });
 
-const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 50, max_repairs_per_day: 100 } });
+const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 2, max_repairs_per_day: 100 } });
 const opps = readJson('data/opportunities/aeo_geo_opportunities.json', { opportunities: [] }).opportunities || [];
 const priority = readJson('data/seo/priority_pages.json', { pages: [] }).pages || [];
 const velocityDecision = readJson('data/authority_scale/velocity_decision.json', {});
-const dailyNewCeiling = Number(process.env.MAX_NEW_PAGES_PER_DAY || velocityDecision.recommended_new_url_ceiling_per_day || contract.cadence?.max_new_pages_per_day || 50);
+
+// Every declared new-page ceiling is a SAFETY CAP, and a safety cap can only ever
+// lower the allowance. This was previously a `||` chain, which is first-wins, not
+// lowest-wins: the velocity governor's `recommended_new_url_ceiling_per_day` sat at
+// the front of it and was 50, so once the contract was throttled to 2 the contract's
+// number was never read at all. The published plan therefore recorded
+// `max_new_pages_per_day: 50` while `_content_release_contract.json` declared 2 - the
+// contract and the publisher stating different things about the same governed number.
+// Lowest-wins makes the contract binding and keeps every other source able to
+// throttle further but never to buy headroom.
+const declaredNewCeilings = [
+  process.env.MAX_NEW_PAGES_PER_DAY,
+  velocityDecision.recommended_new_url_ceiling_per_day,
+  contract.cadence?.max_new_pages_per_day,
+].map(Number).filter((n) => Number.isFinite(n) && n >= 0);
+const dailyNewCeiling = declaredNewCeilings.length ? Math.min(...declaredNewCeilings) : 2;
 const dailyRepairCeiling = Number(process.env.MAX_REPAIRS_PER_DAY || contract.cadence?.max_repairs_per_day || 100);
 if (dailyNewCeiling < 0 || dailyNewCeiling > 200 || dailyRepairCeiling < 0 || dailyRepairCeiling > 250) {
   console.error('Full-flow caps out of governed range.'); process.exit(1);
