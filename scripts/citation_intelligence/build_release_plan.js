@@ -37,13 +37,72 @@ const dailyRepairCeiling = Number(process.env.MAX_REPAIRS_PER_DAY || contract.ca
 if (dailyNewCeiling < 0 || dailyNewCeiling > 200 || dailyRepairCeiling < 0 || dailyRepairCeiling > 250) {
   console.error('Full-flow caps out of governed range.'); process.exit(1);
 }
-const today = new Date().toISOString().slice(0,10);
+const today = process.env.CADENCE_TODAY || new Date().toISOString().slice(0,10);
 const velocityLedger = readJson('data/releases/daily_velocity_ledger.json', { date: today, new_pages_used: 0, repairs_used: 0 });
 const sameDay = velocityLedger.date === today;
 const usedNew = sameDay ? Number(velocityLedger.new_pages_used || 0) : 0;
 const usedRepairs = sameDay ? Number(velocityLedger.repairs_used || 0) : 0;
-const maxNew = Math.max(0, dailyNewCeiling - usedNew);
+
+// ---------------------------------------------------------------------------
+// The weekly cadence allowance, consulted BEFORE anything is generated.
+//
+// data/cadence/policy.json declared new_pages_per_week: 2 and scripts/cadence_gate.js
+// enforced it, while this planner's only ceiling was a per-DAY number that defaulted
+// to 50 and was set to 50 in the release workflow, which runs on `35 8,20 * * *` -
+// twice a day. Nothing in the publishing path ever read the weekly policy, so the
+// declared rate and the actual rate had no relationship at all: 52 new editorial
+// URLs accumulated against a cap of 2, roughly 26x, and the gate's only remaining
+// job was to report the gap after the fact.
+//
+// A cap enforced only downstream of the thing it governs is not a cap, it is a
+// complaint. The allowance is therefore read here, from the same policy file the
+// gate reads, and applied to the plan before candidates are staged. The per-day
+// ceiling is kept as what it was always described as - "a safety cap for a bad
+// run" - and can only ever LOWER the allowance, never raise it. Env and contract
+// values likewise cannot exceed policy; MAX_NEW_PAGES_PER_DAY can throttle a run
+// further but cannot buy headroom the policy has not granted.
+//
+// Usage is measured over a trailing 7-day window from the same per-day ledger the
+// planner already keeps, so a run at 08:35 and a run at 20:35 draw on one weekly
+// budget rather than a fresh one each midnight. Most runs will now legitimately
+// create zero pages. That is the ordinary success state of a governed publisher,
+// not a fault - it is recorded as WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED below so it
+// can never be mistaken for a broken upstream stage.
+// ---------------------------------------------------------------------------
+const CADENCE_POLICY_REL = 'data/cadence/policy.json';
+const cadencePolicy = readJson(CADENCE_POLICY_REL, {});
+const declaredWeekly = Number(cadencePolicy.new_pages_per_week);
+if (!Number.isFinite(declaredWeekly) || declaredWeekly < 0) {
+  console.error(`Cadence policy missing a usable new_pages_per_week in ${CADENCE_POLICY_REL}. Refusing to publish against an unknown allowance - a publisher with no declared rate is exactly the state this gate exists to prevent.`);
+  process.exit(1);
+}
+
+const WEEK_DAYS = 7;
+function trailingWeekDates(endDate) {
+  const end = Date.parse(`${endDate}T00:00:00Z`);
+  const out = [];
+  for (let i = 0; i < WEEK_DAYS; i += 1) out.push(new Date(end - i * 86400000).toISOString().slice(0, 10));
+  return out;
+}
+// Per-date new-page counts. The daily ledger holds today; the weekly ledger holds
+// the history the daily one overwrites each midnight.
+const weeklyLedgerRel = 'data/releases/weekly_velocity_ledger.json';
+const weeklyLedger = readJson(weeklyLedgerRel, { days: {} });
+const weekDays = weeklyLedger && typeof weeklyLedger.days === 'object' && weeklyLedger.days ? weeklyLedger.days : {};
+const window = trailingWeekDates(today);
+let usedThisWeek = 0;
+for (const d of window) {
+  const fromWeekly = Number(weekDays[d] || 0);
+  const fromDaily = d === today ? usedNew : 0;
+  usedThisWeek += Math.max(fromWeekly, fromDaily);
+}
+const weeklyHeadroom = Math.max(0, declaredWeekly - usedThisWeek);
+
+const dailyHeadroom = Math.max(0, dailyNewCeiling - usedNew);
+const maxNew = Math.min(dailyHeadroom, weeklyHeadroom);
 const maxRepairs = Math.max(0, dailyRepairCeiling - usedRepairs);
+const newPageGovernor = weeklyHeadroom <= dailyHeadroom ? 'weekly_cadence_policy' : 'daily_safety_ceiling';
+console.log(`[cadence] new-page allowance: ${maxNew} (weekly policy ${declaredWeekly}/wk, ${usedThisWeek} used in trailing ${WEEK_DAYS}d -> headroom ${weeklyHeadroom}; daily safety ceiling ${dailyNewCeiling}, ${usedNew} used -> headroom ${dailyHeadroom}; governed by ${newPageGovernor})`);
 
 // Demand comes in two units that must never be compared: `search_volume` counts
 // searches the whole market runs, `impressions_90d` counts times this one site was
@@ -184,6 +243,18 @@ const plan = {
     refused_for_no_demand: blocked.filter(b => b.reason === 'no_demand_record').length,
     collapsed_synonym_candidates: collapsedSynonymCandidates,
   },
+  cadence: {
+    policy_file: CADENCE_POLICY_REL,
+    authority: 'data/cadence/policy.json is the single source of truth for publishing rate. The per-day ceiling is a safety cap on one bad run and can only lower this allowance, never raise it.',
+    new_pages_per_week: declaredWeekly,
+    window_days: WEEK_DAYS,
+    window_dates: window,
+    new_pages_used_this_week: usedThisWeek,
+    weekly_headroom: weeklyHeadroom,
+    daily_headroom: dailyHeadroom,
+    new_page_allowance_this_run: maxNew,
+    governed_by: newPageGovernor,
+  },
   daily_new_page_ceiling: dailyNewCeiling,
   daily_repair_ceiling: dailyRepairCeiling,
   daily_new_pages_already_used: usedNew,
@@ -217,15 +288,22 @@ const plan = {
 if (!create.length) {
   const refusedNoDemand = blocked.filter((b) => b.release_action === 'create' && b.reason === 'no_demand_record').length;
   const rejectedOnQuality = blocked.filter((b) => b.release_action === 'create' && b.reason !== 'no_demand_record').length;
+  // The weekly allowance and the daily safety cap are separated here on purpose.
+  // Both produce zero creates, but they mean different things: the weekly one is
+  // the declared editorial rate working exactly as intended and is the expected
+  // outcome on most of the fourteen scheduled runs a week; the daily one means a
+  // single day tried to burn its whole safety margin.
   plan.create_stop_reason = !newCandidates.length
     ? 'NO_CANDIDATES_UPSTREAM'
-    : (maxNew <= 0
-      ? 'DAILY_CEILING_ALREADY_USED'
-      : (refusedNoDemand && !rejectedOnQuality
-        ? 'DEMAND_BACKED_POOL_EXHAUSTED'
-        : (rejectedOnQuality ? 'ALL_CANDIDATES_REJECTED_ON_QUALITY' : 'DEMAND_BACKED_POOL_EXHAUSTED')));
-  plan.create_stop_detail = `${newCandidates.length} candidate(s) considered, ${refusedNoDemand} refused for no demand record, ${rejectedOnQuality} rejected downstream, ceiling headroom ${maxNew}`;
-  plan.create_stop_is_legitimate = plan.create_stop_reason === 'DEMAND_BACKED_POOL_EXHAUSTED' || plan.create_stop_reason === 'DAILY_CEILING_ALREADY_USED';
+    : (weeklyHeadroom <= 0
+      ? 'WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED'
+      : (maxNew <= 0
+        ? 'DAILY_CEILING_ALREADY_USED'
+        : (refusedNoDemand && !rejectedOnQuality
+          ? 'DEMAND_BACKED_POOL_EXHAUSTED'
+          : (rejectedOnQuality ? 'ALL_CANDIDATES_REJECTED_ON_QUALITY' : 'DEMAND_BACKED_POOL_EXHAUSTED'))));
+  plan.create_stop_detail = `${newCandidates.length} candidate(s) considered, ${refusedNoDemand} refused for no demand record, ${rejectedOnQuality} rejected downstream, allowance this run ${maxNew} (weekly headroom ${weeklyHeadroom} of ${declaredWeekly}/wk, daily headroom ${dailyHeadroom})`;
+  plan.create_stop_is_legitimate = ['DEMAND_BACKED_POOL_EXHAUSTED', 'DAILY_CEILING_ALREADY_USED', 'WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED'].includes(plan.create_stop_reason);
 }
 
 fs.writeFileSync(path.join(ROOT,'data/releases/daily_release_plan.json'),JSON.stringify(plan,null,2)+'\n');

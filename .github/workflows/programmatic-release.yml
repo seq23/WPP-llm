@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       max_new_pages:
-        description: Max new pages for this run
+        description: Max new pages for this run (safety cap only - can lower the cadence allowance in data/cadence/policy.json, never raise it)
         type: number
-        default: 50
+        default: 2
       max_repairs:
         description: Max repairs for this run
         type: number
@@ -19,7 +19,14 @@ permissions:
 
 env:
   CI_AUTONOMOUS_BRANCH: main
-  MAX_NEW_PAGES_PER_DAY: '50'
+  # Publishing rate is governed by data/cadence/policy.json (new_pages_per_week),
+  # which scripts/citation_intelligence/build_release_plan.js reads before it
+  # stages any candidate. This value is a per-run safety cap on a bad run, not a
+  # rate: it can only lower the weekly allowance, never raise it. It sat at 50
+  # against a declared 2-per-week while this workflow ran twice a day, which is
+  # how 52 editorial URLs accumulated against a cap of 2. Keeping it at the
+  # weekly figure means the two numbers no longer contradict each other.
+  MAX_NEW_PAGES_PER_DAY: '2'
   MAX_REPAIRS_PER_DAY: '100'
 
 concurrency:
