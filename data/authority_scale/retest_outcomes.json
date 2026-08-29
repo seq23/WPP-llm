@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-28T17:19:11.863Z",
+  "updated_at": "2026-08-29T10:41:35.668Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -265,18 +265,16 @@
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-08-28T17:19:11.863Z",
-    "eligible": 118,
+    "swept_at": "2026-08-29T10:41:35.668Z",
+    "eligible": 111,
     "promoted": 0,
-    "retested_from_evidence": 7,
+    "retested_from_evidence": 0,
     "closed_inconclusive_stale": 0,
     "still_awaiting_evidence": 111,
     "signal_records_matching_queue_routes": 15,
-    "outcomes_recorded": {
-      "INCONCLUSIVE": 7
-    },
+    "outcomes_recorded": {},
     "aged_out_inconclusive": [],
-    "stop_reason": null,
-    "stop_detail": null
+    "stop_reason": "AWAITING_EVIDENCE",
+    "stop_detail": "111 repair(s) eligible; no dated signal observed after their repair timestamp yet, and none has reached the 45-day stale window"
   }
 }

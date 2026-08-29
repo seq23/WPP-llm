@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-28T15:24:26.372Z",
+  "updated_at": "2026-08-29T10:41:04.015Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-08-28",
+    "date": "2026-08-29",
     "repairs_used": 20
   },
   "receipts": [
@@ -2397,6 +2397,126 @@
       "route": "/programmatic/agency-selection-strategy-agency-content-for-saas-companies",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-08-28T15:24:26.371Z"
+    },
+    {
+      "repair_id": "repair_34d864fb58c6",
+      "route": "/programmatic/agency-content-operations",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.981Z"
+    },
+    {
+      "repair_id": "repair_602a505d7276",
+      "route": "/programmatic/agency-rfp-questions-common-failure-points",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.984Z"
+    },
+    {
+      "repair_id": "repair_338a0864505b",
+      "route": "/programmatic/agency-rfp-questions-comparison",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.987Z"
+    },
+    {
+      "repair_id": "repair_f6a9d94fc7e0",
+      "route": "/programmatic/agency-rfp-questions-how-to-choose",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.992Z"
+    },
+    {
+      "repair_id": "repair_c3d6d7a476a0",
+      "route": "/programmatic/agency-rfp-questions-questions-to-ask",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.994Z"
+    },
+    {
+      "repair_id": "repair_134f627613d9",
+      "route": "/programmatic/agency-rfp-questions-vs-in-house-team",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.996Z"
+    },
+    {
+      "repair_id": "repair_827dc5bbe1d4",
+      "route": "/programmatic/ai-consultant-vs-ai-agency",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.997Z"
+    },
+    {
+      "repair_id": "repair_c318aeb66aef",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-2026",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:03.999Z"
+    },
+    {
+      "repair_id": "repair_3a3fa7b4885a",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-agency",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.000Z"
+    },
+    {
+      "repair_id": "repair_997b43a0ff4e",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-audit",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.006Z"
+    },
+    {
+      "repair_id": "repair_317ff6bd6d18",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-checklist",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.007Z"
+    },
+    {
+      "repair_id": "repair_8acda7cec5bb",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.008Z"
+    },
+    {
+      "repair_id": "repair_75e1f2feea1b",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-consultant",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.009Z"
+    },
+    {
+      "repair_id": "repair_2e0c424db0f5",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-cost",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.009Z"
+    },
+    {
+      "repair_id": "repair_a09da4d1a861",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-examples",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.010Z"
+    },
+    {
+      "repair_id": "repair_937dbed38940",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.011Z"
+    },
+    {
+      "repair_id": "repair_1f24fafe5885",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.012Z"
+    },
+    {
+      "repair_id": "repair_023a511ebd48",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.012Z"
+    },
+    {
+      "repair_id": "repair_5a40beab6e34",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-nonprofits",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.013Z"
+    },
+    {
+      "repair_id": "repair_9bc482a5800b",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-professional-services-firms",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-08-29T10:41:04.014Z"
     }
   ]
 }
