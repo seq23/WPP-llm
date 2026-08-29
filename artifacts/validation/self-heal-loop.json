@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-25T21:56:06.333Z",
+  "generated_at": "2026-08-29T20:54:11.369Z",
   "validate_command": "npm run validate:all",
-  "max_attempts": 2,
+  "max_attempts": 3,
   "dry_run": false,
   "registered_repairs": {
     "agent-run-artifact-intake": "npm run citation:normalize-artifacts",
@@ -17,21 +17,6 @@
   "attempts": [
     {
       "attempt": 1,
-      "gate_exit": 1,
-      "failed": [
-        "normalized-agent-run-schema"
-      ],
-      "repaired": [
-        {
-          "id": "normalized-agent-run-schema",
-          "cmd": "npm run citation:normalize-artifacts",
-          "code": 0
-        }
-      ],
-      "result": "REPAIRED_RETRYING"
-    },
-    {
-      "attempt": 2,
       "gate_exit": 0,
       "failed": [],
       "repaired": [],
