@@ -13,7 +13,8 @@ const required = [
   'distribution.yml',
   'credential-check.yml',
   'admin-command.yml',
-  'search-repair-retest.yml'
+  'search-repair-retest.yml',
+  'self-heal.yml'
 ];
 const bad = [];
 
@@ -104,7 +105,7 @@ if (fs.existsSync(distribution)) {
   if (!text.includes('INDEXNOW_KEY_VAR') || !text.includes('indexnow_key')) bad.push('distribution.yml missing IndexNow secret/variable fallback wiring');
 }
 
-for (const file of ['admin-command.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml']) {
+for (const file of ['admin-command.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml', 'self-heal.yml']) {
   const text = fs.readFileSync(path.join(workflowDir, file), 'utf8');
   if (!text.includes('group: wpp-autonomous-writer-main')) bad.push(`${file}: writer is outside the shared main serialization group`);
   if (!text.includes('commit_and_push_if_changed.sh')) bad.push(`${file}: writer bypasses shared exact-SHA push helper`);

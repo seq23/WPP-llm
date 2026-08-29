@@ -524,6 +524,16 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "selfheal-wiring",
+      "command": "node scripts/validate_selfheal_wiring.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent a working repair lane from being orphaned: every self-heal npm script must be reachable from a workflow.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ]
 }
