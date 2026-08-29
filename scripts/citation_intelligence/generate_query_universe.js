@@ -79,6 +79,85 @@ if(fs.existsSync(fanoutWindowPath)){
   }
 }
 
+// Seed a candidate for every query that HAS demand evidence.
+//
+// Everything above enumerates templates and then asks the gate whether each one
+// happens to be real. That is the join in the wrong direction, and the numbers
+// showed it: 10,099 candidates, 37 of them demand-backed. The 37 was not a
+// measure of how much demand this property has evidence for. It was a measure of
+// how often a cartesian expansion of eight pillars by thirty-seven modifiers
+// coincidentally produced the exact string a real person typed.
+//
+// The gate holds 523 queries measured in Search Console and 7 from the Semrush
+// packet. Before this block, 486 of them had no candidate row at all - no id, no
+// route_candidate, no way to reach the release planner - so the one thing the
+// repo could prove people search for was the one thing it could not build for.
+//
+// This does not weaken the gate; it feeds the gate what it already holds. A row
+// seeded here is page_eligible because a demand record exists for it, which is
+// the same test every other row passes. Nothing is invented: pillar and cluster
+// are inherited from the nearest enumerated head by token overlap, and where
+// nothing matches the row says so rather than guessing.
+const heads=Object.entries(pillars).flatMap(([pillar,hs])=>hs.map(h=>({pillar,head:h,tokens:new Set(String(h).toLowerCase().match(/[a-z0-9]+/g)||[])})));
+function nearestHead(query){
+  const qt=new Set(String(query).toLowerCase().match(/[a-z0-9]+/g)||[]);
+  let best=null,bestScore=0;
+  for(const h of heads){
+    let hit=0; for(const t of h.tokens) if(qt.has(t)) hit++;
+    const score=h.tokens.size?hit/h.tokens.size:0;
+    if(score>bestScore){bestScore=score;best=h;}
+  }
+  // Half the head's own tokens must appear, or the match is noise. "livekit"
+  // sharing no token with any head must not be filed under brand strategy.
+  return bestScore>=0.5?{...best,confidence:Number(bestScore.toFixed(3))}:null;
+}
+let demandSeeded=0;
+for(const rec of demandGate.allRecords()){
+  const query=String(rec.query||'').trim();
+  if(!query||seen.has(query)) continue;
+  seen.add(query);
+  const match=nearestHead(query);
+  const mod=query.toLowerCase();
+  qs.push({
+    id:'q_'+slug(query).slice(0,78),
+    query,
+    pillar:match?match.pillar:'unclustered',
+    // An unmatched row joins the one `unclustered` bucket. It must NOT get
+    // `slug(query)`: `cluster` is not a label, it is the grouping key that
+    // generate_query_atlas_pages.js turns into one indexable page per distinct
+    // value. A per-query cluster therefore mints a per-query page, and 120
+    // unmatched rows minted 117 new clusters and 116 new `index,follow` pages
+    // in a single build - 114 of them listing exactly one query. The cadence
+    // gate caught it: 117 new editorial URLs against a cap of 2 per week.
+    //
+    // Those pages were never content decisions. Nothing routed them through the
+    // demand gate, the release plan or the noindex policy; they appeared because
+    // a JSON grouping key changed. The row already says `pillar:'unclustered'`
+    // and `cluster_confidence:0` - saying so once, in one bucket, is the whole
+    // point. Every seeded row keeps its demand evidence and its route_candidate,
+    // so the release planner still reaches all 491 of them; only the atlas's
+    // grouping changes.
+    cluster:match?slug(match.head):'unclustered',
+    cluster_confidence:match?match.confidence:0,
+    page_family:/cost|pricing|budget/.test(mod)?'cost_scope':/ vs |comparison|compare/.test(mod)?'comparison':/checklist|template/.test(mod)?'template_checklist':/^what is/.test(mod)?'definition':'operational_guide',
+    intent:intents(mod),
+    // No priority integer. The enumerated rows carry one because a human typed
+    // it into a seed list; inventing one here would put a made-up number beside
+    // a measured record, which is the exact defect demand_gate.js was written to
+    // end. Rank these on demand_basis and the units beside it.
+    priority:null,
+    ...demandFields(query),
+    route_candidate:'/'+slug(query),
+    source:'measured_demand_seed',
+    demand_source_file:rec.demand_source_file||null,
+    authority_lane:match&&match.pillar==='ai-workflows'?'ADJACENT':'CORE',
+    entity_binding:'west_peek_productions',
+    action_options:['CREATE','EXPAND','MERGE','REFRESH','ANSWER_CARD','ENTITY_SURFACE','EXPERIMENT','DEFER','REJECT'],
+    status:'candidate'
+  });
+  demandSeeded++;
+}
+
 const strategy={updated:'2026-08-27',goal:'Publish a page for every query with measured demand evidence, and for no query without it. The enumeration below is an index of candidates, not a queue: a candidate becomes publishable only when scripts/lib/demand_gate.js finds a demand record for it.',commercial_destination:'https://www.westpeekproductions.com/',demand_source:'data/authority_scale/query_atlas.json (GSC, T1) + data/demand/measured_demand.json (Semrush, T2b, and owner-approved seeds)',guaranteed:false};
 const deterministicGeneratedAt=fanoutWindowPacket.generated_at||`${process.env.BUILD_DATE||new Date().toISOString().slice(0,10)}T00:00:00.000Z`;
 // `qs.slice(0,10000)` used to live here, and `counts.target_90_day_routes` was
@@ -89,5 +168,5 @@ const deterministicGeneratedAt=fanoutWindowPacket.generated_at||`${process.env.B
 // the enumeration is, and the only figure that governs publication is
 // `demand_backed`, which is a count of evidence and cannot be padded.
 const demandBacked=qs.filter(q=>q.page_eligible).length;
-const out={strategy,counts:{total_queries:qs.length,demand_backed_queries:demandBacked,unbacked_candidates:qs.length-demandBacked,max_new_pages_per_day:50,max_repairs_per_day:100,scheduled_runs_per_day:2,daily_ceiling_shared_across_runs:true,ceiling_semantics:'safety capacity for a bad run, never a number to reach'},generated_at:deterministicGeneratedAt,queries:qs};
-fs.mkdirSync(path.join(ROOT,'data/query_atlas'),{recursive:true});fs.writeFileSync(path.join(ROOT,'data/query_atlas/query_universe.json'),JSON.stringify(out,null,2));console.log(`Generated query universe: ${out.queries.length} candidates, of which ${demandBacked} are backed by a demand record and may become pages. ${qs.length-demandBacked} are unbacked and are index-only.`);
+const out={strategy,counts:{total_queries:qs.length,demand_backed_queries:demandBacked,demand_seeded_candidates:demandSeeded,unbacked_candidates:qs.length-demandBacked,max_new_pages_per_day:50,max_repairs_per_day:100,scheduled_runs_per_day:2,daily_ceiling_shared_across_runs:true,ceiling_semantics:'safety capacity for a bad run, never a number to reach'},generated_at:deterministicGeneratedAt,queries:qs};
+fs.mkdirSync(path.join(ROOT,'data/query_atlas'),{recursive:true});fs.writeFileSync(path.join(ROOT,'data/query_atlas/query_universe.json'),JSON.stringify(out,null,2));console.log(`Generated query universe: ${out.queries.length} candidates, of which ${demandBacked} are backed by a demand record and may become pages (${demandSeeded} seeded directly from the demand gate rather than found by coincidence). ${qs.length-demandBacked} are unbacked and are index-only.`);

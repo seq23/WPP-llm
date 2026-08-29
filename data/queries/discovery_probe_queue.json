@@ -1,0 +1,371 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-29T01:30:28.712Z",
+  "by": "scripts/queries/score_discovery_gap.mjs",
+  "purpose": "The next bounded set of measured queries to spend a grounded citation call on: every row that still has no openness reading, in the order this pass would probe them. Recorded so the selection is auditable rather than implicit - lead-intent tier first, then this domain own impressions. Rows that already carry a reading are absent because they have been measured, not because they were skipped.",
+  "selection_rule": "unscored rows only, ordered by lead_intent_tier (T1 > T2 > T3 > T4) then impressions_90d, capped at DISCOVERY_PROBE_CAP",
+  "cap": 60,
+  "truth_boundary": "A row in this queue is a query chosen for observation. It is not evidence of rank, citation or volume.",
+  "queries": [
+    {
+      "query": "compare top-rated digital event production companies.",
+      "lead_intent_tier": "T3_SELECTION",
+      "impressions_90d": 1,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "generic marketing agency vs security industry specialist agency",
+      "lead_intent_tier": "T3_SELECTION",
+      "impressions_90d": 1,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "how do i compare audience measurement vendors before making a decision?",
+      "lead_intent_tier": "T3_SELECTION",
+      "impressions_90d": 1,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "looking for a framework to compare vendors on their ability to connect audience insights to content production to campaign delivery",
+      "lead_intent_tier": "T3_SELECTION",
+      "impressions_90d": 1,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event production",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 883,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "hybrid event production",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 649,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual events production",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 348,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "webinar production services",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 200,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "audience growth strategy",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 194,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event platforms",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 169,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event checklist",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 158,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event production services",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 128,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "webinar production",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 123,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event planning checklist",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 86,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "professional webinar production services",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 75,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "brand messaging architecture",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 66,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "content marketing operations",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 66,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "content marketing operation services",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 61,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "community management outsourcing",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 56,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "top virtual event platforms",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 54,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event providers",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 53,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "ai content operations",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 52,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "webinar production checklist",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 48,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "investor relations event production",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 45,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "agency content operations",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 44,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual events platforms",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 44,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual summit platforms",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 43,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "hybrid events platform",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 42,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "marketing content operations",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 39,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event production checklist",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 39,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event timeline",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 38,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "hybrid event platforms",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 37,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "integrated agency",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 36,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "marketing content operation solution",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 36,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "webinar production company",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 36,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "integrated agency definition",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 35,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "marketing content operation workflow",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 35,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "narrative strategy",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 35,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "hybrid events production agency",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 33,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "creative strategy consulting",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 32,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "human in the loop examples",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 32,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "production agency definition",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 32,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "webinar production companies",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 32,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "platforms to host virtual events",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 31,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "brand implementation",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 30,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "digital marketing agency workflow",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 30,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "creative operations",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 29,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual events management",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 29,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event production staff",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 26,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "west peak",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 26,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "creative operations workflow",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 25,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "how to host virtual events",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 25,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event case studies",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 25,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual summit platform",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 25,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual event planning timeline",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 24,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual and hybrid event platform",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 21,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "virtual events checklist",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 21,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "founder narrative strategy",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 20,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "creative ops",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 19,
+      "evidence_tier": "T1"
+    },
+    {
+      "query": "content operations system",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "impressions_90d": 18,
+      "evidence_tier": "T1"
+    }
+  ]
+}
