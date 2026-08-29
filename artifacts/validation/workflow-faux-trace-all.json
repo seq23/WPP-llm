@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
-  "workflow_count": 7,
-  "scenario_count": 60,
-  "passed": 60,
+  "workflow_count": 8,
+  "scenario_count": 64,
+  "passed": 64,
   "failed": [],
   "errors": [],
   "traces": [
@@ -11,7 +11,7 @@
       "scenario": "autonomous-transaction-order",
       "expected": "prepare -> mutate -> build -> validate release -> refreeze -> clear -> final validation",
       "passed": true,
-      "detail": "{'authority:scale:prepare-scope': 226, 'release:content': 267, 'npm run build': 306, 'validate:release': 463, 'authority:scale:freeze': 607, 'authority:scale:clear-scope': 641, 'validate:all': 680}",
+      "detail": "{'authority:scale:prepare-scope': 226, 'release:content': 267, 'npm run build': 306, 'validate:release': 488, 'authority:scale:freeze': 632, 'authority:scale:clear-scope': 666, 'validate:all': 705}",
       "trace_only": true
     },
     {
@@ -27,7 +27,7 @@
       "scenario": "final-authority-proof",
       "expected": "validate:all runs after clear-scope and includes validate:authority-scale",
       "passed": true,
-      "detail": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern",
+      "detail": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity && npm run validate:selfheal-wiring",
       "trace_only": true
     },
     {
@@ -384,6 +384,38 @@
     },
     {
       "workflow": "search-repair-retest.yml",
+      "scenario": "governed-push",
+      "expected": "uses exact-SHA push helper",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "self-heal.yml",
+      "scenario": "command-selfheal",
+      "expected": "npm run selfheal",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "self-heal.yml",
+      "scenario": "scheduled",
+      "expected": "runs on a cron, not only by hand",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "self-heal.yml",
+      "scenario": "serialized-writes",
+      "expected": "shares writer concurrency group",
+      "passed": true,
+      "detail": "",
+      "trace_only": true
+    },
+    {
+      "workflow": "self-heal.yml",
       "scenario": "governed-push",
       "expected": "uses exact-SHA push helper",
       "passed": true,

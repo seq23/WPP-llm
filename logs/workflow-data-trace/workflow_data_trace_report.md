@@ -1,8 +1,8 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-08-29T10:41:18.070Z
+Generated: 2026-08-29T15:29:46.868Z
 
-Workflows: 7
+Workflows: 8
 
 ## Required persistent data files
 - PASS _citation_intelligence_contract.json
@@ -94,6 +94,15 @@ Workflows: 7
 - search-repair-retest.yml :: diagnose_repair_retest #10 :: Sweep delayed retest queue for real evidence :: npm:repairs:retest
 - search-repair-retest.yml :: diagnose_repair_retest #11 :: Commit search repair and retest artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
 - search-repair-retest.yml :: diagnose_repair_retest #12 :: actions/upload-artifact@v7
+- self-heal.yml :: self_heal #1 :: actions/checkout@v6
+- self-heal.yml :: self_heal #2 :: actions/setup-node@v6
+- self-heal.yml :: self_heal #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
+- self-heal.yml :: self_heal #4 :: node scripts/runtime_guard.mjs
+- self-heal.yml :: self_heal #5 :: Sync latest main before writing repairs
+- self-heal.yml :: self_heal #6 :: Validate workflow syntax :: npm:actions:validate
+- self-heal.yml :: self_heal #7 :: Repair until clean :: npm:selfheal
+- self-heal.yml :: self_heal #8 :: Commit only validated repair output :: paths:.github/scripts/commit_and_push_if_changed.sh
+- self-heal.yml :: self_heal #9 :: actions/upload-artifact@v7
 
 ## Errors
 - none

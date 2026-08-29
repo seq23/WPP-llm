@@ -70,7 +70,7 @@ state.last_release_run = { created, repaired, skipped:skipped.length, quality_re
 fs.writeFileSync(path.join(ROOT,'data/content/page_admission_registry.json'),JSON.stringify(adm,null,2)+'\n');
 fs.writeFileSync(path.join(ROOT,'data/content/content_state_registry.json'),JSON.stringify(state,null,2)+'\n');
 
-const today = new Date().toISOString().slice(0,10);
+const today = process.env.CADENCE_TODAY || new Date().toISOString().slice(0,10);
 const ledgerPath = path.join(ROOT,'data/releases/daily_velocity_ledger.json');
 let ledger={date:today,new_pages_used:0,repairs_used:0,runs:[]};
 try { const prior=JSON.parse(fs.readFileSync(ledgerPath,'utf8')); if(prior.date===today) ledger=prior; } catch {}
@@ -78,6 +78,26 @@ ledger.new_pages_used=Number(ledger.new_pages_used||0)+created;
 ledger.repairs_used=Number(ledger.repairs_used||0)+repaired;
 ledger.runs=[...(ledger.runs||[]),{at:new Date().toISOString(),created,repairs:repaired,skipped:skipped.length,quality_rejected:qualityRejected}];
 fs.writeFileSync(ledgerPath,JSON.stringify(ledger,null,2)+'\n');
+
+// The daily ledger is overwritten every midnight, so on its own it cannot answer
+// "how many pages went out this week" - which is the question the weekly cadence
+// allowance in data/cadence/policy.json actually asks. This keeps the per-date
+// history the planner reads before it stages anything. Trimmed to 60 days: long
+// enough that a 7-day window is always fully covered, short enough that it stays
+// a ledger rather than an archive.
+const WEEKLY_LEDGER_RETAIN_DAYS = 60;
+const weeklyPath = path.join(ROOT,'data/releases/weekly_velocity_ledger.json');
+let weekly = { schema_version: '1.0', days: {} };
+try {
+  const prior = JSON.parse(fs.readFileSync(weeklyPath,'utf8'));
+  if (prior && typeof prior.days === 'object' && prior.days) weekly = { ...weekly, ...prior, days: prior.days };
+} catch { /* first write */ }
+weekly.days[today] = Number(weekly.days[today] || 0) + created;
+const cutoff = new Date(Date.parse(`${today}T00:00:00Z`) - WEEKLY_LEDGER_RETAIN_DAYS * 86400000).toISOString().slice(0,10);
+weekly.days = Object.fromEntries(Object.entries(weekly.days).filter(([d]) => d >= cutoff).sort(([a],[b]) => a.localeCompare(b)));
+weekly.updated_at = new Date().toISOString();
+weekly.retain_days = WEEKLY_LEDGER_RETAIN_DAYS;
+fs.writeFileSync(weeklyPath, JSON.stringify(weekly,null,2)+'\n');
 
 fs.mkdirSync(path.join(ROOT,'artifacts/release'),{recursive:true});
 const status=(created||repaired)?'COMPLETED_WITH_CHANGES':skipped.length?'COMPLETED_ALL_SKIPPED':'COMPLETED_NO_CHANGES';

@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  # Five lanes push to main through commit_and_push_if_changed.sh, authenticated
+  # with GITHUB_TOKEN, and GitHub does not trigger workflows on those pushes. So
+  # push: alone cannot observe most of what lands on main: on 2026-08-29 the last
+  # green run had tested 019b7448 while main was abea8a17d, and `npm run
+  # cadence:gate` on that commit exits 1. This runs after the daily writers (the
+  # latest is search-repair-retest at 10:40 UTC) so a red main is reported within
+  # hours instead of waiting for a human PR to reveal it.
+  schedule:
+    - cron: '15 12 * * *'
 
 permissions:
   contents: read

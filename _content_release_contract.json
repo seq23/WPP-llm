@@ -6,13 +6,14 @@
   "cadence": {
     "class": "QUALITY_GATED_FULL_SAFE_AUTONOMY",
     "start_date": "2026-07-10",
-    "max_new_pages_per_day": 50,
+    "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
-    "max_route_mutations_per_day": 150,
+    "max_route_mutations_per_day": 102,
     "scheduled_runs_per_day": 2,
-    "ninety_day_route_target": 4500,
+    "ninety_day_route_target": 26,
     "daily_ceiling_semantics": "PORTFOLIO_DAILY_CEILING_SHARED_ACROSS_ALL_SCHEDULED_RUNS_NOT_PER_RUN_QUOTA",
-    "ninety_day_route_target_semantics": "planning_capacity_reference_not_quota; publication is governed by distinct-answer quality, evidence, and velocity health"
+    "ninety_day_route_target_semantics": "planning_capacity_reference_not_quota, derived from data/cadence/policy.json: 2 new pages per week over 13 weeks. The prior 4500 was a capacity aspiration with no relationship to the declared cadence, and this property already has 3362 pages producing 2 citations, so volume is not the constraint.",
+    "cadence_policy_authority": "data/cadence/policy.json is the single source of truth for publishing rate (new_pages_per_week). Every figure here is a per-run safety cap that can only lower that allowance, never raise it. max_new_pages_per_day sat at 50 with two scheduled runs a day against a declared 2 per week, which is how 52 unaccepted editorial URLs accumulated at roughly 26x the cap; it is now the weekly figure so no number in this file contradicts the policy."
   },
   "strategy_targets": {
     "stretch_observed_external_citations_90_days": 100000,

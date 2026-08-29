@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-29T10:41:18.070Z",
-  "workflow_count": 7,
+  "generated_at": "2026-08-29T15:29:46.868Z",
+  "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
     "ci.yml",
@@ -8,7 +8,8 @@
     "distribution.yml",
     "programmatic-release.yml",
     "query-intelligence.yml",
-    "search-repair-retest.yml"
+    "search-repair-retest.yml",
+    "self-heal.yml"
   ],
   "traces": [
     {
@@ -841,6 +842,102 @@
       "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
       "job": "diagnose_repair_retest",
       "step": 12,
+      "name": "actions/upload-artifact@v7",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 1,
+      "name": "actions/checkout@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 2,
+      "name": "actions/setup-node@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 3,
+      "name": "bash scripts/ci_npm_install.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/ci_npm_install.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 4,
+      "name": "node scripts/runtime_guard.mjs",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 5,
+      "name": "Sync latest main before writing repairs",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 6,
+      "name": "Validate workflow syntax",
+      "npm_script": "actions:validate",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 7,
+      "name": "Repair until clean",
+      "npm_script": "selfheal",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 8,
+      "name": "Commit only validated repair output",
+      "npm_script": null,
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
+      "env_keys": [
+        "PRE_PUSH_VALIDATION_ARGV"
+      ]
+    },
+    {
+      "workflow": "self-heal.yml",
+      "workflow_name": "Bounded Self-Healing",
+      "job": "self_heal",
+      "step": 9,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

@@ -47,7 +47,7 @@
     "strategy:gate": "node scripts/validate_strategy_gate.js",
     "strategy:validate": "node scripts/validate_strategy_gate.js",
     "validate:agent-run-intake": "node scripts/validators/validate_agent_run_artifact_intake.js",
-    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity",
+    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity && npm run validate:selfheal-wiring && npm run validate:ci-reachability",
     "validate:atom-contract": "node scripts/validators/validate_atom_contract.js",
     "validate:autonomous": "npm run validate:atom-contract && npm run validate:page-family-contract && npm run validate:page-admission && npm run validate:query-atlas && npm run validate:atlas-units && npm run validate:programmatic-engine && npm run validate:workflow-data-trace && npm run validate:master-contract-pipeline",
     "validate:fanout": "node scripts/validate_fanout_warning.js",
@@ -109,7 +109,9 @@
     "validate:audience-permutation-budget": "node scripts/validators/validate_audience_permutation_budget.js",
     "noindex:apply": "node scripts/apply_noindex_policy.js",
     "noindex:check": "node scripts/apply_noindex_policy.js --check",
-    "cta:attribute": "node scripts/repair_unattributed_wpp_ctas.js --write"
+    "cta:attribute": "node scripts/repair_unattributed_wpp_ctas.js --write",
+    "validate:selfheal-wiring": "node scripts/validate_selfheal_wiring.js",
+    "validate:ci-reachability": "node scripts/validate_ci_reachability.js"
   },
   "dependencies": {
     "marked": "^12.0.2"

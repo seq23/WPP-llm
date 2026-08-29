@@ -443,6 +443,20 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "selfheal-wiring",
+      "command": "node scripts/validate_selfheal_wiring.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prevent a working repair lane from being orphaned: every self-heal npm script must be reachable from a workflow.",
+      "owner": "repo"
+    },
+    {
+      "id": "ci-reachability",
+      "command": "node scripts/validate_ci_reachability.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Keep main validated on commits push-triggered CI cannot see: GITHUB_TOKEN pushes from bot lanes do not trigger workflows.",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

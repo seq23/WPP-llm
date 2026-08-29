@@ -21,7 +21,7 @@ TRACES: list[dict] = []
 REQUIRED = {
     'admin-command.yml', 'ci.yml', 'credential-check.yml',
     'distribution.yml', 'programmatic-release.yml', 'query-intelligence.yml',
-    'search-repair-retest.yml'
+    'search-repair-retest.yml', 'self-heal.yml'
 }
 
 
@@ -176,6 +176,17 @@ trace('search-repair-retest.yml', 'serialized-writes', 'shares writer concurrenc
       'group: wpp-autonomous-writer-main' in repair)
 trace('search-repair-retest.yml', 'governed-push', 'uses exact-SHA push helper',
       'commit_and_push_if_changed.sh' in repair and 'PRE_PUSH_VALIDATION_ARGV' in repair)
+
+# Bounded self-healing scenarios. The loop worked and nothing ran it; these
+# assert it stays CI-reachable, serialized with the other writers to main, and
+# unable to push an unvalidated repair.
+heal = text('self-heal.yml')
+trace('self-heal.yml', 'command-selfheal', 'npm run selfheal', 'npm run selfheal' in heal)
+trace('self-heal.yml', 'scheduled', 'runs on a cron, not only by hand', 'schedule:' in heal and 'cron:' in heal)
+trace('self-heal.yml', 'serialized-writes', 'shares writer concurrency group',
+      'group: wpp-autonomous-writer-main' in heal)
+trace('self-heal.yml', 'governed-push', 'uses exact-SHA push helper',
+      'commit_and_push_if_changed.sh' in heal and 'PRE_PUSH_VALIDATION_ARGV' in heal)
 
 # Required data handoffs used across the workflow spine.
 required_data = [

@@ -136,6 +136,96 @@ for (const f of wfs) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// The publisher must be governed by the same policy the gate reports on.
+//
+// Everything above establishes that the gate can hold a verdict. None of it
+// establishes that anything upstream obeys it, and for a long time nothing did:
+// data/cadence/policy.json declared 2 new pages a week, the release planner's
+// only ceiling was a per-DAY number defaulting to 50, and the release workflow
+// ran twice a day with that number set to 50 - a rate roughly 26x the declared
+// cap, which is how 52 unaccepted editorial URLs accumulated. The gate reported
+// the gap accurately every time; it simply had no power to prevent it, because
+// the cap was applied downstream of the process it governed.
+//
+// So the properties asserted here are:
+//
+//   5. The planner reads data/cadence/policy.json and derives its new-page
+//      allowance from new_pages_per_week - before it stages candidates, not after.
+//   6. The per-run/per-day ceiling can only narrow that allowance. If the planner
+//      ever takes the larger of the two, the policy stops being a cap.
+//   7. No workflow declares a per-day new-page cap above the declared weekly
+//      figure, so the workflow cannot advertise a rate the policy forbids.
+//   8. Usage is measured over a multi-day window. A weekly cap enforced against a
+//      ledger that resets at midnight is a daily cap wearing a weekly label, and
+//      this publisher runs twice a day.
+// ---------------------------------------------------------------------------
+const POLICY_REL = 'data/cadence/policy.json';
+const PLANNER_REL = 'scripts/citation_intelligence/build_release_plan.js';
+const policyPath = path.join(ROOT, POLICY_REL);
+const plannerPath = path.join(ROOT, PLANNER_REL);
+
+let declaredWeekly = null;
+if (!fs.existsSync(policyPath)) {
+  failures.push(`policy_missing: ${POLICY_REL} does not exist, so there is no declared publishing rate for anything to be governed by.`);
+} else {
+  try {
+    const policy = JSON.parse(fs.readFileSync(policyPath, 'utf8'));
+    declaredWeekly = Number(policy.new_pages_per_week);
+    if (!Number.isFinite(declaredWeekly) || declaredWeekly < 0) {
+      failures.push(`policy_no_weekly_cap: ${POLICY_REL} has no usable new_pages_per_week. The gate reports against it and the planner is required to read it.`);
+      declaredWeekly = null;
+    }
+  } catch (err) {
+    failures.push(`policy_unreadable: ${POLICY_REL} is not parseable JSON (${String(err.message).slice(0, 120)}).`);
+  }
+}
+
+if (!fs.existsSync(plannerPath)) {
+  failures.push(`planner_missing: ${PLANNER_REL} does not exist, so this validator cannot show the publisher is governed. It hard-fails rather than passing on an absent publisher.`);
+} else {
+  const planner = fs.readFileSync(plannerPath, 'utf8');
+  // Mentioning the path in prose is not reading it. The policy constant must
+  // resolve to the real file AND be passed to an actual read, or a planner that
+  // only names the policy in a comment would satisfy this check.
+  const constMatch = planner.match(/const\s+CADENCE_POLICY_REL\s*=\s*['"]([^'"]+)['"]/);
+  const readsPolicy = /readJson\(\s*(?:CADENCE_POLICY_REL|['"]data\/cadence\/policy\.json['"])/.test(planner);
+  if (!readsPolicy) {
+    failures.push(`planner_ignores_policy: ${PLANNER_REL} never reads ${POLICY_REL}. The weekly cap is then enforced only after publishing, by a gate that can report the overrun but not prevent it - the exact state that produced 52 editorial URLs against a cap of 2.`);
+  } else if (constMatch && constMatch[1] !== POLICY_REL) {
+    failures.push(`planner_reads_wrong_policy: ${PLANNER_REL} reads '${constMatch[1]}', not ${POLICY_REL}. Pointing the publisher at a file the gate does not read restores the disagreement in a form that still looks governed.`);
+  }
+  if (!/new_pages_per_week/.test(planner)) {
+    failures.push(`planner_ignores_weekly_cap: ${PLANNER_REL} does not consult new_pages_per_week.`);
+  }
+  // The allowance must be an intersection, never a union. Math.max over the two
+  // headrooms would let the daily safety cap grant headroom the policy withheld.
+  if (!/const\s+maxNew\s*=\s*Math\.min\(/.test(planner)) {
+    failures.push(`planner_allowance_not_narrowed: ${PLANNER_REL} does not compute its new-page allowance as Math.min of the weekly policy headroom and the daily safety ceiling. A ceiling that can raise the declared rate is not a safety cap.`);
+  }
+  if (!/weeklyHeadroom/.test(planner) || !/usedThisWeek/.test(planner)) {
+    failures.push(`planner_no_weekly_window: ${PLANNER_REL} does not measure usage across a weekly window. A per-day ledger cannot answer a per-week question, and this publisher is scheduled twice a day.`);
+  }
+  const stagingIndex = planner.search(/function\s+stageCandidate/);
+  const allowanceIndex = planner.search(/const\s+maxNew\s*=/);
+  if (stagingIndex >= 0 && allowanceIndex >= 0 && allowanceIndex > stagingIndex) {
+    failures.push(`planner_allowance_applied_late: ${PLANNER_REL} computes its allowance after candidate staging is defined. The allowance must be known before anything is generated, not used to trim afterwards.`);
+  }
+}
+
+if (declaredWeekly !== null) {
+  for (const f of wfs) {
+    const raw = fs.readFileSync(f, 'utf8');
+    const code = raw.split('\n').map((l) => l.replace(/(^|\s)#.*$/, '$1')).join('\n');
+    for (const m of code.matchAll(/MAX_NEW_PAGES_PER_DAY:\s*'?"?(\d+)'?"?/g)) {
+      const declared = Number(m[1]);
+      if (declared > declaredWeekly) {
+        failures.push(`workflow_cap_over_policy: ${path.basename(f)} sets MAX_NEW_PAGES_PER_DAY=${declared}, above the declared ${declaredWeekly} new pages per week in ${POLICY_REL}. A per-day safety cap larger than a whole week's allowance is a rate the policy does not permit, stated in the one place people read.`);
+      }
+    }
+  }
+}
+
 const receipt = {
   validator: 'cadence_gate_integrity',
   status: failures.length ? 'FAIL' : 'PASS',
@@ -143,6 +233,8 @@ const receipt = {
   strong_warnings: 0,
   soft_warnings: 0,
   gate_invoked_by: invoking.map((f) => path.basename(f)),
+  declared_new_pages_per_week: declaredWeekly,
+  publisher_governed_by_policy: !failures.some((x) => x.startsWith('planner_') || x.startsWith('workflow_cap_over_policy')),
   failures,
 };
 console.log(JSON.stringify(receipt, null, 2));

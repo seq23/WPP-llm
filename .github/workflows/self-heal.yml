@@ -1,0 +1,86 @@
+name: Bounded Self-Healing
+
+# scripts/selfheal/heal_until_clean.mjs works - a corrupted normalized agent-run
+# packet is detected as normalized-agent-run-schema, repaired by
+# citation:normalize-artifacts, and revalidated clean on attempt 2 - but
+# `selfheal` and `selfheal:dry` appeared in no workflow, no aggregate npm script
+# and no git hook, so the loop healed nothing in CI for its entire life. p-n-p
+# and dream-wedding-builder each closed this same gap with a self-heal.yml; this
+# repo was left out.
+#
+# Weekly and bounded: it validates, runs the repair each failing validator
+# declares as repair_command in _validator_registry.json, re-validates, and
+# commits only if the repo's own gate is green afterwards.
+# validate:selfheal-wiring keeps this file reachable - deleting it turns that
+# validator red rather than silently re-orphaning the loop.
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_changes:
+        description: Commit validated repair output
+        type: boolean
+        default: true
+  schedule:
+    - cron: '26 16 * * 3'
+
+permissions:
+  contents: write
+
+env:
+  CI_AUTONOMOUS_BRANCH: main
+
+# Shared with every other writer to main, so a repair commit can never race the
+# release or search-repair lanes.
+concurrency:
+  group: wpp-autonomous-writer-main
+  cancel-in-progress: false
+
+jobs:
+  self_heal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+      - run: bash scripts/ci_npm_install.sh
+      - id: runtime
+        run: node scripts/runtime_guard.mjs
+      - name: Sync latest main before writing repairs
+        if: steps.runtime.outputs.allowed == 'true'
+        run: git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
+      - name: Validate workflow syntax
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run actions:validate
+      # One pass only. The loop's own step 1 is `npm run validate:all`, which is
+      # expensive here; a separate --dry-run step would pay for it twice and
+      # report nothing that artifacts/validation/self-heal-loop.json does not
+      # already record. A run where nothing was broken exits 0 having stated
+      # "clean on attempt 1" - a named stop, not a silent one.
+      - name: Repair until clean
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run selfheal
+      - name: Commit only validated repair output
+        # commit_and_push_if_changed.sh re-runs release:push-gate before pushing,
+        # so nothing reaches main unless the repo's own gate is green after the
+        # repair. It also reports explicitly when there was nothing to commit.
+        if: ${{ steps.runtime.outputs.allowed == 'true' && (github.event_name == 'schedule' || github.event.inputs.commit_changes == 'true') }}
+        env:
+          PRE_PUSH_VALIDATION_ARGV: npm run release:push-gate
+        run: |
+          bash .github/scripts/commit_and_push_if_changed.sh \
+            "Self-heal: apply bounded validated repairs" self-heal
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: self-heal-loop-evidence
+          path: |
+            artifacts/validation/self-heal-loop.json
+            artifacts/validation/validation-summary-selfheal.json
+          if-no-files-found: ignore
