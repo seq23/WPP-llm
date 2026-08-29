@@ -54,15 +54,17 @@
   "publication_budget": {
     "unified_new_url_budget": true,
     "repairs_may_use_separate_budget": true,
-    "current_starting_ceiling_per_day": 50,
+    "current_starting_ceiling_per_day": 2,
     "scale_tiers": [
+      2,
       50,
       75,
       100,
       150,
       200
     ],
-    "tiers_are_ceilings_not_quotas": true
+    "tiers_are_ceilings_not_quotas": true,
+    "cadence_policy_authority": "data/cadence/policy.json (new_pages_per_week) is the single source of truth for publishing rate. _content_release_contract.json holds the per-day safety cap, which can only lower it. Nothing here may restate either number."
   },
   "dynamic_velocity": {
     "upshift_requires": [

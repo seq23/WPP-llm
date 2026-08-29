@@ -18,10 +18,11 @@
   "strategy_targets": {
     "stretch_observed_external_citations_90_days": 100000,
     "tracked_query_target": 10000,
-    "route_target_90_days": 4500,
+    "route_target_90_days": 26,
     "truth_rule": "target_not_guarantee",
     "route_target_semantics": "planning_capacity_reference_not_quota",
-    "publication_governor": "quality_gate_then_indexation_distribution_and_observed_yield_evidence"
+    "publication_governor": "quality_gate_then_indexation_distribution_and_observed_yield_evidence",
+    "route_target_90_days_semantics": "planning_capacity_reference_not_quota, derived from data/cadence/policy.json: new_pages_per_week (2) over floor(refresh_window_days/7) = 13 weeks. data/cadence/policy.json is the single source of truth; every figure here is a safety cap that can only lower that allowance, never raise it. This sat at 4500 after cadence.ninety_day_route_target was corrected to 26, so the same contract file stated two different 90-day route targets."
   },
   "publication_rules": [
     "strategy_gate_required",

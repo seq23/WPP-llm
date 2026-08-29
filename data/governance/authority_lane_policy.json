@@ -16,7 +16,6 @@
   "lanes": {
     "CORE": {
       "autopublish": true,
-      "max_new_pages_per_run": 30,
       "requires": [
         "query ownership",
         "distinct answer value",
@@ -26,7 +25,6 @@
     },
     "ADJACENT": {
       "autopublish": true,
-      "max_new_pages_per_run": 15,
       "requires": [
         "practical West Peek relationship",
         "human-in-the-loop framing",
@@ -35,7 +33,6 @@
     },
     "EXPERIMENTAL": {
       "autopublish": true,
-      "max_new_pages_per_run": 5,
       "requires": [
         "experimental label",
         "duplicate check",
@@ -70,10 +67,6 @@
     "days": 90,
     "guaranteed": false
   },
-  "global_caps": {
-    "new_pages_per_run": 50,
-    "repairs_per_run": 100,
-    "runs_per_day": 2,
-    "route_mutations_per_day": 300
-  }
+  "publication_volume_authority": "data/cadence/policy.json (new_pages_per_week) is the single source of truth for publishing rate. _content_release_contract.json holds the per-day safety cap, which can only lower it. Nothing here may restate either number.",
+  "lane_semantics": "A lane grants ADMISSION requirements, never publication volume. This file previously carried global_caps.new_pages_per_run=50, route_mutations_per_day=300 and per-lane max_new_pages_per_run of 30/15/5. No publisher, workflow or validator ever read any of them - they were a governance file governing nothing - and after the cadence throttle they contradicted the contract by up to 25x. The repo's own doctrine already forbids per-run publication caps (validate_authority_scale.mjs: strategy_still_declares_per_run_publication_caps), because budget is a shared daily/weekly allowance, not a per-run quota."
 }

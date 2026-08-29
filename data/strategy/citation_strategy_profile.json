@@ -66,9 +66,9 @@
     "stretch_target_observed_external_citations": 100000,
     "time_horizon_days": 90,
     "truth_rule": "100,000 is an operating stretch target, not a forecast or guaranteed outcome. Owned surfaces, submissions, indexing, impressions, clicks, and observed external citations remain separate.",
-    "route_target_90_days": 4500,
+    "route_target_90_days": 26,
     "tracked_query_target": 10000,
-    "daily_new_page_capacity": 50,
+    "daily_new_page_capacity": 2,
     "daily_repair_capacity": 100,
     "distribution_runs_per_day": 2,
     "measurement": "record only verifiable citation observations with URL, engine, query, date, and evidence",
@@ -76,7 +76,7 @@
     "max_fanout_contract": "data/authority_scale/fanout_100k/index.json",
     "tracked_query_target_semantics": "active tracked panel target; separate from >=100K compressed planning fanout runway",
     "community_as_a_service_priority": true,
-    "route_target_90_days_semantics": "planning capacity reference, not a publication quota",
+    "route_target_90_days_semantics": "planning capacity reference, not a publication quota; derived from data/cadence/policy.json: new_pages_per_week (2) over floor(refresh_window_days/7) = 13 weeks. data/cadence/policy.json is the single source of truth; every figure here is a safety cap that can only lower that allowance, never raise it.",
     "publication_rule": "new routes require materially distinct answer value; thin or near-duplicate candidates are rejected before write; legacy quality debt is repaired in bounded batches"
   },
   "cadence": {
@@ -84,10 +84,11 @@
     "start_date": "2026-07-10",
     "scheduled_runs_per_day": 2,
     "weekly_review_day": "Monday",
-    "max_new_pages_per_day": 50,
+    "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
-    "max_route_mutations_per_day": 150,
-    "daily_ceiling_shared_across_scheduled_runs": true
+    "max_route_mutations_per_day": 102,
+    "daily_ceiling_shared_across_scheduled_runs": true,
+    "cadence_policy_authority": "derived from data/cadence/policy.json: new_pages_per_week (2) over floor(refresh_window_days/7) = 13 weeks. data/cadence/policy.json is the single source of truth; every figure here is a safety cap that can only lower that allowance, never raise it."
   },
   "autonomy_mode": "FULL_SAFE_AUTONOMY",
   "authority_pillars": [

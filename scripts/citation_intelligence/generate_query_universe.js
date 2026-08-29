@@ -168,5 +168,12 @@ const deterministicGeneratedAt=fanoutWindowPacket.generated_at||`${process.env.B
 // the enumeration is, and the only figure that governs publication is
 // `demand_backed`, which is a count of evidence and cannot be padded.
 const demandBacked=qs.filter(q=>q.page_eligible).length;
-const out={strategy,counts:{total_queries:qs.length,demand_backed_queries:demandBacked,demand_seeded_candidates:demandSeeded,unbacked_candidates:qs.length-demandBacked,max_new_pages_per_day:50,max_repairs_per_day:100,scheduled_runs_per_day:2,daily_ceiling_shared_across_runs:true,ceiling_semantics:'safety capacity for a bad run, never a number to reach'},generated_at:deterministicGeneratedAt,queries:qs};
+// The cadence figures below are READ from the governing contract, never restated.
+// They were literals (50/100/2) that generate_query_atlas_pages.js renders onto the
+// public query-atlas page as "capped at N new pages/day". When the contract was
+// throttled to 2 this literal stayed at 50, so the site published a cadence claim
+// that was 25x the governed rate. A number a page states about the system must come
+// from the system.
+const cadenceContract=JSON.parse(fs.readFileSync(path.join(ROOT,'_content_release_contract.json'),'utf8')).cadence||{};
+const out={strategy,counts:{total_queries:qs.length,demand_backed_queries:demandBacked,demand_seeded_candidates:demandSeeded,unbacked_candidates:qs.length-demandBacked,max_new_pages_per_day:Number(cadenceContract.max_new_pages_per_day),max_repairs_per_day:Number(cadenceContract.max_repairs_per_day),scheduled_runs_per_day:Number(cadenceContract.scheduled_runs_per_day),daily_ceiling_shared_across_runs:true,ceiling_semantics:'safety capacity for a bad run, never a number to reach'},generated_at:deterministicGeneratedAt,queries:qs};
 fs.mkdirSync(path.join(ROOT,'data/query_atlas'),{recursive:true});fs.writeFileSync(path.join(ROOT,'data/query_atlas/query_universe.json'),JSON.stringify(out,null,2));console.log(`Generated query universe: ${out.queries.length} candidates, of which ${demandBacked} are backed by a demand record and may become pages (${demandSeeded} seeded directly from the demand gate rather than found by coincidence). ${qs.length-demandBacked} are unbacked and are index-only.`);

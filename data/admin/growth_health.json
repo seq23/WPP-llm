@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T08:41:25.702Z",
+  "generated_at": "2026-08-29T20:50:43.278Z",
   "full_flow_state": "ACTIVE",
   "owned_html_surfaces": 3419,
   "tracked_queries": 10590,
@@ -10,9 +10,10 @@
   "observed_external_citations": 0,
   "stretch_target_observed_external_citations_90_days": 100000,
   "guaranteed": false,
-  "new_page_capacity_per_day": 50,
+  "new_page_capacity_per_day": 2,
   "repair_capacity_per_day": 100,
+  "new_page_allowance_per_week": 2,
   "scheduled_runs_per_day": 2,
   "daily_ceiling_shared_across_runs": true,
-  "truth_rule": "Null means unmeasured; owned surfaces are not external citations."
+  "truth_rule": "Null means unmeasured; owned surfaces are not external citations. Publishing rate is governed by data/cadence/policy.json new_pages_per_week; the per-day figure is a safety cap that can only lower it."
 }
