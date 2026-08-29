@@ -122,7 +122,22 @@ for(const rec of demandGate.allRecords()){
     id:'q_'+slug(query).slice(0,78),
     query,
     pillar:match?match.pillar:'unclustered',
-    cluster:match?slug(match.head):slug(query),
+    // An unmatched row joins the one `unclustered` bucket. It must NOT get
+    // `slug(query)`: `cluster` is not a label, it is the grouping key that
+    // generate_query_atlas_pages.js turns into one indexable page per distinct
+    // value. A per-query cluster therefore mints a per-query page, and 120
+    // unmatched rows minted 117 new clusters and 116 new `index,follow` pages
+    // in a single build - 114 of them listing exactly one query. The cadence
+    // gate caught it: 117 new editorial URLs against a cap of 2 per week.
+    //
+    // Those pages were never content decisions. Nothing routed them through the
+    // demand gate, the release plan or the noindex policy; they appeared because
+    // a JSON grouping key changed. The row already says `pillar:'unclustered'`
+    // and `cluster_confidence:0` - saying so once, in one bucket, is the whole
+    // point. Every seeded row keeps its demand evidence and its route_candidate,
+    // so the release planner still reaches all 491 of them; only the atlas's
+    // grouping changes.
+    cluster:match?slug(match.head):'unclustered',
     cluster_confidence:match?match.confidence:0,
     page_family:/cost|pricing|budget/.test(mod)?'cost_scope':/ vs |comparison|compare/.test(mod)?'comparison':/checklist|template/.test(mod)?'template_checklist':/^what is/.test(mod)?'definition':'operational_guide',
     intent:intents(mod),
