@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-08-29T19:17:56.790Z",
+  "generated_at": "2026-08-29T21:13:02.393Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -33,15 +33,15 @@
     "new_page_allowance_this_run": 0,
     "governed_by": "weekly_cadence_policy"
   },
-  "daily_new_page_ceiling": 50,
+  "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
   "daily_new_pages_already_used": 50,
   "daily_repairs_already_used": 100,
   "max_new_pages_this_run": 0,
   "max_repairs_this_run": 0,
-  "max_new_pages_per_day": 50,
+  "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
-  "max_route_mutations_per_day": 150,
+  "max_route_mutations_per_day": 102,
   "quality_snapshot": {
     "corpus_fingerprint": "1315ffb4ae4671af6dbc858d736a4be8b1c67c9f0f372abda92f94ceac2c7c9b",
     "legacy_backlog": 119,

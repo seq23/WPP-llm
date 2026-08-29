@@ -2,8 +2,9 @@
   "schema_version": "1.0",
   "generated_at": "2026-07-24T00:00:00.000Z",
   "repo_id": "WPP-llm",
-  "current_new_url_ceiling_per_day": 50,
+  "current_new_url_ceiling_per_day": 2,
   "configured_scale_tiers": [
+    2,
     50,
     75,
     100,
@@ -11,9 +12,9 @@
     200
   ],
   "decision": "DOWNSHIFT_ONE_TIER",
-  "recommended_new_url_ceiling_per_day": 50,
-  "next_tier": 75,
-  "previous_tier": 50,
+  "recommended_new_url_ceiling_per_day": 2,
+  "next_tier": 50,
+  "previous_tier": 2,
   "hard_failure_reasons": [
     "semantic_duplicate_regression"
   ],
@@ -32,10 +33,10 @@
     "minimum_yield_events_for_upshift": 10,
     "truth_rule": "UNKNOWN never means PASS. This file may be updated only from real validator/distribution/indexation/yield evidence.",
     "semantic_duplicate_evidence": {
-      "corpus_fingerprint": "b0b819e6ff0f4c91c2117e168e5d042b56fa317f16399af877b96b251a34f96c",
-      "pages_scanned": 3103,
-      "blocking_legacy_pages": 219,
-      "thin_pages": 219,
+      "corpus_fingerprint": "1315ffb4ae4671af6dbc858d736a4be8b1c67c9f0f372abda92f94ceac2c7c9b",
+      "pages_scanned": 3153,
+      "blocking_legacy_pages": 119,
+      "thin_pages": 119,
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0,
       "report": "data/content/programmatic_quality_report.json"
