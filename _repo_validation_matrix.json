@@ -534,6 +534,16 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "ci-reachability",
+      "command": "node scripts/validate_ci_reachability.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Keep main validated on commits push-triggered CI cannot see: GITHUB_TOKEN pushes from bot lanes do not trigger workflows.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ]
 }
