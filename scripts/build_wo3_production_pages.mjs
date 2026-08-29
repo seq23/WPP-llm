@@ -31,6 +31,34 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 // areaServed covers the three offices plus national reach, per WO-3.
 const SERVICE_AREAS = ['New York', 'Atlanta', 'Memphis', 'United States'];
 
+// The top scoping callout and the bottom conversion band were hand-placed into
+// the rendered HTML and lived nowhere else, so every run of this generator
+// deleted them. They are carried in the spec now, lifted verbatim, and a missing
+// one is a hard error rather than a silent omission.
+function scopingCallout(p) {
+  if (!p.scoping_callout_html) {
+    console.error(`[wo3] ${p.slug}: no scoping_callout_html in the spec. Rebuilding would silently drop the top scoping callout.`);
+    process.exitCode = 1;
+    return '';
+  }
+  return p.scoping_callout_html;
+}
+
+function ctaBand(p) {
+  const b = p.cta_band;
+  if (!b) {
+    console.error(`[wo3] ${p.slug}: no cta_band in the spec. Rebuilding would silently drop the bottom conversion band.`);
+    process.exitCode = 1;
+    return '';
+  }
+  const utm = `utm_source=virtualagency-os&amp;utm_medium=referral&amp;utm_campaign=cta-band&amp;utm_content=${p.slug}`;
+  const href = `https://www.westpeekproductions.com${b.service_path}?${utm}`;
+  return `<section class="cta-band" data-scoping-path="bottom"><div><strong>${esc(b.heading)}</strong>`
+    + `<p>${spec.cta_band_body}</p></div>`
+    + `<a class="btn" href="${href}" target="_blank" rel="noopener">${esc(b.primary_label)}</a> `
+    + '<a class="btn secondary" href="/tools/production-scoping-calculator">Price band calculator</a></section>';
+}
+
 let built = 0;
 for (const p of spec.pages) {
   const url = `${SITE}/programmatic/${p.slug}`;
@@ -91,7 +119,7 @@ for (const p of spec.pages) {
 </head>
 <body>
 <main class="page">
-  <article>
+  <article>${scopingCallout(p)}
     <h1>${esc(p.h1)}</h1>
     <p class="direct-answer" data-llm-answer="true"><strong>${esc(p.direct_answer)}</strong></p>
     <p class="cta-above-fold"><a href="${QUOTE}">Request a production quote from West Peek Productions</a></p>
@@ -105,6 +133,7 @@ for (const p of spec.pages) {
       <ul>${siblings}</ul>
     </section>
     <p class="cta-end"><a href="${QUOTE}">Get a quote for ${esc(p.query)}</a></p>
+${ctaBand(p)}
   </article>
 </main>
 </body>

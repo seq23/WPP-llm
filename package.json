@@ -5,7 +5,7 @@
   "description": "Static site + insights generator for virtualagency-os.com",
   "scripts": {
     "actions:validate": "node scripts/validate_workflows.js",
-    "build": "npm run query:atlas && node scripts/add_answer_schema.js && npm run authority:community:build && node scripts/build_insights.js && node scripts/retrofit_recommendation_summary.js --apply insights && node scripts/build_link_architecture.js && node scripts/apply_fanout.js && node scripts/apply_entity_attribution.mjs && PAGES_OUT_DIR=. node scripts/build_404.js && node scripts/normalize_clean_canonicals.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && npm run authority:scale:restore && node scripts/authority_scale/maybe_release_plan.mjs && node scripts/install_clarity.js",
+    "build": "npm run query:atlas && node scripts/build_wo3_production_pages.mjs && node scripts/add_answer_schema.js && npm run authority:community:build && node scripts/build_insights.js && node scripts/retrofit_recommendation_summary.js --apply insights && node scripts/build_link_architecture.js && node scripts/apply_fanout.js && node scripts/apply_entity_attribution.mjs && PAGES_OUT_DIR=. node scripts/build_404.js && node scripts/normalize_clean_canonicals.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && npm run authority:scale:restore && node scripts/authority_scale/maybe_release_plan.mjs && node scripts/install_clarity.js",
     "attribution:apply": "node scripts/apply_entity_attribution.mjs",
     "build:insights": "node scripts/build_insights.js",
     "build:link-architecture": "node scripts/build_link_architecture.js",
@@ -47,7 +47,7 @@
     "strategy:gate": "node scripts/validate_strategy_gate.js",
     "strategy:validate": "node scripts/validate_strategy_gate.js",
     "validate:agent-run-intake": "node scripts/validators/validate_agent_run_artifact_intake.js",
-    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity && npm run validate:selfheal-wiring && npm run validate:ci-reachability",
+    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity && npm run validate:selfheal-wiring && npm run validate:ci-reachability && npm run validate:no-orphan-scripts",
     "validate:atom-contract": "node scripts/validators/validate_atom_contract.js",
     "validate:autonomous": "npm run validate:atom-contract && npm run validate:page-family-contract && npm run validate:page-admission && npm run validate:query-atlas && npm run validate:atlas-units && npm run validate:programmatic-engine && npm run validate:workflow-data-trace && npm run validate:master-contract-pipeline",
     "validate:fanout": "node scripts/validate_fanout_warning.js",
@@ -111,7 +111,12 @@
     "noindex:check": "node scripts/apply_noindex_policy.js --check",
     "cta:attribute": "node scripts/repair_unattributed_wpp_ctas.js --write",
     "validate:selfheal-wiring": "node scripts/validate_selfheal_wiring.js",
-    "validate:ci-reachability": "node scripts/validate_ci_reachability.js"
+    "validate:ci-reachability": "node scripts/validate_ci_reachability.js",
+    "validate:no-orphan-scripts": "node scripts/validate_no_orphan_scripts.js",
+    "pages:assemble": "node scripts/assemble_pages_output.js",
+    "verify:no-links-lost": "node scripts/verify_no_links_lost.js",
+    "queries:score-discovery-gap": "node scripts/queries/score_discovery_gap.mjs",
+    "content:rewrite-programmatic-prose": "node scripts/citation_intelligence/rewrite_programmatic_prose.js"
   },
   "dependencies": {
     "marked": "^12.0.2"

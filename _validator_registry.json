@@ -457,6 +457,13 @@
       "severity": "HARD_FAIL",
       "purpose": "Keep main validated on commits push-triggered CI cannot see: GITHUB_TOKEN pushes from bot lanes do not trigger workflows.",
       "owner": "repo"
+    },
+    {
+      "id": "no-orphan-scripts",
+      "command": "node scripts/validate_no_orphan_scripts.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Fail if any tracked script under scripts/ has no caller. An unwired generator aimed at a live path is a loaded gun; an unwired validator enforces nothing.",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

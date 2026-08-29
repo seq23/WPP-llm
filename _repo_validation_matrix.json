@@ -544,6 +544,16 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "no-orphan-scripts",
+      "command": "node scripts/validate_no_orphan_scripts.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Fail if any tracked script under scripts/ has no caller. An unwired generator aimed at a live path is a loaded gun; an unwired validator enforces nothing.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ]
 }
