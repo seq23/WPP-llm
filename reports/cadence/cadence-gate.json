@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-08-28",
+  "generated_at": "2026-08-29",
   "policy_source": "data/cadence/policy.json",
-  "urls": 2652,
-  "dated": 2652,
+  "urls": 2703,
+  "dated": 2703,
   "undated": 0,
   "stale_over_window": 0,
   "stale_pct": 0,
-  "fresh_within_30d": 2652,
-  "lastmod_within_7d": 2652,
-  "new_since_last_run": 1,
-  "new_editorial_urls": 1,
+  "fresh_within_30d": 2703,
+  "lastmod_within_7d": 2703,
+  "new_since_last_run": 52,
+  "new_editorial_urls": 52,
   "new_navigation_urls": 0,
   "ledger_initialised": true,
   "maintainable_ceiling": 325,
@@ -23,10 +23,12 @@
     "_why": "13 weeks is the point where pages become markedly more likely to lose AI citations, and recency is the strongest single correlate of being cited. The ceiling is refresh capacity times that window: publish faster than the library can be maintained and the tail ages out of citability.",
     "_provenance_refresh_capacity_per_week": "refresh_capacity_per_week is NOT a measurement. It traces to a single unsourced sentence, and no repository in this portfolio has been shown to sustain it; publication and refresh rates observed across the portfolio when this was reviewed on 2026-08-27 ranged roughly 0.4 to 3.2 per week, against the 25 asserted here. The number is left unchanged deliberately - correcting it is a capacity decision, not an editorial one - but every figure derived from it inherits the same standing. maintainable_ceiling is refresh_capacity_per_week * floor(refresh_window_days / 7), so 25 * 13 = 325, and the library_over_ceiling warning reports \"N pages cannot be kept current at this capacity\" using it. Those outputs look like measurements and are not: they are this figure restated. Read them as \"against a declared capacity of 25\", never as an observed limit. If the real sustainable rate is established, change it here and every derived ceiling corrects itself."
   },
-  "blocking": [],
-  "warnings": [
-    "library_over_ceiling: 2652 pages against a ceiling of 325 (25 substantive refreshes per week held inside 91 days). 2327 pages cannot be kept current at this capacity.",
-    "uniform_lastmod: 2652 of 2652 pages share a lastmod inside 7 days - that is a date bump pattern, not a refresh, and it makes the freshness signal meaningless"
+  "blocking": [
+    "weekly_cap: 52 editorial URLs are new since the ledger was last accepted, cap is 2 per week"
   ],
-  "status": "CLEAR"
+  "warnings": [
+    "library_over_ceiling: 2703 pages against a ceiling of 325 (25 substantive refreshes per week held inside 91 days). 2378 pages cannot be kept current at this capacity.",
+    "uniform_lastmod: 2703 of 2703 pages share a lastmod inside 7 days - that is a date bump pattern, not a refresh, and it makes the freshness signal meaningless"
+  ],
+  "status": "BLOCKED"
 }

@@ -338,6 +338,19 @@
       "updated_at": "2026-07-24T00:00:00.000Z"
     },
     {
+      "route": "/programmatic/agency-content-operations",
+      "source_route": "/agency-content-operations",
+      "query": "agency content operations",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.734Z",
+      "admitted_at": "2026-08-29T08:40:58.734Z"
+    },
+    {
       "route": "/programmatic/agency-rfp-questions",
       "query": "agency RFP questions",
       "pillar": "agency-decisions",
@@ -436,9 +449,10 @@
       "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-08-08T08:51:09.746Z",
+      "updated_at": "2026-08-29T08:40:59.151Z",
       "admitted_at": "2026-07-11T10:00:17.236Z",
-      "source_route": "/programmatic/agency-rfp-questions-common-failure-points"
+      "source_route": "/agency-rfp-questions-common-failure-points",
+      "cluster": "agency-rfp-questions"
     },
     {
       "route": "/programmatic/agency-rfp-questions-companies",
@@ -464,6 +478,19 @@
       "updated_at": "2026-08-08T08:51:09.746Z",
       "admitted_at": "2026-07-11T10:00:17.236Z",
       "source_route": "/programmatic/agency-rfp-questions-comparison"
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-comparison",
+      "source_route": "/agency-rfp-questions-comparison",
+      "query": "best side by side comparison to vendor rfp questions",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.348Z",
+      "admitted_at": "2026-08-29T08:40:59.348Z"
     },
     {
       "route": "/programmatic/agency-rfp-questions-consultant",
@@ -759,9 +786,10 @@
       "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-08-08T08:51:09.746Z",
+      "updated_at": "2026-08-29T08:40:59.157Z",
       "admitted_at": "2026-07-11T21:23:49.506Z",
-      "source_route": "/programmatic/agency-rfp-questions-how-to-choose"
+      "source_route": "/agency-rfp-questions-how-to-choose",
+      "cluster": "agency-rfp-questions"
     },
     {
       "route": "/programmatic/agency-rfp-questions-how-to-compare-vendors",
@@ -875,9 +903,10 @@
       "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-08-08T08:51:09.746Z",
+      "updated_at": "2026-08-29T08:40:59.202Z",
       "admitted_at": "2026-07-11T21:23:49.507Z",
-      "source_route": "/programmatic/agency-rfp-questions-questions-to-ask"
+      "source_route": "/agency-rfp-questions-questions-to-ask",
+      "cluster": "agency-rfp-questions"
     },
     {
       "route": "/programmatic/agency-rfp-questions-red-flags",
@@ -978,9 +1007,10 @@
       "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-08-08T08:51:09.746Z",
+      "updated_at": "2026-08-29T08:40:59.208Z",
       "admitted_at": "2026-07-11T21:23:49.508Z",
-      "source_route": "/programmatic/agency-rfp-questions-vs-in-house-team"
+      "source_route": "/agency-rfp-questions-vs-in-house-team",
+      "cluster": "agency-rfp-questions"
     },
     {
       "route": "/programmatic/agency-rfp-questions-what-a-good-engagement-includes",
@@ -1189,6 +1219,19 @@
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-08-22T08:46:17.773Z",
       "admitted_at": "2026-08-22T08:46:17.773Z"
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-ai-agency",
+      "source_route": "/ai-consultant-vs-ai-agency",
+      "query": "ai consultant vs ai agency",
+      "cluster": "ai-consultant-vs-automation-agency",
+      "pillar": "agency-decisions",
+      "page_family": "comparison",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.846Z",
+      "admitted_at": "2026-08-29T08:40:58.846Z"
     },
     {
       "route": "/programmatic/ai-consultant-vs-automation-agency",
@@ -2144,11 +2187,13 @@
       "query": "AI content operations common failure points",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-12T10:08:17.639Z",
-      "admitted_at": "2026-07-12T10:08:17.639Z"
+      "updated_at": "2026-08-29T08:40:59.031Z",
+      "admitted_at": "2026-07-12T10:08:17.639Z",
+      "source_route": "/ai-content-operations-common-failure-points",
+      "cluster": "ai-content-operations"
     },
     {
       "route": "/programmatic/ai-content-operations-companies",
@@ -2168,11 +2213,13 @@
       "query": "AI content operations comparison",
       "pillar": "ai-workflows",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-12T10:08:17.639Z",
-      "admitted_at": "2026-07-12T10:08:17.639Z"
+      "updated_at": "2026-08-29T08:40:59.588Z",
+      "admitted_at": "2026-07-12T10:08:17.639Z",
+      "source_route": "/ai-content-operations-comparison",
+      "cluster": "ai-content-operations"
     },
     {
       "route": "/programmatic/ai-content-operations-consultant",
@@ -2358,6 +2405,19 @@
     },
     {
       "route": "/programmatic/ai-content-operations-how-to-choose",
+      "source_route": "/ai-content-operations-how-to-choose",
+      "query": "ai content operations",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.035Z",
+      "admitted_at": "2026-08-29T08:40:59.035Z"
+    },
+    {
+      "route": "/programmatic/ai-content-operations-how-to-choose",
       "query": "AI content operations how to choose",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
@@ -2476,11 +2536,13 @@
       "query": "AI content operations red flags",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-12T10:08:17.641Z",
-      "admitted_at": "2026-07-12T10:08:17.641Z"
+      "updated_at": "2026-08-29T08:40:59.427Z",
+      "admitted_at": "2026-07-12T10:08:17.641Z",
+      "source_route": "/ai-content-operations-red-flags",
+      "cluster": "ai-content-operations"
     },
     {
       "route": "/programmatic/ai-content-operations-roi-factors",
@@ -2563,11 +2625,13 @@
       "query": "AI content operations vs in house team",
       "pillar": "ai-workflows",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-12T10:08:17.642Z",
-      "admitted_at": "2026-07-12T10:08:17.642Z"
+      "updated_at": "2026-08-29T08:40:59.332Z",
+      "admitted_at": "2026-07-12T10:08:17.642Z",
+      "source_route": "/ai-content-operations-vs-in-house-team",
+      "cluster": "ai-content-operations"
     },
     {
       "route": "/programmatic/ai-content-operations-when-to-hire",
@@ -2577,8 +2641,10 @@
       "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-22T10:39:07.279Z",
-      "admitted_at": "2026-07-12T10:08:17.642Z"
+      "updated_at": "2026-08-29T08:40:59.337Z",
+      "admitted_at": "2026-07-12T10:08:17.642Z",
+      "source_route": "/ai-content-operations-when-to-hire",
+      "cluster": "ai-content-operations"
     },
     {
       "route": "/programmatic/ai-content-operations-workflow",
@@ -3149,6 +3215,19 @@
       "admitted_at": "2026-07-12T21:24:38.582Z",
       "source_route": "/ai-creative-workflows-workflow",
       "cluster": "ai-creative-workflows"
+    },
+    {
+      "route": "/programmatic/ai-in-production-marketing",
+      "source_route": "/ai-in-production-marketing",
+      "query": "ai in production marketing",
+      "cluster": "ai-marketing-workflows",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.930Z",
+      "admitted_at": "2026-08-29T08:40:58.930Z"
     },
     {
       "route": "/programmatic/ai-knowledge-systems-for-marketing",
@@ -3922,11 +4001,13 @@
       "query": "AI marketing workflows case pattern",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-13T11:39:35.633Z",
-      "admitted_at": "2026-07-13T11:39:35.633Z"
+      "updated_at": "2026-08-29T08:40:59.446Z",
+      "admitted_at": "2026-07-13T11:39:35.633Z",
+      "source_route": "/ai-marketing-workflows-case-pattern",
+      "cluster": "ai-marketing-workflows"
     },
     {
       "route": "/programmatic/ai-marketing-workflows-checklist",
@@ -4167,11 +4248,13 @@
       "query": "AI marketing workflows how to choose",
       "pillar": "ai-workflows",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-13T11:39:35.635Z",
-      "admitted_at": "2026-07-13T11:39:35.635Z"
+      "updated_at": "2026-08-29T08:40:59.454Z",
+      "admitted_at": "2026-07-13T11:39:35.635Z",
+      "source_route": "/ai-marketing-workflows-how-to-choose",
+      "cluster": "ai-marketing-workflows"
     },
     {
       "route": "/programmatic/ai-marketing-workflows-how-to-compare-vendors",
@@ -5726,11 +5809,13 @@
       "query": "audience growth strategy scope of work",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-14T10:18:25.248Z",
-      "admitted_at": "2026-07-14T10:18:25.248Z"
+      "updated_at": "2026-08-29T08:40:58.980Z",
+      "admitted_at": "2026-07-14T10:18:25.248Z",
+      "source_route": "/audience-growth-strategy-scope-of-work",
+      "cluster": "audience-growth-strategy"
     },
     {
       "route": "/programmatic/audience-growth-strategy-services",
@@ -5789,11 +5874,13 @@
       "query": "audience growth strategy vs in house team",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-14T10:18:25.249Z",
-      "admitted_at": "2026-07-14T10:18:25.249Z"
+      "updated_at": "2026-08-29T08:40:58.986Z",
+      "admitted_at": "2026-07-14T10:18:25.249Z",
+      "source_route": "/audience-growth-strategy-vs-in-house-team",
+      "cluster": "audience-growth-strategy"
     },
     {
       "route": "/programmatic/audience-growth-strategy-when-to-hire",
@@ -5820,6 +5907,71 @@
       "admitted_at": "2026-07-14T10:18:25.249Z",
       "source_route": "/audience-growth-strategy-workflow",
       "cluster": "audience-growth-strategy"
+    },
+    {
+      "route": "/programmatic/best-hybrid-event-platforms",
+      "source_route": "/best-hybrid-event-platforms",
+      "query": "best hybrid event platforms",
+      "cluster": "hybrid-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.754Z",
+      "admitted_at": "2026-08-29T08:40:58.754Z"
+    },
+    {
+      "route": "/programmatic/best-platform-for-virtual-events",
+      "source_route": "/best-platform-for-virtual-events",
+      "query": "best platform for virtual events",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.720Z",
+      "admitted_at": "2026-08-29T08:40:58.720Z"
+    },
+    {
+      "route": "/programmatic/best-platforms-for-virtual-events",
+      "source_route": "/best-platforms-for-virtual-events",
+      "query": "best platforms for virtual events",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.782Z",
+      "admitted_at": "2026-08-29T08:40:58.782Z"
+    },
+    {
+      "route": "/programmatic/best-virtual-conference-platforms",
+      "source_route": "/best-virtual-conference-platforms",
+      "query": "best virtual conference platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.786Z",
+      "admitted_at": "2026-08-29T08:40:58.786Z"
+    },
+    {
+      "route": "/programmatic/best-virtual-event-platform",
+      "source_route": "/best-virtual-event-platform",
+      "query": "best virtual event platform",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.677Z",
+      "admitted_at": "2026-08-29T08:40:58.677Z"
     },
     {
       "route": "/programmatic/best-virtual-event-platforms",
@@ -7268,6 +7420,19 @@
       "cluster": "brand-community-strategy"
     },
     {
+      "route": "/programmatic/brand-implementation",
+      "source_route": "/brand-implementation",
+      "query": "brand implementation",
+      "cluster": "brand-storytelling",
+      "pillar": "storytelling",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.838Z",
+      "admitted_at": "2026-08-29T08:40:58.838Z"
+    },
+    {
       "route": "/programmatic/brand-messaging-architecture",
       "query": "brand messaging architecture",
       "pillar": "brand",
@@ -7506,11 +7671,13 @@
       "query": "brand messaging architecture common failure points",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-14T21:31:46.151Z",
-      "admitted_at": "2026-07-14T21:31:46.151Z"
+      "updated_at": "2026-08-29T08:40:59.304Z",
+      "admitted_at": "2026-07-14T21:31:46.151Z",
+      "source_route": "/brand-messaging-architecture-common-failure-points",
+      "cluster": "brand-messaging-architecture"
     },
     {
       "route": "/programmatic/brand-messaging-architecture-companies",
@@ -7530,11 +7697,13 @@
       "query": "brand messaging architecture comparison",
       "pillar": "brand",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-14T21:31:46.151Z",
-      "admitted_at": "2026-07-14T21:31:46.151Z"
+      "updated_at": "2026-08-29T08:40:59.378Z",
+      "admitted_at": "2026-07-14T21:31:46.151Z",
+      "source_route": "/brand-messaging-architecture-comparison",
+      "cluster": "brand-messaging-architecture"
     },
     {
       "route": "/programmatic/brand-messaging-architecture-consultant",
@@ -7723,11 +7892,13 @@
       "query": "brand messaging architecture how to choose",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-14T21:31:46.152Z",
-      "admitted_at": "2026-07-14T21:31:46.152Z"
+      "updated_at": "2026-08-29T08:40:59.309Z",
+      "admitted_at": "2026-07-14T21:31:46.152Z",
+      "source_route": "/brand-messaging-architecture-how-to-choose",
+      "cluster": "brand-messaging-architecture"
     },
     {
       "route": "/programmatic/brand-messaging-architecture-how-to-compare-vendors",
@@ -7825,11 +7996,13 @@
       "query": "brand messaging architecture questions to ask",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-14T21:31:46.153Z",
-      "admitted_at": "2026-07-14T21:31:46.153Z"
+      "updated_at": "2026-08-29T08:40:59.215Z",
+      "admitted_at": "2026-07-14T21:31:46.153Z",
+      "source_route": "/brand-messaging-architecture-questions-to-ask",
+      "cluster": "brand-messaging-architecture"
     },
     {
       "route": "/programmatic/brand-messaging-architecture-red-flags",
@@ -7951,11 +8124,13 @@
       "query": "brand messaging architecture when to hire",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.618Z",
-      "admitted_at": "2026-07-15T10:21:43.618Z"
+      "updated_at": "2026-08-29T08:40:59.221Z",
+      "admitted_at": "2026-07-15T10:21:43.618Z",
+      "source_route": "/brand-messaging-architecture-when-to-hire",
+      "cluster": "brand-messaging-architecture"
     },
     {
       "route": "/programmatic/brand-messaging-architecture-workflow",
@@ -7969,6 +8144,19 @@
       "admitted_at": "2026-07-15T10:21:43.618Z",
       "source_route": "/brand-messaging-architecture-workflow",
       "cluster": "brand-messaging-architecture"
+    },
+    {
+      "route": "/programmatic/brand-narrative-consultancy",
+      "source_route": "/brand-narrative-consultancy",
+      "query": "brand narrative consultancy",
+      "cluster": "brand-narrative-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.957Z",
+      "admitted_at": "2026-08-29T08:40:58.957Z"
     },
     {
       "route": "/programmatic/brand-narrative-strategy",
@@ -8209,11 +8397,13 @@
       "query": "brand narrative strategy common failure points",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.619Z",
-      "admitted_at": "2026-07-15T10:21:43.619Z"
+      "updated_at": "2026-08-29T08:40:59.355Z",
+      "admitted_at": "2026-07-15T10:21:43.619Z",
+      "source_route": "/brand-narrative-strategy-common-failure-points",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-companies",
@@ -8233,11 +8423,13 @@
       "query": "brand narrative strategy comparison",
       "pillar": "brand",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.619Z",
-      "admitted_at": "2026-07-15T10:21:43.619Z"
+      "updated_at": "2026-08-29T08:40:59.539Z",
+      "admitted_at": "2026-07-15T10:21:43.619Z",
+      "source_route": "/brand-narrative-strategy-comparison",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-consultant",
@@ -8426,11 +8618,13 @@
       "query": "brand narrative strategy how to choose",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.621Z",
-      "admitted_at": "2026-07-15T10:21:43.621Z"
+      "updated_at": "2026-08-29T08:40:59.371Z",
+      "admitted_at": "2026-07-15T10:21:43.621Z",
+      "source_route": "/brand-narrative-strategy-how-to-choose",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-how-to-compare-vendors",
@@ -8528,11 +8722,13 @@
       "query": "brand narrative strategy questions to ask",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.622Z",
-      "admitted_at": "2026-07-15T10:21:43.622Z"
+      "updated_at": "2026-08-29T08:40:59.595Z",
+      "admitted_at": "2026-07-15T10:21:43.622Z",
+      "source_route": "/brand-narrative-strategy-questions-to-ask",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-red-flags",
@@ -8565,11 +8761,13 @@
       "query": "brand narrative strategy scope of work",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.622Z",
-      "admitted_at": "2026-07-15T10:21:43.622Z"
+      "updated_at": "2026-08-29T08:40:59.102Z",
+      "admitted_at": "2026-07-15T10:21:43.622Z",
+      "source_route": "/brand-narrative-strategy-scope-of-work",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-services",
@@ -8628,22 +8826,26 @@
       "query": "brand narrative strategy vs in house team",
       "pillar": "brand",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.622Z",
-      "admitted_at": "2026-07-15T10:21:43.622Z"
+      "updated_at": "2026-08-29T08:40:59.107Z",
+      "admitted_at": "2026-07-15T10:21:43.622Z",
+      "source_route": "/brand-narrative-strategy-vs-in-house-team",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-when-to-hire",
       "query": "brand narrative strategy when to hire",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T10:21:43.623Z",
-      "admitted_at": "2026-07-15T10:21:43.623Z"
+      "updated_at": "2026-08-29T08:40:59.608Z",
+      "admitted_at": "2026-07-15T10:21:43.623Z",
+      "source_route": "/brand-narrative-strategy-when-to-hire",
+      "cluster": "brand-narrative-strategy"
     },
     {
       "route": "/programmatic/brand-narrative-strategy-workflow",
@@ -8897,11 +9099,13 @@
       "query": "brand positioning strategy common failure points",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T21:30:40.407Z",
-      "admitted_at": "2026-07-15T21:30:40.407Z"
+      "updated_at": "2026-08-29T08:40:59.316Z",
+      "admitted_at": "2026-07-15T21:30:40.407Z",
+      "source_route": "/brand-positioning-strategy-common-failure-points",
+      "cluster": "brand-positioning-strategy"
     },
     {
       "route": "/programmatic/brand-positioning-strategy-companies",
@@ -8921,11 +9125,13 @@
       "query": "brand positioning strategy comparison",
       "pillar": "brand",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T21:30:40.407Z",
-      "admitted_at": "2026-07-15T21:30:40.407Z"
+      "updated_at": "2026-08-29T08:40:59.400Z",
+      "admitted_at": "2026-07-15T21:30:40.407Z",
+      "source_route": "/brand-positioning-strategy-comparison",
+      "cluster": "brand-positioning-strategy"
     },
     {
       "route": "/programmatic/brand-positioning-strategy-consultant",
@@ -9114,11 +9320,13 @@
       "query": "brand positioning strategy how to choose",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T21:30:40.409Z",
-      "admitted_at": "2026-07-15T21:30:40.409Z"
+      "updated_at": "2026-08-29T08:40:59.511Z",
+      "admitted_at": "2026-07-15T21:30:40.409Z",
+      "source_route": "/brand-positioning-strategy-how-to-choose",
+      "cluster": "brand-positioning-strategy"
     },
     {
       "route": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
@@ -9223,6 +9431,19 @@
       "admitted_at": "2026-07-15T21:30:40.410Z"
     },
     {
+      "route": "/programmatic/brand-positioning-strategy-questions-to-ask",
+      "source_route": "/brand-positioning-strategy-questions-to-ask",
+      "query": "brand positioning survey questions",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.566Z",
+      "admitted_at": "2026-08-29T08:40:59.566Z"
+    },
+    {
       "route": "/programmatic/brand-positioning-strategy-red-flags",
       "query": "brand positioning strategy red flags",
       "pillar": "brand",
@@ -9258,6 +9479,19 @@
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-07-15T21:30:40.411Z",
       "admitted_at": "2026-07-15T21:30:40.411Z"
+    },
+    {
+      "route": "/programmatic/brand-positioning-strategy-scope-of-work",
+      "source_route": "/brand-positioning-strategy-scope-of-work",
+      "query": "branding scope of work",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.225Z",
+      "admitted_at": "2026-08-29T08:40:59.225Z"
     },
     {
       "route": "/programmatic/brand-positioning-strategy-services",
@@ -9316,22 +9550,26 @@
       "query": "brand positioning strategy vs in house team",
       "pillar": "brand",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T21:30:40.411Z",
-      "admitted_at": "2026-07-15T21:30:40.411Z"
+      "updated_at": "2026-08-29T08:40:59.232Z",
+      "admitted_at": "2026-07-15T21:30:40.411Z",
+      "source_route": "/brand-positioning-strategy-vs-in-house-team",
+      "cluster": "brand-positioning-strategy"
     },
     {
       "route": "/programmatic/brand-positioning-strategy-when-to-hire",
       "query": "brand positioning strategy when to hire",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-15T21:30:40.411Z",
-      "admitted_at": "2026-07-15T21:30:40.411Z"
+      "updated_at": "2026-08-29T08:40:59.407Z",
+      "admitted_at": "2026-07-15T21:30:40.411Z",
+      "source_route": "/brand-positioning-strategy-when-to-hire",
+      "cluster": "brand-positioning-strategy"
     },
     {
       "route": "/programmatic/brand-positioning-strategy-workflow",
@@ -9949,11 +10187,13 @@
       "query": "brand storytelling scope of work",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T10:28:18.851Z",
-      "admitted_at": "2026-07-16T10:28:18.851Z"
+      "updated_at": "2026-08-29T08:40:58.964Z",
+      "admitted_at": "2026-07-16T10:28:18.851Z",
+      "source_route": "/brand-storytelling-scope-of-work",
+      "cluster": "brand-storytelling"
     },
     {
       "route": "/programmatic/brand-storytelling-services",
@@ -10023,11 +10263,13 @@
       "query": "brand storytelling vs in house team",
       "pillar": "storytelling",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T10:28:18.852Z",
-      "admitted_at": "2026-07-16T10:28:18.852Z"
+      "updated_at": "2026-08-29T08:40:58.971Z",
+      "admitted_at": "2026-07-16T10:28:18.852Z",
+      "source_route": "/brand-storytelling-vs-in-house-team",
+      "cluster": "brand-storytelling"
     },
     {
       "route": "/programmatic/brand-storytelling-when-to-hire",
@@ -10294,11 +10536,13 @@
       "query": "brand strategy consulting common failure points",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T10:28:18.853Z",
-      "admitted_at": "2026-07-16T10:28:18.853Z"
+      "updated_at": "2026-08-29T08:40:59.461Z",
+      "admitted_at": "2026-07-16T10:28:18.853Z",
+      "source_route": "/brand-strategy-consulting-common-failure-points",
+      "cluster": "brand-strategy-consulting"
     },
     {
       "route": "/programmatic/brand-strategy-consulting-companies",
@@ -10318,11 +10562,13 @@
       "query": "brand strategy consulting comparison",
       "pillar": "brand",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T10:28:18.854Z",
-      "admitted_at": "2026-07-16T10:28:18.854Z"
+      "updated_at": "2026-08-29T08:40:59.467Z",
+      "admitted_at": "2026-07-16T10:28:18.854Z",
+      "source_route": "/brand-strategy-consulting-comparison",
+      "cluster": "brand-strategy-consulting"
     },
     {
       "route": "/programmatic/brand-strategy-consulting-consultant",
@@ -10511,11 +10757,13 @@
       "query": "brand strategy consulting how to choose",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T10:28:18.855Z",
-      "admitted_at": "2026-07-16T10:28:18.855Z"
+      "updated_at": "2026-08-29T08:40:59.496Z",
+      "admitted_at": "2026-07-16T10:28:18.855Z",
+      "source_route": "/brand-strategy-consulting-how-to-choose",
+      "cluster": "brand-strategy-consulting"
     },
     {
       "route": "/programmatic/brand-strategy-consulting-how-to-compare-vendors",
@@ -10613,11 +10861,13 @@
       "query": "brand strategy consulting questions to ask",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T10:28:18.855Z",
-      "admitted_at": "2026-07-16T10:28:18.855Z"
+      "updated_at": "2026-08-29T08:40:59.522Z",
+      "admitted_at": "2026-07-16T10:28:18.855Z",
+      "source_route": "/brand-strategy-consulting-questions-to-ask",
+      "cluster": "brand-strategy-consulting"
     },
     {
       "route": "/programmatic/brand-strategy-consulting-red-flags",
@@ -10739,11 +10989,13 @@
       "query": "brand strategy consulting when to hire",
       "pillar": "brand",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.539Z",
-      "admitted_at": "2026-07-16T21:34:27.539Z"
+      "updated_at": "2026-08-29T08:40:59.517Z",
+      "admitted_at": "2026-07-16T21:34:27.539Z",
+      "source_route": "/brand-strategy-consulting-when-to-hire",
+      "cluster": "brand-strategy-consulting"
     },
     {
       "route": "/programmatic/brand-strategy-consulting-workflow",
@@ -10997,11 +11249,13 @@
       "query": "branded content development common failure points",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.541Z",
-      "admitted_at": "2026-07-16T21:34:27.541Z"
+      "updated_at": "2026-08-29T08:40:59.414Z",
+      "admitted_at": "2026-07-16T21:34:27.541Z",
+      "source_route": "/branded-content-development-common-failure-points",
+      "cluster": "branded-content-development"
     },
     {
       "route": "/programmatic/branded-content-development-companies",
@@ -11021,11 +11275,13 @@
       "query": "branded content development comparison",
       "pillar": "creative",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.541Z",
-      "admitted_at": "2026-07-16T21:34:27.541Z"
+      "updated_at": "2026-08-29T08:40:59.529Z",
+      "admitted_at": "2026-07-16T21:34:27.541Z",
+      "source_route": "/branded-content-development-comparison",
+      "cluster": "branded-content-development"
     },
     {
       "route": "/programmatic/branded-content-development-consultant",
@@ -11214,11 +11470,13 @@
       "query": "branded content development how to choose",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.543Z",
-      "admitted_at": "2026-07-16T21:34:27.543Z"
+      "updated_at": "2026-08-29T08:40:59.615Z",
+      "admitted_at": "2026-07-16T21:34:27.543Z",
+      "source_route": "/branded-content-development-how-to-choose",
+      "cluster": "branded-content-development"
     },
     {
       "route": "/programmatic/branded-content-development-how-to-compare-vendors",
@@ -11316,11 +11574,13 @@
       "query": "branded content development questions to ask",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.544Z",
-      "admitted_at": "2026-07-16T21:34:27.544Z"
+      "updated_at": "2026-08-29T08:40:59.581Z",
+      "admitted_at": "2026-07-16T21:34:27.544Z",
+      "source_route": "/branded-content-development-questions-to-ask",
+      "cluster": "branded-content-development"
     },
     {
       "route": "/programmatic/branded-content-development-red-flags",
@@ -11353,11 +11613,13 @@
       "query": "branded content development scope of work",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.544Z",
-      "admitted_at": "2026-07-16T21:34:27.544Z"
+      "updated_at": "2026-08-29T08:40:59.503Z",
+      "admitted_at": "2026-07-16T21:34:27.544Z",
+      "source_route": "/branded-content-development-scope-of-work",
+      "cluster": "branded-content-development"
     },
     {
       "route": "/programmatic/branded-content-development-services",
@@ -11429,11 +11691,13 @@
       "query": "branded content development when to hire",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-16T21:34:27.544Z",
-      "admitted_at": "2026-07-16T21:34:27.544Z"
+      "updated_at": "2026-08-29T08:40:59.420Z",
+      "admitted_at": "2026-07-16T21:34:27.544Z",
+      "source_route": "/branded-content-development-when-to-hire",
+      "cluster": "branded-content-development"
     },
     {
       "route": "/programmatic/branded-content-development-workflow",
@@ -11581,11 +11845,13 @@
       "query": "campaign narrative strategy comparison",
       "pillar": "storytelling",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T10:19:01.675Z",
-      "admitted_at": "2026-07-17T10:19:01.675Z"
+      "updated_at": "2026-08-29T08:40:59.434Z",
+      "admitted_at": "2026-07-17T10:19:01.675Z",
+      "source_route": "/campaign-narrative-strategy-comparison",
+      "cluster": "campaign-narrative-strategy"
     },
     {
       "route": "/programmatic/campaign-narrative-strategy-consultant",
@@ -11774,11 +12040,13 @@
       "query": "campaign narrative strategy how to choose",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T10:19:01.677Z",
-      "admitted_at": "2026-07-17T10:19:01.677Z"
+      "updated_at": "2026-08-29T08:40:59.439Z",
+      "admitted_at": "2026-07-17T10:19:01.677Z",
+      "source_route": "/campaign-narrative-strategy-how-to-choose",
+      "cluster": "campaign-narrative-strategy"
     },
     {
       "route": "/programmatic/campaign-narrative-strategy-how-to-compare-vendors",
@@ -15834,6 +16102,19 @@
       "cluster": "community-led-growth"
     },
     {
+      "route": "/programmatic/community-management-outsourcing",
+      "source_route": "/community-management-outsourcing",
+      "query": "community management outsourcing",
+      "cluster": "community-management-services",
+      "pillar": "community",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.705Z",
+      "admitted_at": "2026-08-29T08:40:58.705Z"
+    },
+    {
       "route": "/programmatic/community-management-services",
       "source_route": "/community-management-services",
       "query": "community management services",
@@ -16605,11 +16886,13 @@
       "query": "community marketing case pattern",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T10:19:01.681Z",
-      "admitted_at": "2026-07-17T10:19:01.681Z"
+      "updated_at": "2026-08-29T08:40:59.005Z",
+      "admitted_at": "2026-07-17T10:19:01.681Z",
+      "source_route": "/community-marketing-case-pattern",
+      "cluster": "community-marketing"
     },
     {
       "route": "/programmatic/community-marketing-checklist",
@@ -16655,11 +16938,13 @@
       "query": "community marketing comparison",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T10:19:01.681Z",
-      "admitted_at": "2026-07-17T10:19:01.681Z"
+      "updated_at": "2026-08-29T08:40:59.165Z",
+      "admitted_at": "2026-07-17T10:19:01.681Z",
+      "source_route": "/community-marketing-comparison",
+      "cluster": "community-marketing"
     },
     {
       "route": "/programmatic/community-marketing-consultant",
@@ -16848,11 +17133,13 @@
       "query": "community marketing how to choose",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T21:23:12.259Z",
-      "admitted_at": "2026-07-17T21:23:12.259Z"
+      "updated_at": "2026-08-29T08:40:59.572Z",
+      "admitted_at": "2026-07-17T21:23:12.259Z",
+      "source_route": "/community-marketing-how-to-choose",
+      "cluster": "community-marketing"
     },
     {
       "route": "/programmatic/community-marketing-how-to-compare-vendors",
@@ -16989,11 +17276,13 @@
       "query": "community marketing scope of work",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T21:23:12.261Z",
-      "admitted_at": "2026-07-17T21:23:12.261Z"
+      "updated_at": "2026-08-29T08:40:59.024Z",
+      "admitted_at": "2026-07-17T21:23:12.261Z",
+      "source_route": "/community-marketing-scope-of-work",
+      "cluster": "community-marketing"
     },
     {
       "route": "/programmatic/community-marketing-services",
@@ -17052,11 +17341,13 @@
       "query": "community marketing vs in house team",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-17T21:23:12.261Z",
-      "admitted_at": "2026-07-17T21:23:12.261Z"
+      "updated_at": "2026-08-29T08:40:59.010Z",
+      "admitted_at": "2026-07-17T21:23:12.261Z",
+      "source_route": "/community-marketing-vs-in-house-team",
+      "cluster": "community-marketing"
     },
     {
       "route": "/programmatic/community-marketing-when-to-hire",
@@ -22614,6 +22905,19 @@
       "cluster": "community-staffing-model"
     },
     {
+      "route": "/programmatic/content-marketing-operation-services",
+      "source_route": "/content-marketing-operation-services",
+      "query": "content marketing operation services",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.695Z",
+      "admitted_at": "2026-08-29T08:40:58.695Z"
+    },
+    {
       "route": "/programmatic/content-marketing-operations",
       "query": "content marketing operations",
       "pillar": "marketing",
@@ -23181,6 +23485,19 @@
     },
     {
       "route": "/programmatic/content-marketing-operations-scope-of-work",
+      "source_route": "/content-marketing-operations-scope-of-work",
+      "query": "content marketing operations",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.290Z",
+      "admitted_at": "2026-08-29T08:40:59.290Z"
+    },
+    {
+      "route": "/programmatic/content-marketing-operations-scope-of-work",
       "query": "content marketing operations scope of work",
       "pillar": "marketing",
       "page_family": "operational_guide",
@@ -23247,11 +23564,13 @@
       "query": "content marketing operations vs in house team",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-18T09:59:30.064Z",
-      "admitted_at": "2026-07-18T09:59:30.064Z"
+      "updated_at": "2026-08-29T08:40:59.297Z",
+      "admitted_at": "2026-07-18T09:59:30.064Z",
+      "source_route": "/content-marketing-operations-vs-in-house-team",
+      "cluster": "content-marketing-operations"
     },
     {
       "route": "/programmatic/content-marketing-operations-when-to-hire",
@@ -23289,6 +23608,19 @@
       "admitted_at": "2026-07-18T09:59:30.065Z",
       "source_route": "/content-marketing-operations-workflow",
       "cluster": "content-marketing-operations"
+    },
+    {
+      "route": "/programmatic/content-operations-system",
+      "source_route": "/content-operations-system",
+      "query": "content operations system",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.916Z",
+      "admitted_at": "2026-08-29T08:40:58.916Z"
     },
     {
       "route": "/programmatic/corporate-storytelling",
@@ -24645,11 +24977,13 @@
       "query": "creative direction agency common failure points",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-18T21:25:43.297Z",
-      "admitted_at": "2026-07-18T21:25:43.297Z"
+      "updated_at": "2026-08-29T08:40:59.474Z",
+      "admitted_at": "2026-07-18T21:25:43.297Z",
+      "source_route": "/creative-direction-agency-common-failure-points",
+      "cluster": "creative-direction-agency"
     },
     {
       "route": "/programmatic/creative-direction-agency-companies",
@@ -24955,11 +25289,13 @@
       "query": "creative direction agency how to choose",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-18T21:25:43.299Z",
-      "admitted_at": "2026-07-18T21:25:43.299Z"
+      "updated_at": "2026-08-29T08:40:59.553Z",
+      "admitted_at": "2026-07-18T21:25:43.299Z",
+      "source_route": "/creative-direction-agency-how-to-choose",
+      "cluster": "creative-direction-agency"
     },
     {
       "route": "/programmatic/creative-direction-agency-how-to-compare-vendors",
@@ -25070,11 +25406,13 @@
       "query": "creative direction agency questions to ask",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T10:08:19.191Z",
-      "admitted_at": "2026-07-19T10:08:19.191Z"
+      "updated_at": "2026-08-29T08:40:59.480Z",
+      "admitted_at": "2026-07-19T10:08:19.191Z",
+      "source_route": "/creative-direction-agency-questions-to-ask",
+      "cluster": "creative-direction-agency"
     },
     {
       "route": "/programmatic/creative-direction-agency-red-flags",
@@ -25172,11 +25510,13 @@
       "query": "creative direction agency vs in house team",
       "pillar": "creative",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T10:08:19.193Z",
-      "admitted_at": "2026-07-19T10:08:19.193Z"
+      "updated_at": "2026-08-29T08:40:59.242Z",
+      "admitted_at": "2026-07-19T10:08:19.193Z",
+      "source_route": "/creative-direction-agency-vs-in-house-team",
+      "cluster": "creative-direction-agency"
     },
     {
       "route": "/programmatic/creative-direction-agency-what-a-good-engagement-includes",
@@ -25209,11 +25549,13 @@
       "query": "creative direction agency when to hire",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T10:08:19.194Z",
-      "admitted_at": "2026-07-19T10:08:19.194Z"
+      "updated_at": "2026-08-29T08:40:59.248Z",
+      "admitted_at": "2026-07-19T10:08:19.194Z",
+      "source_route": "/creative-direction-agency-when-to-hire",
+      "cluster": "creative-direction-agency"
     },
     {
       "route": "/programmatic/creative-direction-agency-why-it-fails",
@@ -25810,6 +26152,19 @@
       "cluster": "creative-operations"
     },
     {
+      "route": "/programmatic/creative-ops",
+      "source_route": "/creative-ops",
+      "query": "creative ops",
+      "cluster": "creative-operations",
+      "pillar": "creative",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.902Z",
+      "admitted_at": "2026-08-29T08:40:58.902Z"
+    },
+    {
       "route": "/programmatic/creative-strategy-consulting",
       "query": "creative strategy consulting",
       "pillar": "creative",
@@ -25983,11 +26338,13 @@
       "query": "creative strategy consulting common failure points",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T21:26:17.592Z",
-      "admitted_at": "2026-07-19T21:26:17.592Z"
+      "updated_at": "2026-08-29T08:40:59.063Z",
+      "admitted_at": "2026-07-19T21:26:17.592Z",
+      "source_route": "/creative-strategy-consulting-common-failure-points",
+      "cluster": "creative-strategy-consulting"
     },
     {
       "route": "/programmatic/creative-strategy-consulting-companies",
@@ -26007,11 +26364,13 @@
       "query": "creative strategy consulting comparison",
       "pillar": "creative",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T21:26:17.593Z",
-      "admitted_at": "2026-07-19T21:26:17.593Z"
+      "updated_at": "2026-08-29T08:40:59.144Z",
+      "admitted_at": "2026-07-19T21:26:17.593Z",
+      "source_route": "/creative-strategy-consulting-comparison",
+      "cluster": "creative-strategy-consulting"
     },
     {
       "route": "/programmatic/creative-strategy-consulting-consultant",
@@ -26197,6 +26556,19 @@
     },
     {
       "route": "/programmatic/creative-strategy-consulting-how-to-choose",
+      "source_route": "/creative-strategy-consulting-how-to-choose",
+      "query": "creative strategy consulting",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.068Z",
+      "admitted_at": "2026-08-29T08:40:59.068Z"
+    },
+    {
+      "route": "/programmatic/creative-strategy-consulting-how-to-choose",
       "query": "creative strategy consulting how to choose",
       "pillar": "creative",
       "page_family": "operational_guide",
@@ -26302,11 +26674,13 @@
       "query": "creative strategy consulting questions to ask",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T21:26:17.596Z",
-      "admitted_at": "2026-07-19T21:26:17.596Z"
+      "updated_at": "2026-08-29T08:40:59.546Z",
+      "admitted_at": "2026-07-19T21:26:17.596Z",
+      "source_route": "/creative-strategy-consulting-questions-to-ask",
+      "cluster": "creative-strategy-consulting"
     },
     {
       "route": "/programmatic/creative-strategy-consulting-red-flags",
@@ -26339,11 +26713,13 @@
       "query": "creative strategy consulting scope of work",
       "pillar": "creative",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T21:26:17.597Z",
-      "admitted_at": "2026-07-19T21:26:17.597Z"
+      "updated_at": "2026-08-29T08:40:59.174Z",
+      "admitted_at": "2026-07-19T21:26:17.597Z",
+      "source_route": "/creative-strategy-consulting-scope-of-work",
+      "cluster": "creative-strategy-consulting"
     },
     {
       "route": "/programmatic/creative-strategy-consulting-services",
@@ -26407,6 +26783,19 @@
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-07-19T21:26:17.597Z",
       "admitted_at": "2026-07-19T21:26:17.597Z"
+    },
+    {
+      "route": "/programmatic/creative-strategy-consulting-vs-in-house-team",
+      "source_route": "/creative-strategy-consulting-vs-in-house-team",
+      "query": "management consulting agencies vs in-house strategy teams",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.179Z",
+      "admitted_at": "2026-08-29T08:40:59.179Z"
     },
     {
       "route": "/programmatic/creative-strategy-consulting-when-to-hire",
@@ -27206,6 +27595,19 @@
       "cluster": "customer-community-strategy"
     },
     {
+      "route": "/programmatic/digital-marketing-agency-workflow",
+      "source_route": "/digital-marketing-agency-workflow",
+      "query": "digital marketing agency workflow",
+      "cluster": "community-marketing",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.830Z",
+      "admitted_at": "2026-08-29T08:40:58.830Z"
+    },
+    {
       "route": "/programmatic/event-audience-engagement",
       "query": "event audience engagement",
       "pillar": "experiences",
@@ -27366,11 +27768,13 @@
       "query": "event audience engagement case pattern",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T21:26:17.598Z",
-      "admitted_at": "2026-07-19T21:26:17.598Z"
+      "updated_at": "2026-08-29T08:40:58.993Z",
+      "admitted_at": "2026-07-19T21:26:17.598Z",
+      "source_route": "/event-audience-engagement-case-pattern",
+      "cluster": "event-audience-engagement"
     },
     {
       "route": "/programmatic/event-audience-engagement-checklist",
@@ -27390,11 +27794,13 @@
       "query": "event audience engagement common failure points",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-19T21:26:17.598Z",
-      "admitted_at": "2026-07-19T21:26:17.598Z"
+      "updated_at": "2026-08-29T08:40:58.999Z",
+      "admitted_at": "2026-07-19T21:26:17.598Z",
+      "source_route": "/event-audience-engagement-common-failure-points",
+      "cluster": "event-audience-engagement"
     },
     {
       "route": "/programmatic/event-audience-engagement-companies",
@@ -27609,11 +28015,13 @@
       "query": "event audience engagement how to choose",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T11:23:28.304Z",
-      "admitted_at": "2026-07-20T11:23:28.304Z"
+      "updated_at": "2026-08-29T08:40:59.386Z",
+      "admitted_at": "2026-07-20T11:23:28.304Z",
+      "source_route": "/event-audience-engagement-how-to-choose",
+      "cluster": "event-audience-engagement"
     },
     {
       "route": "/programmatic/event-audience-engagement-how-to-compare-vendors",
@@ -27750,11 +28158,13 @@
       "query": "event audience engagement scope of work",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T11:23:28.305Z",
-      "admitted_at": "2026-07-20T11:23:28.305Z"
+      "updated_at": "2026-08-29T08:40:59.088Z",
+      "admitted_at": "2026-07-20T11:23:28.305Z",
+      "source_route": "/event-audience-engagement-scope-of-work",
+      "cluster": "event-audience-engagement"
     },
     {
       "route": "/programmatic/event-audience-engagement-services",
@@ -27813,11 +28223,13 @@
       "query": "event audience engagement vs in house team",
       "pillar": "experiences",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T11:23:28.305Z",
-      "admitted_at": "2026-07-20T11:23:28.305Z"
+      "updated_at": "2026-08-29T08:40:59.095Z",
+      "admitted_at": "2026-07-20T11:23:28.305Z",
+      "source_route": "/event-audience-engagement-vs-in-house-team",
+      "cluster": "event-audience-engagement"
     },
     {
       "route": "/programmatic/event-audience-engagement-when-to-hire",
@@ -28006,11 +28418,13 @@
       "query": "event content repurposing case pattern",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T11:23:28.306Z",
-      "admitted_at": "2026-07-20T11:23:28.306Z"
+      "updated_at": "2026-08-29T08:40:59.043Z",
+      "admitted_at": "2026-07-20T11:23:28.306Z",
+      "source_route": "/event-content-repurposing-case-pattern",
+      "cluster": "event-content-repurposing"
     },
     {
       "route": "/programmatic/event-content-repurposing-checklist",
@@ -28030,11 +28444,13 @@
       "query": "event content repurposing common failure points",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T11:23:28.306Z",
-      "admitted_at": "2026-07-20T11:23:28.306Z"
+      "updated_at": "2026-08-29T08:40:59.049Z",
+      "admitted_at": "2026-07-20T11:23:28.306Z",
+      "source_route": "/event-content-repurposing-common-failure-points",
+      "cluster": "event-content-repurposing"
     },
     {
       "route": "/programmatic/event-content-repurposing-companies",
@@ -28249,11 +28665,13 @@
       "query": "event content repurposing how to choose",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T11:23:28.306Z",
-      "admitted_at": "2026-07-20T11:23:28.306Z"
+      "updated_at": "2026-08-29T08:40:59.269Z",
+      "admitted_at": "2026-07-20T11:23:28.306Z",
+      "source_route": "/event-content-repurposing-how-to-choose",
+      "cluster": "event-content-repurposing"
     },
     {
       "route": "/programmatic/event-content-repurposing-how-to-compare-vendors",
@@ -28390,11 +28808,13 @@
       "query": "event content repurposing scope of work",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T21:44:29.951Z",
-      "admitted_at": "2026-07-20T21:44:29.951Z"
+      "updated_at": "2026-08-29T08:40:59.056Z",
+      "admitted_at": "2026-07-20T21:44:29.951Z",
+      "source_route": "/event-content-repurposing-scope-of-work",
+      "cluster": "event-content-repurposing"
     },
     {
       "route": "/programmatic/event-content-repurposing-services",
@@ -28453,11 +28873,13 @@
       "query": "event content repurposing vs in house team",
       "pillar": "experiences",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T21:44:29.952Z",
-      "admitted_at": "2026-07-20T21:44:29.952Z"
+      "updated_at": "2026-08-29T08:40:59.488Z",
+      "admitted_at": "2026-07-20T21:44:29.952Z",
+      "source_route": "/event-content-repurposing-vs-in-house-team",
+      "cluster": "event-content-repurposing"
     },
     {
       "route": "/programmatic/event-content-repurposing-when-to-hire",
@@ -28581,11 +29003,13 @@
       "query": "event marketing strategy common failure points",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T21:44:29.953Z",
-      "admitted_at": "2026-07-20T21:44:29.953Z"
+      "updated_at": "2026-08-29T08:40:59.275Z",
+      "admitted_at": "2026-07-20T21:44:29.953Z",
+      "source_route": "/event-marketing-strategy-common-failure-points",
+      "cluster": "event-marketing-strategy"
     },
     {
       "route": "/programmatic/event-marketing-strategy-companies",
@@ -28605,11 +29029,13 @@
       "query": "event marketing strategy comparison",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T21:44:29.954Z",
-      "admitted_at": "2026-07-20T21:44:29.954Z"
+      "updated_at": "2026-08-29T08:40:59.602Z",
+      "admitted_at": "2026-07-20T21:44:29.954Z",
+      "source_route": "/event-marketing-strategy-comparison",
+      "cluster": "event-marketing-strategy"
     },
     {
       "route": "/programmatic/event-marketing-strategy-consultant",
@@ -28798,11 +29224,13 @@
       "query": "event marketing strategy how to choose",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-20T21:44:29.955Z",
-      "admitted_at": "2026-07-20T21:44:29.955Z"
+      "updated_at": "2026-08-29T08:40:59.285Z",
+      "admitted_at": "2026-07-20T21:44:29.955Z",
+      "source_route": "/event-marketing-strategy-how-to-choose",
+      "cluster": "event-marketing-strategy"
     },
     {
       "route": "/programmatic/event-marketing-strategy-how-to-compare-vendors",
@@ -29715,22 +30143,26 @@
       "query": "executive broadcast production best practices",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-21T10:39:26.019Z",
-      "admitted_at": "2026-07-21T10:39:26.019Z"
+      "updated_at": "2026-08-29T08:40:59.364Z",
+      "admitted_at": "2026-07-21T10:39:26.019Z",
+      "source_route": "/executive-broadcast-production-best-practices",
+      "cluster": "executive-broadcast-production"
     },
     {
       "route": "/programmatic/executive-broadcast-production-case-pattern",
       "query": "executive broadcast production case pattern",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-21T10:39:26.019Z",
-      "admitted_at": "2026-07-21T10:39:26.019Z"
+      "updated_at": "2026-08-29T08:40:59.325Z",
+      "admitted_at": "2026-07-21T10:39:26.019Z",
+      "source_route": "/executive-broadcast-production-case-pattern",
+      "cluster": "executive-broadcast-production"
     },
     {
       "route": "/programmatic/executive-broadcast-production-checklist",
@@ -29982,11 +30414,13 @@
       "query": "executive broadcast production how to choose",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-21T21:40:38.580Z",
-      "admitted_at": "2026-07-21T21:40:38.580Z"
+      "updated_at": "2026-08-29T08:40:59.561Z",
+      "admitted_at": "2026-07-21T21:40:38.580Z",
+      "source_route": "/executive-broadcast-production-how-to-choose",
+      "cluster": "executive-broadcast-production"
     },
     {
       "route": "/programmatic/executive-broadcast-production-how-to-compare-vendors",
@@ -30097,11 +30531,13 @@
       "query": "executive broadcast production red flags",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-21T21:40:38.582Z",
-      "admitted_at": "2026-07-21T21:40:38.582Z"
+      "updated_at": "2026-08-29T08:40:59.255Z",
+      "admitted_at": "2026-07-21T21:40:38.582Z",
+      "source_route": "/executive-broadcast-production-red-flags",
+      "cluster": "executive-broadcast-production"
     },
     {
       "route": "/programmatic/executive-broadcast-production-roi-factors",
@@ -30121,11 +30557,13 @@
       "query": "executive broadcast production scope of work",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-21T21:40:38.582Z",
-      "admitted_at": "2026-07-21T21:40:38.582Z"
+      "updated_at": "2026-08-29T08:40:59.261Z",
+      "admitted_at": "2026-07-21T21:40:38.582Z",
+      "source_route": "/executive-broadcast-production-scope-of-work",
+      "cluster": "executive-broadcast-production"
     },
     {
       "route": "/programmatic/executive-broadcast-production-services",
@@ -30197,11 +30635,13 @@
       "query": "executive broadcast production when to hire",
       "pillar": "experiences",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-21T21:40:38.583Z",
-      "admitted_at": "2026-07-21T21:40:38.583Z"
+      "updated_at": "2026-08-29T08:40:59.393Z",
+      "admitted_at": "2026-07-21T21:40:38.583Z",
+      "source_route": "/executive-broadcast-production-when-to-hire",
+      "cluster": "executive-broadcast-production"
     },
     {
       "route": "/programmatic/executive-broadcast-production-workflow",
@@ -30257,6 +30697,19 @@
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-08-26T08:51:43.794Z",
       "admitted_at": "2026-08-26T08:51:43.794Z"
+    },
+    {
+      "route": "/programmatic/founder-narrative-strategy",
+      "source_route": "/founder-narrative-strategy",
+      "query": "founder narrative strategy",
+      "cluster": "brand-narrative-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.896Z",
+      "admitted_at": "2026-08-29T08:40:58.896Z"
     },
     {
       "route": "/programmatic/founder-storytelling",
@@ -30828,6 +31281,19 @@
         "normalized_signals"
       ],
       "status": "admitted"
+    },
+    {
+      "route": "/programmatic/hosted-event-zero1vent",
+      "source_route": "/hosted-event-zero1vent",
+      "query": "hosted event zero1vent",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.936Z",
+      "admitted_at": "2026-08-29T08:40:58.936Z"
     },
     {
       "route": "/programmatic/how-to-choose-a-creative-agency",
@@ -31532,6 +31998,19 @@
       "cluster": "how-to-choose-a-creative-agency"
     },
     {
+      "route": "/programmatic/how-to-host-virtual-events",
+      "source_route": "/how-to-host-virtual-events",
+      "query": "how to host virtual events",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.866Z",
+      "admitted_at": "2026-08-29T08:40:58.866Z"
+    },
+    {
       "route": "/programmatic/human-in-the-loop-ai-systems",
       "query": "human in the loop AI systems",
       "pillar": "ai-workflows",
@@ -32088,6 +32567,19 @@
       "updated_at": "2026-08-15T08:45:03.522Z",
       "admitted_at": "2026-07-22T21:38:18.929Z",
       "cluster": "human-in-the-loop-ai-systems"
+    },
+    {
+      "route": "/programmatic/human-in-the-loop-examples",
+      "source_route": "/human-in-the-loop-examples",
+      "query": "human in the loop examples",
+      "cluster": "human-in-the-loop-ai-systems",
+      "pillar": "ai-workflows",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.818Z",
+      "admitted_at": "2026-08-29T08:40:58.818Z"
     },
     {
       "route": "/programmatic/hybrid-event-platform",
@@ -32674,6 +33166,58 @@
       "updated_at": "2026-08-25T08:51:40.159Z",
       "admitted_at": "2026-07-23T10:40:16.102Z",
       "cluster": "hybrid-event-production"
+    },
+    {
+      "route": "/programmatic/hybrid-events-platform",
+      "source_route": "/hybrid-events-platform",
+      "query": "hybrid events platform",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.747Z",
+      "admitted_at": "2026-08-29T08:40:58.747Z"
+    },
+    {
+      "route": "/programmatic/hybrid-events-production-agency",
+      "source_route": "/hybrid-events-production-agency",
+      "query": "hybrid events production agency",
+      "cluster": "hybrid-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.806Z",
+      "admitted_at": "2026-08-29T08:40:58.806Z"
+    },
+    {
+      "route": "/programmatic/integrated-agency",
+      "source_route": "/integrated-agency",
+      "query": "integrated agency",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.773Z",
+      "admitted_at": "2026-08-29T08:40:58.773Z"
+    },
+    {
+      "route": "/programmatic/integrated-agency-definition",
+      "source_route": "/integrated-agency-definition",
+      "query": "integrated agency definition",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.790Z",
+      "admitted_at": "2026-08-29T08:40:58.790Z"
     },
     {
       "route": "/programmatic/integrated-agency-vs-specialist-agencies",
@@ -33365,6 +33909,19 @@
       "cluster": "integrated-agency-vs-specialist-agencies"
     },
     {
+      "route": "/programmatic/investor-relations-event-production",
+      "source_route": "/investor-relations-event-production",
+      "query": "investor relations event production",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.725Z",
+      "admitted_at": "2026-08-29T08:40:58.725Z"
+    },
+    {
       "route": "/programmatic/investor-storytelling",
       "query": "investor storytelling",
       "pillar": "storytelling",
@@ -33743,15 +34300,16 @@
     },
     {
       "route": "/programmatic/investor-storytelling-operating-model",
-      "source_route": "/programmatic/investor-storytelling-operating-model",
+      "source_route": "/investor-storytelling-operating-model",
       "query": "investor storytelling operating model",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-23T21:36:44.719Z",
-      "admitted_at": "2026-07-23T21:36:44.719Z"
+      "updated_at": "2026-08-29T08:40:59.120Z",
+      "admitted_at": "2026-07-23T21:36:44.719Z",
+      "cluster": "investor-storytelling"
     },
     {
       "route": "/programmatic/investor-storytelling-pricing",
@@ -33807,15 +34365,16 @@
     },
     {
       "route": "/programmatic/investor-storytelling-roi-factors",
-      "source_route": "/programmatic/investor-storytelling-roi-factors",
+      "source_route": "/investor-storytelling-roi-factors",
       "query": "investor storytelling ROI factors",
       "pillar": "storytelling",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-23T21:36:44.721Z",
-      "admitted_at": "2026-07-23T21:36:44.721Z"
+      "updated_at": "2026-08-29T08:40:59.127Z",
+      "admitted_at": "2026-07-23T21:36:44.721Z",
+      "cluster": "investor-storytelling"
     },
     {
       "route": "/programmatic/investor-storytelling-scope-of-work",
@@ -34040,15 +34599,16 @@
     },
     {
       "route": "/programmatic/launch-marketing-strategy-comparison",
-      "source_route": "/programmatic/launch-marketing-strategy-comparison",
+      "source_route": "/launch-marketing-strategy-comparison",
       "query": "launch marketing strategy comparison",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.974Z",
-      "admitted_at": "2026-07-24T10:34:25.974Z"
+      "updated_at": "2026-08-29T08:40:59.630Z",
+      "admitted_at": "2026-07-24T10:34:25.974Z",
+      "cluster": "launch-marketing-strategy"
     },
     {
       "route": "/programmatic/launch-marketing-strategy-consultant",
@@ -34479,6 +35039,58 @@
       "cluster": "launch-marketing-strategy"
     },
     {
+      "route": "/programmatic/live-stream-production-company",
+      "source_route": "/live-stream-production-company",
+      "query": "live stream production company",
+      "cluster": "webinar-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.652Z",
+      "admitted_at": "2026-08-29T08:40:58.652Z"
+    },
+    {
+      "route": "/programmatic/marketing-agency-workflow",
+      "source_route": "/marketing-agency-workflow",
+      "query": "marketing agency workflow",
+      "cluster": "community-marketing",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.909Z",
+      "admitted_at": "2026-08-29T08:40:58.909Z"
+    },
+    {
+      "route": "/programmatic/marketing-content-operations",
+      "source_route": "/marketing-content-operations",
+      "query": "marketing content operations",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.761Z",
+      "admitted_at": "2026-08-29T08:40:58.761Z"
+    },
+    {
+      "route": "/programmatic/marketing-operating-system",
+      "source_route": "/marketing-operating-system",
+      "query": "marketing operating system",
+      "cluster": "community-marketing",
+      "pillar": "marketing",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.922Z",
+      "admitted_at": "2026-08-29T08:40:58.922Z"
+    },
+    {
       "route": "/programmatic/marketing-strategy-consulting",
       "query": "marketing strategy consulting",
       "pillar": "marketing",
@@ -34532,51 +35144,55 @@
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-best-practices",
-      "source_route": "/programmatic/marketing-strategy-consulting-best-practices",
+      "source_route": "/marketing-strategy-consulting-best-practices",
       "query": "marketing strategy consulting best practices",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.991Z",
-      "admitted_at": "2026-07-24T10:34:25.991Z"
+      "updated_at": "2026-08-29T08:40:59.343Z",
+      "admitted_at": "2026-07-24T10:34:25.991Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-case-pattern",
-      "source_route": "/programmatic/marketing-strategy-consulting-case-pattern",
+      "source_route": "/marketing-strategy-consulting-case-pattern",
       "query": "marketing strategy consulting case pattern",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.992Z",
-      "admitted_at": "2026-07-24T10:34:25.992Z"
+      "updated_at": "2026-08-29T08:40:59.074Z",
+      "admitted_at": "2026-07-24T10:34:25.992Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-checklist",
-      "source_route": "/programmatic/marketing-strategy-consulting-checklist",
+      "source_route": "/marketing-strategy-consulting-checklist",
       "query": "marketing strategy consulting checklist",
       "pillar": "marketing",
       "page_family": "template_checklist",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.992Z",
-      "admitted_at": "2026-07-24T10:34:25.992Z"
+      "updated_at": "2026-08-29T08:40:59.132Z",
+      "admitted_at": "2026-07-24T10:34:25.992Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-common-failure-points",
-      "source_route": "/programmatic/marketing-strategy-consulting-common-failure-points",
+      "source_route": "/marketing-strategy-consulting-common-failure-points",
       "query": "marketing strategy consulting common failure points",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.993Z",
-      "admitted_at": "2026-07-24T10:34:25.993Z"
+      "updated_at": "2026-08-29T08:40:59.079Z",
+      "admitted_at": "2026-07-24T10:34:25.993Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-companies",
@@ -34593,15 +35209,16 @@
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-comparison",
-      "source_route": "/programmatic/marketing-strategy-consulting-comparison",
+      "source_route": "/marketing-strategy-consulting-comparison",
       "query": "marketing strategy consulting comparison",
       "pillar": "marketing",
       "page_family": "comparison",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.994Z",
-      "admitted_at": "2026-07-24T10:34:25.994Z"
+      "updated_at": "2026-08-29T08:40:59.137Z",
+      "admitted_at": "2026-07-24T10:34:25.994Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-consultant",
@@ -34618,15 +35235,16 @@
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-cost",
-      "source_route": "/programmatic/marketing-strategy-consulting-cost",
+      "source_route": "/marketing-strategy-consulting-cost",
       "query": "marketing strategy consulting cost",
       "pillar": "marketing",
       "page_family": "cost_scope",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-07-24T10:34:25.995Z",
-      "admitted_at": "2026-07-24T10:34:25.995Z"
+      "updated_at": "2026-08-29T08:40:59.113Z",
+      "admitted_at": "2026-07-24T10:34:25.995Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-deliverables",
@@ -34861,15 +35479,16 @@
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-pricing",
-      "source_route": "/programmatic/marketing-strategy-consulting-pricing",
+      "source_route": "/marketing-strategy-consulting-pricing",
       "query": "marketing strategy consulting pricing",
       "pillar": "marketing",
       "page_family": "cost_scope",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-08-07T08:53:33.706Z",
-      "admitted_at": "2026-08-07T08:53:33.706Z"
+      "updated_at": "2026-08-29T08:40:59.185Z",
+      "admitted_at": "2026-08-07T08:53:33.706Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-process",
@@ -34997,15 +35616,16 @@
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-when-to-hire",
-      "source_route": "/programmatic/marketing-strategy-consulting-when-to-hire",
+      "source_route": "/marketing-strategy-consulting-when-to-hire",
       "query": "marketing strategy consulting when to hire",
       "pillar": "marketing",
       "page_family": "operational_guide",
-      "action": "create",
+      "action": "repair",
       "status": "admitted",
       "entity_binding": "west_peek_productions",
-      "updated_at": "2026-08-07T08:53:33.713Z",
-      "admitted_at": "2026-08-07T08:53:33.713Z"
+      "updated_at": "2026-08-29T08:40:59.019Z",
+      "admitted_at": "2026-08-07T08:53:33.713Z",
+      "cluster": "marketing-strategy-consulting"
     },
     {
       "route": "/programmatic/marketing-strategy-consulting-workflow",
@@ -35019,6 +35639,19 @@
       "updated_at": "2026-08-26T08:51:44.150Z",
       "admitted_at": "2026-08-07T08:53:33.714Z",
       "cluster": "marketing-strategy-consulting"
+    },
+    {
+      "route": "/programmatic/narrative-strategy",
+      "source_route": "/narrative-strategy",
+      "query": "narrative strategy",
+      "cluster": "brand-narrative-strategy",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.799Z",
+      "admitted_at": "2026-08-29T08:40:58.799Z"
     },
     {
       "route": "/programmatic/online-conference-platforms",
@@ -35591,6 +36224,32 @@
       "updated_at": "2026-08-13T08:57:19.869Z",
       "admitted_at": "2026-08-08T08:51:09.699Z",
       "cluster": "outsourced-community-management"
+    },
+    {
+      "route": "/programmatic/platforms-to-host-virtual-events",
+      "source_route": "/platforms-to-host-virtual-events",
+      "query": "platforms to host virtual events",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.822Z",
+      "admitted_at": "2026-08-29T08:40:58.822Z"
+    },
+    {
+      "route": "/programmatic/podcast-strategy-consulting",
+      "source_route": "/podcast-strategy-consulting",
+      "query": "podcast strategy & consulting",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.621Z",
+      "admitted_at": "2026-08-29T08:40:59.621Z"
     },
     {
       "route": "/programmatic/podcast-strategy-consulting",
@@ -36386,6 +37045,19 @@
       "admitted_at": "2026-08-27T12:01:28.379Z"
     },
     {
+      "route": "/programmatic/production-agency-definition",
+      "source_route": "/production-agency-definition",
+      "query": "production agency definition",
+      "cluster": "webinar-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.811Z",
+      "admitted_at": "2026-08-29T08:40:58.811Z"
+    },
+    {
       "route": "/programmatic/professional-community-operating-model",
       "query": "Professional Community Operating Model",
       "page_family": "reference_framework",
@@ -36400,6 +37072,19 @@
       "pillar": "community",
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-07-24T00:00:00.000Z"
+    },
+    {
+      "route": "/programmatic/professional-webinar-production-services",
+      "source_route": "/professional-webinar-production-services",
+      "query": "professional webinar production services",
+      "cluster": "webinar-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.688Z",
+      "admitted_at": "2026-08-29T08:40:58.688Z"
     },
     {
       "route": "/programmatic/rebrand-strategy",
@@ -36960,6 +37645,19 @@
       "admitted_at": "2026-08-10T09:01:29.806Z"
     },
     {
+      "route": "/programmatic/run-of-show-meaning",
+      "source_route": "/run-of-show-meaning",
+      "query": "run of show meaning",
+      "cluster": "event-run-of-show",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.943Z",
+      "admitted_at": "2026-08-29T08:40:58.943Z"
+    },
+    {
       "route": "/programmatic/saas-community-strategy-framework",
       "query": "SaaS Community Strategy Framework",
       "page_family": "reference_framework",
@@ -37222,6 +37920,19 @@
       "admitted_at": "2026-08-27T12:01:28.390Z"
     },
     {
+      "route": "/programmatic/top-virtual-event-platforms",
+      "source_route": "/top-virtual-event-platforms",
+      "query": "top virtual event platforms",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.711Z",
+      "admitted_at": "2026-08-29T08:40:58.711Z"
+    },
+    {
       "route": "/programmatic/video-content-strategy",
       "query": "video content strategy",
       "pillar": "creative",
@@ -37466,6 +38177,45 @@
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-08-27T12:01:28.399Z",
       "admitted_at": "2026-08-27T12:01:28.399Z"
+    },
+    {
+      "route": "/programmatic/virtual-and-hybrid-event-platform",
+      "source_route": "/virtual-and-hybrid-event-platform",
+      "query": "virtual and hybrid event platform",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.882Z",
+      "admitted_at": "2026-08-29T08:40:58.882Z"
+    },
+    {
+      "route": "/programmatic/virtual-event-case-studies",
+      "source_route": "/virtual-event-case-studies",
+      "query": "virtual event case studies",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.872Z",
+      "admitted_at": "2026-08-29T08:40:58.872Z"
+    },
+    {
+      "route": "/programmatic/virtual-event-checklist",
+      "source_route": "/virtual-event-checklist",
+      "query": "virtual event checklist",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "template_checklist",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.683Z",
+      "admitted_at": "2026-08-29T08:40:58.683Z"
     },
     {
       "route": "/programmatic/virtual-event-management",
@@ -37841,6 +38591,32 @@
         "normalized_signals"
       ],
       "status": "admitted"
+    },
+    {
+      "route": "/programmatic/virtual-event-planning-timeline",
+      "source_route": "/virtual-event-planning-timeline",
+      "query": "virtual event planning timeline",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.877Z",
+      "admitted_at": "2026-08-29T08:40:58.877Z"
+    },
+    {
+      "route": "/programmatic/virtual-event-platform-comparison",
+      "source_route": "/virtual-event-platform-comparison",
+      "query": "virtual event platform comparison",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "comparison",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.660Z",
+      "admitted_at": "2026-08-29T08:40:58.660Z"
     },
     {
       "route": "/programmatic/virtual-event-production",
@@ -38262,6 +39038,19 @@
       "status": "admitted"
     },
     {
+      "route": "/programmatic/virtual-event-production-for-biotech",
+      "source_route": "/virtual-event-production-for-biotech",
+      "query": "audiovisual production for biotech events",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.189Z",
+      "admitted_at": "2026-08-29T08:40:59.189Z"
+    },
+    {
       "route": "/programmatic/virtual-event-production-for-enterprise-teams",
       "source_route": "/virtual-event-production-for-enterprise-teams",
       "query": "virtual event production for enterprise teams",
@@ -38323,6 +39112,19 @@
       ],
       "status": "admitted",
       "updated_at": "2026-06-29T13:57:54.592Z"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-for-saas",
+      "source_route": "/programmatic/virtual-event-production-for-saas",
+      "query": "virtual event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "action": "repair",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:59.193Z",
+      "admitted_at": "2026-08-29T08:40:59.193Z"
     },
     {
       "route": "/programmatic/virtual-event-production-for-small-teams",
@@ -38816,6 +39618,19 @@
       "status": "admitted"
     },
     {
+      "route": "/programmatic/virtual-event-production-staff",
+      "source_route": "/virtual-event-production-staff",
+      "query": "virtual event production staff",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.856Z",
+      "admitted_at": "2026-08-29T08:40:58.856Z"
+    },
+    {
       "route": "/programmatic/virtual-event-production-technical-rehearsal",
       "source_route": "/virtual-event-production-technical-rehearsal",
       "query": "technical rehearsal",
@@ -38915,6 +39730,19 @@
       "status": "admitted"
     },
     {
+      "route": "/programmatic/virtual-event-providers",
+      "source_route": "/virtual-event-providers",
+      "query": "virtual event providers",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.716Z",
+      "admitted_at": "2026-08-29T08:40:58.716Z"
+    },
+    {
       "route": "/programmatic/virtual-event-services",
       "query": "virtual event services",
       "page_family": "programmatic_opportunity",
@@ -38926,6 +39754,97 @@
       ],
       "status": "admitted",
       "updated_at": "2026-07-10T15:16:32.132Z"
+    },
+    {
+      "route": "/programmatic/virtual-event-streaming-platforms",
+      "source_route": "/virtual-event-streaming-platforms",
+      "query": "virtual event streaming platforms",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.949Z",
+      "admitted_at": "2026-08-29T08:40:58.949Z"
+    },
+    {
+      "route": "/programmatic/virtual-event-timeline",
+      "source_route": "/virtual-event-timeline",
+      "query": "virtual event timeline",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.769Z",
+      "admitted_at": "2026-08-29T08:40:58.769Z"
+    },
+    {
+      "route": "/programmatic/virtual-events-checklist",
+      "source_route": "/virtual-events-checklist",
+      "query": "virtual events checklist",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "template_checklist",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.886Z",
+      "admitted_at": "2026-08-29T08:40:58.886Z"
+    },
+    {
+      "route": "/programmatic/virtual-events-management",
+      "source_route": "/virtual-events-management",
+      "query": "virtual events management",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.850Z",
+      "admitted_at": "2026-08-29T08:40:58.850Z"
+    },
+    {
+      "route": "/programmatic/virtual-events-platforms",
+      "source_route": "/virtual-events-platforms",
+      "query": "virtual events platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.738Z",
+      "admitted_at": "2026-08-29T08:40:58.738Z"
+    },
+    {
+      "route": "/programmatic/virtual-events-production",
+      "source_route": "/virtual-events-production",
+      "query": "virtual events production",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.671Z",
+      "admitted_at": "2026-08-29T08:40:58.671Z"
+    },
+    {
+      "route": "/programmatic/virtual-summit-platforms",
+      "source_route": "/virtual-summit-platforms",
+      "query": "virtual summit platforms",
+      "cluster": "virtual-summit-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.743Z",
+      "admitted_at": "2026-08-29T08:40:58.743Z"
     },
     {
       "route": "/programmatic/virtual-summit-production",
@@ -39290,6 +40209,19 @@
       "admitted_at": "2026-08-16T08:46:06.281Z"
     },
     {
+      "route": "/programmatic/webinar-production-company",
+      "source_route": "/webinar-production-company",
+      "query": "webinar production company",
+      "cluster": "webinar-production",
+      "pillar": "experiences",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.778Z",
+      "admitted_at": "2026-08-29T08:40:58.778Z"
+    },
+    {
       "route": "/programmatic/webinar-production-comparison",
       "source_route": "/webinar-production-comparison",
       "query": "webinar production comparison",
@@ -39418,6 +40350,19 @@
       "entity_binding": "west_peek_productions",
       "updated_at": "2026-08-27T12:01:28.429Z",
       "admitted_at": "2026-08-27T12:01:28.429Z"
+    },
+    {
+      "route": "/programmatic/west-peak",
+      "source_route": "/west-peak",
+      "query": "west peak",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "action": "create",
+      "status": "admitted",
+      "entity_binding": "west_peek_productions",
+      "updated_at": "2026-08-29T08:40:58.860Z",
+      "admitted_at": "2026-08-29T08:40:58.860Z"
     },
     {
       "route": "/programmatic/what-is-agency-rfp-questions",
