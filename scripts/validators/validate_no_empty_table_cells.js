@@ -67,4 +67,17 @@ if (offenders.length) {
   console.error('  remedy: the generator must omit the row, or fill the cell with real content');
   process.exit(1);
 }
+// Rule 0: a gate that examined nothing has not passed, it has abstained. These three
+// gates walk the published *.html surface. That surface is committed here (3,419 tracked
+// files), so a fresh CI checkout has it - verified in run 33266127315, which examined
+// 3419/3419/3417 pages. But nothing STRUCTURALLY guaranteed that: if the site were ever
+// moved behind a build step into a gitignored dist/, or this ran before the stage that
+// produces its input, the walk would find zero files, report no offenders and exit 0 -
+// a HARD_FAIL gate that is incapable of failing. A sibling repo shipped exactly that on
+// three release-blocking gates. The floor below makes "found nothing" loud instead of green.
+const MIN_PAGES_EXPECTED = 100;
+if (scanned < MIN_PAGES_EXPECTED) {
+  console.error(`NO EMPTY TABLE CELLS EXAMINED ONLY ${scanned} PAGES (floor ${MIN_PAGES_EXPECTED}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+  process.exit(1);
+}
 console.log(`NO EMPTY TABLE CELLS: ${scanned} published pages contain no empty <td>/<th>`);
