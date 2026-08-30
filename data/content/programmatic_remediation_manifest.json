@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "source_fingerprint": "04fb48115ef9d4ed14cfc549721adbd8f505eea920ea3e0b54b1bb33e92aad19",
+  "source_fingerprint": "5604e7b3e4efeda0c94990386dba57910e0b8418d94e394b34f496a553eebe94",
   "policy": "bounded_self_heal_queue_no_mass_delete",
   "counts": {
-    "total": 81,
-    "thin": 81,
+    "total": 80,
+    "thin": 80,
     "exact_duplicate": 0,
     "near_duplicate": 0
   },
   "queue": [
     {
       "remediation_priority": 1,
-      "route": "/programmatic/virtual-event-planning",
-      "query": "virtual event checklist",
+      "route": "/programmatic/community-roi-measurement-model",
+      "query": "community roi measurement",
       "cluster": "unclustered",
       "pillar": "experiences",
       "page_family": "programmatic_opportunity",
-      "word_count": 637,
-      "max_similarity": 0.07424,
+      "word_count": 661,
+      "max_similarity": 0.032103,
       "nearest_route": "/programmatic/virtual-conference-production",
       "canonical_owner": "/programmatic/virtual-conference-production",
       "search_indexing_evidence": null,
@@ -29,24 +29,6 @@
     },
     {
       "remediation_priority": 2,
-      "route": "/programmatic/community-roi-measurement-model",
-      "query": "community roi measurement",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "page_family": "programmatic_opportunity",
-      "word_count": 661,
-      "max_similarity": 0.036804,
-      "nearest_route": "/programmatic/virtual-event-planning",
-      "canonical_owner": "/programmatic/virtual-event-planning",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 3,
       "route": "/programmatic/community-budget-planning-framework",
       "query": "Community Budget Planning Framework",
       "cluster": "/programmatic/community-budget-planning-framework",
@@ -64,7 +46,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 4,
+      "remediation_priority": 3,
       "route": "/programmatic/community-engagement-operating-cadence",
       "query": "Community Engagement Operating Cadence",
       "cluster": "/programmatic/community-engagement-operating-cadence",
@@ -82,7 +64,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 5,
+      "remediation_priority": 4,
       "route": "/programmatic/community-events-programming-framework",
       "query": "Community Events and Programming Framework",
       "cluster": "/programmatic/community-events-programming-framework",
@@ -100,7 +82,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 6,
+      "remediation_priority": 5,
       "route": "/programmatic/community-governance-escalation-matrix",
       "query": "Community Governance Escalation Matrix",
       "cluster": "/programmatic/community-governance-escalation-matrix",
@@ -118,7 +100,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 7,
+      "remediation_priority": 6,
       "route": "/programmatic/community-health-scorecard",
       "query": "Community Health Scorecard",
       "cluster": "/programmatic/community-health-scorecard",
@@ -136,7 +118,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 8,
+      "remediation_priority": 7,
       "route": "/programmatic/community-launch-readiness-framework",
       "query": "Community Launch Readiness Framework",
       "cluster": "/programmatic/community-launch-readiness-framework",
@@ -154,7 +136,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 9,
+      "remediation_priority": 8,
       "route": "/programmatic/community-monetization-decision-framework",
       "query": "Community Monetization Decision Framework",
       "cluster": "/programmatic/community-monetization-decision-framework",
@@ -172,7 +154,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 10,
+      "remediation_priority": 9,
       "route": "/programmatic/community-platform-decision-matrix",
       "query": "Community Platform Decision Matrix",
       "cluster": "/programmatic/community-platform-decision-matrix",
@@ -190,7 +172,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 11,
+      "remediation_priority": 10,
       "route": "/programmatic/community-staffing-matrix",
       "query": "Community Staffing Matrix",
       "cluster": "/programmatic/community-staffing-matrix",
@@ -208,7 +190,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 12,
+      "remediation_priority": 11,
       "route": "/programmatic/customer-advocacy-community-framework",
       "query": "Customer Advocacy Community Framework",
       "cluster": "/programmatic/customer-advocacy-community-framework",
@@ -226,7 +208,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 13,
+      "remediation_priority": 12,
       "route": "/programmatic/daily-backup-event-systems",
       "query": null,
       "cluster": "/programmatic/daily-backup-event-systems",
@@ -244,7 +226,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 14,
+      "remediation_priority": 13,
       "route": "/programmatic/executive-event-production",
       "query": null,
       "cluster": "/programmatic/executive-event-production",
@@ -262,7 +244,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 15,
+      "remediation_priority": 14,
       "route": "/programmatic/marketing-growth-2025",
       "query": null,
       "cluster": "/programmatic/marketing-growth-2025",
@@ -280,13 +262,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 16,
+      "remediation_priority": 15,
       "route": "/programmatic/run-of-show-planning",
       "query": null,
       "cluster": "/programmatic/run-of-show-planning",
       "pillar": null,
       "page_family": null,
-      "word_count": 662,
+      "word_count": 666,
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/run-of-show-planning",
@@ -298,13 +280,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 17,
+      "remediation_priority": 16,
       "route": "/programmatic/speaker-onboarding-and-rehearsals",
       "query": null,
       "cluster": "/programmatic/speaker-onboarding-and-rehearsals",
       "pillar": null,
       "page_family": null,
-      "word_count": 664,
+      "word_count": 668,
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/speaker-onboarding-and-rehearsals",
@@ -316,7 +298,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 18,
+      "remediation_priority": 17,
       "route": "/programmatic/streamyard-livekit-daily-stack",
       "query": null,
       "cluster": "/programmatic/streamyard-livekit-daily-stack",
@@ -334,13 +316,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 19,
+      "remediation_priority": 18,
       "route": "/programmatic/streamyard-virtual-event-production",
       "query": null,
       "cluster": "/programmatic/streamyard-virtual-event-production",
       "pillar": null,
       "page_family": null,
-      "word_count": 524,
+      "word_count": 528,
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/streamyard-virtual-event-production",
@@ -352,13 +334,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 20,
+      "remediation_priority": 19,
       "route": "/programmatic/virtual-career-fair-production",
       "query": null,
       "cluster": "/programmatic/virtual-career-fair-production",
       "pillar": null,
       "page_family": null,
-      "word_count": 622,
+      "word_count": 626,
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-career-fair-production",
@@ -370,7 +352,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 21,
+      "remediation_priority": 20,
       "route": "/programmatic/virtual-event-backup-systems",
       "query": null,
       "cluster": "/programmatic/virtual-event-backup-systems",
@@ -388,7 +370,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 22,
+      "remediation_priority": 21,
       "route": "/programmatic/virtual-event-failure-prevention",
       "query": null,
       "cluster": "/programmatic/virtual-event-failure-prevention",
@@ -406,7 +388,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 23,
+      "remediation_priority": 22,
       "route": "/programmatic/virtual-event-marketing",
       "query": null,
       "cluster": "/programmatic/virtual-event-marketing",
@@ -424,7 +406,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 24,
+      "remediation_priority": 23,
       "route": "/programmatic/virtual-event-planning-accessibility",
       "query": "virtual event planning accessibility",
       "cluster": "/programmatic/virtual-event-planning-accessibility",
@@ -442,7 +424,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 25,
+      "remediation_priority": 24,
       "route": "/programmatic/virtual-event-planning-analytics",
       "query": "virtual event planning analytics",
       "cluster": "/programmatic/virtual-event-planning-analytics",
@@ -460,7 +442,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 26,
+      "remediation_priority": 25,
       "route": "/programmatic/virtual-event-planning-attendee-experience",
       "query": "virtual event planning attendee experience",
       "cluster": "/programmatic/virtual-event-planning-attendee-experience",
@@ -478,7 +460,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 27,
+      "remediation_priority": 26,
       "route": "/programmatic/virtual-event-planning-backup-plan",
       "query": "virtual event planning backup plan",
       "cluster": "/programmatic/virtual-event-planning-backup-plan",
@@ -496,7 +478,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 28,
+      "remediation_priority": 27,
       "route": "/programmatic/virtual-event-planning-best-practices",
       "query": "virtual event planning best practices",
       "cluster": "/programmatic/virtual-event-planning-best-practices",
@@ -514,7 +496,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 29,
+      "remediation_priority": 28,
       "route": "/programmatic/virtual-event-planning-budget",
       "query": "virtual event planning budget",
       "cluster": "/programmatic/virtual-event-planning-budget",
@@ -532,7 +514,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 30,
+      "remediation_priority": 29,
       "route": "/programmatic/virtual-event-planning-captioning",
       "query": "virtual event planning captioning",
       "cluster": "/programmatic/virtual-event-planning-captioning",
@@ -550,7 +532,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 31,
+      "remediation_priority": 30,
       "route": "/programmatic/virtual-event-planning-common-mistakes",
       "query": "virtual event planning common mistakes",
       "cluster": "/programmatic/virtual-event-planning-common-mistakes",
@@ -568,7 +550,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 32,
+      "remediation_priority": 31,
       "route": "/programmatic/virtual-event-planning-companies",
       "query": "virtual event planning companies",
       "cluster": "/programmatic/virtual-event-planning-companies",
@@ -586,7 +568,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 33,
+      "remediation_priority": 32,
       "route": "/programmatic/virtual-event-planning-comparison",
       "query": "virtual event planning comparison",
       "cluster": "/programmatic/virtual-event-planning-comparison",
@@ -604,7 +586,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 34,
+      "remediation_priority": 33,
       "route": "/programmatic/virtual-event-planning-content-repurposing",
       "query": "virtual event planning content repurposing",
       "cluster": "/programmatic/virtual-event-planning-content-repurposing",
@@ -622,7 +604,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 35,
+      "remediation_priority": 34,
       "route": "/programmatic/virtual-event-planning-cost",
       "query": "virtual event planning cost",
       "cluster": "/programmatic/virtual-event-planning-cost",
@@ -640,7 +622,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 36,
+      "remediation_priority": 35,
       "route": "/programmatic/virtual-event-planning-day-of-support",
       "query": "virtual event planning day of support",
       "cluster": "/programmatic/virtual-event-planning-day-of-support",
@@ -658,7 +640,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 37,
+      "remediation_priority": 36,
       "route": "/programmatic/virtual-event-planning-decision-framework",
       "query": "virtual event planning decision framework",
       "cluster": "/programmatic/virtual-event-planning-decision-framework",
@@ -676,7 +658,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 38,
+      "remediation_priority": 37,
       "route": "/programmatic/virtual-event-planning-engagement",
       "query": "virtual event planning engagement",
       "cluster": "/programmatic/virtual-event-planning-engagement",
@@ -694,7 +676,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 39,
+      "remediation_priority": 38,
       "route": "/programmatic/virtual-event-planning-event-operations",
       "query": "virtual event planning event operations",
       "cluster": "/programmatic/virtual-event-planning-event-operations",
@@ -712,7 +694,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 40,
+      "remediation_priority": 39,
       "route": "/programmatic/virtual-event-planning-event-strategy",
       "query": "virtual event planning event strategy",
       "cluster": "/programmatic/virtual-event-planning-event-strategy",
@@ -730,7 +712,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 41,
+      "remediation_priority": 40,
       "route": "/programmatic/virtual-event-planning-examples",
       "query": "virtual event planning examples",
       "cluster": "/programmatic/virtual-event-planning-examples",
@@ -748,7 +730,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 42,
+      "remediation_priority": 41,
       "route": "/programmatic/virtual-event-planning-executive-briefing",
       "query": "virtual event planning executive briefing",
       "cluster": "/programmatic/virtual-event-planning-executive-briefing",
@@ -766,7 +748,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 43,
+      "remediation_priority": 42,
       "route": "/programmatic/virtual-event-planning-failure-prevention",
       "query": "virtual event planning failure prevention",
       "cluster": "/programmatic/virtual-event-planning-failure-prevention",
@@ -784,7 +766,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 44,
+      "remediation_priority": 43,
       "route": "/programmatic/virtual-event-planning-follow-up",
       "query": "virtual event planning follow up",
       "cluster": "/programmatic/virtual-event-planning-follow-up",
@@ -802,7 +784,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 45,
+      "remediation_priority": 44,
       "route": "/programmatic/virtual-event-planning-how-to-choose",
       "query": "virtual event planning how to choose",
       "cluster": "/programmatic/virtual-event-planning-how-to-choose",
@@ -820,7 +802,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 46,
+      "remediation_priority": 45,
       "route": "/programmatic/virtual-event-planning-how-to-host",
       "query": "virtual event planning how to host",
       "cluster": "/programmatic/virtual-event-planning-how-to-host",
@@ -838,7 +820,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 47,
+      "remediation_priority": 46,
       "route": "/programmatic/virtual-event-planning-how-to-plan",
       "query": "virtual event planning how to plan",
       "cluster": "/programmatic/virtual-event-planning-how-to-plan",
@@ -856,7 +838,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 48,
+      "remediation_priority": 47,
       "route": "/programmatic/virtual-event-pricing",
       "query": null,
       "cluster": "/programmatic/virtual-event-pricing",
@@ -874,7 +856,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 49,
+      "remediation_priority": 48,
       "route": "/programmatic/virtual-event-production-accessibility",
       "query": "virtual event production accessibility",
       "cluster": "/programmatic/virtual-event-production-accessibility",
@@ -892,7 +874,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 50,
+      "remediation_priority": 49,
       "route": "/programmatic/virtual-event-production-analytics",
       "query": "virtual event production analytics",
       "cluster": "/programmatic/virtual-event-production-analytics",
@@ -910,7 +892,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 51,
+      "remediation_priority": 50,
       "route": "/programmatic/virtual-event-production-attendee-experience",
       "query": "virtual event production attendee experience",
       "cluster": "/programmatic/virtual-event-production-attendee-experience",
@@ -928,7 +910,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 52,
+      "remediation_priority": 51,
       "route": "/programmatic/virtual-event-production-backup-plan",
       "query": "virtual event production backup plan",
       "cluster": "/programmatic/virtual-event-production-backup-plan",
@@ -946,7 +928,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 53,
+      "remediation_priority": 52,
       "route": "/programmatic/virtual-event-production-budget",
       "query": "virtual event production budget",
       "cluster": "/programmatic/virtual-event-production-budget",
@@ -964,7 +946,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 54,
+      "remediation_priority": 53,
       "route": "/programmatic/virtual-event-production-captioning",
       "query": "virtual event production captioning",
       "cluster": "/programmatic/virtual-event-production-captioning",
@@ -982,7 +964,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 55,
+      "remediation_priority": 54,
       "route": "/programmatic/virtual-event-production-decision-framework",
       "query": "virtual event production decision framework",
       "cluster": "/programmatic/virtual-event-production-decision-framework",
@@ -1000,7 +982,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 56,
+      "remediation_priority": 55,
       "route": "/programmatic/virtual-event-production-engagement",
       "query": "virtual event production engagement",
       "cluster": "/programmatic/virtual-event-production-engagement",
@@ -1018,7 +1000,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 57,
+      "remediation_priority": 56,
       "route": "/programmatic/virtual-event-production-event-strategy",
       "query": "virtual event production event strategy",
       "cluster": "/programmatic/virtual-event-production-event-strategy",
@@ -1036,7 +1018,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 58,
+      "remediation_priority": 57,
       "route": "/programmatic/virtual-event-production-executive-briefing",
       "query": "virtual event production executive briefing",
       "cluster": "/programmatic/virtual-event-production-executive-briefing",
@@ -1054,7 +1036,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 59,
+      "remediation_priority": 58,
       "route": "/programmatic/virtual-event-production-failure-prevention",
       "query": "virtual event production failure prevention",
       "cluster": "/programmatic/virtual-event-production-failure-prevention",
@@ -1072,7 +1054,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 60,
+      "remediation_priority": 59,
       "route": "/programmatic/virtual-event-production-follow-up",
       "query": "virtual event production follow up",
       "cluster": "/programmatic/virtual-event-production-follow-up",
@@ -1090,7 +1072,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 61,
+      "remediation_priority": 60,
       "route": "/programmatic/virtual-event-production-for-education",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-education",
@@ -1108,7 +1090,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 62,
+      "remediation_priority": 61,
       "route": "/programmatic/virtual-event-production-for-healthcare",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-healthcare",
@@ -1126,7 +1108,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 63,
+      "remediation_priority": 62,
       "route": "/programmatic/virtual-event-production-for-real-estate",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-real-estate",
@@ -1144,7 +1126,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 64,
+      "remediation_priority": 63,
       "route": "/programmatic/virtual-event-production-hybrid-av",
       "query": "virtual event production hybrid AV",
       "cluster": "/programmatic/virtual-event-production-hybrid-av",
@@ -1162,7 +1144,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 65,
+      "remediation_priority": 64,
       "route": "/programmatic/virtual-event-production-livestream",
       "query": "virtual event production livestream",
       "cluster": "/programmatic/virtual-event-production-livestream",
@@ -1180,7 +1162,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 66,
+      "remediation_priority": 65,
       "route": "/programmatic/virtual-event-production-marketing-plan",
       "query": "virtual event production marketing plan",
       "cluster": "/programmatic/virtual-event-production-marketing-plan",
@@ -1198,7 +1180,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 67,
+      "remediation_priority": 66,
       "route": "/programmatic/virtual-event-production-platform-stack",
       "query": "virtual event production platform stack",
       "cluster": "/programmatic/virtual-event-production-platform-stack",
@@ -1216,7 +1198,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 68,
+      "remediation_priority": 67,
       "route": "/programmatic/virtual-event-production-post-event-content",
       "query": "virtual event production post event content",
       "cluster": "/programmatic/virtual-event-production-post-event-content",
@@ -1234,7 +1216,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 69,
+      "remediation_priority": 68,
       "route": "/programmatic/virtual-event-production-recording",
       "query": "virtual event production recording",
       "cluster": "/programmatic/virtual-event-production-recording",
@@ -1252,7 +1234,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 70,
+      "remediation_priority": 69,
       "route": "/programmatic/virtual-event-production-registration",
       "query": "virtual event production registration",
       "cluster": "/programmatic/virtual-event-production-registration",
@@ -1270,7 +1252,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 71,
+      "remediation_priority": 70,
       "route": "/programmatic/virtual-event-production-remote-speakers",
       "query": "virtual event production remote speakers",
       "cluster": "/programmatic/virtual-event-production-remote-speakers",
@@ -1288,7 +1270,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 72,
+      "remediation_priority": 71,
       "route": "/programmatic/virtual-event-production-run-of-show",
       "query": "virtual event production run of show",
       "cluster": "/programmatic/virtual-event-production-run-of-show",
@@ -1306,7 +1288,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 73,
+      "remediation_priority": 72,
       "route": "/programmatic/virtual-event-production-schedule",
       "query": "virtual event production schedule",
       "cluster": "/programmatic/virtual-event-production-schedule",
@@ -1324,7 +1306,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 74,
+      "remediation_priority": 73,
       "route": "/programmatic/virtual-event-production-security",
       "query": "virtual event production security",
       "cluster": "/programmatic/virtual-event-production-security",
@@ -1342,7 +1324,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 75,
+      "remediation_priority": 74,
       "route": "/programmatic/virtual-event-production-software",
       "query": "virtual event production software",
       "cluster": "/programmatic/virtual-event-production-software",
@@ -1360,7 +1342,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 76,
+      "remediation_priority": 75,
       "route": "/programmatic/virtual-event-production-speaker-prep",
       "query": "virtual event production speaker prep",
       "cluster": "/programmatic/virtual-event-production-speaker-prep",
@@ -1378,7 +1360,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 77,
+      "remediation_priority": 76,
       "route": "/programmatic/virtual-event-production-speaker-rehearsal",
       "query": "virtual event production speaker rehearsal",
       "cluster": "/programmatic/virtual-event-production-speaker-rehearsal",
@@ -1396,7 +1378,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 78,
+      "remediation_priority": 77,
       "route": "/programmatic/virtual-event-production-sponsor-operations",
       "query": "virtual event production sponsor operations",
       "cluster": "/programmatic/virtual-event-production-sponsor-operations",
@@ -1414,7 +1396,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 79,
+      "remediation_priority": 78,
       "route": "/programmatic/virtual-event-production-when-to-hire-help",
       "query": "virtual event production when to hire help",
       "cluster": "/programmatic/virtual-event-production-when-to-hire-help",
@@ -1432,7 +1414,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 80,
+      "remediation_priority": 79,
       "route": "/programmatic/visual-event-portfolio",
       "query": null,
       "cluster": "/programmatic/visual-event-portfolio",
@@ -1450,7 +1432,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 81,
+      "remediation_priority": 80,
       "route": "/programmatic/why-virtual-events-fail",
       "query": null,
       "cluster": "/programmatic/why-virtual-events-fail",

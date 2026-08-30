@@ -2,17 +2,17 @@
   "schema_version": "1.0",
   "validator": "content-pattern-contract",
   "spec": ".clarity/content-pattern-spec.json",
-  "generated_at": "2026-08-30T13:12:56.686Z",
+  "generated_at": "2026-08-30T20:40:42.298Z",
   "enforcement": "report",
   "pages_checked": 3417,
   "status": "REPORTED",
-  "blocking_failures": 129,
+  "blocking_failures": 128,
   "summary": [
     {
       "id": "direct_answer",
       "blocking": true,
-      "pages_missing": 129,
-      "coverage_pct": 96.2,
+      "pages_missing": 128,
+      "coverage_pct": 96.3,
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
@@ -46,14 +46,14 @@
     {
       "id": "comparison_table",
       "blocking": false,
-      "pages_missing": 250,
+      "pages_missing": 249,
       "coverage_pct": 92.7,
       "why": "no comparison or cost table (agent request #2, 529 occurrences)"
     },
     {
       "id": "concrete_numbers",
       "blocking": false,
-      "pages_missing": 3303,
+      "pages_missing": 3304,
       "coverage_pct": 3.3,
       "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
     },
@@ -67,7 +67,7 @@
     {
       "id": "faq",
       "blocking": false,
-      "pages_missing": 225,
+      "pages_missing": 224,
       "coverage_pct": 93.4,
       "why": "no FAQ block or FAQPage schema (agent request #9)"
     },
@@ -81,14 +81,14 @@
     {
       "id": "recommendation_summary",
       "blocking": false,
-      "pages_missing": 165,
+      "pages_missing": 164,
       "coverage_pct": 95.2,
       "why": "no recommendation summary - asked for on 913 of 913 agent recommendations, the single most requested block"
     },
     {
       "id": "definition_callout",
       "blocking": false,
-      "pages_missing": 260,
+      "pages_missing": 259,
       "coverage_pct": 92.4,
       "why": "no definition callout (agent requested 196 times) - this is what an answer engine lifts for \"what is X\""
     },
@@ -109,7 +109,7 @@
     {
       "id": "protocol",
       "blocking": false,
-      "pages_missing": 161,
+      "pages_missing": 160,
       "coverage_pct": 95.3,
       "why": "no ordered protocol - ordered steps are what gets lifted for \"how do I\""
     },
@@ -129,11 +129,11 @@
     }
   ],
   "recommendation_summary_distinctness": {
-    "total_blocks": 3252,
+    "total_blocks": 3253,
     "distinct_texts": 3226,
-    "ratio": 0.992,
+    "ratio": 0.9917,
     "texts_on_more_than_one_page": 16,
-    "pages_carrying_a_repeated_text": 42,
+    "pages_carrying_a_repeated_text": 43,
     "worst": [
       {
         "pages": 5,
@@ -193,6 +193,15 @@
         ]
       },
       {
+        "pages": 3,
+        "text": "Virtual event checklist turns on two decisions: registration, engagement, recording, and follow-up, then audience outcom",
+        "sample": [
+          "programmatic/how-to-host-a-virtual-event.html",
+          "programmatic/virtual-event-checklist.html",
+          "programmatic/virtual-event-planning.html"
+        ]
+      },
+      {
         "pages": 2,
         "text": "Reduce time to first meaningful value Create repeated reasons to return Strengthen peer-to-peer connection and recogniti",
         "sample": [
@@ -214,14 +223,6 @@
         "sample": [
           "programmatic/ai-content-operations-how-to-choose.html",
           "programmatic/ai-content-operations-scope-of-work.html"
-        ]
-      },
-      {
-        "pages": 2,
-        "text": "Virtual event platform comparison turns on two decisions: audience outcome and format, then roles, run of show, rehearsa",
-        "sample": [
-          "programmatic/best-virtual-event-platforms.html",
-          "programmatic/virtual-event-platform-comparison.html"
         ]
       }
     ]
@@ -618,7 +619,6 @@
       "programmatic/virtual-event-planning-how-to-choose.html",
       "programmatic/virtual-event-planning-how-to-host.html",
       "programmatic/virtual-event-planning-how-to-plan.html",
-      "programmatic/virtual-event-planning.html",
       "programmatic/virtual-event-pricing.html",
       "programmatic/virtual-event-production-accessibility.html",
       "programmatic/virtual-event-production-analytics.html",
@@ -3781,6 +3781,7 @@
       "programmatic/virtual-event-planning-how-to-host.html",
       "programmatic/virtual-event-planning-how-to-plan.html",
       "programmatic/virtual-event-planning-timeline.html",
+      "programmatic/virtual-event-planning.html",
       "programmatic/virtual-event-platform-comparison.html",
       "programmatic/virtual-event-production-2026.html",
       "programmatic/virtual-event-production-accessibility.html",
@@ -4122,7 +4123,6 @@
       "programmatic/marketing-growth-2025.html",
       "programmatic/marketing-without-content-machine.html",
       "programmatic/virtual-event-marketing.html",
-      "programmatic/virtual-event-planning.html",
       "programmatic/virtual-event-production-companies.html",
       "programmatic/virtual-event-production-for-education.html",
       "programmatic/virtual-event-production-for-healthcare.html",
@@ -4356,7 +4356,6 @@
       "programmatic/virtual-conference-production.html",
       "programmatic/virtual-event-backup-systems.html",
       "programmatic/virtual-event-marketing.html",
-      "programmatic/virtual-event-planning.html",
       "programmatic/virtual-event-pricing.html",
       "programmatic/virtual-event-production-companies.html",
       "programmatic/virtual-event-production-for-education.html",
@@ -4583,7 +4582,6 @@
       "programmatic/virtual-event-planning-how-to-choose.html",
       "programmatic/virtual-event-planning-how-to-host.html",
       "programmatic/virtual-event-planning-how-to-plan.html",
-      "programmatic/virtual-event-planning.html",
       "programmatic/virtual-event-pricing.html",
       "programmatic/virtual-event-production-accessibility.html",
       "programmatic/virtual-event-production-analytics.html",
@@ -8202,7 +8200,6 @@
       "programmatic/virtual-event-backup-systems.html",
       "programmatic/virtual-event-failure-prevention.html",
       "programmatic/virtual-event-marketing.html",
-      "programmatic/virtual-event-planning.html",
       "programmatic/virtual-event-pricing.html",
       "programmatic/virtual-event-production-company.html",
       "programmatic/virtual-event-production-for-education.html",
@@ -12237,11 +12234,6 @@
     },
     {
       "path": "programmatic/virtual-event-marketing.html",
-      "check": "direct_answer",
-      "why": "no direct-answer block - nothing here is quotable without surrounding context"
-    },
-    {
-      "path": "programmatic/virtual-event-planning.html",
       "check": "direct_answer",
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
