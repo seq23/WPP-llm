@@ -8,6 +8,7 @@ const {
 } = require('./content_quality.js');
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
 const demandGate = require('../lib/demand_gate.js');
+const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
 
 const DOMAIN = 'https://virtualagency-os.com';
 function fileFor(route) {
@@ -158,7 +159,7 @@ function stageCandidate(o, action, qualityReason = null) {
   const html = renderProgrammaticPage(o);
   const quality = candidateQuality(html, o, stagedCorpus);
   if (!quality.ok) {
-    blocked.push({ target_route:o.target_route, query:o.query, release_action:action, reason:'quality_preflight_rejected', details:quality.reasons, word_count:quality.word_count, max_similarity:quality.max_similarity, nearest_route:quality.nearest_route });
+    blocked.push({ target_route:o.target_route, query:o.query, release_action:action, reason:QUALITY_REJECTION_REASONS.PREFLIGHT, details:quality.reasons, word_count:quality.word_count, max_similarity:quality.max_similarity, nearest_route:quality.nearest_route });
     return null;
   }
   const unit = { ...o, release_action:action, action:action === 'create' ? 'create' : 'quality_repair', quality_reason:qualityReason, quality_preflight:quality };
@@ -334,7 +335,7 @@ const batchUrls=unique([...priorityUrls,...sitemapUrls]).filter(u=>u.startsWith(
 if (!priorityUrls.length || !batchUrls.length) { console.error('Release plan produced no URLs for distribution.'); process.exit(1); }
 fs.writeFileSync(path.join(ROOT,'.build/indexnow-priority.txt'),priorityUrls.join('\n')+'\n');
 fs.writeFileSync(path.join(ROOT,'.build/indexnow-batch.txt'),batchUrls.join('\n')+'\n');
-fs.writeFileSync(path.join(ROOT,'artifacts/release/release_plan_distribution_trace.json'),JSON.stringify({generated_at:plan.generated_at,units:units.length,creates:create.length,repairs:repairs.length,quality_rejected:blocked.filter(x=>x.reason==='quality_preflight_rejected').length,priority_url_count:priorityUrls.length,batch_url_count:batchUrls.length,files:['.build/indexnow-priority.txt','.build/indexnow-batch.txt','.build/citation_release_trace.json']},null,2)+'\n');
+fs.writeFileSync(path.join(ROOT,'artifacts/release/release_plan_distribution_trace.json'),JSON.stringify({generated_at:plan.generated_at,units:units.length,creates:create.length,repairs:repairs.length,quality_rejected:blocked.filter(x=>x.reason===QUALITY_REJECTION_REASONS.PREFLIGHT).length,priority_url_count:priorityUrls.length,batch_url_count:batchUrls.length,files:['.build/indexnow-priority.txt','.build/indexnow-batch.txt','.build/citation_release_trace.json']},null,2)+'\n');
 console.log(`Built quality-gated release plan: ${create.length} creates, ${repairs.length} substantive repairs, ${blocked.length} blocked/skipped candidates; distribution URLs priority=${priorityUrls.length}, batch=${batchUrls.length}.`);
 if (plan.create_stop_reason) {
   const verdict = plan.create_stop_is_legitimate ? 'NAMED STOP' : 'NEEDS ATTENTION';

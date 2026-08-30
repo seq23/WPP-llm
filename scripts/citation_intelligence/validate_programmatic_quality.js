@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { ROOT, analyzeCorpus, candidateQuality, readJson, governedRoute } = require('./content_quality.js');
+const { rejectionReceiptGap } = require('./quality_rejection_reasons.js');
 
 const current = analyzeCorpus();
 const saved = readJson('data/content/programmatic_quality_report.json', null);
@@ -29,11 +30,13 @@ if (badChanged.length) {
   console.error(`programmatic release quality gate failed for changed routes: ${badChanged.join(' | ')}`);
   process.exit(1);
 }
-if (summary && Number(summary.quality_rejected || 0) > 0) {
-  // Rejections are valid safe-harbor behavior; they must be recorded, not turned into hidden passes.
-  if (!Array.isArray(summary.skipped_records) || !summary.skipped_records.some(r => String(r.reason || '').startsWith('quality_rejected'))) {
-    console.error('quality rejection count exists without rejection receipts');
-    process.exit(1);
-  }
+// Rejections are valid safe-harbor behavior; they must be recorded, not turned
+// into hidden passes. The accepted vocabulary lives in quality_rejection_reasons.js
+// alongside the producers that emit it - this gate used to carry its own prefix
+// match and did not know the postbuild quarantine's word for the same event.
+const receiptGap = rejectionReceiptGap(summary);
+if (receiptGap) {
+  console.error(`quality rejection count exists without rejection receipts: ${receiptGap}`);
+  process.exit(1);
 }
 console.log(`Programmatic quality gate OK: release_units=${(plan.units||[]).length}, plan_applied=${planApplied}, legacy_backlog=${current.summary.blocking_legacy_pages}, fingerprint=${current.corpus_fingerprint.slice(0,12)}`);
