@@ -7,6 +7,7 @@ const {
   shingleSetFromHtml, wordCountFromHtml,
 } = require('./content_quality.js');
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
+const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
 
 const plan = readJson('data/releases/daily_release_plan.json', { units: [] });
 const adm = readJson('data/content/page_admission_registry.json', { admissions: [] });
@@ -41,7 +42,7 @@ for (const u of plan.units || []) {
   const quality = candidateQuality(html, { ...u, target_route: publicRoute }, stagedCorpus);
   if (!quality.ok) {
     qualityRejected += 1;
-    skipped.push({ route:publicRoute, source_route:u.target_route, reason:'quality_rejected_at_apply', details:quality.reasons, word_count:quality.word_count, max_similarity:quality.max_similarity, nearest_route:quality.nearest_route });
+    skipped.push({ route:publicRoute, source_route:u.target_route, reason:QUALITY_REJECTION_REASONS.AT_APPLY, details:quality.reasons, word_count:quality.word_count, max_similarity:quality.max_similarity, nearest_route:quality.nearest_route });
     continue;
   }
   if (u.release_action === 'create') {
