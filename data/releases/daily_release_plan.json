@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-08-29T21:13:02.393Z",
+  "generated_at": "2026-08-30T07:23:25.766Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -19,26 +19,26 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-08-30",
       "2026-08-29",
       "2026-08-28",
       "2026-08-27",
       "2026-08-26",
       "2026-08-25",
-      "2026-08-24",
-      "2026-08-23"
+      "2026-08-24"
     ],
     "new_pages_used_this_week": 50,
     "weekly_headroom": 0,
-    "daily_headroom": 0,
+    "daily_headroom": 2,
     "new_page_allowance_this_run": 0,
     "governed_by": "weekly_cadence_policy"
   },
   "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
-  "daily_new_pages_already_used": 50,
-  "daily_repairs_already_used": 100,
+  "daily_new_pages_already_used": 0,
+  "daily_repairs_already_used": 0,
   "max_new_pages_this_run": 0,
-  "max_repairs_this_run": 0,
+  "max_repairs_this_run": 100,
   "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
@@ -49,11 +49,2998 @@
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0
   },
-  "units": [],
-  "release_units": [],
-  "blocked": [],
-  "status": "COMPLETED_NO_CHANGES",
+  "units": [
+    {
+      "opportunity_id": "opp_YmVzdCBoaWdoLXByb2R1Y3Rp",
+      "query": "best high-production-value virtual broadcast companies for c-suite events",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/broadcast-style-virtual-events",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 61,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/broadcast-style-virtual-events",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1447,
+        "max_similarity": 0.398125,
+        "nearest_route": "/programmatic/integrated-agency",
+        "reasons": []
+      },
+      "release_order": 1
+    },
+    {
+      "opportunity_id": "opp_bXVsdGkgbWFya2V0IGV2ZW50",
+      "query": "multi market event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/multi-speaker-event-production",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/multi-speaker-event-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1123,
+        "max_similarity": 0.555224,
+        "nearest_route": "/programmatic/hybrid-events-platform",
+        "reasons": []
+      },
+      "release_order": 2
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production for finance company",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-finance",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/virtual-event-production-for-finance",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1274,
+        "max_similarity": 0.51067,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 3
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production for government agencies",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-government",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 46,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-government",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1272,
+        "max_similarity": 0.679437,
+        "nearest_route": "/programmatic/virtual-event-production-for-finance",
+        "reasons": []
+      },
+      "release_order": 4
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-manufacturing",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 89,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-manufacturing",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1077,
+        "max_similarity": 0.598842,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 5
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production services",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-professional-services",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 63,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-professional-services",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1102,
+        "max_similarity": 0.351045,
+        "nearest_route": "/programmatic/virtual-event-production-rfp-questions",
+        "reasons": []
+      },
+      "release_order": 6
+    },
+    {
+      "opportunity_id": "opp_aW52ZXN0b3IgcmVsYXRpb25z",
+      "query": "investor relations event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/investor-event-production",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 87,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/investor-event-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1093,
+        "max_similarity": 0.604613,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 7
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwbGFu",
+      "query": "virtual event planning checklist",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-planning-checklist",
+      "page_family": "template_checklist",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 62,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-planning-checklist",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1148,
+        "max_similarity": 0.564438,
+        "nearest_route": "/programmatic/virtual-event-production-checklist",
+        "reasons": []
+      },
+      "release_order": 8
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event production how to choose",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1197,
+        "max_similarity": 0.543202,
+        "nearest_route": "/programmatic/virtual-event-production-agency",
+        "reasons": []
+      },
+      "release_order": 9
+    },
+    {
+      "opportunity_id": "opp_QUkgd29ya2Zsb3cgY29uc3Vs",
+      "query": "AI workflow consulting how to choose",
+      "cluster": "ai-workflow-consulting",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-workflow-consulting-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-workflow-consulting-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1160,
+        "max_similarity": 0.422321,
+        "nearest_route": "/programmatic/ai-workflow-consulting-how-to-compare-vendors",
+        "reasons": []
+      },
+      "release_order": 10
+    },
+    {
+      "opportunity_id": "opp_QUkgd29ya2Zsb3cgY29uc3Vs",
+      "query": "AI workflow consulting vs in house team",
+      "cluster": "ai-workflow-consulting",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-workflow-consulting-vs-in-house-team",
+      "page_family": "comparison",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-workflow-consulting-vs-in-house-team",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1169,
+        "max_similarity": 0.531463,
+        "nearest_route": "/programmatic/ai-workflow-consulting-how-to-choose",
+        "reasons": []
+      },
+      "release_order": 11
+    },
+    {
+      "opportunity_id": "opp_bGl2ZWtpdA",
+      "query": "livekit",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/livekit-virtual-events",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/livekit-virtual-events",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1092,
+        "max_similarity": 0.62628,
+        "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
+        "reasons": []
+      },
+      "release_order": 12
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwbGF0",
+      "query": "virtual event platform comparison",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-virtual-event-platforms",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/best-virtual-event-platforms",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1158,
+        "max_similarity": 0.432596,
+        "nearest_route": "/programmatic/integrated-agency",
+        "reasons": []
+      },
+      "release_order": 13
+    },
+    {
+      "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
+      "query": "hybrid event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/hybrid-event-platform",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/hybrid-event-platform",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1125,
+        "max_similarity": 0.78757,
+        "nearest_route": "/programmatic/livekit-virtual-events",
+        "reasons": []
+      },
+      "release_order": 14
+    },
+    {
+      "opportunity_id": "opp_YmVzdCBwbGF0Zm9ybXMgZm9y",
+      "query": "best platforms for virtual conferences",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/online-conference-platforms",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 68,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/online-conference-platforms",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1284,
+        "max_similarity": 0.582365,
+        "nearest_route": "/programmatic/best-platforms-for-virtual-events",
+        "reasons": []
+      },
+      "release_order": 15
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-services",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 49,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-services",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1128,
+        "max_similarity": 0.833477,
+        "nearest_route": "/programmatic/virtual-event-production-for-saas",
+        "reasons": []
+      },
+      "release_order": 16
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCB0cmVu",
+      "query": "virtual event trends",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-trends-2026",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 46,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-trends-2026",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1104,
+        "max_similarity": 0.739837,
+        "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
+        "reasons": []
+      },
+      "release_order": 17
+    },
+    {
+      "opportunity_id": "opp_aG93IHRvIGhvc3QgYSB2aXJ0",
+      "query": "how to host a virtual event",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/host-virtual-events",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 65,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/host-virtual-events",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1123,
+        "max_similarity": 0.63431,
+        "nearest_route": "/programmatic/hybrid-event-platform",
+        "reasons": []
+      },
+      "release_order": 18
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBjaGVj",
+      "query": "virtual event checklist",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/how-to-host-a-virtual-event",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/how-to-host-a-virtual-event",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1130,
+        "max_similarity": 0.597149,
+        "nearest_route": "/programmatic/virtual-events-checklist",
+        "reasons": []
+      },
+      "release_order": 19
+    },
+    {
+      "opportunity_id": "opp_aHlicmlkIGV2ZW50IHBsYXRm",
+      "query": "hybrid event platforms",
+      "cluster": "hybrid-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/hybrid-event-platforms",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/hybrid-event-platforms",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1119,
+        "max_similarity": 0.513993,
+        "nearest_route": "/programmatic/best-hybrid-event-platforms",
+        "reasons": []
+      },
+      "release_order": 20
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBtYW5h",
+      "query": "virtual event management",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-management",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-management",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1120,
+        "max_similarity": 0.725821,
+        "nearest_route": "/programmatic/virtual-event-services",
+        "reasons": []
+      },
+      "release_order": 21
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event production for nonprofits",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-nonprofits",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-nonprofits",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1284,
+        "max_similarity": 0.601974,
+        "nearest_route": "/programmatic/virtual-event-production-for-startups",
+        "reasons": []
+      },
+      "release_order": 22
+    },
+    {
+      "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
+      "query": "launch marketing strategy how to choose",
+      "cluster": "launch-marketing-strategy",
+      "pillar": "marketing",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/launch-marketing-strategy-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/launch-marketing-strategy-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1156,
+        "max_similarity": 0.552055,
+        "nearest_route": "/programmatic/launch-marketing-strategy-when-to-hire",
+        "reasons": []
+      },
+      "release_order": 23
+    },
+    {
+      "opportunity_id": "opp_c3RhcnR1cCBicmFuZCBzdHJh",
+      "query": "startup brand strategy",
+      "cluster": "startup-brand-strategy",
+      "pillar": "brand",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/startup-brand-strategy",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/startup-brand-strategy",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1064,
+        "max_similarity": 0.554101,
+        "nearest_route": "/programmatic/startup-brand-strategy-for-small-teams",
+        "reasons": []
+      },
+      "release_order": 24
+    },
+    {
+      "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
+      "query": "content marketing operations how to choose",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/content-marketing-operations-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/content-marketing-operations-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1144,
+        "max_similarity": 0.551701,
+        "nearest_route": "/programmatic/content-marketing-operations-agency",
+        "reasons": []
+      },
+      "release_order": 25
+    },
+    {
+      "opportunity_id": "opp_dmlkZW8gY29udGVudCBzdHJh",
+      "query": "video content strategy",
+      "cluster": "video-content-strategy",
+      "pillar": "creative",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/video-content-strategy",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/video-content-strategy",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1106,
+        "max_similarity": 0.508864,
+        "nearest_route": "/programmatic/video-content-strategy-for-marketing-teams",
+        "reasons": []
+      },
+      "release_order": 26
+    },
+    {
+      "opportunity_id": "opp_YWkgY29udGVudCBvcGVyYXRp",
+      "query": "ai content operations",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-content-operations-scope-of-work",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 61,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/ai-content-operations-scope-of-work",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1106,
+        "max_similarity": 0.721825,
+        "nearest_route": "/programmatic/livekit-virtual-events",
+        "reasons": []
+      },
+      "release_order": 27
+    },
+    {
+      "opportunity_id": "opp_ZGlnaXRhbCBydW4gb2Ygc2hv",
+      "query": "digital run of show",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/event-run-of-show-template",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/event-run-of-show-template",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1111,
+        "max_similarity": 0.682444,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 28
+    },
+    {
+      "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
+      "query": "audience growth strategy how to choose",
+      "cluster": "audience-growth-strategy",
+      "pillar": "marketing",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/audience-growth-strategy-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/audience-growth-strategy-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1144,
+        "max_similarity": 0.593772,
+        "nearest_route": "/programmatic/audience-growth-strategy-companies",
+        "reasons": []
+      },
+      "release_order": 29
+    },
+    {
+      "opportunity_id": "opp_cHJlc2VudGF0aW9uIHN0b3J5",
+      "query": "presentation storytelling",
+      "cluster": "presentation-storytelling",
+      "pillar": "storytelling",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/presentation-storytelling",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/presentation-storytelling",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1066,
+        "max_similarity": 0.541291,
+        "nearest_route": "/programmatic/presentation-storytelling-for-small-teams",
+        "reasons": []
+      },
+      "release_order": 30
+    },
+    {
+      "opportunity_id": "opp_QUkgY3JlYXRpdmUgd29ya2Zs",
+      "query": "AI creative workflows how to choose",
+      "cluster": "ai-creative-workflows",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-creative-workflows-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-creative-workflows-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1151,
+        "max_similarity": 0.548966,
+        "nearest_route": "/programmatic/ai-creative-workflows-vs-in-house-team",
+        "reasons": []
+      },
+      "release_order": 31
+    },
+    {
+      "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
+      "query": "hybrid event production how to choose",
+      "cluster": "hybrid-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/hybrid-event-production-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/hybrid-event-production-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1170,
+        "max_similarity": 0.53,
+        "nearest_route": "/programmatic/hybrid-event-production-agency",
+        "reasons": []
+      },
+      "release_order": 32
+    },
+    {
+      "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
+      "query": "creative strategy consulting",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/creative-strategy-consulting-when-to-hire",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 48,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/creative-strategy-consulting-when-to-hire",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1104,
+        "max_similarity": 0.677056,
+        "nearest_route": "/programmatic/virtual-event-management",
+        "reasons": []
+      },
+      "release_order": 33
+    },
+    {
+      "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
+      "query": "creative operations case pattern",
+      "cluster": "creative-operations",
+      "pillar": "creative",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/creative-operations-case-pattern",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/creative-operations-case-pattern",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1118,
+        "max_similarity": 0.485963,
+        "nearest_route": "/programmatic/creative-operations-measurement",
+        "reasons": []
+      },
+      "release_order": 34
+    },
+    {
+      "opportunity_id": "opp_cmVicmFuZCBzdHJhdGVneQ",
+      "query": "rebrand strategy",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/rebrand-strategy",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/rebrand-strategy",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1040,
+        "max_similarity": 0.512908,
+        "nearest_route": "/programmatic/rebrand-strategy-for-nonprofits",
+        "reasons": []
+      },
+      "release_order": 35
+    },
+    {
+      "opportunity_id": "opp_QUkgbWFya2V0aW5nIHdvcmtm",
+      "query": "AI marketing workflows vs in house team",
+      "cluster": "ai-marketing-workflows",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-marketing-workflows-vs-in-house-team",
+      "page_family": "comparison",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-marketing-workflows-vs-in-house-team",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1178,
+        "max_similarity": 0.470434,
+        "nearest_route": "/programmatic/ai-marketing-workflows-how-to-compare-vendors",
+        "reasons": []
+      },
+      "release_order": 36
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBzdW1taXQgcHJv",
+      "query": "virtual summit producer",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-summit-production",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 48,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-summit-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1096,
+        "max_similarity": 0.672978,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 37
+    },
+    {
+      "opportunity_id": "opp_Y29ycG9yYXRlIHN0b3J5dGVs",
+      "query": "corporate storytelling ROI factors",
+      "cluster": "corporate-storytelling",
+      "pillar": "storytelling",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/corporate-storytelling-roi-factors",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/corporate-storytelling-roi-factors",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1091,
+        "max_similarity": 0.422608,
+        "nearest_route": "/programmatic/corporate-storytelling-pricing",
+        "reasons": []
+      },
+      "release_order": 38
+    },
+    {
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1147,
+        "max_similarity": 0.335165,
+        "nearest_route": "/programmatic/livekit-virtual-events",
+        "reasons": []
+      },
+      "release_order": 39
+    }
+  ],
+  "release_units": [
+    {
+      "opportunity_id": "opp_YmVzdCBoaWdoLXByb2R1Y3Rp",
+      "query": "best high-production-value virtual broadcast companies for c-suite events",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/broadcast-style-virtual-events",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 61,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/broadcast-style-virtual-events",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1447,
+        "max_similarity": 0.398125,
+        "nearest_route": "/programmatic/integrated-agency",
+        "reasons": []
+      },
+      "release_order": 1
+    },
+    {
+      "opportunity_id": "opp_bXVsdGkgbWFya2V0IGV2ZW50",
+      "query": "multi market event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/multi-speaker-event-production",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/multi-speaker-event-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1123,
+        "max_similarity": 0.555224,
+        "nearest_route": "/programmatic/hybrid-events-platform",
+        "reasons": []
+      },
+      "release_order": 2
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production for finance company",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-finance",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/virtual-event-production-for-finance",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1274,
+        "max_similarity": 0.51067,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 3
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production for government agencies",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-government",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 46,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-government",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1272,
+        "max_similarity": 0.679437,
+        "nearest_route": "/programmatic/virtual-event-production-for-finance",
+        "reasons": []
+      },
+      "release_order": 4
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-manufacturing",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 89,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-manufacturing",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1077,
+        "max_similarity": 0.598842,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 5
+    },
+    {
+      "opportunity_id": "opp_d2ViaW5hciBwcm9kdWN0aW9u",
+      "query": "webinar production services",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-professional-services",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 63,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-professional-services",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1102,
+        "max_similarity": 0.351045,
+        "nearest_route": "/programmatic/virtual-event-production-rfp-questions",
+        "reasons": []
+      },
+      "release_order": 6
+    },
+    {
+      "opportunity_id": "opp_aW52ZXN0b3IgcmVsYXRpb25z",
+      "query": "investor relations event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/investor-event-production",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 87,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/investor-event-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1093,
+        "max_similarity": 0.604613,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 7
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwbGFu",
+      "query": "virtual event planning checklist",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-planning-checklist",
+      "page_family": "template_checklist",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 62,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-planning-checklist",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1148,
+        "max_similarity": 0.564438,
+        "nearest_route": "/programmatic/virtual-event-production-checklist",
+        "reasons": []
+      },
+      "release_order": 8
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event production how to choose",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1197,
+        "max_similarity": 0.543202,
+        "nearest_route": "/programmatic/virtual-event-production-agency",
+        "reasons": []
+      },
+      "release_order": 9
+    },
+    {
+      "opportunity_id": "opp_QUkgd29ya2Zsb3cgY29uc3Vs",
+      "query": "AI workflow consulting how to choose",
+      "cluster": "ai-workflow-consulting",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-workflow-consulting-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-workflow-consulting-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1160,
+        "max_similarity": 0.422321,
+        "nearest_route": "/programmatic/ai-workflow-consulting-how-to-compare-vendors",
+        "reasons": []
+      },
+      "release_order": 10
+    },
+    {
+      "opportunity_id": "opp_QUkgd29ya2Zsb3cgY29uc3Vs",
+      "query": "AI workflow consulting vs in house team",
+      "cluster": "ai-workflow-consulting",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-workflow-consulting-vs-in-house-team",
+      "page_family": "comparison",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-workflow-consulting-vs-in-house-team",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1169,
+        "max_similarity": 0.531463,
+        "nearest_route": "/programmatic/ai-workflow-consulting-how-to-choose",
+        "reasons": []
+      },
+      "release_order": 11
+    },
+    {
+      "opportunity_id": "opp_bGl2ZWtpdA",
+      "query": "livekit",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/livekit-virtual-events",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/livekit-virtual-events",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1092,
+        "max_similarity": 0.62628,
+        "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
+        "reasons": []
+      },
+      "release_order": 12
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwbGF0",
+      "query": "virtual event platform comparison",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-virtual-event-platforms",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/best-virtual-event-platforms",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1158,
+        "max_similarity": 0.432596,
+        "nearest_route": "/programmatic/integrated-agency",
+        "reasons": []
+      },
+      "release_order": 13
+    },
+    {
+      "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
+      "query": "hybrid event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/hybrid-event-platform",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/hybrid-event-platform",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1125,
+        "max_similarity": 0.78757,
+        "nearest_route": "/programmatic/livekit-virtual-events",
+        "reasons": []
+      },
+      "release_order": 14
+    },
+    {
+      "opportunity_id": "opp_YmVzdCBwbGF0Zm9ybXMgZm9y",
+      "query": "best platforms for virtual conferences",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/online-conference-platforms",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 68,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/online-conference-platforms",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1284,
+        "max_similarity": 0.582365,
+        "nearest_route": "/programmatic/best-platforms-for-virtual-events",
+        "reasons": []
+      },
+      "release_order": 15
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event production",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-services",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 49,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-services",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1128,
+        "max_similarity": 0.833477,
+        "nearest_route": "/programmatic/virtual-event-production-for-saas",
+        "reasons": []
+      },
+      "release_order": 16
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCB0cmVu",
+      "query": "virtual event trends",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-trends-2026",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 46,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-trends-2026",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1104,
+        "max_similarity": 0.739837,
+        "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
+        "reasons": []
+      },
+      "release_order": 17
+    },
+    {
+      "opportunity_id": "opp_aG93IHRvIGhvc3QgYSB2aXJ0",
+      "query": "how to host a virtual event",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/host-virtual-events",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 65,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/host-virtual-events",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1123,
+        "max_similarity": 0.63431,
+        "nearest_route": "/programmatic/hybrid-event-platform",
+        "reasons": []
+      },
+      "release_order": 18
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBjaGVj",
+      "query": "virtual event checklist",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/how-to-host-a-virtual-event",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/how-to-host-a-virtual-event",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1130,
+        "max_similarity": 0.597149,
+        "nearest_route": "/programmatic/virtual-events-checklist",
+        "reasons": []
+      },
+      "release_order": 19
+    },
+    {
+      "opportunity_id": "opp_aHlicmlkIGV2ZW50IHBsYXRm",
+      "query": "hybrid event platforms",
+      "cluster": "hybrid-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/hybrid-event-platforms",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/hybrid-event-platforms",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1119,
+        "max_similarity": 0.513993,
+        "nearest_route": "/programmatic/best-hybrid-event-platforms",
+        "reasons": []
+      },
+      "release_order": 20
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBtYW5h",
+      "query": "virtual event management",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-management",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-management",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1120,
+        "max_similarity": 0.725821,
+        "nearest_route": "/programmatic/virtual-event-services",
+        "reasons": []
+      },
+      "release_order": 21
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event production for nonprofits",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-event-production-for-nonprofits",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-event-production-for-nonprofits",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1284,
+        "max_similarity": 0.601974,
+        "nearest_route": "/programmatic/virtual-event-production-for-startups",
+        "reasons": []
+      },
+      "release_order": 22
+    },
+    {
+      "opportunity_id": "opp_bGF1bmNoIG1hcmtldGluZyBz",
+      "query": "launch marketing strategy how to choose",
+      "cluster": "launch-marketing-strategy",
+      "pillar": "marketing",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/launch-marketing-strategy-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/launch-marketing-strategy-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1156,
+        "max_similarity": 0.552055,
+        "nearest_route": "/programmatic/launch-marketing-strategy-when-to-hire",
+        "reasons": []
+      },
+      "release_order": 23
+    },
+    {
+      "opportunity_id": "opp_c3RhcnR1cCBicmFuZCBzdHJh",
+      "query": "startup brand strategy",
+      "cluster": "startup-brand-strategy",
+      "pillar": "brand",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/startup-brand-strategy",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/startup-brand-strategy",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1064,
+        "max_similarity": 0.554101,
+        "nearest_route": "/programmatic/startup-brand-strategy-for-small-teams",
+        "reasons": []
+      },
+      "release_order": 24
+    },
+    {
+      "opportunity_id": "opp_Y29udGVudCBtYXJrZXRpbmcg",
+      "query": "content marketing operations how to choose",
+      "cluster": "content-marketing-operations",
+      "pillar": "marketing",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/content-marketing-operations-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/content-marketing-operations-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1144,
+        "max_similarity": 0.551701,
+        "nearest_route": "/programmatic/content-marketing-operations-agency",
+        "reasons": []
+      },
+      "release_order": 25
+    },
+    {
+      "opportunity_id": "opp_dmlkZW8gY29udGVudCBzdHJh",
+      "query": "video content strategy",
+      "cluster": "video-content-strategy",
+      "pillar": "creative",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/video-content-strategy",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/video-content-strategy",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1106,
+        "max_similarity": 0.508864,
+        "nearest_route": "/programmatic/video-content-strategy-for-marketing-teams",
+        "reasons": []
+      },
+      "release_order": 26
+    },
+    {
+      "opportunity_id": "opp_YWkgY29udGVudCBvcGVyYXRp",
+      "query": "ai content operations",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-content-operations-scope-of-work",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 61,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/ai-content-operations-scope-of-work",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1106,
+        "max_similarity": 0.721825,
+        "nearest_route": "/programmatic/livekit-virtual-events",
+        "reasons": []
+      },
+      "release_order": 27
+    },
+    {
+      "opportunity_id": "opp_ZGlnaXRhbCBydW4gb2Ygc2hv",
+      "query": "digital run of show",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/event-run-of-show-template",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/event-run-of-show-template",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1111,
+        "max_similarity": 0.682444,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 28
+    },
+    {
+      "opportunity_id": "opp_YXVkaWVuY2UgZ3Jvd3RoIHN0",
+      "query": "audience growth strategy how to choose",
+      "cluster": "audience-growth-strategy",
+      "pillar": "marketing",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/audience-growth-strategy-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/audience-growth-strategy-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1144,
+        "max_similarity": 0.593772,
+        "nearest_route": "/programmatic/audience-growth-strategy-companies",
+        "reasons": []
+      },
+      "release_order": 29
+    },
+    {
+      "opportunity_id": "opp_cHJlc2VudGF0aW9uIHN0b3J5",
+      "query": "presentation storytelling",
+      "cluster": "presentation-storytelling",
+      "pillar": "storytelling",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/presentation-storytelling",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/presentation-storytelling",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1066,
+        "max_similarity": 0.541291,
+        "nearest_route": "/programmatic/presentation-storytelling-for-small-teams",
+        "reasons": []
+      },
+      "release_order": 30
+    },
+    {
+      "opportunity_id": "opp_QUkgY3JlYXRpdmUgd29ya2Zs",
+      "query": "AI creative workflows how to choose",
+      "cluster": "ai-creative-workflows",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-creative-workflows-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-creative-workflows-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1151,
+        "max_similarity": 0.548966,
+        "nearest_route": "/programmatic/ai-creative-workflows-vs-in-house-team",
+        "reasons": []
+      },
+      "release_order": 31
+    },
+    {
+      "opportunity_id": "opp_aHlicmlkIGV2ZW50IHByb2R1",
+      "query": "hybrid event production how to choose",
+      "cluster": "hybrid-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/hybrid-event-production-how-to-choose",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/hybrid-event-production-how-to-choose",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1170,
+        "max_similarity": 0.53,
+        "nearest_route": "/programmatic/hybrid-event-production-agency",
+        "reasons": []
+      },
+      "release_order": 32
+    },
+    {
+      "opportunity_id": "opp_Y3JlYXRpdmUgc3RyYXRlZ3kg",
+      "query": "creative strategy consulting",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/creative-strategy-consulting-when-to-hire",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 48,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/creative-strategy-consulting-when-to-hire",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1104,
+        "max_similarity": 0.677056,
+        "nearest_route": "/programmatic/virtual-event-management",
+        "reasons": []
+      },
+      "release_order": 33
+    },
+    {
+      "opportunity_id": "opp_Y3JlYXRpdmUgb3BlcmF0aW9u",
+      "query": "creative operations case pattern",
+      "cluster": "creative-operations",
+      "pillar": "creative",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/creative-operations-case-pattern",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/creative-operations-case-pattern",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1118,
+        "max_similarity": 0.485963,
+        "nearest_route": "/programmatic/creative-operations-measurement",
+        "reasons": []
+      },
+      "release_order": 34
+    },
+    {
+      "opportunity_id": "opp_cmVicmFuZCBzdHJhdGVneQ",
+      "query": "rebrand strategy",
+      "cluster": "rebrand-strategy",
+      "pillar": "brand",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/rebrand-strategy",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/rebrand-strategy",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1040,
+        "max_similarity": 0.512908,
+        "nearest_route": "/programmatic/rebrand-strategy-for-nonprofits",
+        "reasons": []
+      },
+      "release_order": 35
+    },
+    {
+      "opportunity_id": "opp_QUkgbWFya2V0aW5nIHdvcmtm",
+      "query": "AI marketing workflows vs in house team",
+      "cluster": "ai-marketing-workflows",
+      "pillar": "ai-workflows",
+      "authority_lane": "ADJACENT",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/ai-marketing-workflows-vs-in-house-team",
+      "page_family": "comparison",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/ai-marketing-workflows-vs-in-house-team",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1178,
+        "max_similarity": 0.470434,
+        "nearest_route": "/programmatic/ai-marketing-workflows-how-to-compare-vendors",
+        "reasons": []
+      },
+      "release_order": 36
+    },
+    {
+      "opportunity_id": "opp_dmlydHVhbCBzdW1taXQgcHJv",
+      "query": "virtual summit producer",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-summit-production",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 48,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-summit-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1096,
+        "max_similarity": 0.672978,
+        "nearest_route": "/programmatic/multi-speaker-event-production",
+        "reasons": []
+      },
+      "release_order": 37
+    },
+    {
+      "opportunity_id": "opp_Y29ycG9yYXRlIHN0b3J5dGVs",
+      "query": "corporate storytelling ROI factors",
+      "cluster": "corporate-storytelling",
+      "pillar": "storytelling",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/corporate-storytelling-roi-factors",
+      "page_family": "operational_guide",
+      "source": "full_flow_strategy_seed",
+      "demand_estimate": 0,
+      "score": 100,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/corporate-storytelling-roi-factors",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1091,
+        "max_similarity": 0.422608,
+        "nearest_route": "/programmatic/corporate-storytelling-pricing",
+        "reasons": []
+      },
+      "release_order": 38
+    },
+    {
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1147,
+        "max_similarity": 0.335165,
+        "nearest_route": "/programmatic/livekit-virtual-events",
+        "reasons": []
+      },
+      "release_order": 39
+    }
+  ],
+  "blocked": [
+    {
+      "target_route": "/programmatic/virtual-event-planning",
+      "query": "virtual event checklist",
+      "release_action": "repair",
+      "reason": "quality_preflight_rejected",
+      "details": [
+        "near_duplicate:1.000000>=0.9:/programmatic/how-to-host-a-virtual-event"
+      ],
+      "word_count": 1130,
+      "max_similarity": 1,
+      "nearest_route": "/programmatic/how-to-host-a-virtual-event"
+    },
+    {
+      "target_route": "/programmatic/community-budget-planning-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-engagement-operating-cadence",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-events-programming-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-governance-escalation-matrix",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-health-scorecard",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-launch-readiness-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-monetization-decision-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-platform-decision-matrix",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/community-staffing-matrix",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/customer-advocacy-community-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/daily-backup-event-systems",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/executive-event-production",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/marketing-growth-2025",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/run-of-show-planning",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/speaker-onboarding-and-rehearsals",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/streamyard-livekit-daily-stack",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/streamyard-virtual-event-production",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-career-fair-production",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-backup-systems",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-failure-prevention",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-marketing",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-accessibility",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-analytics",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-attendee-experience",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-backup-plan",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-best-practices",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-budget",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-captioning",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-common-mistakes",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-companies",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-comparison",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-content-repurposing",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-cost",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-day-of-support",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-decision-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-engagement",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-event-operations",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-event-strategy",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-examples",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-executive-briefing",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-failure-prevention",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-follow-up",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-how-to-choose",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-how-to-host",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-planning-how-to-plan",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-pricing",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-accessibility",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-analytics",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-attendee-experience",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-backup-plan",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-budget",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-captioning",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-decision-framework",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-engagement",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-event-strategy",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-executive-briefing",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-failure-prevention",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-follow-up",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-for-education",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-for-healthcare",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-for-real-estate",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-hybrid-av",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-livestream",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-marketing-plan",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-platform-stack",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-post-event-content",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-recording",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-registration",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-remote-speakers",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-run-of-show",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-schedule",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-security",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-software",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-speaker-prep",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-speaker-rehearsal",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-sponsor-operations",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/virtual-event-production-when-to-hire-help",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/visual-event-portfolio",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    },
+    {
+      "target_route": "/programmatic/why-virtual-events-fail",
+      "release_action": "repair",
+      "reason": "quality_repair_missing_opportunity_metadata",
+      "details": [
+        "thin"
+      ]
+    }
+  ],
+  "status": "READY",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-  "create_stop_detail": "7864 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 0)",
+  "create_stop_detail": "7864 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
   "create_stop_is_legitimate": true
 }
