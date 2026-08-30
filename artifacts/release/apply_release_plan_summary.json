@@ -1,11 +1,21 @@
 {
-  "status": "COMPLETED_NO_CHANGES",
-  "plan_generated_at": "2026-08-29T21:13:02.393Z",
+  "status": "COMPLETED_WITH_CHANGES",
+  "plan_generated_at": "2026-08-30T13:11:38.381Z",
   "created": 0,
-  "repaired": 0,
-  "quality_rejected": 0,
-  "skipped": 0,
-  "total": 0,
-  "skipped_records": [],
-  "at": "2026-08-29T21:13:08.238Z"
+  "repaired": 38,
+  "quality_rejected": 1,
+  "skipped": 1,
+  "total": 38,
+  "skipped_records": [
+    {
+      "route": "/programmatic/community-roi-measurement-model",
+      "reason": "postbuild_quality_quarantine",
+      "details": [
+        "thin"
+      ],
+      "max_similarity": 0.036804,
+      "nearest_route": "/programmatic/virtual-event-planning"
+    }
+  ],
+  "at": "2026-08-30T13:11:44.596Z"
 }
