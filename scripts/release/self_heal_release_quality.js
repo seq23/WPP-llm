@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
 const { ROOT, cleanRoute } = require('../citation_intelligence/content_quality.js');
+const { QUALITY_REJECTION_REASONS } = require('../citation_intelligence/quality_rejection_reasons.js');
 
 const MAX_CYCLES = Number(process.env.RELEASE_SELF_HEAL_CYCLES || 3);
 const BLOCKING = new Set(['thin', 'exact_duplicate', 'near_duplicate']);
@@ -91,7 +92,7 @@ function quarantine(rejected, cycle) {
     target_route: unit.target_route,
     query: unit.query,
     release_action: unit.release_action,
-    reason: 'postbuild_quality_quarantine',
+    reason: QUALITY_REJECTION_REASONS.POSTBUILD_QUARANTINE,
     details: row.flags,
     max_similarity: row.max_similarity,
     nearest_route: row.nearest_route,
@@ -128,7 +129,7 @@ function quarantine(rejected, cycle) {
   summary.total = plan.units.length;
   summary.skipped_records = [...(summary.skipped_records || []), ...rejected.map(({ unit, row }) => ({
     route: unit.target_route,
-    reason: 'postbuild_quality_quarantine',
+    reason: QUALITY_REJECTION_REASONS.POSTBUILD_QUARANTINE,
     details: row.flags,
     max_similarity: row.max_similarity,
     nearest_route: row.nearest_route,
