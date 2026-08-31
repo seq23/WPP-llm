@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-08-30T20:39:26.930Z",
+  "generated_at": "2026-08-31T07:33:25.071Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 525,
-    "candidates_considered": 7865,
+    "candidates_considered": 7853,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-08-31",
       "2026-08-30",
       "2026-08-29",
       "2026-08-28",
       "2026-08-27",
       "2026-08-26",
-      "2026-08-25",
-      "2026-08-24"
+      "2026-08-25"
     ],
     "new_pages_used_this_week": 50,
     "weekly_headroom": 0,
@@ -36,36 +36,36 @@
   "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
   "daily_new_pages_already_used": 0,
-  "daily_repairs_already_used": 38,
+  "daily_repairs_already_used": 0,
   "max_new_pages_this_run": 0,
-  "max_repairs_this_run": 62,
+  "max_repairs_this_run": 100,
   "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "04fb48115ef9d4ed14cfc549721adbd8f505eea920ea3e0b54b1bb33e92aad19",
-    "legacy_backlog": 81,
-    "thin_pages": 81,
+    "corpus_fingerprint": "5604e7b3e4efeda0c94990386dba57910e0b8418d94e394b34f496a553eebe94",
+    "legacy_backlog": 80,
+    "thin_pages": 80,
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0
   },
   "units": [
     {
-      "opportunity_id": "opp_dmlydHVhbCBldmVudCBjaGVj",
-      "query": "virtual event checklist",
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
       "cluster": "unclustered",
       "pillar": "experiences",
       "authority_lane": "CORE",
       "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-planning",
+      "target_route": "/programmatic/community-roi-measurement-model",
       "page_family": "programmatic_opportunity",
       "source": "gsc",
       "demand_estimate": 0,
-      "score": 100,
+      "score": 43,
       "exists": false,
       "action": "quality_repair",
       "status": "admitted_candidate",
-      "source_route": "/virtual-event-planning",
+      "source_route": "/programmatic/community-roi-measurement-model",
       "exists_now": true,
       "release_action": "repair",
       "quality_reason": [
@@ -73,9 +73,9 @@
       ],
       "quality_preflight": {
         "ok": true,
-        "word_count": 1130,
-        "max_similarity": 0.793496,
-        "nearest_route": "/programmatic/how-to-host-a-virtual-event",
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
         "reasons": []
       },
       "release_order": 1
@@ -83,21 +83,21 @@
   ],
   "release_units": [
     {
-      "opportunity_id": "opp_dmlydHVhbCBldmVudCBjaGVj",
-      "query": "virtual event checklist",
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
       "cluster": "unclustered",
       "pillar": "experiences",
       "authority_lane": "CORE",
       "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/virtual-event-planning",
+      "target_route": "/programmatic/community-roi-measurement-model",
       "page_family": "programmatic_opportunity",
       "source": "gsc",
       "demand_estimate": 0,
-      "score": 100,
+      "score": 43,
       "exists": false,
       "action": "quality_repair",
       "status": "admitted_candidate",
-      "source_route": "/virtual-event-planning",
+      "source_route": "/programmatic/community-roi-measurement-model",
       "exists_now": true,
       "release_action": "repair",
       "quality_reason": [
@@ -105,9 +105,9 @@
       ],
       "quality_preflight": {
         "ok": true,
-        "word_count": 1130,
-        "max_similarity": 0.793496,
-        "nearest_route": "/programmatic/how-to-host-a-virtual-event",
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
         "reasons": []
       },
       "release_order": 1
@@ -745,22 +745,10 @@
       "details": [
         "thin"
       ]
-    },
-    {
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "query": "community roi measurement",
-      "release_action": "repair",
-      "reason": "postbuild_quality_quarantine",
-      "details": [
-        "thin"
-      ],
-      "max_similarity": 0.032103,
-      "nearest_route": "/programmatic/virtual-conference-production",
-      "self_heal_cycle": 1
     }
   ],
   "status": "READY",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-  "create_stop_detail": "7865 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+  "create_stop_detail": "7853 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
   "create_stop_is_legitimate": true
 }
