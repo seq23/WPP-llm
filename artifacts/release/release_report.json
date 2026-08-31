@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T08:47:47.822Z",
+  "generated_at": "2026-08-31T20:40:37.503Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-08-31T07:33:26.108Z",
+    "generated_at": "2026-08-31T19:19:23.073Z",
     "workflow_count": 8,
     "workflows": [
       "admin-command.yml",
@@ -1203,7 +1203,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-08-31T08:47:00.008Z",
+    "generated_at": "2026-08-31T20:39:55.692Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1211,8 +1211,8 @@
         "data/authority_scale/query_atlas.json",
         "data/demand/measured_demand.json"
       ],
-      "demand_records_available": 525,
-      "candidates_considered": 7853,
+      "demand_records_available": 526,
+      "candidates_considered": 7854,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1902,11 +1902,11 @@
     ],
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7853 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "7854 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-08-31T08:47:06.856Z",
+    "updated": "2026-08-31T20:40:01.674Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5021,8 +5021,8 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-08-31T08:47:06.856Z"
+      "at": "2026-08-31T20:40:01.674Z"
     }
   },
-  "query_universe_count": 10591
+  "query_universe_count": 10592
 }
