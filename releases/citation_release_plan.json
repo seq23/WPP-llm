@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-08-31T20:39:55.692Z",
+  "generated_at": "2026-09-01T07:28:13.520Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 526,
-    "candidates_considered": 7854,
+    "candidates_considered": 7847,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-09-01",
       "2026-08-31",
       "2026-08-30",
       "2026-08-29",
       "2026-08-28",
       "2026-08-27",
-      "2026-08-26",
-      "2026-08-25"
+      "2026-08-26"
     ],
     "new_pages_used_this_week": 50,
     "weekly_headroom": 0,
@@ -49,8 +49,70 @@
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0
   },
-  "units": [],
-  "release_units": [],
+  "units": [
+    {
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
+        "reasons": []
+      },
+      "release_order": 1
+    }
+  ],
+  "release_units": [
+    {
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
+        "reasons": []
+      },
+      "release_order": 1
+    }
+  ],
   "blocked": [
     {
       "target_route": "/programmatic/community-budget-planning-framework",
@@ -683,22 +745,10 @@
       "details": [
         "thin"
       ]
-    },
-    {
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "query": "community roi measurement",
-      "release_action": "repair",
-      "reason": "postbuild_quality_quarantine",
-      "details": [
-        "thin"
-      ],
-      "max_similarity": 0.032103,
-      "nearest_route": "/programmatic/virtual-conference-production",
-      "self_heal_cycle": 1
     }
   ],
-  "status": "COMPLETED_NO_CHANGES",
+  "status": "READY",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-  "create_stop_detail": "7854 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+  "create_stop_detail": "7847 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
   "create_stop_is_legitimate": true
 }
