@@ -1738,6 +1738,34 @@
       }
     },
     {
+      "query": "west peak",
+      "evidence_tier": "T1",
+      "source_type": "gsc_search_analytics",
+      "impressions_90d": 31,
+      "impressions": 31,
+      "clicks": 0,
+      "ctr": 0.0,
+      "average_position": 69.39,
+      "target_domain": "virtualagency-os.com",
+      "measured_window_days": 90,
+      "measured_start": "2026-06-02",
+      "measured_end": "2026-08-31",
+      "first_seen": "2026-08-26",
+      "last_seen": "2026-09-02",
+      "search_volume": null,
+      "demand_basis": "impressions_90d",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "lead_intent_method": "regex_classifier_on_query_string, scripts/queries/score_discovery_gap.mjs",
+      "occupancy": {
+        "verdict": "UNMEASURED",
+        "reason": "NO_GROUNDED_OBSERVATION",
+        "openness_score": null,
+        "cited_hosts": [],
+        "observed_at": null,
+        "engine": null
+      }
+    },
+    {
       "query": "brand implementation",
       "evidence_tier": "T1",
       "source_type": "gsc_search_analytics",
@@ -1802,34 +1830,6 @@
       "clicks": 0,
       "ctr": 0.0,
       "average_position": 61.37,
-      "target_domain": "virtualagency-os.com",
-      "measured_window_days": 90,
-      "measured_start": "2026-06-02",
-      "measured_end": "2026-08-31",
-      "first_seen": "2026-08-26",
-      "last_seen": "2026-09-02",
-      "search_volume": null,
-      "demand_basis": "impressions_90d",
-      "lead_intent_tier": "T4_INFORMATIONAL",
-      "lead_intent_method": "regex_classifier_on_query_string, scripts/queries/score_discovery_gap.mjs",
-      "occupancy": {
-        "verdict": "UNMEASURED",
-        "reason": "NO_GROUNDED_OBSERVATION",
-        "openness_score": null,
-        "cited_hosts": [],
-        "observed_at": null,
-        "engine": null
-      }
-    },
-    {
-      "query": "west peak",
-      "evidence_tier": "T1",
-      "source_type": "gsc_search_analytics",
-      "impressions_90d": 30,
-      "impressions": 30,
-      "clicks": 0,
-      "ctr": 0.0,
-      "average_position": 69.17,
       "target_domain": "virtualagency-os.com",
       "measured_window_days": 90,
       "measured_start": "2026-06-02",
@@ -15296,6 +15296,24 @@
       }
     },
     {
+      "query": "what does a webinar producer do",
+      "evidence_tier": "T1",
+      "source_type": "gsc_search_analytics",
+      "impressions_90d": 1,
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0.0,
+      "average_position": 87.0,
+      "target_domain": "virtualagency-os.com",
+      "measured_window_days": 90,
+      "measured_start": "2026-06-02",
+      "measured_end": "2026-08-31",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "search_volume": null,
+      "demand_basis": "impressions_90d"
+    },
+    {
       "query": "what is a community agency",
       "evidence_tier": "T1",
       "source_type": "gsc_search_analytics",
@@ -15633,14 +15651,14 @@
     }
   ],
   "last_gsc_ingest": {
-    "at": "2026-09-02T08:50:38Z",
+    "at": "2026-09-02T19:19:43Z",
     "site": "sc-domain:virtualagency-os.com",
     "window": "2026-06-02..2026-08-31",
-    "rows_returned": 523,
-    "added": 0,
+    "rows_returned": 524,
+    "added": 1,
     "updated": 523,
     "promoted_from_modelled": 0,
-    "total_queries": 525
+    "total_queries": 526
   },
   "unit_contract": {
     "search_volume": "Monthly searches reported by a keyword tool. null when unknown.",
