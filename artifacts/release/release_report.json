@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T20:41:24.147Z",
+  "generated_at": "2026-09-02T08:51:55.284Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-09-01T19:21:00.094Z",
+    "generated_at": "2026-09-02T07:29:23.050Z",
     "workflow_count": 8,
     "workflows": [
       "admin-command.yml",
@@ -1203,7 +1203,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-09-01T20:40:44.833Z",
+    "generated_at": "2026-09-02T08:51:09.931Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1212,7 +1212,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 526,
-      "candidates_considered": 7847,
+      "candidates_considered": 7846,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1222,13 +1222,13 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-09-02",
         "2026-09-01",
         "2026-08-31",
         "2026-08-30",
         "2026-08-29",
         "2026-08-28",
-        "2026-08-27",
-        "2026-08-26"
+        "2026-08-27"
       ],
       "new_pages_used_this_week": 50,
       "weekly_headroom": 0,
@@ -1902,11 +1902,11 @@
     ],
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7847 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "7846 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-09-01T20:40:49.582Z",
+    "updated": "2026-09-02T08:51:15.609Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5021,7 +5021,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-09-01T20:40:49.582Z"
+      "at": "2026-09-02T08:51:15.609Z"
     }
   },
   "query_universe_count": 10592
