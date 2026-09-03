@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-02T10:44:02.150Z",
+  "updated_at": "2026-09-03T10:42:51.384Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -417,17 +417,69 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+      "query": null,
+      "repair_id": "repair_fb29b8a8a76b",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-03T10:42:51.366Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs automation agency south africa",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 36,
+          "observed_at": "2026-09-03T08:46:29.538207Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy-for-startups",
+      "query": null,
+      "repair_id": "repair_17812e26569c",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-03T10:42:51.375Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "audience growth strategy",
+          "target_route": "https://virtualagency-os.com/programmatic/audience-growth-strategy-for-startups",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 72,
+          "observed_at": "2026-09-03T08:46:29.538283Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-02T10:44:02.150Z",
-    "eligible": 187,
+    "swept_at": "2026-09-03T10:42:51.384Z",
+    "eligible": 205,
     "promoted": 20,
     "retested_from_evidence": 2,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 185,
-    "signal_records_matching_queue_routes": 21,
+    "still_awaiting_evidence": 203,
+    "signal_records_matching_queue_routes": 23,
     "outcomes_recorded": {
       "INCONCLUSIVE": 2
     },
