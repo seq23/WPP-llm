@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T10:42:16.287Z",
+  "updated_at": "2026-09-04T10:43:33.238Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-09-03",
+    "date": "2026-09-04",
     "repairs_used": 20
   },
   "receipts": [
@@ -3117,6 +3117,126 @@
       "route": "/programmatic/ai-creative-workflows-common-failure-points",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-09-03T10:42:16.286Z"
+    },
+    {
+      "repair_id": "repair_f63dce133201",
+      "route": "/programmatic/agency-rfp-questions-for-creative-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.084Z"
+    },
+    {
+      "repair_id": "repair_217b6c72f599",
+      "route": "/programmatic/agency-selection-strategy-agency-content-for-startups",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.202Z"
+    },
+    {
+      "repair_id": "repair_7e3c855ab99e",
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.210Z"
+    },
+    {
+      "repair_id": "repair_2c301b775474",
+      "route": "/programmatic/ai-content-operations-agency-measurement-for-startups",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.213Z"
+    },
+    {
+      "repair_id": "repair_1b1a7e94dda7",
+      "route": "/programmatic/ai-creative-workflows-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.215Z"
+    },
+    {
+      "repair_id": "repair_712e4dd5cfac",
+      "route": "/programmatic/ai-creative-workflows-comparison",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.217Z"
+    },
+    {
+      "repair_id": "repair_f7785dbe2b2d",
+      "route": "/programmatic/ai-creative-workflows-consultant",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.226Z"
+    },
+    {
+      "repair_id": "repair_c133b895f788",
+      "route": "/programmatic/ai-creative-workflows-cost",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.227Z"
+    },
+    {
+      "repair_id": "repair_d8a433ff1508",
+      "route": "/programmatic/ai-creative-workflows-deliverables",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.228Z"
+    },
+    {
+      "repair_id": "repair_2506bf244593",
+      "route": "/programmatic/ai-creative-workflows-examples",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.229Z"
+    },
+    {
+      "repair_id": "repair_cb8cc584ec0e",
+      "route": "/programmatic/ai-creative-workflows-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.230Z"
+    },
+    {
+      "repair_id": "repair_18f5385d7c72",
+      "route": "/programmatic/ai-creative-workflows-for-financial-services-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.230Z"
+    },
+    {
+      "repair_id": "repair_b6b613664821",
+      "route": "/programmatic/ai-creative-workflows-for-founders",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.231Z"
+    },
+    {
+      "repair_id": "repair_5b5100d48220",
+      "route": "/programmatic/ai-creative-workflows-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.232Z"
+    },
+    {
+      "repair_id": "repair_e129764fa440",
+      "route": "/programmatic/ai-creative-workflows-for-nonprofits",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.233Z"
+    },
+    {
+      "repair_id": "repair_104200af1641",
+      "route": "/programmatic/ai-creative-workflows-for-professional-services-firms",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.234Z"
+    },
+    {
+      "repair_id": "repair_beadb336d8ed",
+      "route": "/programmatic/ai-creative-workflows-for-saas-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.235Z"
+    },
+    {
+      "repair_id": "repair_e33b0896fd2b",
+      "route": "/programmatic/ai-creative-workflows-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.235Z"
+    },
+    {
+      "repair_id": "repair_cd8c342a2fab",
+      "route": "/programmatic/ai-creative-workflows-for-startups",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.236Z"
+    },
+    {
+      "repair_id": "repair_09a4c72d3cdf",
+      "route": "/programmatic/ai-creative-workflows-for-venture-backed-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-04T10:43:33.237Z"
     }
   ]
 }

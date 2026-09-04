@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T10:42:51.384Z",
+  "updated_at": "2026-09-04T10:44:07.881Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -469,19 +469,97 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-for-creative-teams",
+      "query": null,
+      "repair_id": "repair_1ca7d7ca9bd5",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-04T10:44:07.866Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "creative rfp",
+          "target_route": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 29,
+          "observed_at": "2026-09-04T08:45:56.240628Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+      "query": null,
+      "repair_id": "repair_7e4c7951afbc",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-04T10:44:07.867Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs automation agency south africa",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 95,
+          "observed_at": "2026-09-04T08:45:56.239960Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/brand-agency-vs-marketing-agency-for-creative-teams",
+      "query": null,
+      "repair_id": "repair_2ddd45f9e429",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-04T10:44:07.871Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "brand vs agency",
+          "target_route": "https://virtualagency-os.com/programmatic/brand-agency-vs-marketing-agency-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 69,
+          "observed_at": "2026-09-04T08:45:56.240241Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-03T10:42:51.384Z",
-    "eligible": 205,
+    "swept_at": "2026-09-04T10:44:07.881Z",
+    "eligible": 223,
     "promoted": 20,
-    "retested_from_evidence": 2,
+    "retested_from_evidence": 3,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 203,
-    "signal_records_matching_queue_routes": 23,
+    "still_awaiting_evidence": 220,
+    "signal_records_matching_queue_routes": 26,
     "outcomes_recorded": {
-      "INCONCLUSIVE": 2
+      "INCONCLUSIVE": 3
     },
     "aged_out_inconclusive": [],
     "stop_reason": null,
