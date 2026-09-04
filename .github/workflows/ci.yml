@@ -18,6 +18,13 @@ on:
 
 permissions:
   contents: read
+  # Deleting a workflow file does not delete the workflow. On 2026-06-25 commit
+  # 924f9707 removed auto_publish_insights.yml; GitHub kept id 231677534 at
+  # state=active, frozen on a failure, and it sat there unread for 71 days
+  # because a lane that never runs never goes red. validate:workflow-liveness
+  # lists workflows and their runs to catch that; without actions:read it could
+  # only ever emit a named stop, which is the silence itself.
+  actions: read
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -37,6 +44,10 @@ jobs:
       - run: npm run actions:validate
       - run: npm run validate:workflow-data-trace
       - run: npm run validate:workflow-faux-trace
+      # Hard-fails if any workflow GitHub reports active has produced no run
+      # inside its own declared cron window, or exists on GitHub with no file and
+      # no entry in _workflow_liveness_contract.json retired[].
+      - run: npm run validate:workflow-liveness
       - run: npm run test:push-helper
       # Two instruments that reported nothing and were believed. The citation
       # probe published a self-cited rate of 0 from a run where all 11 calls
