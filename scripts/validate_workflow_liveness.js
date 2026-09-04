@@ -28,9 +28,12 @@
  *   3. Ledger integrity. Every entry in _workflow_liveness_contract.json retired[]
  *      names a reason and a superseding workflow that exists, and its own file is
  *      gone. A retired workflow whose file reappeared is a contradiction.
- *   4. Reachability. The live check needs the actions:read scope, so ci.yml must
- *      grant it and must invoke this validator. A guard that cannot observe what
- *      it governs reports a status without enforcing anything.
+ *   4. Reachability. The live check needs the actions:read scope and a token, so
+ *      ci.yml must grant the scope, invoke this validator, and hand its step a
+ *      GH_TOKEN. Runners ship gh unauthenticated and do not export GITHUB_TOKEN,
+ *      so without that env this check skips and passes green having looked at
+ *      nothing - the first CI run of this step did exactly that. A guard that
+ *      cannot observe what it governs reports a status without enforcing anything.
  *   5. Liveness, against the GitHub API:
  *        - every workflow GitHub reports as active must be a file on disk or a
  *          retired[] entry. Active-with-no-source and no retirement record is
@@ -43,10 +46,11 @@
  * means the scan broke or every lane was deleted, and both are the emergency
  * this validator exists to catch. It must never be read as "nothing to do".
  *
- * Named stop. Without API credentials the live check cannot run. That prints an
- * explicit NAMED STOP and exits 0 - but only after checks 1 to 4 have run and
- * done real work, so no invocation exits 0 having done nothing. When a token IS
- * present and the API refuses, that is a hard failure, not a stop.
+ * Named stop. On a developer machine with no credentials the live check cannot
+ * run. That prints an explicit NAMED STOP and exits 0 - but only after checks 1
+ * to 4 have run and done real work, so no invocation exits 0 having done nothing.
+ * The stop is unavailable where it would matter: inside GitHub Actions a missing
+ * credential is a hard failure, and so is an API that refuses a token we hold.
  */
 const fs = require('fs');
 const path = require('path');
@@ -175,6 +179,21 @@ if (!laneFile || !parsed.has(laneFile)) {
   const laneText = fs.readFileSync(path.join(WORKFLOW_DIR, laneFile), 'utf8');
   if (!laneText.includes(SELF_INVOCATION)) {
     fail(`${laneFile}: does not invoke "${SELF_INVOCATION}". A guard nothing calls enforces nothing.`);
+  } else {
+    // Runners ship gh unauthenticated and do not export GITHUB_TOKEN, so the
+    // invoking step must hand it one explicitly. Without that this validator
+    // degrades to a named stop and passes green having looked at nothing - which
+    // is how the first CI run of this step behaved.
+    const steps = Object.values(laneDoc.jobs || {}).flatMap((j) => (j && Array.isArray(j.steps) ? j.steps : []));
+    const step = steps.find((st) => st && typeof st.run === 'string' && st.run.includes(SELF_INVOCATION));
+    if (!step) {
+      fail(`${laneFile}: "${SELF_INVOCATION}" appears in the file but not as a run: step`);
+    } else {
+      const env = step.env || {};
+      if (!env.GH_TOKEN && !env.GITHUB_TOKEN) {
+        fail(`${laneFile}: the "${SELF_INVOCATION}" step passes no GH_TOKEN/GITHUB_TOKEN env. gh is unauthenticated on runners, so the live check would be skipped and this guard would run but enforce nothing.`);
+      }
+    }
   }
 }
 
@@ -248,6 +267,13 @@ try {
   execFileSync('gh', ['auth', 'status'], { stdio: 'ignore' });
   credentialed = true;
 } catch { credentialed = Boolean(process.env.GH_TOKEN || process.env.GITHUB_TOKEN); }
+
+// Inside Actions there is always a token available to hand this step, so a
+// missing one means the wiring was dropped. Degrading to a named stop there
+// would reproduce the exact silence this validator exists to end.
+if (!credentialed && process.env.GITHUB_ACTIONS === 'true') {
+  fail('running inside GitHub Actions with no usable credential (gh auth / GH_TOKEN / GITHUB_TOKEN). The live check would be skipped and this guard would pass green having proven no lane is alive. Pass GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} to this step.');
+}
 
 let liveChecked = 0;
 if (credentialed) {

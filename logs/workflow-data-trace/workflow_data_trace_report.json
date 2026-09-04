@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T15:22:03.878Z",
+  "generated_at": "2026-09-04T15:26:32.048Z",
   "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
@@ -164,7 +164,9 @@
       "name": "npm run validate:workflow-liveness",
       "npm_script": "validate:workflow-liveness",
       "direct_paths": [],
-      "env_keys": []
+      "env_keys": [
+        "GH_TOKEN"
+      ]
     },
     {
       "workflow": "ci.yml",
