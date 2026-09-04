@@ -53,6 +53,12 @@ jobs:
       # a named stop and passes green having looked at nothing - the first run of
       # this step did exactly that. The validator hard-fails on a missing token
       # when GITHUB_ACTIONS is set, so this cannot silently regress.
+      #
+      # This step, not validate:all, is the single site of the live check. The
+      # writer lanes run validate:all without actions:read or a token, so calling
+      # it there fails on the credential it cannot have. ci.yml is already the
+      # designated observer of main (see validate:ci-reachability) and is
+      # time-triggered daily, so every lane is checked at least once a day.
       - run: npm run validate:workflow-liveness
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
