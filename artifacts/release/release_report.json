@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T08:43:23.213Z",
+  "generated_at": "2026-09-05T20:39:54.251Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-09-05T07:23:15.548Z",
+    "generated_at": "2026-09-05T19:18:06.151Z",
     "workflow_count": 8,
     "workflows": [
       "admin-command.yml",
@@ -370,6 +370,18 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 7,
+        "name": "npm run validate:workflow-liveness",
+        "npm_script": "validate:workflow-liveness",
+        "direct_paths": [],
+        "env_keys": [
+          "GH_TOKEN"
+        ]
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 8,
         "name": "npm run test:push-helper",
         "npm_script": "test:push-helper",
         "direct_paths": [],
@@ -379,7 +391,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 8,
+        "step": 9,
         "name": "npm run test:citation-probe-rate",
         "npm_script": "test:citation-probe-rate",
         "direct_paths": [],
@@ -389,7 +401,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 9,
+        "step": 10,
         "name": "npm run test:retest-loop",
         "npm_script": "test:retest-loop",
         "direct_paths": [],
@@ -399,7 +411,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 10,
+        "step": 11,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -409,7 +421,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 11,
+        "step": 12,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -1203,7 +1215,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-09-05T08:42:37.256Z",
+    "generated_at": "2026-09-05T20:39:12.955Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1212,7 +1224,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 527,
-      "candidates_considered": 7833,
+      "candidates_considered": 7831,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1230,176 +1242,30 @@
         "2026-08-31",
         "2026-08-30"
       ],
-      "new_pages_used_this_week": 0,
-      "weekly_headroom": 2,
-      "daily_headroom": 2,
-      "new_page_allowance_this_run": 2,
+      "new_pages_used_this_week": 2,
+      "weekly_headroom": 0,
+      "daily_headroom": 0,
+      "new_page_allowance_this_run": 0,
       "governed_by": "weekly_cadence_policy"
     },
     "daily_new_page_ceiling": 2,
     "daily_repair_ceiling": 100,
-    "daily_new_pages_already_used": 0,
+    "daily_new_pages_already_used": 2,
     "daily_repairs_already_used": 0,
-    "max_new_pages_this_run": 2,
+    "max_new_pages_this_run": 0,
     "max_repairs_this_run": 100,
     "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "5604e7b3e4efeda0c94990386dba57910e0b8418d94e394b34f496a553eebe94",
+      "corpus_fingerprint": "9760266dea5a6997c81f0e2d3c7aafee2bef6d9472acd938560902f3554a73e8",
       "legacy_backlog": 80,
       "thin_pages": 80,
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
-    "units": [
-      {
-        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwbGF0",
-        "query": "virtual event platforms",
-        "cluster": "virtual-event-production",
-        "pillar": "experiences",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/virtual-event-platforms",
-        "page_family": "operational_guide",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 80,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/virtual-event-platforms",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1139,
-          "max_similarity": 0.54433,
-          "nearest_route": "/programmatic/virtual-event-providers",
-          "reasons": []
-        },
-        "release_order": 1,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 169,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      },
-      {
-        "opportunity_id": "opp_YmVzdCB2aXJ0dWFsIGV2ZW50",
-        "query": "best virtual event production companies",
-        "cluster": "virtual-event-production",
-        "pillar": "experiences",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/best-virtual-event-production-companies",
-        "page_family": "operational_guide",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 80,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/best-virtual-event-production-companies",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1188,
-          "max_similarity": 0.522742,
-          "nearest_route": "/programmatic/virtual-event-production-agency",
-          "reasons": []
-        },
-        "release_order": 2,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 90,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      }
-    ],
-    "release_units": [
-      {
-        "opportunity_id": "opp_dmlydHVhbCBldmVudCBwbGF0",
-        "query": "virtual event platforms",
-        "cluster": "virtual-event-production",
-        "pillar": "experiences",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/virtual-event-platforms",
-        "page_family": "operational_guide",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 80,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/virtual-event-platforms",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1139,
-          "max_similarity": 0.54433,
-          "nearest_route": "/programmatic/virtual-event-providers",
-          "reasons": []
-        },
-        "release_order": 1,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 169,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      },
-      {
-        "opportunity_id": "opp_YmVzdCB2aXJ0dWFsIGV2ZW50",
-        "query": "best virtual event production companies",
-        "cluster": "virtual-event-production",
-        "pillar": "experiences",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/best-virtual-event-production-companies",
-        "page_family": "operational_guide",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 80,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/best-virtual-event-production-companies",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1188,
-          "max_similarity": 0.522742,
-          "nearest_route": "/programmatic/virtual-event-production-agency",
-          "reasons": []
-        },
-        "release_order": 2,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 90,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      }
-    ],
+    "units": [],
+    "release_units": [],
     "blocked": [
       {
         "target_route": "/programmatic/community-budget-planning-framework",
@@ -2046,10 +1912,13 @@
         "self_heal_cycle": 1
       }
     ],
-    "status": "READY"
+    "status": "COMPLETED_NO_CHANGES",
+    "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
+    "create_stop_detail": "7831 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 0)",
+    "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-09-05T08:42:43.458Z",
+    "updated": "2026-09-05T20:39:18.900Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5162,11 +5031,11 @@
     ],
     "blocked_routes": [],
     "last_release_run": {
-      "created": 2,
+      "created": 0,
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-09-05T08:42:43.458Z"
+      "at": "2026-09-05T20:39:18.900Z"
     }
   },
   "query_universe_count": 10593
