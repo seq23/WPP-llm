@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-09-quality-gated-content-repair",
+  "updated": "2026-09-04-workflow-liveness-guard",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
     {
@@ -167,7 +167,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -470,6 +470,13 @@
       "command": "node scripts/validators/validate_cadence_derived_constants.js",
       "severity": "HARD_FAIL",
       "purpose": "Bind every restated cadence constant to data/cadence/policy.json. Catches the class where a rate changes and a constant derived from it does not: 90-day route targets, per-day ceilings, tier ladders and generator literals that silently keep the old rate.",
+      "owner": "repo"
+    },
+    {
+      "id": "workflow-liveness",
+      "command": "node scripts/validate_workflow_liveness.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Hard-fail when a workflow GitHub reports as active has produced no run inside its own declared cron window, or exists on GitHub with no file and no recorded retirement. Deleting a workflow file leaves the workflow active and frozen on its last result: auto_publish_insights.yml was removed 2026-06-25 and sat red-but-unread for 71 days because a lane that never runs never goes red. Also fails the zero-job YAML parse error and the unindented heredoc terminator that caused it.",
       "owner": "repo"
     }
   ],

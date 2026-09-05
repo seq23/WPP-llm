@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T10:41:44.606Z",
+  "generated_at": "2026-09-05T15:17:28.215Z",
   "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
@@ -161,6 +161,18 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 7,
+      "name": "npm run validate:workflow-liveness",
+      "npm_script": "validate:workflow-liveness",
+      "direct_paths": [],
+      "env_keys": [
+        "GH_TOKEN"
+      ]
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 8,
       "name": "npm run test:push-helper",
       "npm_script": "test:push-helper",
       "direct_paths": [],
@@ -170,7 +182,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 8,
+      "step": 9,
       "name": "npm run test:citation-probe-rate",
       "npm_script": "test:citation-probe-rate",
       "direct_paths": [],
@@ -180,7 +192,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 9,
+      "step": 10,
       "name": "npm run test:retest-loop",
       "npm_script": "test:retest-loop",
       "direct_paths": [],
@@ -190,7 +202,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 10,
+      "step": 11,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -200,7 +212,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 11,
+      "step": 12,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],

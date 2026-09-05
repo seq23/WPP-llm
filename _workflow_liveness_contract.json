@@ -1,0 +1,34 @@
+{
+  "updated": "2026-09-04-workflow-liveness-guard",
+  "repository": "seq23/WPP-llm",
+  "policy": "Every workflow GitHub reports for this repository must be backed by either a file in .github/workflows or a retired[] entry that says who superseded it and why. Every on-disk workflow that declares a cron schedule must have produced a run inside its own declared window. Retirement is recorded, never silent.",
+  "why_this_file_exists": "Deleting a workflow file does not delete the workflow. On 2026-06-25 commit 924f9707 removed .github/workflows/auto_publish_insights.yml as part of an Actions spine split. GitHub kept workflow id 231677534 with state=active, pinned to its last event: a failure. For 71 days the repository presented an ACTIVE workflow whose most recent run was red, while every other lane ran daily and green. Nothing was red day to day because nothing ran. A deleted workflow leaves an active record and no alarm; this contract is the record, and validate_workflow_liveness.js is the alarm.",
+  "schedule_tolerance_multiplier": 3,
+  "min_grace_hours": 26,
+  "live_check_workflow": ".github/workflows/ci.yml",
+  "live_check_required_permission": "actions",
+  "retired": [
+    {
+      "path": ".github/workflows/auto_publish_insights.yml",
+      "workflow_id": 231677534,
+      "workflow_name": "Citation Release Loop",
+      "retired_on": "2026-06-25",
+      "retired_in_commit": "924f970723189c36f69cd297f797d1f5415ab6fe",
+      "recorded_on": "2026-09-04",
+      "last_run_conclusion": "failure",
+      "last_run_at": "2026-06-25T22:07:22Z",
+      "reason": "Superseded, not repaired. GitHub rejected this file: the shell heredoc terminator NODE inside a `run: |` block was not indented, so GitHub parsed NODE as YAML instead of shell. The three runs on 2026-06-25 (28201648707, 28201649558, 28203551644) are zero-job parse failures - the logs never name a YAML error, which is why this went unread. Commit 924f9707 chose a spine split over a one-line fix, because a single monolithic lane doing release, SEO, citation, distribution and query testing is one failure point. The file was removed and its work redistributed. Its publication role is deliberately NOT restored in this form: it held a production INDEXNOW_KEY, ran `git add -A` and pushed to main on a daily cron with no gate on the upstream run's outcome. That publication now lives in distribution.yml, which runs only after a successful upstream workflow_run. Recorded here on 2026-09-04 because the removal left workflow id 231677534 reporting state=active with a red last run and no owner.",
+      "superseded_by": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/programmatic-release.yml",
+        ".github/workflows/distribution.yml",
+        ".github/workflows/credential-check.yml",
+        ".github/workflows/query-intelligence.yml"
+      ],
+      "evidence": [
+        "docs/receipts/archive/GITHUB_ACTIONS_OVERHAUL_REPORT.md",
+        ".github/workflows/README.md"
+      ]
+    }
+  ]
+}

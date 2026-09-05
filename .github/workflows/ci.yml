@@ -18,6 +18,13 @@ on:
 
 permissions:
   contents: read
+  # Deleting a workflow file does not delete the workflow. On 2026-06-25 commit
+  # 924f9707 removed auto_publish_insights.yml; GitHub kept id 231677534 at
+  # state=active, frozen on a failure, and it sat there unread for 71 days
+  # because a lane that never runs never goes red. validate:workflow-liveness
+  # lists workflows and their runs to catch that; without actions:read it could
+  # only ever emit a named stop, which is the silence itself.
+  actions: read
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -37,6 +44,24 @@ jobs:
       - run: npm run actions:validate
       - run: npm run validate:workflow-data-trace
       - run: npm run validate:workflow-faux-trace
+      # Hard-fails if any workflow GitHub reports active has produced no run
+      # inside its own declared cron window, or exists on GitHub with no file and
+      # no entry in _workflow_liveness_contract.json retired[].
+      #
+      # GH_TOKEN is not optional here. Runners ship gh unauthenticated and do not
+      # put GITHUB_TOKEN in the environment, so without this the check degrades to
+      # a named stop and passes green having looked at nothing - the first run of
+      # this step did exactly that. The validator hard-fails on a missing token
+      # when GITHUB_ACTIONS is set, so this cannot silently regress.
+      #
+      # This step, not validate:all, is the single site of the live check. The
+      # writer lanes run validate:all without actions:read or a token, so calling
+      # it there fails on the credential it cannot have. ci.yml is already the
+      # designated observer of main (see validate:ci-reachability) and is
+      # time-triggered daily, so every lane is checked at least once a day.
+      - run: npm run validate:workflow-liveness
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run test:push-helper
       # Two instruments that reported nothing and were believed. The citation
       # probe published a self-cited rate of 0 from a run where all 11 calls
