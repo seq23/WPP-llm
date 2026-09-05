@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-09-05T07:23:14.114Z",
+  "generated_at": "2026-09-05T08:42:37.256Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -121,36 +121,6 @@
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
-    },
-    {
-      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
-      "query": "community roi measurement",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 43,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/programmatic/community-roi-measurement-model",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1147,
-        "max_similarity": 0.303758,
-        "nearest_route": "/programmatic/virtual-events-management",
-        "reasons": []
-      },
-      "release_order": 1
     }
   ],
   "release_units": [
@@ -225,36 +195,6 @@
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
-    },
-    {
-      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
-      "query": "community roi measurement",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 43,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/programmatic/community-roi-measurement-model",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1147,
-        "max_similarity": 0.303758,
-        "nearest_route": "/programmatic/virtual-events-management",
-        "reasons": []
-      },
-      "release_order": 1
     }
   ],
   "blocked": [
@@ -889,6 +829,18 @@
       "details": [
         "thin"
       ]
+    },
+    {
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "query": "community roi measurement",
+      "release_action": "repair",
+      "reason": "postbuild_quality_quarantine",
+      "details": [
+        "thin"
+      ],
+      "max_similarity": 0.032232,
+      "nearest_route": "/programmatic/virtual-conference-production",
+      "self_heal_cycle": 1
     }
   ],
   "status": "READY"
