@@ -17,9 +17,14 @@ the workflow: GitHub keeps the record at `state: active`, frozen on its last
 result, so a removed lane can sit red and unread indefinitely while nothing
 alerts, because nothing runs.
 
-| Workflow | Retired | Reason | Superseded by |
-| --- | --- | --- | --- |
-| `auto_publish_insights.yml` (Citation Release Loop, id 231677534) | 2026-06-25, commit `924f9707` | Unindented heredoc terminator inside a `run: \|` block made GitHub parse `NODE` as YAML; its last three runs are zero-job parse failures. Replaced by a spine split rather than a one-line fix. Its daily `git add -A` push to `main` carrying a production `INDEXNOW_KEY` was deliberately not restored. | `ci.yml`, `programmatic-release.yml`, `distribution.yml`, `credential-check.yml`, `query-intelligence.yml` |
+| Workflow | Retired | GitHub state | Reason | Superseded by |
+| --- | --- | --- | --- | --- |
+| `auto_publish_insights.yml` (Citation Release Loop, id 231677534) | 2026-06-25, commit `924f9707` | `disabled_manually` (2026-09-05) | Unindented heredoc terminator inside a `run: \|` block made GitHub parse `NODE` as YAML; its last three runs are zero-job parse failures. Replaced by a spine split rather than a one-line fix. Its daily `git add -A` push to `main` carrying a production `INDEXNOW_KEY` was deliberately not restored. | `ci.yml`, `programmatic-release.yml`, `distribution.yml`, `credential-check.yml`, `query-intelligence.yml` |
+
+Deleting the file left id 231677534 at `state: active` for 71 days. It was
+disabled through the Actions API on 2026-09-05, so the retirement is now true at
+GitHub rather than only in this repository, and the Actions UI no longer shows a
+red lane with no owner.
 
 The machine-readable ledger is `_workflow_liveness_contract.json`. It is enforced
 by `npm run validate:workflow-liveness`, which hard-fails if a workflow GitHub

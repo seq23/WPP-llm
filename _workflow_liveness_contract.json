@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04-workflow-liveness-guard",
+  "updated": "2026-09-05-auto-publish-insights-disabled-at-github",
   "repository": "seq23/WPP-llm",
   "policy": "Every workflow GitHub reports for this repository must be backed by either a file in .github/workflows or a retired[] entry that says who superseded it and why. Every on-disk workflow that declares a cron schedule must have produced a run inside its own declared window. Retirement is recorded, never silent.",
   "why_this_file_exists": "Deleting a workflow file does not delete the workflow. On 2026-06-25 commit 924f9707 removed .github/workflows/auto_publish_insights.yml as part of an Actions spine split. GitHub kept workflow id 231677534 with state=active, pinned to its last event: a failure. For 71 days the repository presented an ACTIVE workflow whose most recent run was red, while every other lane ran daily and green. Nothing was red day to day because nothing ran. A deleted workflow leaves an active record and no alarm; this contract is the record, and validate_workflow_liveness.js is the alarm.",
@@ -28,7 +28,10 @@
       "evidence": [
         "docs/receipts/archive/GITHUB_ACTIONS_OVERHAUL_REPORT.md",
         ".github/workflows/README.md"
-      ]
+      ],
+      "github_state": "disabled_manually",
+      "disabled_on_github": "2026-09-05",
+      "disabled_note": "Recorded in this ledger on 2026-09-04, but GitHub still reported id 231677534 as state=active - the file was gone while the workflow record lived on, which is the whole defect. Disabled via the Actions API on 2026-09-05 so the retirement is true at GitHub and not only in this file. The Actions UI no longer presents a red Citation Release Loop with no owner. validate_workflow_liveness.js skips non-active workflows, so this entry stays as the reason-of-record; the active-with-no-file rule continues to guard every future deletion."
     }
   ]
 }
