@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T20:39:54.251Z",
+  "generated_at": "2026-09-06T08:42:45.606Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-09-05T19:18:06.151Z",
+    "generated_at": "2026-09-06T07:23:43.863Z",
     "workflow_count": 8,
     "workflows": [
       "admin-command.yml",
@@ -1215,7 +1215,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-09-05T20:39:12.955Z",
+    "generated_at": "2026-09-06T08:42:04.598Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1224,7 +1224,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 527,
-      "candidates_considered": 7831,
+      "candidates_considered": 7822,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1234,23 +1234,23 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-09-06",
         "2026-09-05",
         "2026-09-04",
         "2026-09-03",
         "2026-09-02",
         "2026-09-01",
-        "2026-08-31",
-        "2026-08-30"
+        "2026-08-31"
       ],
       "new_pages_used_this_week": 2,
       "weekly_headroom": 0,
-      "daily_headroom": 0,
+      "daily_headroom": 2,
       "new_page_allowance_this_run": 0,
       "governed_by": "weekly_cadence_policy"
     },
     "daily_new_page_ceiling": 2,
     "daily_repair_ceiling": 100,
-    "daily_new_pages_already_used": 2,
+    "daily_new_pages_already_used": 0,
     "daily_repairs_already_used": 0,
     "max_new_pages_this_run": 0,
     "max_repairs_this_run": 100,
@@ -1914,11 +1914,11 @@
     ],
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7831 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 0)",
+    "create_stop_detail": "7822 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-09-05T20:39:18.900Z",
+    "updated": "2026-09-06T08:42:09.631Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5035,7 +5035,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-09-05T20:39:18.900Z"
+      "at": "2026-09-06T08:42:09.631Z"
     }
   },
   "query_universe_count": 10593
