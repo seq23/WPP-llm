@@ -200,6 +200,17 @@ function main() {
   validateLlms();
 
   if (process.exitCode) process.exit(process.exitCode);
+  // Zero-item floor. This gate walks a corpus that exists only because an earlier
+  // build stage produced it. If that stage is skipped, moved behind a gitignored
+  // dist/, or this runs before it, the walk finds nothing, reports no offenders and
+  // exits 0 - a gate incapable of failing, reporting green over an empty set. That
+  // is the defect class validate:workflow-liveness caught in itself on 2026-09-04.
+  // The floor makes "found nothing" loud instead of green.
+  const MIN_PUBLISHED_EXPECTED = 10;
+  if (published.length < MIN_PUBLISHED_EXPECTED) {
+    console.error(`INSIGHTS VALIDATION EXAMINED ONLY ${published.length} PUBLISHED INSIGHTS (floor ${MIN_PUBLISHED_EXPECTED}). Every duplicate-body, routing and parity check above iterates that list, so an empty content/insights makes all of them vacuous. Reported as a failure rather than a pass.`);
+    process.exit(1);
+  }
   console.log(`Insights validation passed (${published.length} published, ${drafts.length} drafts).`);
 }
 

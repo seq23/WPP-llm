@@ -21,7 +21,8 @@ const loopRules = redirects.split(/\r?\n/).filter(line => {
 });
 let bad=[];
 if(loopRules.length) bad.push(`clean-to-html redirect loop risk: ${loopRules.slice(0,10).join(' | ')}`);
-for(const rel of walk(ROOT)){
+const pages = walk(ROOT);
+for(const rel of pages){
   const html=fs.readFileSync(path.join(ROOT,rel),'utf8');
   const can = html.match(/<link rel="canonical" href="([^"]+)"/);
   if(!can) { bad.push(`missing canonical ${rel}`); continue; }
@@ -29,4 +30,15 @@ for(const rel of walk(ROOT)){
   if(can[1] !== expected) bad.push(`canonical mismatch ${rel} -> ${can[1]} expected ${expected}`);
 }
 if(bad.length){ console.error('Canonical route validation failed:\n- '+bad.slice(0,80).join('\n- ')); process.exit(1); }
-console.log('Canonical routes OK (clean URLs, no clean-to-html loop rules)');
+// Zero-item floor. This gate walks a corpus that exists only because an earlier
+// build stage produced it. If that stage is skipped, moved behind a gitignored
+// dist/, or this runs before it, the walk finds nothing, reports no offenders and
+// exits 0 - a gate incapable of failing, reporting green over an empty set. That
+// is the defect class validate:workflow-liveness caught in itself on 2026-09-04.
+// The floor makes "found nothing" loud instead of green.
+const MIN_PAGES_EXPECTED = 100;
+if (pages.length < MIN_PAGES_EXPECTED) {
+  console.error(`CANONICAL ROUTES EXAMINED ONLY ${pages.length} PAGES (floor ${MIN_PAGES_EXPECTED}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+  process.exit(1);
+}
+console.log(`Canonical routes OK (${pages.length} pages; clean URLs, no clean-to-html loop rules)`);

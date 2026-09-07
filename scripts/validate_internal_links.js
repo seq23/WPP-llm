@@ -45,4 +45,15 @@ if (bad.length) {
   for (const item of bad.slice(0, 80)) console.error(`- ${item}`);
   process.exit(1);
 }
+// Zero-item floor. This gate walks a corpus that exists only because an earlier
+// build stage produced it. If that stage is skipped, moved behind a gitignored
+// dist/, or this runs before it, the walk finds nothing, reports no offenders and
+// exits 0 - a gate incapable of failing, reporting green over an empty set. That
+// is the defect class validate:workflow-liveness caught in itself on 2026-09-04.
+// The floor makes "found nothing" loud instead of green.
+const MIN_PAGES_EXPECTED = 100;
+if (files.length < MIN_PAGES_EXPECTED) {
+  console.error(`INTERNAL LINK VALIDATION EXAMINED ONLY ${files.length} PAGES (floor ${MIN_PAGES_EXPECTED}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+  process.exit(1);
+}
 console.log(`Internal link validation OK: ${files.length} HTML files`);
