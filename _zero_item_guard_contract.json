@@ -1,0 +1,308 @@
+{
+  "note": "Every gate in the CI validation chain must hard-fail when its input set is empty. A validator that passes while examining zero items is not passing. scripts/validate_zero_item_guards.js proves this by running each one against the probe named here and requiring a non-zero exit; a CI-chain validator with no entry here is itself a hard failure, so the rule cannot be escaped by adding a new gate.",
+  "origin": "Run 33889515936 (2026-09-04) went red because validate:workflow-liveness refused to exit 0 without the credential its live check needs. It was the only gate in the suite that had that check written by hand. An audit found six siblings that printed a zero count next to the word PASS.",
+  "chain_roots": [
+    "validate:all",
+    "validate:governance",
+    "validate:autonomous",
+    "validate:workflow-liveness",
+    "validate:workflow-data-trace",
+    "validate:workflow-faux-trace",
+    "actions:validate"
+  ],
+  "probes": {
+    "html-corpus": {
+      "description": "Every published .html page removed. This is the input set of every gate that walks the site corpus; it exists only because an earlier build stage produced it, so a skipped or reordered stage empties it silently.",
+      "delete_files_with_extension": [
+        ".html"
+      ]
+    },
+    "content-insights": {
+      "description": "content/insights emptied. The published-insight markdown is the list every duplicate-body, routing and parity check in validate_insights iterates.",
+      "empty_dir_contents": [
+        "content/insights"
+      ]
+    },
+    "workflow-files": {
+      "description": ".github/workflows emptied. This is the exact 2026-06-25 condition that started this whole line of work: a workflow file deleted in a sync commit, with nothing red to show for it.",
+      "empty_dir_contents": [
+        ".github/workflows"
+      ]
+    },
+    "data-records": {
+      "description": "data/ emptied. The demand records, atoms, page families, atlas units, cadence policy and authority-scale inputs all live here; a gate that reads none of them is asserting nothing.",
+      "empty_dir_contents": [
+        "data"
+      ]
+    },
+    "validator-registry": {
+      "description": "_validator_registry.json validators[] emptied. The registry IS the input set of the registry gate.",
+      "empty_json_array": [
+        {
+          "file": "_validator_registry.json",
+          "key": "validators"
+        }
+      ]
+    },
+    "release-producers": {
+      "description": "Every script that writes the quality_rejected counter removed, so the vocabulary gate finds zero producers bound to the registry it governs.",
+      "delete_paths": [
+        "scripts/release/self_heal_release_quality.js",
+        "scripts/citation_intelligence/apply_release_plan.js",
+        "scripts/citation_intelligence/build_release_plan.js"
+      ]
+    },
+    "release-plan": {
+      "description": "releases/citation_release_plan.json truncated to an empty release_units[] with every other key stripped - the shape a crashed or half-written planner leaves behind. It still parses, so the gate runs; it must not read the absence of a budget as a declared budget of zero.",
+      "truncate_json_to": [
+        {
+          "file": "releases/citation_release_plan.json",
+          "keep": [
+            "release_units"
+          ]
+        }
+      ]
+    },
+    "self": {
+      "description": "This guard's own contract emptied of validators[]. It is subject to the rule it enforces: with nothing to probe it must refuse to exit 0, not report that every validator passed.",
+      "empty_json_array": [
+        {
+          "file": "_zero_item_guard_contract.json",
+          "key": "validators"
+        }
+      ]
+    }
+  },
+  "validators": [
+    {
+      "command": "node scripts/atlas/validate_atlas_units.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/atlas/validate_query_atlas.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/authority_scale/validate_authority_scale.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/authority_scale/validate_citation_yield_feedback.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/authority_scale/validate_community_parity.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/authority_scale/validate_kpi_truth.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/authority_scale/validate_max_fanout.mjs",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/citation_intelligence/validate_programmatic_quality.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/citation_intelligence/validate_quality_rejection_vocabulary.js",
+      "probe": "release-producers",
+      "input": "the producer scripts that write the quality-rejection counter"
+    },
+    {
+      "command": "node scripts/validate_answer_coverage.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_artifact_manifest.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validate_backlink_remediation.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validate_canonical_routes.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_ci_reachability.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validate_entity_coverage.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validate_fanout_warning.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_homepage_ctas.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_insights.js",
+      "probe": "content-insights",
+      "input": "the published insight markdown under content/insights"
+    },
+    {
+      "command": "node scripts/validate_internal_links.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_master_plan_completion.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validate_no_orphan_scripts.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validate_priority_pages.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_programmatic_release_engine.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validate_release_plan.js",
+      "probe": "release-plan",
+      "input": "the committed releases/citation_release_plan.json"
+    },
+    {
+      "command": "node scripts/validate_root_hygiene.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_selfheal_wiring.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validate_sitemap_coverage.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validate_strategy_gate.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validate_validator_registry.js",
+      "probe": "validator-registry",
+      "input": "the validators[] list in _validator_registry.json"
+    },
+    {
+      "command": "node scripts/validate_workflow_liveness.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validate_workflows.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validate_zero_item_guards.js",
+      "probe": "self",
+      "input": "the validators[] list in _zero_item_guard_contract.json"
+    },
+    {
+      "command": "node scripts/validators/validate_atom_contract.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_audience_permutation_budget.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validators/validate_cadence_derived_constants.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_cadence_gate_integrity.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validators/validate_content_pattern_contract.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validators/validate_demand_backed_pages.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validators/validate_master_contract_pipeline.js all",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_no_empty_table_cells.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validators/validate_no_internal_instruction_leak.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "node scripts/validators/validate_page_admission.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_page_family_contract.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_workflow_data_trace.js",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validators/validate_wpp_cta_attribution.js",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root"
+    },
+    {
+      "command": "python3 scripts/validation/faux_trace_all_workflows.py",
+      "probe": "workflow-files",
+      "input": "the workflow YAML under .github/workflows"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04-workflow-liveness-guard",
+  "updated": "2026-09-07-zero-item-guard-class",
   "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
   "allowed_severities": [
     "HARD_FAIL",
@@ -239,7 +239,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
+      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
@@ -570,6 +570,16 @@
       "command": "node scripts/validate_workflow_liveness.js",
       "severity": "HARD_FAIL",
       "purpose": "Hard-fail when a workflow GitHub reports as active has produced no run inside its own declared cron window, or exists on GitHub with no file and no recorded retirement. Deleting a workflow file leaves the workflow active and frozen on its last result: auto_publish_insights.yml was removed 2026-06-25 and sat red-but-unread for 71 days because a lane that never runs never goes red. Also fails the zero-job YAML parse error and the unindented heredoc terminator that caused it.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "zero-item-guards",
+      "command": "node scripts/validate_zero_item_guards.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prove every validator in the CI chain hard-fails on an empty input set; a gate that passes while examining zero items is not passing.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",

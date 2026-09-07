@@ -59,13 +59,23 @@ for (const unit of units) {
   seen.add(key);
 }
 if (units.length === 0) {
-  const budgetExhausted = maxNew === 0 && maxRepairs === 0;
-  const noOpAllowed = budgetExhausted || plan.status === 'NO_INPUT' || plan.status === 'ALL_SKIPPED' || plan.status === 'COMPLETED_NO_CHANGES';
-  if (!noOpAllowed) {
-    console.error('Empty release plan without a valid no-op/budget-exhausted state');
+  // A no-op must be DECLARED, never inferred from absent fields. maxNew and
+  // maxRepairs both default to 0 when the keys are missing, so a truncated or
+  // half-written plan used to read as "budget exhausted" and pass green over an
+  // empty release - a legitimate stop and a broken planner producing the same
+  // output. The named states below are written by the planner on purpose; the
+  // budget path now requires the budget keys to actually be present.
+  const NO_OP_STATES = ['NO_INPUT', 'ALL_SKIPPED', 'COMPLETED_NO_CHANGES'];
+  const budgetDeclared = ['max_new_pages_this_run', 'max_new_pages_per_day'].some((k) => k in plan)
+    && ['max_repairs_this_run', 'max_repairs_per_day'].some((k) => k in plan);
+  const budgetExhausted = budgetDeclared && maxNew === 0 && maxRepairs === 0;
+  const stateDeclared = NO_OP_STATES.includes(plan.status);
+  if (!budgetExhausted && !stateDeclared) {
+    console.error(`Empty release plan with no declared no-op state: status=${JSON.stringify(plan.status)}, budget keys ${budgetDeclared ? 'present' : 'ABSENT'}. Zero units is only acceptable when the planner says why - one of ${NO_OP_STATES.join('/')}, or an explicitly declared zero budget. Inferring "budget exhausted" from missing keys makes a truncated plan indistinguishable from a deliberate pause.`);
     process.exit(1);
   }
-  console.log('Release plan OK (0 units; valid no-op/budget exhausted)');
+  // Rule 0: a NAMED STOP, green and self-explaining, not a silent pass.
+  console.log(`NAMED STOP: release plan has 0 units - ${stateDeclared ? `planner declared status=${plan.status}` : 'declared budget is 0 new + 0 repairs this run'}. ${(plan.blocked || []).length} blocked receipt(s) were still checked against the allowed-reason vocabulary.`);
   process.exit(0);
 }
 console.log(`Release plan OK (${units.length} units, ${(plan.blocked || []).length} safely blocked)`);

@@ -125,6 +125,17 @@ if (errors.length) {
   for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
+// Zero-item floor. This gate walks a corpus that exists only because an earlier
+// build stage produced it. If that stage is skipped, moved behind a gitignored
+// dist/, or this runs before it, the walk finds nothing, reports no offenders and
+// exits 0 - a gate incapable of failing, reporting green over an empty set. That
+// is the defect class validate:workflow-liveness caught in itself on 2026-09-04.
+// The floor makes "found nothing" loud instead of green.
+const MIN_ROUTES_EXPECTED = 100;
+if (routes.length < MIN_ROUTES_EXPECTED) {
+  console.error(`AUDIENCE PERMUTATION BUDGET EXAMINED ONLY ${routes.length} PROGRAMMATIC ROUTES (floor ${MIN_ROUTES_EXPECTED}). Both Rule A and Rule B iterate that set, so an empty corpus reports "0 ungated indexable, 0 ungoverned suffixes" - a budget gate that cannot see the fan-out it governs. Reported as a failure rather than a pass.`);
+  process.exit(1);
+}
 console.log(
   `validate:audience-permutation-budget OK (${routes.length} programmatic routes, ${klass.length} in class, ` +
   `0 ungated indexable, 0 ungoverned suffixes over threshold)`

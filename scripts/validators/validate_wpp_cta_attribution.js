@@ -27,7 +27,7 @@ const SKIP = new Set(['node_modules', '.git', 'admin', '.build', 'artifacts', 'r
 const HREF = /href="(https?:\/\/(?:www\.)?westpeekproductions\.com[^"]*)"/g;
 
 const offenders = [];
-let total = 0, attributed = 0;
+let total = 0, attributed = 0, pagesScanned = 0;
 
 (function walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -36,6 +36,7 @@ let total = 0, attributed = 0;
     const abs = path.join(dir, e.name);
     const rel = path.relative(ROOT, abs);
     const html = fs.readFileSync(abs, 'utf8');
+    pagesScanned += 1;
     let m;
     HREF.lastIndex = 0;
     while ((m = HREF.exec(html)) !== null) {
@@ -47,6 +48,7 @@ let total = 0, attributed = 0;
 })(ROOT);
 
 const evidence = {
+  pages_scanned: pagesScanned,
   total_wpp_cta_links: total,
   attributed,
   unattributed: offenders.length,
@@ -63,4 +65,17 @@ if (offenders.length) {
   console.error('  remedy: node scripts/repair_unattributed_wpp_ctas.js --write');
   process.exit(1);
 }
-console.log(`WPP CTA ATTRIBUTION PASS: ${attributed}/${total} outbound CTA link(s) attributed; 0 bare.`);
+// Zero-item floor. This gate walks a corpus that exists only because an earlier
+// build stage produced it. If that stage is skipped, moved behind a gitignored
+// dist/, or this runs before it, the walk finds nothing, reports no offenders and
+// exits 0 - a gate incapable of failing, reporting green over an empty set. That
+// is the defect class validate:workflow-liveness caught in itself on 2026-09-04.
+// The floor makes "found nothing" loud instead of green.
+// "0 of 0 links are bare" is the same green as "every link is attributed", and only
+// one of them is a fact about this repo.
+const MIN_PAGES_EXPECTED = 100;
+if (pagesScanned < MIN_PAGES_EXPECTED) {
+  console.error(`WPP CTA ATTRIBUTION EXAMINED ONLY ${pagesScanned} PAGES (floor ${MIN_PAGES_EXPECTED}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+  process.exit(1);
+}
+console.log(`WPP CTA ATTRIBUTION PASS: ${attributed}/${total} outbound CTA link(s) attributed across ${pagesScanned} pages; 0 bare.`);

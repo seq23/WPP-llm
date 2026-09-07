@@ -80,7 +80,7 @@
     "test:retest-loop": "node scripts/test_retest_loop_closes.js",
     "validate:admin-command-center": "node scripts/validators/validate_admin_command_center.mjs",
     "validate:agent-run-intake": "node scripts/validators/validate_agent_run_artifact_intake.js",
-    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run validate:quality-rejection-vocabulary && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity && npm run validate:cadence-derived-constants && npm run validate:selfheal-wiring && npm run validate:ci-reachability && npm run validate:no-orphan-scripts",
+    "validate:all": "npm run content:quality:report && npm run validate:governance && node scripts/validate_insights.js && node scripts/validate_fanout_warning.js && node scripts/validate_answer_coverage.js && node scripts/validate_entity_coverage.js && node scripts/validate_internal_links.js && node scripts/validate_sitemap_coverage.js && npm run validate:quality-rejection-vocabulary && npm run content:quality:validate && npm run validate:no-instruction-leak && npm run validate:no-empty-cells && npm run validate:wpp-cta-attribution && npm run validate:authority-scale && npm run authority:yield:validate && npm run authority:community:validate && npm run validate:content-pattern && npm run validate:demand-backed-pages && npm run validate:audience-permutation-budget && npm run validate:cadence-integrity && npm run validate:cadence-derived-constants && npm run validate:selfheal-wiring && npm run validate:ci-reachability && npm run validate:no-orphan-scripts && npm run validate:zero-item-guards",
     "validate:artifact-consistency-e2e": "python3 scripts/validation/artifact_consistency_e2e.py",
     "validate:artifact-manifest": "node scripts/validate_artifact_manifest.js",
     "validate:atlas-units": "node scripts/atlas/validate_atlas_units.mjs",
@@ -120,7 +120,8 @@
     "validate:workflow-faux-trace": "python3 scripts/validation/faux_trace_all_workflows.py",
     "validate:workflow-liveness": "node scripts/validate_workflow_liveness.js",
     "validate:wpp-cta-attribution": "node scripts/validators/validate_wpp_cta_attribution.js",
-    "verify:no-links-lost": "node scripts/verify_no_links_lost.js"
+    "verify:no-links-lost": "node scripts/verify_no_links_lost.js",
+    "validate:zero-item-guards": "node scripts/validate_zero_item_guards.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
