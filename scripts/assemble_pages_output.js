@@ -34,6 +34,31 @@ const EXCLUDE = new Set([
 ]);
 const EXCLUDE_EXT = new Set(['.md']);
 
+/**
+ * True when a repo-relative path reaches the published surface.
+ *
+ * The deny-list is the ONLY thing that decides what the live domain answers
+ * for, so it is also the only correct oracle for "does this internal link
+ * resolve?". validate_internal_links.js used fs.existsSync against the repo
+ * tree instead, which is a different question: /admin/ linked to seven
+ * /data/**.json files that exist on disk and are excluded from the deploy, so
+ * the gate reported them fine while the live site answered 404 for all seven.
+ * Exporting the rule keeps the deployer and the validator on one answer.
+ */
+function isPublishedPath(relPath) {
+  const parts = String(relPath).replace(/\\/g, '/').replace(/^\.?\//, '').split('/');
+  const top = parts[0];
+  if (!top) return false;
+  if (EXCLUDE.has(top)) return false;
+  if (parts.length === 1 && EXCLUDE_EXT.has(path.extname(top))) return false;
+  return true;
+}
+
+if (require.main !== module) {
+  module.exports = { EXCLUDE, EXCLUDE_EXT, isPublishedPath };
+  return;
+}
+
 let copied = 0;
 function copyInto(srcDir, outDir, depth) {
   for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
