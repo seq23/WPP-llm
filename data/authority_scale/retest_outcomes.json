@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T10:44:06.998Z",
+  "updated_at": "2026-09-10T10:44:00.315Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -637,19 +637,83 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/brand-positioning-strategy-for-professional-services-firms",
+      "query": null,
+      "repair_id": "repair_0c85e35c274c",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-10T10:44:00.310Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "brand positioning professional services",
+          "target_route": "https://virtualagency-os.com/programmatic/brand-positioning-strategy-for-professional-services-firms",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 50,
+          "observed_at": "2026-09-10T08:45:32.931396Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "professional services brand positioning",
+          "target_route": "https://virtualagency-os.com/programmatic/brand-positioning-strategy-for-professional-services-firms",
+          "signal_type": "gsc_query_performance",
+          "strength": 2,
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 54,
+          "observed_at": "2026-09-10T08:45:32.932410Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
+      "query": null,
+      "repair_id": "repair_0c66a7e0d6b4",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-09-10T10:44:00.314Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "how do i compare vendors for positioning testing",
+          "target_route": "https://virtualagency-os.com/programmatic/brand-positioning-strategy-how-to-compare-vendors",
+          "signal_type": "gsc_query_performance",
+          "strength": 7,
+          "impressions": 7,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 7.857142857142857,
+          "observed_at": "2026-09-10T08:45:32.931957Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-09T10:44:06.998Z",
-    "eligible": 318,
+    "swept_at": "2026-09-10T10:44:00.315Z",
+    "eligible": 337,
     "promoted": 20,
-    "retested_from_evidence": 1,
+    "retested_from_evidence": 2,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 317,
-    "signal_records_matching_queue_routes": 30,
+    "still_awaiting_evidence": 335,
+    "signal_records_matching_queue_routes": 33,
     "outcomes_recorded": {
-      "INCONCLUSIVE": 1
+      "INCONCLUSIVE": 2
     },
     "aged_out_inconclusive": [],
     "stop_reason": null,
