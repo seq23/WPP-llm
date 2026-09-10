@@ -97,7 +97,7 @@
       "id": "internal-links",
       "command": "node scripts/validate_internal_links.js",
       "severity": "HARD_FAIL",
-      "purpose": "Prevent broken internal links.",
+      "purpose": "Prevent broken internal links AND broken internal images: every href and src on a page the deploy actually publishes must resolve to a file the deploy also publishes. Covers the two holes Ahrefs Site Audit found on virtualagency-os.com (2026-09-03, 3,453 URLs, Health 22): src was never examined, so 13 pages under answers/ shipped a relative logo path that 404'd ('Page has broken image: 13'), and existence was tested against the repo tree rather than the published surface, so /admin/ linked to 7 excluded /data/**.json files that 404'd in production. Hard-fails below 100 published pages, 1 link attribute, or 50 src attributes.",
       "owner": "repo"
     },
     {
