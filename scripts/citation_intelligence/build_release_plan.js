@@ -78,12 +78,24 @@ const usedRepairs = sameDay ? Number(velocityLedger.repairs_used || 0) : 0;
 // values likewise cannot exceed policy; MAX_NEW_PAGES_PER_DAY can throttle a run
 // further but cannot buy headroom the policy has not granted.
 //
-// Usage is measured over a trailing 7-day window from the same per-day ledger the
-// planner already keeps, so a run at 08:35 and a run at 20:35 draw on one weekly
-// budget rather than a fresh one each midnight. Most runs will now legitimately
-// create zero pages. That is the ordinary success state of a governed publisher,
-// not a fault - it is recorded as WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED below so it
-// can never be mistaken for a broken upstream stage.
+// Usage is measured over a trailing 7-day window, so a run at 08:35 and a run at
+// 20:35 draw on one weekly budget rather than a fresh one each midnight. Most
+// runs will now legitimately create zero pages. That is the ordinary success
+// state of a governed publisher, not a fault - it is recorded as
+// WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED below so it can never be mistaken for a
+// broken upstream stage.
+//
+// The count itself is NOT computed here. Until 2026-09-12 this planner counted
+// pages created in the trailing week from data/releases/*velocity_ledger.json,
+// while scripts/cadence_gate.js counted URLs absent from data/cadence/known_urls.json
+// since a human last ran cadence:accept, and compared that lifetime total to the
+// per-week cap. Both were correct by their own arithmetic and they disagreed:
+// this planner published 2 on 09-05 and 2 on 09-12, inside policy both days, and
+// the gate blocked main with "4 editorial URLs ... cap is 2". Two counts of one
+// governed number, no link between them. The count now comes from
+// scripts/cadence/weekly_cap.js for both: the same ledger, the same window, the
+// same function, and apply_release_plan.js records what it creates into that
+// ledger in the same run, so the gate sees exactly what the planner spent.
 // ---------------------------------------------------------------------------
 const CADENCE_POLICY_REL = 'data/cadence/policy.json';
 const cadencePolicy = readJson(CADENCE_POLICY_REL, {});
@@ -93,26 +105,11 @@ if (!Number.isFinite(declaredWeekly) || declaredWeekly < 0) {
   process.exit(1);
 }
 
-const WEEK_DAYS = 7;
-function trailingWeekDates(endDate) {
-  const end = Date.parse(`${endDate}T00:00:00Z`);
-  const out = [];
-  for (let i = 0; i < WEEK_DAYS; i += 1) out.push(new Date(end - i * 86400000).toISOString().slice(0, 10));
-  return out;
-}
-// Per-date new-page counts. The daily ledger holds today; the weekly ledger holds
-// the history the daily one overwrites each midnight.
-const weeklyLedgerRel = 'data/releases/weekly_velocity_ledger.json';
-const weeklyLedger = readJson(weeklyLedgerRel, { days: {} });
-const weekDays = weeklyLedger && typeof weeklyLedger.days === 'object' && weeklyLedger.days ? weeklyLedger.days : {};
-const window = trailingWeekDates(today);
-let usedThisWeek = 0;
-for (const d of window) {
-  const fromWeekly = Number(weekDays[d] || 0);
-  const fromDaily = d === today ? usedNew : 0;
-  usedThisWeek += Math.max(fromWeekly, fromDaily);
-}
-const weeklyHeadroom = Math.max(0, declaredWeekly - usedThisWeek);
+const weeklyCap = require('../cadence/weekly_cap.js');
+const allowance = weeklyCap.weeklyAllowance(ROOT, { today, policy: cadencePolicy });
+const WEEK_DAYS = weeklyCap.WEEK_DAYS;
+const usedThisWeek = allowance.used;
+const weeklyHeadroom = allowance.headroom;
 
 const dailyHeadroom = Math.max(0, dailyNewCeiling - usedNew);
 const maxNew = Math.min(dailyHeadroom, weeklyHeadroom);
@@ -264,8 +261,10 @@ const plan = {
     authority: 'data/cadence/policy.json is the single source of truth for publishing rate. The per-day ceiling is a safety cap on one bad run and can only lower this allowance, never raise it.',
     new_pages_per_week: declaredWeekly,
     window_days: WEEK_DAYS,
-    window_dates: window,
+    window_dates: allowance.window,
+    usage_source: weeklyCap.LEDGER_REL,
     new_pages_used_this_week: usedThisWeek,
+    new_pages_used_this_week_urls: allowance.used_urls,
     weekly_headroom: weeklyHeadroom,
     daily_headroom: dailyHeadroom,
     new_page_allowance_this_run: maxNew,

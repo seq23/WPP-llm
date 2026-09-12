@@ -20,6 +20,13 @@
  * Acceptance requires a reason, appends to an auditable log, and is never run
  * by CI - so the cap keeps applying to everything published from here on.
  *
+ * What acceptance is FOR, since 2026-09-12: pages that appeared with no record.
+ * A governed release records its own pages (scripts/cadence/weekly_cap.js,
+ * recordGovernedPublication) in the run that creates them, so inside-policy
+ * publishing never needs a human to accept anything. What reaches this command
+ * is backlog from outside the publisher, and it is recorded as source
+ * 'accepted' - the deliberate override of the cap, not a use of it.
+ *
  * Usage:
  *   node scripts/cadence_accept.js --reason "why these pages are being accepted"
  *   node scripts/cadence_accept.js --reason "..." --dry-run
@@ -54,6 +61,7 @@ if (reason.length < MIN_REASON) {
 // reason is refused on its own merits rather than inheriting whatever the gate
 // module does when it is loaded.
 const { evaluate, LEDGER_REL } = require('./cadence_gate.js');
+const weeklyCap = require('./cadence/weekly_cap.js');
 
 const { report, urls, newUrls, newEditorial, newNavigation } = evaluate(ROOT);
 
@@ -89,9 +97,9 @@ if (DRY) {
   process.exit(0);
 }
 
-const ledgerPath = path.join(ROOT, LEDGER_REL);
-fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
-fs.writeFileSync(ledgerPath, JSON.stringify({ generated_at: today, urls: [...urls.keys()].sort() }, null, 2) + '\n');
+// Written through the same module the publisher and the gate read, so the
+// accepted URLs carry a first_seen and a source like every other record.
+weeklyCap.recordAcceptance(ROOT, newUrls, { today });
 
 const accPath = path.join(ROOT, ACCEPTANCES_REL);
 let log = { acceptances: [] };

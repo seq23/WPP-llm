@@ -466,6 +466,13 @@
       "owner": "repo"
     },
     {
+      "id": "cadence-cap-parity",
+      "command": "node scripts/validators/validate_cadence_cap_parity.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Prove the publisher's weekly allowance and the cadence gate's weekly_cap verdict are one computation over one ledger (scripts/cadence/weekly_cap.js), on fixtures including the 2026-09-12 shape (2 pages a week ago + 2 today, cap 2) that went red when the gate counted since-acceptance against a per-week cap. Fails on zero governed records, an unlinked component, a parallel ledger, or a release lane that pushes without running the gate.",
+      "owner": "repo"
+    },
+    {
       "id": "cadence-derived-constants",
       "command": "node scripts/validators/validate_cadence_derived_constants.js",
       "severity": "HARD_FAIL",
