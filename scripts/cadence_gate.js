@@ -51,11 +51,36 @@
  * --reason "..."` advances the ledger and records what was accepted and why in
  * data/cadence/acceptances.json. CI never runs it.
  *
+ * WHAT "NEW THIS WEEK" MEANS, AND WHO GETS TO SAY SO.
+ *
+ * "Never advanced by CI" had a second consequence that took two weeks to show:
+ * the gate compared the number of URLs absent from the ledger - a total that
+ * grows for as long as nobody runs cadence:accept - against a PER-WEEK cap. On
+ * 2026-09-12 that blocked main with 4 editorial URLs against a cap of 2, when the
+ * publisher had created 2 on 09-05 and 2 on 09-12 and been inside its own
+ * trailing-7-day count on both days. A publisher that obeys 2/week is guaranteed
+ * to trip a gate that counts "since acceptance" in week two. That is not the
+ * publisher over-publishing; it is two components keeping two different counts
+ * of one governed number.
+ *
+ * So the weekly count now comes from scripts/cadence/weekly_cap.js, which the
+ * publisher also uses: governed URLs whose recorded first_seen falls inside the
+ * trailing 7 days. The release lane records the pages it creates in the same run
+ * (source: governed_release) before its push gate runs this gate. Any editorial
+ * URL that appears with NO record is ungoverned and counts in full until a human
+ * accepts it. The block condition is therefore:
+ *
+ *   governed URLs first seen this week + ungoverned URLs  >  new_pages_per_week
+ *
+ * The gate still never writes the ledger. The writer is the publisher, in the
+ * act of publishing, and it can only record what the same allowance permitted.
+ *
  * Usage: node cadence_gate.js [--json] [--policy path]
  */
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const weeklyCap = require('./cadence/weekly_cap.js');
 
 const DEFAULT_POLICY = {
   refresh_window_days: 91,      // the 13-week threshold
@@ -66,7 +91,7 @@ const DEFAULT_POLICY = {
   require_lastmod: true,
 };
 
-const LEDGER_REL = 'data/cadence/known_urls.json';
+const LEDGER_REL = weeklyCap.LEDGER_REL;
 
 function loadPolicy(ROOT, policyPath) {
   const f = path.join(ROOT, policyPath);
@@ -126,15 +151,8 @@ function navigationUrls(ROOT) {
   return out;
 }
 
-function readLedger(ROOT) {
-  const ledgerPath = path.join(ROOT, LEDGER_REL);
-  if (!fs.existsSync(ledgerPath)) return { exists: false, urls: new Set() };
-  try {
-    return { exists: true, urls: new Set(JSON.parse(fs.readFileSync(ledgerPath, 'utf8')).urls || []) };
-  } catch {
-    return { exists: false, urls: new Set() };
-  }
-}
+// The ledger has one reader implementation, shared with the publisher.
+const readLedger = weeklyCap.readLedger;
 
 /**
  * Everything the gate knows, with no side effects. cadence_accept.js reuses this
@@ -157,6 +175,14 @@ function evaluate(ROOT, policyPath = 'data/cadence/policy.json') {
   const newNavigation = newUrls.filter((u) => navigation.has(u));
   const newEditorial = newUrls.filter((u) => !navigation.has(u));
 
+  // Governed publishing this week, from the same function the publisher drew its
+  // allowance from. A governed URL that has since vanished from the sitemap is
+  // still counted: the allowance was spent when the page went out.
+  const todayISO = today.toISOString().slice(0, 10);
+  const allowance = weeklyCap.weeklyAllowance(ROOT, { today: todayISO, ledger, policy });
+  const governedThisWeek = allowance.used_urls.filter((u) => !navigation.has(u));
+  const editorialThisWeek = governedThisWeek.length + newEditorial.length;
+
   const dated = [...urls.entries()].filter(([, d]) => d);
   const undated = [...urls.entries()].filter(([, d]) => !d);
   const ages = dated.map(([, d]) => ageDays(d));
@@ -169,8 +195,8 @@ function evaluate(ROOT, policyPath = 'data/cadence/policy.json') {
   const blocking = [];
   const warnings = [];
 
-  if (ledger.exists && newEditorial.length > policy.new_pages_per_week) {
-    blocking.push(`weekly_cap: ${newEditorial.length} editorial URLs are new since the ledger was last accepted, cap is ${policy.new_pages_per_week} per week`);
+  if (ledger.exists && editorialThisWeek > policy.new_pages_per_week) {
+    blocking.push(`weekly_cap: ${editorialThisWeek} editorial URLs this week (${governedThisWeek.length} governed, first seen ${allowance.window[allowance.window.length - 1]}..${allowance.window[0]}; ${newEditorial.length} with no record at all), cap is ${policy.new_pages_per_week} per week`);
   }
   if (stalePct > policy.stale_tolerance_pct) {
     blocking.push(`refresh_debt: ${stale} of ${dated.length} pages (${stalePct.toFixed(0)}%) are older than ${policy.refresh_window_days} days, tolerance is ${policy.stale_tolerance_pct}%`);
@@ -208,6 +234,11 @@ function evaluate(ROOT, policyPath = 'data/cadence/policy.json') {
     new_since_last_run: ledger.exists ? newUrls.length : null,
     new_editorial_urls: ledger.exists ? newEditorial.length : null,
     new_navigation_urls: ledger.exists ? newNavigation.length : null,
+    weekly_window: allowance.window,
+    governed_editorial_this_week: ledger.exists ? governedThisWeek.length : null,
+    governed_editorial_this_week_urls: ledger.exists ? governedThisWeek : null,
+    ungoverned_editorial_urls: ledger.exists ? [...newEditorial].sort() : null,
+    editorial_this_week: ledger.exists ? editorialThisWeek : null,
     ledger_initialised: ledger.exists,
     maintainable_ceiling: ceiling,
     policy: { ...policy, _source: undefined },
@@ -216,7 +247,7 @@ function evaluate(ROOT, policyPath = 'data/cadence/policy.json') {
     status: blocking.length ? 'BLOCKED' : 'CLEAR',
   };
 
-  return { report, policy, urls, navigation, newUrls, newEditorial, newNavigation, ledger };
+  return { report, policy, urls, navigation, newUrls, newEditorial, newNavigation, ledger, allowance, governedThisWeek, editorialThisWeek };
 }
 
 function main() {
@@ -226,7 +257,7 @@ function main() {
   const i = args.indexOf('--policy');
   const policyPath = i >= 0 ? args[i + 1] : 'data/cadence/policy.json';
 
-  const { report, policy, urls, newEditorial, newNavigation, ledger } = evaluate(ROOT, policyPath);
+  const { report, policy, urls, newEditorial, newNavigation, ledger, governedThisWeek } = evaluate(ROOT, policyPath);
 
   // The report is an output of the check, not its input, so writing it does not
   // change what the next run sees. The ledger is the input, and the gate must
@@ -237,7 +268,7 @@ function main() {
   if (JSON_ONLY) console.log(JSON.stringify(report, null, 2));
   else {
     console.log(`CADENCE GATE ${report.status}: ${urls.size} urls; ${report.stale_over_window} past ${policy.refresh_window_days}d (${report.stale_pct}%); ${report.fresh_within_30d} fresh within ${policy.high_value_window_days}d; ceiling ${report.maintainable_ceiling}`);
-    if (ledger.exists) console.log(`  new since last accepted: ${newEditorial.length} editorial, ${newNavigation.length} navigation`);
+    if (ledger.exists) console.log(`  this week: ${governedThisWeek.length} governed editorial; unrecorded: ${newEditorial.length} editorial, ${newNavigation.length} navigation`);
     for (const b of report.blocking) console.log(`  BLOCK  ${b}`);
     for (const w of report.warnings) console.log(`  WARN   ${w}`);
     if (report.blocking.length) {
@@ -250,5 +281,6 @@ function main() {
 }
 
 module.exports = { evaluate, sitemapUrls, navigationUrls, readLedger, loadPolicy, LEDGER_REL };
+
 
 if (require.main === module) main();

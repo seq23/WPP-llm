@@ -303,6 +303,11 @@
       "command": "python3 scripts/validation/faux_trace_all_workflows.py",
       "probe": "workflow-files",
       "input": "the workflow YAML under .github/workflows"
+    },
+    {
+      "command": "node scripts/validators/validate_cadence_cap_parity.js",
+      "probe": "data-records",
+      "input": "data/cadence/known_urls.json governed records, data/cadence/policy.json cap, and the sitemap URL set the gate reads"
     }
   ]
 }

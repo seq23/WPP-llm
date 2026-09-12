@@ -8,11 +8,12 @@ const {
 } = require('./content_quality.js');
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
 const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
+const weeklyCap = require('../cadence/weekly_cap.js');
 
 const plan = readJson('data/releases/daily_release_plan.json', { units: [] });
 const adm = readJson('data/content/page_admission_registry.json', { admissions: [] });
 const state = readJson('data/content/content_state_registry.json', { published_routes: [], blocked_routes: [] });
-let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = [];
+let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = []; const createdRoutes = [];
 let stagedCorpus = listProgrammaticPages();
 
 function recordAdmission(u, route) {
@@ -50,6 +51,7 @@ for (const u of plan.units || []) {
     fs.mkdirSync(path.dirname(file), { recursive:true });
     fs.writeFileSync(file, html);
     created += 1;
+    createdRoutes.push(publicRoute);
   } else if (u.release_action === 'repair') {
     if (!fs.existsSync(file)) { skipped.push({route:publicRoute,source_route:u.target_route,reason:'repair_target_missing'}); continue; }
     const existing = fs.readFileSync(file, 'utf8');
@@ -80,25 +82,27 @@ ledger.repairs_used=Number(ledger.repairs_used||0)+repaired;
 ledger.runs=[...(ledger.runs||[]),{at:new Date().toISOString(),created,repairs:repaired,skipped:skipped.length,quality_rejected:qualityRejected}];
 fs.writeFileSync(ledgerPath,JSON.stringify(ledger,null,2)+'\n');
 
-// The daily ledger is overwritten every midnight, so on its own it cannot answer
-// "how many pages went out this week" - which is the question the weekly cadence
-// allowance in data/cadence/policy.json actually asks. This keeps the per-date
-// history the planner reads before it stages anything. Trimmed to 60 days: long
-// enough that a 7-day window is always fully covered, short enough that it stays
-// a ledger rather than an archive.
-const WEEKLY_LEDGER_RETAIN_DAYS = 60;
-const weeklyPath = path.join(ROOT,'data/releases/weekly_velocity_ledger.json');
-let weekly = { schema_version: '1.0', days: {} };
-try {
-  const prior = JSON.parse(fs.readFileSync(weeklyPath,'utf8'));
-  if (prior && typeof prior.days === 'object' && prior.days) weekly = { ...weekly, ...prior, days: prior.days };
-} catch { /* first write */ }
-weekly.days[today] = Number(weekly.days[today] || 0) + created;
-const cutoff = new Date(Date.parse(`${today}T00:00:00Z`) - WEEKLY_LEDGER_RETAIN_DAYS * 86400000).toISOString().slice(0,10);
-weekly.days = Object.fromEntries(Object.entries(weekly.days).filter(([d]) => d >= cutoff).sort(([a],[b]) => a.localeCompare(b)));
-weekly.updated_at = new Date().toISOString();
-weekly.retain_days = WEEKLY_LEDGER_RETAIN_DAYS;
-fs.writeFileSync(weeklyPath, JSON.stringify(weekly,null,2)+'\n');
+// A governed publish records itself. This is the link between the publisher and
+// the cadence gate: the gate's "used this week" is the set of URLs recorded here
+// (source governed_release) with a first_seen inside the trailing 7 days, read
+// through the same scripts/cadence/weekly_cap.js the planner drew its allowance
+// from. Until 2026-09-12 nothing wrote this record - the pages went out, the
+// per-day velocity ledger was bumped, and the gate compared every URL missing
+// from data/cadence/known_urls.json since the last human acceptance to a per-WEEK
+// cap. Two compliant weeks then read as one overrun, and main went red with the
+// publisher inside policy on every run.
+//
+// recordGovernedPublication refuses if the record would exceed the cap. The
+// planner took its allowance from the same function before anything was
+// generated, so that refusal can only fire if the planner and this step have
+// come apart - in which case failing the run here, before the commit, is what
+// keeps the pages unpublished rather than published-and-blocked.
+const recorded = weeklyCap.recordGovernedPublication(ROOT, createdRoutes.map(weeklyCap.routeToUrl), { today });
+if (recorded.recorded !== createdRoutes.length) {
+  console.error(`cadence: created ${createdRoutes.length} page(s) but recorded ${recorded.recorded}; a page the ledger already knew was re-created, which the create_target_already_exists guard should have stopped.`);
+  process.exit(1);
+}
+if (createdRoutes.length) console.log(`[cadence] recorded ${recorded.recorded} governed URL(s) first seen ${today} in ${weeklyCap.LEDGER_REL}`);
 
 fs.mkdirSync(path.join(ROOT,'artifacts/release'),{recursive:true});
 const status=(created||repaired)?'COMPLETED_WITH_CHANGES':skipped.length?'COMPLETED_ALL_SKIPPED':'COMPLETED_NO_CHANGES';

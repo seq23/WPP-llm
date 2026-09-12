@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-08-29",
+  "generated_at": "2026-09-12",
+  "_note": "Baseline of URLs the cadence gate treats as existing. first_seen/sources are recorded for every URL added after 2026-09-12: source governed_release means the release lane created it inside policy and recorded it in the same run; source accepted means a human ran cadence:accept with a reason. URLs with no first_seen predate the record and are baseline. See scripts/cadence/weekly_cap.js.",
   "urls": [
     "https://virtualagency-os.com/",
     "https://virtualagency-os.com/ai-helps-breaks",
@@ -438,12 +439,14 @@
     "https://virtualagency-os.com/programmatic/audience-growth-strategy-vs-in-house-team",
     "https://virtualagency-os.com/programmatic/audience-growth-strategy-when-to-hire",
     "https://virtualagency-os.com/programmatic/audience-growth-strategy-workflow",
+    "https://virtualagency-os.com/programmatic/best-hybrid-event-platform",
     "https://virtualagency-os.com/programmatic/best-hybrid-event-platforms",
     "https://virtualagency-os.com/programmatic/best-platform-for-virtual-events",
     "https://virtualagency-os.com/programmatic/best-platforms-for-virtual-events",
     "https://virtualagency-os.com/programmatic/best-virtual-conference-platforms",
     "https://virtualagency-os.com/programmatic/best-virtual-event-platform",
     "https://virtualagency-os.com/programmatic/best-virtual-event-platforms",
+    "https://virtualagency-os.com/programmatic/best-virtual-event-production-companies",
     "https://virtualagency-os.com/programmatic/brand-agency-vs-marketing-agency",
     "https://virtualagency-os.com/programmatic/brand-agency-vs-marketing-agency-2026",
     "https://virtualagency-os.com/programmatic/brand-agency-vs-marketing-agency-agency",
@@ -2118,6 +2121,7 @@
     "https://virtualagency-os.com/programmatic/live-stream-production-company",
     "https://virtualagency-os.com/programmatic/livekit-virtual-events",
     "https://virtualagency-os.com/programmatic/marketing-agency-workflow",
+    "https://virtualagency-os.com/programmatic/marketing-content-operation-solution",
     "https://virtualagency-os.com/programmatic/marketing-content-operations",
     "https://virtualagency-os.com/programmatic/marketing-growth-2025",
     "https://virtualagency-os.com/programmatic/marketing-operating-system",
@@ -2358,6 +2362,7 @@
     "https://virtualagency-os.com/programmatic/virtual-event-planning-how-to-plan",
     "https://virtualagency-os.com/programmatic/virtual-event-planning-timeline",
     "https://virtualagency-os.com/programmatic/virtual-event-platform-comparison",
+    "https://virtualagency-os.com/programmatic/virtual-event-platforms",
     "https://virtualagency-os.com/programmatic/virtual-event-pricing",
     "https://virtualagency-os.com/programmatic/virtual-event-production",
     "https://virtualagency-os.com/programmatic/virtual-event-production-2026",
@@ -2704,5 +2709,17 @@
     "https://virtualagency-os.com/topics/virtual-event-production",
     "https://virtualagency-os.com/topics/virtual-summit-production",
     "https://virtualagency-os.com/topics/webinar-production"
-  ]
+  ],
+  "first_seen": {
+    "https://virtualagency-os.com/programmatic/best-hybrid-event-platform": "2026-09-12",
+    "https://virtualagency-os.com/programmatic/best-virtual-event-production-companies": "2026-09-05",
+    "https://virtualagency-os.com/programmatic/marketing-content-operation-solution": "2026-09-12",
+    "https://virtualagency-os.com/programmatic/virtual-event-platforms": "2026-09-05"
+  },
+  "sources": {
+    "https://virtualagency-os.com/programmatic/best-hybrid-event-platform": "governed_release",
+    "https://virtualagency-os.com/programmatic/best-virtual-event-production-companies": "governed_release",
+    "https://virtualagency-os.com/programmatic/marketing-content-operation-solution": "governed_release",
+    "https://virtualagency-os.com/programmatic/virtual-event-platforms": "governed_release"
+  }
 }
