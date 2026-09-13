@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-12T10:40:55.154Z",
+  "updated_at": "2026-09-13T10:42:34.640Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-09-12",
+    "date": "2026-09-13",
     "repairs_used": 20
   },
   "receipts": [
@@ -4197,6 +4197,126 @@
       "route": "/programmatic/ai-workflow-consulting-common-failure-points",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-09-12T10:40:55.153Z"
+    },
+    {
+      "repair_id": "repair_64dcd87ee91c",
+      "route": "/programmatic/ai-workflow-consulting-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.587Z"
+    },
+    {
+      "repair_id": "repair_47632de9e914",
+      "route": "/programmatic/ai-workflow-consulting-comparison",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.595Z"
+    },
+    {
+      "repair_id": "repair_748fe54c1c3a",
+      "route": "/programmatic/ai-workflow-consulting-consultant",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.601Z"
+    },
+    {
+      "repair_id": "repair_587d73511304",
+      "route": "/programmatic/ai-workflow-consulting-cost",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.606Z"
+    },
+    {
+      "repair_id": "repair_cd2a3390889f",
+      "route": "/programmatic/ai-workflow-consulting-deliverables",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.608Z"
+    },
+    {
+      "repair_id": "repair_78da44e9ae5f",
+      "route": "/programmatic/ai-workflow-consulting-examples",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.609Z"
+    },
+    {
+      "repair_id": "repair_ef13ee7b74c6",
+      "route": "/programmatic/ai-workflow-consulting-for-enterprise-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.620Z"
+    },
+    {
+      "repair_id": "repair_3fbb3f78ee51",
+      "route": "/programmatic/ai-workflow-consulting-for-financial-services-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.626Z"
+    },
+    {
+      "repair_id": "repair_5995196001ea",
+      "route": "/programmatic/ai-workflow-consulting-for-founders",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.627Z"
+    },
+    {
+      "repair_id": "repair_b0158c016a05",
+      "route": "/programmatic/ai-workflow-consulting-for-marketing-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.628Z"
+    },
+    {
+      "repair_id": "repair_8c7a7d5b1c4f",
+      "route": "/programmatic/ai-workflow-consulting-for-nonprofits",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.629Z"
+    },
+    {
+      "repair_id": "repair_18b6b306151d",
+      "route": "/programmatic/ai-workflow-consulting-for-professional-services-firms",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.630Z"
+    },
+    {
+      "repair_id": "repair_1eafb5c140ef",
+      "route": "/programmatic/ai-workflow-consulting-for-saas-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.631Z"
+    },
+    {
+      "repair_id": "repair_1ebf306f656e",
+      "route": "/programmatic/ai-workflow-consulting-for-small-teams",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.632Z"
+    },
+    {
+      "repair_id": "repair_97a12bb8564d",
+      "route": "/programmatic/ai-workflow-consulting-for-startups",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.633Z"
+    },
+    {
+      "repair_id": "repair_3111f5728b50",
+      "route": "/programmatic/ai-workflow-consulting-for-venture-backed-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.634Z"
+    },
+    {
+      "repair_id": "repair_5c8c2057c118",
+      "route": "/programmatic/ai-workflow-consulting-how-to-choose",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.635Z"
+    },
+    {
+      "repair_id": "repair_5e4d1261af5e",
+      "route": "/programmatic/ai-workflow-consulting-how-to-compare-vendors",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.637Z"
+    },
+    {
+      "repair_id": "repair_d2565ac20138",
+      "route": "/programmatic/ai-workflow-consulting-implementation-guide",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.638Z"
+    },
+    {
+      "repair_id": "repair_d0cafec4d683",
+      "route": "/programmatic/ai-workflow-consulting-measurement",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-13T10:42:34.639Z"
     }
   ]
 }
