@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-15T10:45:05.735Z",
+  "updated_at": "2026-09-16T10:44:46.005Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -1177,19 +1177,95 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-comparison",
+      "query": null,
+      "repair_id": "repair_7f049e83dd7d",
+      "outcome": "UNCHANGED",
+      "evaluated_at": "2026-09-16T10:44:45.986Z",
+      "before_evidence_present": true,
+      "surfacing_before": true,
+      "surfacing_after": true,
+      "evidence_before": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-comparison",
+          "signal_type": "gsc_query_performance",
+          "strength": 10,
+          "impressions": 10,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 84.4,
+          "observed_at": "2026-09-02T08:50:38.127959Z",
+          "actionability": "repair_or_expand"
+        }
+      ],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-comparison",
+          "signal_type": "gsc_query_performance",
+          "strength": 10,
+          "impressions": 10,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 84.4,
+          "observed_at": "2026-09-16T08:47:20.250127Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
+      "query": null,
+      "repair_id": "repair_a2a948e832d7",
+      "outcome": "UNCHANGED",
+      "evaluated_at": "2026-09-16T10:44:45.988Z",
+      "before_evidence_present": true,
+      "surfacing_before": true,
+      "surfacing_after": true,
+      "evidence_before": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
+          "signal_type": "gsc_query_performance",
+          "strength": 13,
+          "impressions": 13,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 65.07692307692308,
+          "observed_at": "2026-09-02T08:50:38.127969Z",
+          "actionability": "repair_or_expand"
+        }
+      ],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs ai agency",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
+          "signal_type": "gsc_query_performance",
+          "strength": 13,
+          "impressions": 13,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 65.07692307692308,
+          "observed_at": "2026-09-16T08:47:20.250137Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-15T10:45:05.735Z",
-    "eligible": 448,
+    "swept_at": "2026-09-16T10:44:46.005Z",
+    "eligible": 465,
     "promoted": 20,
-    "retested_from_evidence": 3,
+    "retested_from_evidence": 2,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 445,
+    "still_awaiting_evidence": 463,
     "signal_records_matching_queue_routes": 35,
     "outcomes_recorded": {
-      "UNCHANGED": 3
+      "UNCHANGED": 2
     },
     "aged_out_inconclusive": [],
     "stop_reason": null,
