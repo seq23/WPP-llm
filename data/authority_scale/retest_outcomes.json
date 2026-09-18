@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-17T10:45:19.479Z",
+  "updated_at": "2026-09-18T10:43:43.439Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -1587,19 +1587,95 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-for-creative-teams",
+      "query": null,
+      "repair_id": "repair_f63dce133201",
+      "outcome": "UNCHANGED",
+      "evaluated_at": "2026-09-18T10:43:43.428Z",
+      "before_evidence_present": true,
+      "surfacing_before": true,
+      "surfacing_after": true,
+      "evidence_before": [
+        {
+          "query_or_topic": "creative rfp",
+          "target_route": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 29,
+          "observed_at": "2026-09-04T08:45:56.240628Z",
+          "actionability": "repair_or_expand"
+        }
+      ],
+      "evidence_after": [
+        {
+          "query_or_topic": "creative rfp",
+          "target_route": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 29,
+          "observed_at": "2026-09-18T08:45:50.616993Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+      "query": null,
+      "repair_id": "repair_7e3c855ab99e",
+      "outcome": "UNCHANGED",
+      "evaluated_at": "2026-09-18T10:43:43.429Z",
+      "before_evidence_present": true,
+      "surfacing_before": true,
+      "surfacing_after": true,
+      "evidence_before": [
+        {
+          "query_or_topic": "ai consultant vs automation agency south africa",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 95,
+          "observed_at": "2026-09-04T08:45:56.239960Z",
+          "actionability": "repair_or_expand"
+        }
+      ],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai consultant vs automation agency south africa",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 95,
+          "observed_at": "2026-09-18T08:45:50.615687Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-17T10:45:19.479Z",
-    "eligible": 483,
+    "swept_at": "2026-09-18T10:43:43.439Z",
+    "eligible": 498,
     "promoted": 20,
-    "retested_from_evidence": 5,
+    "retested_from_evidence": 2,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 478,
+    "still_awaiting_evidence": 496,
     "signal_records_matching_queue_routes": 45,
     "outcomes_recorded": {
-      "UNCHANGED": 5
+      "UNCHANGED": 2
     },
     "aged_out_inconclusive": [],
     "stop_reason": null,
