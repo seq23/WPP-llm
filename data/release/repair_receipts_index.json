@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-19T10:41:01.005Z",
+  "updated_at": "2026-09-20T10:41:18.799Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "repairs_used": 20
   },
   "receipts": [
@@ -5037,6 +5037,126 @@
       "route": "/programmatic/brand-agency-vs-marketing-agency-red-flags",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-09-19T10:41:01.004Z"
+    },
+    {
+      "repair_id": "repair_8566eb5e700e",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-roi-factors",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.749Z"
+    },
+    {
+      "repair_id": "repair_1f3f2d4ee75e",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-scope-of-work",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.756Z"
+    },
+    {
+      "repair_id": "repair_bfbcbbb56a92",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-services",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.760Z"
+    },
+    {
+      "repair_id": "repair_05aa6a0e19d0",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-strategy-framework",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.763Z"
+    },
+    {
+      "repair_id": "repair_9bcc599383d8",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-template",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.766Z"
+    },
+    {
+      "repair_id": "repair_3eafddb017ac",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-timeline",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.777Z"
+    },
+    {
+      "repair_id": "repair_f6e674be045a",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-vs-in-house-team",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.779Z"
+    },
+    {
+      "repair_id": "repair_2cd1e5d8ceda",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-what-a-good-engagement-includes",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.781Z"
+    },
+    {
+      "repair_id": "repair_c0bc4fc1bf96",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-what-to-prepare-before-kickoff",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.783Z"
+    },
+    {
+      "repair_id": "repair_eaa296bb0880",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-when-to-hire",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.787Z"
+    },
+    {
+      "repair_id": "repair_fddcdc97a435",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-why-it-fails",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.788Z"
+    },
+    {
+      "repair_id": "repair_42c83cd9a809",
+      "route": "/programmatic/brand-agency-vs-marketing-agency-workflow",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.789Z"
+    },
+    {
+      "repair_id": "repair_766234fbfa2b",
+      "route": "/programmatic/brand-agency-vs-marketing-agency",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.790Z"
+    },
+    {
+      "repair_id": "repair_3746b8b63e2e",
+      "route": "/programmatic/brand-community-strategy-2026",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.792Z"
+    },
+    {
+      "repair_id": "repair_06c5cb5fea31",
+      "route": "/programmatic/brand-community-strategy-agency-2026-for-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.793Z"
+    },
+    {
+      "repair_id": "repair_79670fc434b7",
+      "route": "/programmatic/brand-community-strategy-agency-2026-for-startups",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.794Z"
+    },
+    {
+      "repair_id": "repair_dc373e1f6601",
+      "route": "/programmatic/brand-community-strategy-agency-2026-for-venture-backed-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.795Z"
+    },
+    {
+      "repair_id": "repair_a20267c6b129",
+      "route": "/programmatic/brand-community-strategy-agency-content-for-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.796Z"
+    },
+    {
+      "repair_id": "repair_3196893ed043",
+      "route": "/programmatic/brand-community-strategy-agency-content-for-saas-companies",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.797Z"
+    },
+    {
+      "repair_id": "repair_878b734156a7",
+      "route": "/programmatic/brand-community-strategy-agency-content-for-startups",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-09-20T10:41:18.798Z"
     }
   ]
 }
