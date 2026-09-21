@@ -2,105 +2,6 @@
   "schema_version": "1.0",
   "runs": [
     {
-      "run_at": "2026-08-28T10:47:52.435Z",
-      "provider": "gemini",
-      "engines": [
-        "gemini-3.6-flash"
-      ],
-      "mode": "grounded",
-      "queries": 11,
-      "observations": [
-        {
-          "query": "virtual event production companies",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "virtual event management",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "online conference platforms",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "hybrid event platform",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "virtual event services",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "virtual event marketing",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "virtual event trends",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "best virtual event platforms",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "host virtual events",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "how to host a virtual event",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        },
-        {
-          "query": "virtual event planning",
-          "engine": "gemini:gemini-3.6-flash",
-          "mode": "grounded",
-          "observed_at": "2026-08-28T10:47:52.435Z",
-          "status": "provider_error",
-          "error": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
-        }
-      ]
-    },
-    {
       "run_at": "2026-08-28T17:16:26.159Z",
       "provider": "openrouter",
       "engines": [
@@ -13586,10 +13487,251 @@
           "answer_mentions_brand": false
         }
       ]
+    },
+    {
+      "run_at": "2026-09-21T07:34:52.152Z",
+      "provider": "openrouter",
+      "engines": [
+        "openai/gpt-4o-mini"
+      ],
+      "mode": "grounded",
+      "queries": 11,
+      "observations": [
+        {
+          "query": "virtual event production companies",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "virtualvenues.com",
+            "virtuopo.com",
+            "cue.events",
+            "matrixeventsco.com",
+            "dceproductions.com",
+            "virtualentertainmentproductions.com",
+            "tallen-inc.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "virtual event management",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "veeva.com",
+            "cvent.com",
+            "bravuratechnologies.com",
+            "zoom.com",
+            "thevirtualeventcompany.com",
+            "virtuopo.com",
+            "eventsoftware.com",
+            "virtualvenue-events.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "online conference platforms",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "zoom.com",
+            "emeet.com",
+            "larksuite.com",
+            "goto.com",
+            "eventbrite.com",
+            "calendly.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "hybrid event platform",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "zoom.com",
+            "eventsx.com",
+            "globalmeet.com",
+            "cvent.com",
+            "eventmobi.com",
+            "nunify.com",
+            "bravuratechnologies.com",
+            "socio.events",
+            "invitario.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "virtual event services",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "virtualvenues.com",
+            "virtualeventsite.com",
+            "thevirtualeventcompany.com",
+            "impactavsolutions.com",
+            "vfairs.com",
+            "eventservices.uccs.edu",
+            "imsts.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "virtual event marketing",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "blog.webex.com",
+            "zoom.com",
+            "virtualdays.com",
+            "cvent.com",
+            "360livemedia.com",
+            "corp.kaltura.com",
+            "pcma.org",
+            "vhall.com",
+            "snoball.events",
+            "vdainc.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "virtual event trends",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "forrester.com",
+            "globenewswire.com",
+            "about.govexec.com",
+            "zoom.com",
+            "cvent.com",
+            "access-board.gov",
+            "learn.g2.com",
+            "vfairs.com",
+            "guidebook.com",
+            "amworldgroup.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "best virtual event platforms",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "eventbrite.com",
+            "eventbrite.co.uk",
+            "getstream.io",
+            "cvent.com",
+            "spotme.com",
+            "corp.kaltura.com",
+            "eventcombo.com",
+            "heysummit.com"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "host virtual events",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "hostevents.com",
+            "vfairs.com",
+            "zoom.com",
+            "airmeet.com",
+            "microsoft.com",
+            "virtual-events.com.au"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "how to host a virtual event",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "zoom.com",
+            "csusm.edu",
+            "support.microsoft.com",
+            "explore.zoom.us",
+            "help.liveit.io",
+            "events.ieee.org",
+            "eventbrite.com.au"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        },
+        {
+          "query": "virtual event planning",
+          "engine": "openrouter:openai/gpt-4o-mini",
+          "mode": "grounded",
+          "observed_at": "2026-09-21T07:34:52.152Z",
+          "status": "observed",
+          "cited_domains": [
+            "blog.webex.com",
+            "osep.stanford.edu",
+            "cpe.vt.edu",
+            "cme.uchicago.edu",
+            "bdi-events.com",
+            "onepenn.gse.upenn.edu",
+            "dartmouth.edu",
+            "hls.harvard.edu",
+            "sfu.ca"
+          ],
+          "cited_ours": [],
+          "self_cited": false,
+          "named_in_answer": [],
+          "answer_mentions_brand": false
+        }
+      ]
     }
   ],
   "latest_summary": {
-    "run_at": "2026-09-20T19:17:45.715Z",
+    "run_at": "2026-09-21T07:34:52.152Z",
     "provider": "openrouter",
     "engines": [
       "openai/gpt-4o-mini"
