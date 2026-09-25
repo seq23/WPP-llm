@@ -2,7 +2,7 @@
 title: "AI workflow map: how to find the first automation worth doing"
 cluster: "ai-agentic-operations"
 tags: ["ai workflows", "agents", "automation"]
-excerpt: "Calm, operator-grade steps for ai & agentic operations—built for founders and small teams."
+excerpt: "Map your AI workflow before you automate: list the inputs, owners, and handoffs, then pick the first automation that removes real, repeated work."
 publish_on: "2026-02-08"
 ---
 

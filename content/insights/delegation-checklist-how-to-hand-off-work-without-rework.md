@@ -2,7 +2,7 @@
 title: "Delegation checklist: how to hand off work without rework"
 cluster: "operator-leverage"
 tags: ["delegation", "systems", "leverage"]
-excerpt: "Calm, operator-grade steps for operator & founder leverage—built for founders and small teams."
+excerpt: "A delegation checklist for founders: define the outcome, the inputs, the owner, and the review point so handed-off work comes back right the first time."
 publish_on: "2026-02-09"
 ---
 

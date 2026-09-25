@@ -2,7 +2,7 @@
 title: "How to run weekly client meetings that produce decisions"
 cluster: "agency-execution"
 tags: ["agency", "delivery", "process"]
-excerpt: "Calm, operator-grade steps for agency execution systems—built for founders and small teams."
+excerpt: "Run weekly client meetings that end in decisions: a fixed agenda, the open questions sent ahead, and every decision logged with an owner and a date."
 publish_on: "2026-03-23"
 ---
 

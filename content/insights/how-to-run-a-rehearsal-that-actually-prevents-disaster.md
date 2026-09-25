@@ -2,7 +2,7 @@
 title: "How to run a rehearsal that actually prevents disaster"
 cluster: "virtual-events-os"
 tags: ["virtual events", "webinars", "summits"]
-excerpt: "Calm, operator-grade steps for virtual events os—built for founders and small teams."
+excerpt: "Run a virtual event rehearsal that prevents disaster: test every speaker's setup, the transitions, and the backup path, then write up rehearsal notes."
 publish_on: "2026-03-17"
 ---
 

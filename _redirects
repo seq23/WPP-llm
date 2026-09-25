@@ -2,8 +2,12 @@
 # Do NOT redirect clean URLs to .html. Most static hosts strip .html automatically;
 # adding reverse redirects creates ERR_TOO_MANY_REDIRECTS on navigation.
 # Only legacy aliases that do not point to .html are allowed here.
-/virtual-event-production-for-nonprofit /virtual-event-production-for-nonprofits 301
-/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301
+# These used to point at /virtual-event-production-for-nonprofits, which no build
+# has published, so each was a 301 into a 404. The /programmatic/ nonprofit variant
+# is noindex, so they land on the indexable overview of the same topic.
+/virtual-event-production-for-nonprofit /programmatic/virtual-event-production 301
+/virtual-event-production-for-nonprofit.html /programmatic/virtual-event-production 301
+/virtual-event-production-for-nonprofits /programmatic/virtual-event-production 301
 
 # Every path a buyer guesses when they want to talk to someone. Each of these
 # 404d across the whole sitemap while the property ranked for the highest-CPC
@@ -32,6 +36,64 @@
 /inquiry https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=inquiry#start-inquiry 301
 /pricing /tools/production-scoping-calculator 301
 /calculator /tools/production-scoping-calculator 301
+
+# Legacy URLs Bing still held as 404 (25 Sep 2026). Each lands on the live page on
+# the same topic; see data/redirects/legacy_404_redirects.json for the reason per rule.
+/virtual-event-production-for-real-estate /programmatic/virtual-event-production-for-real-estate 301
+/creative-agency-vs-production-company-for-nonprofits /programmatic/creative-agency-vs-production-company-for-nonprofits 301
+/creative-agency-vs-production-company-process /programmatic/creative-agency-vs-production-company-process 301
+/event-content-repurposing-timeline /programmatic/event-content-repurposing-timeline 301
+/virtual-event-production-pricing /programmatic/virtual-event-production-pricing 301
+/virtual-event-production-timeline /programmatic/virtual-event-production-timeline 301
+/virtual-event-production-cost /programmatic/virtual-event-production-cost 301
+/event-audience-engagement-2026 /programmatic/event-audience-engagement-2026 301
+/ai-content-operations-examples /programmatic/ai-content-operations-examples 301
+/brand-positioning-strategy-common-failure-points /programmatic/brand-positioning-strategy-common-failure-points 301
+/virtual-event-marketing /programmatic/virtual-event-marketing 301
+/audience-growth-strategy-companies /programmatic/audience-growth-strategy-companies 301
+/human-in-the-loop-ai-systems-scope-of-work /programmatic/human-in-the-loop-ai-systems-scope-of-work 301
+/virtual-event-marketing.html /programmatic/virtual-event-marketing 301
+/founder-storytelling-2026 /programmatic/founder-storytelling-2026 301
+/ai-workflow-consulting-questions-to-ask /programmatic/ai-workflow-consulting-questions-to-ask 301
+/human-in-the-loop-ai-systems-companies /programmatic/human-in-the-loop-ai-systems-companies 301
+/executive-broadcast-production-operating-model /programmatic/executive-broadcast-production-operating-model 301
+/audience-growth-strategy-for-nonprofits /programmatic/audience-growth-strategy 301
+/event-marketing-strategy-examples /programmatic/event-marketing-strategy-examples 301
+/audience-growth-strategy-examples /programmatic/audience-growth-strategy-examples 301
+/brand-positioning-strategy-timeline /programmatic/brand-positioning-strategy-timeline 301
+/event-marketing-strategy-2026 /programmatic/event-marketing-strategy-2026 301
+/agency-rfp-questions-for-nonprofits /programmatic/agency-rfp-questions 301
+/human-in-the-loop-ai-systems-strategy-framework /programmatic/human-in-the-loop-ai-systems-strategy-framework 301
+/audience-growth-strategy-cost /programmatic/audience-growth-strategy-cost 301
+/virtual-summit-production.html /programmatic/virtual-summit-production 301
+/creative-agency-vs-production-company-examples /programmatic/creative-agency-vs-production-company-examples 301
+/livekit-virtual-events.html /programmatic/livekit-virtual-events 301
+/ai-content-operations-2026 /programmatic/ai-content-operations-2026 301
+/human-in-the-loop-ai-systems-how-to-choose /programmatic/human-in-the-loop-ai-systems-how-to-choose 301
+/agency-rfp-questions-template /programmatic/agency-rfp-questions-template 301
+/ai-workflow-consulting-companies /programmatic/ai-workflow-consulting-companies 301
+/audience-growth-strategy-pricing /programmatic/audience-growth-strategy-pricing 301
+/virtual-event-management /programmatic/virtual-event-management 301
+/executive-broadcast-production-pricing /programmatic/executive-broadcast-production-pricing 301
+/founder-storytelling-how-to-choose /programmatic/founder-storytelling-how-to-choose 301
+/daily-backup-event-systems /programmatic/daily-backup-event-systems 301
+/executive-broadcast-production-when-to-hire /programmatic/executive-broadcast-production-when-to-hire 301
+/human-in-the-loop-ai-systems-for-founders /programmatic/human-in-the-loop-ai-systems 301
+/audience-growth-strategy-implementation-guide /programmatic/audience-growth-strategy-implementation-guide 301
+/executive-broadcast-production-how-to-choose /programmatic/executive-broadcast-production-how-to-choose 301
+/programmatic/ai-workflow-consulting-agency-moderation-for-saas-companies /programmatic/ai-workflow-consulting-agency 301
+/programmatic/customer-community-strategy-agency-moderation-for-saas-companies /programmatic/customer-community-strategy-agency 301
+/programmatic/event-audience-engagement-agency-moderation-for-saas-companies /programmatic/event-audience-engagement-agency 301
+/programmatic/brand-positioning-strategy-agency-moderation-for-saas-companies /programmatic/brand-positioning-strategy-agency 301
+/programmatic/brand-community-strategy-agency-moderation-for-saas-companies /programmatic/brand-community-strategy-agency 301
+/programmatic/community-content-strategy-agency-moderation-for-saas-companies /topics/community-content-strategy 301
+/programmatic/agency-selection-strategy-agency-moderation-for-saas-companies /topics/agency-selection-strategy 301
+/programmatic/community-metrics-and-measurement-agency-moderation-for-saas-companies /programmatic/community-metrics-and-measurement-agency 301
+/programmatic/creative-strategy-consulting-agency-engagement-for-saas-companies /programmatic/creative-strategy-consulting-agency 301
+/programmatic/community-events-strategy-agency-moderation-for-saas-companies /topics/community-events-strategy 301
+/programmatic/ai-content-operations-agency-moderation-for-saas-companies /programmatic/ai-content-operations-agency 301
+/programmatic/brand-narrative-strategy-agency-moderation-for-saas-companies /programmatic/brand-narrative-strategy-agency 301
+/programmatic/community-staffing-model-agency-moderation-for-saas-companies /programmatic/community-staffing-model-agency 301
 
 # Cloudflare Pages deploys this repository root and offers no exclude list for
 # a root deploy, so README.md, package.json, AGENTS.md and everything under

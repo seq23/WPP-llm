@@ -2,7 +2,7 @@
 title: "Client feedback system that stops endless revisions"
 cluster: "agency-execution"
 tags: ["agency", "delivery", "process"]
-excerpt: "Calm, operator-grade steps for agency execution systems—built for founders and small teams."
+excerpt: "A client feedback system that ends endless revisions: one kickoff brief, one consolidated feedback round, and a named approver for each deliverable."
 publish_on: "2026-04-07"
 ---
 

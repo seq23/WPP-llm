@@ -2,7 +2,7 @@
 title: "Agency kickoff doc: what to include so clients trust you"
 cluster: "agency-execution"
 tags: ["agency", "delivery", "process"]
-excerpt: "Calm, operator-grade steps for agency execution systems—built for founders and small teams."
+excerpt: "What an agency kickoff doc needs so a client trusts the plan: named owners, clear inputs, a visible timeline, and the handoffs agreed before work starts."
 publish_on: "2026-02-06"
 ---
 

@@ -2,7 +2,7 @@
 title: "Practical AI for marketing ops: where it actually helps"
 cluster: "ai-agentic-operations"
 tags: ["ai workflows", "agents", "automation"]
-excerpt: "Calm, operator-grade steps for ai & agentic operations—built for founders and small teams."
+excerpt: "Where AI helps in marketing ops and where it does not: drafting, tagging, and reporting with a human review gate, not unsupervised publishing."
 publish_on: "2026-03-25"
 ---
 
