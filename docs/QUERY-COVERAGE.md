@@ -50,9 +50,27 @@ none was added to `data/demand/measured_demand.json`. The gate was not loosened 
   2026-09-25T19:19:37Z for `sc-domain:virtualagency-os.com`, window 2026-06-25..2026-09-23, returned 515 query rows
   (row limit 5,000, so not truncated). None of the seven appears in `data/queries/evidence/evidence_queries.json` or
   `data/authority_scale/query_atlas.json`, so each measured 0 impressions. The gate needs a value above zero.
-- **Keyword-tool lane** (Bing Webmaster Tools Keyword Research per `docs/query-coverage/measurement-plan.md`, T2a, or
-  Semrush, T2b): **named stop**. No `BING_WEBMASTER_API_KEY` exists in the credential vault or in this repo's GitHub
-  secrets, no Semrush key exists, and the Bing web UI needs the owner's signed-in session (checked 2026-09-25: it
-  redirects to sign-in). When a key is added to the vault, measure each seed against
-  `siteUrl=https://virtualagency-os.com`, and add any seed whose `search_volume` is above zero to
-  `measured_demand.json` with the source, site URL, window and date the recording rule requires.
+- **Keyword-tool lane** (Bing Webmaster Tools Keyword Research per `docs/query-coverage/measurement-plan.md`, T2a):
+  the earlier named stop is cleared. The key is in the credential vault as `bing-webmaster-api-key` and in this repo's
+  GitHub secrets as `BING_WEBMASTER_API_KEY` (both set 2026-09-25). The measurement is in the next section.
+
+## Bing keyword measurement, 2026-09-25 (T2a)
+
+Each seed was measured through the Bing Webmaster API `GetKeywordStats` (market `us`/`en-US`, and again with no market
+filter). The window is 25 weekly buckets, 2026-03-28..2026-09-19. The sum of weekly `Impressions` is the monthly-volume
+proxy. As a control, `webinar` returned non-zero weekly rows in the same call shape. Seeds 1 and 4 were also measured
+in shorter form ("webinar vs virtual event", "zoom events vs on24"). The Keyword Research panel in the web UI agreed:
+Bing "doesn't have enough data" for these phrasings.
+
+| # | query | Bing impressions, us (26 wk) | Bing impressions, all markets | demand_gate (`search_volume > 0`) | queued |
+|---|---|---|---|---|---|
+| 1 | webinar vs virtual event, what is the difference | **0** (short form also 0) | **0** | refused | no |
+| 2 | how to increase webinar attendance | **0** | **0** | refused | no |
+| 3 | what equipment do i need to live stream an event | **0** | **0** | refused | no |
+| 4 | zoom events vs on24 for webinars | **0** (short form also 0) | **0** | refused | no |
+| 5 | how long should a webinar be | **0** | **0** | refused | no |
+| 6 | virtual event ideas for employees | **0** | **0** | refused | no |
+| 7 | virtual event vs in person event cost | **0** | **0** | refused | no |
+
+None of the seven clears the gate, so `data/demand/measured_demand.json` is unchanged. A 0 here means the phrasing is
+below Bing's reporting floor. It does not prove nobody searches for it. The route that remains is the owner seed.
