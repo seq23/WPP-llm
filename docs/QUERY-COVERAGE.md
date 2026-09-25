@@ -30,3 +30,29 @@ it was not loosened. To get each question into the queue, do one of these:
 | 5 | how long should a webinar be | https://www.demio.com/blog/webinars-vs-virtual-events |
 | 6 | virtual event ideas for employees | https://www.airmeet.com/hub/blog/webinars-vs-virtual-events-understanding-the-key-differences/ |
 | 7 | virtual event vs in person event cost | https://vimeo.com/blog/post/virtual-event-budget |
+
+## Measurement, 2026-09-25
+
+All seven questions were measured through this repo's existing lanes. None passed `scripts/lib/demand_gate.js`, so
+none was added to `data/demand/measured_demand.json`. The gate was not loosened and no owner seed was written.
+
+| # | query | measured search volume (keyword tool) | measured GSC impressions_90d | result |
+|---|---|---|---|---|
+| 1 | webinar vs virtual event, what is the difference | not measurable (named stop below) | **0** | below threshold |
+| 2 | how to increase webinar attendance | not measurable | **0** | below threshold |
+| 3 | what equipment do i need to live stream an event | not measurable | **0** | below threshold |
+| 4 | zoom events vs on24 for webinars | not measurable | **0** | below threshold |
+| 5 | how long should a webinar be | not measurable | **0** | below threshold |
+| 6 | virtual event ideas for employees | not measurable | **0** | below threshold |
+| 7 | virtual event vs in person event cost | not measurable | **0** | below threshold |
+
+- **GSC lane** (`scripts/queries/ingest_gsc_evidence.py`, run by `query-intelligence.yml`, T1): the live ingest at
+  2026-09-25T19:19:37Z for `sc-domain:virtualagency-os.com`, window 2026-06-25..2026-09-23, returned 515 query rows
+  (row limit 5,000, so not truncated). None of the seven appears in `data/queries/evidence/evidence_queries.json` or
+  `data/authority_scale/query_atlas.json`, so each measured 0 impressions. The gate needs a value above zero.
+- **Keyword-tool lane** (Bing Webmaster Tools Keyword Research per `docs/query-coverage/measurement-plan.md`, T2a, or
+  Semrush, T2b): **named stop**. No `BING_WEBMASTER_API_KEY` exists in the credential vault or in this repo's GitHub
+  secrets, no Semrush key exists, and the Bing web UI needs the owner's signed-in session (checked 2026-09-25: it
+  redirects to sign-in). When a key is added to the vault, measure each seed against
+  `siteUrl=https://virtualagency-os.com`, and add any seed whose `search_volume` is above zero to
+  `measured_demand.json` with the source, site URL, window and date the recording rule requires.
