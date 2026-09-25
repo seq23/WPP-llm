@@ -2,7 +2,7 @@
 title: "Agentic workflows: guardrails that prevent silent failure"
 cluster: "ai-agentic-operations"
 tags: ["ai workflows", "agents", "automation"]
-excerpt: "Calm, operator-grade steps for ai & agentic operations—built for founders and small teams."
+excerpt: "Guardrails for agentic workflows: a human review gate, named checkpoints, and visible artifacts so an automation cannot fail quietly and go unnoticed."
 publish_on: "2026-04-04"
 ---
 

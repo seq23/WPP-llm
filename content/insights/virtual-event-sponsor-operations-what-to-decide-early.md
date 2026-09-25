@@ -2,7 +2,7 @@
 title: "Virtual event sponsor operations: what to decide early"
 cluster: "virtual-events-os"
 tags: ["virtual events", "webinars", "summits"]
-excerpt: "Calm, operator-grade steps for virtual events os—built for founders and small teams."
+excerpt: "Virtual event sponsor operations: decide deliverables, placements, approvals, and reporting early so sponsors get what they paid for without scramble."
 publish_on: "2026-03-22"
 ---
 

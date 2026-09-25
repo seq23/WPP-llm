@@ -308,6 +308,21 @@
       "command": "node scripts/validators/validate_cadence_cap_parity.js",
       "probe": "data-records",
       "input": "data/cadence/known_urls.json governed records, data/cadence/policy.json cap, and the sitemap URL set the gate reads"
+    },
+    {
+      "command": "node scripts/validators/validate_no_redirecting_internal_links.js",
+      "probe": "html-corpus",
+      "input": "every published .html page and the internal hrefs in it"
+    },
+    {
+      "command": "node scripts/validators/validate_page_meta.js",
+      "probe": "html-corpus",
+      "input": "the page behind every sitemap.xml URL"
+    },
+    {
+      "command": "node scripts/validators/validate_redirect_targets.js",
+      "probe": "data-records",
+      "input": "data/redirects/legacy_404_redirects.json and the _redirects rules it feeds"
     }
   ]
 }

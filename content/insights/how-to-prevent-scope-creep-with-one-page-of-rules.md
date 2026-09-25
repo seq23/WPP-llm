@@ -2,7 +2,7 @@
 title: "How to prevent scope creep with one page of rules"
 cluster: "agency-execution"
 tags: ["agency", "delivery", "process"]
-excerpt: "Calm, operator-grade steps for agency execution systems—built for founders and small teams."
+excerpt: "Prevent scope creep with one page of rules: what is in scope, how change requests are priced, and who approves them, agreed before kickoff."
 publish_on: "2026-04-02"
 ---
 

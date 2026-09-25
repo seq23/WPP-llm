@@ -65,8 +65,18 @@ function routeExists(route) {
 for (const rel of requiredFiles) if (!fs.existsSync(path.join(ROOT, rel))) bad.push(`missing required master-plan file: ${rel}`);
 for (const p of priorityPages) if (!routeExists(p)) bad.push(`missing master-plan priority page: ${p}`);
 if (fs.existsSync(path.join(ROOT, 'virtual-event-production-for-nonprofit.html'))) bad.push('singular nonprofit page should redirect, not exist as duplicate HTML');
-const redirects = fs.existsSync(path.join(ROOT, '_redirects')) ? fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8') : '';
-if (!redirects.includes('/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301')) bad.push('missing singular nonprofit clean alias redirect');
+// The singular nonprofit aliases must 301, in one hop, to a page this build
+// publishes. This used to pin the literal rule "-> /virtual-event-production-for-
+// nonprofits", a route no build has ever published, so the gate required a
+// redirect into a 404. It now requires the redirect AND a live landing page.
+const { parseRedirects, resolvePath } = require('./lib/pages_routing.js');
+const redirectRules = parseRedirects(ROOT);
+for (const alias of ['/virtual-event-production-for-nonprofit', '/virtual-event-production-for-nonprofit.html']) {
+  const rule = redirectRules.find((r) => r.from === alias);
+  if (!rule || rule.status !== 301) { bad.push(`missing singular nonprofit clean alias redirect: ${alias}`); continue; }
+  const landing = resolvePath(rule.to, { root: ROOT, rules: redirectRules });
+  if (landing.kind !== 'page') bad.push(`singular nonprofit alias ${alias} -> ${rule.to} does not land on a published page (${landing.kind})`);
+}
 const gscListPath = path.join(ROOT, 'seo/gsc-priority-indexing-list.json');
 if (fs.existsSync(gscListPath)) {
   const gscText = fs.readFileSync(gscListPath, 'utf8');

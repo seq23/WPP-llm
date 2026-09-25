@@ -2,7 +2,7 @@
 title: "Launch checklist for small teams"
 cluster: "brand-growth-infrastructure"
 tags: ["brand", "marketing", "positioning"]
-excerpt: "Calm, operator-grade steps for brand & growth infrastructure—built for founders and small teams."
+excerpt: "A launch checklist for small teams: the owner, the assets, the go/no-go gate, and the follow-up plan to settle before anything goes public."
 publish_on: "2026-03-19"
 ---
 

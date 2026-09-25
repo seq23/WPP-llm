@@ -2,7 +2,7 @@
 title: "Templates that create leverage in a small business"
 cluster: "operator-leverage"
 tags: ["delegation", "systems", "leverage"]
-excerpt: "Calm, operator-grade steps for operator & founder leverage—built for founders and small teams."
+excerpt: "Which templates create real leverage in a small business: briefs, checklists, and SOPs kept in one source of truth so work is reusable, not rebuilt."
 publish_on: "2026-03-21"
 ---
 

@@ -2,7 +2,7 @@
 title: "Human-in-the-loop systems: how to scale without risk"
 cluster: "ai-agentic-operations"
 tags: ["ai workflows", "agents", "automation"]
-excerpt: "Calm, operator-grade steps for ai & agentic operations—built for founders and small teams."
+excerpt: "Scale human-in-the-loop AI systems without adding risk: decide which outputs need review, who approves them, and when the review gate can loosen."
 publish_on: "2026-03-15"
 ---
 

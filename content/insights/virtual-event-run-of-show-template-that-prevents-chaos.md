@@ -2,7 +2,7 @@
 title: "Virtual event run-of-show template that prevents chaos"
 cluster: "virtual-events-os"
 tags: ["virtual events", "webinars", "summits"]
-excerpt: "Calm, operator-grade steps for virtual events os—built for founders and small teams."
+excerpt: "A virtual event run-of-show template that prevents chaos: timed segments, cue owners, transitions, and a backup plan every producer can follow."
 publish_on: "2026-03-27"
 ---
 
