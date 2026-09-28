@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-27T10:43:48.513Z",
+  "updated_at": "2026-09-28T10:47:43.251Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -1801,18 +1801,82 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/ai-workflow-consulting-timeline",
+      "query": null,
+      "repair_id": "repair_c00a43d02819",
+      "outcome": "UNCHANGED",
+      "evaluated_at": "2026-09-28T10:47:43.242Z",
+      "before_evidence_present": true,
+      "surfacing_before": true,
+      "surfacing_after": true,
+      "evidence_before": [
+        {
+          "query_or_topic": "ai timeline planning consulting",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-workflow-consulting-timeline",
+          "signal_type": "gsc_query_performance",
+          "strength": 9,
+          "impressions": 9,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 75.22222222222223,
+          "observed_at": "2026-09-14T08:48:36.661852Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "consulting workflow",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-workflow-consulting-timeline",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 98,
+          "observed_at": "2026-09-14T08:48:36.662258Z",
+          "actionability": "repair_or_expand"
+        }
+      ],
+      "evidence_after": [
+        {
+          "query_or_topic": "ai timeline planning consulting",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-workflow-consulting-timeline",
+          "signal_type": "gsc_query_performance",
+          "strength": 9,
+          "impressions": 9,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 75.22222222222223,
+          "observed_at": "2026-09-28T08:54:36.345542Z",
+          "actionability": "repair_or_expand"
+        },
+        {
+          "query_or_topic": "consulting workflow",
+          "target_route": "https://virtualagency-os.com/programmatic/ai-workflow-consulting-timeline",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 98,
+          "observed_at": "2026-09-28T08:54:36.345741Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-27T10:43:48.513Z",
-    "eligible": 673,
+    "swept_at": "2026-09-28T10:47:43.251Z",
+    "eligible": 693,
     "promoted": 20,
-    "retested_from_evidence": 0,
+    "retested_from_evidence": 1,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 673,
-    "signal_records_matching_queue_routes": 45,
-    "outcomes_recorded": {},
+    "still_awaiting_evidence": 692,
+    "signal_records_matching_queue_routes": 47,
+    "outcomes_recorded": {
+      "UNCHANGED": 1
+    },
     "aged_out_inconclusive": [],
     "stop_reason": null,
     "stop_detail": null
