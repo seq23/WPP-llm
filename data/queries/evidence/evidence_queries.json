@@ -10224,6 +10224,34 @@
       }
     },
     {
+      "query": "westpeak",
+      "evidence_tier": "T1",
+      "source_type": "gsc_search_analytics",
+      "impressions_90d": 2,
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0.0,
+      "average_position": 71.5,
+      "target_domain": "virtualagency-os.com",
+      "measured_window_days": 90,
+      "measured_start": "2026-06-28",
+      "measured_end": "2026-09-26",
+      "first_seen": "2026-08-26",
+      "last_seen": "2026-09-28",
+      "search_volume": null,
+      "demand_basis": "impressions_90d",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "lead_intent_method": "regex_classifier_on_query_string, scripts/queries/score_discovery_gap.mjs",
+      "occupancy": {
+        "verdict": "UNMEASURED",
+        "reason": "NO_GROUNDED_OBSERVATION",
+        "openness_score": null,
+        "cited_hosts": [],
+        "observed_at": null,
+        "engine": null
+      }
+    },
+    {
       "query": "what are marketing deliverables",
       "evidence_tier": "T1",
       "source_type": "gsc_search_analytics",
@@ -15202,34 +15230,6 @@
       }
     },
     {
-      "query": "westpeak",
-      "evidence_tier": "T1",
-      "source_type": "gsc_search_analytics",
-      "impressions_90d": 1,
-      "impressions": 1,
-      "clicks": 0,
-      "ctr": 0.0,
-      "average_position": 61.0,
-      "target_domain": "virtualagency-os.com",
-      "measured_window_days": 90,
-      "measured_start": "2026-06-28",
-      "measured_end": "2026-09-26",
-      "first_seen": "2026-08-26",
-      "last_seen": "2026-09-28",
-      "search_volume": null,
-      "demand_basis": "impressions_90d",
-      "lead_intent_tier": "T4_INFORMATIONAL",
-      "lead_intent_method": "regex_classifier_on_query_string, scripts/queries/score_discovery_gap.mjs",
-      "occupancy": {
-        "verdict": "UNMEASURED",
-        "reason": "NO_GROUNDED_OBSERVATION",
-        "openness_score": null,
-        "cited_hosts": [],
-        "observed_at": null,
-        "engine": null
-      }
-    },
-    {
       "query": "westpeak consultants",
       "evidence_tier": "T1",
       "source_type": "gsc_search_analytics",
@@ -15687,7 +15687,7 @@
     }
   ],
   "last_gsc_ingest": {
-    "at": "2026-09-28T19:20:58Z",
+    "at": "2026-09-28T20:43:28Z",
     "site": "sc-domain:virtualagency-os.com",
     "window": "2026-06-28..2026-09-26",
     "rows_returned": 508,
