@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-30T10:47:58.281Z",
+  "updated_at": "2026-10-01T10:47:35.454Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -2001,19 +2001,57 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy",
+      "query": null,
+      "repair_id": "repair_6ad1b918c9d3",
+      "outcome": "UNCHANGED",
+      "evaluated_at": "2026-10-01T10:47:35.443Z",
+      "before_evidence_present": true,
+      "surfacing_before": true,
+      "surfacing_after": true,
+      "evidence_before": [
+        {
+          "query_or_topic": "audience growth strategy",
+          "target_route": "https://virtualagency-os.com/programmatic/audience-growth-strategy",
+          "signal_type": "gsc_query_performance",
+          "strength": 100,
+          "impressions": 101,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 26.673267326732674,
+          "observed_at": "2026-09-17T08:45:29.263579Z",
+          "actionability": "repair_or_expand"
+        }
+      ],
+      "evidence_after": [
+        {
+          "query_or_topic": "audience growth strategy",
+          "target_route": "https://virtualagency-os.com/programmatic/audience-growth-strategy",
+          "signal_type": "gsc_query_performance",
+          "strength": 100,
+          "impressions": 101,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 26.673267326732674,
+          "observed_at": "2026-10-01T08:51:08.355715Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-09-30T10:47:58.281Z",
-    "eligible": 732,
+    "swept_at": "2026-10-01T10:47:35.454Z",
+    "eligible": 749,
     "promoted": 20,
-    "retested_from_evidence": 3,
+    "retested_from_evidence": 1,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 729,
-    "signal_records_matching_queue_routes": 47,
+    "still_awaiting_evidence": 748,
+    "signal_records_matching_queue_routes": 48,
     "outcomes_recorded": {
-      "UNCHANGED": 3
+      "UNCHANGED": 1
     },
     "aged_out_inconclusive": [],
     "stop_reason": null,
