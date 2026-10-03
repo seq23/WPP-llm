@@ -8,7 +8,10 @@ const pageMeta = require('../lib/page_meta.js');
 // A regenerated page must not come back indexed. The audience-permutation
 // decision lives in one module so the renderer and the on-disk reconciler
 // (scripts/apply_noindex_policy.js) cannot drift; a route that earns an
-// impression returns to index,follow here with no edit anywhere.
+// impression returns to index,follow here with no edit anywhere. The unit's
+// own query is passed through: a page being created has no admission in the
+// registry yet, and without the query a demand-backed audience-permutation
+// route renders noindex (3 Oct 2026, scripts/test_render_robots_parity.js).
 const noindexPolicy = require('../lib/noindex_policy.js');
 
 const DOMAIN = 'https://virtualagency-os.com';
@@ -203,7 +206,7 @@ function renderProgrammaticPageBody(u) {
     author:{'@type':'Organization',name:'VirtualAgency OS',url:DOMAIN+'/'},
     publisher:{'@type':'Organization','@id':'https://www.westpeekproductions.com/#organization',name:'West Peek Productions',url:WPP},
   };
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(pageMeta.fitTitle(t, ' | VirtualAgency OS') || `${t} | VirtualAgency OS`)}</title><meta name="description" content="${esc(metaDesc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="${noindexPolicy.robotsFor(`/${route}`)}"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(w.question)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">${esc(intent.label)}</span></div></section><main><article>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(pageMeta.fitTitle(t, ' | VirtualAgency OS') || `${t} | VirtualAgency OS`)}</title><meta name="description" content="${esc(metaDesc)}"><link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="${canonical}"><meta name="robots" content="${noindexPolicy.robotsFor(`/${route}`, undefined, u.query)}"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><div class="header-inner"><div class="brand"><a href="/">VirtualAgency OS</a><div class="name">by West Peek Productions</div></div><nav class="nav"><a href="/">Home</a><a href="/articles">Articles</a><a href="/query-atlas">Query Atlas</a><a href="/how-west-peek-helps">How West Peek helps</a></nav></div></header><div class="container"><section class="hero"><h1>${esc(w.question)}</h1><p>${esc(desc)}</p><div class="meta"><span class="pill">${esc(u.pillar||'experiences')}</span><span class="pill">${esc(u.page_family||'guide')}</span><span class="pill">${esc(intent.label)}</span></div></section><main><article>
 ${renderArticleInner(w, u)}
 </article></main></div></body></html>`;
 }

@@ -70,6 +70,11 @@ jobs:
       # were green. These tests fail if either can happen again.
       - run: npm run test:citation-probe-rate
       - run: npm run test:retest-loop
+      # 3 Oct 2026: a demand-backed audience-permutation page rendered noindex
+      # because the policy read the admission registry before the applier wrote
+      # it; validate:demand-backed-pages then redded the release. This test
+      # drives the real renderer + policy and fails if that can happen again.
+      - run: npm run test:render-robots-parity
       - run: npm run release:self-heal
       - name: Cadence gate
         # Blocks publishing faster than the library can be kept inside the
