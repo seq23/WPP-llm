@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T10:56:38.192Z",
+  "generated_at": "2026-10-03T20:05:07.743Z",
   "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
@@ -203,6 +203,16 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 11,
+      "name": "npm run test:render-robots-parity",
+      "npm_script": "test:render-robots-parity",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 12,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -212,7 +222,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 12,
+      "step": 13,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
