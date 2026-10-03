@@ -94,26 +94,40 @@ function impressionsFor(route) {
   return impressionsBySlug.get(slugOf(route)) || 0;
 }
 
-function hasMeasuredDemand(route) {
-  const query = queryByRoute.get(normalize(route));
-  return !!(query && demandGate.hasDemand(query));
+/**
+ * Demand is keyed by QUERY; this module reaches it through the admission
+ * registry, which it snapshots at load. That snapshot is correct for every
+ * page that already exists and wrong for the page being created right now:
+ * apply_release_plan.js renders a unit BEFORE it records the admission and
+ * writes the registry only when the whole plan is done, so at render time the
+ * new route has no registry entry here and resolves to "no demand". On
+ * 2026-10-03 the plan admitted /programmatic/brand-positioning-for-startups
+ * (demand-backed, audience-permutation class), the renderer shipped it
+ * noindex, and validate_demand_backed_pages.js - reading the registry the
+ * applier had by then written - correctly refused it as hidden with nothing
+ * sanctioning it. Every caller that knows the admitting query passes it; the
+ * registry lookup is the fallback for callers that only know the route.
+ */
+function hasMeasuredDemand(route, query) {
+  const q = query || queryByRoute.get(normalize(route));
+  return !!(q && demandGate.hasDemand(q));
 }
 
 /**
  * The owner's rule, stated once: a route is protected if it has measured demand
  * OR any Search Console impression. Protected routes are never noindexed.
  */
-function isProtected(route) {
-  return hasMeasuredDemand(route) || impressionsFor(route) > 0;
+function isProtected(route, query) {
+  return hasMeasuredDemand(route, query) || impressionsFor(route) > 0;
 }
 
 /** A route is noindex only if it is in the class AND has no evidence at all. */
-function isNoindex(route) {
-  return isAudiencePermutation(route) && !isProtected(route);
+function isNoindex(route, query) {
+  return isAudiencePermutation(route) && !isProtected(route, query);
 }
 
-function robotsFor(route, indexable = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1') {
-  return isNoindex(route) ? 'noindex,follow' : indexable;
+function robotsFor(route, indexable = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1', query) {
+  return isNoindex(route, query) ? 'noindex,follow' : indexable;
 }
 
 // --- corpus-level helpers ---------------------------------------------------
