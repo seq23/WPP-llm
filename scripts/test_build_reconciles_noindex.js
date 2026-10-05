@@ -19,6 +19,9 @@
  *   2. a noindex route that gains one impression is restored to index, STAYS
  *      indexed through authority:scale:restore (the frozen copy is reconciled
  *      too), frozen status shows no drift, and --check reports zero drift
+ *      and the cadence ledger records it as reindexed_existing, which the gate
+ *      does not count as a new publication - while a forged reindexed_existing
+ *      record for a route NOT on the pre-gate baseline is still counted
  *   3. a recorded-protected class route that loses every impression stays
  *      indexed and the applier does not throw
  *   4. the committed tree has zero drift against the committed signals
@@ -62,7 +65,8 @@ check(!!loser, 'no recorded-protected, impression-only route - case 3 examined z
 function stage() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'noindex-reconcile-'));
   for (const rel of ['scripts', 'programmatic', 'data/demand', 'data/content/page_admission_registry.json',
-    'data/signals/gsc_query_signals.json', 'data/authority_scale/query_atlas.json', 'data/release']) {
+    'data/signals/gsc_query_signals.json', 'data/authority_scale/query_atlas.json', 'data/release', 'data/cadence', 'sitemap.xml',
+    'data/topic-taxonomy.json', 'data/publications.json']) {
     const src = path.join(ROOT, rel);
     if (fs.existsSync(src)) fs.cpSync(src, path.join(dir, rel), { recursive: true });
   }
@@ -91,6 +95,30 @@ if (gainer && loser) {
     check(!/noindex/i.test(robotsIn(a, gainer)), `${gainer} was indexed by apply but authority:scale:restore put the frozen noindex copy back`);
     const status = spawnSync(process.execPath, [path.join(a, 'scripts/authority_scale/frozen_outputs.mjs'), 'status'], { cwd: a, encoding: 'utf8' });
     check(status.status === 0, `frozen outputs drift after apply + restore: ${(status.stdout || '').slice(0, 300)}`);
+
+    // The cadence gate must read the re-index of an existing page as an index
+    // change, not a new publication (2026-10-05, runs 37326411405 / 37327054767:
+    // "3 editorial URLs this week ... 1 with no record at all", cap 2).
+    const gainerUrl = `https://virtualagency-os.com${gainer}`;
+    const forgedUrl = 'https://virtualagency-os.com/programmatic/zz-cadence-test-genuinely-new-page';
+    const sm = path.join(a, 'sitemap.xml');
+    const today = new Date().toISOString().slice(0, 10);
+    fs.writeFileSync(sm, fs.readFileSync(sm, 'utf8').replace('</urlset>',
+      `<url><loc>${gainerUrl}</loc><lastmod>${today}</lastmod></url><url><loc>${forgedUrl}</loc><lastmod>${today}</lastmod></url></urlset>`));
+    const tempCap = require(path.join(a, 'scripts/cadence/weekly_cap.js'));
+    const ledgerA = tempCap.readLedger(a);
+    check(ledgerA.sources[gainerUrl] === tempCap.SOURCE_REINDEXED,
+      `${gainerUrl} was returned to the index but not recorded as ${tempCap.SOURCE_REINDEXED} in ${tempCap.LEDGER_REL}`);
+    const refusal = tempCap.recordReindexedExisting(a, [forgedUrl]);
+    check(refusal.recorded === 0 && refusal.refused.includes(forgedUrl), 'recordReindexedExisting accepted a route that is not on the pre-gate baseline');
+    // Forge the record directly: the gate itself must still count a non-pre-gate URL.
+    const forged = tempCap.readLedger(a);
+    forged.urls.add(forgedUrl); forged.first_seen[forgedUrl] = today; forged.sources[forgedUrl] = tempCap.SOURCE_REINDEXED;
+    tempCap.writeLedger(a, forged, today);
+    const gate = require(path.join(a, 'scripts/cadence_gate.js')).evaluate(a);
+    check(gate.urls.has(gainerUrl) && gate.urls.has(forgedUrl), 'cadence case examined zero items: injected URLs not read from the sitemap');
+    check(!gate.newEditorial.includes(gainerUrl), `cadence gate counts ${gainerUrl} (an existing page re-indexed by the noindex policy) as a new unrecorded publication`);
+    check(gate.newEditorial.includes(forgedUrl), 'cadence gate excused a genuinely new page because its ledger record claims reindexed_existing');
     const c = runApply(a, ['--check']);
     check(c.status === 0, `--check reports drift after apply: ${(c.stderr || '').slice(0, 300)}`);
   } finally { fs.rmSync(a, { recursive: true, force: true }); }
