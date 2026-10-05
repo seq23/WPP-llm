@@ -94,6 +94,16 @@ jobs:
       - name: Build controlled release plan preview
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run release:plan
+      - name: Reconcile noindex policy and sitemap with the new Search Console evidence
+        # The policy is recomputed from the signals this lane just pulled. A page
+        # that earned its first impression must be returned to index, in its
+        # frozen copy and in the sitemap, in the same push as the signals - or
+        # the committed tree drifts from the policy until the next release run
+        # (5 Oct 2026, add924a84). test:build-reconciles-noindex pins this order.
+        if: steps.runtime.outputs.allowed == 'true'
+        run: |
+          node scripts/apply_noindex_policy.js
+          node scripts/update_sitemap_all_html.js
       - name: Validate query intelligence
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run validate:autonomous

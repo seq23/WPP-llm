@@ -49,6 +49,19 @@ const sitemapAt = steps.indexOf('node scripts/update_sitemap_all_html.js');
 check(sitemapAt >= 0, 'build no longer runs update_sitemap_all_html.js; this test pins the wrong order');
 check(applyAt >= 0 && applyAt < sitemapAt,
   'build must run node scripts/apply_noindex_policy.js before node scripts/update_sitemap_all_html.js');
+// The query-intelligence lane pushes the Search Console signals the policy
+// reads but does not run `build`. 5 Oct 2026 (add924a84): it pushed a pull that
+// promoted a page and left the committed page noindex, so case 4 below was red
+// on main until the next release run. The lane must reconcile what its signals
+// govern before it commits.
+{
+  const qi = fs.readFileSync(path.join(ROOT, '.github/workflows/query-intelligence.yml'), 'utf8');
+  const reconcileAt = qi.indexOf('node scripts/apply_noindex_policy.js');
+  const sitemapQiAt = qi.indexOf('node scripts/update_sitemap_all_html.js');
+  const commitAt = qi.indexOf('commit_and_push_if_changed.sh');
+  check(reconcileAt >= 0 && sitemapQiAt > reconcileAt && commitAt > sitemapQiAt,
+    'query-intelligence.yml must run node scripts/apply_noindex_policy.js then node scripts/update_sitemap_all_html.js before its commit step, or a signals push leaves the committed pages drifting from the policy');
+}
 
 // --- pick subjects from the real corpus ---------------------------------------
 const policy = require('./lib/noindex_policy.js');
@@ -107,8 +120,17 @@ if (gainer && loser) {
       `<url><loc>${gainerUrl}</loc><lastmod>${today}</lastmod></url><url><loc>${forgedUrl}</loc><lastmod>${today}</lastmod></url></urlset>`));
     const tempCap = require(path.join(a, 'scripts/cadence/weekly_cap.js'));
     const ledgerA = tempCap.readLedger(a);
-    check(ledgerA.sources[gainerUrl] === tempCap.SOURCE_REINDEXED,
-      `${gainerUrl} was returned to the index but not recorded as ${tempCap.SOURCE_REINDEXED} in ${tempCap.LEDGER_REL}`);
+    // Two records satisfy the gate, and both are true statements about the
+    // page: it is BASELINE (in `urls` with no first_seen - #34 restored the 714
+    // class pages the 29 Aug ledger rebuild had dropped), or, for a pre-gate
+    // page the baseline somehow lacks, the applier recorded it as
+    // reindexed_existing (#33). Anything else and the gate counts it as new.
+    const baselineRecord = ledgerA.urls.has(gainerUrl) && !(gainerUrl in ledgerA.first_seen);
+    const reindexedRecord = ledgerA.sources[gainerUrl] === tempCap.SOURCE_REINDEXED;
+    check(baselineRecord || reindexedRecord,
+      `${gainerUrl} was returned to the index but ${tempCap.LEDGER_REL} neither holds it as baseline nor records it as ${tempCap.SOURCE_REINDEXED}`);
+    // A baseline page must not have been re-recorded as this week's publication.
+    check(!(baselineRecord && ledgerA.sources[gainerUrl]), `${gainerUrl} is baseline yet carries a source record (${ledgerA.sources[gainerUrl]})`);
     const refusal = tempCap.recordReindexedExisting(a, [forgedUrl]);
     check(refusal.recorded === 0 && refusal.refused.includes(forgedUrl), 'recordReindexedExisting accepted a route that is not on the pre-gate baseline');
     // Forge the record directly: the gate itself must still count a non-pre-gate URL.
