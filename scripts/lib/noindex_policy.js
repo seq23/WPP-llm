@@ -116,9 +116,22 @@ function hasMeasuredDemand(route, query) {
 /**
  * The owner's rule, stated once: a route is protected if it has measured demand
  * OR any Search Console impression. Protected routes are never noindexed.
+ *
+ * Protection is also STICKY for every route on FINAL_protected.json. Search
+ * Console evidence is a rolling 90-day window
+ * (distribution_scripts/gsc_collect_query_signals.py), so a route protected by
+ * a single impression loses it when that day rolls off - 23 recorded-protected
+ * routes in the class stood on <=1 impression on 2026-10-05. Without this,
+ * assertNoProtectedRouteIsNoindexed() would throw on the next build after a
+ * roll-off and the scheduled lanes would go red on a date, not a change. The
+ * rule is "I'm not killing anything": once recorded protected, never noindexed.
  */
+const recordedProtected = new Set(readJson(PROTECTED_FILE, []).map(normalize));
+
 function isProtected(route, query) {
-  return hasMeasuredDemand(route, query) || impressionsFor(route) > 0;
+  return recordedProtected.has(normalize(route))
+    || hasMeasuredDemand(route, query)
+    || impressionsFor(route) > 0;
 }
 
 /** A route is noindex only if it is in the class AND has no evidence at all. */

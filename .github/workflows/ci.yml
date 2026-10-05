@@ -75,6 +75,11 @@ jobs:
       # it; validate:demand-backed-pages then redded the release. This test
       # drives the real renderer + policy and fails if that can happen again.
       - run: npm run test:render-robots-parity
+      # 5 Oct 2026: a noindex page earned its first Search Console impression;
+      # the policy (recomputed from live signals) un-sanctioned its noindex but
+      # nothing in `npm run build` rewrote the page, so validate:demand-backed-pages
+      # redded both scheduled lanes. This test fails if build stops reconciling.
+      - run: npm run test:build-reconciles-noindex
       - run: npm run release:self-heal
       - name: Cadence gate
         # Blocks publishing faster than the library can be kept inside the
