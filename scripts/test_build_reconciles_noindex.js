@@ -16,8 +16,9 @@
  *
  * Drives the real applier against a temp copy of the real corpus and signals:
  *   1. source pin: build runs apply_noindex_policy.js before update_sitemap_all_html.js
- *   2. a noindex route that gains one impression is restored to index; --check
- *      then reports zero drift
+ *   2. a noindex route that gains one impression is restored to index, STAYS
+ *      indexed through authority:scale:restore (the frozen copy is reconciled
+ *      too), frozen status shows no drift, and --check reports zero drift
  *   3. a recorded-protected class route that loses every impression stays
  *      indexed and the applier does not throw
  *   4. the committed tree has zero drift against the committed signals
@@ -50,7 +51,8 @@ check(applyAt >= 0 && applyAt < sitemapAt,
 const policy = require('./lib/noindex_policy.js');
 const { klass, noindex } = policy.classify();
 const recorded = new Set(JSON.parse(fs.readFileSync(policy.PROTECTED_FILE, 'utf8')));
-const gainer = noindex.find((r) => /noindex/i.test(robotsIn(ROOT, r)));
+const frozenRoutes = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/release/frozen_output_registry.json'), 'utf8')).pages.map((p) => p.route));
+const gainer = noindex.find((r) => frozenRoutes.has(r) && /noindex/i.test(robotsIn(ROOT, r)));
 const loser = klass.find((r) => recorded.has(r) && !policy.hasMeasuredDemand(r) && policy.impressionsFor(r) > 0);
 check(klass.length > 0, 'zero audience-permutation routes examined');
 check(!!gainer, 'no noindex route on disk to promote - case 2 examined zero items');
@@ -60,7 +62,7 @@ check(!!loser, 'no recorded-protected, impression-only route - case 3 examined z
 function stage() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'noindex-reconcile-'));
   for (const rel of ['scripts', 'programmatic', 'data/demand', 'data/content/page_admission_registry.json',
-    'data/signals/gsc_query_signals.json', 'data/authority_scale/query_atlas.json']) {
+    'data/signals/gsc_query_signals.json', 'data/authority_scale/query_atlas.json', 'data/release']) {
     const src = path.join(ROOT, rel);
     if (fs.existsSync(src)) fs.cpSync(src, path.join(dir, rel), { recursive: true });
   }
@@ -81,6 +83,14 @@ if (gainer && loser) {
     const r = runApply(a);
     check(r.status === 0, `applier failed after an impression was gained: ${(r.stderr || '').slice(0, 300)}`);
     check(!/noindex/i.test(robotsIn(a, gainer)), `${gainer} gained an impression but is still noindex after apply`);
+    // build runs authority:scale:restore AFTER this step and after the sitemap;
+    // the decision must survive it (5 Oct 2026, runs 37323430900/37323426591).
+    check(frozenRoutes.has(gainer), `${gainer} is not a frozen route - the restore case examined zero items`);
+    const restore = spawnSync(process.execPath, [path.join(a, 'scripts/authority_scale/frozen_outputs.mjs'), 'restore'], { cwd: a, encoding: 'utf8' });
+    check(restore.status === 0, `frozen restore failed: ${(restore.stderr || '').slice(0, 300)}`);
+    check(!/noindex/i.test(robotsIn(a, gainer)), `${gainer} was indexed by apply but authority:scale:restore put the frozen noindex copy back`);
+    const status = spawnSync(process.execPath, [path.join(a, 'scripts/authority_scale/frozen_outputs.mjs'), 'status'], { cwd: a, encoding: 'utf8' });
+    check(status.status === 0, `frozen outputs drift after apply + restore: ${(status.stdout || '').slice(0, 300)}`);
     const c = runApply(a, ['--check']);
     check(c.status === 0, `--check reports drift after apply: ${(c.stderr || '').slice(0, 300)}`);
   } finally { fs.rmSync(a, { recursive: true, force: true }); }
