@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-05T10:48:52.619Z
+Generated: 2026-10-05T14:59:37.293Z
 
 Workflows: 8
 
@@ -37,8 +37,9 @@ Workflows: 8
 - ci.yml :: build_validate #9 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
 - ci.yml :: build_validate #10 :: npm run test:retest-loop :: npm:test:retest-loop
 - ci.yml :: build_validate #11 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
-- ci.yml :: build_validate #12 :: npm run release:self-heal :: npm:release:self-heal
-- ci.yml :: build_validate #13 :: Cadence gate :: npm:validate:cadence-integrity
+- ci.yml :: build_validate #12 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
+- ci.yml :: build_validate #13 :: npm run release:self-heal :: npm:release:self-heal
+- ci.yml :: build_validate #14 :: Cadence gate :: npm:validate:cadence-integrity
 - credential-check.yml :: check #1 :: actions/checkout@v6
 - credential-check.yml :: check #2 :: actions/setup-node@v6
 - credential-check.yml :: check #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
