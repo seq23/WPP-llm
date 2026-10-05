@@ -36,6 +36,7 @@ const path = require('path');
 const crypto = require('crypto');
 const zlib = require('zlib');
 const policy = require('./lib/noindex_policy.js');
+const weeklyCap = require('./cadence/weekly_cap.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const CHECK_ONLY = process.argv.includes('--check');
@@ -104,6 +105,17 @@ for (const route of klass) {
   }
 }
 
+// A page returned to the index is an existing page changing index state, not a
+// new publication. Record it where the cadence gate reads, or the gate counts it
+// as an unrecorded editorial URL against the 2/week cap (2026-10-05, runs
+// 37326411405 / 37327054767). recordReindexedExisting only accepts pre-gate
+// routes; anything else stays unrecorded and is capped in full.
+let cadenceRecord = { recorded: 0, refused: [] };
+const restoredRoutes = changed.filter((c) => c.to === INDEXABLE).map((c) => c.route);
+if (restoredRoutes.length && !CHECK_ONLY) {
+  cadenceRecord = weeklyCap.recordReindexedExisting(ROOT, restoredRoutes.map(weeklyCap.routeToUrl));
+}
+
 if (frozenChanged.length && !CHECK_ONLY) {
   fs.writeFileSync(frozenRegistryFile, `${JSON.stringify(frozenRegistry, null, 2)}\n`);
   // Drop cache files no frozen page references any more (freeze() does the same).
@@ -127,6 +139,8 @@ console.log(JSON.stringify({
   missing: missing.length,
   frozen_registry_pages: frozenByRoute.size,
   frozen_copies_reconciled: frozenChanged.length,
+  cadence_reindexed_recorded: cadenceRecord.recorded,
+  cadence_reindexed_refused: cadenceRecord.refused.length,
 }, null, 2));
 
 if (missing.length) {
