@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T14:59:37.293Z",
+  "generated_at": "2026-10-05T15:12:04.596Z",
   "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
@@ -724,6 +724,19 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 16,
+      "name": "Reconcile noindex policy and sitemap with the new Search Console evidence",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/apply_noindex_policy.js",
+        "scripts/update_sitemap_all_html.js"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 17,
       "name": "Validate query intelligence",
       "npm_script": "validate:autonomous",
       "direct_paths": [],
@@ -733,7 +746,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 17,
+      "step": 18,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [
@@ -747,7 +760,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 18,
+      "step": 19,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

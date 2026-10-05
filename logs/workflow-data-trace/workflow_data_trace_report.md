@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-05T14:59:37.293Z
+Generated: 2026-10-05T15:12:04.596Z
 
 Workflows: 8
 
@@ -82,9 +82,10 @@ Workflows: 8
 - query-intelligence.yml :: collect_score #13 :: Observe whether answer engines cite us :: npm:citation:probe
 - query-intelligence.yml :: collect_score #14 :: Score AEO and GEO opportunities :: npm:opportunities:score
 - query-intelligence.yml :: collect_score #15 :: Build controlled release plan preview :: npm:release:plan
-- query-intelligence.yml :: collect_score #16 :: Validate query intelligence :: npm:validate:autonomous
-- query-intelligence.yml :: collect_score #17 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
-- query-intelligence.yml :: collect_score #18 :: actions/upload-artifact@v7
+- query-intelligence.yml :: collect_score #16 :: Reconcile noindex policy and sitemap with the new Search Console evidence :: paths:scripts/apply_noindex_policy.js,scripts/update_sitemap_all_html.js
+- query-intelligence.yml :: collect_score #17 :: Validate query intelligence :: npm:validate:autonomous
+- query-intelligence.yml :: collect_score #18 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
+- query-intelligence.yml :: collect_score #19 :: actions/upload-artifact@v7
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6
 - search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v6
 - search-repair-retest.yml :: diagnose_repair_retest #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
