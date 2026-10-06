@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-05T10:49:29.429Z",
+  "updated_at": "2026-10-06T10:47:42.404Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -2115,18 +2115,72 @@
           "actionability": "repair_or_expand"
         }
       ]
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-for-financial-services-teams",
+      "query": null,
+      "repair_id": "repair_2e71d6fe9e08",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-10-06T10:47:42.084Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "questions to ask in a financial rfp",
+          "target_route": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-financial-services-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 94,
+          "observed_at": "2026-10-06T08:50:07.441582Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-for-financial-services-teams",
+      "query": null,
+      "repair_id": "repair_44faca8311ef",
+      "outcome": "INCONCLUSIVE",
+      "reason": "after_evidence_only_no_dated_before_baseline",
+      "evaluated_at": "2026-10-06T10:47:42.236Z",
+      "before_evidence_present": false,
+      "surfacing_before": null,
+      "surfacing_after": true,
+      "evidence_before": [],
+      "evidence_after": [
+        {
+          "query_or_topic": "questions to ask in a financial rfp",
+          "target_route": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-financial-services-teams",
+          "signal_type": "gsc_query_performance",
+          "strength": 1,
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 94,
+          "observed_at": "2026-10-06T08:50:07.441582Z",
+          "actionability": "repair_or_expand"
+        }
+      ]
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-10-05T10:49:29.429Z",
-    "eligible": 826,
+    "swept_at": "2026-10-06T10:47:42.404Z",
+    "eligible": 846,
     "promoted": 20,
-    "retested_from_evidence": 0,
+    "retested_from_evidence": 2,
     "closed_inconclusive_stale": 0,
-    "still_awaiting_evidence": 826,
-    "signal_records_matching_queue_routes": 49,
-    "outcomes_recorded": {},
+    "still_awaiting_evidence": 844,
+    "signal_records_matching_queue_routes": 50,
+    "outcomes_recorded": {
+      "INCONCLUSIVE": 2
+    },
     "aged_out_inconclusive": [],
     "stop_reason": null,
     "stop_detail": null
