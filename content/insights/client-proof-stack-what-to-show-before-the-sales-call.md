@@ -2,7 +2,7 @@
 title: "Client proof stack: what to show before the sales call"
 cluster: "brand-growth-infrastructure"
 tags: ["brand", "marketing", "positioning"]
-excerpt: "How to assemble enough proof, examples, and clarity that a serious buyer walks into the call already trusting you."
+excerpt: "How to assemble enough proof, examples, and clarity that a serious buyer walks into the sales call already trusting what your team can deliver."
 publish_on: "2026-03-14"
 ---
 

@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const { marked } = require("marked");
 const { applyRecommendationSummary } = require("./lib/recommendation_summary.js");
+const { fitTitle } = require("./lib/page_meta.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT, "content", "insights");
@@ -16,12 +17,25 @@ const LLMS_PATH = path.join(ROOT, "llms.txt");
 const SITE_BASE = "https://virtualagency-os.com";
 
 const CLUSTERS = [
-  { id: "virtual-events-os", name: "Virtual Events OS", pillarSlug: "virtual-events-os" },
-  { id: "agency-execution", name: "Agency Execution Systems", pillarSlug: "agency-execution" },
-  { id: "brand-growth-infrastructure", name: "Brand & Growth Infrastructure", pillarSlug: "brand-growth-infrastructure" },
-  { id: "ai-agentic-operations", name: "AI & Agentic Operations", pillarSlug: "ai-agentic-operations" },
-  { id: "operator-leverage", name: "Operator & Founder Leverage", pillarSlug: "operator-leverage" },
+  { id: "virtual-events-os", name: "Virtual Events OS", pillarSlug: "virtual-events-os",
+    description: "Virtual Events OS: guides to speaker selection, rehearsals, run-of-show templates, sponsor operations, and webinar production for small teams." },
+  { id: "agency-execution", name: "Agency Execution Systems", pillarSlug: "agency-execution",
+    description: "Agency Execution Systems: guides to kickoff docs, client feedback, scope rules, weekly client meetings, and QA checks before work ships." },
+  { id: "brand-growth-infrastructure", name: "Brand & Growth Infrastructure", pillarSlug: "brand-growth-infrastructure",
+    description: "Brand & Growth Infrastructure: guides to brand credibility, homepage messaging, social proof, launch checklists, and a weekly growth loop." },
+  { id: "ai-agentic-operations", name: "AI & Agentic Operations", pillarSlug: "ai-agentic-operations",
+    description: "AI & Agentic Operations: guides to workflow mapping, agentic guardrails, human-in-the-loop review, and automations that survive team turnover." },
+  { id: "operator-leverage", name: "Operator & Founder Leverage", pillarSlug: "operator-leverage",
+    description: "Operator & Founder Leverage: guides to delegation, batching decisions, weekly planning, reusable templates, and a daily execution floor." },
 ];
+
+// Internal hrefs are the URL Cloudflare Pages serves, never one it redirects:
+// /insights/<slug> (Pages 308s the .html form) and /pillars/<slug>/ (a directory
+// index, which Pages 308s to the trailing slash). The 25 Sep 2026 crawl found
+// 29 link targets here answering 308. validate_no_redirecting_internal_links.js
+// holds the line.
+const postHref = (slug) => `/insights/${slug}`;
+const pillarHref = (slug) => `/pillars/${slug}/`;
 
 function readUtf8(p) { return fs.readFileSync(p, "utf8"); }
 function writeUtf8(p, s) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, s, "utf8"); }
@@ -64,13 +78,13 @@ function buildHeader(activeHref) {
   // IMPORTANT: Use root-absolute hrefs so nested pages (pillars/*/index.html) still style correctly.
   const links = [
     { href: "/", label: "Home", cls: "primary" },
-    { href: "/started-business.html", label: "Start here" },
-    { href: "/articles.html", label: "Articles" },
-    { href: "/insights/index.html", label: "Insights" },
-    { href: "/pillars/index.html", label: "Pillars" },
-    { href: "/atlas.html", label: "Atlas" },
-    { href: "/selected-work.html", label: "Work" },
-    { href: "/how-west-peek-helps.html", label: "How we help" },
+    { href: "/started-business", label: "Start here" },
+    { href: "/articles", label: "Articles" },
+    { href: "/insights/", label: "Insights" },
+    { href: "/pillars/", label: "Pillars" },
+    { href: "/atlas", label: "Atlas" },
+    { href: "/selected-work", label: "Work" },
+    { href: "/how-west-peek-helps", label: "How we help" },
   ];
 
   // Normalize active href for accurate highlighting across absolute/relative calls.
@@ -193,13 +207,13 @@ function buildPostPages(posts) {
     const clusterObj = CLUSTERS.find((c) => c.id === post.cluster);
 
     const pillarUrl = clusterObj
-      ? `/pillars/${clusterObj.pillarSlug}/index.html`
-      : "/pillars/index.html";
+      ? pillarHref(clusterObj.pillarSlug)
+      : "/pillars/";
 
     const relatedHtml = related.length
       ? `<section class="card" style="margin-top:20px">
           <h2>Related</h2>
-          <ul>${related.map((r) => `<li><a href="${htmlEscape(r.slug)}.html">${htmlEscape(r.title)}</a></li>`).join("")}</ul>
+          <ul>${related.map((r) => `<li><a href="${htmlEscape(postHref(r.slug))}">${htmlEscape(r.title)}</a></li>`).join("")}</ul>
         </section>`
       : "";
 
@@ -211,7 +225,7 @@ function buildPostPages(posts) {
 
     const meta = `<div class="meta">
       ${post.publishOn ? `<div><strong>Publish date:</strong> ${htmlEscape(post.publishOn)}</div>` : ""}
-      ${clusterObj ? `<div><strong>Cluster:</strong> <a href="/pillars/${clusterObj.pillarSlug}/index.html">${htmlEscape(clusterObj.name)}</a></div>` : ""}
+      ${clusterObj ? `<div><strong>Cluster:</strong> <a href="${pillarHref(clusterObj.pillarSlug)}">${htmlEscape(clusterObj.name)}</a></div>` : ""}
     </div>`;
 
     const bodyHtml = `<article class="article">
@@ -243,10 +257,12 @@ function buildPostPages(posts) {
     }).replace(/<\//g, '<\\/') }</script>`;
 
     const page = wrapPage({
-      title: `${post.title} — West Peek Productions`,
+      // Held to the 30-70 title band (scripts/lib/page_meta.js): the brand suffix
+      // is dropped before the post's own title is touched.
+      title: fitTitle(post.title, " — West Peek Productions") || post.title,
       description: post.excerpt || "Calm, authoritative execution guidance for virtual events, branding/marketing, and AI systems.",
       canonical,
-      activeHref: "/insights/index.html",
+      activeHref: "/insights/",
       bodyHtml,
       extraHead: schema,
     });
@@ -260,9 +276,9 @@ function buildInsightsIndex(posts) {
     .sort((a, b) => (b.publishOn || "").localeCompare(a.publishOn || "") || a.slug.localeCompare(b.slug))
     .map((p) => {
       const clusterObj = CLUSTERS.find((c) => c.id === p.cluster);
-      const clusterLink = clusterObj ? `<a href="/pillars/${clusterObj.pillarSlug}/index.html">${htmlEscape(clusterObj.name)}</a>` : "";
+      const clusterLink = clusterObj ? `<a href="${pillarHref(clusterObj.pillarSlug)}">${htmlEscape(clusterObj.name)}</a>` : "";
       return `<li class="list-item">
-        <div class="list-title"><a href="${htmlEscape(p.slug)}.html">${htmlEscape(p.title)}</a></div>
+        <div class="list-title"><a href="${htmlEscape(postHref(p.slug))}">${htmlEscape(p.title)}</a></div>
         ${p.excerpt ? `<div class="list-excerpt">${htmlEscape(p.excerpt)}</div>` : ""}
         <div class="list-meta">${p.publishOn ? htmlEscape(p.publishOn) : ""}${clusterLink ? " • " + clusterLink : ""}</div>
       </li>`;
@@ -278,9 +294,9 @@ function buildInsightsIndex(posts) {
   const outPath = path.join(OUT_DIR, "index.html");
   const page = wrapPage({
     title: "Insights — West Peek Productions",
-    description: "Operator-grade guidance on virtual events, branding/marketing delivery, and practical AI systems.",
+    description: "Operator-grade insights for founders and small teams on virtual events, agency delivery, brand credibility, and practical AI workflows.",
     canonical: `${SITE_BASE}/insights/index.html`,
-    activeHref: "/insights/index.html",
+    activeHref: "/insights/",
     bodyHtml,
   });
   writeUtf8(outPath, page);
@@ -290,16 +306,16 @@ function buildPillars(posts) {
   // Pillars index
   const pillarCards = CLUSTERS.map((c) => {
     return `<li class="list-item">
-      <div class="list-title"><a href="/pillars/${htmlEscape(c.pillarSlug)}/index.html">${htmlEscape(c.name)}</a></div>
+      <div class="list-title"><a href="${htmlEscape(pillarHref(c.pillarSlug))}">${htmlEscape(c.name)}</a></div>
       <div class="list-excerpt">Best answers and a structured entry point for ${htmlEscape(c.name.toLowerCase())}.</div>
     </li>`;
   }).join("\n");
 
   writeUtf8(path.join(PILLARS_DIR, "index.html"), wrapPage({
     title: "Pillars — West Peek Productions",
-    description: "Cluster pillars for virtual events, agency execution, brand/growth, and AI operations.",
+    description: "Five pillars of operator guidance: virtual events, agency execution, brand and growth, AI and agentic operations, and founder leverage.",
     canonical: `${SITE_BASE}/pillars/index.html`,
-    activeHref: "/pillars/index.html",
+    activeHref: "/pillars/",
     bodyHtml: `<section class="article">
       <h1>Pillars</h1>
       <p class="lede">Choose a pillar to browse structured guidance and related posts.</p>
@@ -313,7 +329,7 @@ function buildPillars(posts) {
       .sort((a, b) => (b.publishOn || "").localeCompare(a.publishOn || "") || a.slug.localeCompare(b.slug));
 
     const list = ps
-      .map((p) => `<li><a href="/insights/${htmlEscape(p.slug)}.html">${htmlEscape(p.title)}</a></li>`)
+      .map((p) => `<li><a href="${htmlEscape(postHref(p.slug))}">${htmlEscape(p.title)}</a></li>`)
       .join("");
 
     const bodyHtml = `<section class="article">
@@ -340,9 +356,9 @@ function buildPillars(posts) {
 
     writeUtf8(path.join(PILLARS_DIR, c.pillarSlug, "index.html"), wrapPage({
       title: `${c.name} — West Peek Productions`,
-      description: `Structured guidance and best answers for ${c.name}.`,
+      description: c.description,
       canonical: `${SITE_BASE}/pillars/${c.pillarSlug}/index.html`,
-      activeHref: "/pillars/index.html",
+      activeHref: "/pillars/",
       bodyHtml,
     }));
   }

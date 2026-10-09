@@ -2,7 +2,7 @@
 title: "How to batch decisions to stop context switching"
 cluster: "operator-leverage"
 tags: ["delegation", "systems", "leverage"]
-excerpt: "Calm, operator-grade steps for operator & founder leverage—built for founders and small teams."
+excerpt: "How to batch decisions so context switching stops eating the week: group similar calls, set a fixed decision window, and log each outcome in one place."
 publish_on: "2026-03-16"
 ---
 

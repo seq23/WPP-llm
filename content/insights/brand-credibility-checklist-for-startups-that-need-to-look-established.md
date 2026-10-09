@@ -2,7 +2,7 @@
 title: "Brand credibility checklist for startups that need to look established"
 cluster: "brand-growth-infrastructure"
 tags: ["brand", "marketing", "positioning"]
-excerpt: "Calm, operator-grade steps for brand & growth infrastructure—built for founders and small teams."
+excerpt: "A brand credibility checklist for startups: the proof, messaging, and site basics a buyer checks before they believe a young company is established."
 publish_on: "2026-02-07"
 ---
 

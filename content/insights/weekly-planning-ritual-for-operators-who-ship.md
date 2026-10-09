@@ -2,7 +2,7 @@
 title: "Weekly planning ritual for operators who ship"
 cluster: "operator-leverage"
 tags: ["delegation", "systems", "leverage"]
-excerpt: "Calm, operator-grade steps for operator & founder leverage—built for founders and small teams."
+excerpt: "A weekly planning ritual for operators who ship: review commitments, pick the few outcomes that matter, and put every task into one source of truth."
 publish_on: "2026-03-26"
 ---
 

@@ -2,7 +2,7 @@
 title: "Execution floor: the minimum daily standard that compounds"
 cluster: "operator-leverage"
 tags: ["delegation", "systems", "leverage"]
-excerpt: "Calm, operator-grade steps for operator & founder leverage—built for founders and small teams."
+excerpt: "Set an execution floor: the minimum daily standard, kept in a single source of truth, that stays achievable on bad days and compounds over months."
 publish_on: "2026-04-05"
 ---
 

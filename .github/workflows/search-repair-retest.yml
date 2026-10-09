@@ -22,6 +22,7 @@ concurrency:
 
 jobs:
   diagnose_repair_retest:
+    timeout-minutes: 10  # ~3x median 3.2m over 8 green runs; fault detector, not a budget
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

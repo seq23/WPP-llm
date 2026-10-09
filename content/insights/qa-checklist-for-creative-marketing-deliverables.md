@@ -2,7 +2,7 @@
 title: "QA checklist for creative + marketing deliverables"
 cluster: "agency-execution"
 tags: ["agency", "delivery", "process"]
-excerpt: "Calm, operator-grade steps for agency execution systems—built for founders and small teams."
+excerpt: "A QA checklist for creative and marketing deliverables: brief match, copy, links, formats, and brand rules, checked before anything reaches the client."
 publish_on: "2026-03-18"
 ---
 

@@ -2,7 +2,7 @@
 title: "Prelaunch checkpoint for agencies before you show work"
 cluster: "agency-execution"
 tags: ["agency", "delivery", "process"]
-excerpt: "A quick operator-grade checkpoint for teams that need client-facing work to look sharp before it leaves the building."
+excerpt: "A quick operator-grade checkpoint for agency teams that need client-facing work to look sharp and error-free before it leaves the building."
 publish_on: "2026-03-13"
 ---
 

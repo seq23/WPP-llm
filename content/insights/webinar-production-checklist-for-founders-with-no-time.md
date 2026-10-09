@@ -2,7 +2,7 @@
 title: "Webinar production checklist for founders with no time"
 cluster: "virtual-events-os"
 tags: ["virtual events", "webinars", "summits"]
-excerpt: "Calm, operator-grade steps for virtual events os—built for founders and small teams."
+excerpt: "A webinar production checklist for founders with no time: the platform, speaker prep, rehearsal, and follow-up steps you can hand to a producer."
 publish_on: "2026-04-06"
 ---
 

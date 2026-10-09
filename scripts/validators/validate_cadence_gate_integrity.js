@@ -226,6 +226,38 @@ if (declaredWeekly !== null) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// 9. A page that leaves the sitemap does not leave the ledger.
+//
+// 5 Oct 2026 (runs 37326411405, 37327054767): the noindex policy restored
+// /programmatic/agency-rfp-questions-for-financial-services-teams to index on
+// its first Search Console impression. It re-entered the sitemap, the gate
+// found no ledger record, counted it as a third editorial URL against a cap
+// of two, and blocked the push on both lanes. The page was published in July
+// and was in the ledger on 27 Aug (50034fa29); #12 (29 Aug) rebuilt the ledger
+// from the then-current sitemap, two days after the noindex policy (#4) had
+// taken 714 such pages out of it. Every one of those pages can come back the
+// same way, so the ledger must hold the whole audience-permutation class -
+// indexed or not - as baseline. The 714 were restored as baseline (no
+// first_seen: they predate the record) in the commit that added this check.
+// ---------------------------------------------------------------------------
+{
+  const policy = require('../lib/noindex_policy.js');
+  const weeklyCap = require('../cadence/weekly_cap.js');
+  const { klass } = policy.classify();
+  const ledger = weeklyCap.readLedger(ROOT);
+  if (!klass.length) {
+    failures.push('noindex_class_empty: scripts/lib/noindex_policy.js classifies zero audience-permutation routes; this check examined nothing and refuses to pass on it.');
+  } else if (!ledger.exists) {
+    failures.push(`ledger_missing: ${path.relative(ROOT, LEDGER)} does not exist, so no page is baseline and every restored-to-index page counts as new.`);
+  } else {
+    const absent = klass.map((r) => weeklyCap.routeToUrl(r)).filter((u) => !ledger.urls.has(u)).sort();
+    if (absent.length) {
+      failures.push(`noindex_class_not_baseline: ${absent.length} of ${klass.length} audience-permutation pages are missing from ${path.relative(ROOT, LEDGER)}; each one the noindex policy restores to index will be counted as a new publication and block the push (run 37326411405). First: ${absent.slice(0, 3).join(', ')}`);
+    }
+  }
+}
+
 const receipt = {
   validator: 'cadence_gate_integrity',
   status: failures.length ? 'FAIL' : 'PASS',
@@ -233,6 +265,7 @@ const receipt = {
   strong_warnings: 0,
   soft_warnings: 0,
   gate_invoked_by: invoking.map((f) => path.basename(f)),
+  noindex_class_in_ledger: !failures.some((x) => x.startsWith('noindex_class_') || x.startsWith('ledger_missing')),
   declared_new_pages_per_week: declaredWeekly,
   publisher_governed_by_policy: !failures.some((x) => x.startsWith('planner_') || x.startsWith('workflow_cap_over_policy')),
   failures,

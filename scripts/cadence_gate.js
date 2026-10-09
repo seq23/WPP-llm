@@ -169,7 +169,10 @@ function evaluate(ROOT, policyPath = 'data/cadence/policy.json') {
   // like a publishing spree, which is exactly the signal this is meant to
   // distinguish. New means a URL that was not in the ledger.
   const ledger = readLedger(ROOT);
-  const newUrls = [...urls.keys()].filter((u) => !ledger.urls.has(u));
+  // A reindexed_existing record only excuses a pre-gate page; one claimed for
+  // any other URL is treated as no record at all (see weekly_cap.js).
+  const unproven = new Set(weeklyCap.unprovenReindexed(ROOT, ledger));
+  const newUrls = [...urls.keys()].filter((u) => !ledger.urls.has(u) || unproven.has(u));
 
   const navigation = navigationUrls(ROOT);
   const newNavigation = newUrls.filter((u) => navigation.has(u));

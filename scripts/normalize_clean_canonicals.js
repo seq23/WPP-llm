@@ -19,23 +19,30 @@ function cleanPath(rel){
   if(rel.endsWith('/index.html')) return '/' + rel.slice(0, -'index.html'.length);
   return '/' + rel.replace(/\.html$/,'');
 }
-function cleanHref(href, existing){
-  if (!href || /^(https?:|mailto:|tel:|#|javascript:|\/\/)/i.test(href)) return href;
-  if (/\.(css|js|json|txt|jpg|jpeg|png|gif|webp|svg|ico|xml)$/i.test(href)) return href;
+// Every internal href leaves here as the URL Cloudflare Pages serves, never one it
+// answers with a 308: /x.html -> /x, /x/index.html -> /x/, and /x -> /x/ when x is
+// a directory index with no x.html beside it (Pages adds the slash). The 25 Sep
+// 2026 crawl found 1,870 hrefs to /pillars/community-as-a-service answering 308.
+// A relative href is resolved against the page's own directory first; it used to
+// be looked up as if it were root-relative, so insights/<slug>.html links were
+// never recognised and shipped as 308s. validate_no_redirecting_internal_links.js
+// is the gate.
+function cleanHref(href, existing, fromRel){
+  if (!href || /^(https?:|mailto:|tel:|#|javascript:|data:|\/\/)/i.test(href)) return href;
+  if (/\.(css|js|json|txt|jpg|jpeg|png|gif|webp|svg|ico|xml|pdf|gz)$/i.test(href.split(/[?#]/)[0])) return href;
   let base=href, frag='', query='';
   if (base.includes('#')) { const parts=base.split('#'); base=parts.shift(); frag='#'+parts.join('#'); }
   if (base.includes('?')) { const parts=base.split('?'); base=parts.shift(); query='?'+parts.join('?'); }
   if (!base) return href;
-  if (base.startsWith('/')) {
-    let rel=base.slice(1);
-    if (rel==='index.html') return '/' + query + frag;
-    if (rel.endsWith('/index.html')) return '/' + rel.slice(0,-'index.html'.length) + query + frag;
-    if (rel.endsWith('.html') && existing.has(rel)) return '/' + rel.slice(0,-5) + query + frag;
-  } else {
-    if (base==='index.html') return '/' + query + frag;
-    if (base.endsWith('/index.html') && existing.has(base)) return '/' + base.slice(0,-'index.html'.length) + query + frag;
-    if (base.endsWith('.html') && existing.has(base)) return '/' + base.slice(0,-5) + query + frag;
-  }
+  const rel = base.startsWith('/')
+    ? base.slice(1)
+    : path.posix.normalize(path.posix.join(path.posix.dirname(fromRel), base)).replace(/^(\.\/)+/, '');
+  if (rel.startsWith('..')) return href;
+  if (rel==='index.html' || rel==='') return '/' + query + frag;
+  if (rel.endsWith('/index.html') && existing.has(rel)) return '/' + rel.slice(0,-'index.html'.length) + query + frag;
+  if (rel.endsWith('.html') && existing.has(rel)) return '/' + rel.slice(0,-5) + query + frag;
+  const bare = rel.replace(/\/$/, '');
+  if (bare && !path.posix.extname(bare) && !existing.has(`${bare}.html`) && existing.has(`${bare}/index.html`)) return '/' + bare + '/' + query + frag;
   return href;
 }
 const files=walk(ROOT);
@@ -49,7 +56,7 @@ for(const f of files){
   if (s.match(/<link rel="canonical" href="[^"]+"/)) s=s.replace(/<link rel="canonical" href="[^"]+"/g, `<link rel="canonical" href="${canonical}"`);
   else s=s.replace(/<meta name="description" content="[^"]*">/, m => `${m}\n  <link rel="canonical" href="${canonical}">`);
   s=s.replace(/<meta property="og:url" content="[^"]+"/g, `<meta property="og:url" content="${canonical}"`);
-  s=s.replace(/href="([^"]+)"/g, (_,href)=>`href="${cleanHref(href, existing)}"`);
+  s=s.replace(/href="([^"]+)"/g, (_,href)=>`href="${cleanHref(href, existing, rel)}"`);
   if(s!==before){fs.writeFileSync(f,s); changed++;}
 }
 console.log(`Normalized clean canonical URLs and internal HTML links in ${changed} files.`);

@@ -2,7 +2,7 @@
 title: "Homepage messaging framework that reduces confusion"
 cluster: "brand-growth-infrastructure"
 tags: ["brand", "marketing", "positioning"]
-excerpt: "Calm, operator-grade steps for brand & growth infrastructure—built for founders and small teams."
+excerpt: "A homepage messaging framework that reduces confusion: who it is for, the problem, the offer, and the proof, in the order a first-time visitor reads."
 publish_on: "2026-04-03"
 ---
 

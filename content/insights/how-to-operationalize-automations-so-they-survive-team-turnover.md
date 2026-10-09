@@ -2,7 +2,7 @@
 title: "How to operationalize automations so they survive team turnover"
 cluster: "ai-agentic-operations"
 tags: ["ai workflows", "agents", "automation"]
-excerpt: "Calm, operator-grade steps for ai & agentic operations—built for founders and small teams."
+excerpt: "Make automations survive team turnover: document each workflow, give it a named owner and a human review gate, and keep the runbook next to it."
 publish_on: "2026-03-20"
 ---
 

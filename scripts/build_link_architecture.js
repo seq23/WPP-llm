@@ -73,6 +73,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { fitDescription } = require('./lib/page_meta.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const DOMAIN = 'https://virtualagency-os.com';
@@ -182,7 +183,9 @@ const PILLAR_LABEL = {
   storytelling: 'Storytelling and Narrative',
   brand: 'Brand Strategy',
 };
-// Pillars that already have a hub page at /pillars/<slug>.
+// Pillars that already have a hub page at /pillars/<slug>. Each value is the URL
+// Cloudflare Pages serves: community-as-a-service is a directory index, so its
+// href carries the trailing slash (without it Pages answers 308).
 const PILLAR_PAGE = {
   'agency-decisions': '/pillars/agency-decisions',
   'ai-workflows': '/pillars/ai-workflows',
@@ -191,7 +194,7 @@ const PILLAR_PAGE = {
   experiences: '/pillars/experiences',
   marketing: '/pillars/marketing',
   storytelling: '/pillars/storytelling',
-  community: '/pillars/community-as-a-service',
+  community: '/pillars/community-as-a-service/',
 };
 
 /** Intent sections. Order is the reading order on a hub page. */
@@ -550,6 +553,19 @@ function hubHtml(c) {
   const present = SECTIONS.filter((s) => c.members.some((m) => m.section === s.id));
   const h1 = `Which ${label} question are you trying to answer?`;
   const description = `A guide to the ${n} ${label} pages in this library: what each one settles, grouped by whether you are choosing a partner, sizing cost and scope, running the work, or checking what usually goes wrong.`;
+  // The hero sentence above runs 190-230 characters; the meta description is
+  // held to the site band (scripts/lib/page_meta.js) and names the decisions
+  // this hub actually has, so two hubs of the same size do not read alike.
+  const decisions = present.filter((s) => s.id !== 'start').map((s) => s.heading.toLowerCase());
+  const guides = `${n} ${label} ${n === 1 ? 'guide' : 'guides'}`;
+  const metaDescription = fitDescription([
+    decisions.length > 1 && `${sentenceCase(guides)} in one place, grouped by decision: ${decisions.join('; ')}.`,
+    decisions.length > 1 && `${sentenceCase(guides)}, grouped by decision: ${decisions.join('; ')}.`,
+    decisions.length > 3 && `${sentenceCase(guides)}, grouped by decision: ${decisions.slice(0, 3).join('; ')}, and more.`,
+    decisions.length > 2 && `${sentenceCase(guides)}, grouped by decision: ${decisions.slice(0, 2).join('; ')}, and more.`,
+    `${sentenceCase(guides)} in this library, grouped by whether you are choosing a partner, sizing cost and scope, or running the work.`,
+    `${sentenceCase(guides)}, grouped by choosing a partner, sizing cost and scope, and running the work.`,
+  ]) || description;
 
   const trail = [{ name: 'Home', route: '/' }, { name: 'Topics', route: '/topics/' }];
 
@@ -605,7 +621,7 @@ function hubHtml(c) {
 
   const answer = `The ${n} pages under ${label} split into ${present.length} decisions, not ${n} separate topics: ${present.map((s) => s.heading.toLowerCase()).join('; ')}. Pick the section that matches the decision in front of you rather than reading in order - each page ends in something observable, so the next one starts from evidence.`;
 
-  return `${head({ title: `${sentenceCase(label)} | VirtualAgency OS`, description, route, ldGraph })}${SITE_HEADER}<div class="container">
+  return `${head({ title: `${sentenceCase(label)} | VirtualAgency OS`, description: metaDescription, route, ldGraph })}${SITE_HEADER}<div class="container">
 <!--link-arch:breadcrumb-->${breadcrumbHtml(trail, sentenceCase(label))}<!--/link-arch:breadcrumb-->
 <section class="hero"><h1>${esc(h1)}</h1><p>${esc(description)}</p><div class="meta"><span class="pill">${esc(c.pillar)}</span><span class="pill">${n} pages</span><span class="pill">topic hub</span></div></section><main><article>
 <section class="callout recommendation-summary" id="recommendation-summary" data-content-block="recommendation_summary"><h2>Direct answer</h2><p class="recommendation-summary__answer"><strong>${esc(answer)}</strong></p></section>
@@ -634,6 +650,10 @@ function topicsIndexHtml() {
 
   const h1 = 'What does this library cover, and where do you start?';
   const description = `A directory of the ${clusterList.length} topics in the VirtualAgency OS answer library, grouped under ${pillarOrder.length} pillars, covering ${totalPages} pages on agency selection, community operations, brand and narrative strategy, AI workflows, and virtual and hybrid event production.`;
+  const metaDescription = fitDescription([
+    `All ${clusterList.length} topics in the VirtualAgency OS library under ${pillarOrder.length} pillars: agency selection, community, brand, AI workflows, and event production.`,
+    `All ${clusterList.length} topics in the VirtualAgency OS library, grouped under ${pillarOrder.length} pillars and covering ${totalPages} pages of buyer and operator guides.`,
+  ]) || description;
 
   const trail = [{ name: 'Home', route: '/' }];
   const ldGraph = JSON.stringify({
@@ -670,7 +690,7 @@ function topicsIndexHtml() {
 
   const answer = `Start with the pillar that matches your problem, then the topic inside it, then the one page that matches your decision. There are ${pillarOrder.length} pillars, ${clusterList.length} topics and ${totalPages} pages, and no page is more than three clicks from here.`;
 
-  return `${head({ title: 'Topics | VirtualAgency OS', description, route, ldGraph })}${SITE_HEADER}<div class="container">
+  return `${head({ title: 'Topic Directory: Every Library Topic | VirtualAgency OS', description: metaDescription, route, ldGraph })}${SITE_HEADER}<div class="container">
 <!--link-arch:breadcrumb-->${breadcrumbHtml(trail, 'Topics')}<!--/link-arch:breadcrumb-->
 <section class="hero"><h1>${esc(h1)}</h1><p>${esc(description)}</p><div class="meta"><span class="pill">${pillarOrder.length} pillars</span><span class="pill">${clusterList.length} topics</span><span class="pill">${totalPages} pages</span></div></section><main><article>
 <section class="callout recommendation-summary" id="recommendation-summary" data-content-block="recommendation_summary"><h2>Direct answer</h2><p class="recommendation-summary__answer"><strong>${esc(answer)}</strong></p></section>
@@ -1079,7 +1099,10 @@ for (const p of pages) {
 
 // 3. Pillar hubs
 const pillarResults = [];
-for (const [pillarKey, route] of Object.entries(PILLAR_PAGE)) {
+for (const [pillarKey, href] of Object.entries(PILLAR_PAGE)) {
+  // PILLAR_PAGE holds the href Pages serves (a directory index keeps its slash);
+  // the route identity used everywhere else here has no trailing slash.
+  const route = normRoute(href);
   const rel = fs.existsSync(path.join(ROOT, `${route.slice(1)}.html`))
     ? `${route.slice(1)}.html`
     : `${route.slice(1)}/index.html`;

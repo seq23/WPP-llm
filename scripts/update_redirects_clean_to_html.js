@@ -28,13 +28,26 @@ const WPP_GUESSED_ROUTES = [
   ['/inquiry', 'inquiry'],
 ];
 
+// Legacy URLs search engines still hold as 404. The list and each target's reason
+// live in data/redirects/legacy_404_redirects.json; validate_redirect_targets.js
+// proves every target is a page this build publishes and is not itself redirected.
+const LEGACY_404 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/legacy_404_redirects.json'), 'utf8')).rules;
+if (!Array.isArray(LEGACY_404) || LEGACY_404.length === 0) {
+  console.error('data/redirects/legacy_404_redirects.json has no rules; refusing to write a _redirects that silently drops them.');
+  process.exit(1);
+}
+
 const lines = [
   '# Canonical policy: clean URLs are canonical.',
   '# Do NOT redirect clean URLs to .html. Most static hosts strip .html automatically;',
   '# adding reverse redirects creates ERR_TOO_MANY_REDIRECTS on navigation.',
   '# Only legacy aliases that do not point to .html are allowed here.',
-  '/virtual-event-production-for-nonprofit /virtual-event-production-for-nonprofits 301',
-  '/virtual-event-production-for-nonprofit.html /virtual-event-production-for-nonprofits 301',
+  '# These used to point at /virtual-event-production-for-nonprofits, which no build',
+  '# has published, so each was a 301 into a 404. The /programmatic/ nonprofit variant',
+  '# is noindex, so they land on the indexable overview of the same topic.',
+  '/virtual-event-production-for-nonprofit /programmatic/virtual-event-production 301',
+  '/virtual-event-production-for-nonprofit.html /programmatic/virtual-event-production 301',
+  '/virtual-event-production-for-nonprofits /programmatic/virtual-event-production 301',
   '',
   '# Every path a buyer guesses when they want to talk to someone. Each of these',
   '# 404d across the whole sitemap while the property ranked for the highest-CPC',
@@ -51,6 +64,10 @@ const lines = [
   ...WPP_GUESSED_ROUTES.map(([from, content]) => `${from} ${wppInquiry(content)} 301`),
   '/pricing /tools/production-scoping-calculator 301',
   '/calculator /tools/production-scoping-calculator 301',
+  '',
+  '# Legacy URLs Bing still held as 404 (25 Sep 2026). Each lands on the live page on',
+  '# the same topic; see data/redirects/legacy_404_redirects.json for the reason per rule.',
+  ...LEGACY_404.map((r) => `${r.from} ${r.to} 301`),
   '',
   '# Cloudflare Pages deploys this repository root and offers no exclude list for',
   '# a root deploy, so README.md, package.json, AGENTS.md and everything under',

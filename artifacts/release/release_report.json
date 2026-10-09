@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T20:41:33.439Z",
+  "generated_at": "2026-10-09T08:53:07.135Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-09-15T19:21:34.244Z",
+    "generated_at": "2026-10-09T07:36:42.081Z",
     "workflow_count": 8,
     "workflows": [
       "admin-command.yml",
@@ -412,6 +412,26 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 11,
+        "name": "npm run test:render-robots-parity",
+        "npm_script": "test:render-robots-parity",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 12,
+        "name": "npm run test:build-reconciles-noindex",
+        "npm_script": "test:build-reconciles-noindex",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 13,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -421,7 +441,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 12,
+        "step": 14,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -913,6 +933,19 @@
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
         "step": 16,
+        "name": "Reconcile noindex policy and sitemap with the new Search Console evidence",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/apply_noindex_policy.js",
+          "scripts/update_sitemap_all_html.js"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "query-intelligence.yml",
+        "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+        "job": "collect_score",
+        "step": 17,
         "name": "Validate query intelligence",
         "npm_script": "validate:autonomous",
         "direct_paths": [],
@@ -922,7 +955,7 @@
         "workflow": "query-intelligence.yml",
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
-        "step": 17,
+        "step": 18,
         "name": "Commit query intelligence artifacts",
         "npm_script": null,
         "direct_paths": [
@@ -936,7 +969,7 @@
         "workflow": "query-intelligence.yml",
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
-        "step": 18,
+        "step": 19,
         "name": "actions/upload-artifact@v7",
         "npm_script": null,
         "direct_paths": [],
@@ -1215,7 +1248,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-09-15T20:40:51.039Z",
+    "generated_at": "2026-10-09T08:52:27.262Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1223,8 +1256,8 @@
         "data/authority_scale/query_atlas.json",
         "data/demand/measured_demand.json"
       ],
-      "demand_records_available": 528,
-      "candidates_considered": 7864,
+      "demand_records_available": 530,
+      "candidates_considered": 7859,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1234,19 +1267,19 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
-        "2026-09-15",
-        "2026-09-14",
-        "2026-09-13",
-        "2026-09-12",
-        "2026-09-11",
-        "2026-09-10",
-        "2026-09-09"
+        "2026-10-09",
+        "2026-10-08",
+        "2026-10-07",
+        "2026-10-06",
+        "2026-10-05",
+        "2026-10-04",
+        "2026-10-03"
       ],
       "usage_source": "data/cadence/known_urls.json",
       "new_pages_used_this_week": 2,
       "new_pages_used_this_week_urls": [
-        "https://virtualagency-os.com/programmatic/best-hybrid-event-platform",
-        "https://virtualagency-os.com/programmatic/marketing-content-operation-solution"
+        "https://virtualagency-os.com/programmatic/best-virtual-event-technology",
+        "https://virtualagency-os.com/programmatic/brand-positioning-for-startups"
       ],
       "weekly_headroom": 0,
       "daily_headroom": 2,
@@ -1263,15 +1296,23 @@
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "e1623be0ee3c944549649bbae53a9b2a1b6c6154b8b0f5cfbc5b7dd139e2e8e9",
-      "legacy_backlog": 80,
-      "thin_pages": 80,
+      "corpus_fingerprint": "6ac65c15a24a0844a2600f2afb89f2a494cd648ddb620909fb44548452169c52",
+      "legacy_backlog": 81,
+      "thin_pages": 81,
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
     "units": [],
     "release_units": [],
     "blocked": [
+      {
+        "target_route": "/programmatic/brand-look-legit",
+        "release_action": "repair",
+        "reason": "quality_repair_missing_opportunity_metadata",
+        "details": [
+          "thin"
+        ]
+      },
       {
         "target_route": "/programmatic/community-budget-planning-framework",
         "release_action": "repair",
@@ -1912,18 +1953,18 @@
         "details": [
           "thin"
         ],
-        "max_similarity": 0.032232,
-        "nearest_route": "/programmatic/virtual-conference-production",
+        "max_similarity": 0.025922,
+        "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
         "self_heal_cycle": 1
       }
     ],
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7864 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "7859 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-09-15T20:40:57.077Z",
+    "updated": "2026-10-09T08:52:32.247Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5034,7 +5075,13 @@
       "/programmatic/virtual-event-platforms",
       "/programmatic/best-virtual-event-production-companies",
       "/programmatic/best-hybrid-event-platform",
-      "/programmatic/marketing-content-operation-solution"
+      "/programmatic/marketing-content-operation-solution",
+      "/programmatic/marketing-content-operation-workflow",
+      "/programmatic/virtual-events-platform-comparison",
+      "/programmatic/virtual-summit-platform",
+      "/programmatic/virtual-event-platforms-comparison",
+      "/programmatic/best-virtual-event-technology",
+      "/programmatic/brand-positioning-for-startups"
     ],
     "blocked_routes": [],
     "last_release_run": {
@@ -5042,8 +5089,8 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-09-15T20:40:57.077Z"
+      "at": "2026-10-09T08:52:32.247Z"
     }
   },
-  "query_universe_count": 10594
+  "query_universe_count": 10596
 }

@@ -2,7 +2,7 @@
 title: "Weekly growth loop: one change, one measurement"
 cluster: "brand-growth-infrastructure"
 tags: ["brand", "marketing", "positioning"]
-excerpt: "Calm, operator-grade steps for brand & growth infrastructure—built for founders and small teams."
+excerpt: "Run a weekly growth loop: make one change, take one measurement, and decide from the result, so growth work builds on evidence instead of guesses."
 publish_on: "2026-03-24"
 ---
 

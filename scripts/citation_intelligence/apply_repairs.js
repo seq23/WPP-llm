@@ -27,6 +27,7 @@ const crypto = require('crypto');
 // Shared with retest_repairs.js so the producer of a queue entry and its consumer
 // cannot drift apart on field names again.
 const signalMatch = require('../lib/signal_match.js');
+const { DESC_MIN, DESC_MAX } = require('../lib/page_meta.js');
 const ROOT = path.resolve(__dirname, '../..');
 const DOMAIN = 'https://virtualagency-os.com';
 
@@ -86,8 +87,11 @@ function repairMetaDescription(html) {
   const existing = html.match(/<meta name="description" content="([^"]*)">/);
   const source = extractSourceText(html);
   if (!source || source.length < 40) return { html, applied: false, reason: 'no_usable_source_text' };
-  const desc = truncateAtWord(source, 160);
-  if (desc.length < 40) return { html, applied: false, reason: 'derived_description_too_short' };
+  const desc = truncateAtWord(source, DESC_MAX);
+  // Held to the site band (scripts/lib/page_meta.js, enforced on every sitemap
+  // page by validate_page_meta.js): a repair that wrote a 40-109 character
+  // description would turn this lane's own validate:all red.
+  if (desc.length < DESC_MIN) return { html, applied: false, reason: 'derived_description_too_short' };
   const tag = `<meta name="description" content="${esc(desc)}">`;
   if (existing) {
     return { html: html.replace(/<meta name="description" content="[^"]*">/, tag), applied: true, new_value: desc };

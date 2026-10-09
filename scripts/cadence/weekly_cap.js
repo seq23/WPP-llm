@@ -62,6 +62,15 @@ const POLICY_REL = 'data/cadence/policy.json';
 const WEEK_DAYS = 7;
 const SOURCE_GOVERNED = 'governed_release';
 const SOURCE_ACCEPTED = 'accepted';
+// A page that already existed before the cadence/demand gates and was withheld
+// from the index by scripts/lib/noindex_policy.js, then indexed again because it
+// earned Search Console evidence. That is an index-state change of an existing
+// page, not a publication: it adds nothing to the library the refresh capacity
+// must keep current. Only routes on the sealed pre-gate baseline qualify, and
+// the gate re-checks that on every read (unprovenReindexed), so writing this
+// source for a genuinely new page does not get it past the cap.
+const SOURCE_REINDEXED = 'reindexed_existing';
+const PRE_GATE_BASELINE_REL = 'data/demand/pre_gate_page_baseline.json';
 // The canonical origin the sitemap builder writes (scripts/update_sitemap_all_html.js
 // DOMAIN). A recorded URL has to match the sitemap byte-for-byte or the gate
 // treats the page as ungoverned; validate_cadence_cap_parity checks that every
@@ -105,7 +114,7 @@ function writeLedger(ROOT, ledger, today) {
   const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
   const doc = {
     generated_at: today,
-    _note: 'Baseline of URLs the cadence gate treats as existing. first_seen/sources are recorded for every URL added after 2026-09-12: source governed_release means the release lane created it inside policy and recorded it in the same run; source accepted means a human ran cadence:accept with a reason. URLs with no first_seen predate the record and are baseline. See scripts/cadence/weekly_cap.js.',
+    _note: 'Baseline of URLs the cadence gate treats as existing. first_seen/sources are recorded for every URL added after 2026-09-12: source governed_release means the release lane created it inside policy and recorded it in the same run; source accepted means a human ran cadence:accept with a reason; source reindexed_existing means a pre-gate page the noindex policy had withheld was indexed again on new evidence (not a publication). URLs with no first_seen predate the record and are baseline. See scripts/cadence/weekly_cap.js.',
     urls: [...ledger.urls].sort(),
     first_seen: sortObj(ledger.first_seen || {}),
     sources: sortObj(ledger.sources || {}),
@@ -189,6 +198,46 @@ function recordAcceptance(ROOT, urls, opts = {}) {
   return { recorded: fresh.length, urls: fresh, ledger };
 }
 
+function preGateRoutes(ROOT) {
+  const f = path.join(ROOT, PRE_GATE_BASELINE_REL);
+  if (!fs.existsSync(f)) return new Set();
+  try { return new Set((JSON.parse(fs.readFileSync(f, 'utf8')).routes || []).map((r) => String(r).replace(/\/+$/, ''))); } catch { return new Set(); }
+}
+
+function urlToRoute(url) {
+  try { return new URL(url).pathname.replace(/\/+$/, '') || '/'; } catch { return String(url || '').replace(/\/+$/, ''); }
+}
+
+/**
+ * Record URLs the noindex policy just returned to the index. Refuses (does not
+ * record) any URL whose route is not on the pre-gate baseline: those stay
+ * unrecorded, so the gate counts them in full exactly as before.
+ */
+function recordReindexedExisting(ROOT, urls, opts = {}) {
+  const today = opts.today || todayISO();
+  const baseline = preGateRoutes(ROOT);
+  const ledger = readLedger(ROOT);
+  const fresh = [...new Set(urls)].filter((u) => u && !ledger.urls.has(u));
+  const recorded = fresh.filter((u) => baseline.has(urlToRoute(u)));
+  const refused = fresh.filter((u) => !baseline.has(urlToRoute(u)));
+  if (!ledger.exists || !recorded.length) return { recorded: 0, urls: [], refused, ledger };
+  for (const u of recorded) {
+    ledger.urls.add(u);
+    ledger.first_seen[u] = today;
+    ledger.sources[u] = SOURCE_REINDEXED;
+  }
+  writeLedger(ROOT, ledger, today);
+  return { recorded: recorded.length, urls: recorded, refused, ledger };
+}
+
+/** Ledger entries claiming reindexed_existing whose route is NOT pre-gate: counted as unrecorded. */
+function unprovenReindexed(ROOT, ledger) {
+  const baseline = preGateRoutes(ROOT);
+  return Object.entries(ledger.sources || {})
+    .filter(([u, src]) => src === SOURCE_REINDEXED && !baseline.has(urlToRoute(u)))
+    .map(([u]) => u);
+}
+
 function routeToUrl(route) {
   const clean = String(route || '').replace(/\.html$/, '');
   return SITE_ORIGIN + (clean === '' || clean === '/' ? '/' : (clean.startsWith('/') ? clean : `/${clean}`));
@@ -196,6 +245,8 @@ function routeToUrl(route) {
 
 module.exports = {
   LEDGER_REL, POLICY_REL, WEEK_DAYS, SITE_ORIGIN, SOURCE_GOVERNED, SOURCE_ACCEPTED,
+  SOURCE_REINDEXED, PRE_GATE_BASELINE_REL,
   todayISO, trailingWindow, readLedger, writeLedger, readCap, governedInWindow,
   weeklyAllowance, recordGovernedPublication, recordAcceptance, routeToUrl,
+  preGateRoutes, recordReindexedExisting, unprovenReindexed,
 };

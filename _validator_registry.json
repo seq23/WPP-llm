@@ -492,6 +492,27 @@
       "severity": "HARD_FAIL",
       "purpose": "Prove every validator in the CI chain hard-fails on an empty input set; a gate that passes while examining zero items is not passing.",
       "owner": "repo"
+    },
+    {
+      "id": "no-redirecting-internal-links",
+      "command": "node scripts/validators/validate_no_redirecting_internal_links.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every internal href is the URL Cloudflare Pages serves, never one it answers with a 308 (/x.html, or a directory index without its slash). Bing, 25 Sep 2026: 34 redirecting link targets.",
+      "owner": "repo"
+    },
+    {
+      "id": "redirect-targets",
+      "command": "node scripts/validators/validate_redirect_targets.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every _redirects target is a published page reached in one hop, and every legacy 404 rule in data/redirects/legacy_404_redirects.json is emitted.",
+      "owner": "repo"
+    },
+    {
+      "id": "page-meta",
+      "command": "node scripts/validators/validate_page_meta.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every sitemap page has a 30-70 character title and a 110-160 character meta description, none shared (Bing rules 113, 117, 118 and Site Scan title length).",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

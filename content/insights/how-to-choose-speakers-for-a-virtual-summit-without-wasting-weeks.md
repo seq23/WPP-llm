@@ -2,7 +2,7 @@
 title: "How to choose speakers for a virtual summit without wasting weeks"
 cluster: "virtual-events-os"
 tags: ["virtual events", "webinars", "summits"]
-excerpt: "Calm, operator-grade steps for virtual events os—built for founders and small teams."
+excerpt: "Choose virtual summit speakers without wasting weeks: set selection criteria first, shortlist fast, and confirm tech and rehearsal slots up front."
 publish_on: "2026-04-01"
 ---
 

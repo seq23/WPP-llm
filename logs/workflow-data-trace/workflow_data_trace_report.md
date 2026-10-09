@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-09-15T20:41:50.896Z
+Generated: 2026-10-09T10:48:32.725Z
 
 Workflows: 8
 
@@ -36,8 +36,10 @@ Workflows: 8
 - ci.yml :: build_validate #8 :: npm run test:push-helper :: npm:test:push-helper
 - ci.yml :: build_validate #9 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
 - ci.yml :: build_validate #10 :: npm run test:retest-loop :: npm:test:retest-loop
-- ci.yml :: build_validate #11 :: npm run release:self-heal :: npm:release:self-heal
-- ci.yml :: build_validate #12 :: Cadence gate :: npm:validate:cadence-integrity
+- ci.yml :: build_validate #11 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
+- ci.yml :: build_validate #12 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
+- ci.yml :: build_validate #13 :: npm run release:self-heal :: npm:release:self-heal
+- ci.yml :: build_validate #14 :: Cadence gate :: npm:validate:cadence-integrity
 - credential-check.yml :: check #1 :: actions/checkout@v6
 - credential-check.yml :: check #2 :: actions/setup-node@v6
 - credential-check.yml :: check #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
@@ -80,9 +82,10 @@ Workflows: 8
 - query-intelligence.yml :: collect_score #13 :: Observe whether answer engines cite us :: npm:citation:probe
 - query-intelligence.yml :: collect_score #14 :: Score AEO and GEO opportunities :: npm:opportunities:score
 - query-intelligence.yml :: collect_score #15 :: Build controlled release plan preview :: npm:release:plan
-- query-intelligence.yml :: collect_score #16 :: Validate query intelligence :: npm:validate:autonomous
-- query-intelligence.yml :: collect_score #17 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
-- query-intelligence.yml :: collect_score #18 :: actions/upload-artifact@v7
+- query-intelligence.yml :: collect_score #16 :: Reconcile noindex policy and sitemap with the new Search Console evidence :: paths:scripts/apply_noindex_policy.js,scripts/update_sitemap_all_html.js
+- query-intelligence.yml :: collect_score #17 :: Validate query intelligence :: npm:validate:autonomous
+- query-intelligence.yml :: collect_score #18 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
+- query-intelligence.yml :: collect_score #19 :: actions/upload-artifact@v7
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6
 - search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v6
 - search-repair-retest.yml :: diagnose_repair_retest #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh

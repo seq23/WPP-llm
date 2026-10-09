@@ -7,6 +7,7 @@ const {
   shingleSetFromHtml, wordCountFromHtml,
 } = require('./content_quality.js');
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
+const noindexPolicy = require('../lib/noindex_policy.js');
 const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
 const weeklyCap = require('../cadence/weekly_cap.js');
 
@@ -35,11 +36,29 @@ function recordAdmission(u, route) {
   if (!state.published_routes.includes(route)) state.published_routes.push(route);
 }
 
+const ROBOTS_RE = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']*)["']/i;
+function robotsPolicyDisagreement(html, route, query) {
+  const onPage = /noindex/i.test((html.match(ROBOTS_RE) || [])[1] || '');
+  const expected = noindexPolicy.isNoindex(route, query);
+  if (onPage === expected) return null;
+  return `rendered ${onPage ? 'noindex' : 'indexable'} but policy says ${expected ? 'noindex' : 'indexable'} for ${route} (query: ${query})`;
+}
+
 for (const u of plan.units || []) {
   const publicRoute = governedRoute(u.target_route);
   const rel = publicRoute.replace(/^\//, '');
   const file = path.join(ROOT, rel + '.html');
   const html = renderProgrammaticPage({ ...u, target_route: publicRoute });
+  // Hold, do not red: the robots decision the renderer wrote must be the one
+  // the policy reaches for this route AND this unit's query - the same answer
+  // validate_demand_backed_pages.js will compute after the registry is written.
+  // A page that disagrees is held here with a named reason instead of being
+  // written to disk and failing the whole release an hour later.
+  const robotsDisagreement = robotsPolicyDisagreement(html, publicRoute, u.query);
+  if (robotsDisagreement) {
+    skipped.push({ route:publicRoute, source_route:u.target_route, reason:'robots_policy_disagreement', details:robotsDisagreement });
+    continue;
+  }
   const quality = candidateQuality(html, { ...u, target_route: publicRoute }, stagedCorpus);
   if (!quality.ok) {
     qualityRejected += 1;

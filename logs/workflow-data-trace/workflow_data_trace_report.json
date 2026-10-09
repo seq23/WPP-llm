@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T20:41:50.896Z",
+  "generated_at": "2026-10-09T10:48:32.725Z",
   "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
@@ -203,6 +203,26 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 11,
+      "name": "npm run test:render-robots-parity",
+      "npm_script": "test:render-robots-parity",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 12,
+      "name": "npm run test:build-reconciles-noindex",
+      "npm_script": "test:build-reconciles-noindex",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 13,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -212,7 +232,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 12,
+      "step": 14,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
@@ -704,6 +724,19 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 16,
+      "name": "Reconcile noindex policy and sitemap with the new Search Console evidence",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/apply_noindex_policy.js",
+        "scripts/update_sitemap_all_html.js"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 17,
       "name": "Validate query intelligence",
       "npm_script": "validate:autonomous",
       "direct_paths": [],
@@ -713,7 +746,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 17,
+      "step": 18,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [
@@ -727,7 +760,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 18,
+      "step": 19,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

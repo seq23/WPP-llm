@@ -2,7 +2,7 @@
 title: "How to build social proof assets without faking anything"
 cluster: "brand-growth-infrastructure"
 tags: ["brand", "marketing", "positioning"]
-excerpt: "Calm, operator-grade steps for brand & growth infrastructure—built for founders and small teams."
+excerpt: "Build social proof without faking anything: case study outlines, real client quotes, and documented results that hold up when a buyer checks them."
 publish_on: "2026-04-08"
 ---
 

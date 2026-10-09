@@ -2,7 +2,7 @@
 title: "How to run a virtual summit that feels calm"
 cluster: "virtual-events-os"
 tags: ["virtual events", "webinars", "summits"]
-excerpt: "Operator-grade guidance on virtual events os with a calm, execution-first approach."
+excerpt: "How to run a virtual summit that feels calm on the day: clear inputs, a visible run of show, strict producer handoffs, and one owner per decision."
 ---
 
 Running a large virtual event is mostly operations. Treat it like a production line, not a vibe.
