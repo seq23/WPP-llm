@@ -22,6 +22,15 @@
  *    404'd in production. The publish rule now comes from the assembler itself,
  *    so the deployer and the validator cannot disagree.
  *
+ * 3. IT NEVER READ META OR STRUCTURED DATA. Fourteen pages carried
+ *    `"logo":"assets/west-peek-productions-logo.jpeg"` in Organization JSON-LD
+ *    and `content="assets/..."` in og:image / twitter:image. Neither is an
+ *    href or src, so this gate never saw them; Ahrefs Site Audit (crawl of
+ *    24 September 2026, PR #25) did. Open Graph and schema.org both require an
+ *    absolute URL there, so og:image, twitter:image and JSON-LD "logo"/"image"
+ *    must now be absolute http(s) URLs, and on our own origin must resolve to a
+ *    published file.
+ *
  * Both holes are the same shape: a check that runs, reports green, and is
  * incapable of seeing the defect it is named for.
  *
@@ -43,6 +52,9 @@ const SKIP = new Set(['.pages-output', 'node_modules', '.git', '.build', 'logs',
 
 const MIN_PAGES = 100;
 const MIN_SRC = 50;
+// Image URLs carried in og:image / twitter:image and in JSON-LD "logo"/"image".
+const MIN_IMAGE_URLS = 20;
+const SITE_ORIGIN = 'https://virtualagency-os.com';
 
 function walk(dir, out = []) {
   for (const name of fs.readdirSync(dir)) {
@@ -108,6 +120,38 @@ for (const file of files) {
   }
 }
 
+// Hole (3): image URLs in meta tags and JSON-LD must be absolute and live.
+const META_IMAGE = /<meta\s+(?:property|name)\s*=\s*["'](?:og|twitter):image["']\s+content\s*=\s*["']([^"']*)["']/gi;
+const LD_BLOCK = /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+const LD_IMAGE = /"(logo|image)"\s*:\s*"([^"]*)"/g;
+let imageUrls = 0;
+function checkImageUrl(file, where, value) {
+  imageUrls += 1;
+  const rel = path.relative(ROOT, file);
+  if (!/^https?:\/\//i.test(value)) {
+    bad.push(`${rel} -> ${where}="${value}" (not an absolute URL; Open Graph and schema.org require one, crawlers resolve it against the page path)`);
+    return;
+  }
+  if (value.toLowerCase().startsWith(`${SITE_ORIGIN}/`)) {
+    const local = value.slice(SITE_ORIGIN.length);
+    if (resolves(path.join(ROOT, 'index.html'), local) !== true) {
+      bad.push(`${rel} -> ${where}="${value}" (our origin, but no published file answers ${local})`);
+    }
+  }
+}
+for (const file of files) {
+  const html = fs.readFileSync(file, 'utf8');
+  META_IMAGE.lastIndex = 0;
+  let m;
+  while ((m = META_IMAGE.exec(html))) checkImageUrl(file, 'meta image', m[1]);
+  LD_BLOCK.lastIndex = 0;
+  while ((m = LD_BLOCK.exec(html))) {
+    LD_IMAGE.lastIndex = 0;
+    let k;
+    while ((k = LD_IMAGE.exec(m[1]))) checkImageUrl(file, `JSON-LD ${k[1]}`, k[2]);
+  }
+}
+
 // RULE 0 - an empty corpus is a failure, not a pass. Checked before the verdict
 // so that "0 offenders over 0 pages" can never be printed as success.
 if (files.length < MIN_PAGES) {
@@ -123,6 +167,11 @@ if (srcAttrs < MIN_SRC) {
   process.exit(1);
 }
 
+if (imageUrls < MIN_IMAGE_URLS) {
+  console.error(`INTERNAL LINK VALIDATION EXAMINED ONLY ${imageUrls} META/JSON-LD IMAGE URLS (floor ${MIN_IMAGE_URLS}). That scan is how relative logo paths in structured data are caught; if it examines nothing it cannot catch them, so this is a failure rather than a pass.`);
+  process.exit(1);
+}
+
 if (bad.length) {
   console.error(`Broken internal links (${bad.length}):`);
   for (const item of bad.slice(0, 80)) console.error(`- ${item}`);
@@ -130,4 +179,4 @@ if (bad.length) {
   process.exit(1);
 }
 
-console.log(`Internal link validation OK: ${files.length} published HTML files, ${attrs} link attributes (${srcAttrs} src)`);
+console.log(`Internal link validation OK: ${files.length} published HTML files, ${attrs} link attributes (${srcAttrs} src), ${imageUrls} meta/JSON-LD image URLs`);
