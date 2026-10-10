@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "analysis_version": "wpp-content-quality-v1",
-  "corpus_fingerprint": "6ac65c15a24a0844a2600f2afb89f2a494cd648ddb620909fb44548452169c52",
+  "corpus_fingerprint": "8acb16b21de132d527f2f6c458941fb41210065c97b199f5d478185126d3a354",
   "config": {
     "min_programmatic_words": 700,
     "duplicate_block_threshold": 0.9,
@@ -12,7 +12,7 @@
     "repair_policy": "only count a repair when the page content actually changes and passes the same substance and duplicate gate"
   },
   "summary": {
-    "pages_scanned": 3163,
+    "pages_scanned": 3165,
     "blocking_legacy_pages": 81,
     "thin_pages": 81,
     "exact_duplicate_pages": 0,
@@ -5673,6 +5673,19 @@
       "word_count": 1478,
       "max_similarity": 0.601793,
       "nearest_route": "/programmatic/virtual-event-platforms",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/best-virtual-events-platforms",
+      "file": "programmatic/best-virtual-events-platforms.html",
+      "query": "best virtual events platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "word_count": 1442,
+      "max_similarity": 0.561483,
+      "nearest_route": "/programmatic/virtual-event-management",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -37749,6 +37762,19 @@
       "flags": [
         "thin"
       ]
+    },
+    {
+      "route": "/programmatic/top-virtual-conference-platforms",
+      "file": "programmatic/top-virtual-conference-platforms.html",
+      "query": "top virtual conference platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "page_family": "operational_guide",
+      "word_count": 1450,
+      "max_similarity": 0.624383,
+      "nearest_route": "/programmatic/virtual-events-platforms",
+      "exact_duplicate_routes": [],
+      "flags": []
     },
     {
       "route": "/programmatic/top-virtual-event-platforms",
