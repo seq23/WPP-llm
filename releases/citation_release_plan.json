@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-10-09T20:46:02.342Z",
+  "generated_at": "2026-10-10T07:30:38.394Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 530,
-    "candidates_considered": 7859,
+    "candidates_considered": 7807,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,30 +19,27 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-10-10",
       "2026-10-09",
       "2026-10-08",
       "2026-10-07",
       "2026-10-06",
       "2026-10-05",
-      "2026-10-04",
-      "2026-10-03"
+      "2026-10-04"
     ],
     "usage_source": "data/cadence/known_urls.json",
-    "new_pages_used_this_week": 2,
-    "new_pages_used_this_week_urls": [
-      "https://virtualagency-os.com/programmatic/best-virtual-event-technology",
-      "https://virtualagency-os.com/programmatic/brand-positioning-for-startups"
-    ],
-    "weekly_headroom": 0,
+    "new_pages_used_this_week": 0,
+    "new_pages_used_this_week_urls": [],
+    "weekly_headroom": 2,
     "daily_headroom": 2,
-    "new_page_allowance_this_run": 0,
+    "new_page_allowance_this_run": 2,
     "governed_by": "weekly_cadence_policy"
   },
   "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
   "daily_new_pages_already_used": 0,
   "daily_repairs_already_used": 0,
-  "max_new_pages_this_run": 0,
+  "max_new_pages_this_run": 2,
   "max_repairs_this_run": 100,
   "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
@@ -54,8 +51,214 @@
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0
   },
-  "units": [],
-  "release_units": [],
+  "units": [
+    {
+      "opportunity_id": "opp_YmVzdCB2aXJ0dWFsIGV2ZW50",
+      "query": "best virtual events platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-virtual-events-platforms",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/best-virtual-events-platforms",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1111,
+        "max_similarity": 0.56199,
+        "nearest_route": "/programmatic/platforms-to-host-virtual-events",
+        "reasons": []
+      },
+      "release_order": 1,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 17,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_dG9wIHZpcnR1YWwgY29uZmVy",
+      "query": "top virtual conference platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/top-virtual-conference-platforms",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/top-virtual-conference-platforms",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1119,
+        "max_similarity": 0.669628,
+        "nearest_route": "/programmatic/virtual-events-platforms",
+        "reasons": []
+      },
+      "release_order": 2,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 15,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
+        "reasons": []
+      },
+      "release_order": 1
+    }
+  ],
+  "release_units": [
+    {
+      "opportunity_id": "opp_YmVzdCB2aXJ0dWFsIGV2ZW50",
+      "query": "best virtual events platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-virtual-events-platforms",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/best-virtual-events-platforms",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1111,
+        "max_similarity": 0.56199,
+        "nearest_route": "/programmatic/platforms-to-host-virtual-events",
+        "reasons": []
+      },
+      "release_order": 1,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 17,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_dG9wIHZpcnR1YWwgY29uZmVy",
+      "query": "top virtual conference platforms",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/top-virtual-conference-platforms",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/top-virtual-conference-platforms",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1119,
+        "max_similarity": 0.669628,
+        "nearest_route": "/programmatic/virtual-events-platforms",
+        "reasons": []
+      },
+      "release_order": 2,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 15,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
+      "demand_estimate": 0,
+      "score": 43,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
+        "reasons": []
+      },
+      "release_order": 1
+    }
+  ],
   "blocked": [
     {
       "target_route": "/programmatic/brand-look-legit",
@@ -696,22 +899,7 @@
       "details": [
         "thin"
       ]
-    },
-    {
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "query": "community roi measurement",
-      "release_action": "repair",
-      "reason": "postbuild_quality_quarantine",
-      "details": [
-        "thin"
-      ],
-      "max_similarity": 0.025922,
-      "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
-      "self_heal_cycle": 1
     }
   ],
-  "status": "COMPLETED_NO_CHANGES",
-  "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-  "create_stop_detail": "7859 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
-  "create_stop_is_legitimate": true
+  "status": "READY"
 }
