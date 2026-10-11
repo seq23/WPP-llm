@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-10-11T16:01:00.925Z",
-  "workflow_count": 8,
+  "generated_at": "2026-10-11T16:42:01.845Z",
+  "workflow_count": 9,
   "workflows": [
     "admin-command.yml",
     "ci.yml",
     "credential-check.yml",
     "distribution.yml",
+    "paid-citation-probe.yml",
     "programmatic-release.yml",
     "query-intelligence.yml",
     "search-repair-retest.yml",
@@ -161,6 +162,16 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 7,
+      "name": "npm run validate:zero-paid-llm",
+      "npm_script": "validate:zero-paid-llm",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 8,
       "name": "npm run validate:workflow-liveness",
       "npm_script": "validate:workflow-liveness",
       "direct_paths": [],
@@ -172,7 +183,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 8,
+      "step": 9,
       "name": "npm run test:push-helper",
       "npm_script": "test:push-helper",
       "direct_paths": [],
@@ -182,7 +193,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 9,
+      "step": 10,
       "name": "npm run test:citation-probe-rate",
       "npm_script": "test:citation-probe-rate",
       "direct_paths": [],
@@ -192,7 +203,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 10,
+      "step": 11,
       "name": "npm run test:retest-loop",
       "npm_script": "test:retest-loop",
       "direct_paths": [],
@@ -202,7 +213,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 11,
+      "step": 12,
       "name": "npm run test:render-robots-parity",
       "npm_script": "test:render-robots-parity",
       "direct_paths": [],
@@ -212,7 +223,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 12,
+      "step": 13,
       "name": "npm run test:build-reconciles-noindex",
       "npm_script": "test:build-reconciles-noindex",
       "direct_paths": [],
@@ -222,7 +233,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 13,
+      "step": 14,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -232,7 +243,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 14,
+      "step": 15,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
@@ -286,7 +297,6 @@
         "GSC_SERVICE_ACCOUNT_JSON",
         "GSC_SITE_URL_SECRET",
         "GSC_SITE_URL_VAR",
-        "GEMINI_API_KEY",
         "PUBLIC_SITE_URL"
       ]
     },
@@ -402,6 +412,78 @@
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
+    },
+    {
+      "workflow": "paid-citation-probe.yml",
+      "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+      "job": "probe",
+      "step": 1,
+      "name": "Refuse unless confirm_paid is true",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "CONFIRM"
+      ]
+    },
+    {
+      "workflow": "paid-citation-probe.yml",
+      "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+      "job": "probe",
+      "step": 2,
+      "name": "actions/checkout@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "paid-citation-probe.yml",
+      "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+      "job": "probe",
+      "step": 3,
+      "name": "actions/setup-node@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "paid-citation-probe.yml",
+      "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+      "job": "probe",
+      "step": 4,
+      "name": "bash scripts/ci_npm_install.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/ci_npm_install.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "paid-citation-probe.yml",
+      "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+      "job": "probe",
+      "step": 5,
+      "name": "Observe whether answer engines cite us (paid)",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": [
+        "CONFIRM_PAID",
+        "OPENROUTER_API_KEY",
+        "CITATION_PROBE_MODE"
+      ]
+    },
+    {
+      "workflow": "paid-citation-probe.yml",
+      "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+      "job": "probe",
+      "step": 6,
+      "name": "Commit observations",
+      "npm_script": null,
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
+      "env_keys": [
+        "PRE_PUSH_VALIDATION_ARGV"
+      ]
     },
     {
       "workflow": "programmatic-release.yml",
@@ -523,9 +605,7 @@
       "name": "Run controlled autonomous content release",
       "npm_script": "release:autonomous",
       "direct_paths": [],
-      "env_keys": [
-        "GEMINI_API_KEY"
-      ]
+      "env_keys": []
     },
     {
       "workflow": "programmatic-release.yml",
@@ -678,11 +758,13 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 12,
-      "name": "Collect normalized $0 signals including optional Gemini prompt panel",
-      "npm_script": "signals:collect",
-      "direct_paths": [],
+      "name": "Prove the free router (receipt names the key label, never the key)",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/llm/free_router.js"
+      ],
       "env_keys": [
-        "GEMINI_API_KEY"
+        "OPENROUTER_API_KEY"
       ]
     },
     {
@@ -690,13 +772,11 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 13,
-      "name": "Observe whether answer engines cite us",
-      "npm_script": "citation:probe",
+      "name": "Collect normalized $0 signals including the free-model prompt panel",
+      "npm_script": "signals:collect",
       "direct_paths": [],
       "env_keys": [
-        "GEMINI_API_KEY",
-        "OPENROUTER_API_KEY",
-        "CITATION_PROBE_MODE"
+        "OPENROUTER_API_KEY"
       ]
     },
     {

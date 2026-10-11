@@ -1,8 +1,8 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-11T16:01:00.925Z
+Generated: 2026-10-11T16:42:01.845Z
 
-Workflows: 8
+Workflows: 9
 
 ## Required persistent data files
 - PASS _citation_intelligence_contract.json
@@ -32,14 +32,15 @@ Workflows: 8
 - ci.yml :: build_validate #4 :: npm run actions:validate :: npm:actions:validate
 - ci.yml :: build_validate #5 :: npm run validate:workflow-data-trace :: npm:validate:workflow-data-trace
 - ci.yml :: build_validate #6 :: npm run validate:workflow-faux-trace :: npm:validate:workflow-faux-trace
-- ci.yml :: build_validate #7 :: npm run validate:workflow-liveness :: npm:validate:workflow-liveness
-- ci.yml :: build_validate #8 :: npm run test:push-helper :: npm:test:push-helper
-- ci.yml :: build_validate #9 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
-- ci.yml :: build_validate #10 :: npm run test:retest-loop :: npm:test:retest-loop
-- ci.yml :: build_validate #11 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
-- ci.yml :: build_validate #12 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
-- ci.yml :: build_validate #13 :: npm run release:self-heal :: npm:release:self-heal
-- ci.yml :: build_validate #14 :: Cadence gate :: npm:validate:cadence-integrity
+- ci.yml :: build_validate #7 :: npm run validate:zero-paid-llm :: npm:validate:zero-paid-llm
+- ci.yml :: build_validate #8 :: npm run validate:workflow-liveness :: npm:validate:workflow-liveness
+- ci.yml :: build_validate #9 :: npm run test:push-helper :: npm:test:push-helper
+- ci.yml :: build_validate #10 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
+- ci.yml :: build_validate #11 :: npm run test:retest-loop :: npm:test:retest-loop
+- ci.yml :: build_validate #12 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
+- ci.yml :: build_validate #13 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
+- ci.yml :: build_validate #14 :: npm run release:self-heal :: npm:release:self-heal
+- ci.yml :: build_validate #15 :: Cadence gate :: npm:validate:cadence-integrity
 - credential-check.yml :: check #1 :: actions/checkout@v6
 - credential-check.yml :: check #2 :: actions/setup-node@v6
 - credential-check.yml :: check #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
@@ -54,6 +55,12 @@ Workflows: 8
 - distribution.yml :: distribute #8 :: Restore GSC inspection cache
 - distribution.yml :: distribute #9 :: Run credential-safe distribution
 - distribution.yml :: distribute #10 :: actions/upload-artifact@v7
+- paid-citation-probe.yml :: probe #1 :: Refuse unless confirm_paid is true
+- paid-citation-probe.yml :: probe #2 :: actions/checkout@v6
+- paid-citation-probe.yml :: probe #3 :: actions/setup-node@v6
+- paid-citation-probe.yml :: probe #4 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
+- paid-citation-probe.yml :: probe #5 :: Observe whether answer engines cite us (paid)
+- paid-citation-probe.yml :: probe #6 :: Commit observations :: paths:.github/scripts/commit_and_push_if_changed.sh
 - programmatic-release.yml :: release #1 :: actions/checkout@v6
 - programmatic-release.yml :: release #2 :: actions/setup-node@v6
 - programmatic-release.yml :: release #3 :: actions/setup-python@v6
@@ -78,8 +85,8 @@ Workflows: 8
 - query-intelligence.yml :: collect_score #9 :: Generate owned query universe and public atlas :: npm:query:atlas
 - query-intelligence.yml :: collect_score #10 :: Collect Search Console query signals :: paths:distribution_scripts/gsc_collect_query_signals.py
 - query-intelligence.yml :: collect_score #11 :: Ingest measured Search Console queries as T1 atlas evidence :: npm:queries:ingest
-- query-intelligence.yml :: collect_score #12 :: Collect normalized $0 signals including optional Gemini prompt panel :: npm:signals:collect
-- query-intelligence.yml :: collect_score #13 :: Observe whether answer engines cite us :: npm:citation:probe
+- query-intelligence.yml :: collect_score #12 :: Prove the free router (receipt names the key label, never the key) :: paths:scripts/llm/free_router.js
+- query-intelligence.yml :: collect_score #13 :: Collect normalized $0 signals including the free-model prompt panel :: npm:signals:collect
 - query-intelligence.yml :: collect_score #14 :: Score AEO and GEO opportunities :: npm:opportunities:score
 - query-intelligence.yml :: collect_score #15 :: Build controlled release plan preview :: npm:release:plan
 - query-intelligence.yml :: collect_score #16 :: Reconcile noindex policy and sitemap with the new Search Console evidence :: paths:scripts/apply_noindex_policy.js,scripts/update_sitemap_all_html.js
