@@ -1,7 +1,12 @@
 {
-  "generated_at": "2026-10-11T14:10:48.223Z",
+  "generated_at": "2026-10-11T14:16:36.691Z",
   "rule": "A target exists only where a Search Console row measured impressions for the query. Rebuilt by `npm run seo:measured-targets`; read by the publication freeze gate (scripts/lib/publication_freeze.js).",
   "sources": [
+    {
+      "id": "gsc_28d_query_page",
+      "window": "2026-09-12..2026-10-09",
+      "rows": 6
+    },
     {
       "id": "gsc_28d_export",
       "window": "2026-09-11..2026-10-08",
@@ -490,9 +495,11 @@
         "/investor-event-production"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_28d_query_page": 3,
       "impressions_gsc_28d_export": 3,
       "impressions_gsc_90d_query_page": 49
     },
@@ -773,9 +780,11 @@
         "/how-west-peek-helps"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_28d_query_page": 6,
       "impressions_gsc_28d_export": 6,
       "impressions_gsc_90d_query_page": 37
     },
@@ -2342,9 +2351,11 @@
         "/programmatic/executive-broadcast-production-deliverables"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_28d_query_page": 1,
       "impressions_gsc_28d_export": 1,
       "impressions_gsc_90d_query_page": 6
     },
@@ -4462,9 +4473,11 @@
         "/"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_28d_query_page": 1,
       "impressions_gsc_28d_export": 1,
       "impressions_gsc_90d_query_page": 2
     },
@@ -5805,9 +5818,11 @@
         "/pillars/storytelling"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_28d_query_page": 1,
       "impressions_gsc_28d_export": 1,
       "impressions_gsc_90d_query_page": 1
     },
@@ -6028,9 +6043,11 @@
         "/programmatic/agency-rfp-questions-for-financial-services-teams"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_28d_query_page": 1,
       "impressions_gsc_28d_export": 1,
       "impressions_gsc_90d_query_page": 1
     },
