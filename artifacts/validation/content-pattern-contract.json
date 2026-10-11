@@ -2,17 +2,17 @@
   "schema_version": "1.0",
   "validator": "content-pattern-contract",
   "spec": ".clarity/content-pattern-spec.json",
-  "generated_at": "2026-10-11T10:45:49.026Z",
+  "generated_at": "2026-10-11T16:00:17.620Z",
   "enforcement": "report",
   "pages_checked": 3429,
   "status": "REPORTED",
-  "blocking_failures": 128,
+  "blocking_failures": 139,
   "summary": [
     {
       "id": "direct_answer",
       "blocking": true,
-      "pages_missing": 128,
-      "coverage_pct": 96.3,
+      "pages_missing": 139,
+      "coverage_pct": 95.9,
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
@@ -46,15 +46,15 @@
     {
       "id": "comparison_table",
       "blocking": false,
-      "pages_missing": 249,
-      "coverage_pct": 92.7,
+      "pages_missing": 247,
+      "coverage_pct": 92.8,
       "why": "no comparison or cost table (agent request #2, 529 occurrences)"
     },
     {
       "id": "concrete_numbers",
       "blocking": false,
-      "pages_missing": 3316,
-      "coverage_pct": 3.3,
+      "pages_missing": 3308,
+      "coverage_pct": 3.5,
       "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
     },
     {
@@ -81,15 +81,15 @@
     {
       "id": "recommendation_summary",
       "blocking": false,
-      "pages_missing": 164,
-      "coverage_pct": 95.2,
+      "pages_missing": 175,
+      "coverage_pct": 94.9,
       "why": "no recommendation summary - asked for on 913 of 913 agent recommendations, the single most requested block"
     },
     {
       "id": "definition_callout",
       "blocking": false,
-      "pages_missing": 259,
-      "coverage_pct": 92.4,
+      "pages_missing": 257,
+      "coverage_pct": 92.5,
       "why": "no definition callout (agent requested 196 times) - this is what an answer engine lifts for \"what is X\""
     },
     {
@@ -116,7 +116,7 @@
     {
       "id": "cta_callout",
       "blocking": false,
-      "pages_missing": 341,
+      "pages_missing": 340,
       "coverage_pct": 90.1,
       "why": "no next-step callout - the conversion link may exist but nothing frames it as the next action"
     },
@@ -129,11 +129,11 @@
     }
   ],
   "recommendation_summary_distinctness": {
-    "total_blocks": 3265,
-    "distinct_texts": 3238,
-    "ratio": 0.9917,
-    "texts_on_more_than_one_page": 16,
-    "pages_carrying_a_repeated_text": 43,
+    "total_blocks": 3254,
+    "distinct_texts": 3229,
+    "ratio": 0.9923,
+    "texts_on_more_than_one_page": 15,
+    "pages_carrying_a_repeated_text": 40,
     "worst": [
       {
         "pages": 5,
@@ -193,15 +193,6 @@
         ]
       },
       {
-        "pages": 3,
-        "text": "Virtual event checklist turns on two decisions: registration, engagement, recording, and follow-up, then audience outcom",
-        "sample": [
-          "programmatic/how-to-host-a-virtual-event.html",
-          "programmatic/virtual-event-checklist.html",
-          "programmatic/virtual-event-planning.html"
-        ]
-      },
-      {
         "pages": 2,
         "text": "Reduce time to first meaningful value Create repeated reasons to return Strengthen peer-to-peer connection and recogniti",
         "sample": [
@@ -223,6 +214,14 @@
         "sample": [
           "programmatic/ai-content-operations-how-to-choose.html",
           "programmatic/ai-content-operations-scope-of-work.html"
+        ]
+      },
+      {
+        "pages": 2,
+        "text": "Branding scope of work turns on two decisions: roles, run of show, rehearsal, and escalation, then platform, broadcast, ",
+        "sample": [
+          "programmatic/brand-positioning-strategy-scope-of-work.html",
+          "programmatic/brand-strategy-consulting-scope-of-work.html"
         ]
       }
     ]
@@ -559,7 +558,6 @@
       "learn/virtual-event-production-agency.html",
       "learn/virtual-event-production-cost.html",
       "learn/what-is-ai-marketing.html",
-      "learn/what-is-virtual-event-production.html",
       "pillars/agency-decisions.html",
       "pillars/agency-execution/index.html",
       "pillars/ai-agentic-operations/index.html",
@@ -667,7 +665,6 @@
       "programmatic/virtual-events-value.html",
       "programmatic/visual-event-portfolio.html",
       "programmatic/webinar-production-services.html",
-      "programmatic/webinar-production.html",
       "programmatic/why-virtual-events-fail.html",
       "selected-work.html",
       "started-business.html",
@@ -828,7 +825,6 @@
       "learn/virtual-event-production-agency.html",
       "learn/virtual-event-production-cost.html",
       "learn/what-is-ai-marketing.html",
-      "learn/what-is-virtual-event-production.html",
       "pillars/agency-decisions.html",
       "pillars/agency-execution/index.html",
       "pillars/ai-agentic-operations/index.html",
@@ -1268,14 +1264,12 @@
       "programmatic/audience-growth-strategy-vs-in-house-team.html",
       "programmatic/audience-growth-strategy-when-to-hire.html",
       "programmatic/audience-growth-strategy-workflow.html",
-      "programmatic/audience-growth-strategy.html",
       "programmatic/best-hybrid-event-platform.html",
       "programmatic/best-hybrid-event-platforms.html",
       "programmatic/best-platform-for-virtual-events.html",
       "programmatic/best-platforms-for-virtual-events.html",
       "programmatic/best-virtual-conference-platforms.html",
       "programmatic/best-virtual-event-platform.html",
-      "programmatic/best-virtual-event-platforms.html",
       "programmatic/best-virtual-event-production-companies.html",
       "programmatic/best-virtual-event-technology.html",
       "programmatic/best-virtual-events-platforms.html",
@@ -3135,7 +3129,6 @@
       "programmatic/executive-broadcast-production-comparison.html",
       "programmatic/executive-broadcast-production-consultant.html",
       "programmatic/executive-broadcast-production-cost.html",
-      "programmatic/executive-broadcast-production-deliverables.html",
       "programmatic/executive-broadcast-production-examples.html",
       "programmatic/executive-broadcast-production-for-enterprise-teams.html",
       "programmatic/executive-broadcast-production-for-financial-services-teams.html",
@@ -3270,7 +3263,6 @@
       "programmatic/how-to-choose-a-creative-agency-why-it-fails.html",
       "programmatic/how-to-choose-a-creative-agency-workflow.html",
       "programmatic/how-to-choose-a-creative-agency.html",
-      "programmatic/how-to-host-a-virtual-event.html",
       "programmatic/how-to-host-virtual-events.html",
       "programmatic/human-in-the-loop-ai-systems-2026.html",
       "programmatic/human-in-the-loop-ai-systems-agency.html",
@@ -3316,7 +3308,6 @@
       "programmatic/human-in-the-loop-ai-systems-workflow.html",
       "programmatic/human-in-the-loop-ai-systems.html",
       "programmatic/human-in-the-loop-examples.html",
-      "programmatic/hybrid-event-platform.html",
       "programmatic/hybrid-event-platforms.html",
       "programmatic/hybrid-event-production-2026.html",
       "programmatic/hybrid-event-production-agency.html",
@@ -3759,7 +3750,6 @@
       "programmatic/virtual-event-case-studies.html",
       "programmatic/virtual-event-checklist.html",
       "programmatic/virtual-event-failure-prevention.html",
-      "programmatic/virtual-event-management.html",
       "programmatic/virtual-event-marketing.html",
       "programmatic/virtual-event-planning-accessibility.html",
       "programmatic/virtual-event-planning-agency.html",
@@ -4061,8 +4051,7 @@
       "topics/virtual-event-planning.html",
       "topics/virtual-event-platform-selection.html",
       "topics/virtual-event-production.html",
-      "topics/virtual-summit-production.html",
-      "topics/webinar-production.html"
+      "topics/virtual-summit-production.html"
     ],
     "named_sources": [
       "community-as-a-service.html",
@@ -4336,6 +4325,7 @@
       "insights/index.html",
       "learn/how-ai-is-used-in-marketing.html",
       "learn/index.html",
+      "learn/what-is-virtual-event-production.html",
       "pillars/agency-decisions.html",
       "pillars/agency-execution/index.html",
       "pillars/ai-agentic-operations/index.html",
@@ -4350,15 +4340,24 @@
       "pillars/operator-leverage/index.html",
       "pillars/storytelling.html",
       "pillars/virtual-events-os/index.html",
+      "programmatic/ai-consultant-vs-automation-agency.html",
+      "programmatic/ai-marketing-workflows.html",
+      "programmatic/audience-growth-strategy.html",
+      "programmatic/best-virtual-event-platforms.html",
       "programmatic/brand-look-legit.html",
       "programmatic/branding-trust.html",
+      "programmatic/content-marketing-operations.html",
+      "programmatic/creative-operations.html",
       "programmatic/daily-backup-event-systems.html",
       "programmatic/event-not-a-mess.html",
       "programmatic/executive-event-production.html",
+      "programmatic/how-to-host-a-virtual-event.html",
+      "programmatic/hybrid-event-platform.html",
       "programmatic/hybrid-event-production.html",
       "programmatic/livekit-virtual-events.html",
       "programmatic/marketing-growth-2025.html",
       "programmatic/marketing-without-content-machine.html",
+      "programmatic/outsourced-community-management.html",
       "programmatic/run-of-show-planning.html",
       "programmatic/software-vs-production.html",
       "programmatic/speaker-onboarding-and-rehearsals.html",
@@ -4367,6 +4366,7 @@
       "programmatic/virtual-career-fair-production.html",
       "programmatic/virtual-conference-production.html",
       "programmatic/virtual-event-backup-systems.html",
+      "programmatic/virtual-event-management.html",
       "programmatic/virtual-event-marketing.html",
       "programmatic/virtual-event-pricing.html",
       "programmatic/virtual-event-production-companies.html",
@@ -4536,7 +4536,6 @@
       "learn/virtual-event-production-agency.html",
       "learn/virtual-event-production-cost.html",
       "learn/what-is-ai-marketing.html",
-      "learn/what-is-virtual-event-production.html",
       "pillars/agency-decisions.html",
       "pillars/agency-execution/index.html",
       "pillars/ai-agentic-operations/index.html",
@@ -4639,7 +4638,6 @@
       "programmatic/virtual-event-production-when-to-hire-help.html",
       "programmatic/virtual-events-value.html",
       "programmatic/visual-event-portfolio.html",
-      "programmatic/webinar-production.html",
       "programmatic/why-virtual-events-fail.html",
       "query-atlas.html",
       "query-atlas/agency-rfp-questions.html",
@@ -8211,6 +8209,7 @@
       "programmatic/daily-backup-event-systems.html",
       "programmatic/event-not-a-mess.html",
       "programmatic/executive-event-production.html",
+      "programmatic/hybrid-event-platform.html",
       "programmatic/hybrid-event-production.html",
       "programmatic/marketing-growth-2025.html",
       "programmatic/marketing-without-content-machine.html",
@@ -8232,7 +8231,6 @@
       "programmatic/virtual-event-production.html",
       "programmatic/virtual-events-value.html",
       "programmatic/visual-event-portfolio.html",
-      "programmatic/webinar-production.html",
       "programmatic/why-virtual-events-fail.html",
       "query-atlas.html",
       "query-atlas/agency-rfp-questions.html",
@@ -8410,7 +8408,6 @@
       "learn/virtual-event-production-agency.html",
       "learn/virtual-event-production-cost.html",
       "learn/what-is-ai-marketing.html",
-      "learn/what-is-virtual-event-production.html",
       "pillars/agency-decisions.html",
       "pillars/agency-execution/index.html",
       "pillars/ai-agentic-operations/index.html",
@@ -12169,6 +12166,11 @@
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
+      "path": "learn/what-is-virtual-event-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
       "path": "pillars/agency-decisions.html",
       "check": "direct_answer",
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
@@ -12239,6 +12241,26 @@
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
+      "path": "programmatic/ai-consultant-vs-automation-agency.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/ai-marketing-workflows.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/audience-growth-strategy.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/best-virtual-event-platforms.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
       "path": "programmatic/brand-look-legit.html",
       "check": "direct_answer",
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
@@ -12249,7 +12271,27 @@
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
+      "path": "programmatic/content-marketing-operations.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/creative-operations.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
       "path": "programmatic/event-not-a-mess.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/how-to-host-a-virtual-event.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/hybrid-event-platform.html",
       "check": "direct_answer",
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
@@ -12264,7 +12306,17 @@
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
+      "path": "programmatic/outsourced-community-management.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
       "path": "programmatic/software-vs-production.html",
+      "check": "direct_answer",
+      "why": "no direct-answer block - nothing here is quotable without surrounding context"
+    },
+    {
+      "path": "programmatic/virtual-event-management.html",
       "check": "direct_answer",
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },

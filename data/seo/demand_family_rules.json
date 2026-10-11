@@ -1,0 +1,197 @@
+{
+  "_comment": [
+    "Query-family rules for scripts/build_demand_families.js. A measured query joins the FIRST family whose pattern matches it (case-insensitive regex on the query). Order is deliberate: comparison wording (best/top/compare/vs + platforms/companies, in an event context) is tested before the head terms it contains, so 'best hybrid event platforms' joins the comparison family whose page Google actually shows for it.",
+    "A query no rule matches joins an automatic family named after the head slug of the page Google showed it on, so every measured query belongs to exactly one family.",
+    "primary_route is the page that serves the family. Where Google measured a top-level URL that now 301s to its /programmatic/ twin, the twin is the primary: it is the 200 page, and 1,500+ hash-locked pages already link to it, so redirecting it would put every one of those links through a hop."
+  ],
+  "families": [
+    {
+      "id": "brand-navigational",
+      "label": "West Peek brand and misspellings",
+      "intent": "navigational",
+      "primary_route": "/",
+      "pattern": "^(west ?pea?k|westpeak|silver peak productions|westmark productions|westwind productions)",
+      "eligible_for_strengthening": false,
+      "why_not_eligible": "Brand capture is served by the homepage (title, H1, definition and alternateName, PR #37)."
+    },
+    {
+      "id": "virtual-event-platforms-comparison",
+      "label": "Best virtual event platforms and production companies",
+      "intent": "comparison",
+      "primary_route": "/programmatic/best-virtual-event-platforms",
+      "pattern": "^(?=.*(event|conference|summit|webinar|networking|seminar|symposium|convention|stream|online|hybrid|town hall|broadcast|expo|virtual))(?=.*((^| )(best|top)( |$)|comparison|compare|\\bvs\\b|list of|reviews|choose))(?=.*(platform|software|technolog|compan|provider|producer|firm|solution|equipment|partner))"
+    },
+    {
+      "id": "hybrid-event-platform",
+      "label": "Hybrid event platforms and hybrid event production",
+      "intent": "informational",
+      "primary_route": "/programmatic/hybrid-event-platform",
+      "pattern": "hybrid"
+    },
+    {
+      "id": "virtual-event-platforms-comparison",
+      "pattern": "^(?=.*(event|conference|summit|webinar|networking|seminar|symposium|convention|stream|online|hybrid|town hall|broadcast|expo|virtual))(?=.*(platform|virtual event (providers|companies|solutions|technology|equipment)|production compan|event companies|event production agency))"
+    },
+    {
+      "id": "webinar-production",
+      "label": "Webinar production services",
+      "intent": "service",
+      "primary_route": "/programmatic/webinar-production",
+      "pattern": "webinar"
+    },
+    {
+      "id": "narrative-and-storytelling",
+      "label": "Narrative strategy and storytelling",
+      "intent": "informational",
+      "primary_route": "/programmatic/campaign-narrative-strategy",
+      "pattern": "narrative|storytelling|storyline|investor workflow"
+    },
+    {
+      "id": "human-in-the-loop-ai",
+      "label": "Human-in-the-loop AI systems",
+      "intent": "informational",
+      "primary_route": "/programmatic/human-in-the-loop-ai-systems",
+      "pattern": "human.in.the.loop"
+    },
+    {
+      "id": "investor-event-production",
+      "label": "Investor relations event production",
+      "intent": "service",
+      "primary_route": "/programmatic/investor-event-production",
+      "pattern": "investor (relations|conference|day|event)"
+    },
+    {
+      "id": "event-marketing-strategy",
+      "label": "Event marketing strategy, plans and templates",
+      "intent": "informational",
+      "primary_route": "/programmatic/event-marketing-strategy",
+      "pattern": "event marketing|event strategy|marketing plan template"
+    },
+    {
+      "id": "virtual-event-checklist",
+      "label": "Virtual event checklist, planning and hosting",
+      "intent": "informational",
+      "primary_route": "/programmatic/how-to-host-a-virtual-event",
+      "pattern": "(virtual|online|event|conference|summit).*(checklist|timeline|planning)|checklist for virtual|how to host|best way to host|host (a |an )?(virtual|event|successful)|hosting (virtual|live)|why host|host virtual event|hosted event|tips for hosting|studio hosted"
+    },
+    {
+      "id": "virtual-event-management",
+      "label": "Virtual event management",
+      "intent": "service",
+      "primary_route": "/programmatic/virtual-event-management",
+      "pattern": "event(s)? management|event manager|events in event management"
+    },
+    {
+      "id": "virtual-event-production",
+      "label": "Virtual event production",
+      "intent": "service",
+      "primary_route": "/learn/what-is-virtual-event-production",
+      "pattern": "(virtual|online|digital|live|conference|summit|broadcast)( event| events| conference| summit)? (production|producer)|event production (services|staff|cost)|virtual event (av|audio|presentation)|production team|production summit|multi market event production|common challenges in virtual broadcast"
+    },
+    {
+      "id": "audience-growth-strategy",
+      "label": "Audience growth strategy",
+      "intent": "informational",
+      "primary_route": "/programmatic/audience-growth-strategy",
+      "pattern": "audience|growth marketing"
+    },
+    {
+      "id": "ai-consultant-vs-agency",
+      "label": "AI consultant vs AI agency",
+      "intent": "comparison",
+      "primary_route": "/programmatic/ai-consultant-vs-automation-agency",
+      "pattern": "\\bai (consultant|automation)|consultant vs (ai|automation)"
+    },
+    {
+      "id": "content-operations",
+      "label": "Content and marketing operations",
+      "intent": "service",
+      "primary_route": "/programmatic/content-marketing-operations",
+      "pattern": "content (marketing )?op|content ops|content operation|marketing (content )?operation|content and marketing op|marketing measurement vendors"
+    },
+    {
+      "id": "creative-operations",
+      "label": "Creative operations",
+      "intent": "informational",
+      "primary_route": "/programmatic/creative-operations",
+      "pattern": "creative ?op|creative agency op|creativeops"
+    },
+    {
+      "id": "ai-marketing-workflows",
+      "label": "AI marketing workflows and workflow consulting",
+      "intent": "informational",
+      "primary_route": "/programmatic/ai-marketing-workflows",
+      "pattern": "workflow|operating system|operating model|automated operator"
+    },
+    {
+      "id": "community-management-outsourcing",
+      "label": "Community management outsourcing",
+      "intent": "service",
+      "primary_route": "/programmatic/outsourced-community-management",
+      "pattern": "outsourc|community management|moderation community"
+    },
+    {
+      "id": "community-operations",
+      "label": "Community operations and Community as a Service",
+      "intent": "service",
+      "primary_route": "/community-as-a-service",
+      "pattern": "community|communityos"
+    },
+    {
+      "id": "brand-messaging-architecture",
+      "label": "Brand messaging architecture",
+      "intent": "informational",
+      "primary_route": "/programmatic/brand-messaging-architecture",
+      "pattern": "messag"
+    },
+    {
+      "id": "run-of-show",
+      "label": "Run of show",
+      "intent": "informational",
+      "primary_route": "/programmatic/event-run-of-show",
+      "pattern": "run of show|flow of show"
+    },
+    {
+      "id": "integrated-vs-specialist-agency",
+      "label": "Integrated agency vs specialist agencies",
+      "intent": "comparison",
+      "primary_route": "/programmatic/integrated-agency-vs-specialist-agencies",
+      "pattern": "integrated agency|specialist agenc|the specialist agency|roi oriented agency|^agency (cases|engagement|framework)$"
+    },
+    {
+      "id": "creative-agency-vs-production-company",
+      "label": "Creative agency vs production company",
+      "intent": "comparison",
+      "primary_route": "/programmatic/creative-agency-vs-production-company",
+      "pattern": "production agency|production company|creative and production|agency and company|creative production workflow"
+    },
+    {
+      "id": "brand-positioning",
+      "label": "Brand positioning strategy",
+      "intent": "informational",
+      "primary_route": "/programmatic/brand-positioning-strategy",
+      "pattern": "positioning"
+    },
+    {
+      "id": "rebrand-and-brand-implementation",
+      "label": "Rebrand strategy and brand implementation",
+      "intent": "informational",
+      "primary_route": "/programmatic/rebrand-strategy",
+      "pattern": "rebrand|brand implementation|branding implementation|branding plan"
+    },
+    {
+      "id": "creative-strategy-consulting",
+      "label": "Creative strategy consulting",
+      "intent": "service",
+      "primary_route": "/programmatic/creative-strategy-consulting",
+      "pattern": "creative (strategy )?consult|creative consulting"
+    },
+    {
+      "id": "deliverables-scope-and-rfp",
+      "label": "Agency deliverables, scope of work and RFP questions",
+      "intent": "informational",
+      "primary_route": "/programmatic/agency-rfp-questions",
+      "pattern": "deliverable|scope of work|scoping|rfp"
+    }
+  ]
+}

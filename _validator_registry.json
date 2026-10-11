@@ -167,7 +167,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -568,6 +568,20 @@
       "command": "node scripts/validators/validate_search_intelligence.js",
       "severity": "HARD_FAIL",
       "purpose": "Search Console analytics, index coverage and sitemap records exist, add up, and are no older than 7 days.",
+      "owner": "repo"
+    },
+    {
+      "id": "demand-families",
+      "command": "node scripts/validators/validate_demand_families.js",
+      "severity": "HARD_FAIL",
+      "purpose": "data/seo/demand_families.json is fresh against data/seo/measured_targets.json (a rebuild is identical), every measured query is in exactly one family, impressions add up, top12 is the 12 highest-impression eligible families, and every family landing page resolves. 11 Oct 2026: 7,288 measured impressions were never grouped, so strengthening only saw the 28-day window.",
+      "owner": "repo"
+    },
+    {
+      "id": "demand-pages",
+      "command": "node scripts/validators/validate_demand_pages.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Each top-12 query-family page serves its intent: query-first 30-65 char title, one H1, 40-60 word definition under it, question H2s, a visible FAQ from measured queries with exactly one FAQPage, a CTA with a ref, links from the homepage and /topics/, a table on comparison pages, a numbered list for checklist queries, no software claims; every pinned landing page links to its family primary.",
       "owner": "repo"
     }
   ],

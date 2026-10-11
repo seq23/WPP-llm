@@ -1,0 +1,458 @@
+{
+  "_comment": [
+    "Written by scripts/build_strengthening_ledger.js (npm run seo:strengthening-sweep, daily in .github/workflows/search-repair-retest.yml). Do not edit by hand.",
+    "Rule: a page is flagged when a query Google showed it for has >= 50 impressions at position <= 40 over 90 days (data/seo/measured_targets.json), or it is the primary page of a top-12 family (data/seo/demand_families.json).",
+    "Strengthen a flagged page at source (data/seo/demand_pages.json for full demand pages, data/seo/site_head.json demand_pages for the lighter form), then npm run demand:refreeze."
+  ],
+  "rule": {
+    "min_impressions_90d": 50,
+    "max_position": 40,
+    "plus": "every top-12 family primary page"
+  },
+  "measured_targets_generated_at": "2026-10-11T14:16:36.691Z",
+  "updated_at": "2026-10-11",
+  "flagged_count": 27,
+  "missing_family_pages": [],
+  "pages": [
+    {
+      "route": "/programmatic/best-virtual-event-platforms",
+      "families": [
+        "virtual-event-platforms-comparison"
+      ],
+      "impressions_90d": 1662,
+      "reasons": [
+        "\"best virtual event platforms\": 278 impressions at position 25.9 (90 days)",
+        "\"best virtual event platform\": 272 impressions at position 31.8 (90 days)",
+        "\"virtual event platforms\": 168 impressions at position 35.7 (90 days)",
+        "\"best virtual event production companies\": 68 impressions at position 20.2 (90 days)",
+        "primary page of top-12 family \"virtual-event-platforms-comparison\" (1730 impressions, rank 1)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/hybrid-event-platform",
+      "families": [
+        "hybrid-event-platform"
+      ],
+      "impressions_90d": 1182,
+      "reasons": [
+        "primary page of top-12 family \"hybrid-event-platform\" (1540 impressions, rank 2)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/virtual-event-management",
+      "families": [
+        "virtual-event-management"
+      ],
+      "impressions_90d": 253,
+      "reasons": [
+        "primary page of top-12 family \"virtual-event-management\" (250 impressions, rank 7)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/how-to-host-a-virtual-event",
+      "families": [
+        "virtual-event-checklist"
+      ],
+      "impressions_90d": 185,
+      "reasons": [
+        "primary page of top-12 family \"virtual-event-checklist\" (475 impressions, rank 4)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/learn/what-is-virtual-event-production",
+      "families": [
+        "virtual-event-production"
+      ],
+      "impressions_90d": 86,
+      "reasons": [
+        "primary page of top-12 family \"virtual-event-production\" (317 impressions, rank 6)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy",
+      "families": [
+        "audience-growth-strategy"
+      ],
+      "impressions_90d": 66,
+      "reasons": [
+        "\"audience growth strategy\": 194 impressions at position 24 (90 days)",
+        "primary page of top-12 family \"audience-growth-strategy\" (207 impressions, rank 9)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-companies",
+      "families": [
+        "virtual-event-platforms-comparison"
+      ],
+      "impressions_90d": 66,
+      "reasons": [
+        "\"best virtual event production companies\": 68 impressions at position 20.2 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/best-virtual-event-platforms",
+        "/programmatic/hybrid-event-platform",
+        "/learn/what-is-virtual-event-production"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/webinar-production",
+      "families": [
+        "webinar-production"
+      ],
+      "impressions_90d": 60,
+      "reasons": [
+        "primary page of top-12 family \"webinar-production\" (396 impressions, rank 5)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/content-marketing-operations",
+      "families": [
+        "content-operations"
+      ],
+      "impressions_90d": 55,
+      "reasons": [
+        "primary page of top-12 family \"content-operations\" (588 impressions, rank 3)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/what-is-audience-growth-strategy",
+      "families": [
+        "audience-growth-strategy"
+      ],
+      "impressions_90d": 36,
+      "reasons": [
+        "\"audience growth strategy\": 194 impressions at position 24 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/audience-growth-strategy"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy-best-practices",
+      "families": [
+        "audience-growth-strategy"
+      ],
+      "impressions_90d": 33,
+      "reasons": [
+        "\"audience growth strategy\": 194 impressions at position 24 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/audience-growth-strategy"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy-2026",
+      "families": [
+        "audience-growth-strategy"
+      ],
+      "impressions_90d": 32,
+      "reasons": [
+        "\"audience growth strategy\": 194 impressions at position 24 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/audience-growth-strategy"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/audience-growth-strategy-for-startups",
+      "families": [
+        "audience-growth-strategy"
+      ],
+      "impressions_90d": 32,
+      "reasons": [
+        "\"audience growth strategy\": 194 impressions at position 24 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/audience-growth-strategy"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/creative-operations",
+      "families": [
+        "creative-operations"
+      ],
+      "impressions_90d": 21,
+      "reasons": [
+        "primary page of top-12 family \"creative-operations\" (134 impressions, rank 11)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/ai-marketing-workflows",
+      "families": [
+        "ai-marketing-workflows"
+      ],
+      "impressions_90d": 17,
+      "reasons": [
+        "primary page of top-12 family \"ai-marketing-workflows\" (216 impressions, rank 8)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/what-is-outsourced-community-management",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 15,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-best-practices",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-cost",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-for-financial-services-teams",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-for-marketing-teams",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-for-professional-services-firms",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-for-small-teams",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-services",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-vs-in-house-team",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management-when-to-hire",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 12,
+      "reasons": [
+        "\"community management outsourcing\": 118 impressions at position 24.6 (90 days)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": null,
+      "links_to_primary": [
+        "/programmatic/outsourced-community-management"
+      ],
+      "status": "consolidated_to_primary"
+    },
+    {
+      "route": "/programmatic/ai-consultant-vs-automation-agency",
+      "families": [
+        "ai-consultant-vs-agency"
+      ],
+      "impressions_90d": 7,
+      "reasons": [
+        "primary page of top-12 family \"ai-consultant-vs-agency\" (172 impressions, rank 10)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    },
+    {
+      "route": "/programmatic/outsourced-community-management",
+      "families": [
+        "community-management-outsourcing"
+      ],
+      "impressions_90d": 0,
+      "reasons": [
+        "primary page of top-12 family \"community-management-outsourcing\" (130 impressions, rank 12)"
+      ],
+      "first_flagged_at": "2026-10-11",
+      "last_flagged_at": "2026-10-11",
+      "last_strengthened_at": "2026-10-11",
+      "status": "strengthened"
+    }
+  ],
+  "runs": [
+    {
+      "at": "2026-10-11",
+      "flagged": 27,
+      "strengthened": 12,
+      "needs_strengthening": 0,
+      "needs_demand_page": 0,
+      "consolidated_to_primary": 15
+    }
+  ]
+}

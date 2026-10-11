@@ -62,6 +62,13 @@ jobs:
       - name: Rebuild measured targets and consolidation candidates
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run seo:measured-targets
+      # 90-day demand, not the 28-day window: group every measured query into a
+      # family, rank families by impressions, and flag pages to strengthen
+      # (impressions >= 50 at position <= 40, plus every top-12 family primary)
+      # in data/seo/strengthening_ledger.json with when each was last strengthened.
+      - name: Group measured demand into families and flag strengthening candidates
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run seo:strengthening-sweep
       - name: Ingest any filled manual query-surface observation log
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run query:observe:ingest
