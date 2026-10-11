@@ -45,18 +45,6 @@ jobs:
       - name: Validate workflow syntax
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run actions:validate
-      - name: Ingest any filled manual query-surface observation log
-        if: steps.runtime.outputs.allowed == 'true'
-        run: npm run query:observe:ingest
-      - name: Diagnose pages (evidence + technical)
-        if: steps.runtime.outputs.allowed == 'true'
-        run: npm run repairs:diagnose
-      - name: Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)
-        if: steps.runtime.outputs.allowed == 'true'
-        run: npm run repairs:apply
-      - name: Sweep delayed retest queue for real evidence
-        if: steps.runtime.outputs.allowed == 'true'
-        run: npm run repairs:retest
       # Search Console intelligence (11 Oct 2026): rolling 28-day query x page,
       # URL Inspection over the sitemap 150/day (8 in parallel) with counts by
       # coverageState, and sitemaps.list (submit if missing). Then the measured
@@ -74,6 +62,18 @@ jobs:
       - name: Rebuild measured targets and consolidation candidates
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run seo:measured-targets
+      - name: Ingest any filled manual query-surface observation log
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run query:observe:ingest
+      - name: Diagnose pages (evidence + technical)
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run repairs:diagnose
+      - name: Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run repairs:apply
+      - name: Sweep delayed retest queue for real evidence
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run repairs:retest
       - name: Commit search repair and retest artifacts
         if: ${{ steps.runtime.outputs.allowed == 'true' && (github.event_name == 'schedule' || github.event.inputs.commit_changes == 'true') }}
         env:

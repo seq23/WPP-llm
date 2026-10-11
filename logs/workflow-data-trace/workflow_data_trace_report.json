@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T14:10:48.691Z",
+  "generated_at": "2026-10-11T14:12:35.396Z",
   "workflow_count": 8,
   "workflows": [
     "admin-command.yml",
@@ -843,46 +843,6 @@
       "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
       "job": "diagnose_repair_retest",
       "step": 8,
-      "name": "Ingest any filled manual query-surface observation log",
-      "npm_script": "query:observe:ingest",
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "search-repair-retest.yml",
-      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
-      "job": "diagnose_repair_retest",
-      "step": 9,
-      "name": "Diagnose pages (evidence + technical)",
-      "npm_script": "repairs:diagnose",
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "search-repair-retest.yml",
-      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
-      "job": "diagnose_repair_retest",
-      "step": 10,
-      "name": "Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)",
-      "npm_script": "repairs:apply",
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "search-repair-retest.yml",
-      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
-      "job": "diagnose_repair_retest",
-      "step": 11,
-      "name": "Sweep delayed retest queue for real evidence",
-      "npm_script": "repairs:retest",
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "search-repair-retest.yml",
-      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
-      "job": "diagnose_repair_retest",
-      "step": 12,
       "name": "Collect Search Console intelligence",
       "npm_script": "search:intelligence",
       "direct_paths": [],
@@ -895,9 +855,49 @@
       "workflow": "search-repair-retest.yml",
       "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
       "job": "diagnose_repair_retest",
-      "step": 13,
+      "step": 9,
       "name": "Rebuild measured targets and consolidation candidates",
       "npm_script": "seo:measured-targets",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 10,
+      "name": "Ingest any filled manual query-surface observation log",
+      "npm_script": "query:observe:ingest",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 11,
+      "name": "Diagnose pages (evidence + technical)",
+      "npm_script": "repairs:diagnose",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 12,
+      "name": "Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)",
+      "npm_script": "repairs:apply",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-repair-retest.yml",
+      "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+      "job": "diagnose_repair_retest",
+      "step": 13,
+      "name": "Sweep delayed retest queue for real evidence",
+      "npm_script": "repairs:retest",
       "direct_paths": [],
       "env_keys": []
     },
