@@ -118,7 +118,21 @@ def main():
         sys.exit(1)
     cov = load('index_coverage.json', {'urls': {}})
     known = {u: v for u, v in (cov.get('urls') or {}).items() if u in set(urls)}
-    due = sorted(urls, key=lambda u: (known.get(u, {}).get('inspected_at') or '', u))[:PER_DAY]
+    # Priority queue, inspected before the rotation: URLs that were measured, then
+    # 404d, and now 301 (data/redirects/measured_404_redirects.json plus the dead
+    # list in data/seo/consolidation_candidates.json). Each is inspected once,
+    # kept under 'priority_urls' so it never skews the sitemap coverage counts.
+    pq_file = ROOT / 'data' / 'redirects' / 'measured_404_redirects.json'
+    cand_file = ROOT / 'data' / 'seo' / 'consolidation_candidates.json'
+    pq = []
+    if pq_file.exists():
+        pq += [HOST + r['from'] for r in json.loads(pq_file.read_text(encoding='utf-8')).get('rules', [])]
+    if cand_file.exists():
+        pq += [d['dead_url'] for d in json.loads(cand_file.read_text(encoding='utf-8')).get('dead_urls_with_live_twin', [])]
+    prio_known = dict(cov.get('priority_urls') or {})
+    prio_due = [u for u in dict.fromkeys(pq) if u not in prio_known][:PER_DAY]
+    due = prio_due + sorted(urls, key=lambda u: (known.get(u, {}).get('inspected_at') or '', u))[:PER_DAY - len(prio_due)]
+    prio_set = set(prio_due)
 
     def inspect(u):
         try:
@@ -135,7 +149,7 @@ def main():
     with cf.ThreadPoolExecutor(max_workers=PARALLEL) as ex:
         for u, res, err in ex.map(inspect, due):
             if res:
-                known[u] = res
+                (prio_known if u in prio_set else known)[u] = res
             else:
                 errors.append({'url': u, 'error': err})
     inspected = len(due) - len(errors)
@@ -148,6 +162,9 @@ def main():
         'inspected_ever': len(known), 'never_inspected': len(urls) - len(known),
         'counts_by_coverage_state': dict(sorted(counts.items(), key=lambda kv: -kv[1])),
         'last_run': {'at': stamp, 'due': len(due), 'inspected': inspected, 'errors': len(errors), 'error_sample': errors[:5]},
+        'priority_queue': {'source': 'data/redirects/measured_404_redirects.json + consolidation_candidates dead_urls_with_live_twin',
+                           'queued': len(dict.fromkeys(pq)), 'inspected_ever': len(prio_known), 'inspected_this_run': len(prio_due)},
+        'priority_urls': dict(sorted(prio_known.items())),
         'urls': dict(sorted(known.items()))})
     print(f'index coverage: inspected {inspected}/{len(due)} this run ({len(errors)} error(s)); {len(known)}/{len(urls)} sitemap URLs have a result; {counts}')
     if inspected == 0:
