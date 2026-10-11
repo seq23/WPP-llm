@@ -83,7 +83,6 @@ jobs:
       - name: Run controlled autonomous content release
         if: steps.runtime.outputs.allowed == 'true'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             export MAX_NEW_PAGES_PER_DAY="${{ github.event.inputs.max_new_pages }}"
