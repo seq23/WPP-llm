@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+/* eslint-disable no-console */
+/**
+ * REFUSES: a URL Search Console measured that this build answers with a 404.
+ *
+ *   - every rule in data/redirects/measured_404_redirects.json is in _redirects
+ *     exactly, as a 301, and lands on a published page in one hop;
+ *   - every page in the 90-day query x page file (data/signals/gsc_query_signals.json),
+ *     the rolling 28-day file and the dead-URL list in
+ *     data/seo/consolidation_candidates.json resolves to a page, or to a 301 whose
+ *     target is a page; never to nothing;
+ *   - no redirect source is listed in sitemap.xml.
+ *
+ * Why: on 11 Oct 2026, 149 measured URLs (5,366 of ~7,474 90-day impressions,
+ * including the investor-relations page Google still showed) returned 404 while
+ * the same page lived under /programmatic/.
+ *
+ * Resolution is modelled from the build output by scripts/lib/pages_routing.js.
+ * The live counterpart is scripts/live_check_measured_redirects.js.
+ *
+ * RULE 0: zero rules or zero measured pages is a failure, not a pass.
+ */
+const fs = require('fs');
+const path = require('path');
+const { ROOT, parseRedirects, resolvePath } = require('../lib/pages_routing.js');
+
+const readJson = (p, d) => { const f = path.join(ROOT, p); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d; };
+const pathOf = (u) => { try { return new URL(u, 'https://virtualagency-os.com').pathname; } catch { return null; } };
+
+const rules = parseRedirects(ROOT);
+const measured = readJson('data/redirects/measured_404_redirects.json', { rules: [] }).rules || [];
+const problems = [];
+if (!rules.length) { console.error('MEASURED URL VALIDATION: _redirects has no rules.'); process.exit(1); }
+if (!measured.length) { console.error('MEASURED URL VALIDATION: data/redirects/measured_404_redirects.json has no rules.'); process.exit(1); }
+
+const byFrom = new Map(rules.map((r) => [r.from, r]));
+for (const m of measured) {
+  const r = byFrom.get(m.from);
+  if (!r) { problems.push(`${m.from} -> ${m.to} is in measured_404_redirects.json but not in _redirects`); continue; }
+  if (r.to !== m.to || r.status !== 301) problems.push(`${m.from}: _redirects says ${r.to} ${r.status}, data says ${m.to} 301`);
+  const t = resolvePath(m.to, { root: ROOT, rules });
+  if (t.kind !== 'page') problems.push(`${m.from} -> ${m.to}: target is ${t.kind}${t.to ? ` to ${t.to}` : ''}, not a page`);
+}
+
+const pages = new Set();
+for (const r of readJson('data/signals/gsc_query_signals.json', { records: [] }).records || []) if (r.signal_type === 'gsc_query_performance') pages.add(pathOf(r.target_route));
+for (const r of readJson('data/search_intelligence/search_analytics_28d.json', { rows: [] }).rows || []) pages.add(pathOf(r.page));
+for (const d of readJson('data/seo/consolidation_candidates.json', {}).dead_urls_with_live_twin || []) pages.add(pathOf(d.dead_url));
+pages.delete(null);
+if (!pages.size) { console.error('MEASURED URL VALIDATION: zero measured pages found; refusing to pass over nothing.'); process.exit(1); }
+
+let redirected = 0;
+for (const p of pages) {
+  const r = resolvePath(p, { root: ROOT, rules });
+  if (r.kind === 'page') continue;
+  if (r.kind === 'missing') { problems.push(`${p} was measured by Search Console and this build answers it with a 404`); continue; }
+  const t = resolvePath(r.to.split(/[?#]/)[0], { root: ROOT, rules });
+  if (t.kind !== 'page') problems.push(`${p} -> ${r.to} (${r.status}) does not land on a page (${t.kind})`);
+  else redirected += 1;
+}
+
+const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+const listed = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => pathOf(m[1])));
+for (const r of rules) if ([301, 302, 307, 308].includes(r.status) && listed.has(r.from)) problems.push(`${r.from} redirects but is listed in sitemap.xml`);
+
+if (problems.length) {
+  console.error(`Measured URL violations (${problems.length}):`);
+  for (const p of problems.slice(0, 40)) console.error(`- ${p}`);
+  process.exit(1);
+}
+console.log(`Measured URLs OK: ${measured.length} measured-404 rules land on a page in one hop; ${pages.size} measured pages resolve (${redirected} via 301, none 404); no redirect source in sitemap.xml.`);

@@ -80,6 +80,15 @@
         "site.webmanifest",
         "indexnow.txt"
       ]
+    },
+    "measured-404-rules": {
+      "description": "data/redirects/measured_404_redirects.json rules[] emptied. Those rules are the 301s for URLs Search Console measured that would otherwise 404 (149 on 11 Oct 2026); a gate that checks none of them proves nothing.",
+      "empty_json_array": [
+        {
+          "file": "data/redirects/measured_404_redirects.json",
+          "key": "rules"
+        }
+      ]
     }
   },
   "validators": [
@@ -332,6 +341,11 @@
       "command": "node scripts/validators/validate_redirect_targets.js",
       "probe": "data-records",
       "input": "data/redirects/legacy_404_redirects.json and the _redirects rules it feeds"
+    },
+    {
+      "command": "node scripts/validators/validate_measured_urls_resolve.js",
+      "probe": "measured-404-rules",
+      "input": "the measured-404 rules in data/redirects/measured_404_redirects.json"
     },
     {
       "command": "node scripts/validators/validate_site_icons.js",

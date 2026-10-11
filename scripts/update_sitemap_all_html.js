@@ -25,7 +25,12 @@ function cleanPath(rel) {
 // reports against the whole sitemap.
 const isNoindex = (rel) => /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i
   .test(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
-const pages = walk(ROOT).filter((rel) => !isNoindex(rel)).sort();
+// Never submit a URL _redirects answers with a redirect (a rule wins over a static
+// file on Pages). This keeps every measured-404 and legacy source out of the
+// sitemap even if a page is ever written at its old path.
+const { parseRedirects } = require('./lib/pages_routing.js');
+const REDIRECTED = new Set(parseRedirects(ROOT).filter((r) => [301, 302, 307, 308].includes(r.status)).map((r) => r.from));
+const pages = walk(ROOT).filter((rel) => !isNoindex(rel) && !REDIRECTED.has(cleanPath(rel))).sort();
 
 // <lastmod> is a claim to a crawler about when the page changed, so it is
 // derived from the page's own content, not from the build clock. This used to

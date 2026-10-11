@@ -37,6 +37,17 @@ if (!Array.isArray(LEGACY_404) || LEGACY_404.length === 0) {
   process.exit(1);
 }
 
+// URLs Search Console measured that this build answers with a 404 (149 on 11 Oct
+// 2026, 5,366 of ~7,474 90-day impressions). Written by
+// scripts/build_measured_404_redirects.js from the measurement files; each lands
+// on its /programmatic/ twin, else its fold_into hub.
+const MEASURED_404 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/measured_404_redirects.json'), 'utf8')).rules;
+if (!Array.isArray(MEASURED_404) || MEASURED_404.length === 0) {
+  console.error('data/redirects/measured_404_redirects.json has no rules; refusing to write a _redirects that silently drops them.');
+  process.exit(1);
+}
+const LEGACY_FROM = new Set(LEGACY_404.map((r) => r.from));
+
 const lines = [
   '# Canonical policy: clean URLs are canonical.',
   '# Do NOT redirect clean URLs to .html. Most static hosts strip .html automatically;',
@@ -68,6 +79,10 @@ const lines = [
   '# Legacy URLs Bing still held as 404 (25 Sep 2026). Each lands on the live page on',
   '# the same topic; see data/redirects/legacy_404_redirects.json for the reason per rule.',
   ...LEGACY_404.map((r) => `${r.from} ${r.to} 301`),
+  '',
+  '# URLs Search Console measured that 404d while the same page lived under',
+  '# /programmatic/. See data/redirects/measured_404_redirects.json.',
+  ...MEASURED_404.filter((r) => !LEGACY_FROM.has(r.from)).map((r) => `${r.from} ${r.to} 301`),
   '',
   '# Cloudflare Pages deploys this repository root and offers no exclude list for',
   '# a root deploy, so README.md, package.json, AGENTS.md and everything under',
