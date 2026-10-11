@@ -70,6 +70,17 @@ await new Promise((r) => server.listen(0, '127.0.0.1', r));
 const port = server.address().port;
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'probe-rate-'));
+
+// Owner policy, 11 Oct 2026: without CONFIRM_PAID the probe must make no call,
+// write nothing, exit 0 and name the stop.
+const gatedOut = path.join(tmp, 'gated.json');
+const gatedEnv = { ...process.env, CITATION_PROBE_MODE: 'grounded', OPENROUTER_API_KEY: 'test-key-not-a-real-credential',
+  OPENROUTER_BASE_URL: `http://127.0.0.1:${port}`, CITATION_PROBE_OUT: gatedOut, PROBE_TIMEOUT_MS: '5000' };
+delete gatedEnv.CONFIRM_PAID;
+const gated = spawnSync(process.execPath, [path.join(ROOT, 'scripts/llm_citation_probe.mjs'), '--limit', '3'], { cwd: ROOT, encoding: 'utf8', env: gatedEnv });
+check(gated.status === 0, `gated probe exited ${gated.status}; the owner-policy stop is a clean exit`);
+check(/NAMED_STOP: PAID_PROBE_DISABLED_BY_OWNER_POLICY/.test(gated.stdout || ''), 'gated probe did not name PAID_PROBE_DISABLED_BY_OWNER_POLICY');
+check(!fs.existsSync(gatedOut), 'gated probe wrote an observation artifact; it must write nothing');
 const probeOut = path.join(tmp, 'observations.json');
 const run = spawnSync(process.execPath, [path.join(ROOT, 'scripts/llm_citation_probe.mjs'), '--limit', '3'], {
   cwd: ROOT,
@@ -77,6 +88,9 @@ const run = spawnSync(process.execPath, [path.join(ROOT, 'scripts/llm_citation_p
   env: {
     ...process.env,
     CITATION_PROBE_MODE: 'grounded',
+    // Stub server on localhost: no spend. The owner-policy gate is opened
+    // here only so the probe's own rate logic can be exercised.
+    CONFIRM_PAID: 'true',
     OPENROUTER_API_KEY: 'test-key-not-a-real-credential',
     OPENROUTER_BASE_URL: `http://127.0.0.1:${port}`,
     CITATION_PROBE_OUT: probeOut,

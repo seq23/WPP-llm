@@ -14,7 +14,9 @@ const required = [
   'credential-check.yml',
   'admin-command.yml',
   'search-repair-retest.yml',
-  'self-heal.yml'
+  'self-heal.yml',
+  // Owner policy, 11 Oct 2026: the paid probe lane, dispatch-only behind confirm_paid.
+  'paid-citation-probe.yml'
 ];
 const bad = [];
 
@@ -105,7 +107,7 @@ if (fs.existsSync(distribution)) {
   if (!text.includes('INDEXNOW_KEY_VAR') || !text.includes('indexnow_key')) bad.push('distribution.yml missing IndexNow secret/variable fallback wiring');
 }
 
-for (const file of ['admin-command.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml', 'self-heal.yml']) {
+for (const file of ['admin-command.yml', 'paid-citation-probe.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml', 'self-heal.yml']) {
   const text = fs.readFileSync(path.join(workflowDir, file), 'utf8');
   if (!text.includes('group: wpp-autonomous-writer-main')) bad.push(`${file}: writer is outside the shared main serialization group`);
   if (!text.includes('commit_and_push_if_changed.sh')) bad.push(`${file}: writer bypasses shared exact-SHA push helper`);
@@ -113,6 +115,7 @@ for (const file of ['admin-command.yml', 'programmatic-release.yml', 'query-inte
 }
 const ciText = fs.readFileSync(path.join(workflowDir, 'ci.yml'), 'utf8');
 if (!ciText.includes('validate:workflow-faux-trace')) bad.push('ci.yml: missing all-workflow faux trace gate');
+if (!ciText.includes('validate:zero-paid-llm')) bad.push('ci.yml: missing the zero-paid-LLM gate (owner policy, 11 Oct 2026)');
 
 if (bad.length) {
   console.error('GitHub workflow validation failed:\n- ' + bad.join('\n- '));

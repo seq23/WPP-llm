@@ -72,23 +72,24 @@ jobs:
           export GSC_SITE_URL="${GSC_SITE_URL_SECRET:-${GSC_SITE_URL_VAR:-}}"
           npm run queries:ingest
           npm run atlas:build
-      - name: Collect normalized $0 signals including optional Gemini prompt panel
+      - name: Prove the free router (receipt names the key label, never the key)
+        # FREE_LLM_RECEIPT carries outcome (free_model_answered /
+        # credential_refused / no_free_model_answered), model, cost_usd and
+        # key_label/key_info from GET /api/v1/auth/key. Exits 1 only on a
+        # non-zero reported cost.
         if: steps.runtime.outputs.allowed == 'true'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: npm run signals:collect
-      # The only step that observes whether an answer engine actually cites us.
-      # Everything else in this workflow measures demand or our own output. It
-      # does not fail the run when the key is absent - a measurement that breaks
-      # the build when it cannot measure gets deleted.
-      - name: Observe whether answer engines cite us
-        if: steps.runtime.outputs.allowed == 'true'
-        continue-on-error: true
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          CITATION_PROBE_MODE: grounded
-        run: npm run citation:probe -- --limit 25
+        run: node scripts/llm/free_router.js --selftest
+      - name: Collect normalized $0 signals including the free-model prompt panel
+        # Owner policy, 11 Oct 2026: nothing paid. The panel asks only $0
+        # OpenRouter models via scripts/llm/free_router.js.
+        if: steps.runtime.outputs.allowed == 'true'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: npm run signals:collect
+      # The citation probe is a paid lane, off by owner policy (11 Oct 2026);
+      # it runs only from paid-citation-probe.yml with confirm_paid=true.
       - name: Score AEO and GEO opportunities
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run opportunities:score

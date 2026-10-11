@@ -20,7 +20,7 @@ TRACES: list[dict] = []
 
 REQUIRED = {
     'admin-command.yml', 'ci.yml', 'credential-check.yml',
-    'distribution.yml', 'programmatic-release.yml', 'query-intelligence.yml',
+    'distribution.yml', 'paid-citation-probe.yml', 'programmatic-release.yml', 'query-intelligence.yml',
     'search-repair-retest.yml', 'self-heal.yml'
 }
 
@@ -144,8 +144,8 @@ trace('programmatic-release.yml', 'scheduled-active', 'runtime guard gates relea
       'node scripts/runtime_guard.mjs' in prog and "steps.runtime.outputs.allowed == 'true'" in prog)
 trace('programmatic-release.yml', 'manual-inputs', 'manual daily ceilings are passed to release',
       'github.event.inputs.max_new_pages' in prog and 'github.event.inputs.max_repairs' in prog)
-trace('programmatic-release.yml', 'provider-degraded', 'missing GSC/Gemini does not block internal release',
-      'GSC_SERVICE_ACCOUNT_JSON' in prog and 'GEMINI_API_KEY' in prog and 'npm run release:autonomous' in prog)
+trace('programmatic-release.yml', 'provider-degraded', 'missing GSC does not block internal release; no paid model key is passed',
+      'GSC_SERVICE_ACCOUNT_JSON' in prog and 'GEMINI_API_KEY' not in prog and 'npm run release:autonomous' in prog)
 trace('programmatic-release.yml', 'no-changes', 'empty git status is a valid completion',
       'commit_and_push_if_changed.sh' in prog)
 trace('programmatic-release.yml', 'serialized-writes', 'writer workflows share one concurrency group',
@@ -159,8 +159,8 @@ for cmd in ('query:atlas', 'signals:collect', 'opportunities:score', 'release:pl
     trace('query-intelligence.yml', f'command-{cmd}', f'npm run {cmd}', f'npm run {cmd}' in qi)
 trace('query-intelligence.yml', 'missing-gsc', 'GSC collector may produce an empty/skip artifact',
       'GSC_SERVICE_ACCOUNT_JSON' in qi and 'gsc_collect_query_signals.py' in qi)
-trace('query-intelligence.yml', 'missing-gemini', 'Gemini is optional',
-      'GEMINI_API_KEY' in qi and 'signals:collect' in qi)
+trace('query-intelligence.yml', 'free-router-panel', 'prompt panel gets only the OpenRouter key (free router), never Gemini',
+      'OPENROUTER_API_KEY' in qi and 'GEMINI_API_KEY' not in qi and 'signals:collect' in qi)
 trace('query-intelligence.yml', 'no-signals', 'owned query universe still scores and plans',
       qi.find('query:atlas') < qi.find('signals:collect') < qi.find('opportunities:score') < qi.find('release:plan'))
 trace('query-intelligence.yml', 'serialized-writes', 'shares writer concurrency group',

@@ -117,7 +117,7 @@ function main() {
   const costLedger = readJson('data/admin/cost_ledger.json', null);
   if (costLedger) {
     const today = new Date().toISOString().slice(0, 10);
-    if (costLedger.today.date !== today) { costLedger.today = { date: today, gsc_requests: 0, gemini_requests: 0, manual_ingest_runs: 0 }; }
+    if (costLedger.today.date !== today) { costLedger.today = { date: today, gsc_requests: 0, free_llm_requests: 0, manual_ingest_runs: 0 }; }
     costLedger.today.manual_ingest_runs += 1;
     costLedger.updated_at = new Date().toISOString();
     writeJson('data/admin/cost_ledger.json', costLedger);

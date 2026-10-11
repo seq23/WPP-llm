@@ -147,7 +147,9 @@
     "demand:refreeze": "node scripts/build_demand_families.js && node scripts/prepare_demand_refreeze.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
     "seo:strengthening-sweep": "node scripts/build_demand_families.js && node scripts/build_strengthening_ledger.js",
     "validate:demand-families": "node scripts/validators/validate_demand_families.js",
-    "validate:demand-pages": "node scripts/validators/validate_demand_pages.js"
+    "validate:demand-pages": "node scripts/validators/validate_demand_pages.js",
+    "validate:zero-paid-llm": "node scripts/validators/validate_zero_paid_llm.js",
+    "llm:free-selftest": "node scripts/llm/free_router.js --selftest"
   },
   "dependencies": {
     "marked": "^12.0.2"
