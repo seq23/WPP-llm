@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T08:49:46.755Z",
+  "generated_at": "2026-10-11T17:02:05.341Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,13 +208,14 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-11T07:32:07.783Z",
-    "workflow_count": 8,
+    "generated_at": "2026-10-11T16:46:55.095Z",
+    "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
       "ci.yml",
       "credential-check.yml",
       "distribution.yml",
+      "paid-citation-probe.yml",
       "programmatic-release.yml",
       "query-intelligence.yml",
       "search-repair-retest.yml",
@@ -370,6 +371,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 7,
+        "name": "npm run validate:zero-paid-llm",
+        "npm_script": "validate:zero-paid-llm",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 8,
         "name": "npm run validate:workflow-liveness",
         "npm_script": "validate:workflow-liveness",
         "direct_paths": [],
@@ -381,7 +392,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 8,
+        "step": 9,
         "name": "npm run test:push-helper",
         "npm_script": "test:push-helper",
         "direct_paths": [],
@@ -391,7 +402,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 9,
+        "step": 10,
         "name": "npm run test:citation-probe-rate",
         "npm_script": "test:citation-probe-rate",
         "direct_paths": [],
@@ -401,7 +412,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 10,
+        "step": 11,
         "name": "npm run test:retest-loop",
         "npm_script": "test:retest-loop",
         "direct_paths": [],
@@ -411,7 +422,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 11,
+        "step": 12,
         "name": "npm run test:render-robots-parity",
         "npm_script": "test:render-robots-parity",
         "direct_paths": [],
@@ -421,7 +432,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 12,
+        "step": 13,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -431,7 +442,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 13,
+        "step": 14,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -441,7 +452,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 14,
+        "step": 15,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -495,7 +506,6 @@
           "GSC_SERVICE_ACCOUNT_JSON",
           "GSC_SITE_URL_SECRET",
           "GSC_SITE_URL_VAR",
-          "GEMINI_API_KEY",
           "PUBLIC_SITE_URL"
         ]
       },
@@ -611,6 +621,78 @@
         "npm_script": null,
         "direct_paths": [],
         "env_keys": []
+      },
+      {
+        "workflow": "paid-citation-probe.yml",
+        "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+        "job": "probe",
+        "step": 1,
+        "name": "Refuse unless confirm_paid is true",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "CONFIRM"
+        ]
+      },
+      {
+        "workflow": "paid-citation-probe.yml",
+        "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+        "job": "probe",
+        "step": 2,
+        "name": "actions/checkout@v6",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "paid-citation-probe.yml",
+        "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+        "job": "probe",
+        "step": 3,
+        "name": "actions/setup-node@v6",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "paid-citation-probe.yml",
+        "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+        "job": "probe",
+        "step": 4,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "paid-citation-probe.yml",
+        "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+        "job": "probe",
+        "step": 5,
+        "name": "Observe whether answer engines cite us (paid)",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": [
+          "CONFIRM_PAID",
+          "OPENROUTER_API_KEY",
+          "CITATION_PROBE_MODE"
+        ]
+      },
+      {
+        "workflow": "paid-citation-probe.yml",
+        "workflow_name": "Paid Citation Probe (owner-confirmed only)",
+        "job": "probe",
+        "step": 6,
+        "name": "Commit observations",
+        "npm_script": null,
+        "direct_paths": [
+          ".github/scripts/commit_and_push_if_changed.sh"
+        ],
+        "env_keys": [
+          "PRE_PUSH_VALIDATION_ARGV"
+        ]
       },
       {
         "workflow": "programmatic-release.yml",
@@ -732,9 +814,7 @@
         "name": "Run controlled autonomous content release",
         "npm_script": "release:autonomous",
         "direct_paths": [],
-        "env_keys": [
-          "GEMINI_API_KEY"
-        ]
+        "env_keys": []
       },
       {
         "workflow": "programmatic-release.yml",
@@ -887,11 +967,13 @@
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
         "step": 12,
-        "name": "Collect normalized $0 signals including optional Gemini prompt panel",
-        "npm_script": "signals:collect",
-        "direct_paths": [],
+        "name": "Prove the free router (receipt names the key label, never the key)",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/llm/free_router.js"
+        ],
         "env_keys": [
-          "GEMINI_API_KEY"
+          "OPENROUTER_API_KEY"
         ]
       },
       {
@@ -899,13 +981,11 @@
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
         "step": 13,
-        "name": "Observe whether answer engines cite us",
-        "npm_script": "citation:probe",
+        "name": "Collect normalized $0 signals including the free-model prompt panel",
+        "npm_script": "signals:collect",
         "direct_paths": [],
         "env_keys": [
-          "GEMINI_API_KEY",
-          "OPENROUTER_API_KEY",
-          "CITATION_PROBE_MODE"
+          "OPENROUTER_API_KEY"
         ]
       },
       {
@@ -1000,6 +1080,16 @@
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
         "step": 3,
+        "name": "actions/setup-python@v6",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 4,
         "name": "bash scripts/ci_npm_install.sh",
         "npm_script": null,
         "direct_paths": [
@@ -1011,7 +1101,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 4,
+        "step": 5,
         "name": "node scripts/runtime_guard.mjs",
         "npm_script": null,
         "direct_paths": [],
@@ -1021,7 +1111,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 5,
+        "step": 6,
         "name": "Sync latest main before writing artifacts",
         "npm_script": null,
         "direct_paths": [],
@@ -1031,7 +1121,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 6,
+        "step": 7,
         "name": "Validate workflow syntax",
         "npm_script": "actions:validate",
         "direct_paths": [],
@@ -1041,7 +1131,40 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 7,
+        "step": 8,
+        "name": "Collect Search Console intelligence",
+        "npm_script": "search:intelligence",
+        "direct_paths": [],
+        "env_keys": [
+          "GSC_SERVICE_ACCOUNT_JSON",
+          "GSC_SITE_URL"
+        ]
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 9,
+        "name": "Rebuild measured targets and consolidation candidates",
+        "npm_script": "seo:measured-targets",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 10,
+        "name": "Group measured demand into families and flag strengthening candidates",
+        "npm_script": "seo:strengthening-sweep",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 11,
         "name": "Ingest any filled manual query-surface observation log",
         "npm_script": "query:observe:ingest",
         "direct_paths": [],
@@ -1051,7 +1174,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 8,
+        "step": 12,
         "name": "Diagnose pages (evidence + technical)",
         "npm_script": "repairs:diagnose",
         "direct_paths": [],
@@ -1061,7 +1184,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 9,
+        "step": 13,
         "name": "Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)",
         "npm_script": "repairs:apply",
         "direct_paths": [],
@@ -1071,7 +1194,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 10,
+        "step": 14,
         "name": "Sweep delayed retest queue for real evidence",
         "npm_script": "repairs:retest",
         "direct_paths": [],
@@ -1081,7 +1204,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 11,
+        "step": 15,
         "name": "Commit search repair and retest artifacts",
         "npm_script": null,
         "direct_paths": [
@@ -1095,7 +1218,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 12,
+        "step": 16,
         "name": "actions/upload-artifact@v7",
         "npm_script": null,
         "direct_paths": [],
@@ -1248,7 +1371,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-11T08:49:02.831Z",
+    "generated_at": "2026-10-11T17:01:19.613Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1296,7 +1419,7 @@
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "8acb16b21de132d527f2f6c458941fb41210065c97b199f5d478185126d3a354",
+      "corpus_fingerprint": "50b70ce1e981a6403a419bf96333f4787f16e4d895eef4b297c0293082f3efca",
       "legacy_backlog": 81,
       "thin_pages": 81,
       "exact_duplicate_pages": 0,
@@ -1953,8 +2076,8 @@
         "details": [
           "thin"
         ],
-        "max_similarity": 0.025922,
-        "nearest_route": "/programmatic/virtual-event-production-for-manufacturing",
+        "max_similarity": 0.029566,
+        "nearest_route": "/programmatic/virtual-event-management",
         "self_heal_cycle": 1
       }
     ],
@@ -1964,7 +2087,7 @@
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-11T08:49:08.928Z",
+    "updated": "2026-10-11T17:01:25.615Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5091,7 +5214,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-11T08:49:08.928Z"
+      "at": "2026-10-11T17:01:25.615Z"
     }
   },
   "query_universe_count": 10596
