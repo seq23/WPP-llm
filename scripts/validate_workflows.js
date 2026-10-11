@@ -58,6 +58,18 @@ for (const file of required) {
         else {
           if (!job['runs-on']) bad.push(`${file}: job ${jobId} missing runs-on`);
           if (!Array.isArray(job.steps) || job.steps.length === 0) bad.push(`${file}: job ${jobId} missing steps`);
+          // A mapping key left with no value (`env:` emptied by an edit) parses
+          // as null, and GitHub rejects the whole file: the run shows the file
+          // path as its name, has zero jobs, and fails (11 Oct 2026,
+          // programmatic-release.yml after its only env entry was removed).
+          for (const key of ['env', 'with', 'permissions', 'defaults']) {
+            if (Object.prototype.hasOwnProperty.call(job, key) && (job[key] === null || job[key] === undefined)) bad.push(`${file}: job ${jobId} has an empty ${key}: block`);
+          }
+          (Array.isArray(job.steps) ? job.steps : []).forEach((step, i) => {
+            for (const key of ['env', 'with']) {
+              if (step && Object.prototype.hasOwnProperty.call(step, key) && (step[key] === null || step[key] === undefined)) bad.push(`${file}: job ${jobId} step ${i + 1} (${step.name || step.uses || 'unnamed'}) has an empty ${key}: block`);
+            }
+          });
         }
       }
     }
