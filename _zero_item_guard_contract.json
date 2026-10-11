@@ -71,6 +71,15 @@
           "key": "validators"
         }
       ]
+    },
+    "site-head-assets": {
+      "description": "The site-head asset files removed: favicon.ico, apple-touch-icon.png, site.webmanifest and indexnow.txt. They are the input set of the icon and IndexNow gates.",
+      "delete_paths": [
+        "favicon.ico",
+        "apple-touch-icon.png",
+        "site.webmanifest",
+        "indexnow.txt"
+      ]
     }
   },
   "validators": [
@@ -323,6 +332,41 @@
       "command": "node scripts/validators/validate_redirect_targets.js",
       "probe": "data-records",
       "input": "data/redirects/legacy_404_redirects.json and the _redirects rules it feeds"
+    },
+    {
+      "command": "node scripts/validators/validate_site_icons.js",
+      "probe": "site-head-assets",
+      "input": "favicon, apple-touch-icon, web manifest and social card files"
+    },
+    {
+      "command": "node scripts/validators/validate_social_meta.js",
+      "probe": "html-corpus",
+      "input": "every published .html page"
+    },
+    {
+      "command": "node scripts/validators/validate_structured_data.js",
+      "probe": "html-corpus",
+      "input": "every published .html page"
+    },
+    {
+      "command": "node scripts/validators/validate_indexnow_key.js",
+      "probe": "site-head-assets",
+      "input": "indexnow.txt and the key verification file"
+    },
+    {
+      "command": "node scripts/validators/validate_publication_freeze.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_measured_targets.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_search_intelligence.js",
+      "probe": "data-records",
+      "input": "the governed records under data/"
     }
   ]
 }

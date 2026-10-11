@@ -1,0 +1,9 @@
+{
+  "frozen": true,
+  "since": "2026-10-11",
+  "reason": "2,716 sitemap URLs produced 26 Search Console impressions in the 28 days to 2026-10-08. New pages are not published until the query they target has a measured Search Console number; strengthen and consolidate what Google already shows instead.",
+  "measured_targets": "data/seo/measured_targets.json",
+  "rule": "A release-plan unit with release_action 'create' is applied only when its query (normalized) appears in measured_targets.targets with impressions > 0. Repairs of existing pages are not affected.",
+  "lift_when": "Set frozen to false only with a measurement: impressions per indexed page recovering, recorded in data/search_intelligence/search_analytics_28d.json.",
+  "enforced_by": ["scripts/lib/publication_freeze.js", "scripts/citation_intelligence/apply_release_plan.js", "scripts/validators/validate_publication_freeze.js"]
+}

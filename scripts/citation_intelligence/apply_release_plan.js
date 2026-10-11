@@ -10,6 +10,9 @@ const { renderProgrammaticPage } = require('./render_programmatic_page.js');
 const noindexPolicy = require('../lib/noindex_policy.js');
 const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
 const weeklyCap = require('../cadence/weekly_cap.js');
+const publicationFreeze = require('../lib/publication_freeze.js');
+const FREEZE = publicationFreeze.loadFreeze();
+const MEASURED = publicationFreeze.measuredQueries(undefined, FREEZE);
 
 const plan = readJson('data/releases/daily_release_plan.json', { units: [] });
 const adm = readJson('data/content/page_admission_registry.json', { admissions: [] });
@@ -66,6 +69,10 @@ for (const u of plan.units || []) {
     continue;
   }
   if (u.release_action === 'create') {
+    // Publication freeze (data/release/publication_freeze.json): no new page
+    // for a query Search Console has not measured.
+    const gate = publicationFreeze.createAllowed(u.query, { flag: FREEZE, measured: MEASURED });
+    if (!gate.allowed) { skipped.push({ route:publicRoute, source_route:u.target_route, reason:gate.reason, query:u.query }); continue; }
     if (fs.existsSync(file)) { skipped.push({route:publicRoute,source_route:u.target_route,reason:'create_target_already_exists'}); continue; }
     fs.mkdirSync(path.dirname(file), { recursive:true });
     fs.writeFileSync(file, html);
