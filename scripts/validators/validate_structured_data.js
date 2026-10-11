@@ -96,7 +96,10 @@ for (const d of cfg.demand_pages || []) {
     if (!text.includes(norm(q.q)) || !text.includes(norm(q.a))) e(`FAQ not visible: "${q.q}"`);
     if (!qs.has(q.q)) e(`FAQ missing from FAQPage schema: "${q.q}"`);
   }
-  if (!h.includes(`<p class="demand-cta">`) || !h.includes(`href="mailto:${cfg.demand_cta.email}"`)) e('direct contact CTA missing');
+  // Full demand pages (data/seo/demand_pages.json) carry a ref in the mailto subject;
+  // validate_demand_pages.js checks that ref. The lighter form uses the bare address.
+  const mail = d.full ? `href="mailto:${cfg.demand_page_cta.email}?subject=` : `href="mailto:${cfg.demand_cta.email}"`;
+  if (!h.includes(`<p class="demand-cta">`) || !h.includes(mail)) e('direct contact CTA missing');
   const w = d.definition.split(/\s+/).length;
   if (w < 40 || w > 60) e(`definition is ${w} words; must be 40-60`);
 }

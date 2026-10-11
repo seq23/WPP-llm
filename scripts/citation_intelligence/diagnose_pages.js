@@ -99,6 +99,15 @@ function evidenceFindings() {
       findings.push({ route: t.target_page, query: t.query, repair_type: 'healthy_observed_surfacing', classification: 'NONE', confidence: 0.6, evidence_source: gscRows.length ? 'gsc' : 'manual', detail: 'Own-domain surfacing observed for this query.', competitors_observed: competitorDomains });
     }
   }
+  // Measured-demand strengthening candidates (data/seo/strengthening_ledger.json,
+  // written by the sweep's strengthening step from 90-day impressions and
+  // position). A page the ledger says still needs strengthening, or a top-12
+  // family with no page, is a REVIEW finding the next strengthening pass picks up.
+  const ledger = readJson('data/seo/strengthening_ledger.json', { pages: [] });
+  for (const p of ledger.pages || []) {
+    if (p.status !== 'needs_strengthening' && p.status !== 'needs_demand_page') continue;
+    findings.push({ route: p.route, query: (p.families || []).join(', '), repair_type: p.status === 'needs_demand_page' ? 'measured_demand_family_without_page' : 'measured_demand_strengthening_candidate', classification: 'REVIEW', confidence: 0.7, evidence_source: 'gsc_90d', detail: `${p.reasons[0]}; ${p.impressions_90d} impressions in 90 days; last strengthened ${p.last_strengthened_at || 'never'}.` });
+  }
   return findings;
 }
 

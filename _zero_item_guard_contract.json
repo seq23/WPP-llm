@@ -89,6 +89,24 @@
           "key": "rules"
         }
       ]
+    },
+    "demand-families": {
+      "description": "data/seo/demand_families.json families[] emptied. The families are what the strengthening sweep and the top-12 demand pages are chosen from (482 measured queries on 11 Oct 2026); a gate that checks none proves nothing.",
+      "empty_json_array": [
+        {
+          "file": "data/seo/demand_families.json",
+          "key": "families"
+        }
+      ]
+    },
+    "demand-pages": {
+      "description": "data/seo/demand_pages.json pages[] emptied. Those are the pages serving the top-12 query families; a gate that checks none proves nothing.",
+      "empty_json_array": [
+        {
+          "file": "data/seo/demand_pages.json",
+          "key": "pages"
+        }
+      ]
     }
   },
   "validators": [
@@ -381,6 +399,16 @@
       "command": "node scripts/validators/validate_search_intelligence.js",
       "probe": "data-records",
       "input": "the governed records under data/"
+    },
+    {
+      "command": "node scripts/validators/validate_demand_families.js",
+      "probe": "demand-families",
+      "input": "the query families in data/seo/demand_families.json"
+    },
+    {
+      "command": "node scripts/validators/validate_demand_pages.js",
+      "probe": "demand-pages",
+      "input": "the top-12 family pages in data/seo/demand_pages.json"
     }
   ]
 }
