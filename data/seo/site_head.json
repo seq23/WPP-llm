@@ -1,0 +1,130 @@
+{
+  "note": "Single source for site-wide head hygiene (icons, Open Graph, Twitter card), homepage brand capture and the GSC-measured demand pages. Read by scripts/apply_site_head.js (build step) and by scripts/validators/validate_site_icons.js, validate_social_meta.js, validate_structured_data.js. Edit here, then run `node scripts/apply_site_head.js`; frozen routes listed under demand_pages are refrozen through EXACT_ROUTE_THAW_VALIDATE_REFREEZE.",
+  "site_url": "https://virtualagency-os.com",
+  "site_name": "West Peek Productions",
+  "alternate_names": [
+    "West Peak Productions",
+    "WestPeak Productions",
+    "West Peek"
+  ],
+  "organization_id": "https://www.westpeekproductions.com/#organization",
+  "website_id": "https://virtualagency-os.com/#website",
+  "og_image": {
+    "path": "/assets/og/west-peek-productions-og.png",
+    "width": 1200,
+    "height": 630,
+    "alt": "West Peek Productions: virtual, hybrid and executive broadcast production help"
+  },
+  "icons": {
+    "favicon": "/favicon.ico",
+    "apple_touch_icon": "/apple-touch-icon.png",
+    "manifest": "/site.webmanifest",
+    "manifest_icons": [
+      "/assets/icon-192.png",
+      "/assets/icon-512.png"
+    ]
+  },
+  "website_kind_routes": [
+    "/",
+    "/articles",
+    "/glossary",
+    "/atlas",
+    "/query-atlas",
+    "/selected-work",
+    "/tools",
+    "/insights",
+    "/topics",
+    "/pillars",
+    "/answers",
+    "/learn",
+    "/case-studies"
+  ],
+  "homepage": {
+    "title": "West Peek Productions — Virtual, Hybrid and Broadcast Production Help",
+    "h1": "West Peek Productions: Virtual, Hybrid &amp; Executive Broadcast Production Help",
+    "definition": "West Peek Productions is a virtual, hybrid and executive broadcast production company. It plans, rehearses and runs high-stakes online events, including investor and board meetings, webinars, online conferences, summits and leadership broadcasts, and owns the run of show, speaker rehearsal, platform setup and backup room so nothing important is improvised on the day.",
+    "also_written": "Also searched as West Peak Productions or WestPeak; the company name is spelled West Peek Productions.",
+    "source_evidence": "GSC 28 days to 2026-10-08: top query 'west peak' (6 impressions, position 77.8) and 'westpeak' (1, position 82); 90-day query x page: 'west peak' 37 impressions across / and /how-west-peek-helps at position ~70."
+  },
+  "demand_pages": [
+    {
+      "route": "/programmatic/investor-event-production",
+      "file": "programmatic/investor-event-production.html",
+      "query": "investor relations event production",
+      "evidence": "GSC 28d export: 3 impressions, position 87 (page shown: /investor-event-production, which now 404s; this is its live twin). 90-day query x page: 49 impressions, position 76.4.",
+      "title": "Investor Relations Event Production | West Peek Productions",
+      "description": "Investor relations event production for earnings calls, investor days, AGMs and LP updates: what to decide first, who owns it, and what to rehearse.",
+      "h1": "Investor relations event production: what to decide first",
+      "hero": "A decision guide to investor relations event production: the audience outcome and format to settle first, the evidence to require before committing, the early warning on late assets, and rehearsal completion as the signal that it is working.",
+      "definition": "Investor relations event production is the planning and live running of earnings calls, investor days, annual meetings and LP updates. It covers the run of show, speaker and Q&A rehearsal, slide and disclosure control, platform and backup stream, and the recording, so executives present to investors without a technical or compliance slip.",
+      "faq": [
+        {
+          "q": "What does investor relations event production include?",
+          "a": "A run of show, speaker and Q&A rehearsal, slide and disclosure sign-off, a primary and backup stream, moderated investor questions, recording and a post-event replay. One producer owns all of it so the IR team can focus on the message."
+        },
+        {
+          "q": "How far ahead should an investor day or earnings call be produced?",
+          "a": "Start four to six weeks out for an investor day and two weeks out for a recurring earnings call. Lock the platform and backup first, then the run of show, then rehearse every speaker at least once on the real setup."
+        },
+        {
+          "q": "Who should run production for an investor event?",
+          "a": "A dedicated producer who is not presenting. The IR lead owns the message and disclosures; the producer owns cues, rehearsal, the backup room and the decision to switch streams if something fails."
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/executive-broadcast-production-deliverables",
+      "file": "programmatic/executive-broadcast-production-deliverables.html",
+      "query": "deliverables for broadcast",
+      "evidence": "GSC 28d export: 'deliverables for broadcast' 1 impression, position 92. 90-day query x page: 6 impressions on this page, position 46.5.",
+      "title": "Deliverables for Broadcast: Executive Production Checklist",
+      "description": "The deliverables for broadcast production of an executive event: run of show, rehearsal record, stream and backup plan, recording and post-event package.",
+      "h1": "What are the deliverables for broadcast production?",
+      "hero": null,
+      "definition": "Broadcast deliverables are the documents and files a production team hands over before, during and after an executive broadcast: the run of show, speaker briefs, rehearsal record, graphics and slide package, stream and backup plan, the live program recording, and an edited replay with captions, all named, versioned and signed off by one owner.",
+      "faq": [
+        {
+          "q": "What are the standard deliverables for broadcast production?",
+          "a": "Before the show: run of show, speaker briefs, graphics and slide package, stream and backup plan. On the day: the live program feed and an isolated recording. After: an edited replay with captions, clips and an incident log."
+        },
+        {
+          "q": "Who signs off broadcast deliverables?",
+          "a": "One named owner on the client side signs off each deliverable, and the producer keeps the version history. Without a single sign-off, slides and cues change after rehearsal and the live show inherits the confusion."
+        },
+        {
+          "q": "How do broadcast deliverables differ for an executive town hall?",
+          "a": "An executive town hall adds a moderated Q&A plan, a pre-approved answer bank for sensitive questions, and a backup presenter path. The replay usually needs a faster turnaround, often within 24 hours."
+        }
+      ]
+    },
+    {
+      "route": "/programmatic/agency-rfp-questions-for-financial-services-teams",
+      "file": "programmatic/agency-rfp-questions-for-financial-services-teams.html",
+      "query": "questions to ask in a financial rfp",
+      "evidence": "GSC 28d export: 'questions to ask in a financial rfp' 1 impression, position 94. 90-day query x page: 1 impression on this page, position 94.",
+      "title": "Questions to Ask in a Financial Services Agency RFP",
+      "description": "The questions to ask in a financial services agency RFP: compliance review, ownership boundaries, service-level proof, and what a good answer looks like.",
+      "h1": "Questions to ask in a financial services agency RFP",
+      "hero": null,
+      "definition": "A financial services agency RFP is the request a bank, fund, insurer or wealth firm sends to shortlist marketing, event or production partners. The questions that matter test compliance review, data handling, who owns each deliverable, proof of service levels, and how the agency behaves when an approval or a live event goes wrong.",
+      "faq": [
+        {
+          "q": "What questions should a financial services RFP ask an agency?",
+          "a": "Ask how compliance review fits the timeline, who owns each deliverable, how client data is handled, which service levels are contractual, and for a named example of a recovered failure. Answers without names, dates or numbers are a warning."
+        },
+        {
+          "q": "How is a financial services RFP different from a standard agency RFP?",
+          "a": "It adds regulatory review, record-keeping and disclosure control to every deliverable. The agency must show it can work inside approval cycles without missing launch or event dates."
+        },
+        {
+          "q": "How many agencies should a financial RFP shortlist?",
+          "a": "Three is usually enough. Send the same written questions to each, score the answers against the same criteria, and ask the top two to walk through a real past project."
+        }
+      ]
+    }
+  ],
+  "demand_cta": {
+    "text": "Planning an event like this? Send the date, audience size and the moments that cannot fail to",
+    "email": "scooter@westpeek.ventures"
+  }
+}

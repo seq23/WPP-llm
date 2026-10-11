@@ -513,6 +513,55 @@
       "severity": "HARD_FAIL",
       "purpose": "Every sitemap page has a 30-70 character title and a 110-160 character meta description, none shared (Bing rules 113, 117, 118 and Site Scan title length).",
       "owner": "repo"
+    },
+    {
+      "id": "site-icons",
+      "command": "node scripts/validators/validate_site_icons.js",
+      "severity": "HARD_FAIL",
+      "purpose": "favicon.ico, apple-touch-icon (180x180), web manifest icons and the 1200x630 social card exist at the sizes the pages declare.",
+      "owner": "repo"
+    },
+    {
+      "id": "social-meta",
+      "command": "node scripts/validators/validate_social_meta.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every owned page carries og:type by page kind, og:image 1200x630 with width/height, twitter summary_large_image and icon links exactly once; apply_site_head.js is idempotent.",
+      "owner": "repo"
+    },
+    {
+      "id": "structured-data",
+      "command": "node scripts/validators/validate_structured_data.js",
+      "severity": "HARD_FAIL",
+      "purpose": "JSON-LD parses; homepage has WebSite/WebPage/speakable, brand alternateName and a 40-60 word definition under the H1; FAQPage only where the Q&A is visible; demand pages carry their measured query.",
+      "owner": "repo"
+    },
+    {
+      "id": "indexnow-key",
+      "command": "node scripts/validators/validate_indexnow_key.js",
+      "severity": "HARD_FAIL",
+      "purpose": "IndexNow verification file is published with the key and the post-deploy ping stays wired after CI on main.",
+      "owner": "repo"
+    },
+    {
+      "id": "publication-freeze",
+      "command": "node scripts/validators/validate_publication_freeze.js",
+      "severity": "HARD_FAIL",
+      "purpose": "While frozen, no new page is created for a query without a measured Search Console number; the gate is exercised and wired into apply_release_plan.js.",
+      "owner": "repo"
+    },
+    {
+      "id": "measured-targets",
+      "command": "node scripts/validators/validate_measured_targets.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Demand targets come only from Search Console rows; dropped estimates carry reasons; consolidation candidates are thin zero-impression sitemap pages with an existing hub.",
+      "owner": "repo"
+    },
+    {
+      "id": "search-intelligence",
+      "command": "node scripts/validators/validate_search_intelligence.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Search Console analytics, index coverage and sitemap records exist, add up, and are no older than 7 days.",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

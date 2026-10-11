@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-11T10:45:31.991Z
+Generated: 2026-10-11T14:12:35.396Z
 
 Workflows: 8
 
@@ -88,16 +88,19 @@ Workflows: 8
 - query-intelligence.yml :: collect_score #19 :: actions/upload-artifact@v7
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6
 - search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v6
-- search-repair-retest.yml :: diagnose_repair_retest #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
-- search-repair-retest.yml :: diagnose_repair_retest #4 :: node scripts/runtime_guard.mjs
-- search-repair-retest.yml :: diagnose_repair_retest #5 :: Sync latest main before writing artifacts
-- search-repair-retest.yml :: diagnose_repair_retest #6 :: Validate workflow syntax :: npm:actions:validate
-- search-repair-retest.yml :: diagnose_repair_retest #7 :: Ingest any filled manual query-surface observation log :: npm:query:observe:ingest
-- search-repair-retest.yml :: diagnose_repair_retest #8 :: Diagnose pages (evidence + technical) :: npm:repairs:diagnose
-- search-repair-retest.yml :: diagnose_repair_retest #9 :: Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze) :: npm:repairs:apply
-- search-repair-retest.yml :: diagnose_repair_retest #10 :: Sweep delayed retest queue for real evidence :: npm:repairs:retest
-- search-repair-retest.yml :: diagnose_repair_retest #11 :: Commit search repair and retest artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
-- search-repair-retest.yml :: diagnose_repair_retest #12 :: actions/upload-artifact@v7
+- search-repair-retest.yml :: diagnose_repair_retest #3 :: actions/setup-python@v6
+- search-repair-retest.yml :: diagnose_repair_retest #4 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
+- search-repair-retest.yml :: diagnose_repair_retest #5 :: node scripts/runtime_guard.mjs
+- search-repair-retest.yml :: diagnose_repair_retest #6 :: Sync latest main before writing artifacts
+- search-repair-retest.yml :: diagnose_repair_retest #7 :: Validate workflow syntax :: npm:actions:validate
+- search-repair-retest.yml :: diagnose_repair_retest #8 :: Collect Search Console intelligence :: npm:search:intelligence
+- search-repair-retest.yml :: diagnose_repair_retest #9 :: Rebuild measured targets and consolidation candidates :: npm:seo:measured-targets
+- search-repair-retest.yml :: diagnose_repair_retest #10 :: Ingest any filled manual query-surface observation log :: npm:query:observe:ingest
+- search-repair-retest.yml :: diagnose_repair_retest #11 :: Diagnose pages (evidence + technical) :: npm:repairs:diagnose
+- search-repair-retest.yml :: diagnose_repair_retest #12 :: Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze) :: npm:repairs:apply
+- search-repair-retest.yml :: diagnose_repair_retest #13 :: Sweep delayed retest queue for real evidence :: npm:repairs:retest
+- search-repair-retest.yml :: diagnose_repair_retest #14 :: Commit search repair and retest artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
+- search-repair-retest.yml :: diagnose_repair_retest #15 :: actions/upload-artifact@v7
 - self-heal.yml :: self_heal #1 :: actions/checkout@v6
 - self-heal.yml :: self_heal #2 :: actions/setup-node@v6
 - self-heal.yml :: self_heal #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
