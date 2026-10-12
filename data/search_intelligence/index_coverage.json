@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T14:13:20.250809Z",
+  "generated_at": "2026-10-12T10:51:44.844218Z",
   "site": "sc-domain:virtualagency-os.com",
   "sitemap_url_count": 2716,
   "rotation": {
@@ -7,21 +7,1514 @@
     "parallel": 8,
     "full_cycle_days": 19
   },
-  "inspected_ever": 150,
-  "never_inspected": 2566,
+  "inspected_ever": 151,
+  "never_inspected": 2565,
   "counts_by_coverage_state": {
     "Submitted and indexed": 103,
-    "Duplicate, Google chose different canonical than user": 24,
+    "Duplicate, Google chose different canonical than user": 25,
     "Crawled - currently not indexed": 13,
     "Discovered - currently not indexed": 9,
     "URL is unknown to Google": 1
   },
   "last_run": {
-    "at": "2026-10-11T14:13:20.250809Z",
+    "at": "2026-10-12T10:51:44.844218Z",
     "due": 150,
-    "inspected": 150,
-    "errors": 0,
-    "error_sample": []
+    "inspected": 149,
+    "errors": 1,
+    "error_sample": [
+      {
+        "url": "https://virtualagency-os.com/ai-marketing-workflows-operating-model",
+        "error": "HttpError: <HttpError 500 when requesting https://searchconsole.googleapis.com/v1/urlInspection/index:inspect?alt=json returned \"Internal error encountered.\". Details: \"In"
+      }
+    ]
+  },
+  "priority_queue": {
+    "source": "data/redirects/measured_404_redirects.json + consolidation_candidates dead_urls_with_live_twin",
+    "queued": 149,
+    "inspected_ever": 148,
+    "inspected_this_run": 149
+  },
+  "priority_urls": {
+    "https://virtualagency-os.com/agency-rfp-questions-comparison": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T17:18:10Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/agency-rfp-questions-consultant": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-21T11:37:01Z",
+      "googleCanonical": "https://virtualagency-os.com/agency-rfp-questions-consultant",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:12:02Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-agency": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-06T15:59:42Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-common-failure-points": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T17:10:36Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-companies": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T11:04:41Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-consultant": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-21T06:51:24Z",
+      "googleCanonical": "https://virtualagency-os.com/ai-consultant-vs-automation-agency-consultant",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-cost": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-21T03:12:52Z",
+      "googleCanonical": "https://virtualagency-os.com/ai-consultant-vs-automation-agency-cost",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-for-marketing-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-13T00:22:05Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-for-small-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:50:34Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-measurement": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-21T06:59:24Z",
+      "googleCanonical": "https://virtualagency-os.com/ai-consultant-vs-automation-agency-measurement",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-mistakes": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:23:23Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-process": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-02T16:48:16Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-services": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T18:46:35Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-consultant-vs-automation-agency-when-to-hire": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-14T08:31:37Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-21T15:32:43Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-consultant": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T16:26:02Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-for-enterprise-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-02T21:10:20Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-for-marketing-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-22T23:36:16Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-for-startups": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-08T17:00:15Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-how-to-choose": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-11T15:09:30Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-process": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:41:38Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-content-operations-services": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T19:29:43Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-creative-workflows-examples": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-31T13:51:47Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-creative-workflows-for-enterprise-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-02T20:03:00Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-knowledge-systems-for-marketing-operating-model": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T15:24:25Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-21T03:49:53Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-consultant": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T07:29:26Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-for-enterprise-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-16T11:19:31Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-for-startups": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-21T19:13:53Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-implementation-guide": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-01T14:56:40Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-pricing": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-02T15:04:01Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-process": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T08:41:00Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-strategy-framework": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-13T06:43:38Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-marketing-workflows-workflow": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-20T23:12:35Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-21T08:14:04Z",
+      "googleCanonical": "https://virtualagency-os.com/ai-workflow-consulting",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-consultant": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-17T22:50:46Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-for-enterprise-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-09T08:41:59Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-for-marketing-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-01T17:20:26Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-operating-model": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-14T04:15:58Z",
+      "googleCanonical": "https://virtualagency-os.com/ai-workflow-consulting-operating-model",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-process": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-14T03:28:23Z",
+      "googleCanonical": "https://virtualagency-os.com/ai-workflow-consulting-process",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-strategy-framework": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-17T22:57:46Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-timeline": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T23:46:45Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/ai-workflow-consulting-workflow": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-09T11:03:38Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/audience-growth-strategy": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T20:00:30Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/audience-growth-strategy-2026": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-21T18:49:24Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/audience-growth-strategy-best-practices": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T07:07:13Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/audience-growth-strategy-checklist": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-08T20:47:33Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/audience-growth-strategy-consultant": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T07:23:01Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/audience-growth-strategy-strategy-framework": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T18:09:36Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/best-virtual-event-platforms": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T09:19:34Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-agency-vs-marketing-agency-consultant": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T07:33:37Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-agency-vs-marketing-agency-roi-factors": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-06T05:34:22Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T08:11:41Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-audit": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-15T13:54:24Z",
+      "googleCanonical": "https://virtualagency-os.com/brand-messaging-architecture-audit",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-for-enterprise-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-01T02:09:08Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-for-marketing-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T05:34:28Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-for-nonprofits": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-05T18:06:15Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-implementation-guide": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-30T18:36:53Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-measurement": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-03T21:42:07Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-process": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-21T02:50:48Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-strategy-framework": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-11T20:40:58Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-messaging-architecture-vs-in-house-team": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T05:52:03Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-narrative-strategy-companies": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-16T21:39:46Z",
+      "googleCanonical": "https://virtualagency-os.com/brand-narrative-strategy-companies",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-narrative-strategy-consultant": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-30T07:40:28Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-examples": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-29T11:28:56Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-for-enterprise-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-03T20:05:40Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-for-marketing-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T10:47:40Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-for-startups": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-29T20:46:24Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-questions-to-ask": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T04:46:53Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-scope-of-work": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-26T14:13:58Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-positioning-strategy-strategy-framework": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T04:43:07Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-storytelling-deliverables": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T17:28:14Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-storytelling-strategy-framework": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T05:57:54Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-strategy-consulting-deliverables": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-06T04:34:53Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-strategy-consulting-for-enterprise-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T16:52:36Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-strategy-consulting-pricing": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-12T00:59:28Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/brand-strategy-consulting-scope-of-work": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-06T04:46:05Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/campaign-narrative-strategy-for-founders": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-31T04:34:24Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/campaign-narrative-strategy-for-startups": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-08T15:44:02Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/community-marketing-for-enterprise-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-17T20:53:40Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/community-marketing-timeline": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T03:52:53Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-17T09:17:54Z",
+      "googleCanonical": "https://virtualagency-os.com/content-marketing-operations",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-agency": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-18T11:54:03Z",
+      "googleCanonical": "https://virtualagency-os.com/content-marketing-operations-agency",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-best-practices": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T19:25:43Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-comparison": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-06T04:16:00Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-consultant": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-17T20:03:04Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-deliverables": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:59:16Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-for-marketing-teams": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T15:59:32Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-implementation-guide": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T07:34:49Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-process": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-18T09:49:41Z",
+      "googleCanonical": "https://virtualagency-os.com/content-marketing-operations-process",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-scope-of-work": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-12T05:53:43Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-services": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-19T19:05:03Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-strategy-framework": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-05T00:53:43Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-when-to-hire": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-02T17:41:10Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/content-marketing-operations-workflow": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-24T11:57:41Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/corporate-storytelling-examples": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-21T04:56:28Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-21T08:22:28Z",
+      "googleCanonical": "https://virtualagency-os.com/creative-agency-vs-production-company",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-companies": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T20:41:40Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-examples": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-12T06:52:12Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-for-marketing-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T17:43:18Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-for-nonprofits": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-05T18:20:40Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-red-flags": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-08T10:59:53Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-scope-of-work": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-05T16:06:15Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-services": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T18:58:18Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-agency-vs-production-company-workflow": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-20T05:13:18Z",
+      "googleCanonical": "https://virtualagency-os.com/creative-agency-vs-production-company-workflow",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-direction-agency-deliverables": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-21T05:43:52Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-direction-agency-process": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-09T00:43:37Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-26T08:01:06Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-agency": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-20T08:47:39Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-consultant": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-08T15:58:33Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-for-enterprise-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-28T07:08:23Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-for-marketing-teams": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-01T02:08:08Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-for-nonprofits": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-13T06:24:23Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-for-startups": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-03T03:14:35Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-how-to-choose": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-18T21:11:19Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-process": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-21T00:05:14Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-services": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-19T21:08:20Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-timeline": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-11T18:02:24Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-operations-workflow": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-06T05:04:13Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-strategy-consulting-cost": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-04T15:39:59Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-strategy-consulting-how-to-choose": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-22T03:09:08Z",
+      "googleCanonical": "https://virtualagency-os.com/creative-strategy-consulting-how-to-choose",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-strategy-consulting-measurement": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-20T22:16:48Z",
+      "googleCanonical": "https://virtualagency-os.com/creative-strategy-consulting-measurement",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-strategy-consulting-vs-in-house-team": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T17:49:50Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/creative-strategy-consulting-when-to-hire": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-05T16:19:58Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/event-marketing-strategy-deliverables": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T17:46:32Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/event-run-of-show": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T00:38:30Z",
+      "googleCanonical": "https://virtualagency-os.com/event-run-of-show",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/host-virtual-events": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-01T19:42:21Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/how-to-host-a-virtual-event": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T15:45:17Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/hybrid-event-platform": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T09:41:14Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/integrated-agency-vs-specialist-agencies": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:06:23Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/investor-event-production": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-06-30T18:37:11Z",
+      "googleCanonical": "https://virtualagency-os.com/investor-event-production",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/multi-speaker-event-production": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-03T02:59:20Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/online-conference-platforms": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T09:30:27Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/podcast-strategy-consulting": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-19T02:34:49Z",
+      "googleCanonical": "https://virtualagency-os.com/podcast-strategy-consulting",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-management": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-05T00:40:24Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-planning": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-13T03:41:57Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-planning-checklist": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-16T04:09:33Z",
+      "googleCanonical": "https://virtualagency-os.com/virtual-event-planning-checklist",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-checklist": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-06T22:46:35Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-companies": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-11T04:59:50Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-for-government": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T23:01:40Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-for-manufacturing": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-11T02:52:06Z",
+      "googleCanonical": "https://virtualagency-os.com/virtual-event-production-for-manufacturing",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-for-professional-services": {
+      "coverageState": "Not found (404)",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "NOT_FOUND",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-02T11:12:43Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-for-saas": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T02:22:54Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-production-production-team": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-24T07:17:53Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-services": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-10T06:19:21Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-event-trends-2026": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-11T07:51:30Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    },
+    "https://virtualagency-os.com/virtual-summit-production": {
+      "coverageState": "Alternate page with proper canonical tag",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-08-03T16:59:31Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
+    }
   },
   "urls": {
     "https://virtualagency-os.com/": {
@@ -1523,6 +3016,16 @@
       "lastCrawlTime": "2026-10-02T11:26:03Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/agency-rfp-questions-what-to-prepare-before-kickoff",
       "inspected_at": "2026-10-11T14:13:20.250809Z"
+    },
+    "https://virtualagency-os.com/programmatic/agency-rfp-questions-when-to-hire": {
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T21:27:39Z",
+      "googleCanonical": "https://virtualagency-os.com/agency-rfp-questions-when-to-hire",
+      "inspected_at": "2026-10-12T10:51:44.844218Z"
     }
   }
 }
