@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-14T10:48:19.204Z",
+  "updated_at": "2026-10-15T10:48:45.491Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -3959,119 +3959,16 @@
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-10-14T10:48:19.204Z",
-    "eligible": 786,
+    "swept_at": "2026-10-15T10:48:45.491Z",
+    "eligible": 766,
     "promoted": 0,
     "retested_from_evidence": 0,
-    "closed_inconclusive_stale": 20,
+    "closed_inconclusive_stale": 0,
     "still_awaiting_evidence": 766,
     "signal_records_matching_queue_routes": 50,
-    "outcomes_recorded": {
-      "INCONCLUSIVE": 20
-    },
-    "aged_out_inconclusive": [
-      {
-        "route": "/programmatic/agency-rfp-questions-what-to-prepare-before-kickoff",
-        "repair_id": "repair_45bc58e38c05",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/agency-selection-strategy-agency-engagement-for-companies",
-        "repair_id": "repair_502626ca6149",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-consultant-vs-automation-agency-what-to-prepare-before-kickoff",
-        "repair_id": "repair_eb41b0299fd3",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-content-operations-agency-engagement-for-companies",
-        "repair_id": "repair_b79abfc9d9e0",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-content-operations-for-founders",
-        "repair_id": "repair_88546fa81709",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-content-operations-for-nonprofits",
-        "repair_id": "repair_62b39b08da48",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-content-operations-for-startups",
-        "repair_id": "repair_4132e610e91c",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-cost",
-        "repair_id": "repair_334259a8761f",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-for-venture-backed-companies",
-        "repair_id": "repair_48892b890e3c",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-implementation-guide",
-        "repair_id": "repair_54dcb116c18e",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-measurement",
-        "repair_id": "repair_3214930ef26e",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-mistakes",
-        "repair_id": "repair_429f7325137b",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-pricing",
-        "repair_id": "repair_dec270d34f48",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-process",
-        "repair_id": "repair_da7513a117cb",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-services",
-        "repair_id": "repair_e6a15a2c789a",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-strategy-framework",
-        "repair_id": "repair_58a573759255",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-template",
-        "repair_id": "repair_a75fa3d1786d",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-timeline",
-        "repair_id": "repair_254298af4036",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing-workflow",
-        "repair_id": "repair_487a0eaefb7f",
-        "age_days": 45
-      },
-      {
-        "route": "/programmatic/ai-knowledge-systems-for-marketing",
-        "repair_id": "repair_3f17365af332",
-        "age_days": 45
-      }
-    ],
-    "stop_reason": null,
-    "stop_detail": null
+    "outcomes_recorded": {},
+    "aged_out_inconclusive": [],
+    "stop_reason": "AWAITING_EVIDENCE",
+    "stop_detail": "766 repair(s) eligible; no dated signal observed after their repair timestamp yet, and none has reached the 45-day stale window"
   }
 }
