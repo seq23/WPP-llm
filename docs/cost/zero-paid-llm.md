@@ -39,5 +39,5 @@ Dropped: `openrouter/free` (empty in both stops). Excluded: `thinkingmachines/in
 - **429:** `Retry-After` (header, or OpenRouter's error metadata) is waited out once per model when it is 30s or less; otherwise the next model.
 - **Per-model refusals** (403 harness-only, 404, 5xx) fall through to the next model; only 401 or a key-worded 403 is the key stop.
 - **Bounded:** one total budget (default 5 min, selftest 2 min, so both fit the 13-min job timeout); models past it are `skipped` and the run ends in the named stop.
-- **Pinned by** `scripts/llm/test_free_router.js` (`npm run test:free-router`, in the `ci.yml` merge gate): replays each 13/16 Oct failure mode against a mocked fetch; 7 of its 12 cases fail on the pre-fix router.
+- **Pinned by** `scripts/llm/test_free_router.js` (`npm run test:free-router`, in the `ci.yml` merge gate): replays each 13/16 Oct failure mode against a mocked fetch. A body read that times out after the headers is an `error`, never `empty` (the post-#42 dispatch showed super \"empty\" with no choices: a swallowed 120s body timeout on a 6000-token answer); the panel now asks 20 opportunities at `max_tokens` 2500 (only 4000 chars were ever stored).
 

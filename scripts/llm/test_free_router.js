@@ -31,6 +31,8 @@ function tmpRoot(models) {
 }
 
 const json = (status, body, headers = {}) => ({ ok: status >= 200 && status < 300, status, headers: { get: (n) => headers[n.toLowerCase()] ?? null }, json: async () => body, text: async () => JSON.stringify(body) });
+// headers arrive, then the body read aborts (slow generation past timeoutMs)
+const bodyTimesOut = () => ({ ok: true, status: 200, headers: { get: () => null }, json: async () => { throw new Error('The operation was aborted due to timeout'); }, text: async () => { throw new Error('The operation was aborted due to timeout'); } });
 const answer = (content, extra = {}) => json(200, { model: extra.model, choices: [{ finish_reason: extra.finish_reason || 'stop', message: { content, reasoning: extra.reasoning } }], usage: { cost: 0 } });
 
 // handler(model, body, n) -> response; n counts calls to that model
@@ -78,11 +80,36 @@ test('13/16 Oct replay: reasoning model spends max_tokens on its trace (empty co
   assert.ok(empty.reasoning_chars > 0);
 });
 
-test('empty twice on one model -> next model, not a stop', async () => {
-  mockFetch((m) => (m === 'b/two:free' ? answer('ok') : answer('')));
+test('empty twice on one model (trace ate the budget) -> one retry, then next model, not a stop', async () => {
+  mockFetch((m) => (m === 'b/two:free' ? answer('ok') : answer(null, { finish_reason: 'length' })));
   const r = await run({ root: tmpRoot(['a/one:free', 'b/two:free']) });
   assert.ok(r.ok);
   assert.strictEqual(r.receipt.attempts.filter((a) => a.model === 'a/one:free').length, 2, 'one bounded retry, no more');
+});
+
+test('plain empty answer (no trace, finish stop) is not retried on the same model', async () => {
+  mockFetch((m) => (m === 'b/two:free' ? answer('ok') : answer('')));
+  const r = await run({ root: tmpRoot(['a/one:free', 'b/two:free']) });
+  assert.ok(r.ok);
+  assert.strictEqual(r.receipt.attempts.filter((a) => a.model === 'a/one:free').length, 1);
+});
+
+test('16 Oct dispatch replay: body read aborts after headers -> recorded as a timeout error (never "empty"), not retried, next model answers', async () => {
+  const calls = mockFetch((m) => (m === 'b/two:free' ? answer('ok') : bodyTimesOut()));
+  const r = await run({ root: tmpRoot(['a/one:free', 'b/two:free']) });
+  assert.ok(r.ok);
+  const a = r.receipt.attempts.filter((x) => x.model === 'a/one:free');
+  assert.strictEqual(a.length, 1, 'a timed-out model must not be called again');
+  assert.strictEqual(a[0].status, 'error');
+  assert.match(a[0].error, /timeout/);
+  assert.strictEqual(calls.filter((c) => c.model === 'a/one:free').length, 1);
+});
+
+test('200 with no choices is "no_choices", not "empty"', async () => {
+  mockFetch((m) => (m === 'b/two:free' ? answer('ok') : json(200, { id: 'x' })));
+  const r = await run({ root: tmpRoot(['a/one:free', 'b/two:free']) });
+  assert.ok(r.ok);
+  assert.strictEqual(r.receipt.attempts[0].status, 'no_choices');
 });
 
 test('content returned as an array of parts is read, not counted empty', async () => {
