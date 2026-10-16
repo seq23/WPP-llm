@@ -371,6 +371,11 @@
       "input": "favicon, apple-touch-icon, web manifest and social card files"
     },
     {
+      "command": "node scripts/validators/validate_email_obfuscation_safe.js",
+      "probe": "html-corpus",
+      "input": "every published .html page, as assembled into the Pages output"
+    },
+    {
       "command": "node scripts/validators/validate_social_meta.js",
       "probe": "html-corpus",
       "input": "every published .html page"

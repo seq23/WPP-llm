@@ -18,7 +18,9 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
-const dist = path.join(root, '.pages-output');
+// PAGES_ASSEMBLE_OUT lets validate_email_obfuscation_safe.js assemble the real
+// published tree into a temp dir and scan it; Pages itself uses the default.
+const dist = process.env.PAGES_ASSEMBLE_OUT ? path.resolve(process.env.PAGES_ASSEMBLE_OUT) : path.join(root, '.pages-output');
 
 const EXCLUDE = new Set([
   '.pages-output', 'dist', 'node_modules', '.git', '.github', '.gitignore',
@@ -54,12 +56,37 @@ function isPublishedPath(relPath) {
   return true;
 }
 
+/**
+ * Wraps a published HTML document in Cloudflare's email_off markers.
+ *
+ * WHY. The zone's Email Obfuscation rewrites every address in served HTML into
+ * an href to /cdn-cgi/l/email-protection, decoded only by JavaScript. Crawlers,
+ * AI fetchers and link checkers get a 404 there: a 16 Oct 2026 portfolio link
+ * audit found it in the footer of every page on virtualagency-os.com. The
+ * addresses come from many generators (footer, fanout, CTAs, JSON-LD) and from
+ * frozen accepted outputs that a normal build may not rewrite, so the one place
+ * every published page passes through - this copy - is where the marker goes.
+ * The zone setting is left alone; Cloudflare honours these comments per page.
+ * Idempotent: an already wrapped document is returned unchanged.
+ */
+const EMAIL_OFF = '<!--email_off-->';
+const EMAIL_OFF_END = '<!--/email_off-->';
+function wrapEmailOff(html) {
+  const s = String(html);
+  if (s.includes(EMAIL_OFF) && s.includes(EMAIL_OFF_END)) return s;
+  const open = s.match(/<html\b[^>]*>/i);
+  const close = s.toLowerCase().lastIndexOf('</html>');
+  if (!open || close < open.index) return EMAIL_OFF + s + EMAIL_OFF_END;
+  const at = open.index + open[0].length;
+  return s.slice(0, at) + EMAIL_OFF + s.slice(at, close) + EMAIL_OFF_END + s.slice(close);
+}
 if (require.main !== module) {
-  module.exports = { EXCLUDE, EXCLUDE_EXT, isPublishedPath };
+  module.exports = { EXCLUDE, EXCLUDE_EXT, isPublishedPath, wrapEmailOff, EMAIL_OFF, EMAIL_OFF_END };
   return;
 }
 
 let copied = 0;
+let wrapped = 0;
 function copyInto(srcDir, outDir, depth) {
   for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
     if (depth === 0 && EXCLUDE.has(entry.name)) continue;
@@ -70,7 +97,12 @@ function copyInto(srcDir, outDir, depth) {
       fs.mkdirSync(to, { recursive: true });
       copyInto(from, to, depth + 1);
     } else if (entry.isFile()) {
-      fs.copyFileSync(from, to);
+      if (entry.name.endsWith('.html')) {
+        fs.writeFileSync(to, wrapEmailOff(fs.readFileSync(from, 'utf8')));
+        wrapped += 1;
+      } else {
+        fs.copyFileSync(from, to);
+      }
       copied += 1;
     }
   }
@@ -125,4 +157,8 @@ if (leaked.length) {
   process.exit(1);
 }
 
-console.log(`assemble: ${copied} files into .pages-output/ (sitemap URLs verified)`);
+if (wrapped === 0) {
+  console.error('assemble: zero HTML pages wrapped in email_off; the copy found no pages to publish.');
+  process.exit(1);
+}
+console.log(`assemble: ${copied} files into ${path.relative(root, dist) || dist}/ (sitemap URLs verified, ${wrapped} HTML pages wrapped in email_off)`);
