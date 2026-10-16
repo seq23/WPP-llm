@@ -2,7 +2,8 @@
 /* eslint-disable no-console */
 /**
  * Site head hygiene, brand capture and demand-page strengthening, as one
- * idempotent build step (last in `npm run build`, after install_clarity).
+ * idempotent build step (last HTML writer in `npm run build`, after install_clarity;
+ * only update_sitemap_all_html.js and the release plan follow it).
  *
  * WHY. On 11 Oct 2026 the live homepage had no og:image, no twitter:card, no
  * WebSite/WebPage schema, a 404 favicon.ico, og:type "article", an
