@@ -49,6 +49,16 @@ const sitemapAt = steps.indexOf('node scripts/update_sitemap_all_html.js');
 check(sitemapAt >= 0, 'build no longer runs update_sitemap_all_html.js; this test pins the wrong order');
 check(applyAt >= 0 && applyAt < sitemapAt,
   'build must run node scripts/apply_noindex_policy.js before node scripts/update_sitemap_all_html.js');
+// The sitemap hashes each page into the lastmod ledger, so it must hash the
+// page as committed: after the frozen restore and the last HTML writer. Before
+// 16 Oct 2026 it ran before authority:scale:restore and apply_site_head, so the
+// release lane hashed transient copies and the query-intelligence lane hashed
+// the committed ones; every run flipped 2,709 of 2,716 hashes and moved their
+// <lastmod> to the build day, so the date told Google nothing.
+for (const writer of ['npm run authority:scale:restore', 'node scripts/install_clarity.js', 'node scripts/apply_site_head.js']) {
+  const at = steps.indexOf(writer);
+  check(at >= 0 && at < sitemapAt, `build must run ${writer} before node scripts/update_sitemap_all_html.js, or the lastmod ledger hashes a page that is rewritten afterwards`);
+}
 // The query-intelligence lane pushes the Search Console signals the policy
 // reads but does not run `build`. 5 Oct 2026 (add924a84): it pushed a pull that
 // promoted a page and left the committed page noindex, so case 4 below was red

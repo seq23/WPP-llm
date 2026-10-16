@@ -9,7 +9,11 @@
  *     the rolling 28-day file and the dead-URL list in
  *     data/seo/consolidation_candidates.json resolves to a page, or to a 301 whose
  *     target is a page; never to nothing;
- *   - no redirect source is listed in sitemap.xml.
+ *   - every URL Google chose as canonical (data/search_intelligence/index_coverage.json)
+ *     resolves to a page or a 301 to one;
+ *   - no redirect source is listed in sitemap.xml;
+ *   - no /x and /programmatic/x pair is listed in sitemap.xml unless one is the
+ *     other's canonical.
  *
  * Why: on 11 Oct 2026, 149 measured URLs (5,366 of ~7,474 90-day impressions,
  * including the investor-relations page Google still showed) returned 404 while
@@ -46,6 +50,14 @@ const pages = new Set();
 for (const r of readJson('data/signals/gsc_query_signals.json', { records: [] }).records || []) if (r.signal_type === 'gsc_query_performance') pages.add(pathOf(r.target_route));
 for (const r of readJson('data/search_intelligence/search_analytics_28d.json', { rows: [] }).rows || []) pages.add(pathOf(r.page));
 for (const d of readJson('data/seo/consolidation_candidates.json', {}).dead_urls_with_live_twin || []) pages.add(pathOf(d.dead_url));
+// A URL Google chose as canonical for one of our pages must land on a page too,
+// or the duplicate cluster has nowhere to consolidate (16 Oct 2026: 46 such
+// root-level slugs answered 404 while their /programmatic/ twin self-canonicalised).
+let googleCanonicals = 0;
+for (const v of Object.values(readJson('data/search_intelligence/index_coverage.json', { urls: {} }).urls || {})) {
+  if (v && v.googleCanonical) { pages.add(pathOf(v.googleCanonical)); googleCanonicals += 1; }
+}
+if (!googleCanonicals) { console.error('MEASURED URL VALIDATION: index_coverage.json carries zero Google-chosen canonicals; refusing to pass over nothing.'); process.exit(1); }
 pages.delete(null);
 if (!pages.size) { console.error('MEASURED URL VALIDATION: zero measured pages found; refusing to pass over nothing.'); process.exit(1); }
 
@@ -63,9 +75,29 @@ const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 const listed = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => pathOf(m[1])));
 for (const r of rules) if ([301, 302, 307, 308].includes(r.status) && listed.has(r.from)) problems.push(`${r.from} redirects but is listed in sitemap.xml`);
 
+// Slug twins: /x and /programmatic/x both in the sitemap is one page competing
+// with itself unless one names the other as canonical. Google folded such twins
+// on 16 Oct 2026 (URL Inspection: "Duplicate, Google chose different canonical").
+const canonicalOf = (route) => {
+  const rel = route === '/' ? 'index.html' : `${route.replace(/^\//, '').replace(/\/$/, '')}.html`;
+  const alt = `${route.replace(/^\//, '').replace(/\/$/, '')}/index.html`;
+  const f = [rel, alt].map((x) => path.join(ROOT, x)).find((x) => fs.existsSync(x));
+  if (!f) return null;
+  const m = fs.readFileSync(f, 'utf8').match(/<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i);
+  return m ? pathOf(m[1]) : null;
+};
+let twinPairs = 0;
+for (const p of listed) {
+  if (!p || !p.startsWith('/programmatic/')) continue;
+  const root = p.slice('/programmatic'.length);
+  if (!listed.has(root)) continue;
+  twinPairs += 1;
+  if (canonicalOf(p) !== root && canonicalOf(root) !== p) problems.push(`${p} and ${root} are both in sitemap.xml with no 301 or canonical between them`);
+}
+
 if (problems.length) {
   console.error(`Measured URL violations (${problems.length}):`);
   for (const p of problems.slice(0, 40)) console.error(`- ${p}`);
   process.exit(1);
 }
-console.log(`Measured URLs OK: ${measured.length} measured-404 rules land on a page in one hop; ${pages.size} measured pages resolve (${redirected} via 301, none 404); no redirect source in sitemap.xml.`);
+console.log(`Measured URLs OK: ${measured.length} measured-404 rules land on a page in one hop; ${pages.size} measured pages (incl. ${googleCanonicals} Google-chosen canonicals) resolve (${redirected} via 301, none 404); no redirect source in sitemap.xml; ${twinPairs} slug-twin pair(s) in sitemap, each joined by a canonical.`);

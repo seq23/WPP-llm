@@ -3,7 +3,8 @@
 /**
  * Writes data/redirects/measured_404_redirects.json: one 301 for every URL that
  * Search Console measured (any window: 90-day query x page, rolling 28-day, the
- * 28-day export, and the dead-URL list in data/seo/consolidation_candidates.json)
+ * 28-day export, every Google-chosen canonical in the URL Inspection file, and
+ * the dead-URL list in data/seo/consolidation_candidates.json)
  * and that this build answers with a 404.
  *
  * Why: on 11 Oct 2026, 149 measured URLs returned 404 while the same page lived
@@ -41,6 +42,14 @@ function measuredPages() {
   const dir = rel('data/search_intelligence');
   for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => /^gsc_export_28d_.*\.json$/.test(x)) : []) {
     for (const r of readJson(`data/search_intelligence/${f}`, {}).top_pages || []) add(r.page || r.url, 0);
+  }
+  // URLs Google chose as the canonical of one of our pages (URL Inspection,
+  // data/search_intelligence/index_coverage.json). 16 Oct 2026: 55 root-level
+  // slugs, retired when their pages moved under /programmatic/ on 22 Jul, were
+  // still Google's canonical for the /programmatic/ twin and 46 answered 404, so
+  // the signal could not consolidate onto the page we keep.
+  for (const v of Object.values(readJson('data/search_intelligence/index_coverage.json', { urls: {} }).urls || {})) {
+    if (v && v.googleCanonical) add(v.googleCanonical, 0);
   }
   const cand = readJson('data/seo/consolidation_candidates.json', {});
   for (const d of cand.dead_urls_with_live_twin || []) {
