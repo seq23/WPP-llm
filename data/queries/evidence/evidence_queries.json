@@ -3580,6 +3580,34 @@
       }
     },
     {
+      "query": "live event production webinar",
+      "evidence_tier": "T1",
+      "source_type": "gsc_search_analytics",
+      "impressions_90d": 8,
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0.0,
+      "average_position": 59.75,
+      "target_domain": "virtualagency-os.com",
+      "measured_window_days": 90,
+      "measured_start": "2026-07-16",
+      "measured_end": "2026-10-14",
+      "first_seen": "2026-08-26",
+      "last_seen": "2026-10-16",
+      "search_volume": null,
+      "demand_basis": "impressions_90d",
+      "lead_intent_tier": "T4_INFORMATIONAL",
+      "lead_intent_method": "regex_classifier_on_query_string, scripts/queries/score_discovery_gap.mjs",
+      "occupancy": {
+        "verdict": "UNMEASURED",
+        "reason": "NO_GROUNDED_OBSERVATION",
+        "openness_score": null,
+        "cited_hosts": [],
+        "observed_at": null,
+        "engine": null
+      }
+    },
+    {
       "query": "marketing deliverables",
       "evidence_tier": "T1",
       "source_type": "gsc_search_analytics",
@@ -4108,34 +4136,6 @@
       "clicks": 0,
       "ctr": 0.0,
       "average_position": 17.71,
-      "target_domain": "virtualagency-os.com",
-      "measured_window_days": 90,
-      "measured_start": "2026-07-16",
-      "measured_end": "2026-10-14",
-      "first_seen": "2026-08-26",
-      "last_seen": "2026-10-16",
-      "search_volume": null,
-      "demand_basis": "impressions_90d",
-      "lead_intent_tier": "T4_INFORMATIONAL",
-      "lead_intent_method": "regex_classifier_on_query_string, scripts/queries/score_discovery_gap.mjs",
-      "occupancy": {
-        "verdict": "UNMEASURED",
-        "reason": "NO_GROUNDED_OBSERVATION",
-        "openness_score": null,
-        "cited_hosts": [],
-        "observed_at": null,
-        "engine": null
-      }
-    },
-    {
-      "query": "live event production webinar",
-      "evidence_tier": "T1",
-      "source_type": "gsc_search_analytics",
-      "impressions_90d": 7,
-      "impressions": 7,
-      "clicks": 0,
-      "ctr": 0.0,
-      "average_position": 56.71,
       "target_domain": "virtualagency-os.com",
       "measured_window_days": 90,
       "measured_start": "2026-07-16",
@@ -15705,7 +15705,7 @@
     }
   ],
   "last_gsc_ingest": {
-    "at": "2026-10-16T08:48:28Z",
+    "at": "2026-10-16T17:13:26Z",
     "site": "sc-domain:virtualagency-os.com",
     "window": "2026-07-16..2026-10-14",
     "rows_returned": 472,

@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-16T10:47:10.880Z
+Generated: 2026-10-16T17:18:48.863Z
 
 Workflows: 9
 
@@ -33,14 +33,15 @@ Workflows: 9
 - ci.yml :: build_validate #5 :: npm run validate:workflow-data-trace :: npm:validate:workflow-data-trace
 - ci.yml :: build_validate #6 :: npm run validate:workflow-faux-trace :: npm:validate:workflow-faux-trace
 - ci.yml :: build_validate #7 :: npm run validate:zero-paid-llm :: npm:validate:zero-paid-llm
-- ci.yml :: build_validate #8 :: npm run validate:workflow-liveness :: npm:validate:workflow-liveness
-- ci.yml :: build_validate #9 :: npm run test:push-helper :: npm:test:push-helper
-- ci.yml :: build_validate #10 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
-- ci.yml :: build_validate #11 :: npm run test:retest-loop :: npm:test:retest-loop
-- ci.yml :: build_validate #12 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
-- ci.yml :: build_validate #13 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
-- ci.yml :: build_validate #14 :: npm run release:self-heal :: npm:release:self-heal
-- ci.yml :: build_validate #15 :: Cadence gate :: npm:validate:cadence-integrity
+- ci.yml :: build_validate #8 :: npm run test:free-router :: npm:test:free-router
+- ci.yml :: build_validate #9 :: npm run validate:workflow-liveness :: npm:validate:workflow-liveness
+- ci.yml :: build_validate #10 :: npm run test:push-helper :: npm:test:push-helper
+- ci.yml :: build_validate #11 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
+- ci.yml :: build_validate #12 :: npm run test:retest-loop :: npm:test:retest-loop
+- ci.yml :: build_validate #13 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
+- ci.yml :: build_validate #14 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
+- ci.yml :: build_validate #15 :: npm run release:self-heal :: npm:release:self-heal
+- ci.yml :: build_validate #16 :: Cadence gate :: npm:validate:cadence-integrity
 - credential-check.yml :: check #1 :: actions/checkout@v6
 - credential-check.yml :: check #2 :: actions/setup-node@v6
 - credential-check.yml :: check #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
