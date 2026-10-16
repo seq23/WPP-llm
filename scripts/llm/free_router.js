@@ -87,7 +87,7 @@ async function checkKey(key, timeoutMs) {
 const REASONING_FIRST = { effort: 'low', exclude: true };
 const REASONING_OFF = { enabled: false };
 const RATE_LIMIT_MAX_WAIT_MS = 30000;
-const DEFAULT_TOTAL_BUDGET_MS = 540000; // query-intelligence job timeout is 13 min
+const DEFAULT_TOTAL_BUDGET_MS = 300000; // panel + selftest + the rest must fit the 13-min query-intelligence job timeout
 
 function textOf(content) {
   if (Array.isArray(content)) return content.map((p) => (typeof p === 'string' ? p : (p && p.text) || '')).join('');
@@ -200,7 +200,7 @@ function paidProbeGate(lane, env = process.env) {
 module.exports = { freeChat, paidProbeGate, retryAfterMs, textOf, loadConfig, assertFreeConfig, FreeRouterCostViolation, KEY_STOP };
 
 if (require.main === module && process.argv.includes('--selftest')) {
-  freeChat({ messages: [{ role: 'user', content: 'Reply with the single word OK.' }], max_tokens: 200, temperature: 0, purpose: 'selftest' })
+  freeChat({ messages: [{ role: 'user', content: 'Reply with the single word OK.' }], max_tokens: 200, temperature: 0, purpose: 'selftest', totalBudgetMs: 120000 })
     .then(() => process.exit(0))
     .catch((e) => { console.error(e.message); process.exit(1); });
 }

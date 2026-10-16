@@ -38,6 +38,6 @@ Dropped: `openrouter/free` (empty in both stops). Excluded: `thinkingmachines/in
 - **Reasoning models:** nemotron spends `max_tokens` on a hidden trace and can return empty content (`finish_reason: length`). The first request asks `reasoning: {effort: low, exclude: true}`; an empty answer is retried once on the same model with `reasoning: {enabled: false}`. Empty attempts record `finish_reason` and `reasoning_chars` in the receipt.
 - **429:** `Retry-After` (header, or OpenRouter's error metadata) is waited out once per model when it is 30s or less; otherwise the next model.
 - **Per-model refusals** (403 harness-only, 404, 5xx) fall through to the next model; only 401 or a key-worded 403 is the key stop.
-- **Bounded:** one total budget (default 9 min, inside the 13-min job timeout); models past it are `skipped` and the run ends in the named stop.
+- **Bounded:** one total budget (default 5 min, selftest 2 min, so both fit the 13-min job timeout); models past it are `skipped` and the run ends in the named stop.
 - **Pinned by** `scripts/llm/test_free_router.js` (`npm run test:free-router`, in the `ci.yml` merge gate): replays each 13/16 Oct failure mode against a mocked fetch; 7 of its 12 cases fail on the pre-fix router.
 
