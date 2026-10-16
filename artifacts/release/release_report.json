@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T08:49:44.779Z",
+  "generated_at": "2026-10-16T20:43:53.050Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-16T07:35:14.759Z",
+    "generated_at": "2026-10-16T19:20:37.745Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -381,6 +381,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 8,
+        "name": "npm run test:free-router",
+        "npm_script": "test:free-router",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 9,
         "name": "npm run validate:workflow-liveness",
         "npm_script": "validate:workflow-liveness",
         "direct_paths": [],
@@ -392,7 +402,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 9,
+        "step": 10,
         "name": "npm run test:push-helper",
         "npm_script": "test:push-helper",
         "direct_paths": [],
@@ -402,7 +412,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 10,
+        "step": 11,
         "name": "npm run test:citation-probe-rate",
         "npm_script": "test:citation-probe-rate",
         "direct_paths": [],
@@ -412,7 +422,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 11,
+        "step": 12,
         "name": "npm run test:retest-loop",
         "npm_script": "test:retest-loop",
         "direct_paths": [],
@@ -422,7 +432,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 12,
+        "step": 13,
         "name": "npm run test:render-robots-parity",
         "npm_script": "test:render-robots-parity",
         "direct_paths": [],
@@ -432,7 +442,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 13,
+        "step": 14,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -442,7 +452,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 14,
+        "step": 15,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -452,7 +462,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 15,
+        "step": 16,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -1371,7 +1381,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-16T08:48:58.625Z",
+    "generated_at": "2026-10-16T20:43:07.267Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -2087,7 +2097,7 @@
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-16T08:49:04.737Z",
+    "updated": "2026-10-16T20:43:13.311Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5214,7 +5224,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-16T08:49:04.737Z"
+      "at": "2026-10-16T20:43:13.311Z"
     }
   },
   "query_universe_count": 10596
