@@ -46,6 +46,7 @@ jobs:
       - run: npm run validate:workflow-data-trace
       - run: npm run validate:workflow-faux-trace
       - run: npm run validate:zero-paid-llm
+      - run: npm run test:free-router
       # Hard-fails if any workflow GitHub reports active has produced no run
       # inside its own declared cron window, or exists on GitHub with no file and
       # no entry in _workflow_liveness_contract.json retired[].

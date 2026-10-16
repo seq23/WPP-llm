@@ -77,7 +77,42 @@ async function checkKey(key, timeoutMs) {
   return keyCheck;
 }
 
-async function freeChat({ messages, max_tokens = 1500, temperature = 0.2, purpose = 'unspecified', timeoutMs = 120000, env = process.env, root } = {}) {
+// Reasoning models (nemotron-3-*) spend completion tokens on a hidden
+// reasoning trace before the answer; with a long prompt the trace can use the
+// whole max_tokens budget and the answer comes back empty (finish_reason
+// "length", message.content null). That was the 13 + 16 Oct 2026
+// NO_FREE_MODEL_ANSWERED stops. So the first request asks for low reasoning
+// effort with the trace excluded, and an empty answer is retried once on the
+// same model with reasoning switched off.
+const REASONING_FIRST = { effort: 'low', exclude: true };
+const REASONING_OFF = { enabled: false };
+const RATE_LIMIT_MAX_WAIT_MS = 30000;
+const DEFAULT_TOTAL_BUDGET_MS = 300000; // panel + selftest + the rest must fit the 13-min query-intelligence job timeout
+
+function textOf(content) {
+  if (Array.isArray(content)) return content.map((p) => (typeof p === 'string' ? p : (p && p.text) || '')).join('');
+  return content == null ? '' : String(content);
+}
+
+// Retry-After (seconds or HTTP date), or OpenRouter's X-RateLimit-Reset (epoch ms).
+function retryAfterMs(res, data, now = Date.now()) {
+  const h = (n) => (res && res.headers && typeof res.headers.get === 'function' ? res.headers.get(n) : null);
+  const meta = (data && data.error && data.error.metadata) || {};
+  const ra = h('retry-after') || (meta.headers && (meta.headers['Retry-After'] || meta.headers['retry-after']));
+  if (ra != null && ra !== '') {
+    const secs = Number(ra);
+    if (Number.isFinite(secs)) return Math.max(0, secs * 1000);
+    const at = Date.parse(ra);
+    if (Number.isFinite(at)) return Math.max(0, at - now);
+  }
+  const reset = h('x-ratelimit-reset') || (meta.headers && meta.headers['X-RateLimit-Reset']);
+  if (reset != null && Number.isFinite(Number(reset))) return Math.max(0, Number(reset) - now);
+  return null;
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function freeChat({ messages, max_tokens = 1500, temperature = 0.2, purpose = 'unspecified', timeoutMs = 120000, totalBudgetMs = DEFAULT_TOTAL_BUDGET_MS, env = process.env, root, _sleep = sleep } = {}) {
   const cfg = loadConfig(root);
   assertFreeConfig(cfg);
   const receipt = { purpose, policy: 'free_only', max_cost_usd: 0, at: new Date().toISOString(), outcome: null, model: null, cost_usd: null, key_label: null, key_info: null, attempts: [] };
@@ -88,41 +123,67 @@ async function freeChat({ messages, max_tokens = 1500, temperature = 0.2, purpos
   receipt.key_label = kc.info ? kc.info.label : null;
   receipt.key_info = kc.info;
   if (!kc.ok) return stop(KEY_STOP, `${KEY_STOP_DETAIL} (GET /api/v1/auth/key HTTP ${kc.http_status})`, 'credential_refused');
+  const deadline = Date.now() + totalBudgetMs;
+  const call = async (model, reasoning) => {
+    const res = await fetch(cfg.endpoint, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ model, messages, max_tokens, temperature, reasoning, usage: { include: true }, provider: { max_price: { prompt: 0, completion: 0, request: 0 } } }),
+      signal: AbortSignal.timeout(Math.max(1000, Math.min(timeoutMs, deadline - Date.now()))),
+    });
+    const data = await res.json().catch(() => ({}));
+    return { res, data };
+  };
   for (const model of cfg.free_models) {
-    let res; let data;
-    try {
-      res = await fetch(cfg.endpoint, {
-        method: 'POST',
-        headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-        body: JSON.stringify({ model, messages, max_tokens, temperature, usage: { include: true }, provider: { max_price: { prompt: 0, completion: 0, request: 0 } } }),
-        signal: AbortSignal.timeout(timeoutMs),
-      });
-      data = await res.json().catch(() => ({}));
-    } catch (e) {
-      receipt.attempts.push({ model, status: 'error', error: String(e.message || e).slice(0, 200) });
-      continue;
-    }
-    if (!res.ok || data.error) {
-      const msg = String((data.error && data.error.message) || '').slice(0, 200);
-      receipt.attempts.push({ model, status: 'refused', http_status: res.status, error: msg });
-      if (isKeyRefusal(res.status, msg)) return stop(KEY_STOP, `${KEY_STOP_DETAIL} (HTTP ${res.status} on ${model})`, 'credential_refused');
-      continue;
-    }
-    const reported = data.usage ? data.usage.cost : undefined;
-    if (reported !== undefined && reported !== null && Number(reported) !== 0) {
-      receipt.attempts.push({ model, status: 'cost_violation', cost_usd: reported });
+    let reasoning = REASONING_FIRST;
+    let rateWaited = false;
+    let emptyRetried = false;
+    for (;;) {
+      if (Date.now() >= deadline) { receipt.attempts.push({ model, status: 'skipped', error: 'total time budget spent' }); break; }
+      let res; let data;
+      try {
+        ({ res, data } = await call(model, reasoning));
+      } catch (e) {
+        receipt.attempts.push({ model, status: 'error', error: String(e.message || e).slice(0, 200) });
+        break;
+      }
+      if (!res.ok || data.error) {
+        const msg = String((data.error && data.error.message) || '').slice(0, 200);
+        const attempt = { model, status: 'refused', http_status: res.status, error: msg };
+        if (isKeyRefusal(res.status, msg)) { receipt.attempts.push(attempt); return stop(KEY_STOP, `${KEY_STOP_DETAIL} (HTTP ${res.status} on ${model})`, 'credential_refused'); }
+        // 429: wait out Retry-After once, if it fits the per-wait cap and the total budget.
+        const waitMs = res.status === 429 ? retryAfterMs(res, data) : null;
+        if (res.status === 429 && !rateWaited && waitMs !== null && waitMs <= RATE_LIMIT_MAX_WAIT_MS && Date.now() + waitMs < deadline) {
+          attempt.retry_after_ms = waitMs;
+          receipt.attempts.push(attempt);
+          rateWaited = true;
+          await _sleep(waitMs);
+          continue;
+        }
+        receipt.attempts.push(attempt);
+        break; // per-model refusal (403 harness-only, 404, 429, 5xx): next model
+      }
+      const reported = data.usage ? data.usage.cost : undefined;
+      if (reported !== undefined && reported !== null && Number(reported) !== 0) {
+        receipt.attempts.push({ model, status: 'cost_violation', cost_usd: reported });
+        emit(receipt);
+        throw new FreeRouterCostViolation(`FREE_ROUTER_COST_VIOLATION: ${model} reported cost ${reported} USD; the free-only policy allows 0`);
+      }
+      const choice = (data.choices && data.choices[0]) || {};
+      const msgObj = choice.message || {};
+      const content = textOf(msgObj.content);
+      if (!content.trim()) {
+        receipt.attempts.push({ model, status: 'empty', finish_reason: choice.finish_reason || null, reasoning_chars: textOf(msgObj.reasoning).length, reasoning: reasoning === REASONING_OFF ? 'off' : 'low' });
+        if (!emptyRetried) { emptyRetried = true; reasoning = REASONING_OFF; continue; }
+        break;
+      }
+      receipt.attempts.push({ model, status: 'ok' });
+      receipt.outcome = 'free_model_answered';
+      receipt.model = data.model || model;
+      receipt.cost_usd = reported === undefined ? null : Number(reported);
       emit(receipt);
-      throw new FreeRouterCostViolation(`FREE_ROUTER_COST_VIOLATION: ${model} reported cost ${reported} USD; the free-only policy allows 0`);
+      return { ok: true, content, model: receipt.model, finish_reason: choice.finish_reason || null, receipt };
     }
-    const choice = (data.choices && data.choices[0]) || {};
-    const content = (choice.message && choice.message.content) || '';
-    if (!String(content).trim()) { receipt.attempts.push({ model, status: 'empty' }); continue; }
-    receipt.attempts.push({ model, status: 'ok' });
-    receipt.outcome = 'free_model_answered';
-    receipt.model = data.model || model;
-    receipt.cost_usd = reported === undefined ? null : Number(reported);
-    emit(receipt);
-    return { ok: true, content, model: receipt.model, finish_reason: choice.finish_reason || null, receipt };
   }
   return stop('NO_FREE_MODEL_ANSWERED', `none of ${cfg.free_models.length} free models answered; no paid fallback exists by owner policy`, 'no_free_model_answered');
 }
@@ -136,10 +197,10 @@ function paidProbeGate(lane, env = process.env) {
   return false;
 }
 
-module.exports = { freeChat, paidProbeGate, loadConfig, assertFreeConfig, FreeRouterCostViolation, KEY_STOP };
+module.exports = { freeChat, paidProbeGate, retryAfterMs, textOf, loadConfig, assertFreeConfig, FreeRouterCostViolation, KEY_STOP };
 
 if (require.main === module && process.argv.includes('--selftest')) {
-  freeChat({ messages: [{ role: 'user', content: 'Reply with the single word OK.' }], max_tokens: 200, temperature: 0, purpose: 'selftest' })
+  freeChat({ messages: [{ role: 'user', content: 'Reply with the single word OK.' }], max_tokens: 200, temperature: 0, purpose: 'selftest', totalBudgetMs: 120000 })
     .then(() => process.exit(0))
     .catch((e) => { console.error(e.message); process.exit(1); });
 }
