@@ -522,6 +522,13 @@
       "owner": "repo"
     },
     {
+      "id": "email-obfuscation-safe",
+      "command": "node scripts/validators/validate_email_obfuscation_safe.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every published HTML page (the real assembled .pages-output tree) keeps email addresses inside <!--email_off--> markers and carries no /cdn-cgi/l/email-protection link, so Cloudflare Email Obfuscation never turns a contact link into a JS-only 404 (16 Oct 2026 audit: every footer on virtualagency-os.com). Fails on zero pages or zero addresses governed.",
+      "owner": "repo"
+    },
+    {
       "id": "site-icons",
       "command": "node scripts/validators/validate_site_icons.js",
       "severity": "HARD_FAIL",
