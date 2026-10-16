@@ -10,40 +10,40 @@
   "provider": "openrouter",
   "endpoint": "https://openrouter.ai/api/v1/chat/completions",
   "free_models": [
-    "nvidia/nemotron-3-ultra-550b-a55b:free",
     "nvidia/nemotron-3-super-120b-a12b:free",
-    "google/gemma-4-31b-it:free",
-    "openrouter/free"
+    "google/gemma-4-26b-a4b-it:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "google/gemma-4-31b-it:free"
   ],
-  "selection": "Strongest $0/$0 instruct models with >=32k context from the snapshot below, ordered by capability; live-tested 2026-10-11 (nemotron-3-ultra and -super answered at cost 0; gemma-4-31b was upstream-rate-limited; openrouter/free is OpenRouter's $0-only meta-router as the last resort). thinkingmachines/inkling:free was excluded: it returned 403 for this account.",
+  "selection": "Ordered by observed reliability, re-checked 2026-10-16 after the 13 + 16 Oct NO_FREE_MODEL_ANSWERED stops: nemotron-3-super answers at cost 0 (reasoning model: requested with low effort, retried with reasoning off when the answer is empty); gemma-4-26b-a4b-it is the sibling-proven non-reasoning $0 fallback; nemotron-3-ultra answers but timed out at 120s on 16 Oct; gemma-4-31b is often upstream 429 (Retry-After honoured once within 30s). Dropped: openrouter/free (empty answer in both stops; the meta-router can land on reasoning or harness-only models). Excluded: thinkingmachines/inkling:free (403 'only available on agentic harnesses' - a per-model refusal, never answers for this route).",
   "pricing_snapshot": {
-    "fetched_at": "2026-10-11",
+    "fetched_at": "2026-10-16",
     "source": "https://openrouter.ai/api/v1/models (unauthenticated)",
     "filter": "pricing.prompt == \"0\" && pricing.completion == \"0\" && context_length >= 32768",
     "models": {
-      "nvidia/nemotron-3-ultra-550b-a55b:free": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "context_length": 1000000
-      },
       "nvidia/nemotron-3-super-120b-a12b:free": {
         "prompt": "0",
         "completion": "0",
         "request": "0",
         "context_length": 262144
       },
-      "google/gemma-4-31b-it:free": {
+      "google/gemma-4-26b-a4b-it:free": {
         "prompt": "0",
         "completion": "0",
         "request": "0",
         "context_length": 262144
       },
-      "openrouter/free": {
+      "nvidia/nemotron-3-ultra-550b-a55b:free": {
         "prompt": "0",
         "completion": "0",
         "request": "0",
-        "context_length": 200000
+        "context_length": 1000000
+      },
+      "google/gemma-4-31b-it:free": {
+        "prompt": "0",
+        "completion": "0",
+        "request": "0",
+        "context_length": 262144
       }
     }
   },
