@@ -11,9 +11,9 @@ function readJson(p, fallback){try{return JSON.parse(fs.readFileSync(path.join(R
 // its FREE_LLM_RECEIPT line in the log is the proof of what answered.
 async function freeModelPanel(universe){
   const out = {source:'free_model_prompt_panel', status:'configured', records:[]};
-  const prompt = `Return JSON with 50 search, AEO, GEO, and LLM citation opportunities for West Peek Productions across virtual and hybrid events, brand strategy, storytelling, marketing, creative consulting, AI workflows, and agency-selection decisions. Fields: query, intent, cluster, reason. Do not invent statistics, clients, or results.`;
+  const prompt = `Return JSON with 20 search, AEO, GEO, and LLM citation opportunities for West Peek Productions across virtual and hybrid events, brand strategy, storytelling, marketing, creative consulting, AI workflows, and agency-selection decisions. Fields: query, intent, cluster, reason. Do not invent statistics, clients, or results.`;
   let r;
-  try { r = await freeChat({messages:[{role:'user',content:prompt}], max_tokens:6000, temperature:0.2, purpose:'collect_zero_cost_signals:prompt_panel', timeoutMs:120000}); }
+  try { r = await freeChat({messages:[{role:'user',content:prompt}], max_tokens:2500, temperature:0.2, purpose:'collect_zero_cost_signals:prompt_panel', timeoutMs:150000}); }
   catch (e) { if (e instanceof FreeRouterCostViolation) throw e; out.status='collector_error'; out.error=String(e.message||e); return out; }
   if (!r.ok) { out.status = r.stop === 'FREE_ROUTER_NO_KEY' ? 'skipped_missing_secret' : 'skipped_named_stop'; out.stop = r.stop; out.key_label = r.receipt.key_label; return out; }
   out.status = 'collected'; out.model = r.model; out.key_label = r.receipt.key_label; out.raw_text_length = r.content.length;

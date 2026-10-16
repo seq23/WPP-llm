@@ -131,7 +131,13 @@ async function freeChat({ messages, max_tokens = 1500, temperature = 0.2, purpos
       body: JSON.stringify({ model, messages, max_tokens, temperature, reasoning, usage: { include: true }, provider: { max_price: { prompt: 0, completion: 0, request: 0 } } }),
       signal: AbortSignal.timeout(Math.max(1000, Math.min(timeoutMs, deadline - Date.now()))),
     });
-    const data = await res.json().catch(() => ({}));
+    // Read the body inside the same timeout. OpenRouter sends headers early on
+    // a slow generation, so fetch() resolves and the abort lands in the body
+    // read; the old res.json().catch(() => ({})) swallowed it and logged the
+    // timeout as an "empty" answer (16 Oct 17:13 UTC dispatch 38937880841: super "empty" with finish_reason null and no trace).
+    const raw = await res.text();
+    let data;
+    try { data = raw.trim() ? JSON.parse(raw) : {}; } catch { data = { _unparsable: raw.slice(0, 120) }; }
     return { res, data };
   };
   for (const model of cfg.free_models) {
@@ -141,10 +147,11 @@ async function freeChat({ messages, max_tokens = 1500, temperature = 0.2, purpos
     for (;;) {
       if (Date.now() >= deadline) { receipt.attempts.push({ model, status: 'skipped', error: 'total time budget spent' }); break; }
       let res; let data;
+      const t0 = Date.now();
       try {
         ({ res, data } = await call(model, reasoning));
       } catch (e) {
-        receipt.attempts.push({ model, status: 'error', error: String(e.message || e).slice(0, 200) });
+        receipt.attempts.push({ model, status: 'error', error: String(e.message || e).slice(0, 200), elapsed_ms: Date.now() - t0 });
         break;
       }
       if (!res.ok || data.error) {
@@ -173,11 +180,17 @@ async function freeChat({ messages, max_tokens = 1500, temperature = 0.2, purpos
       const msgObj = choice.message || {};
       const content = textOf(msgObj.content);
       if (!content.trim()) {
-        receipt.attempts.push({ model, status: 'empty', finish_reason: choice.finish_reason || null, reasoning_chars: textOf(msgObj.reasoning).length, reasoning: reasoning === REASONING_OFF ? 'off' : 'low' });
-        if (!emptyRetried) { emptyRetried = true; reasoning = REASONING_OFF; continue; }
+        const reasoningChars = textOf(msgObj.reasoning).length;
+        const nChoices = Array.isArray(data.choices) ? data.choices.length : 0;
+        const attempt = { model, status: nChoices ? 'empty' : 'no_choices', finish_reason: choice.finish_reason || null, reasoning_chars: reasoningChars, reasoning: reasoning === REASONING_OFF ? 'off' : 'low', elapsed_ms: Date.now() - t0 };
+        if (data._unparsable !== undefined) attempt.body = data._unparsable;
+        receipt.attempts.push(attempt);
+        // Only a trace that ate the budget is worth a second try with reasoning off.
+        const traceAte = choice.finish_reason === 'length' || reasoningChars > 0;
+        if (traceAte && !emptyRetried) { emptyRetried = true; reasoning = REASONING_OFF; continue; }
         break;
       }
-      receipt.attempts.push({ model, status: 'ok' });
+      receipt.attempts.push({ model, status: 'ok', elapsed_ms: Date.now() - t0 });
       receipt.outcome = 'free_model_answered';
       receipt.model = data.model || model;
       receipt.cost_usd = reported === undefined ? null : Number(reported);
