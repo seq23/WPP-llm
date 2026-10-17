@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-10-17T08:44:39.284Z",
+  "generated_at": "2026-10-17T19:18:01.359Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 530,
-    "candidates_considered": 7840,
+    "candidates_considered": 7838,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -28,24 +28,27 @@
       "2026-10-11"
     ],
     "usage_source": "data/cadence/known_urls.json",
-    "new_pages_used_this_week": 0,
-    "new_pages_used_this_week_urls": [],
-    "weekly_headroom": 2,
-    "daily_headroom": 2,
-    "new_page_allowance_this_run": 2,
+    "new_pages_used_this_week": 2,
+    "new_pages_used_this_week_urls": [
+      "https://virtualagency-os.com/programmatic/ai-marketing-workflow",
+      "https://virtualagency-os.com/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system"
+    ],
+    "weekly_headroom": 0,
+    "daily_headroom": 0,
+    "new_page_allowance_this_run": 0,
     "governed_by": "weekly_cadence_policy"
   },
   "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
-  "daily_new_pages_already_used": 0,
+  "daily_new_pages_already_used": 2,
   "daily_repairs_already_used": 0,
-  "max_new_pages_this_run": 2,
+  "max_new_pages_this_run": 0,
   "max_repairs_this_run": 100,
   "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "50b70ce1e981a6403a419bf96333f4787f16e4d895eef4b297c0293082f3efca",
+    "corpus_fingerprint": "c22519c0a78dad2d708788aa855a942f6b3ecd14903680d3e84bcc71261818e4",
     "legacy_backlog": 81,
     "thin_pages": 81,
     "exact_duplicate_pages": 0,
@@ -53,150 +56,66 @@
   },
   "units": [
     {
-      "opportunity_id": "opp_YWkgbWFya2V0aW5nIHdvcmtm",
-      "query": "ai marketing workflow",
-      "cluster": "ai-workflow-consulting",
-      "pillar": "ai-workflows",
-      "authority_lane": "ADJACENT",
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
       "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/ai-marketing-workflow",
-      "page_family": "operational_guide",
-      "source": "measured_demand_seed",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
       "demand_estimate": 0,
-      "score": 62,
+      "score": 43,
       "exists": false,
-      "action": "create",
+      "action": "quality_repair",
       "status": "admitted_candidate",
-      "source_route": "/ai-marketing-workflow",
-      "exists_now": false,
-      "release_action": "create",
-      "quality_reason": null,
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
       "quality_preflight": {
         "ok": true,
-        "word_count": 1079,
-        "max_similarity": 0.550562,
-        "nearest_route": "/programmatic/ai-workflow-consulting-companies",
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
         "reasons": []
       },
-      "release_order": 1,
-      "demand_evidence": {
-        "source_type": "gsc_search_analytics",
-        "evidence_tier": "T1",
-        "search_volume": null,
-        "impressions_90d": 15,
-        "demand_basis": "impressions_90d",
-        "source_file": "data/authority_scale/query_atlas.json"
-      }
-    },
-    {
-      "opportunity_id": "opp_aG93IHRvIGJ1aWxkIGEgaHVt",
-      "query": "how to build a human-in-the-loop ai marketing system",
-      "cluster": "human-in-the-loop-ai-systems",
-      "pillar": "ai-workflows",
-      "authority_lane": "ADJACENT",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system",
-      "page_family": "operational_guide",
-      "source": "measured_demand_seed",
-      "demand_estimate": 0,
-      "score": 62,
-      "exists": false,
-      "action": "create",
-      "status": "admitted_candidate",
-      "source_route": "/how-to-build-a-human-in-the-loop-ai-marketing-system",
-      "exists_now": false,
-      "release_action": "create",
-      "quality_reason": null,
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1201,
-        "max_similarity": 0.532503,
-        "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
-        "reasons": []
-      },
-      "release_order": 2,
-      "demand_evidence": {
-        "source_type": "gsc_search_analytics",
-        "evidence_tier": "T1",
-        "search_volume": null,
-        "impressions_90d": 14,
-        "demand_basis": "impressions_90d",
-        "source_file": "data/authority_scale/query_atlas.json"
-      }
+      "release_order": 1
     }
   ],
   "release_units": [
     {
-      "opportunity_id": "opp_YWkgbWFya2V0aW5nIHdvcmtm",
-      "query": "ai marketing workflow",
-      "cluster": "ai-workflow-consulting",
-      "pillar": "ai-workflows",
-      "authority_lane": "ADJACENT",
+      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
       "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/ai-marketing-workflow",
-      "page_family": "operational_guide",
-      "source": "measured_demand_seed",
+      "target_route": "/programmatic/community-roi-measurement-model",
+      "page_family": "programmatic_opportunity",
+      "source": "gsc",
       "demand_estimate": 0,
-      "score": 62,
+      "score": 43,
       "exists": false,
-      "action": "create",
+      "action": "quality_repair",
       "status": "admitted_candidate",
-      "source_route": "/ai-marketing-workflow",
-      "exists_now": false,
-      "release_action": "create",
-      "quality_reason": null,
+      "source_route": "/programmatic/community-roi-measurement-model",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
       "quality_preflight": {
         "ok": true,
-        "word_count": 1079,
-        "max_similarity": 0.550562,
-        "nearest_route": "/programmatic/ai-workflow-consulting-companies",
+        "word_count": 1147,
+        "max_similarity": 0.303758,
+        "nearest_route": "/programmatic/virtual-events-management",
         "reasons": []
       },
-      "release_order": 1,
-      "demand_evidence": {
-        "source_type": "gsc_search_analytics",
-        "evidence_tier": "T1",
-        "search_volume": null,
-        "impressions_90d": 15,
-        "demand_basis": "impressions_90d",
-        "source_file": "data/authority_scale/query_atlas.json"
-      }
-    },
-    {
-      "opportunity_id": "opp_aG93IHRvIGJ1aWxkIGEgaHVt",
-      "query": "how to build a human-in-the-loop ai marketing system",
-      "cluster": "human-in-the-loop-ai-systems",
-      "pillar": "ai-workflows",
-      "authority_lane": "ADJACENT",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system",
-      "page_family": "operational_guide",
-      "source": "measured_demand_seed",
-      "demand_estimate": 0,
-      "score": 62,
-      "exists": false,
-      "action": "create",
-      "status": "admitted_candidate",
-      "source_route": "/how-to-build-a-human-in-the-loop-ai-marketing-system",
-      "exists_now": false,
-      "release_action": "create",
-      "quality_reason": null,
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1201,
-        "max_similarity": 0.532503,
-        "nearest_route": "/programmatic/human-in-the-loop-ai-systems",
-        "reasons": []
-      },
-      "release_order": 2,
-      "demand_evidence": {
-        "source_type": "gsc_search_analytics",
-        "evidence_tier": "T1",
-        "search_volume": null,
-        "impressions_90d": 14,
-        "demand_basis": "impressions_90d",
-        "source_file": "data/authority_scale/query_atlas.json"
-      }
+      "release_order": 1
     }
   ],
   "blocked": [
@@ -839,19 +758,10 @@
       "details": [
         "thin"
       ]
-    },
-    {
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "query": "community roi measurement",
-      "release_action": "repair",
-      "reason": "postbuild_quality_quarantine",
-      "details": [
-        "thin"
-      ],
-      "max_similarity": 0.029566,
-      "nearest_route": "/programmatic/virtual-event-management",
-      "self_heal_cycle": 1
     }
   ],
-  "status": "READY"
+  "status": "READY",
+  "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
+  "create_stop_detail": "7838 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 0)",
+  "create_stop_is_legitimate": true
 }
