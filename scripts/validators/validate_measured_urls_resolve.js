@@ -95,9 +95,28 @@ for (const p of listed) {
   if (canonicalOf(p) !== root && canonicalOf(root) !== p) problems.push(`${p} and ${root} are both in sitemap.xml with no 301 or canonical between them`);
 }
 
+// Every workflow that collects fresh Search Console measurements must rebuild
+// the measured-404 redirects from them before anything validates. 17-18 Oct
+// 2026: search-repair-retest.yml refreshed index_coverage.json, four newly
+// inspected root-level Google canonicals had no 301 yet, and the lane went red.
+const wfDir = path.join(ROOT, '.github', 'workflows');
+let collectors = 0;
+for (const f of fs.readdirSync(wfDir).filter((x) => /\.ya?ml$/.test(x))) {
+  const lines = fs.readFileSync(path.join(wfDir, f), 'utf8').split('\n');
+  const at = (re) => lines.findIndex((l) => !/^\s*#/.test(l) && re.test(l));
+  const collect = at(/npm run search:intelligence\b/);
+  if (collect < 0) continue;
+  collectors += 1;
+  const refresh = lines.findIndex((l, i) => i > collect && !/^\s*#/.test(l) && /npm run redirects:measured:refresh\b/.test(l));
+  if (refresh < 0) { problems.push(`${f} collects Search Console data but never runs redirects:measured:refresh after it`); continue; }
+  const firstCheck = lines.findIndex((l, i) => i > collect && !/^\s*#/.test(l) && /npm run (repairs:apply|validate:|release:push-gate|build)\b/.test(l));
+  if (firstCheck >= 0 && firstCheck < refresh) problems.push(`${f} validates (line ${firstCheck + 1}) before redirects:measured:refresh (line ${refresh + 1})`);
+}
+if (!collectors) { console.error('MEASURED URL VALIDATION: no workflow runs npm run search:intelligence; refusing to pass over nothing.'); process.exit(1); }
+
 if (problems.length) {
   console.error(`Measured URL violations (${problems.length}):`);
   for (const p of problems.slice(0, 40)) console.error(`- ${p}`);
   process.exit(1);
 }
-console.log(`Measured URLs OK: ${measured.length} measured-404 rules land on a page in one hop; ${pages.size} measured pages (incl. ${googleCanonicals} Google-chosen canonicals) resolve (${redirected} via 301, none 404); no redirect source in sitemap.xml; ${twinPairs} slug-twin pair(s) in sitemap, each joined by a canonical.`);
+console.log(`Measured URLs OK: ${measured.length} measured-404 rules land on a page in one hop; ${pages.size} measured pages (incl. ${googleCanonicals} Google-chosen canonicals) resolve (${redirected} via 301, none 404); no redirect source in sitemap.xml; ${twinPairs} slug-twin pair(s) in sitemap, each joined by a canonical; ${collectors} Search Console collector workflow(s) rebuild measured redirects before validating.`);

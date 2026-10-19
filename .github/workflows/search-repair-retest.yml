@@ -62,6 +62,14 @@ jobs:
       - name: Rebuild measured targets and consolidation candidates
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run seo:measured-targets
+      # The collector just refreshed index_coverage.json, whose Google-chosen
+      # canonicals (and the 28-day/90-day pages) are measured URLs. Rebuild the
+      # measured-404 redirects and _redirects from them before anything validates,
+      # or a newly inspected root-level canonical answers 404 and
+      # validate:measured-urls-resolve fails the lane (17-18 Oct 2026).
+      - name: Rebuild measured-404 redirects from the refreshed measurements
+        if: steps.runtime.outputs.allowed == 'true'
+        run: npm run redirects:measured:refresh
       # 90-day demand, not the 28-day window: group every measured query into a
       # family, rank families by impressions, and flag pages to strengthen
       # (impressions >= 50 at position <= 40, plus every top-12 family primary)

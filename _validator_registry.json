@@ -511,7 +511,7 @@
       "id": "measured-urls-resolve",
       "command": "node scripts/validators/validate_measured_urls_resolve.js",
       "severity": "HARD_FAIL",
-      "purpose": "No URL Search Console measured (90-day query x page, 28-day, dead-URL list) is a 404 in the build: each resolves to a page or a 301 to a page, every rule in data/redirects/measured_404_redirects.json is emitted, and no redirect source is in sitemap.xml. 11 Oct 2026: 149 measured URLs 404d.",
+      "purpose": "No URL Search Console measured (90-day query x page, 28-day, dead-URL list) is a 404 in the build: each resolves to a page or a 301 to a page, every rule in data/redirects/measured_404_redirects.json is emitted, and no redirect source is in sitemap.xml, and every workflow that runs search:intelligence runs redirects:measured:refresh before it validates. 11 Oct 2026: 149 measured URLs 404d; 17-18 Oct 2026: search-repair-retest red on 4 freshly inspected canonicals.",
       "owner": "repo"
     },
     {

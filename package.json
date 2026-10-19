@@ -142,6 +142,7 @@
     "validate:search-intelligence": "node scripts/validators/validate_search_intelligence.js",
     "validate:seo-hygiene": "npm run validate:site-icons && npm run validate:email-obfuscation-safe && npm run validate:social-meta && npm run validate:structured-data && npm run validate:indexnow-key && npm run validate:publication-freeze && npm run validate:measured-targets && npm run validate:search-intelligence && npm run validate:demand-families && npm run validate:demand-pages",
     "redirects:measured:build": "node scripts/build_measured_404_redirects.js",
+    "redirects:measured:refresh": "node scripts/build_measured_404_redirects.js && node scripts/update_redirects_clean_to_html.js",
     "validate:measured-urls-resolve": "node scripts/validators/validate_measured_urls_resolve.js",
     "live:check:measured-redirects": "node scripts/live_check_measured_redirects.js",
     "seo:demand-families": "node scripts/build_demand_families.js",
