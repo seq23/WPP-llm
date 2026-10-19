@@ -4,7 +4,7 @@
     "Every URL Search Console measured that this build answers with a 404, each with a 301 target: the same-slug /programmatic/ page, else its fold_into hub, else the homepage.",
     "Emitted into _redirects by scripts/update_redirects_clean_to_html.js; proven by scripts/validators/validate_measured_urls_resolve.js and, live, by scripts/live_check_measured_redirects.js."
   ],
-  "rule_count": 192,
+  "rule_count": 196,
   "impressions_measured": 4934,
   "rules": [
     {
@@ -1156,6 +1156,30 @@
     {
       "from": "/branded-content-development-2026",
       "to": "/programmatic/branded-content-development-2026",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/campaign-narrative-strategy-implementation-guide",
+      "to": "/programmatic/campaign-narrative-strategy-implementation-guide",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/campaign-narrative-strategy-operating-model",
+      "to": "/programmatic/campaign-narrative-strategy-operating-model",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/campaign-narrative-strategy-pricing",
+      "to": "/programmatic/campaign-narrative-strategy-pricing",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/campaign-narrative-strategy-process",
+      "to": "/programmatic/campaign-narrative-strategy-process",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 0
     }
