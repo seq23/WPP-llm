@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T22:34:04.336Z",
+  "generated_at": "2026-10-19T15:50:24.136Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-18T21:30:07.846Z",
+    "generated_at": "2026-10-19T14:39:55.838Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -1165,6 +1165,16 @@
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
         "step": 10,
+        "name": "Rebuild measured-404 redirects from the refreshed measurements",
+        "npm_script": "redirects:measured:refresh",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-repair-retest.yml",
+        "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
+        "job": "diagnose_repair_retest",
+        "step": 11,
         "name": "Group measured demand into families and flag strengthening candidates",
         "npm_script": "seo:strengthening-sweep",
         "direct_paths": [],
@@ -1174,7 +1184,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 11,
+        "step": 12,
         "name": "Ingest any filled manual query-surface observation log",
         "npm_script": "query:observe:ingest",
         "direct_paths": [],
@@ -1184,7 +1194,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 12,
+        "step": 13,
         "name": "Diagnose pages (evidence + technical)",
         "npm_script": "repairs:diagnose",
         "direct_paths": [],
@@ -1194,7 +1204,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 13,
+        "step": 14,
         "name": "Apply bounded AUTO / AUTO_WATCH repairs (thaw, mutate, validate, refreeze)",
         "npm_script": "repairs:apply",
         "direct_paths": [],
@@ -1204,7 +1214,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 14,
+        "step": 15,
         "name": "Sweep delayed retest queue for real evidence",
         "npm_script": "repairs:retest",
         "direct_paths": [],
@@ -1214,7 +1224,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 15,
+        "step": 16,
         "name": "Commit search repair and retest artifacts",
         "npm_script": null,
         "direct_paths": [
@@ -1228,7 +1238,7 @@
         "workflow": "search-repair-retest.yml",
         "workflow_name": "Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest",
         "job": "diagnose_repair_retest",
-        "step": 16,
+        "step": 17,
         "name": "actions/upload-artifact@v7",
         "npm_script": null,
         "direct_paths": [],
@@ -1381,7 +1391,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-18T22:33:18.368Z",
+    "generated_at": "2026-10-19T15:49:42.112Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1390,7 +1400,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 530,
-      "candidates_considered": 7833,
+      "candidates_considered": 7854,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1400,13 +1410,13 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-10-19",
         "2026-10-18",
         "2026-10-17",
         "2026-10-16",
         "2026-10-15",
         "2026-10-14",
-        "2026-10-13",
-        "2026-10-12"
+        "2026-10-13"
       ],
       "usage_source": "data/cadence/known_urls.json",
       "new_pages_used_this_week": 2,
@@ -1429,7 +1439,7 @@
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "c22519c0a78dad2d708788aa855a942f6b3ecd14903680d3e84bcc71261818e4",
+      "corpus_fingerprint": "60d7b9dc213d0eb2215569d4fde5a630c684cdd237a9d4d3fe11496d9c5c2b8c",
       "legacy_backlog": 81,
       "thin_pages": 81,
       "exact_duplicate_pages": 0,
@@ -2093,11 +2103,11 @@
     ],
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7833 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "7854 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-18T22:33:24.427Z",
+    "updated": "2026-10-19T15:49:47.358Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5226,7 +5236,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-18T22:33:24.427Z"
+      "at": "2026-10-19T15:49:47.358Z"
     }
   },
   "query_universe_count": 10596
