@@ -78,6 +78,7 @@
     "test:push-helper": "bash .github/scripts/test_commit_and_push_if_changed.sh",
     "test:release-self-heal": "node scripts/release/test_release_self_heal_contract.js",
     "test:retest-loop": "node scripts/test_retest_loop_closes.js",
+    "test:repairs-site-head": "node scripts/test_repairs_keep_site_head_idempotent.js",
     "test:render-robots-parity": "node scripts/test_render_robots_parity.js",
     "test:build-reconciles-noindex": "node scripts/test_build_reconciles_noindex.js",
     "validate:admin-command-center": "node scripts/validators/validate_admin_command_center.mjs",

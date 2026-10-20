@@ -28,6 +28,13 @@ const crypto = require('crypto');
 // cannot drift apart on field names again.
 const signalMatch = require('../lib/signal_match.js');
 const { DESC_MIN, DESC_MAX } = require('../lib/page_meta.js');
+// The site-head block (og:title/description, twitter:title/description) is a
+// derived copy of <title> and the meta description. A repair that changes
+// either must re-derive the block in the same write, or validate:social-meta
+// sees a page apply_site_head.js would change again and the lane goes red
+// (Search Repair and Retest, 19-20 Oct 2026, query-atlas/brand-messaging-architecture).
+const { transform: applySiteHead } = require('../apply_site_head.js');
+const { loadConfig: loadSiteHeadConfig } = require('../lib/site_head.js');
 const ROOT = path.resolve(__dirname, '../..');
 const DOMAIN = 'https://virtualagency-os.com';
 
@@ -39,7 +46,10 @@ function writeJson(p, data) {
   fs.writeFileSync(path.join(ROOT, p), JSON.stringify(data, null, 2) + '\n');
 }
 const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const strip = (s) => String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').replace(/\s+([.,;:!?])/g, '$1').trim();
+// Page text is already HTML-escaped; decode it once so esc() at write time does
+// not turn &quot; into &amp;quot; (a literal "&quot;" in the description).
+const unesc = (s) => String(s || '').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+const strip = (s) => unesc(String(s || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').replace(/\s+([.,;:!?])/g, '$1').trim();
 const titleCase = (s) => s.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 const SECTION_LABEL = { learn: 'Learn', programmatic: 'Guide', 'query-atlas': 'Query Atlas', pillars: 'Pillar', 'case-studies': 'Case Study', insights: 'Insight', answers: 'Answer' };
 
@@ -115,6 +125,12 @@ function repairDuplicateTitle(html, route, existingTitles) {
   }
   const newHtml = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(candidate)}</title>`);
   return { html: newHtml, applied: true, new_value: candidate };
+}
+
+let siteHeadCfg;
+function refreshSiteHead(rel, html) {
+  if (!siteHeadCfg) siteHeadCfg = loadSiteHeadConfig(ROOT);
+  return applySiteHead(rel, html, siteHeadCfg);
 }
 
 function main() {
@@ -196,7 +212,7 @@ function main() {
       continue;
     }
 
-    fs.writeFileSync(file, result.html);
+    fs.writeFileSync(file, refreshSiteHead(d.file, result.html));
     if (result.new_value) existingTitles.add(result.new_value); // keep uniqueness set current within this run
     scopeRoutes.add(d.route);
 
@@ -265,4 +281,5 @@ function main() {
   console.log(`Applied ${receiptsThisRun.length} repair(s) across ${scopeRoutes.size} route(s). Routes thawed for refreeze: ${[...scopeRoutes].join(', ') || 'none'}.`);
 }
 
-main();
+if (require.main === module) main();
+else module.exports = { extractSourceText, repairMetaDescription, repairDuplicateTitle, repairMissingCanonical, refreshSiteHead };
