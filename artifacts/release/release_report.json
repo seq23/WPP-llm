@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T13:48:56.584Z",
+  "generated_at": "2026-10-20T23:19:43.715Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-20T12:43:09.232Z",
+    "generated_at": "2026-10-20T22:17:23.167Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -433,6 +433,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 13,
+        "name": "npm run test:repairs-site-head",
+        "npm_script": "test:repairs-site-head",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 14,
         "name": "npm run test:render-robots-parity",
         "npm_script": "test:render-robots-parity",
         "direct_paths": [],
@@ -442,7 +452,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 14,
+        "step": 15,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -452,7 +462,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 15,
+        "step": 16,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -462,7 +472,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 16,
+        "step": 17,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -1391,7 +1401,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-20T13:48:13.347Z",
+    "generated_at": "2026-10-20T23:19:12.056Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -2107,7 +2117,7 @@
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-20T13:48:18.474Z",
+    "updated": "2026-10-20T23:19:15.967Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5236,7 +5246,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-20T13:48:18.474Z"
+      "at": "2026-10-20T23:19:15.967Z"
     }
   },
   "query_universe_count": 10596
