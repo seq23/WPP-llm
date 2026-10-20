@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-10T10:44:57.796Z",
+  "updated_at": "2026-10-20T15:57:18.185Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-10-10",
-    "repairs_used": 11
+    "date": "2026-10-20",
+    "repairs_used": 1
   },
   "receipts": [
     {
@@ -5889,6 +5889,12 @@
       "route": "/query-atlas/webinar-production",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-10-10T10:44:57.795Z"
+    },
+    {
+      "repair_id": "repair_4df7ff9c10b9",
+      "route": "/query-atlas/brand-messaging-architecture",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-20T15:57:18.182Z"
     }
   ]
 }
