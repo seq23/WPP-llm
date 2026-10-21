@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T16:36:52.914Z",
+  "generated_at": "2026-10-21T22:19:18.599Z",
   "workflow_count": 9,
   "workflows": [
     "admin-command.yml",
@@ -244,6 +244,16 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 15,
+      "name": "npm run test:static-edge-path",
+      "npm_script": "test:static-edge-path",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 16,
       "name": "npm run test:build-reconciles-noindex",
       "npm_script": "test:build-reconciles-noindex",
       "direct_paths": [],
@@ -253,7 +263,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 16,
+      "step": 17,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -263,7 +273,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 17,
+      "step": 18,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
