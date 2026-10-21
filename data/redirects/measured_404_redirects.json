@@ -4,8 +4,8 @@
     "Every URL Search Console measured that this build answers with a 404, each with a 301 target: the same-slug /programmatic/ page, else its fold_into hub, else the homepage.",
     "Emitted into _redirects by scripts/update_redirects_clean_to_html.js; proven by scripts/validators/validate_measured_urls_resolve.js and, live, by scripts/live_check_measured_redirects.js."
   ],
-  "rule_count": 196,
-  "impressions_measured": 4935,
+  "rule_count": 198,
+  "impressions_measured": 4937,
   "rules": [
     {
       "from": "/best-virtual-event-platforms",
@@ -146,6 +146,12 @@
       "impressions_measured": 19
     },
     {
+      "from": "/virtual-event-production-for-manufacturing",
+      "to": "/programmatic/virtual-event-production-for-manufacturing",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 19
+    },
+    {
       "from": "/content-marketing-operations-implementation-guide",
       "to": "/programmatic/content-marketing-operations-implementation-guide",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
@@ -166,12 +172,6 @@
     {
       "from": "/creative-operations-for-enterprise-teams",
       "to": "/programmatic/creative-operations-for-enterprise-teams",
-      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
-      "impressions_measured": 17
-    },
-    {
-      "from": "/virtual-event-production-for-manufacturing",
-      "to": "/programmatic/virtual-event-production-for-manufacturing",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 17
     },
@@ -1180,6 +1180,18 @@
     {
       "from": "/campaign-narrative-strategy-process",
       "to": "/programmatic/campaign-narrative-strategy-process",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/community-marketing-operating-model",
+      "to": "/programmatic/community-marketing-operating-model",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/community-marketing-red-flags",
+      "to": "/programmatic/community-marketing-red-flags",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 0
     }
