@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T14:05:05.818Z",
+  "generated_at": "2026-10-21T23:33:55.037Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-21T12:55:50.303Z",
+    "generated_at": "2026-10-21T22:19:18.599Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -453,6 +453,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 15,
+        "name": "npm run test:static-edge-path",
+        "npm_script": "test:static-edge-path",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 16,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -462,7 +472,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 16,
+        "step": 17,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -472,7 +482,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 17,
+        "step": 18,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -1401,7 +1411,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-21T14:04:16.059Z",
+    "generated_at": "2026-10-21T23:33:23.549Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -2117,7 +2127,7 @@
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-21T14:04:22.194Z",
+    "updated": "2026-10-21T23:33:27.303Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5246,7 +5256,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-21T14:04:22.194Z"
+      "at": "2026-10-21T23:33:27.303Z"
     }
   },
   "query_universe_count": 10596
