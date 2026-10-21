@@ -79,6 +79,12 @@ jobs:
       # it; validate:demand-backed-pages then redded the release. This test
       # drives the real renderer + policy and fails if that can happen again.
       - run: npm run test:render-robots-parity
+      # 21 Oct 2026: pages showed cf-cache-status DYNAMIC and a Function on
+      # every request was suspected; there was none, and an A/B with a Cache API
+      # middleware gained nothing measurable. This fails if a Function/_worker.js
+      # starts running on pages, a header forbids caching them, or redirects
+      # leave _redirects.
+      - run: npm run test:static-edge-path
       # 5 Oct 2026: a noindex page earned its first Search Console impression;
       # the policy (recomputed from live signals) un-sanctioned its noindex but
       # nothing in `npm run build` rewrote the page, so validate:demand-backed-pages
