@@ -4,8 +4,8 @@
     "Every URL Search Console measured that this build answers with a 404, each with a 301 target: the same-slug /programmatic/ page, else its fold_into hub, else the homepage.",
     "Emitted into _redirects by scripts/update_redirects_clean_to_html.js; proven by scripts/validators/validate_measured_urls_resolve.js and, live, by scripts/live_check_measured_redirects.js."
   ],
-  "rule_count": 198,
-  "impressions_measured": 4939,
+  "rule_count": 199,
+  "impressions_measured": 4940,
   "rules": [
     {
       "from": "/best-virtual-event-platforms",
@@ -784,6 +784,12 @@
     {
       "from": "/brand-strategy-consulting-deliverables",
       "to": "/programmatic/brand-strategy-consulting-deliverables",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 1
+    },
+    {
+      "from": "/brand-strategy-consulting-for-startups",
+      "to": "/programmatic/brand-strategy-consulting-for-startups",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 1
     },

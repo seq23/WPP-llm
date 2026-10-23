@@ -1,8 +1,8 @@
 # Release Report
 
-Generated: 2026-10-22T23:33:02.091Z
+Generated: 2026-10-23T13:44:58.256Z
 
-- Query universe: 10596
+- Query universe: 10597
 - Release units: 0
 - Published/admitted routes: 3120
 - Deep validation components: 41
