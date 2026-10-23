@@ -4,36 +4,36 @@
     "Every measured query is in exactly one family; impressions add up to the measured total. top12 marks the families whose primary page must serve the intent (data/seo/demand_pages.json).",
     "Proven by scripts/validators/validate_demand_families.js (fresh and consistent with measured_targets)."
   ],
-  "measured_targets_generated_at": "2026-10-22T15:36:31.789Z",
+  "measured_targets_generated_at": "2026-10-23T15:27:39.982Z",
   "window": "Search Console, 90 days (plus the 28-day rows), as merged by scripts/build_measured_targets.js",
-  "target_count": 425,
-  "impressions_total": 5266,
-  "family_count": 39,
+  "target_count": 420,
+  "impressions_total": 5092,
+  "family_count": 38,
   "top_n": 12,
   "top12": [
     "virtual-event-platforms-comparison",
     "hybrid-event-platform",
-    "content-operations",
     "webinar-production",
+    "content-operations",
     "virtual-event-production",
     "audience-growth-strategy",
     "virtual-event-checklist",
     "community-management-outsourcing",
-    "creative-operations",
-    "ai-consultant-vs-agency",
     "ai-marketing-workflows",
-    "community-operations"
+    "community-operations",
+    "rebrand-and-brand-implementation",
+    "creative-operations"
   ],
   "families": [
     {
       "family": "virtual-event-platforms-comparison",
       "label": "Best virtual event platforms and production companies",
       "intent": "comparison",
-      "impressions": 1306,
+      "impressions": 1286,
       "clicks": 0,
       "query_count": 102,
       "best_position": 6,
-      "weighted_position": 38.3,
+      "weighted_position": 37.9,
       "head_query": "best virtual event platforms",
       "current_page": "/best-virtual-event-platforms",
       "current_page_resolves_to": "/programmatic/best-virtual-event-platforms",
@@ -42,12 +42,12 @@
       "landing_pages": [
         {
           "page": "/best-virtual-event-platforms",
-          "impressions": 1225,
+          "impressions": 1206.5,
           "resolves_to": "/programmatic/best-virtual-event-platforms"
         },
         {
           "page": "/virtual-event-production-companies",
-          "impressions": 37,
+          "impressions": 35.5,
           "resolves_to": "/programmatic/virtual-event-production-companies"
         },
         {
@@ -74,32 +74,32 @@
       "queries": [
         {
           "query": "best virtual event platforms",
-          "impressions": 237,
-          "best_position": 22.7,
+          "impressions": 236,
+          "best_position": 22.5,
           "pages": [
             "/best-virtual-event-platforms"
           ]
         },
         {
           "query": "best virtual event platform",
-          "impressions": 232,
-          "best_position": 25.3,
+          "impressions": 230,
+          "best_position": 24.9,
           "pages": [
             "/best-virtual-event-platforms"
           ]
         },
         {
           "query": "virtual event platforms",
-          "impressions": 140,
-          "best_position": 29,
+          "impressions": 139,
+          "best_position": 28.6,
           "pages": [
             "/best-virtual-event-platforms"
           ]
         },
         {
           "query": "best virtual event production companies",
-          "impressions": 44,
-          "best_position": 21.8,
+          "impressions": 41,
+          "best_position": 21.5,
           "pages": [
             "/best-virtual-event-platforms",
             "/virtual-event-production-companies"
@@ -107,8 +107,8 @@
         },
         {
           "query": "top virtual event platforms",
-          "impressions": 39,
-          "best_position": 41.1,
+          "impressions": 38,
+          "best_position": 40.2,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -122,22 +122,6 @@
           ]
         },
         {
-          "query": "best platform for virtual events",
-          "impressions": 32,
-          "best_position": 48.2,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "virtual summit platforms",
-          "impressions": 32,
-          "best_position": 48.5,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
           "query": "best hybrid event platforms",
           "impressions": 31,
           "best_position": 57.2,
@@ -146,9 +130,25 @@
           ]
         },
         {
+          "query": "best platform for virtual events",
+          "impressions": 31,
+          "best_position": 48.2,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "virtual summit platforms",
+          "impressions": 31,
+          "best_position": 48.5,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
           "query": "virtual event providers",
-          "impressions": 30,
-          "best_position": 42.3,
+          "impressions": 29,
+          "best_position": 40.4,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -170,14 +170,6 @@
           ]
         },
         {
-          "query": "best hybrid event platform",
-          "impressions": 23,
-          "best_position": 51,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
           "query": "platforms to host virtual events",
           "impressions": 23,
           "best_position": 54,
@@ -186,9 +178,9 @@
           ]
         },
         {
-          "query": "virtual summit platform",
-          "impressions": 20,
-          "best_position": 69,
+          "query": "best hybrid event platform",
+          "impressions": 21,
+          "best_position": 51.8,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -197,6 +189,14 @@
           "query": "best virtual conference platforms",
           "impressions": 19,
           "best_position": 48.9,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "virtual summit platform",
+          "impressions": 19,
+          "best_position": 69,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -211,8 +211,8 @@
         },
         {
           "query": "virtual event platforms comparison",
-          "impressions": 15,
-          "best_position": 50.3,
+          "impressions": 14,
+          "best_position": 49.1,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -252,8 +252,8 @@
         },
         {
           "query": "top virtual conference platforms",
-          "impressions": 12,
-          "best_position": 61.3,
+          "impressions": 11,
+          "best_position": 59.5,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -300,14 +300,6 @@
           ]
         },
         {
-          "query": "virtual event platform",
-          "impressions": 7,
-          "best_position": 70.4,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
           "query": "webinar production companies",
           "impressions": 7,
           "best_position": 34.1,
@@ -335,14 +327,6 @@
           "query": "best virtual networking platforms",
           "impressions": 6,
           "best_position": 30.5,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "virtual event platform comparison chart",
-          "impressions": 6,
-          "best_position": 52.5,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -389,6 +373,22 @@
           ]
         },
         {
+          "query": "virtual event platform",
+          "impressions": 5,
+          "best_position": 53.7,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "virtual event platform comparison chart",
+          "impressions": 5,
+          "best_position": 49.8,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
           "query": "best platform for hybrid events",
           "impressions": 4,
           "best_position": 50.8,
@@ -403,14 +403,6 @@
           "pages": [
             "/best-virtual-event-platforms",
             "/online-conference-platforms"
-          ]
-        },
-        {
-          "query": "online event platforms comparison",
-          "impressions": 4,
-          "best_position": 62,
-          "pages": [
-            "/best-virtual-event-platforms"
           ]
         },
         {
@@ -451,6 +443,14 @@
           "best_position": 86.3,
           "pages": [
             "/online-conference-platforms"
+          ]
+        },
+        {
+          "query": "online event platforms comparison",
+          "impressions": 3,
+          "best_position": 58.3,
+          "pages": [
+            "/best-virtual-event-platforms"
           ]
         },
         {
@@ -903,11 +903,11 @@
       "family": "hybrid-event-platform",
       "label": "Hybrid event platforms and hybrid event production",
       "intent": "informational",
-      "impressions": 1126,
+      "impressions": 1080,
       "clicks": 0,
-      "query_count": 18,
+      "query_count": 17,
       "best_position": 13,
-      "weighted_position": 69.8,
+      "weighted_position": 69.2,
       "head_query": "hybrid event platform",
       "current_page": "/hybrid-event-platform",
       "current_page_resolves_to": "/programmatic/hybrid-event-platform",
@@ -916,12 +916,12 @@
       "landing_pages": [
         {
           "page": "/hybrid-event-platform",
-          "impressions": 829,
+          "impressions": 792,
           "resolves_to": "/programmatic/hybrid-event-platform"
         },
         {
           "page": "/programmatic/what-is-hybrid-event-production",
-          "impressions": 261.5,
+          "impressions": 252.5,
           "resolves_to": "/programmatic/what-is-hybrid-event-production"
         },
         {
@@ -958,16 +958,16 @@
       "queries": [
         {
           "query": "hybrid event platform",
-          "impressions": 521,
-          "best_position": 65.2,
+          "impressions": 496,
+          "best_position": 64,
           "pages": [
             "/hybrid-event-platform"
           ]
         },
         {
           "query": "hybrid event production",
-          "impressions": 511,
-          "best_position": 74,
+          "impressions": 493,
+          "best_position": 73.9,
           "pages": [
             "/hybrid-event-platform",
             "/programmatic/what-is-hybrid-event-production"
@@ -975,8 +975,8 @@
         },
         {
           "query": "hybrid event platforms",
-          "impressions": 18,
-          "best_position": 67.8,
+          "impressions": 17,
+          "best_position": 68.1,
           "pages": [
             "/hybrid-event-platform"
           ]
@@ -999,8 +999,8 @@
         },
         {
           "query": "hybrid events company",
-          "impressions": 8,
-          "best_position": 85.9,
+          "impressions": 7,
+          "best_position": 83.9,
           "pages": [
             "/hybrid-event-platform"
           ]
@@ -1071,14 +1071,6 @@
           ]
         },
         {
-          "query": "hybrid event app live qa",
-          "impressions": 1,
-          "best_position": 89,
-          "pages": [
-            "/hybrid-event-platform"
-          ]
-        },
-        {
           "query": "hybrid event management servicesvirtual & hybrid events",
           "impressions": 1,
           "best_position": 82,
@@ -1108,12 +1100,232 @@
       "top12": true
     },
     {
+      "family": "webinar-production",
+      "label": "Webinar production services",
+      "intent": "service",
+      "impressions": 360,
+      "clicks": 0,
+      "query_count": 17,
+      "best_position": 9.7,
+      "weighted_position": 51,
+      "head_query": "webinar production services",
+      "current_page": "/programmatic/virtual-event-production-for-saas",
+      "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
+      "primary_route": "/programmatic/webinar-production",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/programmatic/virtual-event-production-for-saas",
+          "impressions": 100.2,
+          "resolves_to": "/programmatic/virtual-event-production-for-saas"
+        },
+        {
+          "page": "/programmatic/what-is-webinar-production",
+          "impressions": 86.7,
+          "resolves_to": "/programmatic/what-is-webinar-production"
+        },
+        {
+          "page": "/programmatic/webinar-production",
+          "impressions": 83.7,
+          "resolves_to": "/programmatic/webinar-production"
+        },
+        {
+          "page": "/virtual-event-production-for-professional-services",
+          "impressions": 37.5,
+          "resolves_to": "/programmatic/virtual-event-production-for-professional-services"
+        },
+        {
+          "page": "/insights/webinar-production-checklist-for-founders-with-no-time",
+          "impressions": 19,
+          "resolves_to": "/insights/webinar-production-checklist-for-founders-with-no-time"
+        },
+        {
+          "page": "/programmatic/webinar-production-checklist",
+          "impressions": 19,
+          "resolves_to": "/programmatic/webinar-production-checklist"
+        },
+        {
+          "page": "/virtual-event-production-for-manufacturing",
+          "impressions": 10,
+          "resolves_to": "/programmatic/virtual-event-production-for-manufacturing"
+        },
+        {
+          "page": "/online-conference-platforms",
+          "impressions": 1,
+          "resolves_to": "/programmatic/online-conference-platforms"
+        },
+        {
+          "page": "/programmatic/virtual-event-production-for-finance",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production-for-finance"
+        },
+        {
+          "page": "/programmatic/webinar-production-cost",
+          "impressions": 1,
+          "resolves_to": "/programmatic/webinar-production-cost"
+        },
+        {
+          "page": "/virtual-event-production-for-government",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production-for-government"
+        }
+      ],
+      "queries": [
+        {
+          "query": "webinar production services",
+          "impressions": 137,
+          "best_position": 52,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas",
+            "/programmatic/webinar-production",
+            "/programmatic/what-is-webinar-production"
+          ]
+        },
+        {
+          "query": "webinar production",
+          "impressions": 76,
+          "best_position": 61.7,
+          "pages": [
+            "/programmatic/webinar-production",
+            "/programmatic/what-is-webinar-production"
+          ]
+        },
+        {
+          "query": "professional webinar production services",
+          "impressions": 73,
+          "best_position": 52.5,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas",
+            "/virtual-event-production-for-professional-services"
+          ]
+        },
+        {
+          "query": "webinar production checklist",
+          "impressions": 38,
+          "best_position": 9.7,
+          "pages": [
+            "/insights/webinar-production-checklist-for-founders-with-no-time",
+            "/programmatic/webinar-production-checklist"
+          ]
+        },
+        {
+          "query": "live event production webinar",
+          "impressions": 20,
+          "best_position": 61.3,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas",
+            "/virtual-event-production-for-manufacturing"
+          ]
+        },
+        {
+          "query": "enterprise webinar production support",
+          "impressions": 2,
+          "best_position": 71.5,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas"
+          ]
+        },
+        {
+          "query": "professional service webinar production",
+          "impressions": 2,
+          "best_position": 55,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas",
+            "/virtual-event-production-for-professional-services"
+          ]
+        },
+        {
+          "query": "professional webinar production",
+          "impressions": 2,
+          "best_position": 84,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas"
+          ]
+        },
+        {
+          "query": "what does a webinar producer do",
+          "impressions": 2,
+          "best_position": 87.5,
+          "pages": [
+            "/programmatic/what-is-webinar-production"
+          ]
+        },
+        {
+          "query": "corporate webinar production",
+          "impressions": 1,
+          "best_position": 82,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas"
+          ]
+        },
+        {
+          "query": "outsourced webinar production",
+          "impressions": 1,
+          "best_position": 97,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas"
+          ]
+        },
+        {
+          "query": "webinar online conference -- --",
+          "impressions": 1,
+          "best_position": 76,
+          "pages": [
+            "/online-conference-platforms"
+          ]
+        },
+        {
+          "query": "webinar production cost",
+          "impressions": 1,
+          "best_position": 39,
+          "pages": [
+            "/programmatic/webinar-production-cost"
+          ]
+        },
+        {
+          "query": "webinar production for finance company",
+          "impressions": 1,
+          "best_position": 76,
+          "pages": [
+            "/programmatic/virtual-event-production-for-finance"
+          ]
+        },
+        {
+          "query": "webinar production for government agencies",
+          "impressions": 1,
+          "best_position": 10,
+          "pages": [
+            "/virtual-event-production-for-government"
+          ]
+        },
+        {
+          "query": "webinar production for professional services",
+          "impressions": 1,
+          "best_position": 85,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas"
+          ]
+        },
+        {
+          "query": "what is a produced webinar",
+          "impressions": 1,
+          "best_position": 76,
+          "pages": [
+            "/programmatic/what-is-webinar-production"
+          ]
+        }
+      ],
+      "rank": 3,
+      "top12_rank": 3,
+      "top12": true
+    },
+    {
       "family": "content-operations",
       "label": "Content and marketing operations",
       "intent": "service",
-      "impressions": 370,
+      "impressions": 356,
       "clicks": 0,
-      "query_count": 24,
+      "query_count": 23,
       "best_position": 4.5,
       "weighted_position": 65.5,
       "head_query": "content marketing operation services",
@@ -1124,78 +1336,73 @@
       "landing_pages": [
         {
           "page": "/programmatic/ai-content-operations-for-marketing-teams",
-          "impressions": 41.7,
+          "impressions": 42.6,
           "resolves_to": "/programmatic/ai-content-operations-for-marketing-teams"
         },
         {
           "page": "/content-marketing-operations",
-          "impressions": 36.5,
+          "impressions": 36.9,
           "resolves_to": "/programmatic/content-marketing-operations"
         },
         {
           "page": "/ai-content-operations-for-marketing-teams",
-          "impressions": 35.6,
+          "impressions": 31.5,
           "resolves_to": "/programmatic/ai-content-operations-for-marketing-teams"
         },
         {
           "page": "/content-marketing-operations-process",
-          "impressions": 21.5,
+          "impressions": 22.3,
           "resolves_to": "/programmatic/content-marketing-operations-process"
         },
         {
           "page": "/programmatic/ai-content-operations",
-          "impressions": 19.9,
+          "impressions": 20.8,
           "resolves_to": "/programmatic/ai-content-operations"
         },
         {
           "page": "/content-marketing-operations-services",
-          "impressions": 18.8,
+          "impressions": 20,
           "resolves_to": "/programmatic/content-marketing-operations-services"
         },
         {
           "page": "/programmatic/what-is-ai-content-operations",
-          "impressions": 16.6,
+          "impressions": 17.8,
           "resolves_to": "/programmatic/what-is-ai-content-operations"
         },
         {
-          "page": "/content-marketing-operations-implementation-guide",
-          "impressions": 15.9,
-          "resolves_to": "/programmatic/content-marketing-operations-implementation-guide"
-        },
-        {
-          "page": "/query-atlas/content-marketing-operations",
-          "impressions": 15.8,
-          "resolves_to": "/query-atlas/content-marketing-operations"
-        },
-        {
           "page": "/programmatic/ai-content-operations-scope-of-work",
-          "impressions": 15.1,
+          "impressions": 16.3,
           "resolves_to": "/programmatic/ai-content-operations-scope-of-work"
         },
         {
+          "page": "/query-atlas/content-marketing-operations",
+          "impressions": 15.7,
+          "resolves_to": "/query-atlas/content-marketing-operations"
+        },
+        {
           "page": "/programmatic/what-is-content-marketing-operations",
-          "impressions": 14.8,
+          "impressions": 14.6,
           "resolves_to": "/programmatic/what-is-content-marketing-operations"
         },
         {
+          "page": "/content-marketing-operations-deliverables",
+          "impressions": 13.6,
+          "resolves_to": "/programmatic/content-marketing-operations-deliverables"
+        },
+        {
           "page": "/programmatic/content-marketing-operations-for-financial-services-teams",
-          "impressions": 12.8,
+          "impressions": 12.7,
           "resolves_to": "/programmatic/content-marketing-operations-for-financial-services-teams"
         },
         {
           "page": "/programmatic/content-marketing-operations-for-professional-services-firms",
-          "impressions": 12.8,
+          "impressions": 12.7,
           "resolves_to": "/programmatic/content-marketing-operations-for-professional-services-firms"
         },
         {
-          "page": "/content-marketing-operations-deliverables",
-          "impressions": 12.4,
-          "resolves_to": "/programmatic/content-marketing-operations-deliverables"
-        },
-        {
-          "page": "/content-marketing-operations-best-practices",
-          "impressions": 9.7,
-          "resolves_to": "/programmatic/content-marketing-operations-best-practices"
+          "page": "/content-marketing-operations-implementation-guide",
+          "impressions": 10,
+          "resolves_to": "/programmatic/content-marketing-operations-implementation-guide"
         },
         {
           "page": "/ai-content-operations",
@@ -1208,44 +1415,44 @@
           "resolves_to": "/programmatic/ai-content-operations-process"
         },
         {
-          "page": "/content-marketing-operations-scope-of-work",
-          "impressions": 8.3,
-          "resolves_to": "/programmatic/content-marketing-operations-scope-of-work"
+          "page": "/content-marketing-operations-best-practices",
+          "impressions": 8.9,
+          "resolves_to": "/programmatic/content-marketing-operations-best-practices"
         },
         {
           "page": "/content-marketing-operations-for-marketing-teams",
-          "impressions": 6.9,
+          "impressions": 8.3,
           "resolves_to": "/programmatic/content-marketing-operations-for-marketing-teams"
         },
         {
           "page": "/content-marketing-operations-agency",
-          "impressions": 5.9,
+          "impressions": 7.3,
           "resolves_to": "/programmatic/content-marketing-operations-agency"
         },
         {
-          "page": "/content-marketing-operations-consultant",
-          "impressions": 5.9,
-          "resolves_to": "/programmatic/content-marketing-operations-consultant"
-        },
-        {
           "page": "/content-marketing-operations-when-to-hire",
-          "impressions": 5.9,
+          "impressions": 7.3,
           "resolves_to": "/programmatic/content-marketing-operations-when-to-hire"
         },
         {
           "page": "/content-marketing-operations-workflow",
-          "impressions": 5.2,
+          "impressions": 4.6,
           "resolves_to": "/programmatic/content-marketing-operations-workflow"
         },
         {
-          "page": "/content-marketing-operations-strategy-framework",
-          "impressions": 4,
-          "resolves_to": "/programmatic/content-marketing-operations-strategy-framework"
+          "page": "/content-marketing-operations-scope-of-work",
+          "impressions": 2.3,
+          "resolves_to": "/programmatic/content-marketing-operations-scope-of-work"
         },
         {
           "page": "/content-marketing-operations-comparison",
           "impressions": 2,
           "resolves_to": "/programmatic/content-marketing-operations-comparison"
+        },
+        {
+          "page": "/content-marketing-operations-strategy-framework",
+          "impressions": 2,
+          "resolves_to": "/programmatic/content-marketing-operations-strategy-framework"
         },
         {
           "page": "/programmatic/ai-content-operations-template",
@@ -1281,7 +1488,7 @@
       "queries": [
         {
           "query": "content marketing operation services",
-          "impressions": 77,
+          "impressions": 76,
           "best_position": 56,
           "pages": [
             "/content-marketing-operations",
@@ -1294,18 +1501,15 @@
         },
         {
           "query": "agency content operations",
-          "impressions": 71,
-          "best_position": 69,
+          "impressions": 66,
+          "best_position": 69.5,
           "pages": [
             "/ai-content-operations-for-marketing-teams",
             "/content-marketing-operations",
             "/content-marketing-operations-agency",
-            "/content-marketing-operations-consultant",
             "/content-marketing-operations-deliverables",
             "/content-marketing-operations-for-marketing-teams",
-            "/content-marketing-operations-implementation-guide",
             "/content-marketing-operations-process",
-            "/content-marketing-operations-scope-of-work",
             "/content-marketing-operations-services",
             "/content-marketing-operations-when-to-hire",
             "/programmatic/ai-content-operations-for-marketing-teams"
@@ -1338,36 +1542,13 @@
         },
         {
           "query": "content marketing operations",
-          "impressions": 22,
+          "impressions": 21,
           "best_position": 57.3,
           "pages": [
             "/content-marketing-operations",
             "/content-marketing-operations-best-practices",
             "/content-marketing-operations-deliverables",
             "/programmatic/what-is-content-marketing-operations"
-          ]
-        },
-        {
-          "query": "marketing content operation workflow",
-          "impressions": 21,
-          "best_position": 58.7,
-          "pages": [
-            "/ai-content-operations-for-marketing-teams",
-            "/content-marketing-operations",
-            "/content-marketing-operations-best-practices",
-            "/content-marketing-operations-process",
-            "/content-marketing-operations-workflow"
-          ]
-        },
-        {
-          "query": "content operations system",
-          "impressions": 18,
-          "best_position": 77.9,
-          "pages": [
-            "/ai-content-operations-for-marketing-teams",
-            "/programmatic/ai-content-operations",
-            "/programmatic/ai-content-operations-scope-of-work",
-            "/programmatic/what-is-ai-content-operations"
           ]
         },
         {
@@ -1380,13 +1561,25 @@
           ]
         },
         {
-          "query": "content ops ia",
-          "impressions": 10,
-          "best_position": 80.5,
+          "query": "marketing content operation workflow",
+          "impressions": 18,
+          "best_position": 59.7,
           "pages": [
             "/ai-content-operations-for-marketing-teams",
+            "/content-marketing-operations",
+            "/content-marketing-operations-best-practices",
+            "/content-marketing-operations-process",
+            "/content-marketing-operations-workflow"
+          ]
+        },
+        {
+          "query": "content operations system",
+          "impressions": 17,
+          "best_position": 77.9,
+          "pages": [
             "/programmatic/ai-content-operations",
-            "/programmatic/ai-content-operations-for-marketing-teams"
+            "/programmatic/ai-content-operations-scope-of-work",
+            "/programmatic/what-is-ai-content-operations"
           ]
         },
         {
@@ -1403,6 +1596,16 @@
             "/programmatic/content-marketing-operations-timeline",
             "/programmatic/what-is-content-marketing-operations",
             "/query-atlas/content-marketing-operations"
+          ]
+        },
+        {
+          "query": "content ops ia",
+          "impressions": 9,
+          "best_position": 80.5,
+          "pages": [
+            "/ai-content-operations-for-marketing-teams",
+            "/programmatic/ai-content-operations",
+            "/programmatic/ai-content-operations-for-marketing-teams"
           ]
         },
         {
@@ -1438,8 +1641,8 @@
         },
         {
           "query": "content operations framework",
-          "impressions": 3,
-          "best_position": 93.7,
+          "impressions": 2,
+          "best_position": 96.5,
           "pages": [
             "/content-marketing-operations-strategy-framework"
           ]
@@ -1515,241 +1718,6 @@
           "pages": [
             "/answers/marketing-ops-for-small-teams"
           ]
-        },
-        {
-          "query": "marketing operations framework",
-          "impressions": 1,
-          "best_position": 67,
-          "pages": [
-            "/content-marketing-operations-strategy-framework"
-          ]
-        }
-      ],
-      "rank": 3,
-      "top12_rank": 3,
-      "top12": true
-    },
-    {
-      "family": "webinar-production",
-      "label": "Webinar production services",
-      "intent": "service",
-      "impressions": 363,
-      "clicks": 0,
-      "query_count": 17,
-      "best_position": 9.7,
-      "weighted_position": 50.9,
-      "head_query": "webinar production services",
-      "current_page": "/programmatic/virtual-event-production-for-saas",
-      "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
-      "primary_route": "/programmatic/webinar-production",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/programmatic/virtual-event-production-for-saas",
-          "impressions": 77.2,
-          "resolves_to": "/programmatic/virtual-event-production-for-saas"
-        },
-        {
-          "page": "/programmatic/what-is-webinar-production",
-          "impressions": 75.5,
-          "resolves_to": "/programmatic/what-is-webinar-production"
-        },
-        {
-          "page": "/programmatic/webinar-production",
-          "impressions": 72.5,
-          "resolves_to": "/programmatic/webinar-production"
-        },
-        {
-          "page": "/virtual-event-production-for-saas",
-          "impressions": 59.2,
-          "resolves_to": "/programmatic/virtual-event-production-for-saas"
-        },
-        {
-          "page": "/virtual-event-production-for-professional-services",
-          "impressions": 25.7,
-          "resolves_to": "/programmatic/virtual-event-production-for-professional-services"
-        },
-        {
-          "page": "/insights/webinar-production-checklist-for-founders-with-no-time",
-          "impressions": 19,
-          "resolves_to": "/insights/webinar-production-checklist-for-founders-with-no-time"
-        },
-        {
-          "page": "/programmatic/webinar-production-checklist",
-          "impressions": 19,
-          "resolves_to": "/programmatic/webinar-production-checklist"
-        },
-        {
-          "page": "/virtual-event-production-for-manufacturing",
-          "impressions": 10,
-          "resolves_to": "/programmatic/virtual-event-production-for-manufacturing"
-        },
-        {
-          "page": "/virtual-event-production-for-government",
-          "impressions": 2,
-          "resolves_to": "/programmatic/virtual-event-production-for-government"
-        },
-        {
-          "page": "/online-conference-platforms",
-          "impressions": 1,
-          "resolves_to": "/programmatic/online-conference-platforms"
-        },
-        {
-          "page": "/programmatic/virtual-event-production-for-finance",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production-for-finance"
-        },
-        {
-          "page": "/programmatic/webinar-production-cost",
-          "impressions": 1,
-          "resolves_to": "/programmatic/webinar-production-cost"
-        }
-      ],
-      "queries": [
-        {
-          "query": "webinar production services",
-          "impressions": 138,
-          "best_position": 52,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas",
-            "/programmatic/webinar-production",
-            "/programmatic/what-is-webinar-production",
-            "/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "webinar production",
-          "impressions": 76,
-          "best_position": 61.7,
-          "pages": [
-            "/programmatic/webinar-production",
-            "/programmatic/what-is-webinar-production"
-          ]
-        },
-        {
-          "query": "professional webinar production services",
-          "impressions": 74,
-          "best_position": 52.5,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas",
-            "/virtual-event-production-for-professional-services",
-            "/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "webinar production checklist",
-          "impressions": 38,
-          "best_position": 9.7,
-          "pages": [
-            "/insights/webinar-production-checklist-for-founders-with-no-time",
-            "/programmatic/webinar-production-checklist"
-          ]
-        },
-        {
-          "query": "live event production webinar",
-          "impressions": 20,
-          "best_position": 61.3,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas",
-            "/virtual-event-production-for-manufacturing"
-          ]
-        },
-        {
-          "query": "enterprise webinar production support",
-          "impressions": 2,
-          "best_position": 71.5,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "professional service webinar production",
-          "impressions": 2,
-          "best_position": 55,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas",
-            "/virtual-event-production-for-professional-services"
-          ]
-        },
-        {
-          "query": "professional webinar production",
-          "impressions": 2,
-          "best_position": 84,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "webinar production for government agencies",
-          "impressions": 2,
-          "best_position": 11,
-          "pages": [
-            "/virtual-event-production-for-government"
-          ]
-        },
-        {
-          "query": "what does a webinar producer do",
-          "impressions": 2,
-          "best_position": 87.5,
-          "pages": [
-            "/programmatic/what-is-webinar-production"
-          ]
-        },
-        {
-          "query": "corporate webinar production",
-          "impressions": 1,
-          "best_position": 82,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "outsourced webinar production",
-          "impressions": 1,
-          "best_position": 97,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "webinar online conference -- --",
-          "impressions": 1,
-          "best_position": 76,
-          "pages": [
-            "/online-conference-platforms"
-          ]
-        },
-        {
-          "query": "webinar production cost",
-          "impressions": 1,
-          "best_position": 39,
-          "pages": [
-            "/programmatic/webinar-production-cost"
-          ]
-        },
-        {
-          "query": "webinar production for finance company",
-          "impressions": 1,
-          "best_position": 76,
-          "pages": [
-            "/programmatic/virtual-event-production-for-finance"
-          ]
-        },
-        {
-          "query": "webinar production for professional services",
-          "impressions": 1,
-          "best_position": 85,
-          "pages": [
-            "/programmatic/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "what is a produced webinar",
-          "impressions": 1,
-          "best_position": 76,
-          "pages": [
-            "/programmatic/what-is-webinar-production"
-          ]
         }
       ],
       "rank": 4,
@@ -1760,11 +1728,11 @@
       "family": "virtual-event-production",
       "label": "Virtual event production",
       "intent": "service",
-      "impressions": 276,
+      "impressions": 268,
       "clicks": 0,
-      "query_count": 16,
+      "query_count": 15,
       "best_position": 23.5,
-      "weighted_position": 68.2,
+      "weighted_position": 67.7,
       "head_query": "virtual events production",
       "current_page": "/programmatic/virtual-event-production-for-saas",
       "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
@@ -1773,23 +1741,18 @@
       "landing_pages": [
         {
           "page": "/programmatic/virtual-event-production-for-saas",
-          "impressions": 108.8,
+          "impressions": 107.3,
           "resolves_to": "/programmatic/virtual-event-production-for-saas"
         },
         {
           "page": "/learn/what-is-virtual-event-production",
-          "impressions": 86,
+          "impressions": 85.5,
           "resolves_to": "/learn/what-is-virtual-event-production"
         },
         {
           "page": "/virtual-event-production-for-saas",
-          "impressions": 22.8,
+          "impressions": 21.8,
           "resolves_to": "/programmatic/virtual-event-production-for-saas"
-        },
-        {
-          "page": "/virtual-event-services",
-          "impressions": 15.8,
-          "resolves_to": "/programmatic/virtual-event-services"
         },
         {
           "page": "/learn/virtual-event-production-cost",
@@ -1797,13 +1760,18 @@
           "resolves_to": "/learn/virtual-event-production-cost"
         },
         {
+          "page": "/virtual-event-services",
+          "impressions": 12.8,
+          "resolves_to": "/programmatic/virtual-event-services"
+        },
+        {
           "page": "/programmatic/what-is-virtual-event-production",
-          "impressions": 10.3,
+          "impressions": 9.8,
           "resolves_to": "/programmatic/what-is-virtual-event-production"
         },
         {
           "page": "/virtual-event-production-companies",
-          "impressions": 5.5,
+          "impressions": 4,
           "resolves_to": "/programmatic/virtual-event-production-companies"
         },
         {
@@ -1855,8 +1823,8 @@
       "queries": [
         {
           "query": "virtual events production",
-          "impressions": 172,
-          "best_position": 70.1,
+          "impressions": 171,
+          "best_position": 69.9,
           "pages": [
             "/learn/what-is-virtual-event-production",
             "/programmatic/virtual-event-production-for-saas"
@@ -1864,7 +1832,7 @@
         },
         {
           "query": "virtual event production",
-          "impressions": 41,
+          "impressions": 39,
           "best_position": 70.7,
           "pages": [
             "/programmatic/virtual-event-production-for-saas",
@@ -1875,7 +1843,7 @@
         },
         {
           "query": "virtual event production staff",
-          "impressions": 23,
+          "impressions": 22,
           "best_position": 76.1,
           "pages": [
             "/programmatic/virtual-event-production-for-saas",
@@ -1892,8 +1860,8 @@
         },
         {
           "query": "virtual event production services",
-          "impressions": 9,
-          "best_position": 82.4,
+          "impressions": 6,
+          "best_position": 80,
           "pages": [
             "/virtual-event-production-companies",
             "/virtual-event-services"
@@ -1974,14 +1942,6 @@
           ]
         },
         {
-          "query": "virtual event av support",
-          "impressions": 1,
-          "best_position": 97,
-          "pages": [
-            "/virtual-event-services"
-          ]
-        },
-        {
           "query": "virtual event presentation services",
           "impressions": 1,
           "best_position": 44,
@@ -1998,7 +1958,7 @@
       "family": "audience-growth-strategy",
       "label": "Audience growth strategy",
       "intent": "informational",
-      "impressions": 180,
+      "impressions": 174,
       "clicks": 0,
       "query_count": 6,
       "best_position": 2,
@@ -2011,22 +1971,22 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-audience-growth-strategy",
-          "impressions": 46.8,
+          "impressions": 45.3,
           "resolves_to": "/programmatic/what-is-audience-growth-strategy"
         },
         {
           "page": "/audience-growth-strategy",
-          "impressions": 42.8,
+          "impressions": 41.3,
           "resolves_to": "/programmatic/audience-growth-strategy"
         },
         {
           "page": "/programmatic/audience-growth-strategy",
-          "impressions": 42.8,
+          "impressions": 41.3,
           "resolves_to": "/programmatic/audience-growth-strategy"
         },
         {
           "page": "/programmatic/audience-growth-strategy-for-startups",
-          "impressions": 42.8,
+          "impressions": 41.3,
           "resolves_to": "/programmatic/audience-growth-strategy-for-startups"
         },
         {
@@ -2053,7 +2013,7 @@
       "queries": [
         {
           "query": "audience growth strategy",
-          "impressions": 171,
+          "impressions": 165,
           "best_position": 24.8,
           "pages": [
             "/audience-growth-strategy",
@@ -2112,11 +2072,11 @@
       "family": "virtual-event-checklist",
       "label": "Virtual event checklist, planning and hosting",
       "intent": "informational",
-      "impressions": 179,
+      "impressions": 162,
       "clicks": 0,
       "query_count": 21,
       "best_position": 27.9,
-      "weighted_position": 65.9,
+      "weighted_position": 66.9,
       "head_query": "how to host a virtual event",
       "current_page": "/virtual-event-planning",
       "current_page_resolves_to": "/programmatic/virtual-event-planning",
@@ -2125,27 +2085,27 @@
       "landing_pages": [
         {
           "page": "/virtual-event-planning",
-          "impressions": 59.5,
+          "impressions": 59,
           "resolves_to": "/programmatic/virtual-event-planning"
         },
         {
           "page": "/host-virtual-events",
-          "impressions": 57,
+          "impressions": 56,
           "resolves_to": "/programmatic/host-virtual-events"
         },
         {
           "page": "/how-to-host-a-virtual-event",
-          "impressions": 48.5,
+          "impressions": 34,
           "resolves_to": "/programmatic/how-to-host-a-virtual-event"
         },
         {
           "page": "/programmatic/how-to-host-a-virtual-event",
-          "impressions": 6,
+          "impressions": 5.5,
           "resolves_to": "/programmatic/how-to-host-a-virtual-event"
         },
         {
           "page": "/virtual-event-production-checklist",
-          "impressions": 6,
+          "impressions": 5.5,
           "resolves_to": "/programmatic/virtual-event-production-checklist"
         },
         {
@@ -2162,7 +2122,7 @@
       "queries": [
         {
           "query": "how to host a virtual event",
-          "impressions": 34,
+          "impressions": 32,
           "best_position": 82.8,
           "pages": [
             "/host-virtual-events",
@@ -2171,8 +2131,8 @@
         },
         {
           "query": "virtual event checklist",
-          "impressions": 29,
-          "best_position": 65.8,
+          "impressions": 23,
+          "best_position": 66.1,
           "pages": [
             "/how-to-host-a-virtual-event",
             "/virtual-event-planning"
@@ -2180,8 +2140,8 @@
         },
         {
           "query": "virtual event production checklist",
-          "impressions": 24,
-          "best_position": 37.5,
+          "impressions": 22,
+          "best_position": 39.8,
           "pages": [
             "/how-to-host-a-virtual-event",
             "/programmatic/how-to-host-a-virtual-event",
@@ -2191,10 +2151,9 @@
         },
         {
           "query": "virtual event planning checklist",
-          "impressions": 20,
-          "best_position": 71.8,
+          "impressions": 17,
+          "best_position": 72.4,
           "pages": [
-            "/how-to-host-a-virtual-event",
             "/virtual-event-planning"
           ]
         },
@@ -2208,8 +2167,8 @@
         },
         {
           "query": "virtual event timeline",
-          "impressions": 11,
-          "best_position": 38.6,
+          "impressions": 9,
+          "best_position": 40.6,
           "pages": [
             "/virtual-event-planning"
           ]
@@ -2240,16 +2199,16 @@
         },
         {
           "query": "virtual event planning guide",
-          "impressions": 6,
-          "best_position": 75.3,
+          "impressions": 5,
+          "best_position": 75,
           "pages": [
             "/virtual-event-planning"
           ]
         },
         {
           "query": "virtual event planning timeline",
-          "impressions": 6,
-          "best_position": 31.8,
+          "impressions": 5,
+          "best_position": 29.6,
           "pages": [
             "/virtual-event-planning"
           ]
@@ -2497,467 +2456,14 @@
       "top12": true
     },
     {
-      "family": "creative-operations",
-      "label": "Creative operations",
-      "intent": "informational",
-      "impressions": 102,
-      "clicks": 0,
-      "query_count": 19,
-      "best_position": 16,
-      "weighted_position": 58.3,
-      "head_query": "creative operations",
-      "current_page": "/programmatic/what-is-creative-operations",
-      "current_page_resolves_to": "/programmatic/what-is-creative-operations",
-      "primary_route": "/programmatic/creative-operations",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/programmatic/what-is-creative-operations",
-          "impressions": 24.4,
-          "resolves_to": "/programmatic/what-is-creative-operations"
-        },
-        {
-          "page": "/creative-operations-for-enterprise-teams",
-          "impressions": 16.9,
-          "resolves_to": "/programmatic/creative-operations-for-enterprise-teams"
-        },
-        {
-          "page": "/creative-operations-for-nonprofits",
-          "impressions": 16.7,
-          "resolves_to": "/programmatic/creative-operations-for-nonprofits"
-        },
-        {
-          "page": "/creative-operations-for-startups",
-          "impressions": 9.3,
-          "resolves_to": "/programmatic/creative-operations-for-startups"
-        },
-        {
-          "page": "/creative-operations-workflow",
-          "impressions": 8.8,
-          "resolves_to": "/programmatic/creative-operations-workflow"
-        },
-        {
-          "page": "/creative-operations-process",
-          "impressions": 6.9,
-          "resolves_to": "/programmatic/creative-operations-process"
-        },
-        {
-          "page": "/creative-operations-consultant",
-          "impressions": 6,
-          "resolves_to": "/programmatic/creative-operations-consultant"
-        },
-        {
-          "page": "/creative-operations-timeline",
-          "impressions": 3.8,
-          "resolves_to": "/programmatic/creative-operations-timeline"
-        },
-        {
-          "page": "/creative-operations",
-          "impressions": 3.3,
-          "resolves_to": "/programmatic/creative-operations"
-        },
-        {
-          "page": "/creative-operations-services",
-          "impressions": 2.5,
-          "resolves_to": "/programmatic/creative-operations-services"
-        },
-        {
-          "page": "/creative-operations-agency",
-          "impressions": 1.6,
-          "resolves_to": "/programmatic/creative-operations-agency"
-        },
-        {
-          "page": "/creative-operations-for-marketing-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/creative-operations-for-marketing-teams"
-        },
-        {
-          "page": "/programmatic/creative-operations-measurement",
-          "impressions": 1,
-          "resolves_to": "/programmatic/creative-operations-measurement"
-        }
-      ],
-      "queries": [
-        {
-          "query": "creative operations",
-          "impressions": 25,
-          "best_position": 70,
-          "pages": [
-            "/creative-operations-for-enterprise-teams",
-            "/creative-operations-for-nonprofits",
-            "/creative-operations-for-startups",
-            "/creative-operations-workflow",
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "creative operations workflow",
-          "impressions": 19,
-          "best_position": 20,
-          "pages": [
-            "/creative-operations-for-enterprise-teams",
-            "/creative-operations-for-nonprofits",
-            "/creative-operations-process",
-            "/creative-operations-timeline",
-            "/creative-operations-workflow"
-          ]
-        },
-        {
-          "query": "creative ops",
-          "impressions": 13,
-          "best_position": 85.9,
-          "pages": [
-            "/creative-operations",
-            "/creative-operations-for-nonprofits",
-            "/creative-operations-for-startups",
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "creative operations management",
-          "impressions": 9,
-          "best_position": 78.3,
-          "pages": [
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "creative agency operations",
-          "impressions": 8,
-          "best_position": 19,
-          "pages": [
-            "/creative-operations-agency",
-            "/creative-operations-for-enterprise-teams",
-            "/creative-operations-for-nonprofits",
-            "/creative-operations-process",
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "creative operations solution",
-          "impressions": 5,
-          "best_position": 70.3,
-          "pages": [
-            "/creative-operations-services",
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "strategic creative operations consultancy",
-          "impressions": 5,
-          "best_position": 44.2,
-          "pages": [
-            "/creative-operations-consultant"
-          ]
-        },
-        {
-          "query": "creative agency ops",
-          "impressions": 3,
-          "best_position": 16,
-          "pages": [
-            "/creative-operations-for-enterprise-teams",
-            "/creative-operations-for-marketing-teams",
-            "/creative-operations-for-nonprofits"
-          ]
-        },
-        {
-          "query": "creative operations process",
-          "impressions": 3,
-          "best_position": 74.5,
-          "pages": [
-            "/creative-operations-for-enterprise-teams",
-            "/creative-operations-process"
-          ]
-        },
-        {
-          "query": "creative ops process",
-          "impressions": 2,
-          "best_position": 85,
-          "pages": [
-            "/creative-operations-for-nonprofits",
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "what is creative operations",
-          "impressions": 2,
-          "best_position": 73,
-          "pages": [
-            "/creative-operations-for-startups",
-            "/programmatic/what-is-creative-operations"
-          ]
-        },
-        {
-          "query": "creative operations consulting",
-          "impressions": 1,
-          "best_position": 65,
-          "pages": [
-            "/creative-operations-consultant"
-          ]
-        },
-        {
-          "query": "creative operations metrics",
-          "impressions": 1,
-          "best_position": 88,
-          "pages": [
-            "/programmatic/creative-operations-measurement"
-          ]
-        },
-        {
-          "query": "creative operations team",
-          "impressions": 1,
-          "best_position": 66,
-          "pages": [
-            "/creative-operations-for-enterprise-teams"
-          ]
-        },
-        {
-          "query": "creative operations team structure",
-          "impressions": 1,
-          "best_position": 77,
-          "pages": [
-            "/creative-operations-for-enterprise-teams"
-          ]
-        },
-        {
-          "query": "creative ops description",
-          "impressions": 1,
-          "best_position": 94,
-          "pages": [
-            "/creative-operations-for-nonprofits"
-          ]
-        },
-        {
-          "query": "creative ops team",
-          "impressions": 1,
-          "best_position": 95,
-          "pages": [
-            "/creative-operations-for-enterprise-teams"
-          ]
-        },
-        {
-          "query": "creative ops team structure",
-          "impressions": 1,
-          "best_position": 95,
-          "pages": [
-            "/creative-operations-for-enterprise-teams"
-          ]
-        },
-        {
-          "query": "creativeops",
-          "impressions": 1,
-          "best_position": 99,
-          "pages": [
-            "/programmatic/what-is-creative-operations"
-          ]
-        }
-      ],
-      "rank": 9,
-      "top12_rank": 9,
-      "top12": true
-    },
-    {
-      "family": "ai-consultant-vs-agency",
-      "label": "AI consultant vs AI agency",
-      "intent": "comparison",
-      "impressions": 100,
-      "clicks": 0,
-      "query_count": 2,
-      "best_position": 36,
-      "weighted_position": 57.7,
-      "head_query": "ai consultant vs ai agency",
-      "current_page": "/ai-consultant-vs-automation-agency-companies",
-      "current_page_resolves_to": "/programmatic/ai-consultant-vs-automation-agency-companies",
-      "primary_route": "/programmatic/ai-consultant-vs-automation-agency",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/ai-consultant-vs-automation-agency-companies",
-          "impressions": 5.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-companies"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-agency",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-agency"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-common-failure-points",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-common-failure-points"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-consultant",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-consultant"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-cost",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-cost"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-for-marketing-teams",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-marketing-teams"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-for-small-teams",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-small-teams"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-measurement",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-measurement"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-mistakes",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-mistakes"
-        },
-        {
-          "page": "/ai-consultant-vs-automation-agency-services",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-services"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-best-practices",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-best-practices"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-companies",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-companies"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-comparison",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-comparison"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-examples",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-examples"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-founders"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-implementation-guide"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails",
-          "impressions": 4.3,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
-          "impressions": 1,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams"
-        }
-      ],
-      "queries": [
-        {
-          "query": "ai consultant vs ai agency",
-          "impressions": 95,
-          "best_position": 58.8,
-          "pages": [
-            "/ai-consultant-vs-automation-agency",
-            "/ai-consultant-vs-automation-agency-agency",
-            "/ai-consultant-vs-automation-agency-common-failure-points",
-            "/ai-consultant-vs-automation-agency-companies",
-            "/ai-consultant-vs-automation-agency-consultant",
-            "/ai-consultant-vs-automation-agency-cost",
-            "/ai-consultant-vs-automation-agency-for-marketing-teams",
-            "/ai-consultant-vs-automation-agency-for-small-teams",
-            "/ai-consultant-vs-automation-agency-measurement",
-            "/ai-consultant-vs-automation-agency-mistakes",
-            "/ai-consultant-vs-automation-agency-services",
-            "/programmatic/ai-consultant-vs-automation-agency-best-practices",
-            "/programmatic/ai-consultant-vs-automation-agency-companies",
-            "/programmatic/ai-consultant-vs-automation-agency-comparison",
-            "/programmatic/ai-consultant-vs-automation-agency-examples",
-            "/programmatic/ai-consultant-vs-automation-agency-for-founders",
-            "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-            "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
-            "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
-            "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
-            "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
-            "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
-          ]
-        },
-        {
-          "query": "ai consultant vs automation agency south africa",
-          "impressions": 5,
-          "best_position": 36,
-          "pages": [
-            "/ai-consultant-vs-automation-agency-companies",
-            "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
-            "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
-            "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
-            "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams"
-          ]
-        }
-      ],
-      "rank": 10,
-      "top12_rank": 10,
-      "top12": true
-    },
-    {
       "family": "ai-marketing-workflows",
       "label": "AI marketing workflows and workflow consulting",
       "intent": "informational",
-      "impressions": 97,
+      "impressions": 94,
       "clicks": 0,
       "query_count": 16,
       "best_position": 48.3,
-      "weighted_position": 72.2,
+      "weighted_position": 71.7,
       "head_query": "ai marketing workflow",
       "current_page": "/programmatic/what-is-ai-marketing-workflows",
       "current_page_resolves_to": "/programmatic/what-is-ai-marketing-workflows",
@@ -2981,7 +2487,7 @@
         },
         {
           "page": "/ai-marketing-workflows",
-          "impressions": 10.5,
+          "impressions": 9,
           "resolves_to": "/programmatic/ai-marketing-workflows"
         },
         {
@@ -2991,12 +2497,12 @@
         },
         {
           "page": "/programmatic/ai-marketing-workflows-for-marketing-teams",
-          "impressions": 6,
+          "impressions": 5,
           "resolves_to": "/programmatic/ai-marketing-workflows-for-marketing-teams"
         },
         {
           "page": "/ai-marketing-workflows-strategy-framework",
-          "impressions": 4.5,
+          "impressions": 4,
           "resolves_to": "/programmatic/ai-marketing-workflows-strategy-framework"
         },
         {
@@ -3065,7 +2571,7 @@
         },
         {
           "query": "manage marketing, seo, ai workflows",
-          "impressions": 9,
+          "impressions": 8,
           "best_position": 73,
           "pages": [
             "/ai-marketing-workflows",
@@ -3074,7 +2580,7 @@
         },
         {
           "query": "digital marketing agency workflow",
-          "impressions": 8,
+          "impressions": 7,
           "best_position": 95,
           "pages": [
             "/ai-marketing-workflows",
@@ -3099,7 +2605,7 @@
         },
         {
           "query": "marketing agency workflow",
-          "impressions": 4,
+          "impressions": 3,
           "best_position": 90,
           "pages": [
             "/ai-marketing-workflows",
@@ -3164,8 +2670,8 @@
           ]
         }
       ],
-      "rank": 11,
-      "top12_rank": 11,
+      "rank": 9,
+      "top12_rank": 9,
       "top12": true
     },
     {
@@ -3534,8 +3040,8 @@
           ]
         }
       ],
-      "rank": 12,
-      "top12_rank": 12,
+      "rank": 10,
+      "top12_rank": 10,
       "top12": true
     },
     {
@@ -3688,6 +3194,437 @@
           ]
         }
       ],
+      "rank": 11,
+      "top12_rank": 11,
+      "top12": true
+    },
+    {
+      "family": "creative-operations",
+      "label": "Creative operations",
+      "intent": "informational",
+      "impressions": 93,
+      "clicks": 0,
+      "query_count": 19,
+      "best_position": 31.2,
+      "weighted_position": 66.2,
+      "head_query": "creative operations",
+      "current_page": "/programmatic/what-is-creative-operations",
+      "current_page_resolves_to": "/programmatic/what-is-creative-operations",
+      "primary_route": "/programmatic/creative-operations",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/programmatic/what-is-creative-operations",
+          "impressions": 27.3,
+          "resolves_to": "/programmatic/what-is-creative-operations"
+        },
+        {
+          "page": "/creative-operations-for-nonprofits",
+          "impressions": 20.3,
+          "resolves_to": "/programmatic/creative-operations-for-nonprofits"
+        },
+        {
+          "page": "/creative-operations-for-enterprise-teams",
+          "impressions": 18.8,
+          "resolves_to": "/programmatic/creative-operations-for-enterprise-teams"
+        },
+        {
+          "page": "/creative-operations-for-startups",
+          "impressions": 6.8,
+          "resolves_to": "/programmatic/creative-operations-for-startups"
+        },
+        {
+          "page": "/creative-operations-consultant",
+          "impressions": 6,
+          "resolves_to": "/programmatic/creative-operations-consultant"
+        },
+        {
+          "page": "/creative-operations-timeline",
+          "impressions": 4.5,
+          "resolves_to": "/programmatic/creative-operations-timeline"
+        },
+        {
+          "page": "/creative-operations-workflow",
+          "impressions": 4.5,
+          "resolves_to": "/programmatic/creative-operations-workflow"
+        },
+        {
+          "page": "/creative-operations-services",
+          "impressions": 2.5,
+          "resolves_to": "/programmatic/creative-operations-services"
+        },
+        {
+          "page": "/creative-operations-process",
+          "impressions": 1.5,
+          "resolves_to": "/programmatic/creative-operations-process"
+        },
+        {
+          "page": "/programmatic/creative-operations-measurement",
+          "impressions": 1,
+          "resolves_to": "/programmatic/creative-operations-measurement"
+        }
+      ],
+      "queries": [
+        {
+          "query": "creative operations",
+          "impressions": 23,
+          "best_position": 70,
+          "pages": [
+            "/creative-operations-for-enterprise-teams",
+            "/creative-operations-for-nonprofits",
+            "/creative-operations-for-startups",
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "creative operations workflow",
+          "impressions": 18,
+          "best_position": 31.2,
+          "pages": [
+            "/creative-operations-for-enterprise-teams",
+            "/creative-operations-for-nonprofits",
+            "/creative-operations-timeline",
+            "/creative-operations-workflow"
+          ]
+        },
+        {
+          "query": "creative ops",
+          "impressions": 10,
+          "best_position": 85.9,
+          "pages": [
+            "/creative-operations-for-nonprofits",
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "creative operations management",
+          "impressions": 9,
+          "best_position": 78.3,
+          "pages": [
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "creative agency operations",
+          "impressions": 6,
+          "best_position": 75,
+          "pages": [
+            "/creative-operations-for-enterprise-teams",
+            "/creative-operations-for-nonprofits",
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "creative operations solution",
+          "impressions": 5,
+          "best_position": 70.3,
+          "pages": [
+            "/creative-operations-services",
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "strategic creative operations consultancy",
+          "impressions": 5,
+          "best_position": 44.2,
+          "pages": [
+            "/creative-operations-consultant"
+          ]
+        },
+        {
+          "query": "creative operations process",
+          "impressions": 3,
+          "best_position": 74.5,
+          "pages": [
+            "/creative-operations-for-enterprise-teams",
+            "/creative-operations-process"
+          ]
+        },
+        {
+          "query": "creative agency ops",
+          "impressions": 2,
+          "best_position": 91,
+          "pages": [
+            "/creative-operations-for-enterprise-teams",
+            "/creative-operations-for-nonprofits"
+          ]
+        },
+        {
+          "query": "creative ops process",
+          "impressions": 2,
+          "best_position": 85,
+          "pages": [
+            "/creative-operations-for-nonprofits",
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "what is creative operations",
+          "impressions": 2,
+          "best_position": 73,
+          "pages": [
+            "/creative-operations-for-startups",
+            "/programmatic/what-is-creative-operations"
+          ]
+        },
+        {
+          "query": "creative operations consulting",
+          "impressions": 1,
+          "best_position": 65,
+          "pages": [
+            "/creative-operations-consultant"
+          ]
+        },
+        {
+          "query": "creative operations metrics",
+          "impressions": 1,
+          "best_position": 88,
+          "pages": [
+            "/programmatic/creative-operations-measurement"
+          ]
+        },
+        {
+          "query": "creative operations team",
+          "impressions": 1,
+          "best_position": 66,
+          "pages": [
+            "/creative-operations-for-enterprise-teams"
+          ]
+        },
+        {
+          "query": "creative operations team structure",
+          "impressions": 1,
+          "best_position": 77,
+          "pages": [
+            "/creative-operations-for-enterprise-teams"
+          ]
+        },
+        {
+          "query": "creative ops description",
+          "impressions": 1,
+          "best_position": 94,
+          "pages": [
+            "/creative-operations-for-nonprofits"
+          ]
+        },
+        {
+          "query": "creative ops team",
+          "impressions": 1,
+          "best_position": 95,
+          "pages": [
+            "/creative-operations-for-enterprise-teams"
+          ]
+        },
+        {
+          "query": "creative ops team structure",
+          "impressions": 1,
+          "best_position": 95,
+          "pages": [
+            "/creative-operations-for-enterprise-teams"
+          ]
+        },
+        {
+          "query": "creativeops",
+          "impressions": 1,
+          "best_position": 99,
+          "pages": [
+            "/programmatic/what-is-creative-operations"
+          ]
+        }
+      ],
+      "rank": 12,
+      "top12_rank": 12,
+      "top12": true
+    },
+    {
+      "family": "ai-consultant-vs-agency",
+      "label": "AI consultant vs AI agency",
+      "intent": "comparison",
+      "impressions": 91,
+      "clicks": 0,
+      "query_count": 2,
+      "best_position": 36,
+      "weighted_position": 57.5,
+      "head_query": "ai consultant vs ai agency",
+      "current_page": "/ai-consultant-vs-automation-agency-companies",
+      "current_page_resolves_to": "/programmatic/ai-consultant-vs-automation-agency-companies",
+      "primary_route": "/programmatic/ai-consultant-vs-automation-agency",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/ai-consultant-vs-automation-agency-companies",
+          "impressions": 4.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-companies"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-agency",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-agency"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-common-failure-points",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-common-failure-points"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-consultant",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-consultant"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-cost",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-cost"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-for-marketing-teams",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-marketing-teams"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-for-small-teams",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-small-teams"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-measurement",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-measurement"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-mistakes",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-mistakes"
+        },
+        {
+          "page": "/ai-consultant-vs-automation-agency-services",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-services"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-best-practices",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-best-practices"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-companies",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-companies"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-comparison",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-comparison"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-examples",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-examples"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-founders",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-founders"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-implementation-guide"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails",
+          "impressions": 3.9,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+          "impressions": 1,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams"
+        }
+      ],
+      "queries": [
+        {
+          "query": "ai consultant vs ai agency",
+          "impressions": 86,
+          "best_position": 58.8,
+          "pages": [
+            "/ai-consultant-vs-automation-agency",
+            "/ai-consultant-vs-automation-agency-agency",
+            "/ai-consultant-vs-automation-agency-common-failure-points",
+            "/ai-consultant-vs-automation-agency-companies",
+            "/ai-consultant-vs-automation-agency-consultant",
+            "/ai-consultant-vs-automation-agency-cost",
+            "/ai-consultant-vs-automation-agency-for-marketing-teams",
+            "/ai-consultant-vs-automation-agency-for-small-teams",
+            "/ai-consultant-vs-automation-agency-measurement",
+            "/ai-consultant-vs-automation-agency-mistakes",
+            "/ai-consultant-vs-automation-agency-services",
+            "/programmatic/ai-consultant-vs-automation-agency-best-practices",
+            "/programmatic/ai-consultant-vs-automation-agency-companies",
+            "/programmatic/ai-consultant-vs-automation-agency-comparison",
+            "/programmatic/ai-consultant-vs-automation-agency-examples",
+            "/programmatic/ai-consultant-vs-automation-agency-for-founders",
+            "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
+            "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
+            "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
+            "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
+            "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
+            "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
+          ]
+        },
+        {
+          "query": "ai consultant vs automation agency south africa",
+          "impressions": 5,
+          "best_position": 36,
+          "pages": [
+            "/ai-consultant-vs-automation-agency-companies",
+            "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+            "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+            "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
+            "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams"
+          ]
+        }
+      ],
       "rank": 13,
       "top12": false
     },
@@ -3695,11 +3632,11 @@
       "family": "narrative-and-storytelling",
       "label": "Narrative strategy and storytelling",
       "intent": "informational",
-      "impressions": 92,
+      "impressions": 90,
       "clicks": 0,
       "query_count": 20,
-      "best_position": 32.7,
-      "weighted_position": 61.2,
+      "best_position": 33.1,
+      "weighted_position": 61.8,
       "head_query": "narrative strategy",
       "current_page": "/programmatic/what-is-campaign-narrative-strategy",
       "current_page_resolves_to": "/programmatic/what-is-campaign-narrative-strategy",
@@ -3713,12 +3650,12 @@
         },
         {
           "page": "/campaign-narrative-strategy-for-founders",
-          "impressions": 15,
+          "impressions": 14,
           "resolves_to": "/programmatic/campaign-narrative-strategy-for-founders"
         },
         {
           "page": "/brand-narrative-strategy-consultant",
-          "impressions": 11,
+          "impressions": 10,
           "resolves_to": "/programmatic/brand-narrative-strategy-consultant"
         },
         {
@@ -3798,16 +3735,16 @@
         },
         {
           "query": "founder narrative strategy",
-          "impressions": 15,
-          "best_position": 32.7,
+          "impressions": 14,
+          "best_position": 33.1,
           "pages": [
             "/campaign-narrative-strategy-for-founders"
           ]
         },
         {
           "query": "brand narrative consultancy",
-          "impressions": 11,
-          "best_position": 46.2,
+          "impressions": 10,
+          "best_position": 46.4,
           "pages": [
             "/brand-narrative-strategy-consultant"
           ]
@@ -3956,11 +3893,11 @@
       "family": "integrated-vs-specialist-agency",
       "label": "Integrated agency vs specialist agencies",
       "intent": "comparison",
-      "impressions": 87,
+      "impressions": 86,
       "clicks": 0,
       "query_count": 10,
       "best_position": 8,
-      "weighted_position": 25.3,
+      "weighted_position": 25.4,
       "head_query": "integrated agency",
       "current_page": "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams",
       "current_page_resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams",
@@ -3969,47 +3906,47 @@
       "landing_pages": [
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams",
-          "impressions": 24.8,
+          "impressions": 24.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams"
         },
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-companies",
-          "impressions": 17.8,
+          "impressions": 17.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-companies"
         },
         {
           "page": "/programmatic/what-is-integrated-agency-vs-specialist-agencies",
-          "impressions": 17.8,
+          "impressions": 17.7,
           "resolves_to": "/programmatic/what-is-integrated-agency-vs-specialist-agencies"
         },
         {
           "page": "/integrated-agency-vs-specialist-agencies",
-          "impressions": 3.8,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies"
         },
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-agency",
-          "impressions": 3.8,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-agency"
         },
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-for-associations",
-          "impressions": 3.8,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-for-associations"
         },
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-for-creative-teams",
-          "impressions": 3.8,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-for-creative-teams"
         },
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-for-nonprofits",
-          "impressions": 3.8,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-for-nonprofits"
         },
         {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-measure-success",
-          "impressions": 3.8,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/integrated-agency-vs-specialist-agencies-how-to-measure-success"
         },
         {
@@ -4046,7 +3983,7 @@
         },
         {
           "query": "integrated agency definition",
-          "impressions": 34,
+          "impressions": 33,
           "best_position": 12,
           "pages": [
             "/integrated-agency-vs-specialist-agencies",
@@ -4132,11 +4069,11 @@
       "family": "run-of-show",
       "label": "Run of show",
       "intent": "informational",
-      "impressions": 80,
+      "impressions": 79,
       "clicks": 0,
       "query_count": 13,
       "best_position": 61,
-      "weighted_position": 83.6,
+      "weighted_position": 83.8,
       "head_query": "run of show meaning",
       "current_page": "/programmatic/event-run-of-show-examples",
       "current_page_resolves_to": "/programmatic/event-run-of-show-examples",
@@ -4229,11 +4166,6 @@
           "resolves_to": "/programmatic/event-run-of-show-for-saas-companies"
         },
         {
-          "page": "/event-run-of-show",
-          "impressions": 1,
-          "resolves_to": "/programmatic/event-run-of-show"
-        },
-        {
           "page": "/programmatic/event-run-of-show-implementation-guide",
           "impressions": 1,
           "resolves_to": "/programmatic/event-run-of-show-implementation-guide"
@@ -4299,17 +4231,6 @@
           ]
         },
         {
-          "query": "event run of show meaning",
-          "impressions": 4,
-          "best_position": 61,
-          "pages": [
-            "/event-run-of-show",
-            "/programmatic/event-run-of-show-comparison",
-            "/programmatic/event-run-of-show-for-professional-services-firms",
-            "/programmatic/event-run-of-show-vs-in-house-team"
-          ]
-        },
-        {
           "query": "run of show example",
           "impressions": 4,
           "best_position": 85.3,
@@ -4325,6 +4246,16 @@
             "/programmatic/event-run-of-show-comparison",
             "/programmatic/event-run-of-show-implementation-guide",
             "/programmatic/event-run-of-show-template"
+          ]
+        },
+        {
+          "query": "event run of show meaning",
+          "impressions": 3,
+          "best_position": 61,
+          "pages": [
+            "/programmatic/event-run-of-show-comparison",
+            "/programmatic/event-run-of-show-for-professional-services-firms",
+            "/programmatic/event-run-of-show-vs-in-house-team"
           ]
         },
         {
@@ -4385,11 +4316,11 @@
       "family": "brand-positioning",
       "label": "Brand positioning strategy",
       "intent": "informational",
-      "impressions": 70,
+      "impressions": 64,
       "clicks": 0,
-      "query_count": 18,
+      "query_count": 16,
       "best_position": 7.9,
-      "weighted_position": 77.3,
+      "weighted_position": 76.9,
       "head_query": "brand positioning for startups",
       "current_page": "/brand-positioning-strategy-examples",
       "current_page_resolves_to": "/programmatic/brand-positioning-strategy-examples",
@@ -4403,7 +4334,7 @@
         },
         {
           "page": "/brand-positioning-strategy-for-startups",
-          "impressions": 13,
+          "impressions": 10,
           "resolves_to": "/programmatic/brand-positioning-strategy-for-startups"
         },
         {
@@ -4423,25 +4354,20 @@
         },
         {
           "page": "/brand-positioning-strategy-for-marketing-teams",
-          "impressions": 4,
+          "impressions": 3,
           "resolves_to": "/programmatic/brand-positioning-strategy-for-marketing-teams"
         },
         {
           "page": "/programmatic/brand-positioning-strategy-for-professional-services-firms",
           "impressions": 3,
           "resolves_to": "/programmatic/brand-positioning-strategy-for-professional-services-firms"
-        },
-        {
-          "page": "/brand-positioning-strategy-strategy-framework",
-          "impressions": 2,
-          "resolves_to": "/programmatic/brand-positioning-strategy-strategy-framework"
         }
       ],
       "queries": [
         {
           "query": "brand positioning for startups",
-          "impressions": 12,
-          "best_position": 78.3,
+          "impressions": 9,
+          "best_position": 78.4,
           "pages": [
             "/brand-positioning-strategy-for-startups"
           ]
@@ -4487,19 +4413,19 @@
           ]
         },
         {
-          "query": "agency brand positioning",
-          "impressions": 4,
-          "best_position": 90.8,
-          "pages": [
-            "/brand-positioning-strategy-for-marketing-teams"
-          ]
-        },
-        {
           "query": "financial expert positioning",
           "impressions": 4,
           "best_position": 78,
           "pages": [
             "/programmatic/brand-positioning-strategy-for-financial-services-teams"
+          ]
+        },
+        {
+          "query": "agency brand positioning",
+          "impressions": 3,
+          "best_position": 93,
+          "pages": [
+            "/brand-positioning-strategy-for-marketing-teams"
           ]
         },
         {
@@ -4516,14 +4442,6 @@
           "best_position": 91,
           "pages": [
             "/brand-positioning-strategy-examples"
-          ]
-        },
-        {
-          "query": "brand positioning framework",
-          "impressions": 1,
-          "best_position": 79,
-          "pages": [
-            "/brand-positioning-strategy-strategy-framework"
           ]
         },
         {
@@ -4548,14 +4466,6 @@
           "best_position": 59,
           "pages": [
             "/programmatic/brand-positioning-strategy-for-financial-services-teams"
-          ]
-        },
-        {
-          "query": "positioning framework",
-          "impressions": 1,
-          "best_position": 93,
-          "pages": [
-            "/brand-positioning-strategy-strategy-framework"
           ]
         },
         {
@@ -4584,160 +4494,6 @@
         }
       ],
       "rank": 17,
-      "top12": false
-    },
-    {
-      "family": "creative-agency-vs-production-company",
-      "label": "Creative agency vs production company",
-      "intent": "comparison",
-      "impressions": 65,
-      "clicks": 0,
-      "query_count": 5,
-      "best_position": 23,
-      "weighted_position": 41.9,
-      "head_query": "production agency definition",
-      "current_page": "/programmatic/what-is-creative-agency-vs-production-company",
-      "current_page_resolves_to": "/programmatic/what-is-creative-agency-vs-production-company",
-      "primary_route": "/programmatic/creative-agency-vs-production-company",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/programmatic/what-is-creative-agency-vs-production-company",
-          "impressions": 13.2,
-          "resolves_to": "/programmatic/what-is-creative-agency-vs-production-company"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-companies",
-          "impressions": 5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-companies"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-red-flags",
-          "impressions": 4.7,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-red-flags"
-        },
-        {
-          "page": "/programmatic/creative-agency-vs-production-company-for-community-organizations",
-          "impressions": 4.7,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-community-organizations"
-        },
-        {
-          "page": "/programmatic/creative-agency-vs-production-company-why-it-fails",
-          "impressions": 4.7,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-why-it-fails"
-        },
-        {
-          "page": "/creative-agency-vs-production-company",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-examples",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-examples"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-for-marketing-teams",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-marketing-teams"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-for-nonprofits",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-nonprofits"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-scope-of-work",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-scope-of-work"
-        },
-        {
-          "page": "/creative-agency-vs-production-company-services",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-services"
-        },
-        {
-          "page": "/programmatic/creative-agency-vs-production-company-for-associations",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-associations"
-        },
-        {
-          "page": "/programmatic/creative-agency-vs-production-company-for-creative-teams",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-creative-teams"
-        },
-        {
-          "page": "/programmatic/creative-agency-vs-production-company-how-to-measure-success",
-          "impressions": 3.5,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-how-to-measure-success"
-        },
-        {
-          "page": "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner",
-          "impressions": 1.2,
-          "resolves_to": "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner"
-        }
-      ],
-      "queries": [
-        {
-          "query": "production agency definition",
-          "impressions": 49,
-          "best_position": 42,
-          "pages": [
-            "/creative-agency-vs-production-company",
-            "/creative-agency-vs-production-company-companies",
-            "/creative-agency-vs-production-company-examples",
-            "/creative-agency-vs-production-company-for-marketing-teams",
-            "/creative-agency-vs-production-company-for-nonprofits",
-            "/creative-agency-vs-production-company-red-flags",
-            "/creative-agency-vs-production-company-scope-of-work",
-            "/creative-agency-vs-production-company-services",
-            "/programmatic/creative-agency-vs-production-company-for-associations",
-            "/programmatic/creative-agency-vs-production-company-for-community-organizations",
-            "/programmatic/creative-agency-vs-production-company-for-creative-teams",
-            "/programmatic/creative-agency-vs-production-company-how-to-measure-success",
-            "/programmatic/creative-agency-vs-production-company-why-it-fails",
-            "/programmatic/what-is-creative-agency-vs-production-company"
-          ]
-        },
-        {
-          "query": "creative agency vs production company",
-          "impressions": 6,
-          "best_position": 23,
-          "pages": [
-            "/creative-agency-vs-production-company-red-flags",
-            "/programmatic/creative-agency-vs-production-company-for-community-organizations",
-            "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner",
-            "/programmatic/creative-agency-vs-production-company-why-it-fails",
-            "/programmatic/what-is-creative-agency-vs-production-company"
-          ]
-        },
-        {
-          "query": "creative and production",
-          "impressions": 6,
-          "best_position": 53.2,
-          "pages": [
-            "/programmatic/what-is-creative-agency-vs-production-company"
-          ]
-        },
-        {
-          "query": "what is a production agency",
-          "impressions": 3,
-          "best_position": 49,
-          "pages": [
-            "/creative-agency-vs-production-company-companies",
-            "/programmatic/what-is-creative-agency-vs-production-company"
-          ]
-        },
-        {
-          "query": "is agency and company the same",
-          "impressions": 1,
-          "best_position": 59,
-          "pages": [
-            "/programmatic/what-is-creative-agency-vs-production-company"
-          ]
-        }
-      ],
-      "rank": 18,
       "top12": false
     },
     {
@@ -4877,6 +4633,153 @@
           ]
         }
       ],
+      "rank": 18,
+      "top12": false
+    },
+    {
+      "family": "creative-agency-vs-production-company",
+      "label": "Creative agency vs production company",
+      "intent": "comparison",
+      "impressions": 59,
+      "clicks": 0,
+      "query_count": 5,
+      "best_position": 23,
+      "weighted_position": 43.7,
+      "head_query": "production agency definition",
+      "current_page": "/programmatic/what-is-creative-agency-vs-production-company",
+      "current_page_resolves_to": "/programmatic/what-is-creative-agency-vs-production-company",
+      "primary_route": "/programmatic/creative-agency-vs-production-company",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/programmatic/what-is-creative-agency-vs-production-company",
+          "impressions": 13.3,
+          "resolves_to": "/programmatic/what-is-creative-agency-vs-production-company"
+        },
+        {
+          "page": "/creative-agency-vs-production-company-red-flags",
+          "impressions": 4.8,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-red-flags"
+        },
+        {
+          "page": "/programmatic/creative-agency-vs-production-company-for-community-organizations",
+          "impressions": 4.8,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-community-organizations"
+        },
+        {
+          "page": "/programmatic/creative-agency-vs-production-company-why-it-fails",
+          "impressions": 4.8,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-why-it-fails"
+        },
+        {
+          "page": "/creative-agency-vs-production-company",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company"
+        },
+        {
+          "page": "/creative-agency-vs-production-company-examples",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-examples"
+        },
+        {
+          "page": "/creative-agency-vs-production-company-for-marketing-teams",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-marketing-teams"
+        },
+        {
+          "page": "/creative-agency-vs-production-company-for-nonprofits",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-nonprofits"
+        },
+        {
+          "page": "/creative-agency-vs-production-company-scope-of-work",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-scope-of-work"
+        },
+        {
+          "page": "/programmatic/creative-agency-vs-production-company-for-associations",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-associations"
+        },
+        {
+          "page": "/programmatic/creative-agency-vs-production-company-for-creative-teams",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-for-creative-teams"
+        },
+        {
+          "page": "/programmatic/creative-agency-vs-production-company-how-to-measure-success",
+          "impressions": 3.6,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-how-to-measure-success"
+        },
+        {
+          "page": "/creative-agency-vs-production-company-companies",
+          "impressions": 1.5,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-companies"
+        },
+        {
+          "page": "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner",
+          "impressions": 1.2,
+          "resolves_to": "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner"
+        }
+      ],
+      "queries": [
+        {
+          "query": "production agency definition",
+          "impressions": 43,
+          "best_position": 44.5,
+          "pages": [
+            "/creative-agency-vs-production-company",
+            "/creative-agency-vs-production-company-examples",
+            "/creative-agency-vs-production-company-for-marketing-teams",
+            "/creative-agency-vs-production-company-for-nonprofits",
+            "/creative-agency-vs-production-company-red-flags",
+            "/creative-agency-vs-production-company-scope-of-work",
+            "/programmatic/creative-agency-vs-production-company-for-associations",
+            "/programmatic/creative-agency-vs-production-company-for-community-organizations",
+            "/programmatic/creative-agency-vs-production-company-for-creative-teams",
+            "/programmatic/creative-agency-vs-production-company-how-to-measure-success",
+            "/programmatic/creative-agency-vs-production-company-why-it-fails",
+            "/programmatic/what-is-creative-agency-vs-production-company"
+          ]
+        },
+        {
+          "query": "creative agency vs production company",
+          "impressions": 6,
+          "best_position": 23,
+          "pages": [
+            "/creative-agency-vs-production-company-red-flags",
+            "/programmatic/creative-agency-vs-production-company-for-community-organizations",
+            "/programmatic/creative-agency-vs-production-company-how-to-brief-a-partner",
+            "/programmatic/creative-agency-vs-production-company-why-it-fails",
+            "/programmatic/what-is-creative-agency-vs-production-company"
+          ]
+        },
+        {
+          "query": "creative and production",
+          "impressions": 6,
+          "best_position": 53.2,
+          "pages": [
+            "/programmatic/what-is-creative-agency-vs-production-company"
+          ]
+        },
+        {
+          "query": "what is a production agency",
+          "impressions": 3,
+          "best_position": 49,
+          "pages": [
+            "/creative-agency-vs-production-company-companies",
+            "/programmatic/what-is-creative-agency-vs-production-company"
+          ]
+        },
+        {
+          "query": "is agency and company the same",
+          "impressions": 1,
+          "best_position": 59,
+          "pages": [
+            "/programmatic/what-is-creative-agency-vs-production-company"
+          ]
+        }
+      ],
       "rank": 19,
       "top12": false
     },
@@ -4884,11 +4787,11 @@
       "family": "brand-messaging-architecture",
       "label": "Brand messaging architecture",
       "intent": "informational",
-      "impressions": 58,
+      "impressions": 56,
       "clicks": 0,
       "query_count": 7,
       "best_position": 53.2,
-      "weighted_position": 58.5,
+      "weighted_position": 58.7,
       "head_query": "brand messaging architecture",
       "current_page": "/programmatic/what-is-brand-messaging-architecture",
       "current_page_resolves_to": "/programmatic/what-is-brand-messaging-architecture",
@@ -4897,24 +4800,24 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-brand-messaging-architecture",
-          "impressions": 23,
+          "impressions": 22.3,
           "resolves_to": "/programmatic/what-is-brand-messaging-architecture"
         },
         {
           "page": "/programmatic/brand-messaging-architecture",
-          "impressions": 19,
+          "impressions": 18.3,
           "resolves_to": "/programmatic/brand-messaging-architecture"
         },
         {
           "page": "/brand-messaging-architecture",
-          "impressions": 16,
+          "impressions": 15.3,
           "resolves_to": "/programmatic/brand-messaging-architecture"
         }
       ],
       "queries": [
         {
           "query": "brand messaging architecture",
-          "impressions": 48,
+          "impressions": 46,
           "best_position": 53.2,
           "pages": [
             "/brand-messaging-architecture",
@@ -4980,11 +4883,11 @@
       "family": "creative-strategy-consulting",
       "label": "Creative strategy consulting",
       "intent": "service",
-      "impressions": 55,
+      "impressions": 54,
       "clicks": 0,
       "query_count": 3,
-      "best_position": 22.7,
-      "weighted_position": 35.7,
+      "best_position": 22.4,
+      "weighted_position": 35.8,
       "head_query": "creative strategy consulting",
       "current_page": "/programmatic/what-is-creative-strategy-consulting",
       "current_page_resolves_to": "/programmatic/what-is-creative-strategy-consulting",
@@ -4993,35 +4896,35 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-creative-strategy-consulting",
-          "impressions": 25.4,
+          "impressions": 25.2,
           "resolves_to": "/programmatic/what-is-creative-strategy-consulting"
         },
         {
           "page": "/creative-strategy-consulting-cost",
-          "impressions": 7.4,
+          "impressions": 7.2,
           "resolves_to": "/programmatic/creative-strategy-consulting-cost"
         },
         {
           "page": "/creative-strategy-consulting-how-to-choose",
-          "impressions": 7.4,
+          "impressions": 7.2,
           "resolves_to": "/programmatic/creative-strategy-consulting-how-to-choose"
         },
         {
           "page": "/creative-strategy-consulting-measurement",
-          "impressions": 7.4,
+          "impressions": 7.2,
           "resolves_to": "/programmatic/creative-strategy-consulting-measurement"
         },
         {
           "page": "/creative-strategy-consulting-when-to-hire",
-          "impressions": 7.4,
+          "impressions": 7.2,
           "resolves_to": "/programmatic/creative-strategy-consulting-when-to-hire"
         }
       ],
       "queries": [
         {
           "query": "creative strategy consulting",
-          "impressions": 37,
-          "best_position": 22.7,
+          "impressions": 36,
+          "best_position": 22.4,
           "pages": [
             "/creative-strategy-consulting-cost",
             "/creative-strategy-consulting-how-to-choose",
@@ -5284,11 +5187,11 @@
       "family": "deliverables-scope-and-rfp",
       "label": "Agency deliverables, scope of work and RFP questions",
       "intent": "informational",
-      "impressions": 46,
+      "impressions": 45,
       "clicks": 0,
       "query_count": 16,
       "best_position": 25,
-      "weighted_position": 55.7,
+      "weighted_position": 56.3,
       "head_query": "agency deliverables",
       "current_page": "/programmatic/launch-marketing-strategy-deliverables",
       "current_page_resolves_to": "/programmatic/launch-marketing-strategy-deliverables",
@@ -5302,12 +5205,12 @@
         },
         {
           "page": "/programmatic/marketing-strategy-consulting-deliverables",
-          "impressions": 7.6,
+          "impressions": 8,
           "resolves_to": "/programmatic/marketing-strategy-consulting-deliverables"
         },
         {
           "page": "/event-marketing-strategy-deliverables",
-          "impressions": 6.6,
+          "impressions": 7,
           "resolves_to": "/programmatic/event-marketing-strategy-deliverables"
         },
         {
@@ -5322,13 +5225,8 @@
         },
         {
           "page": "/programmatic/how-to-choose-a-creative-agency-deliverables",
-          "impressions": 3.3,
+          "impressions": 3.7,
           "resolves_to": "/programmatic/how-to-choose-a-creative-agency-deliverables"
-        },
-        {
-          "page": "/creative-direction-agency-deliverables",
-          "impressions": 2.3,
-          "resolves_to": "/programmatic/creative-direction-agency-deliverables"
         },
         {
           "page": "/programmatic/agency-rfp-questions-for-financial-services-teams",
@@ -5354,10 +5252,9 @@
       "queries": [
         {
           "query": "agency deliverables",
-          "impressions": 9,
-          "best_position": 62,
+          "impressions": 8,
+          "best_position": 65.8,
           "pages": [
-            "/creative-direction-agency-deliverables",
             "/event-marketing-strategy-deliverables",
             "/programmatic/how-to-choose-a-creative-agency-deliverables",
             "/programmatic/marketing-strategy-consulting-deliverables"
@@ -5491,52 +5388,10 @@
       "top12": false
     },
     {
-      "family": "virtual-event-management",
-      "label": "Virtual event management",
-      "intent": "service",
-      "impressions": 40,
-      "clicks": 0,
-      "query_count": 2,
-      "best_position": 65.8,
-      "weighted_position": 65.9,
-      "head_query": "virtual event management",
-      "current_page": "/virtual-event-management",
-      "current_page_resolves_to": "/programmatic/virtual-event-management",
-      "primary_route": "/programmatic/virtual-event-management",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/virtual-event-management",
-          "impressions": 40,
-          "resolves_to": "/programmatic/virtual-event-management"
-        }
-      ],
-      "queries": [
-        {
-          "query": "virtual event management",
-          "impressions": 37,
-          "best_position": 65.8,
-          "pages": [
-            "/virtual-event-management"
-          ]
-        },
-        {
-          "query": "virtual events management",
-          "impressions": 3,
-          "best_position": 67.3,
-          "pages": [
-            "/virtual-event-management"
-          ]
-        }
-      ],
-      "rank": 25,
-      "top12": false
-    },
-    {
       "family": "investor-event-production",
       "label": "Investor relations event production",
       "intent": "service",
-      "impressions": 39,
+      "impressions": 38,
       "clicks": 0,
       "query_count": 2,
       "best_position": 10,
@@ -5549,14 +5404,14 @@
       "landing_pages": [
         {
           "page": "/investor-event-production",
-          "impressions": 39,
+          "impressions": 38,
           "resolves_to": "/programmatic/investor-event-production"
         }
       ],
       "queries": [
         {
           "query": "investor relations event production",
-          "impressions": 38,
+          "impressions": 37,
           "best_position": 76.4,
           "pages": [
             "/investor-event-production"
@@ -5568,6 +5423,48 @@
           "best_position": 10,
           "pages": [
             "/investor-event-production"
+          ]
+        }
+      ],
+      "rank": 25,
+      "top12": false
+    },
+    {
+      "family": "virtual-event-management",
+      "label": "Virtual event management",
+      "intent": "service",
+      "impressions": 23,
+      "clicks": 0,
+      "query_count": 2,
+      "best_position": 63,
+      "weighted_position": 64.8,
+      "head_query": "virtual event management",
+      "current_page": "/virtual-event-management",
+      "current_page_resolves_to": "/programmatic/virtual-event-management",
+      "primary_route": "/programmatic/virtual-event-management",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/virtual-event-management",
+          "impressions": 23,
+          "resolves_to": "/programmatic/virtual-event-management"
+        }
+      ],
+      "queries": [
+        {
+          "query": "virtual event management",
+          "impressions": 21,
+          "best_position": 65,
+          "pages": [
+            "/virtual-event-management"
+          ]
+        },
+        {
+          "query": "virtual events management",
+          "impressions": 2,
+          "best_position": 63,
+          "pages": [
+            "/virtual-event-management"
           ]
         }
       ],
@@ -5730,11 +5627,11 @@
       "family": "auto-brand-strategy-consulting",
       "label": "brand strategy consulting",
       "intent": "informational",
-      "impressions": 6,
+      "impressions": 7,
       "clicks": 0,
-      "query_count": 2,
+      "query_count": 3,
       "best_position": 25,
-      "weighted_position": 37,
+      "weighted_position": 45.7,
       "head_query": "enterprise brand experience consulting",
       "current_page": "/brand-strategy-consulting-for-enterprise-teams",
       "current_page_resolves_to": "/programmatic/brand-strategy-consulting-for-enterprise-teams",
@@ -5746,6 +5643,11 @@
           "page": "/brand-strategy-consulting-for-enterprise-teams",
           "impressions": 5,
           "resolves_to": "/programmatic/brand-strategy-consulting-for-enterprise-teams"
+        },
+        {
+          "page": "/brand-strategy-consulting-for-startups",
+          "impressions": 1,
+          "resolves_to": "/programmatic/brand-strategy-consulting-for-startups"
         },
         {
           "page": "/brand-strategy-consulting-pricing",
@@ -5760,6 +5662,14 @@
           "best_position": 25,
           "pages": [
             "/brand-strategy-consulting-for-enterprise-teams"
+          ]
+        },
+        {
+          "query": "brand consulting for startups",
+          "impressions": 1,
+          "best_position": 98,
+          "pages": [
+            "/brand-strategy-consulting-for-startups"
           ]
         },
         {
@@ -6023,41 +5933,6 @@
       "top12": false
     },
     {
-      "family": "auto-creative-strategy-consulting",
-      "label": "creative strategy consulting",
-      "intent": "informational",
-      "impressions": 2,
-      "clicks": 0,
-      "query_count": 1,
-      "best_position": 53.5,
-      "weighted_position": 53.5,
-      "head_query": "management consulting agencies vs in-house strategy teams",
-      "current_page": "/creative-strategy-consulting-vs-in-house-team",
-      "current_page_resolves_to": "/programmatic/creative-strategy-consulting-vs-in-house-team",
-      "primary_route": "/programmatic/creative-strategy-consulting-vs-in-house-team",
-      "eligible_for_strengthening": false,
-      "auto_family": true,
-      "landing_pages": [
-        {
-          "page": "/creative-strategy-consulting-vs-in-house-team",
-          "impressions": 2,
-          "resolves_to": "/programmatic/creative-strategy-consulting-vs-in-house-team"
-        }
-      ],
-      "queries": [
-        {
-          "query": "management consulting agencies vs in-house strategy teams",
-          "impressions": 2,
-          "best_position": 53.5,
-          "pages": [
-            "/creative-strategy-consulting-vs-in-house-team"
-          ]
-        }
-      ],
-      "rank": 36,
-      "top12": false
-    },
-    {
       "family": "auto-how-ai-is-used-in-marketing",
       "label": "how ai is used in marketing",
       "intent": "informational",
@@ -6089,7 +5964,7 @@
           ]
         }
       ],
-      "rank": 37,
+      "rank": 36,
       "top12": false
     },
     {
@@ -6137,7 +6012,7 @@
           ]
         }
       ],
-      "rank": 38,
+      "rank": 37,
       "top12": false
     },
     {
@@ -6172,7 +6047,7 @@
           ]
         }
       ],
-      "rank": 39,
+      "rank": 38,
       "top12": false
     }
   ]
