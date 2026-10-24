@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "validator": "content-pattern-contract",
   "spec": ".clarity/content-pattern-spec.json",
-  "generated_at": "2026-10-23T23:23:55.228Z",
+  "generated_at": "2026-10-24T12:54:11.324Z",
   "enforcement": "report",
-  "pages_checked": 3431,
+  "pages_checked": 3433,
   "status": "REPORTED",
   "blocking_failures": 139,
   "summary": [
@@ -12,7 +12,7 @@
       "id": "direct_answer",
       "blocking": true,
       "pages_missing": 139,
-      "coverage_pct": 95.9,
+      "coverage_pct": 96,
       "why": "no direct-answer block - nothing here is quotable without surrounding context"
     },
     {
@@ -53,8 +53,8 @@
     {
       "id": "concrete_numbers",
       "blocking": false,
-      "pages_missing": 3310,
-      "coverage_pct": 3.5,
+      "pages_missing": 3311,
+      "coverage_pct": 3.6,
       "why": "no concrete cost or timeline figures (agent request #5, 365 occurrences)"
     },
     {
@@ -95,7 +95,7 @@
     {
       "id": "trust_block",
       "blocking": false,
-      "pages_missing": 3431,
+      "pages_missing": 3433,
       "coverage_pct": 0,
       "why": "no trust or authorship block (agent requested 215 times) - entity clarity is a citation factor"
     },
@@ -123,14 +123,14 @@
     {
       "id": "prompt_template",
       "blocking": false,
-      "pages_missing": 3431,
+      "pages_missing": 3433,
       "coverage_pct": 0,
       "why": "no copy-ready prompt - the artifact this audience actually reuses"
     }
   ],
   "recommendation_summary_distinctness": {
-    "total_blocks": 3256,
-    "distinct_texts": 3231,
+    "total_blocks": 3258,
+    "distinct_texts": 3233,
     "ratio": 0.9923,
     "texts_on_more_than_one_page": 15,
     "pages_carrying_a_repeated_text": 40,
@@ -770,7 +770,6 @@
       "answers/virtual-event-platform-stack.html",
       "answers/virtual-event-production-agency.html",
       "answers/virtual-event-rehearsal.html",
-      "answers/webinar-production-agency.html",
       "answers/west-peek-productions-fit.html",
       "answers/what-is-community-as-a-service.html",
       "answers/what-is-included-in-community-as-a-service.html",
@@ -3498,6 +3497,7 @@
       "programmatic/launch-marketing-strategy-when-to-hire.html",
       "programmatic/launch-marketing-strategy-workflow.html",
       "programmatic/launch-marketing-strategy.html",
+      "programmatic/live-event-production-webinar.html",
       "programmatic/live-stream-production-company.html",
       "programmatic/livekit-virtual-events.html",
       "programmatic/marketing-agency-workflow.html",
@@ -3505,6 +3505,7 @@
       "programmatic/marketing-content-operation-workflow.html",
       "programmatic/marketing-content-operations.html",
       "programmatic/marketing-growth-2025.html",
+      "programmatic/marketing-operating-model-design.html",
       "programmatic/marketing-operating-system.html",
       "programmatic/marketing-strategy-consulting-2026.html",
       "programmatic/marketing-strategy-consulting-agency.html",
@@ -7501,6 +7502,7 @@
       "programmatic/launch-marketing-strategy-when-to-hire.html",
       "programmatic/launch-marketing-strategy-workflow.html",
       "programmatic/launch-marketing-strategy.html",
+      "programmatic/live-event-production-webinar.html",
       "programmatic/live-stream-production-company.html",
       "programmatic/livekit-virtual-events.html",
       "programmatic/marketing-agency-workflow.html",
@@ -7508,6 +7510,7 @@
       "programmatic/marketing-content-operation-workflow.html",
       "programmatic/marketing-content-operations.html",
       "programmatic/marketing-growth-2025.html",
+      "programmatic/marketing-operating-model-design.html",
       "programmatic/marketing-operating-system.html",
       "programmatic/marketing-strategy-consulting-2026.html",
       "programmatic/marketing-strategy-consulting-agency.html",
@@ -11439,6 +11442,7 @@
       "programmatic/launch-marketing-strategy-when-to-hire.html",
       "programmatic/launch-marketing-strategy-workflow.html",
       "programmatic/launch-marketing-strategy.html",
+      "programmatic/live-event-production-webinar.html",
       "programmatic/live-stream-production-company.html",
       "programmatic/livekit-virtual-events.html",
       "programmatic/marketing-agency-workflow.html",
@@ -11446,6 +11450,7 @@
       "programmatic/marketing-content-operation-workflow.html",
       "programmatic/marketing-content-operations.html",
       "programmatic/marketing-growth-2025.html",
+      "programmatic/marketing-operating-model-design.html",
       "programmatic/marketing-operating-system.html",
       "programmatic/marketing-strategy-consulting-2026.html",
       "programmatic/marketing-strategy-consulting-agency.html",

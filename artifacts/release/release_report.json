@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T23:23:17.215Z",
+  "generated_at": "2026-10-24T12:53:43.579Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -208,7 +208,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-23T22:07:40.549Z",
+    "generated_at": "2026-10-24T11:59:49.563Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -1411,7 +1411,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-23T23:22:31.426Z",
+    "generated_at": "2026-10-24T12:53:09.695Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1420,7 +1420,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 7826,
+      "candidates_considered": 7856,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1430,43 +1430,186 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-10-24",
         "2026-10-23",
         "2026-10-22",
         "2026-10-21",
         "2026-10-20",
         "2026-10-19",
-        "2026-10-18",
-        "2026-10-17"
+        "2026-10-18"
       ],
       "usage_source": "data/cadence/known_urls.json",
-      "new_pages_used_this_week": 2,
-      "new_pages_used_this_week_urls": [
-        "https://virtualagency-os.com/programmatic/ai-marketing-workflow",
-        "https://virtualagency-os.com/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system"
-      ],
-      "weekly_headroom": 0,
+      "new_pages_used_this_week": 0,
+      "new_pages_used_this_week_urls": [],
+      "weekly_headroom": 2,
       "daily_headroom": 2,
-      "new_page_allowance_this_run": 0,
+      "new_page_allowance_this_run": 2,
       "governed_by": "weekly_cadence_policy"
     },
     "daily_new_page_ceiling": 2,
     "daily_repair_ceiling": 100,
     "daily_new_pages_already_used": 0,
     "daily_repairs_already_used": 0,
-    "max_new_pages_this_run": 0,
+    "max_new_pages_this_run": 2,
     "max_repairs_this_run": 100,
     "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "60d7b9dc213d0eb2215569d4fde5a630c684cdd237a9d4d3fe11496d9c5c2b8c",
+      "corpus_fingerprint": "17a908d2153957540d98f05ab0fbf06e3184c9d2acf286ebd8a60f7283cf8867",
       "legacy_backlog": 81,
       "thin_pages": 81,
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
-    "units": [],
-    "release_units": [],
+    "units": [
+      {
+        "opportunity_id": "opp_bGl2ZSBldmVudCBwcm9kdWN0",
+        "query": "live event production webinar",
+        "cluster": "webinar-production",
+        "pillar": "experiences",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/live-event-production-webinar",
+        "page_family": "operational_guide",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/live-event-production-webinar",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1125,
+          "max_similarity": 0.549645,
+          "nearest_route": "/programmatic/live-stream-production-company",
+          "reasons": []
+        },
+        "release_order": 1,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 15,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      },
+      {
+        "opportunity_id": "opp_bWFya2V0aW5nIG9wZXJhdGlu",
+        "query": "marketing operating model design",
+        "cluster": "community-marketing",
+        "pillar": "marketing",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/marketing-operating-model-design",
+        "page_family": "operational_guide",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/marketing-operating-model-design",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1095,
+          "max_similarity": 0.492939,
+          "nearest_route": "/programmatic/community-marketing-operating-model",
+          "reasons": []
+        },
+        "release_order": 2,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 14,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      }
+    ],
+    "release_units": [
+      {
+        "opportunity_id": "opp_bGl2ZSBldmVudCBwcm9kdWN0",
+        "query": "live event production webinar",
+        "cluster": "webinar-production",
+        "pillar": "experiences",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/live-event-production-webinar",
+        "page_family": "operational_guide",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/live-event-production-webinar",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1125,
+          "max_similarity": 0.549645,
+          "nearest_route": "/programmatic/live-stream-production-company",
+          "reasons": []
+        },
+        "release_order": 1,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 15,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      },
+      {
+        "opportunity_id": "opp_bWFya2V0aW5nIG9wZXJhdGlu",
+        "query": "marketing operating model design",
+        "cluster": "community-marketing",
+        "pillar": "marketing",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/marketing-operating-model-design",
+        "page_family": "operational_guide",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/marketing-operating-model-design",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1095,
+          "max_similarity": 0.492939,
+          "nearest_route": "/programmatic/community-marketing-operating-model",
+          "reasons": []
+        },
+        "release_order": 2,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 14,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      }
+    ],
     "blocked": [
       {
         "target_route": "/programmatic/brand-look-legit",
@@ -2116,18 +2259,15 @@
         "details": [
           "thin"
         ],
-        "max_similarity": 0.029566,
-        "nearest_route": "/programmatic/virtual-event-management",
+        "max_similarity": 0.025309,
+        "nearest_route": "/programmatic/hybrid-event-platform",
         "self_heal_cycle": 1
       }
     ],
-    "status": "COMPLETED_NO_CHANGES",
-    "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7826 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
-    "create_stop_is_legitimate": true
+    "status": "READY"
   },
   "content_state": {
-    "updated": "2026-10-23T23:22:37.395Z",
+    "updated": "2026-10-24T12:53:13.618Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5248,15 +5388,17 @@
       "/programmatic/best-virtual-events-platforms",
       "/programmatic/top-virtual-conference-platforms",
       "/programmatic/ai-marketing-workflow",
-      "/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system"
+      "/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system",
+      "/programmatic/live-event-production-webinar",
+      "/programmatic/marketing-operating-model-design"
     ],
     "blocked_routes": [],
     "last_release_run": {
-      "created": 0,
+      "created": 2,
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-23T23:22:37.395Z"
+      "at": "2026-10-24T12:53:13.618Z"
     }
   },
   "query_universe_count": 10597
