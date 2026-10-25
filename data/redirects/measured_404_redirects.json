@@ -4,8 +4,8 @@
     "Every URL Search Console measured that this build answers with a 404, each with a 301 target: the same-slug /programmatic/ page, else its fold_into hub, else the homepage.",
     "Emitted into _redirects by scripts/update_redirects_clean_to_html.js; proven by scripts/validators/validate_measured_urls_resolve.js and, live, by scripts/live_check_measured_redirects.js."
   ],
-  "rule_count": 208,
-  "impressions_measured": 4943,
+  "rule_count": 210,
+  "impressions_measured": 4945,
   "rules": [
     {
       "from": "/best-virtual-event-platforms",
@@ -128,16 +128,16 @@
       "impressions_measured": 25
     },
     {
+      "from": "/virtual-event-production-for-manufacturing",
+      "to": "/programmatic/virtual-event-production-for-manufacturing",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 25
+    },
+    {
       "from": "/virtual-event-production-for-professional-services",
       "to": "/programmatic/virtual-event-production-for-professional-services",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 24
-    },
-    {
-      "from": "/virtual-event-production-for-manufacturing",
-      "to": "/programmatic/virtual-event-production-for-manufacturing",
-      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
-      "impressions_measured": 23
     },
     {
       "from": "/campaign-narrative-strategy-for-founders",
@@ -1252,6 +1252,18 @@
     {
       "from": "/creative-strategy-consulting-best-practices",
       "to": "/programmatic/creative-strategy-consulting-best-practices",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/creative-strategy-consulting-pricing",
+      "to": "/programmatic/creative-strategy-consulting-pricing",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/event-audience-engagement-companies",
+      "to": "/programmatic/event-audience-engagement-companies",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 0
     }
