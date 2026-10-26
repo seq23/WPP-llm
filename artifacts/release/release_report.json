@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T08:56:10.370Z",
+  "generated_at": "2026-10-26T20:45:58.359Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -218,7 +218,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-26T07:41:44.557Z",
+    "generated_at": "2026-10-26T19:24:01.061Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -453,6 +453,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 14,
+        "name": "npm run test:demand-families-declared",
+        "npm_script": "test:demand-families-declared",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 15,
         "name": "npm run test:render-robots-parity",
         "npm_script": "test:render-robots-parity",
         "direct_paths": [],
@@ -462,7 +472,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 15,
+        "step": 16,
         "name": "npm run test:static-edge-path",
         "npm_script": "test:static-edge-path",
         "direct_paths": [],
@@ -472,7 +482,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 16,
+        "step": 17,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -482,7 +492,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 17,
+        "step": 18,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -492,7 +502,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 18,
+        "step": 19,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -1421,7 +1431,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-26T08:55:35.193Z",
+    "generated_at": "2026-10-26T20:45:17.179Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1430,7 +1440,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 7799,
+      "candidates_considered": 6072,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1469,9 +1479,9 @@
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "2f5a49a6e43cbd146d194b5b02801adcf3af9a98ec6933e1d2c0aaf637c6a3f2",
-      "legacy_backlog": 80,
-      "thin_pages": 80,
+      "corpus_fingerprint": "175aca3f676fa89c99dea66801d31b7b4e5cb1a4b67be9b538a63409ddc77350",
+      "legacy_backlog": 67,
+      "thin_pages": 67,
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
@@ -1520,22 +1530,6 @@
       },
       {
         "target_route": "/programmatic/community-health-scorecard",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-monetization-decision-framework",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-platform-decision-matrix",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -1647,6 +1641,14 @@
         ]
       },
       {
+        "target_route": "/programmatic/virtual-event-planning-agency",
+        "release_action": "repair",
+        "reason": "quality_repair_missing_opportunity_metadata",
+        "details": [
+          "thin"
+        ]
+      },
+      {
         "target_route": "/programmatic/virtual-event-planning-analytics",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
@@ -1735,31 +1737,7 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-planning-day-of-support",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
         "target_route": "/programmatic/virtual-event-planning-decision-framework",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-engagement",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-event-operations",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -1807,23 +1785,7 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-planning-how-to-choose",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-how-to-host",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-how-to-plan",
+        "target_route": "/programmatic/virtual-event-planning-how-much-does-it-cost",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -1887,6 +1849,14 @@
         ]
       },
       {
+        "target_route": "/programmatic/virtual-event-production-common-mistakes",
+        "release_action": "repair",
+        "reason": "quality_repair_missing_opportunity_metadata",
+        "details": [
+          "thin"
+        ]
+      },
+      {
         "target_route": "/programmatic/virtual-event-production-content-repurposing",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
@@ -1903,39 +1873,7 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-production-engagement",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-event-strategy",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
         "target_route": "/programmatic/virtual-event-production-executive-briefing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-failure-prevention",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-follow-up",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -1967,31 +1905,23 @@
         ]
       },
       {
+        "target_route": "/programmatic/virtual-event-production-how-to-host",
+        "release_action": "repair",
+        "reason": "quality_repair_missing_opportunity_metadata",
+        "details": [
+          "thin"
+        ]
+      },
+      {
+        "target_route": "/programmatic/virtual-event-production-how-to-plan",
+        "release_action": "repair",
+        "reason": "quality_repair_missing_opportunity_metadata",
+        "details": [
+          "thin"
+        ]
+      },
+      {
         "target_route": "/programmatic/virtual-event-production-hybrid-av",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-livestream",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-marketing-plan",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-platform-stack",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -2031,14 +1961,6 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-production-run-of-show",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
         "target_route": "/programmatic/virtual-event-production-schedule",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
@@ -2048,22 +1970,6 @@
       },
       {
         "target_route": "/programmatic/virtual-event-production-security",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-software",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-speaker-prep",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -2087,7 +1993,7 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-production-when-to-hire-help",
+        "target_route": "/programmatic/virtual-event-production-vendor-questions",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
         "details": [
@@ -2118,18 +2024,23 @@
         "details": [
           "thin"
         ],
-        "max_similarity": 0.024986,
-        "nearest_route": "/programmatic/hybrid-event-platform",
+        "max_similarity": 0.024595,
+        "nearest_route": "/programmatic/livekit-virtual-events",
         "self_heal_cycle": 1
       }
     ],
+    "paused_for_consolidation": {
+      "ledger": "data/seo/duplicate_family_consolidation.json",
+      "families": 30,
+      "opportunities_withheld": 3072
+    },
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7799 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "6072 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-26T08:55:39.137Z",
+    "updated": "2026-10-26T20:45:22.496Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5260,7 +5171,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-26T08:55:39.137Z"
+      "at": "2026-10-26T20:45:22.496Z"
     }
   },
   "query_universe_count": 10597
