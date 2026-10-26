@@ -45,7 +45,10 @@ function writeJson(p, data) {
   fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true });
   fs.writeFileSync(path.join(ROOT, p), JSON.stringify(data, null, 2) + '\n');
 }
-const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+// The same attribute escaping apply_site_head.js uses: an apostrophe written as
+// &#39; here and as ' in the og:/twitter: copies made the two disagree
+// (test_repairs_keep_site_head_idempotent.js, webinar-production-services).
+const esc = (s) => String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // Page text is already HTML-escaped; decode it once so esc() at write time does
 // not turn &quot; into &amp;quot; (a literal "&quot;" in the description).
 const unesc = (s) => String(s || '').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');

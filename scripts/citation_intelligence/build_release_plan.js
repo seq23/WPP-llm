@@ -30,7 +30,14 @@ fs.mkdirSync(path.join(ROOT, '.build'), { recursive: true });
 fs.mkdirSync(path.join(ROOT, 'artifacts/release'), { recursive: true });
 
 const contract = readJson('_content_release_contract.json', { cadence: { max_new_pages_per_day: 2, max_repairs_per_day: 100 } });
-const opps = readJson('data/opportunities/aeo_geo_opportunities.json', { opportunities: [] }).opportunities || [];
+const consolidatedFamilies = require('../lib/consolidated_families.js');
+const PAUSED_PREFIXES = consolidatedFamilies.pausedPrefixes();
+const allOpps = readJson('data/opportunities/aeo_geo_opportunities.json', { opportunities: [] }).opportunities || [];
+// Release is paused for every duplicate family consolidated in
+// data/seo/duplicate_family_consolidation.json: a create would bring back a URL
+// that now 301s, and a repair would rewrite a keeper underneath its merge.
+const pausedOpps = allOpps.filter((o) => o && o.target_route && consolidatedFamilies.isPaused(governedRoute(o.target_route), PAUSED_PREFIXES));
+const opps = allOpps.filter((o) => !pausedOpps.includes(o));
 const priority = readJson('data/seo/priority_pages.json', { pages: [] }).pages || [];
 const velocityDecision = readJson('data/authority_scale/velocity_decision.json', {});
 
@@ -234,6 +241,7 @@ const issueRows = quality.pages
 const repairs = [];
 for (const issue of issueRows) {
   if (repairs.length >= maxRepairs) break;
+  if (consolidatedFamilies.isPaused(issue.route, PAUSED_PREFIXES)) continue;
   const o = byRoute.get(issue.route);
   if (!o || !o.query) {
     blocked.push({ target_route:issue.route, release_action:'repair', reason:'quality_repair_missing_opportunity_metadata', details:issue.flags });
@@ -289,6 +297,7 @@ const plan = {
   units,
   release_units: units,
   blocked,
+  paused_for_consolidation: { ledger: 'data/seo/duplicate_family_consolidation.json', families: PAUSED_PREFIXES.length, opportunities_withheld: pausedOpps.length },
   status: units.length ? 'READY' : 'COMPLETED_NO_CHANGES',
 };
 

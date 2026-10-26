@@ -611,6 +611,20 @@
       "severity": "HARD_FAIL",
       "purpose": "Keep <lastmod> a content claim: refuse a sitemap that is a uniform build stamp, and pin by mutation that sitewide chrome does not move a page's hash while its own content does.",
       "owner": "repo"
+    },
+    {
+      "id": "sitemap-no-redirect-sources",
+      "command": "node scripts/validators/validate_sitemap_no_redirect_sources.js",
+      "severity": "HARD_FAIL",
+      "purpose": "No sitemap.xml URL is a _redirects source: a 301 source in the sitemap asks Google to index a URL that redirects. 26 Oct 2026: 430 duplicate variants became 301 sources.",
+      "owner": "repo"
+    },
+    {
+      "id": "duplicate-family-consolidation",
+      "command": "node scripts/validators/validate_duplicate_family_consolidation.js",
+      "severity": "HARD_FAIL",
+      "purpose": "The duplicate-family ledger, _redirects, admission registry, freeze registry and release plan agree on every retired /programmatic/ variant and its keeper; paused families get no release units; the thin ledger is untouched.",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

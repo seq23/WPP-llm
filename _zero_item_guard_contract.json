@@ -435,6 +435,16 @@
       "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
       "probe": "sitemap-file",
       "input": "the <lastmod> dates in sitemap.xml, and the published HTML corpus they are checked against"
+    },
+    {
+      "command": "node scripts/validators/validate_sitemap_no_redirect_sources.js",
+      "probe": "sitemap-file",
+      "input": "sitemap.xml and the _redirects rules it must not overlap"
+    },
+    {
+      "command": "node scripts/validators/validate_duplicate_family_consolidation.js",
+      "probe": "data-records",
+      "input": "data/seo/duplicate_family_consolidation.json and the admission registry, freeze registry and release plan it must agree with"
     }
   ]
 }

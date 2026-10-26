@@ -48,6 +48,13 @@ if (!Array.isArray(MEASURED_404) || MEASURED_404.length === 0) {
 }
 const LEGACY_FROM = new Set(LEGACY_404.map((r) => r.from));
 
+// Duplicate families Google folded into the homepage, consolidated onto the
+// indexed family page (data/seo/duplicate_family_consolidation.json). Legacy and
+// measured rules that once pointed at a retired variant are re-pointed at its
+// keeper in their own data files, so validate_redirect_targets.js still compares
+// _redirects against one source per rule.
+const CONSOLIDATED = require('./lib/consolidated_families.js').redirectRules();
+
 const lines = [
   '# Canonical policy: clean URLs are canonical.',
   '# Do NOT redirect clean URLs to .html. Most static hosts strip .html automatically;',
@@ -83,6 +90,10 @@ const lines = [
   '# URLs Search Console measured that 404d while the same page lived under',
   '# /programmatic/. See data/redirects/measured_404_redirects.json.',
   ...MEASURED_404.filter((r) => !LEGACY_FROM.has(r.from)).map((r) => `${r.from} ${r.to} 301`),
+  '',
+  '# /programmatic/ variants Google reported as duplicates of the homepage, merged into',
+  '# the indexed page of their family. See data/seo/duplicate_family_consolidation.json.',
+  ...CONSOLIDATED.map((r) => `${r.from} ${r.to} 301`),
   '',
   '# Cloudflare Pages deploys this repository root and offers no exclude list for',
   '# a root deploy, so README.md, package.json, AGENTS.md and everything under',
