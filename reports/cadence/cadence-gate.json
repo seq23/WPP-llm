@@ -1,32 +1,34 @@
 {
-  "generated_at": "2026-10-25",
+  "generated_at": "2026-10-26",
   "policy_source": "data/cadence/policy.json",
-  "urls": 2721,
-  "dated": 2721,
+  "urls": 2722,
+  "dated": 2722,
   "undated": 0,
   "stale_over_window": 0,
   "stale_pct": 0,
   "fresh_within_30d": 2721,
-  "lastmod_within_7d": 265,
-  "new_since_last_run": 0,
-  "new_editorial_urls": 0,
+  "lastmod_within_7d": 266,
+  "new_since_last_run": 1,
+  "new_editorial_urls": 1,
   "new_navigation_urls": 0,
   "weekly_window": [
+    "2026-10-26",
     "2026-10-25",
     "2026-10-24",
     "2026-10-23",
     "2026-10-22",
     "2026-10-21",
-    "2026-10-20",
-    "2026-10-19"
+    "2026-10-20"
   ],
   "governed_editorial_this_week": 2,
   "governed_editorial_this_week_urls": [
     "https://virtualagency-os.com/programmatic/live-event-production-webinar",
     "https://virtualagency-os.com/programmatic/marketing-operating-model-design"
   ],
-  "ungoverned_editorial_urls": [],
-  "editorial_this_week": 2,
+  "ungoverned_editorial_urls": [
+    "https://virtualagency-os.com/about"
+  ],
+  "editorial_this_week": 3,
   "ledger_initialised": true,
   "maintainable_ceiling": 325,
   "policy": {
@@ -39,9 +41,11 @@
     "_why": "13 weeks is the point where pages become markedly more likely to lose AI citations, and recency is the strongest single correlate of being cited. The ceiling is refresh capacity times that window: publish faster than the library can be maintained and the tail ages out of citability.",
     "_provenance_refresh_capacity_per_week": "refresh_capacity_per_week is NOT a measurement. It traces to a single unsourced sentence, and no repository in this portfolio has been shown to sustain it; publication and refresh rates observed across the portfolio when this was reviewed on 2026-08-27 ranged roughly 0.4 to 3.2 per week, against the 25 asserted here. The number is left unchanged deliberately - correcting it is a capacity decision, not an editorial one - but every figure derived from it inherits the same standing. maintainable_ceiling is refresh_capacity_per_week * floor(refresh_window_days / 7), so 25 * 13 = 325, and the library_over_ceiling warning reports \"N pages cannot be kept current at this capacity\" using it. Those outputs look like measurements and are not: they are this figure restated. Read them as \"against a declared capacity of 25\", never as an observed limit. If the real sustainable rate is established, change it here and every derived ceiling corrects itself."
   },
-  "blocking": [],
-  "warnings": [
-    "library_over_ceiling: 2721 pages against a ceiling of 325 (25 substantive refreshes per week held inside 91 days). 2396 pages cannot be kept current at this capacity."
+  "blocking": [
+    "weekly_cap: 3 editorial URLs this week (2 governed, first seen 2026-10-20..2026-10-26; 1 with no record at all), cap is 2 per week"
   ],
-  "status": "CLEAR"
+  "warnings": [
+    "library_over_ceiling: 2722 pages against a ceiling of 325 (25 substantive refreshes per week held inside 91 days). 2397 pages cannot be kept current at this capacity."
+  ],
+  "status": "BLOCKED"
 }

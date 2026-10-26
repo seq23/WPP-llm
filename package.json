@@ -142,7 +142,7 @@
     "validate:publication-freeze": "node scripts/validators/validate_publication_freeze.js",
     "validate:measured-targets": "node scripts/validators/validate_measured_targets.js",
     "validate:search-intelligence": "node scripts/validators/validate_search_intelligence.js",
-    "validate:seo-hygiene": "npm run validate:site-icons && npm run validate:email-obfuscation-safe && npm run validate:social-meta && npm run validate:structured-data && npm run validate:indexnow-key && npm run validate:publication-freeze && npm run validate:measured-targets && npm run validate:search-intelligence && npm run validate:demand-families && npm run validate:demand-pages && npm run validate:gsc-truth",
+    "validate:seo-hygiene": "npm run validate:site-icons && npm run validate:email-obfuscation-safe && npm run validate:social-meta && npm run validate:structured-data && npm run validate:indexnow-key && npm run validate:publication-freeze && npm run validate:measured-targets && npm run validate:search-intelligence && npm run validate:demand-families && npm run validate:demand-pages && npm run validate:gsc-truth && npm run validate:published-head-parity",
     "redirects:measured:build": "node scripts/build_measured_404_redirects.js",
     "redirects:measured:refresh": "node scripts/build_measured_404_redirects.js && node scripts/update_redirects_clean_to_html.js",
     "validate:measured-urls-resolve": "node scripts/validators/validate_measured_urls_resolve.js",
@@ -155,7 +155,8 @@
     "validate:zero-paid-llm": "node scripts/validators/validate_zero_paid_llm.js",
     "llm:free-selftest": "node scripts/llm/free_router.js --selftest",
     "test:free-router": "node scripts/llm/test_free_router.js",
-    "validate:gsc-truth": "node scripts/validators/validate_gsc_truth.js"
+    "validate:gsc-truth": "node scripts/validators/validate_gsc_truth.js",
+    "validate:published-head-parity": "node scripts/validators/validate_published_head_parity.js"
   },
   "dependencies": {
     "marked": "^12.0.2"

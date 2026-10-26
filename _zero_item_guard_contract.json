@@ -414,6 +414,16 @@
       "command": "node scripts/validators/validate_demand_pages.js",
       "probe": "demand-pages",
       "input": "the top-12 family pages in data/seo/demand_pages.json"
+    },
+    {
+      "command": "node scripts/validators/validate_published_head_parity.js",
+      "probe": "html-corpus",
+      "input": "every indexable published .html page it walks for og/twitter tags and the publisher Organization"
+    },
+    {
+      "command": "node scripts/validators/validate_gsc_truth.js",
+      "probe": "data-records",
+      "input": "data/search_intelligence/gsc_truth.json, the measured query and page history it reads"
     }
   ]
 }

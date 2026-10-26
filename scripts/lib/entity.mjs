@@ -38,6 +38,22 @@ export const WEST_PEEK_PRODUCTIONS = {
   '@id': ORG_ID,
   name: 'West Peek Productions',
   url: 'https://www.westpeekproductions.com/',
+  // The logo and sameAs are what let an AI engine resolve this page's publisher
+  // to one entity. Without them the first Organization node on a page carries
+  // only a name and a url, which is what 3,195 of 3,197 published pages carried
+  // on 26 Oct 2026. The logo is served from this site's own host (verified 200,
+  // 200x200); both sameAs targets are verified live properties, per the rule at
+  // the top of this file.
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://virtualagency-os.com/assets/west-peek-productions-logo.jpeg',
+    width: 200,
+    height: 200
+  },
+  sameAs: [
+    'https://www.westpeekproductions.com/',
+    'https://www.linkedin.com/company/west-peek-productions/'
+  ],
   founder: { '@id': PERSON_ID },
   foundingDate: '2020',
   location: [
