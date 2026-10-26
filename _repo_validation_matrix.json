@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07-zero-item-guard-class",
+  "updated": "2026-10-26",
   "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
   "allowed_severities": [
     "HARD_FAIL",
@@ -690,6 +690,16 @@
       "command": "node scripts/validators/validate_demand_pages.js",
       "severity": "HARD_FAIL",
       "purpose": "Top-12 family pages carry title/H1/definition/question H2s/one FAQPage/CTA ref, are linked from the homepage and /topics/, comparison pages have tables, no page claims to be software.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "sitemap-lastmod-honest",
+      "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Keep <lastmod> a content claim: refuse a sitemap that is a uniform build stamp, and pin by mutation that sitewide chrome does not move a page's hash while its own content does.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",

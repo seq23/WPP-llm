@@ -34,13 +34,45 @@
  * date bump in a different costume, so `git rev-parse --is-shallow-repository`
  * gates it and the build date is used instead. Nothing here reconstructs or
  * estimates a date.
+ *
+ * Second root cause, v2 of the schema. Hashing the whole document put every
+ * page's date at the mercy of sitewide boilerplate. On 2026-10-26 one commit
+ * added a `logo` to the publisher Organization JSON-LD that every page carries.
+ * That block is identical on all of them, so the edit was one template change -
+ * but it rewrote 3,434 HTML files, changed 2,722 whole-document hashes, and
+ * advanced every lastmod in the sitemap to the build date in a single build:
+ *
+ *   before: 2,451 at 2026-10-17, 261 at 2026-10-25, 4 at 2026-10-24, ... (5 dates)
+ *   after:  2,722 of 2,722 at 2026-10-26
+ *
+ * Not one page's body, title or description changed. The ledger had been built
+ * to stop exactly that claim and restated it through a different door, because
+ * "did this file's bytes change" is not the question; "did this page's content
+ * change" is. Re-seeding from git cannot repair it either: the boilerplate
+ * commit is now the last commit to touch all 3,434 files, so every commit date
+ * reads as the same day too.
+ *
+ * So the hash is taken over the page's OWN content - its title, meta
+ * description, canonical and the contents of its <main> element - and not over
+ * the chrome every page shares: the publisher JSON-LD, the analytics loader, the
+ * injected og/author meta, the nav and the footer. <main> excludes nav and
+ * footer on all 3,436 pages here, checked. A sitewide template or entity edit
+ * now moves no dates, which is true; an edit to a page's own content moves that
+ * page's date, which is also true. A page with no <main> to isolate falls back
+ * to the whole document rather than hash an empty string, because an empty
+ * basis would collide across every page and freeze all of their dates at once.
+ *
+ * The basis change makes v1 hashes incomparable, so SCHEMA is v2 and a ledger
+ * written under v1 is not read for hashes. The dates corrupted by that commit
+ * were repaired in the same change from the last ledger revision written before
+ * it - a recorded fact in git history, not a reconstruction.
  */
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 
-const SCHEMA = 'lastmod-ledger-v1';
+const SCHEMA = 'lastmod-ledger-v2';
 const ROOT = path.resolve(__dirname, '..', '..');
 const DEFAULT_PATH = path.join(ROOT, 'data', 'cadence', 'lastmod_ledger.json');
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -60,8 +92,35 @@ function buildDate() {
   return new Date().toISOString().slice(0, 10);
 }
 
+/**
+ * The part of a page that is the page, rather than the chrome every page shares.
+ * Title, meta description and canonical identify it; <main> is its content. The
+ * publisher JSON-LD, analytics loader, injected og/author meta, nav and footer
+ * are deliberately absent: they are one template, and a change to them is one
+ * change, not 2,722 of them.
+ *
+ * Returns the whole document when there is no <main> to isolate. That is the
+ * honest fallback - we cannot tell content from chrome on such a page - and it
+ * is never the empty string, which would hash identically for every page and
+ * pin all of their dates together.
+ */
+function contentBasis(html) {
+  const doc = String(html);
+  const first = (re) => { const m = doc.match(re); return m ? m[0] : ''; };
+  const title = first(/<title[^>]*>[\s\S]*?<\/title>/i);
+  const description = first(/<meta[^>]+name=["']description["'][^>]*>/i);
+  const canonical = first(/<link[^>]+rel=["']canonical["'][^>]*>/i);
+  // Greedy to the LAST </main>, so a page that nests one keeps all of its content.
+  const main = doc.match(/<main\b[^>]*>([\s\S]*)<\/main>/i);
+  const content = main ? main[1] : '';
+  if (!content.trim()) return doc;
+  return [title, description, canonical, content].join('\n');
+}
+
 function contentHash(payload) {
-  return crypto.createHash('sha256').update(String(payload).replace(BUILD_STAMP, '<<BUILD_TIMESTAMP>>')).digest('hex');
+  return crypto.createHash('sha256')
+    .update(contentBasis(payload).replace(BUILD_STAMP, '<<BUILD_TIMESTAMP>>'))
+    .digest('hex');
 }
 
 /**
@@ -100,6 +159,18 @@ function load(ledgerPath = DEFAULT_PATH) {
     throw new Error(`lastmod ledger is not valid JSON: ${ledgerPath}`);
   }
   if (!data.entries || typeof data.entries !== 'object') data.entries = {};
+  // Hashes written under a different content basis cannot be compared with v2
+  // hashes: every one would read as "changed" and advance to the build date,
+  // which is the defect this module exists to remove. Dates are kept so a
+  // recorded lastmod is never lost; only the hashes are dropped, which makes
+  // each URL re-hash once and hold the date it already had.
+  if (data.schema !== SCHEMA) {
+    const kept = {};
+    for (const [url, e] of Object.entries(data.entries)) {
+      if (e && DATE.test(String(e.lastmod))) kept[url] = { hash: '', lastmod: e.lastmod };
+    }
+    data = { schema: SCHEMA, note: NOTE, seeded_on: data.seeded_on || null, entries: kept };
+  }
   return data;
 }
 
@@ -111,7 +182,14 @@ function resolve(pages, ledger, today, opts = {}) {
   const out = {};
   for (const [url, page] of Object.entries(pages)) {
     const prev = entries[url];
-    if (prev && prev.hash === page.hash && DATE.test(String(prev.lastmod))) out[url] = prev.lastmod;
+    const recorded = prev && DATE.test(String(prev.lastmod)) ? prev.lastmod : '';
+    if (recorded && prev.hash === page.hash) out[url] = recorded;
+    // A recorded date whose hash was written under an older content basis (or
+    // never written) says nothing about whether the page changed. Holding the
+    // date and re-hashing once is the only answer that does not invent a
+    // freshness claim; advancing to the build date here would re-stamp the whole
+    // library on the first build after a schema bump.
+    else if (recorded && !prev.hash) out[url] = recorded;
     else if (!prev && trustGit && page.file) out[url] = lastCommitDate(page.file) || day;
     else out[url] = day;
   }
@@ -156,6 +234,6 @@ function save(ledger, ledgerPath = DEFAULT_PATH) {
 }
 
 module.exports = {
-  SCHEMA, DEFAULT_PATH, buildDate, contentHash, hasFullHistory, lastCommitDate,
+  SCHEMA, DEFAULT_PATH, buildDate, contentBasis, contentHash, hasFullHistory, lastCommitDate,
   load, resolve, resolveKnownUrls, rebuilt, save
 };
