@@ -3,8 +3,10 @@
 /**
  * Writes data/redirects/measured_404_redirects.json: one 301 for every URL that
  * Search Console measured (any window: 90-day query x page, rolling 28-day, the
- * 28-day export, every Google-chosen canonical in the URL Inspection file, and
- * the dead-URL list in data/seo/consolidation_candidates.json)
+ * 28-day export, the page dimension and additive page history in
+ * data/search_intelligence/gsc_truth.json, every Google-chosen canonical in the
+ * URL Inspection file, and the dead-URL list in
+ * data/seo/consolidation_candidates.json)
  * and that this build answers with a 404.
  *
  * Why: on 11 Oct 2026, 149 measured URLs returned 404 while the same page lived
@@ -39,6 +41,16 @@ function measuredPages() {
     if (r.signal_type === 'gsc_query_performance') add(r.target_route, r.impressions);
   }
   for (const r of readJson('data/search_intelligence/search_analytics_28d.json', { rows: [] }).rows || []) add(r.page, 0);
+  // The page dimension on its own, and the history that keeps it. Search Console
+  // withholds the query on low-volume rows, so a page can carry impressions all
+  // quarter with no query x page row anywhere above: on 26 Oct 2026, 42 root URLs
+  // Google had measured in 90 days answered 404 while their /programmatic/ twin
+  // was live, and none of them appeared in any query x page source. page_history
+  // is additive, so a URL keeps its rule after it ages out of the window.
+  const truth = readJson('data/search_intelligence/gsc_truth.json', {});
+  for (const r of truth.pages || []) add(r.page, r.impressions);
+  for (const r of truth.pages_90d || []) add(r.page, r.impressions);
+  for (const r of truth.page_history || []) add(r.page, r.impressions_best_window);
   const dir = rel('data/search_intelligence');
   for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => /^gsc_export_28d_.*\.json$/.test(x)) : []) {
     for (const r of readJson(`data/search_intelligence/${f}`, {}).top_pages || []) add(r.page || r.url, 0);
