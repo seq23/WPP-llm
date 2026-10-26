@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T05:02:30.539Z",
+  "generated_at": "2026-10-26T08:56:10.370Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -69,6 +69,16 @@
     {
       "id": "query-atlas",
       "command": "node scripts/validate_query_atlas.js",
+      "exit_status": 0
+    },
+    {
+      "id": "query-atlas-evidence-gate",
+      "command": "node scripts/atlas/validate_query_atlas.mjs",
+      "exit_status": 0
+    },
+    {
+      "id": "atlas-unit-contract",
+      "command": "node scripts/atlas/validate_atlas_units.mjs",
       "exit_status": 0
     },
     {
@@ -208,7 +218,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-26T05:02:06.791Z",
+    "generated_at": "2026-10-26T07:41:44.557Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -1411,7 +1421,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-26T05:02:23.310Z",
+    "generated_at": "2026-10-26T08:55:35.193Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1420,7 +1430,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 7805,
+      "candidates_considered": 7799,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1465,70 +1475,8 @@
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
-    "units": [
-      {
-        "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
-        "query": "community roi measurement",
-        "cluster": "unclustered",
-        "pillar": "experiences",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/community-roi-measurement-model",
-        "page_family": "programmatic_opportunity",
-        "source": "gsc",
-        "demand_estimate": 0,
-        "score": 43,
-        "exists": false,
-        "action": "quality_repair",
-        "status": "admitted_candidate",
-        "source_route": "/programmatic/community-roi-measurement-model",
-        "exists_now": true,
-        "release_action": "repair",
-        "quality_reason": [
-          "thin"
-        ],
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1147,
-          "max_similarity": 0.303758,
-          "nearest_route": "/programmatic/virtual-events-management",
-          "reasons": []
-        },
-        "release_order": 1
-      }
-    ],
-    "release_units": [
-      {
-        "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
-        "query": "community roi measurement",
-        "cluster": "unclustered",
-        "pillar": "experiences",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/community-roi-measurement-model",
-        "page_family": "programmatic_opportunity",
-        "source": "gsc",
-        "demand_estimate": 0,
-        "score": 43,
-        "exists": false,
-        "action": "quality_repair",
-        "status": "admitted_candidate",
-        "source_route": "/programmatic/community-roi-measurement-model",
-        "exists_now": true,
-        "release_action": "repair",
-        "quality_reason": [
-          "thin"
-        ],
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1147,
-          "max_similarity": 0.303758,
-          "nearest_route": "/programmatic/virtual-events-management",
-          "reasons": []
-        },
-        "release_order": 1
-      }
-    ],
+    "units": [],
+    "release_units": [],
     "blocked": [
       {
         "target_route": "/programmatic/brand-look-legit",
@@ -2161,15 +2109,27 @@
         "details": [
           "thin"
         ]
+      },
+      {
+        "target_route": "/programmatic/community-roi-measurement-model",
+        "query": "community roi measurement",
+        "release_action": "repair",
+        "reason": "postbuild_quality_quarantine",
+        "details": [
+          "thin"
+        ],
+        "max_similarity": 0.024986,
+        "nearest_route": "/programmatic/hybrid-event-platform",
+        "self_heal_cycle": 1
       }
     ],
-    "status": "READY",
+    "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "7805 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "7799 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-25T20:41:34.621Z",
+    "updated": "2026-10-26T08:55:39.137Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5300,7 +5260,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-25T20:41:34.621Z"
+      "at": "2026-10-26T08:55:39.137Z"
     }
   },
   "query_universe_count": 10597
