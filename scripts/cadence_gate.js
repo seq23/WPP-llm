@@ -126,7 +126,9 @@ function sitemapUrls(ROOT) {
 
 // Topic hubs are generated navigation over pages that already exist, not new
 // editorial surface. data/topic-taxonomy.json and data/publications.json give
-// their exact URLs - this is not a path heuristic - and they are held out of the
+// their exact URLs, and data/content/structural_pages.json names the structural
+// pages (About and its kind) - this is not a path heuristic - and they are held
+// out of the
 // weekly publishing cap for one reason: the cap exists because publishing faster
 // than the library can be refreshed pushes the tail out of the citable window,
 // and a hub adds nothing to refresh. Its content is the membership of pages that
@@ -139,6 +141,14 @@ function navigationUrls(ROOT) {
     const f = path.join(ROOT, rel);
     return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
   };
+  // Structural site furniture (data/content/structural_pages.json): an About
+  // page and its kind state who publishes the site. Declared one route at a
+  // time with a reason, never matched by path, and held out for the same reason
+  // a hub is - there is nothing on them to refresh.
+  for (const sp of (read('data/content/structural_pages.json') || {}).pages || []) {
+    if (sp && sp.route) out.add(`https://virtualagency-os.com${sp.route}`);
+  }
+
   const taxonomy = read('data/topic-taxonomy.json');
   const publications = read('data/publications.json');
   if (!taxonomy || !publications) return out;
