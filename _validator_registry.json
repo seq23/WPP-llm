@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07-zero-item-guard-class",
+  "updated": "2026-10-26",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
     {
@@ -167,7 +167,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
+      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -589,6 +589,20 @@
       "command": "node scripts/validators/validate_demand_pages.js",
       "severity": "HARD_FAIL",
       "purpose": "Each top-12 query-family page serves its intent: query-first 30-65 char title, one H1, 40-60 word definition under it, question H2s, a visible FAQ from measured queries with exactly one FAQPage, a CTA with a ref, links from the homepage and /topics/, a table on comparison pages, a numbered list for checklist queries, no software claims; every pinned landing page links to its family primary.",
+      "owner": "repo"
+    },
+    {
+      "id": "gsc-truth",
+      "command": "node scripts/validators/validate_gsc_truth.js",
+      "severity": "HARD_FAIL",
+      "purpose": "data/search_intelligence/gsc_truth.json is shaped right, its summary counts match its own arrays, every history row carries a key, a first_seen date and its provenance, and the additive query/page history is non-empty; and it is still wired - the collector still asks for the page dimension on its own and carries the history forward, a scheduled workflow still runs it and commits the result, and build_measured_404_redirects.js still reads it. Search Console withholds the query on low-volume rows, so without the page dimension a measured URL can 404 unseen.",
+      "owner": "repo"
+    },
+    {
+      "id": "published-head-parity",
+      "command": "node scripts/validators/validate_published_head_parity.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every INDEXABLE published page, frozen or not, carries og:title/description/type/url/site_name/image(+width,height) and twitter:card summary_large_image, and its first West Peek Organization node - the one an AI engine and the Search Readiness checklist read - has name, url, logo and sameAs. Exists because validate_social_meta.js walks ownedPages(), which excluded frozen output: on 26 Oct 2026 it printed OK over 434 pages while 3,011 of 3,197 published pages had no og:title. Read-only; a failure is fixed by thawing the route and re-running the apply steps.",
       "owner": "repo"
     }
   ],

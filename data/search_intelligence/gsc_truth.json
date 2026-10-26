@@ -1,0 +1,703 @@
+{
+  "_comment": [
+    "Search Console truth for virtualagency-os.com, refreshed daily by distribution_scripts/gsc_search_intelligence.py (query-intelligence.yml) and committed.",
+    "queries/pages are the rolling 28-day window on the query and page dimensions asked for separately, so pages whose queries Search Console withholds are still measured.",
+    "query_history and page_history are additive and never shrink, so a target that leaves the window keeps the redirect and the ranking it earned.",
+    "Read by scripts/build_measured_404_redirects.js; gated by scripts/validators/validate_gsc_truth.js.",
+    "SEEDED 2026-10-26: queries/pages are aggregated from the query x page rows already collected in search_analytics_28d.json. page_history additionally carries the 42 root URLs that Search Console measured with impressions in the last 90 days and that answered 404 (Search Readiness item a8, read 2026-10-26); each is marked source search_readiness_audit_2026-10-26 and carries no impression count, because the count was not part of that read. The next credentialed run replaces these with the page dimension straight from the API and keeps the history."
+  ],
+  "generated_at": "2026-10-26T04:26:36.901802Z",
+  "site": "sc-domain:virtualagency-os.com",
+  "window": {
+    "days": 28,
+    "start_date": "2026-09-26",
+    "end_date": "2026-10-23"
+  },
+  "window_90d": {
+    "days": 90,
+    "start_date": "2026-07-26",
+    "end_date": "2026-10-23"
+  },
+  "totals": {
+    "clicks": 0,
+    "impressions": 42,
+    "ctr": 0,
+    "position": 68.1
+  },
+  "counts": {
+    "queries_28d": 6,
+    "pages_28d": 5,
+    "pages_90d": 0,
+    "query_history": 6,
+    "page_history": 47
+  },
+  "queries": [
+    {
+      "query": "west peak",
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0.0,
+      "position": 81.9
+    },
+    {
+      "query": "live event production webinar",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 79.2
+    },
+    {
+      "query": "questions to ask in a financial rfp",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 96.5
+    },
+    {
+      "query": "brand consulting for startups",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 98.0
+    },
+    {
+      "query": "investor relations event production",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 91.0
+    },
+    {
+      "query": "westpeak",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 82.0
+    }
+  ],
+  "pages": [
+    {
+      "page": "https://virtualagency-os.com/",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 82.0
+    },
+    {
+      "page": "https://virtualagency-os.com/virtual-event-production-for-manufacturing",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 79.2
+    },
+    {
+      "page": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-financial-services-teams",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 96.5
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-strategy-consulting-for-startups",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 98.0
+    },
+    {
+      "page": "https://virtualagency-os.com/investor-event-production",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 91.0
+    }
+  ],
+  "pages_90d": [],
+  "query_history": [
+    {
+      "query": "west peak",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 18,
+      "best_position": 81.9,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "query": "live event production webinar",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 9,
+      "best_position": 79.2,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "query": "questions to ask in a financial rfp",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 2,
+      "best_position": 96.5,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "query": "brand consulting for startups",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 1,
+      "best_position": 98.0,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "query": "investor relations event production",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 1,
+      "best_position": 91.0,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "query": "westpeak",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 1,
+      "best_position": 82.0,
+      "sources": [
+        "search_console"
+      ]
+    }
+  ],
+  "page_history": [
+    {
+      "page": "https://virtualagency-os.com/",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 19,
+      "best_position": 82.0,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/virtual-event-production-for-manufacturing",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 9,
+      "best_position": 79.2,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/programmatic/agency-rfp-questions-for-financial-services-teams",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 2,
+      "best_position": 96.5,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-strategy-consulting-for-startups",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 1,
+      "best_position": 98.0,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/investor-event-production",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 1,
+      "best_position": 91.0,
+      "sources": [
+        "search_console"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/agency-rfp-questions-for-marketing-teams",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/ai-creative-workflows-2026",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/ai-knowledge-systems-for-marketing-timeline",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/ai-workflow-consulting-2026",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/audience-growth-strategy-audit",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-agency-vs-marketing-agency-deliverables",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-agency-vs-marketing-agency-operating-model",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-narrative-strategy-deliverables",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-narrative-strategy-questions-to-ask",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-positioning-strategy-for-nonprofits",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-storytelling-agency",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-storytelling-consultant",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-storytelling-pricing",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-storytelling-questions-to-ask",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/brand-strategy-consulting-strategy-framework",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/branded-content-development-strategy-framework",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/campaign-narrative-strategy-2026",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/campaign-narrative-strategy-for-marketing-teams",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/campaign-narrative-strategy-questions-to-ask",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/community-marketing-examples",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/community-marketing-for-marketing-teams",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/community-marketing-template",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/content-marketing-operations-common-failure-points",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/content-marketing-operations-operating-model",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/corporate-storytelling-agency",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/corporate-storytelling-checklist",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/corporate-storytelling-consultant",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/corporate-storytelling-cost",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/corporate-storytelling-operating-model",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/corporate-storytelling-roi-factors",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-agency-vs-production-company-best-practices",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-agency-vs-production-company-case-pattern",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-agency-vs-production-company-for-small-teams",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-agency-vs-production-company-how-to-choose",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-agency-vs-production-company-vs-in-house-team",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-agency-vs-production-company-when-to-hire",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-direction-agency-audit",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-direction-agency-checklist",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-direction-agency-consultant",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-direction-agency-for-small-teams",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-operations-audit",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    },
+    {
+      "page": "https://virtualagency-os.com/creative-operations-examples",
+      "first_seen": "2026-10-23",
+      "last_seen": "2026-10-23",
+      "windows_seen": 1,
+      "impressions_best_window": 0,
+      "best_position": null,
+      "sources": [
+        "search_readiness_audit_2026-10-26"
+      ]
+    }
+  ]
+}

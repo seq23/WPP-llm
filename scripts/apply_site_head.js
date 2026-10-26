@@ -118,6 +118,8 @@ function setH1(html, h1) {
   return html.replace(/<h1([^>]*)>[\s\S]*?<\/h1>/i, (m, attrs) => `<h1${attrs}>${escText(h1)}</h1>`);
 }
 
+const slug = (x) => String(x || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 function applyHomepage(html, cfg) {
   const h = cfg.homepage;
   const site = cfg.site_url.replace(/\/$/, '');
@@ -127,7 +129,7 @@ function applyHomepage(html, cfg) {
   html = html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/i, (m) => `${m}\n<p class="definition" id="definition">${escText(h.definition)}</p>\n<p class="also-written" id="also-written">${escText(h.also_written)}</p>`);
   html = html.replace(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@graph":[\s\S]*?)<\/script>/, (m, json) => {
     const data = JSON.parse(json);
-    const graph = (data['@graph'] || []).filter((n) => n['@type'] !== 'WebSite' && n['@type'] !== 'WebPage');
+    const graph = (data['@graph'] || []).filter((n) => n['@type'] !== 'WebSite' && n['@type'] !== 'WebPage' && n['@type'] !== 'Service');
     const org = graph.find((n) => n['@type'] === 'Organization');
     if (org) {
       org['@id'] = cfg.organization_id;
@@ -143,6 +145,24 @@ function applyHomepage(html, cfg) {
       primaryImageOfPage: { '@type': 'ImageObject', url: site + cfg.og_image.path, width: cfg.og_image.width, height: cfg.og_image.height },
       speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#definition', 'h1'] },
     });
+    // The company's own published price ranges, which the homepage copy already
+    // states in words ("Moderated webinars are produced in the $2,500 to $7,500
+    // range ... a separate category at $10,000 to $50,000 and above"). Emitting
+    // them as Service + AggregateOffer is what puts a price in the result; an
+    // unpriced service node reads as a brochure. Facts only: these are the
+    // figures already published, not a rate card invented here.
+    for (const svc of (cfg.services || {}).offers || []) {
+      const offer = { '@type': 'AggregateOffer', priceCurrency: (cfg.services || {}).currency, lowPrice: svc.low_price };
+      if (svc.high_price) offer.highPrice = svc.high_price;
+      offer.availability = 'https://schema.org/InStock';
+      offer.url = `${site}/`;
+      graph.push({
+        '@type': 'Service', '@id': `${site}/#service-${slug(svc.name)}`, name: svc.name,
+        description: svc.description, serviceType: svc.service_type,
+        provider: { '@id': cfg.organization_id }, areaServed: 'Worldwide',
+        offers: offer,
+      });
+    }
     data['@graph'] = graph;
     return `<script type="application/ld+json">${ld(data)}</script>`;
   });

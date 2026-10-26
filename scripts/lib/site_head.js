@@ -10,6 +10,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..', '..');
 const CONFIG_REL = 'data/seo/site_head.json';
 const FROZEN_REL = 'data/release/frozen_output_registry.json';
+const SCOPE_REL = 'data/release/active_mutation_scope.json';
 const SKIP_DIRS = new Set(['.git', 'node_modules', '.pages-output', '.build', 'dist', 'scripts', 'data', 'reports',
   'artifacts', 'docs', 'tests', 'fixtures', 'config', 'content', 'templates', 'logs', 'releases', 'seo', 'distribution_scripts']);
 
@@ -85,6 +86,40 @@ function frozenFiles(root = ROOT) {
   return new Set((JSON.parse(fs.readFileSync(p, 'utf8')).pages || []).map((x) => x.rendered_file));
 }
 
+/** Same route shape frozen_outputs.mjs uses, so one list cannot disagree with the other. */
+function normalizeRoute(r) {
+  let v = String(r || '').trim();
+  if (!v) return '';
+  if (!v.startsWith('/')) v = `/${v}`;
+  return v === '/' ? '/' : v.replace(/\/$/, '');
+}
+
+/**
+ * The frozen pages that are transactionally thawed for this release, as rendered
+ * files. data/release/active_mutation_scope.json is the one place that says a
+ * frozen route may drift (scripts/authority_scale/frozen_outputs.mjs reads the
+ * same file to decide what `restore` leaves alone and what `freeze` accepts).
+ *
+ * WHY THIS EXISTS. ownedPages() used to re-admit exactly one special case - the
+ * demand pages named in the config - and ignored the scope mechanism entirely.
+ * So apply_site_head.js and its validators could never reach a frozen page even
+ * when the release had properly thawed it, and the og/twitter/icon tags they own
+ * simply never arrived: on 26 Oct 2026, 3,011 of 3,197 published pages carried
+ * no og:title at all, and the social-meta gate reported OK over the 434 pages it
+ * could see. A guard that cannot reach what it governs is not a guard.
+ */
+function scopedFiles(root = ROOT) {
+  const p = path.join(root, SCOPE_REL);
+  if (!fs.existsSync(p)) return new Set();
+  let routes;
+  try { routes = new Set((JSON.parse(fs.readFileSync(p, 'utf8')).routes || []).map(normalizeRoute)); } catch { return new Set(); }
+  if (!routes.size) return new Set();
+  const reg = path.join(root, FROZEN_REL);
+  if (!fs.existsSync(reg)) return new Set();
+  const pages = JSON.parse(fs.readFileSync(reg, 'utf8')).pages || [];
+  return new Set(pages.filter((x) => routes.has(normalizeRoute(x.route))).map((x) => x.rendered_file));
+}
+
 function walk(dir, root, out) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     if (e.name.startsWith('.') && e.name !== '.well-known') continue;
@@ -104,8 +139,9 @@ function routeFor(rel) {
 
 /**
  * Pages this step owns: every published page that is not a frozen accepted
- * output, plus the demand pages named in the config and the measured landing
- * pages that link to a family primary (cfg.demand_links) (which are refrozen with
+ * output, plus any frozen route transactionally thawed in
+ * data/release/active_mutation_scope.json, plus the demand pages named in the
+ * config and the measured landing pages that link to a family primary (cfg.demand_links) (which are refrozen with
  * the result, so a later build's restore + this step is a no-op on them).
  * Frozen pages are hash-locked (data/release/accepted_output_freeze_contract.json,
  * normal_build_may_mutate_frozen: false); touching them here would red
@@ -114,7 +150,8 @@ function routeFor(rel) {
 function ownedPages(root = ROOT, cfg = loadConfig(root)) {
   const frozen = frozenFiles(root);
   const demand = new Set([...(cfg.demand_pages || []).map((d) => d.file), ...(cfg.demand_links || []).map((d) => d.file)]);
-  return walk(root, root, []).filter((rel) => !frozen.has(rel) || demand.has(rel)).sort();
+  const scoped = scopedFiles(root);
+  return walk(root, root, []).filter((rel) => !frozen.has(rel) || demand.has(rel) || scoped.has(rel)).sort();
 }
 
 function pageKind(rel, cfg) {
@@ -124,4 +161,4 @@ function pageKind(rel, cfg) {
   return 'article';
 }
 
-module.exports = { ROOT, CONFIG_REL, DEMAND_PAGES_REL, DEMAND_FAMILIES_REL, DEMAND_LINKS_REL, fileForRoute, demandLinks, loadConfig, frozenFiles, ownedPages, pageKind, routeFor, walk };
+module.exports = { ROOT, CONFIG_REL, DEMAND_PAGES_REL, DEMAND_FAMILIES_REL, DEMAND_LINKS_REL, SCOPE_REL, fileForRoute, demandLinks, loadConfig, frozenFiles, scopedFiles, normalizeRoute, ownedPages, pageKind, routeFor, walk };

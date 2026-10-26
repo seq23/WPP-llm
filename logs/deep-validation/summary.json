@@ -70,6 +70,16 @@
     "exit_status": 0
   },
   {
+    "id": "query-atlas-evidence-gate",
+    "command": "node scripts/atlas/validate_query_atlas.mjs",
+    "exit_status": 0
+  },
+  {
+    "id": "atlas-unit-contract",
+    "command": "node scripts/atlas/validate_atlas_units.mjs",
+    "exit_status": 0
+  },
+  {
     "id": "programmatic-engine",
     "command": "node scripts/validate_programmatic_release_engine.js",
     "exit_status": 0

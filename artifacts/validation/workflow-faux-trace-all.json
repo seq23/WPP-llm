@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "workflow_count": 8,
+  "workflow_count": 9,
   "scenario_count": 64,
   "passed": 64,
   "failed": [],
@@ -233,7 +233,7 @@
     {
       "workflow": "programmatic-release.yml",
       "scenario": "provider-degraded",
-      "expected": "missing GSC/Gemini does not block internal release",
+      "expected": "missing GSC does not block internal release; no paid model key is passed",
       "passed": true,
       "detail": "",
       "trace_only": true
@@ -312,8 +312,8 @@
     },
     {
       "workflow": "query-intelligence.yml",
-      "scenario": "missing-gemini",
-      "expected": "Gemini is optional",
+      "scenario": "free-router-panel",
+      "expected": "prompt panel gets only the OpenRouter key (free router), never Gemini",
       "passed": true,
       "detail": "",
       "trace_only": true

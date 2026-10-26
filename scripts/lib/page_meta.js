@@ -10,9 +10,14 @@
  * generators and the gate read the same numbers.
  */
 const TITLE_MIN = 30;
-// Bing Site Scan flags "Title too long" above 70 characters.
-const TITLE_MAX = 70;
-const DESC_MIN = 110;
+// Tightened 26 Oct 2026 from 70 to 65, and DESC_MIN from 110 to 120, to the band
+// the owner's Search Readiness checklist enforces (items b1 and b2). 65 is where
+// Google truncates the title in a result; Bing Site Scan's "Title too long"
+// fires above 70, so the tighter number satisfies both and nothing is loosened.
+// Every page outside the new band was brought inside it in the same commit,
+// because a band no page has to meet is not a band.
+const TITLE_MAX = 65;
+const DESC_MIN = 120;
 const DESC_MAX = 160;
 
 const fits = (s) => typeof s === 'string' && s.length >= DESC_MIN && s.length <= DESC_MAX;

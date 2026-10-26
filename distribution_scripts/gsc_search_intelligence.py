@@ -3,6 +3,11 @@
 
 Writes under data/search_intelligence/:
   search_analytics_28d.json  rolling 28-day Search Analytics, dimensions query x page
+  gsc_truth.json             rolling 28-day query and page dimensions asked for separately
+                             (Search Console withholds the query on low-volume rows, so a page
+                             with impressions can have no query x page row at all), plus a
+                             query_history and page_history that are additive and never shrink,
+                             so a target does not lose its redirect when it leaves the window
   index_coverage.json        URL Inspection results for every sitemap URL, refreshed
                              150 per day in rotation (least recently inspected first),
                              8 requests in parallel, with counts by coverageState
@@ -99,6 +104,112 @@ def main():
         'row_count': len(rows), 'pages_with_impressions': len({r['page'] for r in rows}),
         'queries_with_impressions': len({r['query'] for r in rows}), 'rows': rows})
     print(f'search analytics: {len(rows)} query x page row(s), {t.get("impressions", 0)} impressions, {start}..{end}')
+
+    # 1b. The page and query dimensions on their own, plus a history that never
+    # forgets.
+    #
+    # WHY THIS EXISTS. Both collectors in this repo only ever asked for
+    # ['query', 'page']. Search Console withholds the query on low-volume rows,
+    # so a page can carry impressions for a whole quarter and still have no
+    # surviving query x page row. Those pages were invisible to
+    # scripts/build_measured_404_redirects.js, which is why 42 root-level URLs
+    # that Google measured in the last 90 days were still answering 404 on
+    # 26 Oct 2026 while their /programmatic/ twin was live. Asking for the page
+    # dimension on its own is what makes them visible.
+    #
+    # The history is the other half: a query or page that drops out of the
+    # rolling 28 days has not stopped mattering, and a redirect it earned must
+    # not evaporate when it ages out of the window. first_seen is kept,
+    # last_seen advances, and impressions_best_window is the largest single
+    # window we have ever measured, so the number never double-counts
+    # overlapping windows.
+    def dim_rows(dimension, start_date, end_date):
+        out, row = [], 0
+        while True:
+            resp = svc().searchanalytics().query(siteUrl=site, body={
+                'startDate': start_date.isoformat(), 'endDate': end_date.isoformat(),
+                'dimensions': [dimension], 'rowLimit': 25000, 'startRow': row}).execute()
+            batch = resp.get('rows', [])
+            out += [{dimension: r['keys'][0], 'clicks': r.get('clicks', 0),
+                     'impressions': r.get('impressions', 0), 'ctr': round(r.get('ctr', 0), 4),
+                     'position': round(r.get('position', 0), 1)} for r in batch]
+            if len(batch) < 25000:
+                return out
+            row += 25000
+
+    start90 = end - dt.timedelta(days=89)
+    pages_28 = dim_rows('page', start, end)
+    queries_28 = dim_rows('query', start, end)
+    pages_90 = dim_rows('page', start90, end)
+    for lst, key in ((pages_28, 'page'), (queries_28, 'query'), (pages_90, 'page')):
+        lst.sort(key=lambda r: (-r['impressions'], r[key]))
+
+    # Rule 0: a credentialed run that measured nothing is a broken run, not an
+    # empty site. 2,721 URLs are in the sitemap and the property has impressions.
+    if not pages_28 and not pages_90:
+        print('GSC TRUTH FAILED: credentialed run returned zero pages on both the 28-day and 90-day page dimension.')
+        sys.exit(1)
+
+    prior = load('gsc_truth.json', {})
+    today = end.isoformat()
+
+    def merge_history(prior_rows, key, windows):
+        hist = {r[key]: dict(r) for r in prior_rows or []}
+        seen_now = set()
+        for rows_in in windows:
+            for r in rows_in:
+                k = r[key]
+                seen_now.add(k)
+                h = hist.setdefault(k, {key: k, 'first_seen': today, 'windows_seen': 0,
+                                        'impressions_best_window': 0, 'best_position': None,
+                                        'sources': []})
+                h['impressions_best_window'] = max(int(h.get('impressions_best_window') or 0), int(r['impressions']))
+                pos = r.get('position') or None
+                if pos and (h.get('best_position') is None or pos < h['best_position']):
+                    h['best_position'] = pos
+                if 'search_console' not in h.get('sources', []):
+                    h.setdefault('sources', []).append('search_console')
+        for k in seen_now:
+            hist[k]['last_seen'] = today
+            hist[k]['windows_seen'] = int(hist[k].get('windows_seen') or 0) + 1
+        out = list(hist.values())
+        out.sort(key=lambda r: (-int(r.get('impressions_best_window') or 0), r[key]))
+        return out
+
+    page_history = merge_history(prior.get('page_history'), 'page', [pages_28, pages_90])
+    query_history = merge_history(prior.get('query_history'), 'query', [queries_28])
+
+    # The history is additive by contract: it may only ever grow.
+    for name, new, was in (('page_history', page_history, prior.get('page_history') or []),
+                           ('query_history', query_history, prior.get('query_history') or [])):
+        if len(new) < len(was):
+            print(f'GSC TRUTH FAILED: {name} shrank from {len(was)} to {len(new)}; the history is additive.')
+            sys.exit(1)
+
+    write('gsc_truth.json', {
+        '_comment': [
+            'Search Console truth for virtualagency-os.com, refreshed daily by '
+            'distribution_scripts/gsc_search_intelligence.py (query-intelligence.yml) and committed.',
+            'queries/pages are the rolling 28-day window on the query and page dimensions asked for '
+            'separately, so pages whose queries Search Console withholds are still measured.',
+            'query_history and page_history are additive and never shrink, so a target that leaves the '
+            'window keeps the redirect and the ranking it earned.',
+            'Read by scripts/build_measured_404_redirects.js; gated by '
+            'scripts/validators/validate_gsc_truth.js.',
+        ],
+        'generated_at': stamp, 'site': site,
+        'window': {'days': 28, 'start_date': start.isoformat(), 'end_date': end.isoformat()},
+        'window_90d': {'days': 90, 'start_date': start90.isoformat(), 'end_date': end.isoformat()},
+        'totals': {'clicks': t.get('clicks', 0), 'impressions': t.get('impressions', 0),
+                   'ctr': round(t.get('ctr', 0), 4), 'position': round(t.get('position', 0), 1)},
+        'counts': {'queries_28d': len(queries_28), 'pages_28d': len(pages_28),
+                   'pages_90d': len(pages_90), 'query_history': len(query_history),
+                   'page_history': len(page_history)},
+        'queries': queries_28, 'pages': pages_28, 'pages_90d': pages_90,
+        'query_history': query_history, 'page_history': page_history})
+    print(f'gsc truth: {len(queries_28)} query row(s), {len(pages_28)} page row(s) 28d, '
+          f'{len(pages_90)} page row(s) 90d; history {len(query_history)} quer(y/ies), '
+          f'{len(page_history)} page(s)')
 
     # 2. Sitemaps: list, submit sitemap.xml if Google does not have it.
     listed = svc().sitemaps().list(siteUrl=site).execute().get('sitemap', [])

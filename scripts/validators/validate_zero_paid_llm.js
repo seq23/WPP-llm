@@ -144,9 +144,28 @@ for (const wf of wfs) {
   });
 }
 
+// ------------------------------------------------- F. the written policy
+// Search Readiness i10: docs/cost/zero-paid-llm.md and a "nothing paid" line in
+// CLAUDE.md, with a test that reads it. A rule no code reads is a wish, so the
+// two documents are pinned here and this validator runs in ci.yml.
+const POLICY_DOC = 'docs/cost/zero-paid-llm.md';
+const AGENT_DOC = 'CLAUDE.md';
+if (!exists(POLICY_DOC)) fail(`${POLICY_DOC} is missing; the zero-paid-LLM record is the document this policy is read from`);
+else {
+  const doc = read(POLICY_DOC);
+  if (doc.trim().length < 400) fail(`${POLICY_DOC} is too short to be the record (${doc.trim().length} chars)`);
+  if (!/free_router|free router/i.test(doc)) fail(`${POLICY_DOC} does not name the free router`);
+}
+if (!exists(AGENT_DOC)) fail(`${AGENT_DOC} is missing; it must carry the "nothing paid" line the cost policy is read from`);
+else {
+  const agent = read(AGENT_DOC);
+  if (!/nothing paid/i.test(agent)) fail(`${AGENT_DOC} does not say "nothing paid"`);
+  if (!agent.includes(POLICY_DOC)) fail(`${AGENT_DOC} does not point at ${POLICY_DOC}`);
+}
+
 if (problems.length) {
   console.error(`zero-paid-llm: ${problems.length} problem(s)`);
   for (const p of problems) console.error(`  - ${p}`);
   process.exit(1);
 }
-console.log(`zero-paid-llm OK: ${(cfg.free_models || []).length} free models (snapshot ${cfg.pricing_snapshot.fetched_at}), ${lanes.length} probe lane(s) dispatch-only behind confirm_paid, ${consumers.length} free-router consumer(s), ${files.length} scripts and ${wfs.length} workflows scanned.`);
+console.log(`zero-paid-llm OK: ${(cfg.free_models || []).length} free models (snapshot ${cfg.pricing_snapshot.fetched_at}), ${lanes.length} probe lane(s) dispatch-only behind confirm_paid, ${consumers.length} free-router consumer(s), ${files.length} scripts and ${wfs.length} workflows scanned; ${POLICY_DOC} and ${AGENT_DOC} carry the policy.`);
