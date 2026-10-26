@@ -167,7 +167,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -603,6 +603,13 @@
       "command": "node scripts/validators/validate_published_head_parity.js",
       "severity": "HARD_FAIL",
       "purpose": "Every INDEXABLE published page, frozen or not, carries og:title/description/type/url/site_name/image(+width,height) and twitter:card summary_large_image, and its first West Peek Organization node - the one an AI engine and the Search Readiness checklist read - has name, url, logo and sameAs. Exists because validate_social_meta.js walks ownedPages(), which excluded frozen output: on 26 Oct 2026 it printed OK over 434 pages while 3,011 of 3,197 published pages had no og:title. Read-only; a failure is fixed by thawing the route and re-running the apply steps.",
+      "owner": "repo"
+    },
+    {
+      "id": "sitemap-lastmod-honest",
+      "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Keep <lastmod> a content claim: refuse a sitemap that is a uniform build stamp, and pin by mutation that sitewide chrome does not move a page's hash while its own content does.",
       "owner": "repo"
     }
   ],

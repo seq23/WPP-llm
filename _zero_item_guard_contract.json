@@ -107,6 +107,12 @@
           "key": "pages"
         }
       ]
+    },
+    "sitemap-file": {
+      "description": "sitemap.xml removed. The <lastmod> dates in that one file are the entire input set of the lastmod-honesty gate: with no sitemap there are no dates to find dishonest, which is exactly the shape of a gate that passes having looked at nothing.",
+      "delete_paths": [
+        "sitemap.xml"
+      ]
     }
   },
   "validators": [
@@ -424,6 +430,11 @@
       "command": "node scripts/validators/validate_gsc_truth.js",
       "probe": "data-records",
       "input": "data/search_intelligence/gsc_truth.json, the measured query and page history it reads"
+    },
+    {
+      "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
+      "probe": "sitemap-file",
+      "input": "the <lastmod> dates in sitemap.xml, and the published HTML corpus they are checked against"
     }
   ]
 }
