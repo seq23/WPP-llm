@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-24T14:08:48.455Z",
+  "updated_at": "2026-10-26T11:30:23.663Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-10-24",
-    "repairs_used": 10
+    "date": "2026-10-26",
+    "repairs_used": 5
   },
   "receipts": [
     {
@@ -5955,6 +5955,36 @@
       "route": "/query-atlas/webinar-production",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-10-24T14:08:48.454Z"
+    },
+    {
+      "repair_id": "repair_cf3b2fcef926",
+      "route": "/query-atlas/ai-content-operations",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-26T11:30:23.649Z"
+    },
+    {
+      "repair_id": "repair_5666e0773c4d",
+      "route": "/query-atlas/audience-growth-strategy",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-26T11:30:23.653Z"
+    },
+    {
+      "repair_id": "repair_f9be36112fa3",
+      "route": "/query-atlas/brand-storytelling",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-26T11:30:23.655Z"
+    },
+    {
+      "repair_id": "repair_ab04262e564c",
+      "route": "/query-atlas/community-led-growth",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-26T11:30:23.659Z"
+    },
+    {
+      "repair_id": "repair_1714c6f42ad9",
+      "route": "/query-atlas/investor-storytelling",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-26T11:30:23.661Z"
     }
   ]
 }
