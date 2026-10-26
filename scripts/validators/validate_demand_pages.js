@@ -51,6 +51,7 @@ const NOT_SOFTWARE = 'does not sell event software';
 const cfg = loadConfig();
 const fams = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/seo/demand_families.json'), 'utf8'));
 const famBy = new Map((fams.families || []).map((f) => [f.family, f]));
+const declared = new Set((JSON.parse(fs.readFileSync(path.join(ROOT, 'data/seo/demand_family_rules.json'), 'utf8')).families || []).map((r) => r.id));
 const pages = (cfg.demand_pages || []).filter((d) => d.full);
 const errors = [];
 const warnings = [];
@@ -66,7 +67,8 @@ for (const famId of fams.top12 || []) {
 for (const d of pages) {
   const e = (m) => errors.push(`${d.file}: ${m}`);
   const fam = famBy.get(d.family);
-  if (!fam) { e(`family "${d.family}" is not in demand_families.json`); continue; }
+  if (!declared.has(d.family)) { e(`family "${d.family}" is not declared in demand_family_rules.json`); continue; }
+  if (!fam) { e(`family "${d.family}" is declared but missing from demand_families.json; run npm run seo:strengthening-sweep`); continue; }
   if (fam.primary_route !== d.route) e(`route ${d.route} is not the family primary ${fam.primary_route}`);
   const r = resolvePath(d.route, { root: ROOT });
   if (r.kind !== 'page') e(`primary route ${d.route} does not resolve to a page (${r.kind})`);
