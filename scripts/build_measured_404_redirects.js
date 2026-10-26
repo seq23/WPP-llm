@@ -76,13 +76,18 @@ function main() {
   const foldInto = new Map((readJson('data/seo/consolidation_candidates.json', {}).candidates || []).map((c) => [c.route, c.fold_into]));
   const previous = new Map((readJson('data/redirects/measured_404_redirects.json', { rules: [] }).rules || []).map((r) => [r.from, r]));
   const isPage = (p) => resolvePath(p, { root: ROOT, rules: [] }).kind === 'page';
+  // Variants consolidated onto their family page
+  // (data/seo/duplicate_family_consolidation.json) carry their own 301, and a
+  // measured twin that was one of them lands on the family page directly.
+  const retiredTo = new Map(require('./lib/consolidated_families.js').redirectRules().map((r) => [r.from, r.to]));
 
   const rules = new Map();
   const consider = (from, impressions, prior) => {
-    if (legacy.has(from) || isPage(from)) return;
+    if (legacy.has(from) || retiredTo.has(from) || isPage(from)) return;
     const twin = `/programmatic${from}`;
     let to; let why;
     if (isPage(twin)) { to = twin; why = 'Measured in Search Console, then 404. The same page is published at this /programmatic/ route.'; }
+    else if (retiredTo.get(twin) && isPage(retiredTo.get(twin))) { to = retiredTo.get(twin); why = 'Measured in Search Console, then 404. Its /programmatic/ twin was merged into the indexed page of its duplicate family.'; }
     else if (foldInto.get(twin) && isPage(foldInto.get(twin))) { to = foldInto.get(twin); why = 'Measured in Search Console, then 404. No same-slug page; lands on the hub its twin folds into.'; }
     else if (foldInto.get(from) && isPage(foldInto.get(from))) { to = foldInto.get(from); why = 'Measured in Search Console, then 404. No same-slug page; lands on the hub it folds into.'; }
     else { to = '/'; why = 'Measured in Search Console, then 404. No same-slug page and no fold_into hub; lands on the homepage rather than a 404.'; }

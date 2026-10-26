@@ -62,7 +62,7 @@
  * to the whole document rather than hash an empty string, because an empty
  * basis would collide across every page and freeze all of their dates at once.
  *
- * The basis change makes v1 hashes incomparable, so SCHEMA is v2 and a ledger
+ * The basis change makes v1 hashes incomparable, so SCHEMA was bumped to v2 (and to v3 when link-architecture regions left the basis, 26 Oct 2026), and a ledger
  * written under v1 is not read for hashes. The dates corrupted by that commit
  * were repaired in the same change from the last ledger revision written before
  * it - a recorded fact in git history, not a reconstruction.
@@ -72,7 +72,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 
-const SCHEMA = 'lastmod-ledger-v2';
+const SCHEMA = 'lastmod-ledger-v3';
 const ROOT = path.resolve(__dirname, '..', '..');
 const DEFAULT_PATH = path.join(ROOT, 'data', 'cadence', 'lastmod_ledger.json');
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -112,7 +112,12 @@ function contentBasis(html) {
   const canonical = first(/<link[^>]+rel=["']canonical["'][^>]*>/i);
   // Greedy to the LAST </main>, so a page that nests one keeps all of its content.
   const main = doc.match(/<main\b[^>]*>([\s\S]*)<\/main>/i);
-  const content = main ? main[1] : '';
+  // v3: the link-architecture regions inside <main> (sibling, neighbour and
+  // related lists written by scripts/build_link_architecture.js) are navigation
+  // too. On 26 Oct 2026 retiring 424 duplicate variants reshuffled the sibling
+  // ring on 2,720 pages whose own text did not change; under v2 every one of them
+  // claimed fresh content.
+  const content = main ? main[1].replace(/<!--link-arch:([a-z-]+)-->[\s\S]*?<!--\/link-arch:\1-->/g, '') : '';
   if (!content.trim()) return doc;
   return [title, description, canonical, content].join('\n');
 }
@@ -159,8 +164,8 @@ function load(ledgerPath = DEFAULT_PATH) {
     throw new Error(`lastmod ledger is not valid JSON: ${ledgerPath}`);
   }
   if (!data.entries || typeof data.entries !== 'object') data.entries = {};
-  // Hashes written under a different content basis cannot be compared with v2
-  // hashes: every one would read as "changed" and advance to the build date,
+  // Hashes written under a different content basis cannot be compared with the
+  // current ones: every one would read as "changed" and advance to the build date,
   // which is the defect this module exists to remove. Dates are kept so a
   // recorded lastmod is never lost; only the hashes are dropped, which makes
   // each URL re-hash once and hold the date it already had.

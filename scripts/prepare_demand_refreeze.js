@@ -47,5 +47,10 @@ if (!routes.length) {
   console.error('demand-refreeze: zero frozen demand routes; refusing to write an empty scope.');
   process.exit(1);
 }
-fs.writeFileSync(path.join(ROOT, contract.active_mutation_scope), `${JSON.stringify({ schema_version: '1.0', generated_at: new Date().toISOString(), source: 'data/seo/demand_pages.json + data/seo/demand_links.json', routes }, null, 2)}\n`);
+// A scope file that already exists is an open thaw transaction (for example
+// npm run seo:consolidate-duplicates); its routes are kept, not replaced.
+const scopeAbs = path.join(ROOT, contract.active_mutation_scope);
+const open = fs.existsSync(scopeAbs) ? (JSON.parse(fs.readFileSync(scopeAbs, 'utf8')).routes || []) : [];
+const allRoutes = [...new Set([...open, ...routes])].sort();
+fs.writeFileSync(scopeAbs, `${JSON.stringify({ schema_version: '1.0', generated_at: new Date().toISOString(), source: 'data/seo/demand_pages.json + data/seo/demand_links.json', routes: allRoutes }, null, 2)}\n`);
 console.log(`demand-refreeze: pinned ${links.length} linking page(s); thawed ${routes.length} frozen route(s) of ${files.length} demand file(s).`);

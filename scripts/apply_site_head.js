@@ -64,9 +64,12 @@ const unesc = (s) => String(s || '').replace(/&quot;/g, '"').replace(/&#39;/g, "
 const ld = (o) => JSON.stringify(o).replace(/<\//g, '<\\/');
 
 function metaContent(html, attr, key) {
-  const re = new RegExp(`<meta[^>]+${attr}=["']${key.replace(/[:]/g, '\\:')}["'][^>]*content=["']([^"']*)["']`, 'i');
+  // The closing quote must match the opening one: an apostrophe inside a
+  // double-quoted description ("West Peek Productions' price bands") used to end
+  // the match there and truncate every og:/twitter: copy derived from it.
+  const re = new RegExp(`<meta[^>]+${attr}=["']${key.replace(/[:]/g, '\\:')}["'][^>]*content=(?:"([^"]*)"|'([^']*)')`, 'i');
   const m = html.match(re);
-  return m ? unesc(m[1]) : '';
+  return m ? unesc(m[1] !== undefined ? m[1] : m[2]) : '';
 }
 
 function stripStray(html) {
@@ -110,9 +113,9 @@ function setTitle(html, title) {
   return html.replace(/<title>[^<]*<\/title>/i, () => `<title>${esc(title)}</title>`);
 }
 function setMeta(html, attr, key, value) {
-  const re = new RegExp(`(<meta[^>]+${attr}=["']${key}["'][^>]*content=["'])[^"']*(["'])`, 'i');
+  const re = new RegExp(`(<meta[^>]+${attr}=["']${key}["'][^>]*content=)(?:"[^"]*"|'[^']*')`, 'i');
   // Function replacer: a value such as "$2,500" must not be read as a backreference.
-  return html.replace(re, (m, a, b) => `${a}${esc(value)}${b}`);
+  return html.replace(re, (m, a) => `${a}"${esc(value)}"`);
 }
 function setH1(html, h1) {
   return html.replace(/<h1([^>]*)>[\s\S]*?<\/h1>/i, (m, attrs) => `<h1${attrs}>${escText(h1)}</h1>`);

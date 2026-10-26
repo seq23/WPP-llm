@@ -22,14 +22,21 @@
  * noindex pages and admin views are not public content and are excluded, exactly
  * as scripts/apply_organization_entity.mjs excludes them.
  *
- * RULE 0: fewer than MIN_PAGES indexable pages checked means the walk stopped
- * reaching the site, and that exits 1 rather than reporting success.
+ * RULE 0: the walk must check at least every URL sitemap.xml submits (each is
+ * an indexable page), and never fewer than MIN_PAGES. Short of that the walk
+ * stopped reaching the site, and that exits 1 rather than reporting success.
+ * The floor used to be a fixed 2,500; on 26 Oct 2026 424 duplicate variants
+ * were retired by 301 (data/seo/duplicate_family_consolidation.json) and the
+ * site is 2,298 sitemap pages, so the floor now tracks the sitemap exactly.
  */
 const fs = require('fs');
 const path = require('path');
 const { ROOT, walk } = require('../lib/site_head.js');
 
-const MIN_PAGES = 2500;
+const MIN_PAGES = 2000;
+const sitemapFile = path.join(ROOT, 'sitemap.xml');
+const SITEMAP_URLS = fs.existsSync(sitemapFile) ? (fs.readFileSync(sitemapFile, 'utf8').match(/<loc>/g) || []).length : 0;
+const FLOOR = Math.max(MIN_PAGES, SITEMAP_URLS);
 const ORG_ID = 'https://www.westpeekproductions.com/#organization';
 const ORG_NAME = 'West Peek Productions';
 const ORG_TYPE = /^(Organization|Corporation|NewsMediaOrganization|ProfessionalService|LocalBusiness)$/;
@@ -89,8 +96,8 @@ for (const rel of walk(ROOT, ROOT, [])) {
   }
 }
 
-if (checked < MIN_PAGES) {
-  console.error(`published head parity FAILED: only ${checked} indexable page(s) checked (floor ${MIN_PAGES}). The walk has stopped reaching the site; a gate that reads nothing cannot fail.`);
+if (checked < FLOOR) {
+  console.error(`published head parity FAILED: only ${checked} indexable page(s) checked (floor ${FLOOR}: max of ${MIN_PAGES} and the ${SITEMAP_URLS} sitemap URLs). The walk has stopped reaching the site; a gate that reads nothing cannot fail.`);
   process.exit(1);
 }
 if (!orgsChecked) {

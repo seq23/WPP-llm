@@ -893,6 +893,9 @@ function pageMeta(rel) {
   const slug = dirIndex ? (parts[parts.length - 2] || 'index') : path.basename(rel, '.html');
   return {
     rel, route: normRoute(route), dir, slug, isSectionIndex,
+    // Pages answers a directory index with a 308 to its slashed form, so the
+    // href is the final URL (validate_no_redirecting_internal_links.js).
+    href: dirIndex && parts.length > 1 ? `${normRoute(route)}/` : normRoute(route),
     heading: h1 || title || slug, description: desc,
   };
 }
@@ -914,7 +917,7 @@ function crumbRegion(trail, currentName, route) {
 
 function linkItem(t, noteText) {
   const summary = noteText === undefined ? note(t.description, 120) : noteText;
-  return `<li><a href="${t.route}">${esc(t.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
+  return `<li><a href="${t.href || t.route}">${esc(t.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
 }
 
 /**
@@ -1144,7 +1147,10 @@ for (const rel of siteFiles()) {
 
 // 6. Mutation scope, so the freeze transaction accepts exactly these routes.
 const norm = (r) => (r === '/' ? '/' : r.replace(/\/+$/, ''));
-const routes = [...new Set([...touchedRoutes].map(norm))].sort();
+// A scope file that already exists is an open thaw transaction (for example
+// npm run seo:consolidate-duplicates); --write-scope adds to it, never replaces it.
+const openScope = WRITE_SCOPE && fs.existsSync(SCOPE_FILE) ? (JSON.parse(fs.readFileSync(SCOPE_FILE, 'utf8')).routes || []) : [];
+const routes = [...new Set([...openScope, ...[...touchedRoutes].map(norm)])].sort();
 if (WRITE_SCOPE) fs.writeFileSync(SCOPE_FILE, `${JSON.stringify({
   schema_version: '1.0',
   generated_at: new Date().toISOString(),
