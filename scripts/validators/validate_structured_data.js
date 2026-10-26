@@ -80,6 +80,29 @@ else {
 }
 if (!/West Peak/.test(visible(home).replace(/west peak/g, 'West Peak'))) errors.push('index.html: no visible "also written West Peak" line');
 
+// Priced services on the homepage (Search Readiness c3). A Service with no price
+// reads as a brochure; a price in schema that the copy no longer states is worse,
+// because it outlives the thing it claims to describe. Both are checked: the node
+// must carry the configured range, and every configured visible_price_text must
+// still appear in the homepage's own words.
+const svcCfg = cfg.services || {};
+const svcOffers = svcCfg.offers || [];
+if (!svcOffers.length) errors.push('data/seo/site_head.json configures no services; the site would have no priced offer anywhere');
+const svcNodes = hn.filter((n) => n['@type'] === 'Service');
+if (svcNodes.length !== svcOffers.length) errors.push(`index.html: ${svcNodes.length} Service node(s) for ${svcOffers.length} configured service(s)`);
+const homeText = visible(home);
+for (const o of svcOffers) {
+  const node = svcNodes.find((n) => n.name === o.name);
+  if (!node) { errors.push(`index.html: no Service node named "${o.name}"`); continue; }
+  const offer = node.offers || {};
+  if (String(offer.lowPrice) !== String(o.low_price)) errors.push(`index.html: Service "${o.name}" lowPrice is ${offer.lowPrice}, configured ${o.low_price}`);
+  if (o.high_price && String(offer.highPrice) !== String(o.high_price)) errors.push(`index.html: Service "${o.name}" highPrice is ${offer.highPrice}, configured ${o.high_price}`);
+  if (offer.priceCurrency !== svcCfg.currency) errors.push(`index.html: Service "${o.name}" priceCurrency is ${offer.priceCurrency}, configured ${svcCfg.currency}`);
+  if (o.visible_price_text && !homeText.includes(norm(o.visible_price_text))) {
+    errors.push(`index.html: Service "${o.name}" is priced in schema but the homepage no longer says "${o.visible_price_text}" in its own words`);
+  }
+}
+
 // Demand pages
 for (const d of cfg.demand_pages || []) {
   const f = path.join(ROOT, d.file);
@@ -105,4 +128,4 @@ for (const d of cfg.demand_pages || []) {
 }
 if (!(cfg.demand_pages || []).length) errors.push('zero demand pages configured');
 if (errors.length) { console.error(`structured data FAILED (${errors.length}):\n- ` + errors.slice(0, 40).join('\n- ')); process.exit(1); }
-console.log(`structured data OK: ${pages.length} owned page(s) parse; ${faqPages} FAQPage page(s) all visible; homepage WebSite/WebPage/speakable/brand; ${cfg.demand_pages.length} demand page(s).`);
+console.log(`structured data OK: ${pages.length} owned page(s) parse; ${faqPages} FAQPage page(s) all visible; homepage WebSite/WebPage/speakable/brand; ${svcNodes.length} priced Service node(s) matching the visible copy; ${cfg.demand_pages.length} demand page(s).`);
