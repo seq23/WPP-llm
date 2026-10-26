@@ -57,11 +57,15 @@ function clusterDescription(cluster, count, queryList) {
   const items = { length: count };
   const top = queryList.filter((q) => q && q.toLowerCase() !== label.toLowerCase()).slice(0, 2);
   return fitDescription([
+    top.length > 2 && `${items.length} ${label} search queries mapped to intent, page family, and route candidate, including "${top[0]}", "${top[1]}" and "${top[2]}".`,
+    top.length > 1 && `${items.length} ${label} search queries mapped to intent, page family, and route candidate, including "${top[0]}" and "${top[1]}".`,
     top.length > 1 && `${items.length} ${label} search queries mapped to intent, page family, and route, including "${top[0]}" and "${top[1]}".`,
+    top.length > 0 && `${items.length} ${label} search queries mapped to intent, page family, and route candidate, including "${top[0]}", with the page each one is answered on.`,
     top.length > 0 && `${items.length} ${label} search queries mapped to intent, page family, and route, including "${top[0]}".`,
+    `${items.length} ${label} search queries, each mapped to its intent, page family, route candidate and measured demand band in the VirtualAgency OS library.`,
     `${items.length} ${label} search queries, each mapped to its intent, page family, and route candidate in the VirtualAgency OS library.`,
     `${items.length} ${label} search queries, each mapped to its intent, page family, and route candidate.`,
-  ]) || `${items.length} ${label} search queries, each mapped to its intent, page family, and route candidate in the VirtualAgency OS library.`;
+  ]) || `${items.length} ${label} search queries, each mapped to its intent, page family, route candidate and measured demand band in the VirtualAgency OS library.`;
 }
 // Cluster pages from an earlier universe are still published (11 on 25 Sep 2026:
 // virtual-event-planning, host-virtual-events, ...), still in the sitemap, and
