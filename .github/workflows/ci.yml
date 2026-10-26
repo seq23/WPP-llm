@@ -74,6 +74,10 @@ jobs:
       - run: npm run test:citation-probe-rate
       - run: npm run test:retest-loop
       - run: npm run test:repairs-site-head
+      # 26 Oct 2026: a demand-page family whose only query aged out of the
+      # 90-day window vanished from demand_families.json and redded the daily
+      # Search Repair run. Declared families must survive any window.
+      - run: npm run test:demand-families-declared
       # 3 Oct 2026: a demand-backed audience-permutation page rendered noindex
       # because the policy read the admission registry before the applier wrote
       # it; validate:demand-backed-pages then redded the release. This test

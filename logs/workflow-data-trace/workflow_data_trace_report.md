@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-26T08:56:21.579Z
+Generated: 2026-10-26T11:22:35.551Z
 
 Workflows: 9
 
@@ -39,11 +39,12 @@ Workflows: 9
 - ci.yml :: build_validate #11 :: npm run test:citation-probe-rate :: npm:test:citation-probe-rate
 - ci.yml :: build_validate #12 :: npm run test:retest-loop :: npm:test:retest-loop
 - ci.yml :: build_validate #13 :: npm run test:repairs-site-head :: npm:test:repairs-site-head
-- ci.yml :: build_validate #14 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
-- ci.yml :: build_validate #15 :: npm run test:static-edge-path :: npm:test:static-edge-path
-- ci.yml :: build_validate #16 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
-- ci.yml :: build_validate #17 :: npm run release:self-heal :: npm:release:self-heal
-- ci.yml :: build_validate #18 :: Cadence gate :: npm:validate:cadence-integrity
+- ci.yml :: build_validate #14 :: npm run test:demand-families-declared :: npm:test:demand-families-declared
+- ci.yml :: build_validate #15 :: npm run test:render-robots-parity :: npm:test:render-robots-parity
+- ci.yml :: build_validate #16 :: npm run test:static-edge-path :: npm:test:static-edge-path
+- ci.yml :: build_validate #17 :: npm run test:build-reconciles-noindex :: npm:test:build-reconciles-noindex
+- ci.yml :: build_validate #18 :: npm run release:self-heal :: npm:release:self-heal
+- ci.yml :: build_validate #19 :: Cadence gate :: npm:validate:cadence-integrity
 - credential-check.yml :: check #1 :: actions/checkout@v6
 - credential-check.yml :: check #2 :: actions/setup-node@v6
 - credential-check.yml :: check #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh

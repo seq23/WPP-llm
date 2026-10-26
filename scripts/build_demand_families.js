@@ -18,6 +18,18 @@
  *
  * The top 12 eligible families are the ones whose primary page must serve the
  * family's intent (data/seo/demand_pages.json, applied by apply_site_head.js).
+ *
+ * ONE LIST. The families are DECLARED in demand_family_rules.json and every
+ * declared family is written out, even in a window where none of its queries
+ * was measured (impressions 0, queries [], no_measured_queries: true; never
+ * top 12). demand_pages.json may only pin a declared family; build() throws
+ * otherwise, so the sweep refuses to write a family list the demand pages
+ * disagree with.
+ *
+ * WHY. 26 Oct 2026: the single measured query of "virtual-event-management"
+ * (1 impression) aged out of the 90-day window, the rebuilt file silently
+ * dropped the family, and validate_demand_pages.js failed the daily repair run
+ * because its pinned demand page now named a family the file did not hold.
  */
 const fs = require('fs');
 const path = require('path');
@@ -59,12 +71,27 @@ function buildFamilies({ targets, rules, root = ROOT }) {
     if (!fams.has(id)) fams.set(id, { meta: m, queries: [] });
     fams.get(id).queries.push(t);
   }
+  // Every declared family exists in every window, measured this time or not.
+  for (const [id, m] of meta) if (!fams.has(id)) fams.set(id, { meta: m, queries: [] });
   const families = [...fams.values()].map(({ meta: m, queries }) => {
     const impressions = queries.reduce((a, q) => a + Number(q.impressions || 0), 0);
     const pageImp = new Map();
     for (const q of queries) for (const p of q.pages || []) pageImp.set(p, (pageImp.get(p) || 0) + Number(q.impressions || 0) / (q.pages.length || 1));
     const pages = [...pageImp.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
     const current = pages.length ? pages[0][0] : null;
+    if (!queries.length) {
+      return {
+        family: m.id, label: m.label, intent: m.intent, impressions: 0, clicks: 0, query_count: 0,
+        best_position: null, weighted_position: null, head_query: null,
+        current_page: null, current_page_resolves_to: null,
+        primary_route: m.primary_route || null,
+        eligible_for_strengthening: m.eligible_for_strengthening !== false && !m.auto,
+        ...(m.why_not_eligible ? { why_not_eligible: m.why_not_eligible } : {}),
+        no_measured_queries: true,
+        landing_pages: [],
+        queries: [],
+      };
+    }
     const weighted = impressions ? queries.reduce((a, q) => a + Number(q.best_position) * Number(q.impressions), 0) / impressions : null;
     return {
       family: m.id,
@@ -91,14 +118,27 @@ function buildFamilies({ targets, rules, root = ROOT }) {
   let rank = 0;
   families.forEach((f, i) => {
     f.rank = i + 1;
-    if (f.eligible_for_strengthening && rank < TOP_N) { rank += 1; f.top12_rank = rank; f.top12 = true; } else f.top12 = false;
+    if (f.eligible_for_strengthening && f.impressions > 0 && rank < TOP_N) { rank += 1; f.top12_rank = rank; f.top12 = true; } else f.top12 = false;
   });
   return families;
+}
+
+const DEMAND_PAGES = 'data/seo/demand_pages.json';
+
+/** Families pinned by a demand page that the rules do not declare. */
+function undeclaredDemandPageFamilies(rules, demandPages) {
+  const declared = new Set((rules.families || []).map((r) => r.id));
+  return (demandPages.pages || []).filter((p) => !declared.has(p.family)).map((p) => `${p.file} (family "${p.family}")`);
 }
 
 function build(root = ROOT) {
   const mt = JSON.parse(fs.readFileSync(path.join(root, TARGETS), 'utf8'));
   const rules = JSON.parse(fs.readFileSync(path.join(root, RULES), 'utf8'));
+  const dpFile = path.join(root, DEMAND_PAGES);
+  if (fs.existsSync(dpFile)) {
+    const bad = undeclaredDemandPageFamilies(rules, JSON.parse(fs.readFileSync(dpFile, 'utf8')));
+    if (bad.length) throw new Error(`demand-families: ${DEMAND_PAGES} pins ${bad.length} page(s) to a family ${RULES} does not declare: ${bad.join(', ')}. Declare the family (id, pattern, primary_route) in the rules first.`);
+  }
   const targets = mt.targets || [];
   const families = buildFamilies({ targets, rules, root });
   return {
@@ -124,4 +164,4 @@ if (require.main === module) {
   fs.writeFileSync(path.join(ROOT, OUT), `${JSON.stringify(out, null, 2)}\n`);
   console.log(`demand-families: ${out.target_count} queries, ${out.impressions_total} impressions in ${out.family_count} families; top 12: ${out.top12.join(', ')}.`);
 }
-module.exports = { build, buildFamilies, headSlug, OUT, TOP_N };
+module.exports = { build, buildFamilies, headSlug, undeclaredDemandPageFamilies, OUT, TOP_N };

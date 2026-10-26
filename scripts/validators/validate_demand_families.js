@@ -58,7 +58,18 @@ for (const f of fams) {
   for (const lp of f.landing_pages || []) if (!lp.resolves_to) errors.push(`${f.family}: measured landing page ${lp.page} resolves to nothing (404)`);
   if (f.top12 && !f.primary_route) errors.push(`${f.family}: top-12 family without a primary route`);
 }
-const eligible = fams.filter((f) => f.eligible_for_strengthening).sort((a, b) => b.impressions - a.impressions);
+// One list: every family declared in the rules is in the file exactly once,
+// measured this window or not (the demand pages pin declared families).
+const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/seo/demand_family_rules.json'), 'utf8'));
+for (const id of new Set((rules.families || []).map((r) => r.id))) {
+  const n = fams.filter((f) => f.family === id).length;
+  if (n !== 1) errors.push(`declared family "${id}" appears ${n} times in ${OUT}; must be exactly 1`);
+}
+for (const f of fams) {
+  if (f.top12 && !(f.impressions > 0)) errors.push(`${f.family}: top-12 family with zero impressions`);
+  if (!(f.queries || []).length && !f.no_measured_queries) errors.push(`${f.family}: no queries but not marked no_measured_queries`);
+}
+const eligible = fams.filter((f) => f.eligible_for_strengthening && f.impressions > 0).sort((a, b) => b.impressions - a.impressions);
 const want = eligible.slice(0, TOP_N).map((f) => f.family);
 if (JSON.stringify(want) !== JSON.stringify(committed.top12)) errors.push(`top12 is not the ${TOP_N} highest-impression eligible families: want ${want.join(', ')}`);
 if ((committed.top12 || []).length !== Math.min(TOP_N, eligible.length)) errors.push(`top12 lists ${(committed.top12 || []).length} families`);
