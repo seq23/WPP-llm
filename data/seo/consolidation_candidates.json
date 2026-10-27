@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-26T11:30:21.836Z",
+  "generated_at": "2026-10-27T10:49:48.711Z",
   "rule": "Sitemap pages with zero measured Search Console impressions (all sources above) and fewer than 700 body words, each with the hub it would fold into (deepest /topics/ or /pillars/ breadcrumb ancestor, else its admission pillar). A list, not an action: no page is removed or redirected by this file.",
   "sitemap_urls": 2298,
-  "zero_impression_urls": 2034,
-  "candidate_count": 158,
+  "zero_impression_urls": 2051,
+  "candidate_count": 159,
   "candidates_by_hub": {
     "/": 74,
     "/topics/community-operating-frameworks": 9,
@@ -14,7 +14,7 @@
     "/topics/startup-brand-strategy": 1,
     "/topics/virtual-event-planning": 24,
     "/topics/virtual-event-platform-selection": 2,
-    "/topics/virtual-event-production": 39
+    "/topics/virtual-event-production": 40
   },
   "candidates": [
     {
@@ -872,6 +872,13 @@
       "hub_basis": "breadcrumb"
     },
     {
+      "route": "/programmatic/virtual-conference-production",
+      "words": 698,
+      "impressions_measured": 0,
+      "fold_into": "/topics/virtual-event-production",
+      "hub_basis": "breadcrumb"
+    },
+    {
       "route": "/programmatic/virtual-event-pricing",
       "words": 558,
       "impressions_measured": 0,
@@ -1125,23 +1132,23 @@
     }
   ],
   "dead_urls_with_live_twin_note": "URLs Google measured that now return 404 while the same page lives under /programmatic/. Their impressions are credited to the twin above. Recovering them needs a 301 per row; out of scope for the PR that wrote this list (no redirects).",
-  "dead_urls_with_live_twin_count": 47,
-  "dead_urls_with_live_twin_impressions": 2492,
+  "dead_urls_with_live_twin_count": 38,
+  "dead_urls_with_live_twin_impressions": 2349,
   "dead_urls_with_live_twin": [
     {
       "dead_url": "https://virtualagency-os.com/best-virtual-event-platforms",
       "live_twin": "/programmatic/best-virtual-event-platforms",
-      "impressions_measured": 1131
+      "impressions_measured": 1093
     },
     {
       "dead_url": "https://virtualagency-os.com/hybrid-event-platform",
       "live_twin": "/programmatic/hybrid-event-platform",
-      "impressions_measured": 916
+      "impressions_measured": 869
     },
     {
       "dead_url": "https://virtualagency-os.com/host-virtual-events",
       "live_twin": "/programmatic/host-virtual-events",
-      "impressions_measured": 55
+      "impressions_measured": 47
     },
     {
       "dead_url": "https://virtualagency-os.com/content-marketing-operations-services",
@@ -1151,7 +1158,7 @@
     {
       "dead_url": "https://virtualagency-os.com/investor-event-production",
       "live_twin": "/programmatic/investor-event-production",
-      "impressions_measured": 39
+      "impressions_measured": 38
     },
     {
       "dead_url": "https://virtualagency-os.com/online-conference-platforms",
@@ -1159,19 +1166,19 @@
       "impressions_measured": 38
     },
     {
-      "dead_url": "https://virtualagency-os.com/content-marketing-operations-for-marketing-teams",
-      "live_twin": "/programmatic/content-marketing-operations-for-marketing-teams",
-      "impressions_measured": 28
-    },
-    {
       "dead_url": "https://virtualagency-os.com/virtual-event-production-for-manufacturing",
       "live_twin": "/programmatic/virtual-event-production-for-manufacturing",
+      "impressions_measured": 29
+    },
+    {
+      "dead_url": "https://virtualagency-os.com/content-marketing-operations-for-marketing-teams",
+      "live_twin": "/programmatic/content-marketing-operations-for-marketing-teams",
       "impressions_measured": 27
     },
     {
       "dead_url": "https://virtualagency-os.com/brand-positioning-strategy-examples",
       "live_twin": "/programmatic/brand-positioning-strategy-examples",
-      "impressions_measured": 23
+      "impressions_measured": 20
     },
     {
       "dead_url": "https://virtualagency-os.com/virtual-event-production-for-professional-services",
@@ -1182,16 +1189,6 @@
       "dead_url": "https://virtualagency-os.com/content-marketing-operations-implementation-guide",
       "live_twin": "/programmatic/content-marketing-operations-implementation-guide",
       "impressions_measured": 17
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/virtual-event-planning",
-      "live_twin": "/programmatic/virtual-event-planning",
-      "impressions_measured": 17
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/virtual-event-production-companies",
-      "live_twin": "/programmatic/virtual-event-production-companies",
-      "impressions_measured": 16
     },
     {
       "dead_url": "https://virtualagency-os.com/content-marketing-operations-process",
@@ -1211,7 +1208,7 @@
     {
       "dead_url": "https://virtualagency-os.com/brand-narrative-strategy-consultant",
       "live_twin": "/programmatic/brand-narrative-strategy-consultant",
-      "impressions_measured": 8
+      "impressions_measured": 7
     },
     {
       "dead_url": "https://virtualagency-os.com/creative-operations-for-nonprofits",
@@ -1219,13 +1216,18 @@
       "impressions_measured": 7
     },
     {
-      "dead_url": "https://virtualagency-os.com/brand-positioning-strategy-for-startups",
-      "live_twin": "/programmatic/brand-positioning-strategy-for-startups",
+      "dead_url": "https://virtualagency-os.com/virtual-event-production-companies",
+      "live_twin": "/programmatic/virtual-event-production-companies",
       "impressions_measured": 6
     },
     {
       "dead_url": "https://virtualagency-os.com/brand-agency-vs-marketing-agency-roi-factors",
       "live_twin": "/programmatic/brand-agency-vs-marketing-agency-roi-factors",
+      "impressions_measured": 5
+    },
+    {
+      "dead_url": "https://virtualagency-os.com/brand-positioning-strategy-for-startups",
+      "live_twin": "/programmatic/brand-positioning-strategy-for-startups",
       "impressions_measured": 5
     },
     {
@@ -1239,24 +1241,9 @@
       "impressions_measured": 5
     },
     {
-      "dead_url": "https://virtualagency-os.com/event-marketing-strategy-deliverables",
-      "live_twin": "/programmatic/event-marketing-strategy-deliverables",
-      "impressions_measured": 4
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/virtual-event-services",
-      "live_twin": "/programmatic/virtual-event-services",
-      "impressions_measured": 4
-    },
-    {
       "dead_url": "https://virtualagency-os.com/virtual-event-production-checklist",
       "live_twin": "/programmatic/virtual-event-production-checklist",
       "impressions_measured": 4
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/content-marketing-operations-agency",
-      "live_twin": "/programmatic/content-marketing-operations-agency",
-      "impressions_measured": 3
     },
     {
       "dead_url": "https://virtualagency-os.com/content-marketing-operations-scope-of-work",
@@ -1274,13 +1261,13 @@
       "impressions_measured": 3
     },
     {
-      "dead_url": "https://virtualagency-os.com/creative-agency-vs-production-company-for-marketing-teams",
-      "live_twin": "/programmatic/creative-agency-vs-production-company-for-marketing-teams",
-      "impressions_measured": 3
-    },
-    {
       "dead_url": "https://virtualagency-os.com/brand-strategy-consulting-for-startups",
       "live_twin": "/programmatic/brand-strategy-consulting-for-startups",
+      "impressions_measured": 2
+    },
+    {
+      "dead_url": "https://virtualagency-os.com/content-marketing-operations-agency",
+      "live_twin": "/programmatic/content-marketing-operations-agency",
       "impressions_measured": 2
     },
     {
@@ -1299,43 +1286,13 @@
       "impressions_measured": 2
     },
     {
-      "dead_url": "https://virtualagency-os.com/campaign-narrative-strategy-for-founders",
-      "live_twin": "/programmatic/campaign-narrative-strategy-for-founders",
-      "impressions_measured": 2
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/ai-marketing-workflows-strategy-framework",
-      "live_twin": "/programmatic/ai-marketing-workflows-strategy-framework",
+      "dead_url": "https://virtualagency-os.com/creative-agency-vs-production-company-for-marketing-teams",
+      "live_twin": "/programmatic/creative-agency-vs-production-company-for-marketing-teams",
       "impressions_measured": 2
     },
     {
       "dead_url": "https://virtualagency-os.com/content-marketing-operations",
       "live_twin": "/programmatic/content-marketing-operations",
-      "impressions_measured": 1
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/content-marketing-operations-deliverables",
-      "live_twin": "/programmatic/content-marketing-operations-deliverables",
-      "impressions_measured": 1
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/ai-consultant-vs-automation-agency",
-      "live_twin": "/programmatic/ai-consultant-vs-automation-agency",
-      "impressions_measured": 1
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/ai-consultant-vs-automation-agency-consultant",
-      "live_twin": "/programmatic/ai-consultant-vs-automation-agency-consultant",
-      "impressions_measured": 1
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/ai-consultant-vs-automation-agency-for-small-teams",
-      "live_twin": "/programmatic/ai-consultant-vs-automation-agency-for-small-teams",
-      "impressions_measured": 1
-    },
-    {
-      "dead_url": "https://virtualagency-os.com/ai-consultant-vs-automation-agency-services",
-      "live_twin": "/programmatic/ai-consultant-vs-automation-agency-services",
       "impressions_measured": 1
     },
     {
@@ -1354,8 +1311,13 @@
       "impressions_measured": 1
     },
     {
-      "dead_url": "https://virtualagency-os.com/how-to-host-a-virtual-event",
-      "live_twin": "/programmatic/how-to-host-a-virtual-event",
+      "dead_url": "https://virtualagency-os.com/event-marketing-strategy-deliverables",
+      "live_twin": "/programmatic/event-marketing-strategy-deliverables",
+      "impressions_measured": 1
+    },
+    {
+      "dead_url": "https://virtualagency-os.com/virtual-event-planning",
+      "live_twin": "/programmatic/virtual-event-planning",
       "impressions_measured": 1
     },
     {
