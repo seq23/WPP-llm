@@ -4,8 +4,8 @@
     "Every URL Search Console measured that this build answers with a 404, each with a 301 target: the same-slug /programmatic/ page, else its fold_into hub, else the homepage.",
     "Emitted into _redirects by scripts/update_redirects_clean_to_html.js; proven by scripts/validators/validate_measured_urls_resolve.js and, live, by scripts/live_check_measured_redirects.js."
   ],
-  "rule_count": 258,
-  "impressions_measured": 8856,
+  "rule_count": 260,
+  "impressions_measured": 8857,
   "rules": [
     {
       "from": "/best-virtual-event-platforms",
@@ -53,7 +53,7 @@
       "from": "/virtual-event-production-for-manufacturing",
       "to": "/programmatic/virtual-event-production-for-manufacturing",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
-      "impressions_measured": 116
+      "impressions_measured": 117
     },
     {
       "from": "/content-marketing-operations",
@@ -1552,6 +1552,18 @@
     {
       "from": "/event-marketing-strategy-how-to-choose",
       "to": "/programmatic/event-marketing-strategy-how-to-choose",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/launch-marketing-strategy",
+      "to": "/programmatic/launch-marketing-strategy",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/livekit-virtual-events",
+      "to": "/programmatic/livekit-virtual-events",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 0
     }
