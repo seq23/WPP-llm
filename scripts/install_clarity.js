@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Install the Microsoft Clarity tag into every published page.
+ * Install the Microsoft Clarity tag only on pages with a form or buy link.
  *
  * The Clarity projects already existed - one per property - but no tag was ever
  * installed, so every project sat on "Almost there!" and none of them recorded a
@@ -13,11 +13,13 @@
  * two separate Clarity projects). A hardcoded id would send one domain's sessions
  * to the other domain's project.
  *
- * Idempotent: pages already carrying the marker are left alone, so this can run
- * on every build.
+ * Idempotent: pages already carrying the marker are left alone. The assembler
+ * removes old all-page tags from non-conversion pages, including frozen pages,
+ * so this build step never drifts their accepted content hashes.
  */
 const fs = require('fs');
 const path = require('path');
+const { formOrBuy } = require('./lib/clarity_scope.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG = path.join(ROOT, 'data/clarity_projects.json');
@@ -59,6 +61,7 @@ function walk(dir, depth) {
     const rel = path.relative(outDir, abs).replace(/\\/g, '/');
     if (skipFiles.has(rel) || skipFiles.has(entry.name)) { skipped += 1; continue; }
     const html = fs.readFileSync(abs, 'utf8');
+    if (!formOrBuy(html)) { skipped += 1; continue; }
     if (html.includes(MARKER)) { already += 1; continue; }
     if (!/<\/head>/i.test(html)) { skipped += 1; continue; }
     fs.writeFileSync(abs, html.replace(/<\/head>/i, `${snippet}</head>`));

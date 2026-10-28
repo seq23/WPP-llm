@@ -74,6 +74,7 @@ jobs:
       - run: npm run test:citation-probe-rate
       - run: npm run test:retest-loop
       - run: npm run test:repairs-site-head
+      - run: npm run test:search-readiness-repairs
       # 26 Oct 2026: a demand-page family whose only query aged out of the
       # 90-day window vanished from demand_families.json and redded the daily
       # Search Repair run. Declared families must survive any window.

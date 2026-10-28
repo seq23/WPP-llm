@@ -141,7 +141,7 @@ function routeFor(rel) {
  * Pages this step owns: every published page that is not a frozen accepted
  * output, plus any frozen route transactionally thawed in
  * data/release/active_mutation_scope.json, plus the demand pages named in the
- * config and the measured landing pages that link to a family primary (cfg.demand_links) (which are refrozen with
+ * config, editorial title overrides and the measured landing pages that link to a family primary (cfg.demand_links) (which are refrozen with
  * the result, so a later build's restore + this step is a no-op on them).
  * Frozen pages are hash-locked (data/release/accepted_output_freeze_contract.json,
  * normal_build_may_mutate_frozen: false); touching them here would red
@@ -149,7 +149,7 @@ function routeFor(rel) {
  */
 function ownedPages(root = ROOT, cfg = loadConfig(root)) {
   const frozen = frozenFiles(root);
-  const demand = new Set([...(cfg.demand_pages || []).map((d) => d.file), ...(cfg.demand_links || []).map((d) => d.file)]);
+  const demand = new Set([...(cfg.demand_pages || []).map((d) => d.file), ...(cfg.demand_links || []).map((d) => d.file), ...Object.keys(cfg.title_overrides || {})]);
   const scoped = scopedFiles(root);
   return walk(root, root, []).filter((rel) => !frozen.has(rel) || demand.has(rel) || scoped.has(rel)).sort();
 }
