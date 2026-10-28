@@ -99,7 +99,10 @@ function copyInto(srcDir, outDir, depth) {
       copyInto(from, to, depth + 1);
     } else if (entry.isFile()) {
       if (entry.name.endsWith('.html')) {
-        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(fs.readFileSync(from, 'utf8'))));
+        // The repo-relative path decides the always-recording pages (the
+        // homepage); without it assembly strips the homepage's loader.
+        const rel = path.relative(root, from).replace(/\\/g, '/');
+        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(fs.readFileSync(from, 'utf8'), undefined, rel)));
         wrapped += 1;
       } else {
         fs.copyFileSync(from, to);
