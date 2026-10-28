@@ -328,6 +328,13 @@ function transform(rel, html, cfg) {
   if (rel === 'index.html') html = applyHomepage(html, cfg);
   if (rel === 'index.html' || rel === 'topics/index.html') html = applyDemandFamilies(html, cfg);
   if (demand) html = demand.full ? applyFullDemandPage(html, demand, cfg) : applyDemandPage(html, demand, cfg);
+  // Editorial titles keep both the subject and brand inside the title band.
+  // The earlier length fitter drops the suffix; do not clip these sentences.
+  const title = (cfg.title_overrides || {})[rel];
+  if (title) {
+    html = setTitle(html, title);
+    html = setMeta(html, 'property', 'og:title', title);
+  }
   const link = !demand && (cfg.demand_links || []).find((d) => d.file === rel);
   if (link) html = applyDemandLink(html, link);
   html = ensureVisibleFaq(html);

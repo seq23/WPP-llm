@@ -16,6 +16,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { stripUnscopedClarity } = require('./lib/clarity_scope.js');
 
 const root = path.resolve(__dirname, '..');
 // PAGES_ASSEMBLE_OUT lets validate_email_obfuscation_safe.js assemble the real
@@ -98,7 +99,7 @@ function copyInto(srcDir, outDir, depth) {
       copyInto(from, to, depth + 1);
     } else if (entry.isFile()) {
       if (entry.name.endsWith('.html')) {
-        fs.writeFileSync(to, wrapEmailOff(fs.readFileSync(from, 'utf8')));
+        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(fs.readFileSync(from, 'utf8'))));
         wrapped += 1;
       } else {
         fs.copyFileSync(from, to);
