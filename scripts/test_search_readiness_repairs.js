@@ -9,7 +9,7 @@ const os = require('node:os');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
-const { formOrBuy, inScope, stripUnscopedClarity } = require('./lib/clarity_scope.js');
+const { formOrBuy, stripUnscopedClarity } = require('./lib/clarity_scope.js');
 const { ROOT, walk, loadConfig } = require('./lib/site_head.js');
 const { transform } = require('./apply_site_head.js');
 const { TITLE_MIN, TITLE_MAX } = require('./lib/page_meta.js');
@@ -22,10 +22,8 @@ for (const content of ['<form action="/send"><input name="name"></form>', '<a hr
 for (const content of ['<a href="/contact">Contact</a>', '<a href="mailto:test@example.invalid">Contact</a>', '<!-- <form> -->', '<script>const text="<form>"</script>', '<a href="https://gumroad.com.example.invalid/l/item">Other</a>', '<a href="/guide?next=/buy">Guide</a>']) {
   assert.equal(formOrBuy(content), false, content);
   assert.equal(stripUnscopedClarity(loader + content, undefined, 'answers/fixture.html'), content, 'article recording survived');
-  // e6/i8 read the homepage. It records whatever it links to; the same body on
-  // any other route does not.
-  assert.equal(inScope(content, 'index.html'), true, `homepage dropped out of scope: ${content}`);
-  assert.equal(stripUnscopedClarity(loader + content, undefined, 'index.html'), loader + content, 'homepage recording was removed');
+  // The homepage has the same e9 requirement as every other page.
+  assert.equal(stripUnscopedClarity(loader + content, undefined, 'index.html'), content, 'homepage recording survived without a form or buy link');
 }
 
 const cfg = loadConfig();
@@ -45,17 +43,21 @@ try {
   for (const rel of pages) {
     const html = fs.readFileSync(path.join(out, rel), 'utf8');
     if (clarity.test(html)) {
-      assert.ok(inScope(html, rel), `${rel}: Clarity loads on a page that is neither the homepage nor a form or buy page`);
+      assert.ok(formOrBuy(html), `${rel}: Clarity loads without a form or buy link`);
       recording++;
     } else if (fs.existsSync(path.join(ROOT, rel)) && clarity.test(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) cleaned++;
     assert.equal(stripUnscopedClarity(html, undefined, rel), html, `${rel}: assembly is not idempotent`);
   }
   assert.ok(recording > 0, 'recording disappeared from every conversion page');
   const home = fs.readFileSync(path.join(out, 'index.html'), 'utf8');
-  assert.ok(clarity.test(home), 'the assembled homepage does not load Clarity (Search Readiness e6/i8)');
+  assert.equal(formOrBuy(home), false, 'homepage fixture now has a conversion step; review this regression');
+  assert.equal(clarity.test(home), false, 'e9: the assembled homepage records with no form or buy link');
+  const conversion = fs.readFileSync(path.join(out, 'tools/production-scoping-calculator.html'), 'utf8');
+  assert.ok(formOrBuy(conversion), 'the production scoping calculator lost its form');
+  assert.ok(clarity.test(conversion), 'recording was removed from the production scoping calculator');
   const ids = Object.values(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/clarity_projects.json'), 'utf8')).projects || {});
   assert.ok(ids.length > 0, 'no Clarity project is configured');
-  for (const id of ids) assert.ok(home.includes(id), `the assembled homepage carries no Clarity project id for ${id}`);
+  for (const id of ids) assert.ok(conversion.includes(id), `the assembled calculator carries no Clarity project id for ${id}`);
   assert.ok(cleaned >= 13, 'the regression never exercised the old all-page tags');
   for (const [rel, wanted] of Object.entries(titles)) {
     const html = fs.readFileSync(path.join(out, rel), 'utf8');
@@ -71,5 +73,5 @@ try {
     assert.equal(transform(rel, source, cfg), source, `${rel}: title is not stable on rebuild`);
   }
   for (const [file, before] of hashes) assert.equal(sha(file), before, `${file}: assembly mutated frozen content`);
-  console.log(`Search Readiness repairs OK: 4 branded titles; ${pages.length} assembled pages checked; ${cleaned} old article tags removed; ${recording} page(s) retain recording (homepage included); ${hashes.size} frozen pages unchanged.`);
+  console.log(`Search Readiness repairs OK: 4 branded titles; ${pages.length} assembled pages checked; ${cleaned} old article tags removed; ${recording} conversion page(s) retain recording; homepage recording removed; ${hashes.size} frozen pages unchanged.`);
 } finally { fs.rmSync(out, { recursive: true, force: true }); }

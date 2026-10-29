@@ -99,10 +99,9 @@ function copyInto(srcDir, outDir, depth) {
       copyInto(from, to, depth + 1);
     } else if (entry.isFile()) {
       if (entry.name.endsWith('.html')) {
-        // The repo-relative path decides the always-recording pages (the
-        // homepage); without it assembly strips the homepage's loader.
-        const rel = path.relative(root, from).replace(/\\/g, '/');
-        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(fs.readFileSync(from, 'utf8'), undefined, rel)));
+        // Scope every published page, including the homepage and frozen HTML,
+        // to a form or buy link without changing accepted editorial content.
+        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(fs.readFileSync(from, 'utf8'))));
         wrapped += 1;
       } else {
         fs.copyFileSync(from, to);

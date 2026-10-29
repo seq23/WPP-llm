@@ -19,7 +19,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { inScope } = require('./lib/clarity_scope.js');
+const { formOrBuy } = require('./lib/clarity_scope.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG = path.join(ROOT, 'data/clarity_projects.json');
@@ -61,7 +61,7 @@ function walk(dir, depth) {
     const rel = path.relative(outDir, abs).replace(/\\/g, '/');
     if (skipFiles.has(rel) || skipFiles.has(entry.name)) { skipped += 1; continue; }
     const html = fs.readFileSync(abs, 'utf8');
-    if (!inScope(html, rel)) { skipped += 1; continue; }
+    if (!formOrBuy(html)) { skipped += 1; continue; }
     if (html.includes(MARKER)) { already += 1; continue; }
     if (!/<\/head>/i.test(html)) { skipped += 1; continue; }
     fs.writeFileSync(abs, html.replace(/<\/head>/i, `${snippet}</head>`));
