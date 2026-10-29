@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T20:40:28.512Z",
+  "generated_at": "2026-10-29T08:41:17.134Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -218,7 +218,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-28T10:43:37.820Z",
+    "generated_at": "2026-10-29T07:21:37.471Z",
     "workflow_count": 9,
     "workflows": [
       "admin-command.yml",
@@ -453,6 +453,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 14,
+        "name": "npm run test:search-readiness-repairs",
+        "npm_script": "test:search-readiness-repairs",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 15,
         "name": "npm run test:demand-families-declared",
         "npm_script": "test:demand-families-declared",
         "direct_paths": [],
@@ -462,7 +472,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 15,
+        "step": 16,
         "name": "npm run test:render-robots-parity",
         "npm_script": "test:render-robots-parity",
         "direct_paths": [],
@@ -472,7 +482,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 16,
+        "step": 17,
         "name": "npm run test:static-edge-path",
         "npm_script": "test:static-edge-path",
         "direct_paths": [],
@@ -482,7 +492,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 17,
+        "step": 18,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -492,7 +502,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 18,
+        "step": 19,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -502,7 +512,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 19,
+        "step": 20,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -1431,7 +1441,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-28T20:39:46.075Z",
+    "generated_at": "2026-10-29T08:40:39.458Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1440,7 +1450,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 6045,
+      "candidates_considered": 6086,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1450,13 +1460,13 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-10-29",
         "2026-10-28",
         "2026-10-27",
         "2026-10-26",
         "2026-10-25",
         "2026-10-24",
-        "2026-10-23",
-        "2026-10-22"
+        "2026-10-23"
       ],
       "usage_source": "data/cadence/known_urls.json",
       "new_pages_used_this_week": 2,
@@ -2032,15 +2042,15 @@
     "paused_for_consolidation": {
       "ledger": "data/seo/duplicate_family_consolidation.json",
       "families": 30,
-      "opportunities_withheld": 3100
+      "opportunities_withheld": 3057
     },
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "6045 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "6086 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-28T20:39:51.509Z",
+    "updated": "2026-10-29T08:40:43.957Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5171,7 +5181,7 @@
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-28T20:39:51.509Z"
+      "at": "2026-10-29T08:40:43.957Z"
     }
   },
   "query_universe_count": 10597
