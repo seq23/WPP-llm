@@ -4,7 +4,7 @@
     "Every URL Search Console measured that this build answers with a 404, each with a 301 target: the same-slug /programmatic/ page, else its fold_into hub, else the homepage.",
     "Emitted into _redirects by scripts/update_redirects_clean_to_html.js; proven by scripts/validators/validate_measured_urls_resolve.js and, live, by scripts/live_check_measured_redirects.js."
   ],
-  "rule_count": 260,
+  "rule_count": 265,
   "impressions_measured": 8858,
   "rules": [
     {
@@ -1564,6 +1564,36 @@
     {
       "from": "/livekit-virtual-events",
       "to": "/programmatic/livekit-virtual-events",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/video-content-strategy",
+      "to": "/programmatic/video-content-strategy",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/virtual-event-planning-engagement",
+      "to": "/programmatic/virtual-event-planning-engagement",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/virtual-event-planning-how-to-host",
+      "to": "/programmatic/virtual-event-planning-how-to-host",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/virtual-event-production-how-to-choose",
+      "to": "/programmatic/virtual-event-production-how-to-choose",
+      "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
+      "impressions_measured": 0
+    },
+    {
+      "from": "/virtual-event-production-marketing-plan",
+      "to": "/programmatic/virtual-event-production-marketing-plan",
       "why": "Measured in Search Console, then 404. The same page is published at this /programmatic/ route.",
       "impressions_measured": 0
     }

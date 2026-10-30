@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-28T10:43:23.637Z",
+  "updated_at": "2026-10-30T10:43:29.982Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-10-28",
+    "date": "2026-10-30",
     "repairs_used": 1
   },
   "receipts": [
@@ -5991,6 +5991,12 @@
       "route": "/query-atlas/creative-direction-agency",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-10-28T10:43:23.634Z"
+    },
+    {
+      "repair_id": "repair_f0e3d4aaa32e",
+      "route": "/query-atlas/brand-narrative-strategy",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-10-30T10:43:29.980Z"
     }
   ]
 }
