@@ -445,6 +445,11 @@
       "command": "node scripts/validators/validate_duplicate_family_consolidation.js",
       "probe": "data-records",
       "input": "data/seo/duplicate_family_consolidation.json and the admission registry, freeze registry and release plan it must agree with"
+    },
+    {
+      "command": "node scripts/validators/validate_entity_graph.mjs",
+      "probe": "html-corpus",
+      "input": "the published .html corpus walked from the repo root, checked against data/entity/entity.json"
     }
   ]
 }

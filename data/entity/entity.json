@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "site": "virtualagency-os.com",
+  "note": "The one source of the site's entity facts. scripts/lib/entity.mjs reads sameAs and description from here; scripts/apply_organization_entity.mjs writes them onto every published page; scripts/validators/validate_entity_graph.mjs fails when a page disagrees; scripts/entity_backlink_watch.mjs re-checks every sameAs weekly and self-heals this file. sameAs lists only profiles verified live; anything named but not yet live goes in profiles_pending and is promoted by the watch once it resolves.",
+  "organization": {
+    "@id": "https://www.westpeekproductions.com/#organization",
+    "name": "West Peek Productions",
+    "url": "https://www.westpeekproductions.com/",
+    "logo": "https://virtualagency-os.com/assets/west-peek-productions-logo.jpeg",
+    "description": "West Peek Productions is a virtual and hybrid event production agency with offices in New York, Atlanta and Memphis.",
+    "parentOrganization": null,
+    "parentOrganization_note": "West Peek Productions is the top of its own graph. The Spry Labs parent applies to the side businesses only, never to West Peek.",
+    "sameAs": [
+      "https://www.westpeekproductions.com/",
+      "https://www.linkedin.com/company/west-peek-productions/",
+      "https://www.wikidata.org/wiki/Q140357096"
+    ],
+    "link_back_hosts": ["westpeekproductions.com", "virtualagency-os.com"]
+  },
+  "founder": {
+    "@id": "https://www.westpeekproductions.com/#scooter-taylor",
+    "name": "Scooter Taylor",
+    "url": "https://scootertaylor.com/",
+    "sameAs": [
+      "https://scootertaylor.com/",
+      "https://www.linkedin.com/in/scootertaylor/",
+      "https://www.wikidata.org/wiki/Q140357048"
+    ],
+    "link_back_hosts": ["scootertaylor.com", "westpeekproductions.com", "virtualagency-os.com"]
+  },
+  "profiles_pending": [],
+  "not_yet_created": [
+    {
+      "profile": "Wikidata item for VirtualAgency OS (virtualagency-os.com)",
+      "gate": "Created only once the site has independent third-party references; an item without them is deleted by Wikidata editors."
+    }
+  ],
+  "removed": []
+}
