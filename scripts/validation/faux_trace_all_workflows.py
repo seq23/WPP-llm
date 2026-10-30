@@ -21,7 +21,8 @@ TRACES: list[dict] = []
 REQUIRED = {
     'admin-command.yml', 'ci.yml', 'credential-check.yml',
     'distribution.yml', 'paid-citation-probe.yml', 'programmatic-release.yml', 'query-intelligence.yml',
-    'search-repair-retest.yml', 'self-heal.yml'
+    'search-repair-retest.yml', 'self-heal.yml',
+    'entity-backlink-watch.yml'
 }
 
 
@@ -187,6 +188,20 @@ trace('self-heal.yml', 'serialized-writes', 'shares writer concurrency group',
       'group: wpp-autonomous-writer-main' in heal)
 trace('self-heal.yml', 'governed-push', 'uses exact-SHA push helper',
       'commit_and_push_if_changed.sh' in heal and 'PRE_PUSH_VALIDATION_ARGV' in heal)
+
+# Entity backlink watch (30 Oct 2026): weekly sameAs re-check that self-heals
+# data/entity/entity.json and refreezes the pages that state it.
+watch = text('entity-backlink-watch.yml')
+trace('entity-backlink-watch.yml', 'command-watch', 'npm run entity:watch -- --apply',
+      'npm run entity:watch -- --apply' in watch)
+trace('entity-backlink-watch.yml', 'converge-on-change', 'pages follow entity.json',
+      'npm run entity:converge' in watch and 'data/entity/entity.json' in watch)
+trace('entity-backlink-watch.yml', 'scheduled', 'runs on a cron and by hand',
+      'schedule:' in watch and 'cron:' in watch and 'workflow_dispatch:' in watch)
+trace('entity-backlink-watch.yml', 'serialized-writes', 'shares writer concurrency group',
+      'group: wpp-autonomous-writer-main' in watch)
+trace('entity-backlink-watch.yml', 'governed-push', 'uses exact-SHA push helper with the entity gate',
+      'commit_and_push_if_changed.sh' in watch and 'validate:entity-graph' in watch)
 
 # Required data handoffs used across the workflow spine.
 required_data = [

@@ -1,0 +1,64 @@
+name: Entity Backlink Watch
+# Weekly re-check of every sameAs profile in data/entity/entity.json: does it
+# still resolve, and does it link back? scripts/entity_backlink_watch.mjs does
+# the checking and the self-heal (drop a dead profile, promote a pending one that
+# now resolves); npm run entity:converge then rewrites and refreezes every page so
+# the published JSON-LD follows. Nothing reaches main except through the repo's
+# own push gate (commit_and_push_if_changed.sh). A missing link-back is a named
+# stop in the job summary, naming the exact profile field to edit.
+# GitHub Actions may not open pull requests in this repo
+# (can_approve_pull_request_reviews=false), so the self-heal lands as a gated
+# commit, the same route every other autonomous writer here uses.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 14 * * 1'
+
+permissions:
+  contents: write
+
+env:
+  CI_AUTONOMOUS_BRANCH: main
+
+concurrency:
+  group: wpp-autonomous-writer-main
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15  # fault detector, not a budget: checks ~6 URLs, converge rewrites ~2,300 pages
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+      - run: bash scripts/ci_npm_install.sh
+      - name: Sync latest main before writing
+        run: git pull --rebase origin "$CI_AUTONOMOUS_BRANCH"
+      - name: Check every sameAs profile and self-heal entity.json
+        run: npm run entity:watch -- --apply
+      - name: Rewrite and refreeze pages if entity.json changed
+        run: |
+          if git diff --quiet -- data/entity/entity.json; then
+            echo "entity.json unchanged: no page rewrite needed"
+          else
+            npm run entity:converge
+          fi
+      - name: Commit only validated self-heal output
+        env:
+          PRE_PUSH_VALIDATION_ARGV: npm run release:push-gate && npm run validate:entity-graph
+        run: |
+          bash .github/scripts/commit_and_push_if_changed.sh \
+            "Entity backlink watch: self-heal sameAs from live profile checks" entity-backlink-watch
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: entity-backlink-watch
+          path: artifacts/diagnostics/entity_backlink_watch.json
+          if-no-files-found: error

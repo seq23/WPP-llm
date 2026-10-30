@@ -167,7 +167,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
+      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
       "owner": "repo"
     },
     {
@@ -625,6 +625,14 @@
       "severity": "HARD_FAIL",
       "purpose": "The duplicate-family ledger, _redirects, admission registry, freeze registry and release plan agree on every retired /programmatic/ variant and its keeper; paused families get no release units; the thin ledger is untouched.",
       "owner": "repo"
+    },
+    {
+      "id": "entity-graph",
+      "command": "node scripts/validators/validate_entity_graph.mjs",
+      "severity": "HARD_FAIL",
+      "purpose": "Every West Peek Organization and founder Person node on every public page states exactly the sameAs (and org description, name, logo) declared in data/entity/entity.json; no sameAs on this site's own host; entity.mjs agrees with entity.json. Zero Organization nodes is a failure.",
+      "owner": "repo",
+      "repair_command": "npm run entity:converge"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

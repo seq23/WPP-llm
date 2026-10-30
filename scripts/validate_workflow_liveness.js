@@ -321,7 +321,18 @@ if (credentialed) {
       if (gaps.some((g) => g === null)) { fail(`${file}: unparseable cron expression ${JSON.stringify(list2)}`); continue; }
       const windowHours = Math.max(minGraceHours, Math.max(...gaps) * tolerance);
       const wf = byPath.get(`.github/workflows/${file}`);
-      if (!wf) { fail(`${file}: declares a schedule but GitHub knows no workflow at that path`); continue; }
+      if (!wf) {
+        // A scheduled workflow added by the change under test is unknown to
+        // GitHub until it reaches the default branch, so a PR adding one could
+        // never go green. Excused ONLY when the file is absent from main (the
+        // contents API answers 404); a file on main that GitHub does not know is
+        // still a failure. The normal never-produced-a-run window applies after merge.
+        let onMain = true;
+        try { api(`repos/${repo}/contents/.github/workflows/${file}?ref=main`); }
+        catch (e) { if (/404|Not Found/i.test(String(e.stderr || e.message))) onMain = false; }
+        if (!onMain) { notes.push(`${file}: new in this change, not on main yet; GitHub registers it at merge`); liveChecked += 1; continue; }
+        fail(`${file}: declares a schedule but GitHub knows no workflow at that path`); continue;
+      }
       if (wf.state !== 'active') { notes.push(`${file}: GitHub state=${wf.state}, schedule window not enforced`); continue; }
       let runs;
       try {

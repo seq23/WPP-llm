@@ -17,6 +17,14 @@
 // WEST_PEEK_PRODUCTIONS. Keys the page already carries - @id, alternateName,
 // contactPoint, email - are left exactly as they are.
 //
+// 30 Oct 2026: sameAs and description are now AUTHORITATIVE, not fill-only.
+// data/entity/entity.json is the one declaration of them, and filling only
+// missing keys had left four different sameAs lists live at once (2,277 nodes
+// carried the company site alone, the homepage carried a third list). So this
+// step now overwrites sameAs and description on every West Peek Organization
+// node, and overwrites sameAs on every Scooter Taylor Person node, with the
+// entity.json values. validate_entity_graph.mjs fails when a page disagrees.
+//
 // Idempotent: a page whose West Peek Organization nodes are already complete is
 // left untouched, so this can run on every build and in batches.
 //
@@ -24,7 +32,7 @@
 // matcher has stopped matching, and that exits 1 rather than reporting success.
 import fs from 'node:fs';
 import path from 'node:path';
-import { WEST_PEEK_PRODUCTIONS, ORG_ID } from './lib/entity.mjs';
+import { WEST_PEEK_PRODUCTIONS, ORG_ID, SCOOTER_TAYLOR, PERSON_ID } from './lib/entity.mjs';
 
 const ROOT = process.cwd();
 const args = process.argv.slice(2);
@@ -35,7 +43,18 @@ const SKIP_DIRS = new Set(['node_modules', '.git', '.next', 'dist-cache', 'repor
 
 // The facts this step is responsible for. Anything else on the node is the
 // page's own business.
-const CANONICAL = ['logo', 'sameAs', 'url', 'name'];
+const CANONICAL = ['logo', 'sameAs', 'url', 'name', 'description'];
+// Of those, the facts entity.json owns outright: overwritten when they differ.
+const AUTHORITATIVE = new Set(['sameAs', 'description']);
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+/** Is this node the founder Person, under any of its shapes (incl. inline founder)? */
+const isFounder = (n) => {
+  if (!n || typeof n !== 'object') return false;
+  const types = [].concat(n['@type']).filter(Boolean).map(String);
+  if (n['@id'] === PERSON_ID) return types.length === 0 || types.includes('Person');
+  return types.includes('Person') && n.name === SCOOTER_TAYLOR.name;
+};
 const ORG_TYPE = /^(Organization|Corporation|NewsMediaOrganization|ProfessionalService|LocalBusiness)$/;
 
 function walk(dir, out = []) {
@@ -84,13 +103,24 @@ for (const abs of walk(ROOT)) {
     try { data = JSON.parse(body.trim()); } catch { bad = true; return m; }
     let changedBlock = false;
     eachNode(data, (n) => {
+      if (isFounder(n) && Object.keys(n).some((k) => k !== '@id')) {
+        // A bare {"@id": ...} reference stays a reference; any node that states
+        // facts about the founder states the canonical sameAs.
+        if (!same(n.sameAs, SCOOTER_TAYLOR.sameAs)) {
+          n.sameAs = [...SCOOTER_TAYLOR.sameAs];
+          changedBlock = true;
+          filledHere++;
+        }
+        return;
+      }
       if (!isWestPeek(n)) return;
       sawOrg = true;
       for (const k of CANONICAL) {
         const missing = n[k] === undefined || n[k] === null
           || (Array.isArray(n[k]) && !n[k].length)
           || (typeof n[k] === 'string' && !n[k].trim());
-        if (missing && WEST_PEEK_PRODUCTIONS[k] !== undefined) {
+        const stale = AUTHORITATIVE.has(k) && !missing && !same(n[k], WEST_PEEK_PRODUCTIONS[k]);
+        if ((missing || stale) && WEST_PEEK_PRODUCTIONS[k] !== undefined) {
           n[k] = JSON.parse(JSON.stringify(WEST_PEEK_PRODUCTIONS[k]));
           changedBlock = true;
           filledHere++;
