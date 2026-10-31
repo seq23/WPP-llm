@@ -84,7 +84,12 @@ async function check(url, hosts) {
   return out;
 }
 
-const groups = [['organization', entity.organization], ['founder', entity.founder]];
+// The organization, the founder, and every site the repo publishes. A site's own
+// sameAs (its public source repository) is watched on the same terms as the rest, so
+// Search Readiness k1 cannot quietly rot: a dead profile is dropped and logged here
+// too, instead of sitting in entity.json unchecked.
+const groups = [['organization', entity.organization], ['founder', entity.founder],
+  ...Object.entries(entity.sites || {}).map(([host, node]) => [`site:${host}`, node])];
 const total = groups.reduce((n, [, g]) => n + (g?.sameAs?.length || 0), 0) + (entity.profiles_pending || []).length;
 if (!total) { console.error('[entity-backlink-watch] FAILED: entity.json lists no sameAs or pending profile to check'); process.exit(1); }
 

@@ -15,7 +15,10 @@
       "https://www.linkedin.com/company/west-peek-productions/",
       "https://www.wikidata.org/wiki/Q140357096"
     ],
-    "link_back_hosts": ["westpeekproductions.com", "virtualagency-os.com"]
+    "link_back_hosts": [
+      "westpeekproductions.com",
+      "virtualagency-os.com"
+    ]
   },
   "founder": {
     "@id": "https://www.westpeekproductions.com/#scooter-taylor",
@@ -26,7 +29,32 @@
       "https://www.linkedin.com/in/scootertaylor/",
       "https://www.wikidata.org/wiki/Q140357048"
     ],
-    "link_back_hosts": ["scootertaylor.com", "westpeekproductions.com", "virtualagency-os.com"]
+    "link_back_hosts": [
+      "scootertaylor.com",
+      "westpeekproductions.com",
+      "virtualagency-os.com"
+    ]
+  },
+  "sites": {
+    "virtualagency-os.com": {
+      "@id": "https://virtualagency-os.com/#website",
+      "name": "VirtualAgency OS",
+      "url": "https://virtualagency-os.com/",
+      "description": "VirtualAgency OS is the buyer-education and citation layer West Peek Productions publishes for people choosing an agency or a virtual-event partner.",
+      "publisher": {
+        "@id": "https://www.westpeekproductions.com/#organization"
+      },
+      "parentOrganization": null,
+      "parentOrganization_note": "entity_parent is `own` in the grid manifest: this site never carries the Spry Labs parent.",
+      "sameAs": [
+        "https://github.com/seq23/WPP-llm"
+      ],
+      "sameAs_note": "The site's own external identity. The public source repository is the one third-party property that verifiably belongs to this site; its GitHub homepage field points back at virtualagency-os.com, so the link is two-way. A Wikidata item waits on independent references (see not_yet_created).",
+      "link_back_hosts": [
+        "virtualagency-os.com"
+      ],
+      "profiles_pending": []
+    }
   },
   "profiles_pending": [],
   "not_yet_created": [

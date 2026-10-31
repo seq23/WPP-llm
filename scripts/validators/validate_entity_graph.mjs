@@ -60,6 +60,34 @@ if (!same(WEST_PEEK_PRODUCTIONS.sameAs, org.sameAs)) fail('entity.mjs organizati
 if (!same(SCOOTER_TAYLOR.sameAs, founder.sameAs)) fail('entity.mjs founder sameAs does not equal entity.json');
 if (!org.description) fail('entity.json: organization.description is empty');
 
+// ---- 1b. the site's own identity (Search Readiness k1) ------------------------
+// WHY. k1 reads "the repo holds an entity.json whose entry for THIS SITE has a name
+// and a sameAs list". Until 31 Oct 2026 this file described West Peek Productions
+// (the publisher) and never the site, so the one check that reconciles the brand
+// read "no name, no sameAs list" while the file looked complete. The site entry is
+// now declared under `sites`, keyed by host, and pinned here so it cannot be dropped.
+// RULE 0: zero site entries is a failure, not a pass.
+const sites = ENTITY.sites || {};
+if (!Object.keys(sites).length) fail('entity.json: `sites` is empty, so no entry names this site (Search Readiness k1)');
+if (!sites[SITE_HOST]) fail(`entity.json: sites has no entry for this site's own host ${SITE_HOST} (Search Readiness k1)`);
+for (const [host, node] of Object.entries(sites)) {
+  const at = `entity.json: sites["${host}"]`;
+  if (!node || typeof node !== 'object') { fail(`${at} is not an object`); continue; }
+  if (!node.name) fail(`${at}.name is empty (Search Readiness k1)`);
+  if (!node.description) fail(`${at}.description is empty`);
+  if (!Array.isArray(node.sameAs) || !node.sameAs.length) fail(`${at}.sameAs is empty (Search Readiness k1 and k3)`);
+  for (const u of node.sameAs || []) {
+    if (!/^https:\/\//.test(u)) fail(`${at}.sameAs entry is not https: ${u}`);
+    // k2: a site's own identity never points back at itself.
+    if (hostOf(u) === host.replace(/^www\./, '')) fail(`${at}.sameAs points at the site's own host: ${u}`);
+  }
+  if (new Set(node.sameAs || []).size !== (node.sameAs || []).length) fail(`${at}.sameAs has duplicates`);
+  // k4: `own` in the grid manifest - this site never carries the Spry Labs parent.
+  if (JSON.stringify(node).includes('billionairehighperformancecoach.com/spry-labs')) {
+    fail(`${at} names Spry Labs as a parent, but the grid manifest records this site as \`own\``);
+  }
+}
+
 // ---- 2-4. the corpus ----------------------------------------------------------
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
