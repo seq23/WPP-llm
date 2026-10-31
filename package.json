@@ -165,7 +165,8 @@
     "test:free-router": "node scripts/llm/test_free_router.js",
     "validate:gsc-truth": "node scripts/validators/validate_gsc_truth.js",
     "validate:published-head-parity": "node scripts/validators/validate_published_head_parity.js",
-    "validate:sitemap-lastmod-honest": "node scripts/validators/validate_sitemap_lastmod_honest.js"
+    "validate:sitemap-lastmod-honest": "node scripts/validators/validate_sitemap_lastmod_honest.js",
+    "titles:refreeze": "node scripts/prepare_title_brand_refreeze.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope"
   },
   "dependencies": {
     "marked": "^12.0.2"

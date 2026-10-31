@@ -34,38 +34,134 @@ function fitDescription(candidates) {
 
 const titleFits = (s) => typeof s === 'string' && s.length >= TITLE_MIN && s.length <= TITLE_MAX;
 
-// Longer phrasings the programmatic generator repeats across a family, and a
-// shorter one that says the same thing. Used only when a title is over the band.
+/*
+ * THE SITE'S OWN NAME IS PART OF THE TITLE, NOT AN OPTIONAL EXTRA.
+ *
+ * Search Readiness b1 asks for "30-65 characters, unique, the query first, the
+ * site name once" and b10 asks that every title name its own site. On a long-tail
+ * site those two only coexist when the page NAME fits the band minus the brand
+ * clause: " | VirtualAgency OS" is 19 characters, so a name has 46.
+ *
+ * Until 31 Oct 2026 fitTitle's ladder preferred the bare name over a shortened
+ * branded one, and apply_title_suffix_band.js dropped the brand outright to bring
+ * a long title inside the band. The result: 532 of the 2,300 sitemap pages carried
+ * no brand at all, and b10 passed only on the weeks its 12-page sample happened to
+ * miss them. The ladder below prefers a branded title, and the brand is given up
+ * only when nothing else fits.
+ *
+ * COMPRESSION, NOT TRUNCATION. Each entry below is a phrasing the generators
+ * repeat across a family, paired with a shorter one that says the same thing.
+ * Cutting a name at a word boundary to make room for the brand produces "What
+ * should a community moderation | VirtualAgency OS", so truncation stays the last
+ * resort it always was: a name that cannot be compressed into its budget keeps its
+ * whole self and is reported, never cut to buy the brand.
+ *
+ * A RULE MAY COMPRESS A CLAUSE, NEVER COLLAPSE ONE PAGE'S TOPIC ONTO ANOTHER'S
+ * NAME. "Virtual Event Production" -> "Virtual Events" and "Executive Broadcast
+ * Production" -> "Executive Broadcast" both did that, giving two distinct pages one
+ * title; validate:page-meta caught them and they were removed. Audit a new rule
+ * against every page name before adding it.
+ */
 const SHORTER = [
-  [/\bIntegrated Agency vs\. Specialist Agencies\b/, 'Integrated vs. Specialist Agencies'],
-  [/: How To Build An Internal Workflow$/, ': Building an Internal Workflow'],
-  [/: What A Good Engagement Includes$/, ': What a Good Engagement Covers'],
-  [/: What To Prepare Before Kickoff$/, ': Preparing for Kickoff'],
-  [/\bfor Executive Leadership Teams$/, 'for Executive Teams'],
+  // The comparison families. "Agency"/"Agencies" is already said by the site and
+  // by the page's own H1, so the comparison keeps both sides and drops the noun.
+  [/\bIntegrated Agency vs\. Specialist Agencies\b/, 'Integrated vs. Specialist'],
+  [/\bIntegrated vs\. Specialist Agencies\b/, 'Integrated vs. Specialist'],
+  [/\bCreative Agency vs\. Production Company\b/, 'Creative vs. Production Co.'],
+  [/\bBrand Agency vs\. Marketing Agency\b/, 'Brand vs. Marketing Agency'],
+  [/\bAI Consultant vs\. Automation Agency\b/, 'AI Consultant vs. Automation'],
+  [/\bCreative Agency vs\. Production Co\.\b/, 'Creative vs. Production Co.'],
+  [/\bvs\. Production Company\b/, 'vs. Production Co.'],
+  // The lens clause each family repeats, as a noun phrase rather than a question.
+  [/:\s*How To Build An Internal Workflow\b/, ': Internal Workflow'],
+  [/:\s*What A Good Engagement Includes\b/, ': Good Engagements'],
+  [/:\s*What a Good Engagement Covers\b/, ': Good Engagements'],
+  [/:\s*What To Prepare Before Kickoff\b/, ': Before Kickoff'],
+  [/:\s*Building an Internal Workflow\b/, ': Internal Workflow'],
+  [/:\s*Preparing for Kickoff\b/, ': Before Kickoff'],
+  [/\bHow To Compare Vendors\b/, 'Comparing Vendors'],
+  [/\bHow To Brief A Partner\b/, 'Briefing a Partner'],
+  [/\bHow To Avoid Scope Creep\b/, 'Avoiding Scope Creep'],
+  [/\bHow To Measure Success\b/, 'Measuring Success'],
+  [/\bHow To Choose A\b/, 'Choosing a'],
+  [/\bHow To Choose\b/, 'Choosing'],
+  [/\bQuestions To Ask\b/, 'Questions'],
+  [/\bCommon Failure Points\b/, 'Failure Points'],
+  [/\bImplementation Guide\b/, 'Implementation'],
+  // The audience clause. It carries the page's uniqueness, so it is shortened,
+  // never dropped: two audiences must not collapse onto one title. A collision is
+  // refused outright by title_brand.js rather than written.
+  [/\bfor Professional Services Firms\b/, 'for Pro Services'],
+  [/\bfor Professional Services\b/, 'for Pro Services'],
+  [/\bfor Executive Leadership Teams\b/, 'for Executive Teams'],
+  [/\bfor Venture Backed Companies\b/, 'for VC-Backed Firms'],
+  [/\bfor Healthcare Organizations\b/, 'for Healthcare'],
+  [/\bfor Community Organizations\b/, 'for Community Orgs'],
+  [/\bfor Financial Services Teams\b/, 'for Financial Services'],
+  [/\bfor Education Institutions\b/, 'for Education'],
+  [/\bfor Investor Communities\b/, 'for Investors'],
+  [/\bfor Venture Backed\b/, 'for VC-Backed'],
+  // Filler clauses. Never a rule that rewrites the head of a name: see the note above.
+  [/\bCommunity Management Services\b/, 'Community Management'],
+  [/\bOutsourced Community Management\b/, 'Outsourced Community'],
+  [/\bCommunity Metrics and Measurement\b/, 'Community Measurement'],
+  [/\bCommunity Building for Brands\b/, 'Community Building'],
+  [/\bStrategy Framework\b/, 'Framework'],
+  [/\bMeasurement Framework\b/, 'Measurement'],
+  [/\bAgency Engagement\b/, 'Engagement'],
+  [/\bOperating Model\b/, 'Model'],
+  [/\bOrganizations\b/, 'Orgs'],
 ];
 const STOP_TAIL = /\s+(?:a|an|the|to|for|of|and|or|with|before|without|in|on|by|vs\.?)$/i;
 
-function shortenName(name, { truncate = true } = {}) {
+/**
+ * The name compressed toward `max` characters. `max` defaults to the whole band so
+ * existing callers are unchanged; fitTitle passes the band minus its brand clause,
+ * which is what leaves room for the site's own name. Compression runs first and is
+ * lossless in meaning; truncation only runs with { truncate: true } and only after
+ * compression has failed.
+ */
+function shortenName(name, { truncate = true, max = TITLE_MAX } = {}) {
   let n = String(name || '');
-  for (const [re, to] of SHORTER) if (n.length > TITLE_MAX) n = n.replace(re, to);
-  if (truncate && n.length > TITLE_MAX) {
-    n = n.slice(0, TITLE_MAX + 1).replace(/\s+\S*$/, '');
+  for (const [re, to] of SHORTER) if (n.length > max) n = n.replace(re, to).replace(/\s{2,}/g, ' ').trim();
+  if (truncate && n.length > max) {
+    n = n.slice(0, max + 1).replace(/\s+\S*$/, '');
     while (STOP_TAIL.test(n)) n = n.replace(STOP_TAIL, '');
     n = n.replace(/[\s,;:?!\-–—]+$/, '');
   }
   return n;
 }
 
+/** The name compressed into its budget WITHOUT ever being cut at a word. */
+const compressName = (name, max) => shortenName(name, { truncate: false, max });
+
+
 /**
- * A title inside TITLE_MIN-TITLE_MAX: the page name with the site suffix when
- * both fit, the name alone when only it fits, then a shortened name. Returns
- * null when nothing fits, which the caller must handle. { truncate: false } is
- * for hand-written titles: those are rewritten by a person, never cut at a word.
+ * A title inside TITLE_MIN-TITLE_MAX, carrying the site's own name whenever one
+ * can be made to fit (Search Readiness b1 and b10). The ladder, richest first:
+ *
+ *   1. the whole name with the suffix          - nothing given up
+ *   2. the name COMPRESSED into its budget, with the suffix
+ *   3. the whole name alone                    - the brand is given up here, and
+ *                                                only here, because compression
+ *                                                could not make room for it
+ *   4. the name truncated, with the suffix     - generated pages only
+ *   5. the name truncated alone
+ *
+ * Steps 1 and 2 are what keep the brand on the page: before 31 Oct 2026 the bare
+ * name sat at step 2 and won every time a name was over its budget, which is why
+ * 532 pages carried no brand. Returns null when nothing fits, which the caller
+ * must handle. { truncate: false } is for hand-written titles: those are rewritten
+ * by a person, never cut at a word.
  */
 function fitTitle(name, suffix = '', { truncate = true } = {}) {
+  const budget = Math.max(TITLE_MIN, TITLE_MAX - suffix.length);
+  const compressed = compressName(name, budget);
   const short = shortenName(name, { truncate });
-  return [`${name}${suffix}`, name, `${short}${suffix}`, short].find(titleFits) || null;
+  return [`${name}${suffix}`, `${compressed}${suffix}`, name, `${short}${suffix}`, short]
+    .find(titleFits) || null;
 }
+
 
 const cap = (s) => String(s || '').charAt(0).toUpperCase() + String(s || '').slice(1);
 
@@ -110,5 +206,5 @@ function programmaticDescriptionFromHero(query, hero) {
 }
 
 module.exports = {
-  TITLE_MIN, TITLE_MAX, DESC_MIN, DESC_MAX, fits, fitDescription, titleFits, fitTitle, shortenName, programmaticDescription, parseHero, programmaticDescriptionFromHero,
+  TITLE_MIN, TITLE_MAX, DESC_MIN, DESC_MAX, fits, fitDescription, titleFits, fitTitle, shortenName, compressName, SHORTER, programmaticDescription, parseHero, programmaticDescriptionFromHero,
 };
