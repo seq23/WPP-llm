@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T08:38:03.116Z",
+  "generated_at": "2026-10-31T20:38:25.934Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -218,7 +218,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-31T07:17:14.959Z",
+    "generated_at": "2026-10-31T19:15:28.630Z",
     "workflow_count": 10,
     "workflows": [
       "admin-command.yml",
@@ -1528,7 +1528,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-31T08:37:33.605Z",
+    "generated_at": "2026-10-31T20:37:49.467Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1537,7 +1537,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 6039,
+      "candidates_considered": 6037,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1556,177 +1556,34 @@
         "2026-10-25"
       ],
       "usage_source": "data/cadence/known_urls.json",
-      "new_pages_used_this_week": 0,
-      "new_pages_used_this_week_urls": [],
-      "weekly_headroom": 2,
-      "daily_headroom": 2,
-      "new_page_allowance_this_run": 2,
+      "new_pages_used_this_week": 2,
+      "new_pages_used_this_week_urls": [
+        "https://virtualagency-os.com/programmatic/brand-implementation-strategy",
+        "https://virtualagency-os.com/programmatic/what-is-creative-consulting"
+      ],
+      "weekly_headroom": 0,
+      "daily_headroom": 0,
+      "new_page_allowance_this_run": 0,
       "governed_by": "weekly_cadence_policy"
     },
     "daily_new_page_ceiling": 2,
     "daily_repair_ceiling": 100,
-    "daily_new_pages_already_used": 0,
+    "daily_new_pages_already_used": 2,
     "daily_repairs_already_used": 0,
-    "max_new_pages_this_run": 2,
+    "max_new_pages_this_run": 0,
     "max_repairs_this_run": 100,
     "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "ee6123a0e93162aebe9f7b42a990eafadd5be980aff246a3e600ce60e6336e71",
-      "legacy_backlog": 67,
-      "thin_pages": 67,
+      "corpus_fingerprint": "07bb805d115944f142ba12aa808273dbb351e9aa91cc0b8554d784d0ddd76671",
+      "legacy_backlog": 65,
+      "thin_pages": 65,
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
-    "units": [
-      {
-        "opportunity_id": "opp_YnJhbmQgaW1wbGVtZW50YXRp",
-        "query": "brand implementation strategy",
-        "cluster": "brand-strategy-consulting",
-        "pillar": "brand",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/brand-implementation-strategy",
-        "page_family": "operational_guide",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 62,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/brand-implementation-strategy",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1064,
-          "max_similarity": 0.507916,
-          "nearest_route": "/programmatic/brand-strategy-consulting-for-nonprofits",
-          "reasons": []
-        },
-        "release_order": 1,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 13,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      },
-      {
-        "opportunity_id": "opp_d2hhdCBpcyBjcmVhdGl2ZSBj",
-        "query": "what is creative consulting",
-        "cluster": "creative-strategy-consulting",
-        "pillar": "creative",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/what-is-creative-consulting",
-        "page_family": "definition",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 62,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/what-is-creative-consulting",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1124,
-          "max_similarity": 0.456618,
-          "nearest_route": "/programmatic/what-is-creative-strategy-consulting",
-          "reasons": []
-        },
-        "release_order": 2,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 12,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      }
-    ],
-    "release_units": [
-      {
-        "opportunity_id": "opp_YnJhbmQgaW1wbGVtZW50YXRp",
-        "query": "brand implementation strategy",
-        "cluster": "brand-strategy-consulting",
-        "pillar": "brand",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/brand-implementation-strategy",
-        "page_family": "operational_guide",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 62,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/brand-implementation-strategy",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1064,
-          "max_similarity": 0.507916,
-          "nearest_route": "/programmatic/brand-strategy-consulting-for-nonprofits",
-          "reasons": []
-        },
-        "release_order": 1,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 13,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      },
-      {
-        "opportunity_id": "opp_d2hhdCBpcyBjcmVhdGl2ZSBj",
-        "query": "what is creative consulting",
-        "cluster": "creative-strategy-consulting",
-        "pillar": "creative",
-        "authority_lane": "CORE",
-        "entity_binding": "west_peek_productions",
-        "target_route": "/programmatic/what-is-creative-consulting",
-        "page_family": "definition",
-        "source": "measured_demand_seed",
-        "demand_estimate": 0,
-        "score": 62,
-        "exists": false,
-        "action": "create",
-        "status": "admitted_candidate",
-        "source_route": "/what-is-creative-consulting",
-        "exists_now": false,
-        "release_action": "create",
-        "quality_reason": null,
-        "quality_preflight": {
-          "ok": true,
-          "word_count": 1124,
-          "max_similarity": 0.456618,
-          "nearest_route": "/programmatic/what-is-creative-strategy-consulting",
-          "reasons": []
-        },
-        "release_order": 2,
-        "demand_evidence": {
-          "source_type": "gsc_search_analytics",
-          "evidence_tier": "T1",
-          "search_volume": null,
-          "impressions_90d": 12,
-          "demand_basis": "impressions_90d",
-          "source_file": "data/authority_scale/query_atlas.json"
-        }
-      }
-    ],
+    "units": [],
+    "release_units": [],
     "blocked": [
       {
         "target_route": "/programmatic/brand-look-legit",
@@ -2025,14 +1882,6 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-planning-how-much-does-it-cost",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
         "target_route": "/programmatic/virtual-event-pricing",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
@@ -2217,14 +2066,6 @@
         ]
       },
       {
-        "target_route": "/programmatic/virtual-event-production-speaker-rehearsal",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
         "target_route": "/programmatic/virtual-event-production-sponsor-operations",
         "release_action": "repair",
         "reason": "quality_repair_missing_opportunity_metadata",
@@ -2264,7 +2105,7 @@
         "details": [
           "thin"
         ],
-        "max_similarity": 0.024595,
+        "max_similarity": 0.024622,
         "nearest_route": "/programmatic/livekit-virtual-events",
         "self_heal_cycle": 1
       }
@@ -2274,10 +2115,13 @@
       "families": 30,
       "opportunities_withheld": 3096
     },
-    "status": "READY"
+    "status": "COMPLETED_NO_CHANGES",
+    "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
+    "create_stop_detail": "6037 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 0)",
+    "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-10-31T08:37:36.981Z",
+    "updated": "2026-10-31T20:37:53.712Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5406,11 +5250,11 @@
     ],
     "blocked_routes": [],
     "last_release_run": {
-      "created": 2,
+      "created": 0,
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-31T08:37:36.981Z"
+      "at": "2026-10-31T20:37:53.712Z"
     }
   },
   "query_universe_count": 10597
