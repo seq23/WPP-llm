@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-10-30T20:38:48.784Z",
-  "workflow_count": 9,
+  "generated_at": "2026-10-31T07:17:14.959Z",
+  "workflow_count": 10,
   "workflows": [
     "admin-command.yml",
     "ci.yml",
     "credential-check.yml",
     "distribution.yml",
+    "entity-backlink-watch.yml",
     "paid-citation-probe.yml",
     "programmatic-release.yml",
     "query-intelligence.yml",
@@ -458,6 +459,92 @@
       "workflow_name": "Distribution - IndexNow and Search Console",
       "job": "distribute",
       "step": 10,
+      "name": "actions/upload-artifact@v7",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 1,
+      "name": "actions/checkout@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 2,
+      "name": "actions/setup-node@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 3,
+      "name": "bash scripts/ci_npm_install.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/ci_npm_install.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 4,
+      "name": "Sync latest main before writing",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 5,
+      "name": "Check every sameAs profile and self-heal entity.json",
+      "npm_script": "entity:watch",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 6,
+      "name": "Rewrite and refreeze pages if entity.json changed",
+      "npm_script": "entity:converge",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 7,
+      "name": "Commit only validated self-heal output",
+      "npm_script": null,
+      "direct_paths": [
+        ".github/scripts/commit_and_push_if_changed.sh"
+      ],
+      "env_keys": [
+        "PRE_PUSH_VALIDATION_ARGV"
+      ]
+    },
+    {
+      "workflow": "entity-backlink-watch.yml",
+      "workflow_name": "Entity Backlink Watch",
+      "job": "watch",
+      "step": 8,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],

@@ -1,8 +1,8 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-10-30T20:38:48.784Z
+Generated: 2026-10-31T07:17:14.959Z
 
-Workflows: 9
+Workflows: 10
 
 ## Required persistent data files
 - PASS _citation_intelligence_contract.json
@@ -60,6 +60,14 @@ Workflows: 9
 - distribution.yml :: distribute #8 :: Restore GSC inspection cache
 - distribution.yml :: distribute #9 :: Run credential-safe distribution
 - distribution.yml :: distribute #10 :: actions/upload-artifact@v7
+- entity-backlink-watch.yml :: watch #1 :: actions/checkout@v6
+- entity-backlink-watch.yml :: watch #2 :: actions/setup-node@v6
+- entity-backlink-watch.yml :: watch #3 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
+- entity-backlink-watch.yml :: watch #4 :: Sync latest main before writing
+- entity-backlink-watch.yml :: watch #5 :: Check every sameAs profile and self-heal entity.json :: npm:entity:watch
+- entity-backlink-watch.yml :: watch #6 :: Rewrite and refreeze pages if entity.json changed :: npm:entity:converge
+- entity-backlink-watch.yml :: watch #7 :: Commit only validated self-heal output :: paths:.github/scripts/commit_and_push_if_changed.sh
+- entity-backlink-watch.yml :: watch #8 :: actions/upload-artifact@v7
 - paid-citation-probe.yml :: probe #1 :: Refuse unless confirm_paid is true
 - paid-citation-probe.yml :: probe #2 :: actions/checkout@v6
 - paid-citation-probe.yml :: probe #3 :: actions/setup-node@v6
