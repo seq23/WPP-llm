@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T20:38:38.815Z",
+  "generated_at": "2026-10-31T08:38:03.116Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -218,13 +218,14 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-10-30T19:15:53.053Z",
-    "workflow_count": 9,
+    "generated_at": "2026-10-31T07:17:14.959Z",
+    "workflow_count": 10,
     "workflows": [
       "admin-command.yml",
       "ci.yml",
       "credential-check.yml",
       "distribution.yml",
+      "entity-backlink-watch.yml",
       "paid-citation-probe.yml",
       "programmatic-release.yml",
       "query-intelligence.yml",
@@ -677,6 +678,92 @@
         "workflow_name": "Distribution - IndexNow and Search Console",
         "job": "distribute",
         "step": 10,
+        "name": "actions/upload-artifact@v7",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 1,
+        "name": "actions/checkout@v6",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 2,
+        "name": "actions/setup-node@v6",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 3,
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 4,
+        "name": "Sync latest main before writing",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 5,
+        "name": "Check every sameAs profile and self-heal entity.json",
+        "npm_script": "entity:watch",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 6,
+        "name": "Rewrite and refreeze pages if entity.json changed",
+        "npm_script": "entity:converge",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 7,
+        "name": "Commit only validated self-heal output",
+        "npm_script": null,
+        "direct_paths": [
+          ".github/scripts/commit_and_push_if_changed.sh"
+        ],
+        "env_keys": [
+          "PRE_PUSH_VALIDATION_ARGV"
+        ]
+      },
+      {
+        "workflow": "entity-backlink-watch.yml",
+        "workflow_name": "Entity Backlink Watch",
+        "job": "watch",
+        "step": 8,
         "name": "actions/upload-artifact@v7",
         "npm_script": null,
         "direct_paths": [],
@@ -1441,7 +1528,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-10-30T20:38:10.056Z",
+    "generated_at": "2026-10-31T08:37:33.605Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1450,7 +1537,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 6085,
+      "candidates_considered": 6039,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1460,30 +1547,27 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-10-31",
         "2026-10-30",
         "2026-10-29",
         "2026-10-28",
         "2026-10-27",
         "2026-10-26",
-        "2026-10-25",
-        "2026-10-24"
+        "2026-10-25"
       ],
       "usage_source": "data/cadence/known_urls.json",
-      "new_pages_used_this_week": 2,
-      "new_pages_used_this_week_urls": [
-        "https://virtualagency-os.com/programmatic/live-event-production-webinar",
-        "https://virtualagency-os.com/programmatic/marketing-operating-model-design"
-      ],
-      "weekly_headroom": 0,
+      "new_pages_used_this_week": 0,
+      "new_pages_used_this_week_urls": [],
+      "weekly_headroom": 2,
       "daily_headroom": 2,
-      "new_page_allowance_this_run": 0,
+      "new_page_allowance_this_run": 2,
       "governed_by": "weekly_cadence_policy"
     },
     "daily_new_page_ceiling": 2,
     "daily_repair_ceiling": 100,
     "daily_new_pages_already_used": 0,
     "daily_repairs_already_used": 0,
-    "max_new_pages_this_run": 0,
+    "max_new_pages_this_run": 2,
     "max_repairs_this_run": 100,
     "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
@@ -1495,8 +1579,154 @@
       "exact_duplicate_pages": 0,
       "near_duplicate_pages": 0
     },
-    "units": [],
-    "release_units": [],
+    "units": [
+      {
+        "opportunity_id": "opp_YnJhbmQgaW1wbGVtZW50YXRp",
+        "query": "brand implementation strategy",
+        "cluster": "brand-strategy-consulting",
+        "pillar": "brand",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/brand-implementation-strategy",
+        "page_family": "operational_guide",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/brand-implementation-strategy",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1064,
+          "max_similarity": 0.507916,
+          "nearest_route": "/programmatic/brand-strategy-consulting-for-nonprofits",
+          "reasons": []
+        },
+        "release_order": 1,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 13,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      },
+      {
+        "opportunity_id": "opp_d2hhdCBpcyBjcmVhdGl2ZSBj",
+        "query": "what is creative consulting",
+        "cluster": "creative-strategy-consulting",
+        "pillar": "creative",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/what-is-creative-consulting",
+        "page_family": "definition",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/what-is-creative-consulting",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1124,
+          "max_similarity": 0.456618,
+          "nearest_route": "/programmatic/what-is-creative-strategy-consulting",
+          "reasons": []
+        },
+        "release_order": 2,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 12,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      }
+    ],
+    "release_units": [
+      {
+        "opportunity_id": "opp_YnJhbmQgaW1wbGVtZW50YXRp",
+        "query": "brand implementation strategy",
+        "cluster": "brand-strategy-consulting",
+        "pillar": "brand",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/brand-implementation-strategy",
+        "page_family": "operational_guide",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/brand-implementation-strategy",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1064,
+          "max_similarity": 0.507916,
+          "nearest_route": "/programmatic/brand-strategy-consulting-for-nonprofits",
+          "reasons": []
+        },
+        "release_order": 1,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 13,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      },
+      {
+        "opportunity_id": "opp_d2hhdCBpcyBjcmVhdGl2ZSBj",
+        "query": "what is creative consulting",
+        "cluster": "creative-strategy-consulting",
+        "pillar": "creative",
+        "authority_lane": "CORE",
+        "entity_binding": "west_peek_productions",
+        "target_route": "/programmatic/what-is-creative-consulting",
+        "page_family": "definition",
+        "source": "measured_demand_seed",
+        "demand_estimate": 0,
+        "score": 62,
+        "exists": false,
+        "action": "create",
+        "status": "admitted_candidate",
+        "source_route": "/what-is-creative-consulting",
+        "exists_now": false,
+        "release_action": "create",
+        "quality_reason": null,
+        "quality_preflight": {
+          "ok": true,
+          "word_count": 1124,
+          "max_similarity": 0.456618,
+          "nearest_route": "/programmatic/what-is-creative-strategy-consulting",
+          "reasons": []
+        },
+        "release_order": 2,
+        "demand_evidence": {
+          "source_type": "gsc_search_analytics",
+          "evidence_tier": "T1",
+          "search_volume": null,
+          "impressions_90d": 12,
+          "demand_basis": "impressions_90d",
+          "source_file": "data/authority_scale/query_atlas.json"
+        }
+      }
+    ],
     "blocked": [
       {
         "target_route": "/programmatic/brand-look-legit",
@@ -2042,15 +2272,12 @@
     "paused_for_consolidation": {
       "ledger": "data/seo/duplicate_family_consolidation.json",
       "families": 30,
-      "opportunities_withheld": 3058
+      "opportunities_withheld": 3096
     },
-    "status": "COMPLETED_NO_CHANGES",
-    "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "6085 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
-    "create_stop_is_legitimate": true
+    "status": "READY"
   },
   "content_state": {
-    "updated": "2026-10-30T20:38:13.397Z",
+    "updated": "2026-10-31T08:37:36.981Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5173,15 +5400,17 @@
       "/programmatic/ai-marketing-workflow",
       "/programmatic/how-to-build-a-human-in-the-loop-ai-marketing-system",
       "/programmatic/live-event-production-webinar",
-      "/programmatic/marketing-operating-model-design"
+      "/programmatic/marketing-operating-model-design",
+      "/programmatic/brand-implementation-strategy",
+      "/programmatic/what-is-creative-consulting"
     ],
     "blocked_routes": [],
     "last_release_run": {
-      "created": 0,
+      "created": 2,
       "repaired": 0,
       "skipped": 1,
       "quality_rejected": 1,
-      "at": "2026-10-30T20:38:13.397Z"
+      "at": "2026-10-31T08:37:36.981Z"
     }
   },
   "query_universe_count": 10597

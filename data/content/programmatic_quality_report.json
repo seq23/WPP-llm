@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "analysis_version": "wpp-content-quality-v1",
-  "corpus_fingerprint": "ee6123a0e93162aebe9f7b42a990eafadd5be980aff246a3e600ce60e6336e71",
+  "corpus_fingerprint": "76b1979b713d6976728a1bbd0a80475c900950230d0edfd02082d3d8db9d1429",
   "config": {
     "min_programmatic_words": 700,
     "duplicate_block_threshold": 0.9,
@@ -12,7 +12,7 @@
     "repair_policy": "only count a repair when the page content actually changes and passes the same substance and duplicate gate"
   },
   "summary": {
-    "pages_scanned": 2745,
+    "pages_scanned": 2747,
     "blocking_legacy_pages": 67,
     "thin_pages": 67,
     "exact_duplicate_pages": 0,
@@ -4676,6 +4676,19 @@
       "flags": []
     },
     {
+      "route": "/programmatic/brand-implementation-strategy",
+      "file": "programmatic/brand-implementation-strategy.html",
+      "query": "brand implementation strategy",
+      "cluster": "brand-strategy-consulting",
+      "pillar": "brand",
+      "page_family": "operational_guide",
+      "word_count": 1403,
+      "max_similarity": 0.618806,
+      "nearest_route": "/programmatic/brand-strategy-consulting-for-nonprofits",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
       "route": "/programmatic/brand-implementation",
       "file": "programmatic/brand-implementation.html",
       "query": "brand implementation",
@@ -7493,8 +7506,8 @@
       "pillar": "brand",
       "page_family": "operational_guide",
       "word_count": 1425,
-      "max_similarity": 0.387392,
-      "nearest_route": "/programmatic/brand-strategy-consulting-for-nonprofits",
+      "max_similarity": 0.455562,
+      "nearest_route": "/programmatic/brand-implementation-strategy",
       "exact_duplicate_routes": [],
       "flags": []
     },
@@ -25411,7 +25424,7 @@
     {
       "route": "/programmatic/host-virtual-events",
       "file": "programmatic/host-virtual-events.html",
-      "query": "best way to host a virtual event",
+      "query": "how to host a virtual event",
       "cluster": "unclustered",
       "pillar": "experiences",
       "page_family": "programmatic_opportunity",
@@ -35488,6 +35501,19 @@
       "word_count": 1577,
       "max_similarity": 0.542403,
       "nearest_route": "/programmatic/creative-agency-vs-production-company-examples",
+      "exact_duplicate_routes": [],
+      "flags": []
+    },
+    {
+      "route": "/programmatic/what-is-creative-consulting",
+      "file": "programmatic/what-is-creative-consulting.html",
+      "query": "what is creative consulting",
+      "cluster": "creative-strategy-consulting",
+      "pillar": "creative",
+      "page_family": "definition",
+      "word_count": 1459,
+      "max_similarity": 0.495935,
+      "nearest_route": "/programmatic/what-is-creative-strategy-consulting",
       "exact_duplicate_routes": [],
       "flags": []
     },
