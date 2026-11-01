@@ -13,7 +13,7 @@ schedule); see the notes below for what moved.
 | Programmatic Content Release - Full Flow 90 Day | `programmatic-release.yml` | every day 03:35, 15:35 CT | `35 3,15 * * *` |
 | Query Intelligence - GSC Gemini and $0 Signals | `query-intelligence.yml` | every day 02:10, 14:10 CT | `10 2,14 * * *` |
 | Search Repair and Retest - Diagnose, Bounded Repair, Delayed Retest | `search-repair-retest.yml` | every day 05:40 CT | `40 5 * * *` |
-| Bounded Self-Healing | `self-heal.yml` | Wed 11:26 CT | `26 11 * * 3` |
+| Bounded Self-Healing | `self-heal.yml` | Wed 10:30 CT | `30 10 * * 3` |
 
 ## Weekly windows
 
@@ -25,3 +25,4 @@ schedule); see the notes below for what moved.
 ## Moved on 1 Nov 2026
 - Entity Backlink Watch: Monday → Thursday 08:00 CT.
 - Credential Check: Monday → Friday 07:45 CT.
+- Bounded Self-Healing joins the Wednesday 10:00–10:30 CT self-healing sweep (p-n-p 10:00, Dream Wedding 10:10, backlink network 10:20, WPP 10:30).
