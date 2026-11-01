@@ -8,7 +8,8 @@ on:
         type: boolean
         default: true
   schedule:
-    - cron: '10 7,19 * * *'
+    - cron: '10 2,14 * * *'  # America/Chicago, all year
+      timezone: America/Chicago
 
 permissions:
   contents: write
