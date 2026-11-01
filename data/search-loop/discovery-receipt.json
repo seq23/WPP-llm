@@ -1,0 +1,51 @@
+{
+  "schema": "search-loop-discovery-v1",
+  "site": "virtualagency-os.com",
+  "week": "2026-W44",
+  "generated_at": "2026-11-01T17:10:15.190Z",
+  "paid_calls": 0,
+  "cost_usd": 0,
+  "hosts": {
+    "searchconsole.googleapis.com": {
+      "calls": 1,
+      "ok": 1,
+      "failed": 0,
+      "cost_usd": 0
+    },
+    "ssl.bing.com": {
+      "calls": 1,
+      "ok": 1,
+      "failed": 0,
+      "cost_usd": 0
+    },
+    "suggestqueries.google.com": {
+      "calls": 40,
+      "ok": 40,
+      "failed": 0,
+      "cost_usd": 0
+    },
+    "api.bing.com": {
+      "calls": 40,
+      "ok": 40,
+      "failed": 0,
+      "cost_usd": 0
+    }
+  },
+  "sources": {
+    "search_console": "ok: 5 rows",
+    "bing_webmaster": "ok: 66 rows",
+    "suggestqueries.google.com": "ok",
+    "api.bing.com": "ok",
+    "relevance_screen": "ok: kept 23 of 32 (free model)"
+  },
+  "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)",
+  "notes": [
+    "autocomplete stopped at its budget of 80 calls"
+  ],
+  "counts": {
+    "candidates": 51,
+    "targets": 23,
+    "strengthen_candidates": 19,
+    "dropped_shared_audience": 0
+  }
+}
