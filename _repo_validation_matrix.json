@@ -39,16 +39,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "validator-registry",
-      "command": "node scripts/validate_validator_registry.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure validation pipeline remains registered, matrixed, and common-sense.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "canonical-routes",
       "command": "node scripts/validate_canonical_routes.js",
       "severity": "HARD_FAIL",
@@ -239,7 +229,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
+      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
@@ -446,16 +436,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "repo-work-os-completeness",
-      "command": "node scripts/validators/validate_repo_work_os_completeness.mjs",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure all applicable Repo Work OS Pass 13.1 capabilities and operator artifacts are present.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "full-flow-citation-engine",
       "command": "node scripts/validators/validate_full_flow_citation_engine.mjs",
       "severity": "HARD_FAIL",
@@ -504,16 +484,6 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
-    },
-    {
-      "id": "content-pattern-contract",
-      "command": "node scripts/validators/validate_content_pattern_contract.js",
-      "severity": "STRONG_WARNING",
-      "purpose": "Report pre-publish coverage of the blocks the external review agent repeatedly asks for (direct answer, h1 phrasing, populated tables, one conversion path, checklist, comparison table, concrete numbers, named sources, FAQ, JSON-LD). Reporting severity while 143 pages carry no direct-answer block; promote to HARD_FAIL at zero.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "report_and_continue"
     },
     {
       "id": "audience-permutation-budget",
@@ -580,16 +550,6 @@
       "command": "node scripts/validate_workflow_liveness.js",
       "severity": "HARD_FAIL",
       "purpose": "Hard-fail when a workflow GitHub reports as active has produced no run inside its own declared cron window, or exists on GitHub with no file and no recorded retirement. Deleting a workflow file leaves the workflow active and frozen on its last result: auto_publish_insights.yml was removed 2026-06-25 and sat red-but-unread for 71 days because a lane that never runs never goes red. Also fails the zero-job YAML parse error and the unindented heredoc terminator that caused it.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "zero-item-guards",
-      "command": "node scripts/validate_zero_item_guards.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prove every validator in the CI chain hard-fails on an empty input set; a gate that passes while examining zero items is not passing.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",

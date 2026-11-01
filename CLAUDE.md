@@ -30,10 +30,9 @@ or a free-router step.
 `docs/cost/zero-paid-llm.md` is the full record: what used to be paid, what it
 costs now, and why each lane is shaped the way it is.
 
-`npm run validate:zero-paid-llm` reads this file, that document and
-`config/llm_routing.json`, and fails red if any of the three stops saying it.
-A rule no code reads is a wish, so the rule is pinned by that validator and the
-validator runs in `ci.yml`.
+`npm run validate:zero-paid-llm` (in `ci.yml`) enforces it in code: it reads
+`config/llm_routing.json`, every script and every workflow, and fails red on a
+paid model, a direct provider call or a model key outside the free routes.
 
 ## Generated pages are not edited by hand
 

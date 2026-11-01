@@ -6,7 +6,7 @@
  * 3-19). On 25 Sep 2026 virtualagency-os.com had 121 sitemap pages with a
  * description under 110 characters, 1,901 over 160, 12 duplicate-title groups
  * and 58 duplicate-description groups. The band below is what every generator
- * writes to and what scripts/validators/validate_page_meta.js enforces, so the
+ * writes to and what the central search-readiness audit checks, so the
  * generators and the gate read the same numbers.
  */
 const TITLE_MIN = 30;

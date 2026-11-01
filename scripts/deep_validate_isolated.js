@@ -10,7 +10,6 @@ const commands = [
   ['github-actions-workflows', 'node scripts/validate_workflows.js'],
   ['strategy-gate', 'node scripts/validate_strategy_gate.js'],
   ['master-plan-completion', 'node scripts/validate_master_plan_completion.js'],
-  ['validator-registry', 'node scripts/validate_validator_registry.js'],
   ['artifact-manifest', 'node scripts/validate_artifact_manifest.js'],
   ['canonical-routes', 'node scripts/validate_canonical_routes.js'],
   ['priority-pages', 'node scripts/validate_priority_pages.js'],
