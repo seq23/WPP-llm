@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-11-01T11:44:54.701Z
+Generated: 2026-11-01T20:16:35.877Z
 
 Workflows: 10
 
@@ -74,19 +74,6 @@ Workflows: 10
 - paid-citation-probe.yml :: probe #4 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
 - paid-citation-probe.yml :: probe #5 :: Observe whether answer engines cite us (paid)
 - paid-citation-probe.yml :: probe #6 :: Commit observations :: paths:.github/scripts/commit_and_push_if_changed.sh
-- programmatic-release.yml :: release #1 :: actions/checkout@v6
-- programmatic-release.yml :: release #2 :: actions/setup-node@v6
-- programmatic-release.yml :: release #3 :: actions/setup-python@v6
-- programmatic-release.yml :: release #4 :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
-- programmatic-release.yml :: release #5 :: node scripts/runtime_guard.mjs
-- programmatic-release.yml :: release #6 :: python -m pip install --upgrade pip && python -m pip install google-api-python-client goog
-- programmatic-release.yml :: release #7 :: Sync latest main before autonomous release
-- programmatic-release.yml :: release #8 :: Validate workflow syntax :: npm:actions:validate
-- programmatic-release.yml :: release #9 :: Run GSC primary collector :: paths:distribution_scripts/gsc_collect_query_signals.py
-- programmatic-release.yml :: release #10 :: Ingest measured Search Console queries as T1 atlas evidence :: npm:queries:ingest
-- programmatic-release.yml :: release #11 :: Run controlled autonomous content release :: npm:release:autonomous
-- programmatic-release.yml :: release #12 :: Commit generated pages and registries :: paths:.github/scripts/commit_and_push_if_changed.sh
-- programmatic-release.yml :: release #13 :: actions/upload-artifact@v7
 - query-intelligence.yml :: collect_score #1 :: actions/checkout@v6
 - query-intelligence.yml :: collect_score #2 :: actions/setup-node@v6
 - query-intelligence.yml :: collect_score #3 :: actions/setup-python@v6
@@ -106,6 +93,8 @@ Workflows: 10
 - query-intelligence.yml :: collect_score #17 :: Validate query intelligence :: npm:validate:autonomous
 - query-intelligence.yml :: collect_score #18 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
 - query-intelligence.yml :: collect_score #19 :: actions/upload-artifact@v7
+- search-loop.yml :: runtime #1 :: actions/checkout@v6
+- search-loop.yml :: runtime #2 :: node scripts/runtime_guard.mjs
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6
 - search-repair-retest.yml :: diagnose_repair_retest #2 :: actions/setup-node@v6
 - search-repair-retest.yml :: diagnose_repair_retest #3 :: actions/setup-python@v6
@@ -132,6 +121,9 @@ Workflows: 10
 - self-heal.yml :: self_heal #7 :: Repair until clean :: npm:selfheal
 - self-heal.yml :: self_heal #8 :: Commit only validated repair output :: paths:.github/scripts/commit_and_push_if_changed.sh
 - self-heal.yml :: self_heal #9 :: actions/upload-artifact@v7
+- search-loop.yml :: search-loop #setup_command :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
+- search-loop.yml :: search-loop #post_build_command :: bash .github/scripts/search_loop_post_build.sh :: paths:.github/scripts/search_loop_post_build.sh
+- search-loop.yml :: search-loop #commit_command :: ./.github/scripts/search_loop_commit.sh :: paths:./.github/scripts/search_loop_commit.sh
 
 ## Errors
 - none

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T11:44:54.701Z",
+  "generated_at": "2026-11-01T20:16:35.877Z",
   "workflow_count": 10,
   "workflows": [
     "admin-command.yml",
@@ -8,8 +8,8 @@
     "distribution.yml",
     "entity-backlink-watch.yml",
     "paid-citation-probe.yml",
-    "programmatic-release.yml",
     "query-intelligence.yml",
+    "search-loop.yml",
     "search-repair-retest.yml",
     "self-heal.yml"
   ],
@@ -623,152 +623,6 @@
       ]
     },
     {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 1,
-      "name": "actions/checkout@v6",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 2,
-      "name": "actions/setup-node@v6",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 3,
-      "name": "actions/setup-python@v6",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 4,
-      "name": "bash scripts/ci_npm_install.sh",
-      "npm_script": null,
-      "direct_paths": [
-        "scripts/ci_npm_install.sh"
-      ],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 5,
-      "name": "node scripts/runtime_guard.mjs",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 6,
-      "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 7,
-      "name": "Sync latest main before autonomous release",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 8,
-      "name": "Validate workflow syntax",
-      "npm_script": "actions:validate",
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 9,
-      "name": "Run GSC primary collector",
-      "npm_script": null,
-      "direct_paths": [
-        "distribution_scripts/gsc_collect_query_signals.py"
-      ],
-      "env_keys": [
-        "GSC_SERVICE_ACCOUNT_JSON",
-        "GSC_SITE_URL_SECRET",
-        "GSC_SITE_URL_VAR"
-      ]
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 10,
-      "name": "Ingest measured Search Console queries as T1 atlas evidence",
-      "npm_script": "queries:ingest",
-      "direct_paths": [],
-      "env_keys": [
-        "GSC_SERVICE_ACCOUNT_JSON",
-        "GSC_SITE_URL_SECRET",
-        "GSC_SITE_URL_VAR"
-      ]
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 11,
-      "name": "Run controlled autonomous content release",
-      "npm_script": "release:autonomous",
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 12,
-      "name": "Commit generated pages and registries",
-      "npm_script": null,
-      "direct_paths": [
-        ".github/scripts/commit_and_push_if_changed.sh"
-      ],
-      "env_keys": [
-        "PRE_PUSH_VALIDATION_ARGV"
-      ]
-    },
-    {
-      "workflow": "programmatic-release.yml",
-      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-      "job": "release",
-      "step": 13,
-      "name": "actions/upload-artifact@v7",
-      "npm_script": null,
-      "direct_paths": [],
-      "env_keys": []
-    },
-    {
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
@@ -979,6 +833,26 @@
       "job": "collect_score",
       "step": 19,
       "name": "actions/upload-artifact@v7",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-loop.yml",
+      "workflow_name": "Search Loop",
+      "job": "runtime",
+      "step": 1,
+      "name": "actions/checkout@v6",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-loop.yml",
+      "workflow_name": "Search Loop",
+      "job": "runtime",
+      "step": 2,
+      "name": "node scripts/runtime_guard.mjs",
       "npm_script": null,
       "direct_paths": [],
       "env_keys": []
@@ -1256,6 +1130,42 @@
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-loop.yml",
+      "workflow_name": "Search Loop",
+      "job": "search-loop",
+      "step": "setup_command",
+      "name": "bash scripts/ci_npm_install.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "scripts/ci_npm_install.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-loop.yml",
+      "workflow_name": "Search Loop",
+      "job": "search-loop",
+      "step": "post_build_command",
+      "name": "bash .github/scripts/search_loop_post_build.sh",
+      "npm_script": null,
+      "direct_paths": [
+        ".github/scripts/search_loop_post_build.sh"
+      ],
+      "env_keys": []
+    },
+    {
+      "workflow": "search-loop.yml",
+      "workflow_name": "Search Loop",
+      "job": "search-loop",
+      "step": "commit_command",
+      "name": "./.github/scripts/search_loop_commit.sh",
+      "npm_script": null,
+      "direct_paths": [
+        "./.github/scripts/search_loop_commit.sh"
+      ],
       "env_keys": []
     }
   ],
