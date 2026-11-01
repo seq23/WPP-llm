@@ -19,7 +19,7 @@ alerts, because nothing runs.
 
 | Workflow | Retired | GitHub state | Reason | Superseded by |
 | --- | --- | --- | --- | --- |
-| `programmatic-release.yml` (Programmatic Content Release, id 302395827) | 2026-11-01 | `disabled_manually` (2026-11-01) | Its new-page lane (2 a week, held until Search Console evidence) is replaced by the shared search loop, which publishes straight away (owner ruling 1 Nov 2026). Query intelligence and repair/retest of the existing library stay: the engine does not do them. | `search-loop.yml` |
+| `programmatic-release.yml` (Programmatic Content Release, id 302395827) | 2026-11-01 | `deleted` (GitHub, at merge) | Its new-page lane (2 a week, held until Search Console evidence) is replaced by the shared search loop, which publishes straight away (owner ruling 1 Nov 2026). Query intelligence and repair/retest of the existing library stay: the engine does not do them. | `search-loop.yml` |
 | `auto_publish_insights.yml` (Citation Release Loop, id 231677534) | 2026-06-25, commit `924f9707` | `disabled_manually` (2026-09-05) | Unindented heredoc terminator inside a `run: \|` block made GitHub parse `NODE` as YAML; its last three runs are zero-job parse failures. Replaced by a spine split rather than a one-line fix. Its daily `git add -A` push to `main` carrying a production `INDEXNOW_KEY` was deliberately not restored. | `ci.yml`, `programmatic-release.yml`, `distribution.yml`, `credential-check.yml`, `query-intelligence.yml` |
 
 Deleting the file left id 231677534 at `state: active` for 71 days. It was
