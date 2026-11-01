@@ -22,7 +22,7 @@
  *
  * Frozen pages are restored after this step in `npm run build`, so on a normal
  * build it changes nothing on them; a thawed route (EXACT_ROUTE_THAW_VALIDATE_
- * REFREEZE) picks it up. scripts/validators/validate_page_meta.js is the gate.
+ * REFREEZE) picks it up. The central search-readiness audit (boss-os, b1/b2) checks the result.
  *
  * RULE 0: fewer than MIN_PAGES programmatic pages parsed means the parser has
  * stopped matching the template, and that exits non-zero.
@@ -87,7 +87,7 @@ for (const p of guides) {
 }
 // Pages outside the guide template (hand-written guides, community frameworks)
 // keep their own description; their title loses only its suffix. A hand-written
-// title still over the band is left for validate_page_meta.js to name, because
+// title still over the band is left for the central search-readiness audit to name, because
 // cutting a person's sentence at a word reads as broken.
 const others = pages.filter((p) => !guides.includes(p) && p.title);
 for (const p of others) {

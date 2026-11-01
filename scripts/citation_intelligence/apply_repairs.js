@@ -102,7 +102,7 @@ function repairMetaDescription(html) {
   if (!source || source.length < 40) return { html, applied: false, reason: 'no_usable_source_text' };
   const desc = truncateAtWord(source, DESC_MAX);
   // Held to the site band (scripts/lib/page_meta.js, enforced on every sitemap
-  // page by validate_page_meta.js): a repair that wrote a 40-109 character
+  // page by the central search-readiness audit): a repair that wrote a 40-109 character
   // description would turn this lane's own validate:all red.
   if (desc.length < DESC_MIN) return { html, applied: false, reason: 'derived_description_too_short' };
   const tag = `<meta name="description" content="${esc(desc)}">`;

@@ -48,9 +48,8 @@
         ".github/workflows/README.md",
         "docs/SCHEDULE.md"
       ],
-      "github_state": "disabled_manually",
-      "disabled_on_github": "2026-11-01",
-      "disabled_note": "Disabled through the Actions API right after the merge that deleted the file, so GitHub does not keep an active record with no file."
+      "github_state": "deleted",
+      "disabled_note": "After the merge GitHub reported the workflow record as state=deleted (the file removal retired it at GitHub too), so there was nothing left to disable."
     }
   ]
 }

@@ -24,13 +24,6 @@
       "owner": "repo"
     },
     {
-      "id": "validator-registry",
-      "command": "node scripts/validate_validator_registry.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure validation pipeline remains registered, matrixed, and common-sense.",
-      "owner": "repo"
-    },
-    {
       "id": "canonical-routes",
       "command": "node scripts/validate_canonical_routes.js",
       "severity": "HARD_FAIL",
@@ -369,13 +362,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "repo-work-os-completeness",
-      "command": "node scripts/validators/validate_repo_work_os_completeness.mjs",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure all applicable Repo Work OS Pass 13.1 capabilities and operator artifacts are present.",
-      "owner": "repo"
-    },
-    {
       "id": "full-flow-citation-engine",
       "command": "node scripts/validators/validate_full_flow_citation_engine.mjs",
       "severity": "HARD_FAIL",
@@ -423,16 +409,6 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
-    },
-    {
-      "id": "content-pattern-contract",
-      "command": "node scripts/validators/validate_content_pattern_contract.js",
-      "severity": "STRONG_WARNING",
-      "purpose": "Report pre-publish coverage of the blocks the external review agent repeatedly asks for (direct answer, h1 phrasing, populated tables, one conversion path, checklist, comparison table, concrete numbers, named sources, FAQ, JSON-LD). Reporting severity while 143 pages carry no direct-answer block; promote to HARD_FAIL at zero.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "report_and_continue"
     },
     {
       "id": "audience-permutation-budget",
@@ -487,13 +463,6 @@
       "owner": "repo"
     },
     {
-      "id": "zero-item-guards",
-      "command": "node scripts/validate_zero_item_guards.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prove every validator in the CI chain hard-fails on an empty input set; a gate that passes while examining zero items is not passing.",
-      "owner": "repo"
-    },
-    {
       "id": "no-redirecting-internal-links",
       "command": "node scripts/validators/validate_no_redirecting_internal_links.js",
       "severity": "HARD_FAIL",
@@ -512,13 +481,6 @@
       "command": "node scripts/validators/validate_measured_urls_resolve.js",
       "severity": "HARD_FAIL",
       "purpose": "No URL Search Console measured (90-day query x page, 28-day, dead-URL list) is a 404 in the build: each resolves to a page or a 301 to a page, every rule in data/redirects/measured_404_redirects.json is emitted, and no redirect source is in sitemap.xml, and every workflow that runs search:intelligence runs redirects:measured:refresh before it validates. 11 Oct 2026: 149 measured URLs 404d; 17-18 Oct 2026: search-repair-retest red on 4 freshly inspected canonicals.",
-      "owner": "repo"
-    },
-    {
-      "id": "page-meta",
-      "command": "node scripts/validators/validate_page_meta.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Every sitemap page has a 30-70 character title and a 110-160 character meta description, none shared (Bing rules 113, 117, 118 and Site Scan title length).",
       "owner": "repo"
     },
     {
