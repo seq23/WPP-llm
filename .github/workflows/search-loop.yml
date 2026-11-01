@@ -12,8 +12,6 @@ on:
   schedule:
     - cron: '35 3 * * *'  # America/Chicago, all year (the retired release lane's slot)
       timezone: America/Chicago
-  push:
-    branches: [feat/search-loop]  # PROOF RUN ONLY - removed before merge
   workflow_dispatch:
     inputs:
       stage:
