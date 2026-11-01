@@ -11,18 +11,16 @@ assert.strictEqual(extractVisibleText(primary), extractVisibleText(primary.repla
 assert.strictEqual(jaccard(shingleSetFromHtml(primary), shingleSetFromHtml(primary.replace('</main>', `${fanout}</main>`))), 1, 'fanout changed semantic shingles');
 
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
-const autonomous = pkg.scripts['release:autonomous'] || '';
-assert(autonomous.includes('release:quality:self-heal'), 'autonomous release bypasses quality self-heal');
-assert(autonomous.indexOf('release:quality:self-heal') < autonomous.indexOf('validate:autonomous'), 'self-heal runs after final validation');
 assert((pkg.scripts['release:push-gate'] || '').includes('release:self-heal'), 'push gate omits exact release validation');
 const planValidator = fs.readFileSync(path.join(ROOT, 'scripts/validate_release_plan.js'), 'utf8');
 for (const reason of ['quality_preflight_rejected', 'quality_repair_missing_opportunity_metadata', 'postbuild_quality_quarantine']) {
   assert(planValidator.includes(`'${reason}'`), `release plan validator rejects safe receipt ${reason}`);
 }
 
-const writers = ['admin-command.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml'];
+// search-loop.yml pushes through .github/scripts/search_loop_commit.sh.
+const writers = ['workflows/admin-command.yml', 'workflows/query-intelligence.yml', 'workflows/search-repair-retest.yml', 'scripts/search_loop_commit.sh'];
 for (const name of writers) {
-  const body = fs.readFileSync(path.join(ROOT, '.github/workflows', name), 'utf8');
+  const body = fs.readFileSync(path.join(ROOT, '.github', name), 'utf8');
   assert(body.includes('commit_and_push_if_changed.sh'), `${name} bypasses governed push helper`);
   assert(!/(^|[;&|\s])git\s+push(?:\s|$)/m.test(body), `${name} contains raw git push`);
 }

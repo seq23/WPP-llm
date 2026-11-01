@@ -21,6 +21,12 @@ The one paid lane that still exists — `scripts/llm_citation_probe.mjs` — is
 dispatch-only behind a `confirm_paid` input that defaults to `false`, and refuses
 with a named stop otherwise. It never runs on a schedule.
 
+The shared search loop (`.github/workflows/search-loop.yml`, engine
+`seq23/search-loop@v1`) is the other $0 route: its model lanes are free tiers only
+(`max_cost_usd: 0`, no paid fallback, a non-zero `usage.cost` fails loud), and
+`validate:zero-paid-llm` lets `OPENROUTER_API_KEY` reach only that pinned engine
+or a free-router step.
+
 `docs/cost/zero-paid-llm.md` is the full record: what used to be paid, what it
 costs now, and why each lane is shaped the way it is.
 
@@ -37,6 +43,16 @@ never the rendered page. `npm run build` reassembles the site; accepted pages ar
 hash-locked in `data/release/frozen_output_registry.json` and may only drift when
 their route is listed in `data/release/active_mutation_scope.json`
 (see `docs/` and `scripts/authority_scale/frozen_outputs.mjs`).
+
+## Search loop pages (`questions/`)
+
+Pages under `questions/` are published by the shared search loop (owner ruling
+1 Nov 2026: publish straight away, every page ends in an inquiry with West Peek
+Productions). Change them through `search-loop.config.json` or the engine, never
+by hand. `.github/scripts/search_loop_post_build.sh` folds them into the site
+(build, CTA attribution, cadence record as `search_loop`); the weekly report is
+the `search-loop-week` artifact of each Search Loop run, the ledger is
+`data/search-loop/`.
 
 ## Proving a change
 

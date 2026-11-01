@@ -151,6 +151,16 @@ if (gainer && loser) {
     check(gate.urls.has(gainerUrl) && gate.urls.has(forgedUrl), 'cadence case examined zero items: injected URLs not read from the sitemap');
     check(!gate.newEditorial.includes(gainerUrl), `cadence gate counts ${gainerUrl} (an existing page re-indexed by the noindex policy) as a new unrecorded publication`);
     check(gate.newEditorial.includes(forgedUrl), 'cadence gate excused a genuinely new page because its ledger record claims reindexed_existing');
+    // Search loop records (1 Nov 2026) excuse only /questions/ pages: a forged
+    // search_loop claim elsewhere is refused at record time and still counted.
+    const outsideUrl = `${forgedUrl}-search-loop`;
+    const loopRefusal = tempCap.recordSearchLoopPublication(a, [outsideUrl]);
+    check(loopRefusal.recorded === 0 && loopRefusal.refused.includes(outsideUrl), 'recordSearchLoopPublication accepted a URL outside /questions/');
+    const forgedLoop = tempCap.readLedger(a);
+    forgedLoop.sources[forgedUrl] = tempCap.SOURCE_SEARCH_LOOP;
+    tempCap.writeLedger(a, forgedLoop, today);
+    const gateLoop = require(path.join(a, 'scripts/cadence_gate.js')).evaluate(a);
+    check(gateLoop.newEditorial.includes(forgedUrl), 'cadence gate excused a page outside /questions/ because its ledger record claims search_loop');
     const c = runApply(a, ['--check']);
     check(c.status === 0, `--check reports drift after apply: ${(c.stderr || '').slice(0, 300)}`);
   } finally { fs.rmSync(a, { recursive: true, force: true }); }

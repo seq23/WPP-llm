@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-05-auto-publish-insights-disabled-at-github",
+  "updated": "2026-11-01-programmatic-release-retired-for-search-loop",
   "repository": "seq23/WPP-llm",
   "policy": "Every workflow GitHub reports for this repository must be backed by either a file in .github/workflows or a retired[] entry that says who superseded it and why. Every on-disk workflow that declares a cron schedule must have produced a run inside its own declared window. Retirement is recorded, never silent.",
   "why_this_file_exists": "Deleting a workflow file does not delete the workflow. On 2026-06-25 commit 924f9707 removed .github/workflows/auto_publish_insights.yml as part of an Actions spine split. GitHub kept workflow id 231677534 with state=active, pinned to its last event: a failure. For 71 days the repository presented an ACTIVE workflow whose most recent run was red, while every other lane ran daily and green. Nothing was red day to day because nothing ran. A deleted workflow leaves an active record and no alarm; this contract is the record, and validate_workflow_liveness.js is the alarm.",
@@ -20,7 +20,7 @@
       "reason": "Superseded, not repaired. GitHub rejected this file: the shell heredoc terminator NODE inside a `run: |` block was not indented, so GitHub parsed NODE as YAML instead of shell. The three runs on 2026-06-25 (28201648707, 28201649558, 28203551644) are zero-job parse failures - the logs never name a YAML error, which is why this went unread. Commit 924f9707 chose a spine split over a one-line fix, because a single monolithic lane doing release, SEO, citation, distribution and query testing is one failure point. The file was removed and its work redistributed. Its publication role is deliberately NOT restored in this form: it held a production INDEXNOW_KEY, ran `git add -A` and pushed to main on a daily cron with no gate on the upstream run's outcome. That publication now lives in distribution.yml, which runs only after a successful upstream workflow_run. Recorded here on 2026-09-04 because the removal left workflow id 231677534 reporting state=active with a red last run and no owner.",
       "superseded_by": [
         ".github/workflows/ci.yml",
-        ".github/workflows/programmatic-release.yml",
+        ".github/workflows/search-loop.yml",
         ".github/workflows/distribution.yml",
         ".github/workflows/credential-check.yml",
         ".github/workflows/query-intelligence.yml"
@@ -31,7 +31,26 @@
       ],
       "github_state": "disabled_manually",
       "disabled_on_github": "2026-09-05",
-      "disabled_note": "Recorded in this ledger on 2026-09-04, but GitHub still reported id 231677534 as state=active - the file was gone while the workflow record lived on, which is the whole defect. Disabled via the Actions API on 2026-09-05 so the retirement is true at GitHub and not only in this file. The Actions UI no longer presents a red Citation Release Loop with no owner. validate_workflow_liveness.js skips non-active workflows, so this entry stays as the reason-of-record; the active-with-no-file rule continues to guard every future deletion."
+      "disabled_note": "Recorded in this ledger on 2026-09-04, but GitHub still reported id 231677534 as state=active - the file was gone while the workflow record lived on, which is the whole defect. Disabled via the Actions API on 2026-09-05 so the retirement is true at GitHub and not only in this file. The Actions UI no longer presents a red Citation Release Loop with no owner. validate_workflow_liveness.js skips non-active workflows, so this entry stays as the reason-of-record; the active-with-no-file rule continues to guard every future deletion.",
+      "superseded_by_note": "programmatic-release.yml was itself retired on 2026-11-01; its publication role now lives in search-loop.yml (see the entry below)."
+    },
+    {
+      "path": ".github/workflows/programmatic-release.yml",
+      "workflow_id": 302395827,
+      "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
+      "retired_on": "2026-11-01",
+      "recorded_on": "2026-11-01",
+      "reason": "Superseded by the shared search growth engine (seq23/search-loop @v1), owner ruling 1 Nov 2026: one engine finds easy searches, publishes gated pages straight away under /questions/, checks them at 2/4/8 weeks and 90 days, and strengthens, undoes or merges them. This lane created new pages at 2 a week behind the Search Console-gated cadence that ruling replaced, so keeping it would run two publishers against one site. Query intelligence (Search Console evidence, noindex reconciliation) and search repair/retest of the existing library stay: the engine does not do them.",
+      "superseded_by": [
+        ".github/workflows/search-loop.yml"
+      ],
+      "evidence": [
+        ".github/workflows/README.md",
+        "docs/SCHEDULE.md"
+      ],
+      "github_state": "disabled_manually",
+      "disabled_on_github": "2026-11-01",
+      "disabled_note": "Disabled through the Actions API right after the merge that deleted the file, so GitHub does not keep an active record with no file."
     }
   ]
 }

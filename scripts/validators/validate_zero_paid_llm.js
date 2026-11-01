@@ -14,7 +14,9 @@
  *      invokes a probe script or sets CONFIRM_PAID;
  *   E. a scheduled workflow passes a model key other than OPENROUTER_API_KEY,
  *      or passes OPENROUTER_API_KEY anywhere but a step that runs a registered
- *      free-router consumer.
+ *      free-router consumer or the secrets: of a job calling the shared search
+ *      engine pinned at SHARED_ENGINE (seq23/search-loop: $0 lanes only,
+ *      max_cost_usd 0, no paid fallback, a non-zero usage.cost fails loud).
  * Usage: node validate_zero_paid_llm.js [repo-root]
  */
 const fs = require('fs');
@@ -117,6 +119,20 @@ function stepOf(lines, i) {
   return null;
 }
 
+// The one reusable workflow a job may hand OPENROUTER_API_KEY to, in its
+// secrets: block. Any other ref (a branch, another version, a fork) fails.
+const SHARED_ENGINE = 'seq23/search-loop/.github/workflows/search-loop.yml@v1';
+function sharedEngineSecret(lines, i) {
+  let start = i;
+  while (start > 0 && !/^ {2}[A-Za-z0-9_-]+:\s*$/.test(lines[start])) start -= 1;
+  let end = i + 1;
+  while (end < lines.length && !/^ {2}[A-Za-z0-9_-]+:\s*$/.test(lines[end]) && !/^\S/.test(lines[end])) end += 1;
+  const job = lines.slice(start, end);
+  const usesOk = job.some((l) => l.trim() === `uses: ${SHARED_ENGINE}`);
+  const secretsAt = job.findIndex((l) => /^ {4}secrets:\s*$/.test(l));
+  return usesOk && secretsAt >= 0 && (i - start) > secretsAt;
+}
+
 for (const wf of wfs) {
   const text = read(wf);
   const scheduled = /^\s*schedule:/m.test(text);
@@ -139,6 +155,7 @@ for (const wf of wfs) {
   lines.forEach((line, i) => {
     if (!/OPENROUTER_API_KEY/.test(line) || /^\s*#/.test(line)) return;
     const step = stepOf(lines, i);
+    if (!step && sharedEngineSecret(lines, i)) return;
     if (!step) { fail(`${wf}:${i + 1} passes OPENROUTER_API_KEY at job/workflow level; scope it to the free-router step`); return; }
     if (!consumerTokens.some((t) => invokes(step, t) || step.includes(t))) fail(`${wf}:${i + 1} passes OPENROUTER_API_KEY to a step that runs no registered free-router consumer`);
   });

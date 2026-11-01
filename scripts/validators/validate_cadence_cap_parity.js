@@ -182,14 +182,19 @@ const pkg = JSON.parse(read('package.json') || '{}');
 const pushGate = String((pkg.scripts || {})['release:push-gate'] || '');
 examined += 1;
 if (!/npm run cadence:gate/.test(pushGate)) fail('release_lane_ungated: package.json release:push-gate does not run cadence:gate, so the release lane can push a commit that CI will then block on the same policy.');
-const releaseWf = read('.github/workflows/programmatic-release.yml');
-if (releaseWf === null) fail('release_workflow_missing: .github/workflows/programmatic-release.yml does not exist.');
+// Every lane that publishes pages must run the gate before it pushes, on the
+// exact commit. Since 1 Nov 2026 that lane is the shared search loop
+// (search-loop.yml -> .github/scripts/search_loop_commit.sh); the release lane
+// it replaced (programmatic-release.yml) is retired.
+const commitScript = read('.github/scripts/search_loop_commit.sh');
+examined += 1;
+if (commitScript === null) fail('publisher_commit_missing: .github/scripts/search_loop_commit.sh does not exist, so the search loop has no gated push.');
 else {
-  const code = releaseWf.split('\n').map((l) => l.replace(/(^|\s)#.*$/, '$1')).join('\n');
-  const m = code.match(/PRE_PUSH_VALIDATION_ARGV:\s*(.+)/);
+  const code = commitScript.split('\n').map((l) => l.replace(/(^|\s)#.*$/, '$1')).join('\n');
+  const m = code.match(/PRE_PUSH_VALIDATION_ARGV=\s*(.+)/);
   const argv = m ? m[1].trim() : 'npm run release:push-gate';
-  if (!/release:push-gate/.test(argv)) fail(`release_lane_bypasses_push_gate: programmatic-release.yml validates with "${argv}", not release:push-gate, so the cadence gate never runs before its push.`);
-  if (!/commit_and_push_if_changed\.sh/.test(code)) fail('release_lane_push_helper_missing: programmatic-release.yml does not push through commit_and_push_if_changed.sh, where the pre-push validation runs.');
+  if (!/release:push-gate/.test(argv)) fail(`publisher_bypasses_push_gate: search_loop_commit.sh validates with "${argv}", not release:push-gate, so the cadence gate never runs before its push.`);
+  if (!/commit_and_push_if_changed\.sh/.test(code)) fail('publisher_push_helper_missing: search_loop_commit.sh does not push through commit_and_push_if_changed.sh, where the pre-push validation runs.');
 }
 
 if (examined === 0) fail('examined_zero: this validator examined nothing.');

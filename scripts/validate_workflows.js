@@ -9,7 +9,6 @@ const workflowDir = path.join(ROOT, '.github', 'workflows');
 const required = [
   'ci.yml',
   'query-intelligence.yml',
-  'programmatic-release.yml',
   'distribution.yml',
   'credential-check.yml',
   'admin-command.yml',
@@ -20,6 +19,17 @@ const required = [
   // Owner policy, 11 Oct 2026: the paid probe lane, dispatch-only behind confirm_paid.
   'paid-citation-probe.yml'
 ];
+// Callers of a shared reusable workflow carry no steps of their own, so the
+// setup-node/npm-install checks below cannot apply; they get their own, stricter
+// shape check instead. search-loop.yml (owner ruling 1 Nov 2026) replaced
+// programmatic-release.yml: the shared engine seq23/search-loop pinned at @v1.
+const reusableCallers = {
+  'search-loop.yml': {
+    uses: 'seq23/search-loop/.github/workflows/search-loop.yml@v1',
+    engineRef: 'v1',
+    commitScript: '.github/scripts/search_loop_commit.sh',
+  },
+};
 const bad = [];
 
 const packageLockPath = path.join(ROOT, 'package-lock.json');
@@ -102,7 +112,7 @@ for (const file of required) {
   }
 }
 
-const allowedWorkflowNames = new Set(required);
+const allowedWorkflowNames = new Set([...required, ...Object.keys(reusableCallers)]);
 for (const file of fs.existsSync(workflowDir) ? fs.readdirSync(workflowDir).filter((n) => /\.ya?ml$/.test(n)) : []) {
   if (!allowedWorkflowNames.has(file)) bad.push(`unexpected workflow file: ${file}; keep the action spine explicit`);
 }
@@ -121,7 +131,28 @@ if (fs.existsSync(distribution)) {
   if (!text.includes('INDEXNOW_KEY_VAR') || !text.includes('indexnow_key')) bad.push('distribution.yml missing IndexNow secret/variable fallback wiring');
 }
 
-for (const file of ['admin-command.yml', 'paid-citation-probe.yml', 'programmatic-release.yml', 'query-intelligence.yml', 'search-repair-retest.yml', 'self-heal.yml', 'entity-backlink-watch.yml']) {
+for (const [file, want] of Object.entries(reusableCallers)) {
+  const full = path.join(workflowDir, file);
+  if (!fs.existsSync(full)) { bad.push(`${file}: reusable caller missing`); continue; }
+  const doc = YAML.parse(fs.readFileSync(full, 'utf8')) || {};
+  const jobs = Object.values(doc.jobs || {}).filter((j) => j && j.uses);
+  if (jobs.length !== 1) bad.push(`${file}: a reusable caller has exactly one job that calls the engine (found ${jobs.length})`);
+  const job = jobs[0] || {};
+  const guard = Object.values(doc.jobs || {}).find((j) => j && (j.steps || []).some((st) => String(st.run || '').includes('scripts/runtime_guard.mjs')));
+  if (!guard) bad.push(`${file}: no job runs scripts/runtime_guard.mjs, so pause / emergency stop cannot reach this writer`);
+  if (!/needs\.[A-Za-z0-9_-]+\.outputs\.allowed == 'true'/.test(String(job.if || ''))) bad.push(`${file}: the engine job must be gated on the runtime guard's allowed output`);
+  if (job.uses !== want.uses) bad.push(`${file}: must call ${want.uses} (found ${job.uses || 'no uses:'})`);
+  if ((job.with || {}).engine_ref !== want.engineRef) bad.push(`${file}: engine_ref must equal the @ref in uses: (${want.engineRef})`);
+  if (((doc.concurrency || {}).group) !== 'wpp-autonomous-writer-main') bad.push(`${file}: writer is outside the shared main serialization group`);
+  const commit = String((job.with || {}).commit_command || '');
+  if (!commit.includes(want.commitScript)) bad.push(`${file}: commit_command must be ${want.commitScript} (the exact-SHA push helper)`);
+  const script = path.join(ROOT, want.commitScript);
+  const code = fs.existsSync(script) ? fs.readFileSync(script, 'utf8') : '';
+  if (!code.includes('commit_and_push_if_changed.sh')) bad.push(`${want.commitScript}: writer bypasses shared exact-SHA push helper`);
+  if (/(^|[;&|\s])git\s+push(?:\s|$)/m.test(code)) bad.push(`${want.commitScript}: raw git push bypasses exact-SHA validation`);
+}
+
+for (const file of ['admin-command.yml', 'paid-citation-probe.yml', 'query-intelligence.yml', 'search-repair-retest.yml', 'self-heal.yml', 'entity-backlink-watch.yml']) {
   const text = fs.readFileSync(path.join(workflowDir, file), 'utf8');
   if (!text.includes('group: wpp-autonomous-writer-main')) bad.push(`${file}: writer is outside the shared main serialization group`);
   if (!text.includes('commit_and_push_if_changed.sh')) bad.push(`${file}: writer bypasses shared exact-SHA push helper`);
@@ -135,4 +166,4 @@ if (bad.length) {
   console.error('GitHub workflow validation failed:\n- ' + bad.join('\n- '));
   process.exit(1);
 }
-console.log(`GitHub workflow validation OK (${required.length} workflows)`);
+console.log(`GitHub workflow validation OK (${required.length} workflows + ${Object.keys(reusableCallers).length} reusable caller(s))`);
