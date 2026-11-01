@@ -150,7 +150,12 @@ for (const wf of wfs) {
   if (/CONFIRM_PAID/.test(text)) fail(`${wf} sets CONFIRM_PAID outside a probe lane workflow`);
   if (!scheduled) continue;
   if (PAID_MODEL_SLUG.test(text.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n'))) fail(`${wf} is scheduled and names a paid model (${text.match(PAID_MODEL_SLUG)[1]})`);
-  if (OTHER_MODEL_KEYS.test(text)) fail(`${wf} is scheduled and passes a non-router model key (${text.match(OTHER_MODEL_KEYS)[1]})`);
+  // The search-loop engine's Gemini lane is $0 only with the vetted no-billing key: the one line
+  // `GEMINI_API_KEY: ${{ secrets.SEARCH_LOOP_GEMINI_API_KEY }}` in an engine caller is that lane.
+  // Any other Gemini/OpenAI/Anthropic/Perplexity key, or that line outside an engine caller, fails.
+  const engineCaller = /^\s+uses:\s*seq23\/search-loop\/\.github\/workflows\/search-loop\.yml@v\d+\s*$/m.test(text);
+  const keyText = engineCaller ? text.split('\n').filter((l) => !/^\s+GEMINI_API_KEY:\s*\$\{\{\s*secrets\.SEARCH_LOOP_GEMINI_API_KEY\s*\}\}\s*$/.test(l)).join('\n') : text;
+  if (OTHER_MODEL_KEYS.test(keyText)) fail(`${wf} is scheduled and passes a non-router model key (${keyText.match(OTHER_MODEL_KEYS)[1]})`);
   const lines = text.split('\n');
   lines.forEach((line, i) => {
     if (!/OPENROUTER_API_KEY/.test(line) || /^\s*#/.test(line)) return;

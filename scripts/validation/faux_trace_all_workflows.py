@@ -134,7 +134,10 @@ trace('search-loop.yml', 'engine-pinned', 'calls seq23/search-loop at @v1 with e
 trace('search-loop.yml', 'scheduled-active', 'runtime guard gates the loop',
       'node scripts/runtime_guard.mjs' in loop and "needs.runtime.outputs.allowed == 'true'" in loop)
 trace('search-loop.yml', 'provider-degraded', 'no paid model key is passed; GSC is optional',
-      'GSC_SERVICE_ACCOUNT_JSON' in loop and 'GEMINI_API_KEY' not in loop and 'ANTHROPIC' not in loop and 'OPENAI_API_KEY' not in loop)
+      'GSC_SERVICE_ACCOUNT_JSON' in loop
+      # the engine's $0 Gemini lane takes only the vetted no-billing key; any other Gemini key fails
+      and 'GEMINI_API_KEY' not in loop.replace('GEMINI_API_KEY: ${{ secrets.SEARCH_LOOP_GEMINI_API_KEY }}', '')
+      and 'ANTHROPIC' not in loop and 'OPENAI_API_KEY' not in loop)
 trace('search-loop.yml', 'serialized-writes', 'writer workflows share one concurrency group',
       'group: wpp-autonomous-writer-main' in loop and 'cancel-in-progress: false' in loop)
 trace('search-loop.yml', 'exact-sha-push-gate', 'candidate is validated before push',
