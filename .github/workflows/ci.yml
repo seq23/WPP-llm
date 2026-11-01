@@ -11,10 +11,11 @@ on:
   # push: alone cannot observe most of what lands on main: on 2026-08-29 the last
   # green run had tested 019b7448 while main was abea8a17d, and `npm run
   # cadence:gate` on that commit exits 1. This runs after the daily writers (the
-  # latest is search-repair-retest at 10:40 UTC) so a red main is reported within
+  # latest is search-repair-retest at 05:40 CT) so a red main is reported within
   # hours instead of waiting for a human PR to reveal it.
   schedule:
-    - cron: '15 12 * * *'
+    - cron: '15 7 * * *'  # America/Chicago, all year
+      timezone: America/Chicago
 
 permissions:
   contents: read
