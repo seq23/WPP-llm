@@ -5,6 +5,10 @@ buyer-education layer operated for West Peek Productions. `REPO_IDENTITY.md` is 
 identity record; `AGENTS.md` carries the Repo Operator bootstrap and the merge law.
 Read both before changing anything here.
 
+## Company brain
+
+Read `~/Brains/west-peek.md` before any work (business facts, priorities, voice, settled decisions). New business facts go to the brain via Boss OS, not into this repo or memory. Repo how-tos stay in `docs/`.
+
 ## Cost: nothing paid
 
 **Nothing paid.** Every model call this repository makes goes through the free
