@@ -1,0 +1,138 @@
+{
+  "schema": "search-loop-config-v1",
+  "site": "virtualagency-os.com",
+  "base_url": "https://virtualagency-os.com",
+  "site_name": "VirtualAgency OS",
+  "publisher": {
+    "name": "West Peek Productions",
+    "url": "https://www.westpeekproductions.com/"
+  },
+  "audience": "marketing, communications and events leads at companies and organisations planning a virtual, hybrid or broadcast event (webinars, summits, launches, town halls, live streams) and deciding whether to hire a production agency",
+  "voice": "plain, practical and calm; written for the person who has to deliver the event; concrete production steps over hype; no invented clients, case studies, awards, rankings, prices or numbers; never names any client of the agency",
+  "topics": [
+    "virtual event production",
+    "hybrid event production",
+    "webinar production",
+    "virtual summit production",
+    "live stream production",
+    "executive broadcast production",
+    "virtual town hall production",
+    "how to choose a virtual event production company",
+    "virtual event run of show",
+    "in-house vs agency event production"
+  ],
+  "find": {
+    "exclude_words": [
+      "jobs",
+      "salary",
+      "internship",
+      "login",
+      "free download",
+      "torrent",
+      "event viewer",
+      "fun run",
+      "in film",
+      "on set",
+      "live tv",
+      "play virtual town"
+    ]
+  },
+  "action": {
+    "label": "Start an inquiry with West Peek Productions",
+    "url": "https://www.westpeekproductions.com/?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=search-loop&utm_content=question"
+  },
+  "allowed_link_targets": [
+    "https://virtualagency-os.com",
+    "https://www.westpeekproductions.com",
+    "https://westpeekproductions.com"
+  ],
+  "mode": "normal",
+  "pace": {
+    "start_per_day": 10,
+    "step_per_week": 5,
+    "cap": 30
+  },
+  "menu_pages_need_approval": false,
+  "health_gate": "none",
+  "protected_paths": [
+    "index.html",
+    "404.html",
+    "about.html",
+    "admin",
+    "_headers",
+    "_redirects",
+    "robots.txt",
+    "llms.txt",
+    "llms-full.txt",
+    "llms-answers.txt",
+    "llms-entities.txt",
+    "llms-services.txt",
+    "indexnow.txt",
+    "9f3c2a7b6d8e41f0a5c7b9d2e1f4a8c0b6d9e3a7f1c4b8d0e2a6c9f3b7d1e4a8.txt"
+  ],
+  "output": {
+    "dir": "questions",
+    "format": "html-file",
+    "url_prefix": "/questions/"
+  },
+  "template": {
+    "section_name": "Questions",
+    "stylesheets": [
+      "/assets/site.css"
+    ],
+    "og_image": {
+      "url": "https://virtualagency-os.com/assets/og/west-peek-productions-og.png",
+      "width": 1200,
+      "height": 630
+    },
+    "header_html": "<header><div class=\"header-inner\"><div class=\"brand\"><a aria-label=\"VirtualAgency OS home\" href=\"/\"><img alt=\"West Peek Productions logo\" src=\"/assets/west-peek-productions-logo.jpeg\"></a><div class=\"name\">VirtualAgency OS</div></div><nav aria-label=\"Primary\" class=\"nav\"><a href=\"/\">Home</a><a href=\"/topics/\">Topics</a><a href=\"/articles\">Articles</a><a href=\"/about\">About</a></nav></div></header>",
+    "footer_html": "<footer><div class=\"footer-grid\"><div><div class=\"name\">VirtualAgency OS</div><div>Buyer education for virtual, hybrid and broadcast events, published by West Peek Productions.</div></div></div></footer>"
+  },
+  "related": {
+    "max_pages_per_new_page": 2,
+    "scan_dirs": [
+      "programmatic",
+      "answers",
+      "insights",
+      "learn",
+      "pillars",
+      "topics",
+      "case-studies",
+      "questions"
+    ],
+    "skip_dirs": [
+      "admin",
+      "artifacts",
+      "reports",
+      "logs",
+      "data",
+      "docs",
+      "scripts",
+      "config",
+      "content",
+      "node_modules",
+      ".search-loop-engine",
+      "releases",
+      "query-atlas",
+      "seo",
+      "tools"
+    ]
+  },
+  "gsc": {
+    "site_url_env": "GSC_SITE_URL"
+  },
+  "indexnow": {
+    "key": "9f3c2a7b6d8e41f0a5c7b9d2e1f4a8c0b6d9e3a7f1c4b8d0e2a6c9f3b7d1e4a8",
+    "key_location": "https://virtualagency-os.com/9f3c2a7b6d8e41f0a5c7b9d2e1f4a8c0b6d9e3a7f1c4b8d0e2a6c9f3b7d1e4a8.txt"
+  },
+  "analytics": {
+    "ai_referrals": "cloudflare",
+    "ai_bot_hits": "cloudflare",
+    "zone": "virtualagency-os.com"
+  },
+  "conversions": {
+    "source": "none"
+  },
+  "shares_audience_with": [],
+  "ledger_dir": "data/search-loop"
+}

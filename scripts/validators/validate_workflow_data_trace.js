@@ -57,7 +57,25 @@ for (const [file, doc] of Object.entries(docs)) {
     for (const n of arr) if (!names[n]) errors.push(`${file}: workflow_run references missing workflow name ${n}`);
   }
 }
+// A caller of a shared reusable workflow (search-loop.yml -> seq23/search-loop@v1)
+// has no steps here; its data flow is the site commands it hands the engine, and
+// each of those must reach a file that exists.
+const reusableCallerFiles = new Set();
+for (const [file, doc] of Object.entries(docs)) {
+  for (const [jobId, job] of Object.entries(doc.jobs || {})) {
+    if (!job.uses) continue;
+    reusableCallerFiles.add(file);
+    for (const key of ['setup_command', 'post_build_command', 'commit_command']) {
+      const cmd = String((job.with || {})[key] || '');
+      const npm = npmScriptName(cmd);
+      if (npm && !scripts[npm]) errors.push(`${file}:${jobId}:${key} calls missing npm script ${npm}`);
+      for (const p of directPaths(cmd)) if (!exists(p)) errors.push(`${file}:${jobId}:${key} references missing path ${p}`);
+      traces.push({workflow:file, workflow_name:doc.name, job:jobId, step:key, name:cmd.slice(0,90), npm_script:npm || null, direct_paths:directPaths(cmd), env_keys:[]});
+    }
+  }
+}
 for (const file of files) {
+  if (reusableCallerFiles.has(file)) continue;
   const text = read(path.join('.github','workflows',file));
   if (!text.includes("registry-url: 'https://registry.npmjs.org'")) errors.push(`${file}: setup-node missing public registry-url`);
   if (!text.includes('bash scripts/ci_npm_install.sh')) errors.push(`${file}: missing hardened npm install step`);
@@ -75,10 +93,16 @@ const flowRequirements = [
   ['query-intelligence.yml','query:atlas'],
   ['query-intelligence.yml','opportunities:score'],
   ['query-intelligence.yml','release:plan'],
-  ['programmatic-release.yml','release:autonomous'],
   ['distribution.yml','release:self-heal'],
   ['credential-check.yml','credentials:check']
 ];
+// The search loop's post-build folds published pages into the site: build, CTA
+// attribution, and the cadence record. Losing any of them ships pages the gate
+// rejects or the cap counts against the wrong lane.
+const postBuild = exists('.github/scripts/search_loop_post_build.sh') ? read('.github/scripts/search_loop_post_build.sh') : '';
+for (const step of ['npm run build', 'npm run cta:attribute', 'node scripts/cadence/record_search_loop_pages.js']) {
+  if (!postBuild.includes(step)) errors.push(`.github/scripts/search_loop_post_build.sh: missing data-flow step ${step}`);
+}
 for (const [file, script] of flowRequirements) {
   const text = exists(path.join('.github','workflows',file)) ? read(path.join('.github','workflows',file)) : '';
   if (!text.includes(`npm run ${script}`)) errors.push(`${file}: missing data-flow step npm run ${script}`);

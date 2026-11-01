@@ -70,6 +70,13 @@ const SOURCE_ACCEPTED = 'accepted';
 // the gate re-checks that on every read (unprovenReindexed), so writing this
 // source for a genuinely new page does not get it past the cap.
 const SOURCE_REINDEXED = 'reindexed_existing';
+// Pages published by the shared search loop (seq23/search-loop) under /questions/.
+// Owner ruling 1 Nov 2026: they publish straight away, paced by the loop itself
+// (10/day start, +5 a week while most are indexed, cap 30, halved when indexing
+// falls), so they sit outside this lane's weekly allowance. The record only
+// excuses a URL under SEARCH_LOOP_PREFIX; anywhere else it counts as no record.
+const SOURCE_SEARCH_LOOP = 'search_loop';
+const SEARCH_LOOP_PREFIX = '/questions/';
 const PRE_GATE_BASELINE_REL = 'data/demand/pre_gate_page_baseline.json';
 // The canonical origin the sitemap builder writes (scripts/update_sitemap_all_html.js
 // DOMAIN). A recorded URL has to match the sitemap byte-for-byte or the gate
@@ -114,7 +121,7 @@ function writeLedger(ROOT, ledger, today) {
   const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
   const doc = {
     generated_at: today,
-    _note: 'Baseline of URLs the cadence gate treats as existing. first_seen/sources are recorded for every URL added after 2026-09-12: source governed_release means the release lane created it inside policy and recorded it in the same run; source accepted means a human ran cadence:accept with a reason; source reindexed_existing means a pre-gate page the noindex policy had withheld was indexed again on new evidence (not a publication). URLs with no first_seen predate the record and are baseline. See scripts/cadence/weekly_cap.js.',
+    _note: 'Baseline of URLs the cadence gate treats as existing. first_seen/sources are recorded for every URL added after 2026-09-12: source governed_release means the release lane created it inside policy and recorded it in the same run; source accepted means a human ran cadence:accept with a reason; source reindexed_existing means a pre-gate page the noindex policy had withheld was indexed again on new evidence (not a publication); source search_loop means the shared search loop published it under /questions/ (paced by the loop, owner ruling 1 Nov 2026). URLs with no first_seen predate the record and are baseline. See scripts/cadence/weekly_cap.js.',
     urls: [...ledger.urls].sort(),
     first_seen: sortObj(ledger.first_seen || {}),
     sources: sortObj(ledger.sources || {}),
@@ -230,11 +237,40 @@ function recordReindexedExisting(ROOT, urls, opts = {}) {
   return { recorded: recorded.length, urls: recorded, refused, ledger };
 }
 
-/** Ledger entries claiming reindexed_existing whose route is NOT pre-gate: counted as unrecorded. */
+function isSearchLoopUrl(url) {
+  return String(url || '').startsWith(SITE_ORIGIN + SEARCH_LOOP_PREFIX);
+}
+
+/**
+ * The search loop declaring the pages it published. Records only URLs under
+ * /questions/ (refused ones stay unrecorded and count against the cap in full).
+ */
+function recordSearchLoopPublication(ROOT, urls, opts = {}) {
+  const today = opts.today || todayISO();
+  const ledger = readLedger(ROOT);
+  const fresh = [...new Set(urls)].filter((u) => u && !ledger.urls.has(u));
+  const recorded = fresh.filter(isSearchLoopUrl);
+  const refused = fresh.filter((u) => !isSearchLoopUrl(u));
+  if (!recorded.length) return { recorded: 0, urls: [], refused, ledger };
+  for (const u of recorded) {
+    ledger.urls.add(u);
+    ledger.first_seen[u] = today;
+    ledger.sources[u] = SOURCE_SEARCH_LOOP;
+  }
+  writeLedger(ROOT, ledger, today);
+  return { recorded: recorded.length, urls: recorded, refused, ledger };
+}
+
+/**
+ * Ledger entries whose source claim does not hold: reindexed_existing for a
+ * route that is NOT pre-gate, or search_loop for a URL outside /questions/.
+ * The gate counts these as unrecorded.
+ */
 function unprovenReindexed(ROOT, ledger) {
   const baseline = preGateRoutes(ROOT);
   return Object.entries(ledger.sources || {})
-    .filter(([u, src]) => src === SOURCE_REINDEXED && !baseline.has(urlToRoute(u)))
+    .filter(([u, src]) => (src === SOURCE_REINDEXED && !baseline.has(urlToRoute(u)))
+      || (src === SOURCE_SEARCH_LOOP && !isSearchLoopUrl(u)))
     .map(([u]) => u);
 }
 
@@ -245,8 +281,9 @@ function routeToUrl(route) {
 
 module.exports = {
   LEDGER_REL, POLICY_REL, WEEK_DAYS, SITE_ORIGIN, SOURCE_GOVERNED, SOURCE_ACCEPTED,
-  SOURCE_REINDEXED, PRE_GATE_BASELINE_REL,
+  SOURCE_REINDEXED, SOURCE_SEARCH_LOOP, SEARCH_LOOP_PREFIX, PRE_GATE_BASELINE_REL,
   todayISO, trailingWindow, readLedger, writeLedger, readCap, governedInWindow,
   weeklyAllowance, recordGovernedPublication, recordAcceptance, routeToUrl,
   preGateRoutes, recordReindexedExisting, unprovenReindexed,
+  isSearchLoopUrl, recordSearchLoopPublication,
 };

@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows:
       - CI - Build and Validate
-      - Programmatic Content Release - Full Flow 90 Day
+      - Search Loop
     branches: [main]
     types: [completed]
   workflow_dispatch:

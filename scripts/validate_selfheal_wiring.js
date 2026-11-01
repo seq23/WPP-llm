@@ -60,11 +60,24 @@ if (!present.length) {
 // A workflow reaches `target` if it runs it directly, or runs some npm script
 // whose body reaches it. Resolved against package.json so a change to an
 // aggregate lane cannot quietly orphan the loop again.
+// `selfheal` (scripts/selfheal/heal_until_clean.mjs) runs the repair_command
+// every failing validator declares in _validator_registry.json, so a repair lane
+// named there is reached by whatever workflow reaches `selfheal`. Since the
+// release lane was retired (1 Nov 2026) that is how release:quality:self-heal
+// runs: as the declared repair for programmatic-quality failures.
+const registryRepairs = (() => {
+  try {
+    const reg = JSON.parse(fs.readFileSync(path.join(ROOT, '_validator_registry.json'), 'utf8'));
+    return (reg.validators || []).map((v) => v.repair_command).filter(Boolean).join(' && ');
+  } catch { return ''; }
+})();
+const bodyOf = (name) => (name === 'selfheal' && /heal_until_clean\.mjs/.test(String(scripts[name] || ''))
+  ? `${scripts[name]} && ${registryRepairs}` : scripts[name]);
 const reaches = (scriptName, target, seen = new Set()) => {
   if (scriptName === target) return true;
   if (seen.has(scriptName)) return false;
   seen.add(scriptName);
-  const body = scripts[scriptName];
+  const body = bodyOf(scriptName);
   if (!body) return false;
   for (const m of String(body).matchAll(/npm run (?:--silent )?([\w:.-]+)/g)) {
     if (reaches(m[1], target, seen)) return true;

@@ -20,7 +20,7 @@ TRACES: list[dict] = []
 
 REQUIRED = {
     'admin-command.yml', 'ci.yml', 'credential-check.yml',
-    'distribution.yml', 'paid-citation-probe.yml', 'programmatic-release.yml', 'query-intelligence.yml',
+    'distribution.yml', 'paid-citation-probe.yml', 'query-intelligence.yml', 'search-loop.yml',
     'search-repair-retest.yml', 'self-heal.yml',
     'entity-backlink-watch.yml'
 }
@@ -53,9 +53,16 @@ def trace(workflow: str, scenario: str, expected: str, passed: bool, detail: str
 files = sorted(p.name for p in W.glob('*.yml'))
 require(set(files) == REQUIRED, f'workflow set mismatch: {files}')
 
+# Callers of a shared reusable workflow run no npm install of their own.
+REUSABLE_CALLERS = {'search-loop.yml'}
+
 # Universal command/path checks.
 for name in files:
     body = text(name)
+    if name in REUSABLE_CALLERS:
+        for path in re.findall(r'(?<![A-Za-z0-9_./-])((?:scripts|distribution_scripts|\.github/scripts)/[A-Za-z0-9_./-]+\.(?:js|mjs|py|sh))', body):
+            require((R / path).exists(), f'{name}: missing referenced path {path}')
+        continue
     for cmd in re.findall(r'npm run ([A-Za-z0-9:_-]+)', body):
         require(cmd in SCRIPTS, f'{name}: missing npm script {cmd}')
     for path in re.findall(r'(?<![A-Za-z0-9_./-])((?:scripts|distribution_scripts)/[A-Za-z0-9_./-]+\.(?:js|mjs|py|sh))', body):
@@ -67,40 +74,18 @@ for name in files:
     require('actions/setup-python@v5' not in body, f'{name}: setup-python still uses deprecated Node 20 action')
     require('actions/upload-artifact@v4' not in body, f'{name}: upload-artifact still uses deprecated Node 20 action')
 
-# Autonomous transaction ordering: validate content first, then refreeze and
-# clear the scope, then run authority-scale-inclusive validate:all.
-auto = SCRIPTS.get('release:autonomous', '')
-order = [
-    'authority:scale:prepare-scope', 'release:content', 'npm run build',
-    'validate:release', 'authority:scale:freeze', 'authority:scale:clear-scope',
-    'validate:all'
-]
-pos = [auto.find(x) for x in order]
-trace('programmatic-release.yml', 'autonomous-transaction-order',
-      'prepare -> mutate -> build -> validate release -> refreeze -> clear -> final validation',
-      all(x >= 0 for x in pos) and pos == sorted(pos), str(dict(zip(order, pos))))
-pre_clear = auto[:auto.find('authority:scale:clear-scope')] if 'authority:scale:clear-scope' in auto else auto
-trace('programmatic-release.yml', 'no-authority-validation-while-thawed',
-      'authority-scale validation cannot run before refreeze/clear',
-      'validate:authority-scale' not in pre_clear and 'validate:all' not in pre_clear,
-      'validate:authority-scale/validate:all found before clear-scope' if ('validate:authority-scale' in pre_clear or 'validate:all' in pre_clear) else 'clean')
-trace('programmatic-release.yml', 'final-authority-proof',
-      'validate:all runs after clear-scope and includes validate:authority-scale',
-      'validate:all' in auto and 'validate:authority-scale' in SCRIPTS.get('validate:all', ''),
-      SCRIPTS.get('validate:all', ''))
-
 # Admin command scenarios.
 admin = text('admin-command.yml')
 admin_map = {
     'run_query_intelligence': 'query-intelligence.yml',
-    'run_full_release': 'programmatic-release.yml',
+    'run_search_loop': 'search-loop.yml',
     'run_distribution': 'distribution.yml',
     'run_validation': 'ci.yml',
     'check_credentials': 'credential-check.yml',
 }
-for action in ('pause', 'resume', 'emergency_stop', 'run_full_release'):
+for action in ('pause', 'resume', 'emergency_stop', 'run_search_loop'):
     trace('admin-command.yml', f'{action}-requires-confirmation', 'CONFIRM required',
-          'pause|resume|emergency_stop|run_full_release' in admin and '[ "$CONFIRMATION" = "CONFIRM" ]' in admin)
+          'pause|resume|emergency_stop|run_search_loop' in admin and '[ "$CONFIRMATION" = "CONFIRM" ]' in admin)
 for action, wf in admin_map.items():
     trace('admin-command.yml', f'dispatch-{action}', wf,
           action in admin and f'wf={wf}' in admin)
@@ -139,20 +124,23 @@ trace('distribution.yml', 'missing-provider', 'provider steps skip or warn and c
 trace('distribution.yml', 'required-artifact-boundary', 'missing .build URL lists hard fail',
       'missing $PRIORITY_FILE' in deploy and 'missing $BATCH_FILE' in deploy)
 
-# Programmatic workflow scenarios.
-prog = text('programmatic-release.yml')
-trace('programmatic-release.yml', 'scheduled-active', 'runtime guard gates release',
-      'node scripts/runtime_guard.mjs' in prog and "steps.runtime.outputs.allowed == 'true'" in prog)
-trace('programmatic-release.yml', 'manual-inputs', 'manual daily ceilings are passed to release',
-      'github.event.inputs.max_new_pages' in prog and 'github.event.inputs.max_repairs' in prog)
-trace('programmatic-release.yml', 'provider-degraded', 'missing GSC does not block internal release; no paid model key is passed',
-      'GSC_SERVICE_ACCOUNT_JSON' in prog and 'GEMINI_API_KEY' not in prog and 'npm run release:autonomous' in prog)
-trace('programmatic-release.yml', 'no-changes', 'empty git status is a valid completion',
-      'commit_and_push_if_changed.sh' in prog)
-trace('programmatic-release.yml', 'serialized-writes', 'writer workflows share one concurrency group',
-      'group: wpp-autonomous-writer-main' in prog and 'cancel-in-progress: false' in prog)
-trace('programmatic-release.yml', 'exact-sha-push-gate', 'candidate is validated before push',
-      'PRE_PUSH_VALIDATION_ARGV' in prog and 'release:push-gate' in prog)
+# Search loop scenarios (shared engine seq23/search-loop @v1; replaced
+# programmatic-release.yml on 1 Nov 2026).
+loop = text('search-loop.yml')
+post = (R / '.github/scripts/search_loop_post_build.sh').read_text() if (R / '.github/scripts/search_loop_post_build.sh').exists() else ''
+commit = (R / '.github/scripts/search_loop_commit.sh').read_text() if (R / '.github/scripts/search_loop_commit.sh').exists() else ''
+trace('search-loop.yml', 'engine-pinned', 'calls seq23/search-loop at @v1 with engine_ref v1',
+      'uses: seq23/search-loop/.github/workflows/search-loop.yml@v1' in loop and 'engine_ref: v1' in loop)
+trace('search-loop.yml', 'scheduled-active', 'runtime guard gates the loop',
+      'node scripts/runtime_guard.mjs' in loop and "needs.runtime.outputs.allowed == 'true'" in loop)
+trace('search-loop.yml', 'provider-degraded', 'no paid model key is passed; GSC is optional',
+      'GSC_SERVICE_ACCOUNT_JSON' in loop and 'GEMINI_API_KEY' not in loop and 'ANTHROPIC' not in loop and 'OPENAI_API_KEY' not in loop)
+trace('search-loop.yml', 'serialized-writes', 'writer workflows share one concurrency group',
+      'group: wpp-autonomous-writer-main' in loop and 'cancel-in-progress: false' in loop)
+trace('search-loop.yml', 'exact-sha-push-gate', 'candidate is validated before push',
+      '.github/scripts/search_loop_commit.sh' in loop and 'commit_and_push_if_changed.sh' in commit)
+trace('search-loop.yml', 'pages-folded-into-site', 'published pages are built, attributed and recorded in the cadence ledger',
+      'npm run build' in post and 'npm run cta:attribute' in post and 'record_search_loop_pages.js' in post)
 
 # Query intelligence scenarios.
 qi = text('query-intelligence.yml')

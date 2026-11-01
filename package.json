@@ -20,7 +20,7 @@
     "authority:yield:build": "node scripts/authority_scale/build_citation_yield_feedback.mjs && node scripts/authority_scale/evaluate_velocity.mjs",
     "authority:yield:validate": "node scripts/authority_scale/validate_citation_yield_feedback.mjs",
     "baseline": "node scripts/baseline.mjs",
-    "build": "npm run query:atlas && node scripts/build_wo3_production_pages.mjs && node scripts/add_answer_schema.js && npm run authority:community:build && node scripts/build_insights.js && node scripts/retrofit_recommendation_summary.js --apply insights && node scripts/build_link_architecture.js && node scripts/consolidate_duplicate_families.js --relink && node scripts/apply_fanout.js && node scripts/apply_entity_attribution.mjs && node scripts/apply_organization_entity.mjs && node scripts/apply_page_meta_policy.js && node scripts/apply_title_suffix_band.js && PAGES_OUT_DIR=. node scripts/build_404.js && node scripts/normalize_clean_canonicals.js && node scripts/build_measured_404_redirects.js && node scripts/update_redirects_clean_to_html.js && node scripts/build_demand_families.js && node scripts/apply_noindex_policy.js && npm run authority:scale:restore && node scripts/install_clarity.js && node scripts/apply_site_head.js && node scripts/update_sitemap_all_html.js && node scripts/authority_scale/maybe_release_plan.mjs",
+    "build": "node scripts/normalize_search_loop_heads.js && npm run query:atlas && node scripts/build_wo3_production_pages.mjs && node scripts/add_answer_schema.js && npm run authority:community:build && node scripts/build_insights.js && node scripts/retrofit_recommendation_summary.js --apply insights && node scripts/build_link_architecture.js && node scripts/consolidate_duplicate_families.js --relink && node scripts/apply_fanout.js && node scripts/apply_entity_attribution.mjs && node scripts/apply_organization_entity.mjs && node scripts/apply_page_meta_policy.js && node scripts/apply_title_suffix_band.js && PAGES_OUT_DIR=. node scripts/build_404.js && node scripts/normalize_clean_canonicals.js && node scripts/build_measured_404_redirects.js && node scripts/update_redirects_clean_to_html.js && node scripts/build_demand_families.js && node scripts/apply_noindex_policy.js && npm run authority:scale:restore && node scripts/install_clarity.js && node scripts/apply_site_head.js && node scripts/update_sitemap_all_html.js && node scripts/authority_scale/maybe_release_plan.mjs",
     "build:insights": "node scripts/build_insights.js",
     "build:link-architecture": "node scripts/build_link_architecture.js",
     "build:seo": "npm run query:atlas && node scripts/add_answer_schema.js && node scripts/build_measured_404_redirects.js && node scripts/update_redirects_clean_to_html.js && node scripts/update_sitemap_all_html.js && npm run release:plan",
@@ -50,7 +50,6 @@
     "query:atlas": "npm run authority:scale:fanout && node scripts/citation_intelligence/generate_query_universe.js && node scripts/citation_intelligence/generate_query_atlas_pages.js",
     "query:observe:ingest": "node scripts/citation_intelligence/ingest_manual_observations.js",
     "query:test:zero-cost": "node scripts/generate_zero_cost_query_report.js",
-    "release:autonomous": "npm run content:quality:report && npm run authority:yield:build && npm run query:atlas && npm run citation:collect-free && npm run citation:normalize-artifacts && npm run opportunities:score && npm run release:plan && npm run authority:scale:prepare-scope && npm run release:content && SKIP_RELEASE_PLAN=1 npm run build && npm run release:quality:self-heal && npm run citation:compile-artifact && npm run release:reports && npm run cta:attribute && npm run validate:autonomous && npm run validate:release && npm run growth:build && npm run validate:repo-work-os-completeness && npm run validate:full-flow-citation-engine && npm run authority:scale:freeze && npm run authority:scale:clear-scope && npm run validate:all",
     "release:cleanup": "node scripts/cleanup_release_artifacts.js",
     "release:content": "node scripts/citation_intelligence/apply_release_plan.js",
     "release:deep-validate:isolated": "node scripts/deep_validate_isolated.js",
@@ -166,7 +165,8 @@
     "validate:gsc-truth": "node scripts/validators/validate_gsc_truth.js",
     "validate:published-head-parity": "node scripts/validators/validate_published_head_parity.js",
     "validate:sitemap-lastmod-honest": "node scripts/validators/validate_sitemap_lastmod_honest.js",
-    "titles:refreeze": "node scripts/prepare_title_brand_refreeze.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope"
+    "titles:refreeze": "node scripts/prepare_title_brand_refreeze.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
+    "search-loop:heads": "node scripts/normalize_search_loop_heads.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
