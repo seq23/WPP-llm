@@ -2,11 +2,11 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W45",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-02T09:38:23.423Z",
-  "state": "slow",
+  "generated_at": "2026-11-02T14:33:24.430Z",
+  "state": "running",
   "published": 0,
   "indexed": 0,
-  "pace": 3,
+  "pace": 10,
   "ai_visitors": "not read: CLOUDFLARE_API_TOKEN is not set",
   "ai_bot_hits": "not read: CLOUDFLARE_API_TOKEN is not set",
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
@@ -14,9 +14,8 @@
   "undone": 0,
   "merged": 0,
   "notes": [
-    "NAMED NOTE [FREE_MODEL_RATE_LIMITED] the free model route is rate-limited or exhausted (every free lane is out — openrouter:nvidia/nemotron-3-ultra-550b-a55b:free: timed out after 60s (skipped this run); openrouter:dots-studio/dots-3-note-preview:free: timed out after 60s (skipped this run); openrouter:xingchen-agi/xing4.0-29b-a4b:free: timed out after 60s (skipped this run); openrouter:nvidia/nemotron-3.5-super-vl:free: timed out after 6s (skipped this run) (openrouter:gemma-4-26b-a4b-it:free:http_429, openrouter:nemotron-3-ultra-550b-a55b:free:timeout, openrouter:dots-3-note-preview:free:timeout, openrouter:xing4.0-29b-a4b:free:timeout, openrouter:nemotron-3.5-super-vl:free:timeout, all::call budget 240s used)); this run dropped itself to slow for today",
-    "BUILD published 0 of quota 3: 8 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued",
-    "CHECK runs weekly in mode=slow; last ran 2026-11-01"
+    "BUILD published 0 of quota 10: 22 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued",
+    "pace: held at 10/day: indexing not read (no pages old enough to measure)"
   ],
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41422226175"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41462958099"
 }
