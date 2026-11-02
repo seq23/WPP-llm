@@ -57,6 +57,8 @@ for (const r of ledger.redirects) {
 // redirect stub the assembler writes; never both, never neither.
 const compressed = parseRedirects(ROOT, { withMap: false });
 if (compressed.some((r) => /[^/]\*$/.test(r.from))) errors.push('_redirects holds a mid-segment splat; Pages ignores it');
+const nonBlank = fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8').split('\n').filter((l) => l.trim()).length;
+if (nonBlank >= 500) errors.push(`_redirects has ${nonBlank} non-blank lines; Pages ignores everything from the 500th`);
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_map.json'), 'utf8'));
 const stubs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_stubs.json'), 'utf8'));
 for (const [from, to] of Object.entries(map)) {

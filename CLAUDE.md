@@ -59,10 +59,13 @@ their route is listed in `data/release/active_mutation_scope.json`
   `scripts/lib/prune.js`, re-plan with `npm run seo:plan-prune`). Every other
   /programmatic/, /query-atlas/, /topics/, off-topic /answers/, /insights/ and
   /learn/ page stays in the repo, is left out of the deploy and the sitemap, and
-  301s to its topic's strongest page: `update_redirects_clean_to_html.js` writes
-  the per-URL map to `data/redirects/consolidation_map.json` and compresses it
-  into `_redirects` (one splat per slug prefix; Pages allows 2,000 static and 100
-  dynamic rules, and serves a deployed file before any redirect). After a re-plan: link architecture
+  redirects to its topic's strongest page: `update_redirects_clean_to_html.js`
+  writes every redirect to `data/redirects/consolidation_map.json`, puts the
+  highest-value ones in `_redirects` as 301s and the rest in
+  `consolidation_stubs.json`, which the assembler turns into static stubs
+  (noindex + canonical + instant meta refresh). **Pages ignored every
+  `_redirects` line from the 500th non-blank one (measured 2 Nov 2026), and
+  splats after anything but a slash**: the file stays under 480 lines. After a re-plan: link architecture
   and relink with `--write-scope`, `npm run build`, freeze, clear scope.
   Proof: `npm run test:prune` (every URL Google ever showed answers a page or one 301).
 - **Recovery line**: `data/search_intelligence/daily_totals.json` (impressions and

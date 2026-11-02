@@ -106,6 +106,13 @@ function main() {
   for (const [p, n] of measuredPages()) consider(p, n, previous.get(p));
   for (const [p, r] of previous) if (!rules.has(p)) consider(p, r.impressions_measured, r);
 
+  // An .html alias lands where its clean path lands (one key in the
+  // consolidation map, scripts/update_redirects_clean_to_html.js).
+  for (const r of rules.values()) {
+    if (!r.from.endsWith('.html')) continue;
+    const clean = rules.get(r.from.replace(/\.html$/, ''));
+    if (clean) { r.to = clean.to; r.why = clean.why; }
+  }
   const list = [...rules.values()].sort((a, b) => b.impressions_measured - a.impressions_measured || a.from.localeCompare(b.from));
   if (!list.length && !previous.size) {
     console.error('measured-404-redirects: zero rules and no previous file; refusing to write an empty list.');
