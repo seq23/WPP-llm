@@ -1,0 +1,141 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:09:50.567Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 737,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/ai-content-operations",
+    "query": "AI content operations",
+    "title": "AI Content Operations: Decisions, Tools, and Governance",
+    "description": "Learn the first decisions, tool categories, governance rules, and workflow steps to set up AI content operations with human-in-the-loop approval.",
+    "h1": "What should you decide first about AI content operations?",
+    "definition": "AI content operations are the structured workflows, tool choices, and governance rules that let marketing and content teams use generative AI for research, drafting, and repurposing while keeping a named human accountable for every published asset.",
+    "quick_answer": "Pick a human-in-the-loop rule, choose one workflow tool and one AI model, then pilot a single repeatable content type with a named approver before scaling.",
+    "sections": [
+      {
+        "h2": "Which governance rule must be in place before any AI draft is created?",
+        "blocks": [
+          {
+            "p": "Adopt a human-in-the-loop rule: every AI output remains a draft until a named person approves it. This single rule prevents unattributed errors, voice drift, and compliance gaps. Document the rule in your content brief template and add an approval gate in your project board so no asset moves to publishing without a recorded sign-off."
+          },
+          {
+            "ul": [
+              "Assign one approver per content type",
+              "Require approval timestamp in the workflow tool",
+              "Log the prompt and model version used for each draft",
+              "Store the final approved version alongside the AI draft for audit"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What tool categories do you need to run an AI content workflow?",
+        "blocks": [
+          {
+            "p": "You need four tool categories that connect without custom code: a work management board, an AI model for research and drafts, an image or design variant generator, and an automation layer for hand-offs. Selecting one tool per category keeps the stack operable by a small team."
+          },
+          {
+            "table": {
+              "head": [
+                "Category",
+                "Common tools"
+              ],
+              "rows": [
+                [
+                  "Work management",
+                  "Asana, Monday.com, ClickUp"
+                ],
+                [
+                  "AI text model",
+                  "ChatGPT, Claude"
+                ],
+                [
+                  "Image variants",
+                  "Adobe Firefly, Canva"
+                ],
+                [
+                  "Automation hand-offs",
+                  "Zapier, Make"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you structure the seven-step AI content workflow?",
+        "blocks": [
+          {
+            "p": "Follow seven sequential steps, each with an owner, an output, and an approval gate. This mirrors the proven content operations cycle and adds AI-specific checkpoints for prompt logging and model version tracking."
+          },
+          {
+            "ol": [
+              "Intake: requestor submits brief with goal, audience, and format",
+              "Brief: content lead adds brand voice notes, SEO targets, and compliance flags",
+              "Production: assigned writer runs approved prompts in the chosen AI model",
+              "Review: editor checks facts, tone, and prompt log against brief",
+              "Approval: named approver signs off in the work management tool",
+              "Publishing: automation pushes approved asset to CMS or social scheduler",
+              "Reporting: analyst logs performance metrics against the original brief"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What measurement and rollback plan protects against private-data leakage?",
+        "blocks": [
+          {
+            "p": "Define three safeguards before the first prompt: a data-classification checklist for every input, an automated log that captures prompt text and model response, and a rollback trigger that reverts the asset to the last human-approved version if flagged content appears. Review logs monthly and test the rollback in a staging environment."
+          },
+          {
+            "ul": [
+              "Classify inputs as public, internal, or confidential before prompting",
+              "Enable API-level logging for every model call",
+              "Set a rollback rule: any confidential token in output auto-reverts to prior version",
+              "Schedule monthly log audit with security and legal stakeholders"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you prove traceability from prompt to published asset?",
+        "blocks": [
+          {
+            "p": "Traceability is the documented chain linking each published asset to its originating brief, prompt, model version, reviewer, and approver. Build it by requiring the workflow tool to store the prompt ID, model tag, and approval timestamp as custom fields on the asset record. This chain satisfies audit requests and lets you reproduce or improve any asset later."
+          },
+          {
+            "ul": [
+              "Add custom fields: prompt ID, model version, approval timestamp",
+              "Link asset record to the original brief task",
+              "Export traceability report for quarterly compliance review",
+              "Use the report to identify high-performing prompt patterns"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I start AI content operations without a dedicated automation tool?",
+        "a": "Yes. Use your existing work management board with manual hand-offs for the pilot. Add Zapier or Make only when the volume of hand-offs exceeds what the team can track reliably in comments."
+      },
+      {
+        "q": "Which content type makes the safest first pilot?",
+        "a": "Choose a repeatable, low-risk format such as a weekly newsletter roundup or a product FAQ update. The brief is stable, the approval loop is short, and performance is easy to measure."
+      },
+      {
+        "q": "How often should the prompt log be reviewed?",
+        "a": "Review the prompt log monthly. Look for confidential data leakage, prompt drift, and model version changes that affect output quality. Adjust the approved prompt library based on findings."
+      },
+      {
+        "q": "What happens if the named approver is unavailable?",
+        "a": "Designate a backup approver in the workflow tool for each content type. The backup follows the same review checklist and records their approval timestamp so the chain remains unbroken."
+      },
+      {
+        "q": "Does West Peek Productions set up these workflows?",
+        "a": "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content, and event teams, scoped per engagement. Send the scope for a quote."
+      }
+    ]
+  }
+}

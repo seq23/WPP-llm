@@ -40,8 +40,10 @@ const fileFor = (route) => path.join(OUT_DIR, `${route.replace(/^\//, '').replac
 function targets() {
   const ledgerFile = path.join(ROOT, 'data/seo/prune_ledger.json');
   const ledger = fs.existsSync(ledgerFile) ? readJson('data/seo/prune_ledger.json') : { kept: [] };
-  const routes = ledger.kept.map((k) => k.route).filter((r) => r.startsWith('/programmatic/') && !demandRoutes.has(r));
-  const answers = fs.readdirSync(path.join(ROOT, 'answers')).filter((n) => n.endsWith('.html') && n !== 'index.html').map((n) => `/answers/${n.replace(/\.html$/, '')}`);
+  // Every kept page under /programmatic/ and /answers/ except the demand pages,
+  // which already carry owner-approved content (data/seo/demand_pages.json).
+  const routes = ledger.kept.map((k) => k.route).filter((r) => /^\/(programmatic|answers)\//.test(r) && !demandRoutes.has(r));
+  const answers = ledger.kept.length ? [] : fs.readdirSync(path.join(ROOT, 'answers')).filter((n) => n.endsWith('.html') && n !== 'index.html').map((n) => `/answers/${n.replace(/\.html$/, '')}`);
   return [...routes, ...answers].sort();
 }
 
@@ -118,10 +120,10 @@ async function rewrite(route) {
   let feedback = null;
   let last = null;
   for (let i = 0; i < ATTEMPTS; i += 1) {
-    const r = await freeChat({ messages: prompt(ctx, feedback), max_tokens: 4000, temperature: 0.4, purpose: `rewrite:${route}`, timeoutMs: 180000 });
+    const r = await freeChat({ messages: prompt(ctx, feedback), max_tokens: 8000, temperature: 0.4, purpose: `rewrite:${route}`, timeoutMs: 180000 });
     if (!r.ok) { last = { stop: r.stop }; if (r.stop === 'OPENROUTER_KEY_DISABLED_OR_INVALID' || r.stop === 'FREE_ROUTER_NO_KEY') throw new Error(r.stop); continue; }
     const page = parse(r.content);
-    if (!page) { feedback = 'the output was not valid JSON'; last = { fails: ['NOT_JSON'], model: r.model }; continue; }
+    if (!page) { feedback = 'the output was not valid JSON or was cut off: return only the JSON object, complete, and keep the total under 1,000 words'; last = { fails: ['NOT_JSON'], model: r.model }; continue; }
     const q = check(page, { allowedFacts: FACTS });
     if (q.ok) return { ok: true, page: { route, query: ctx.query, ...escapePage(page) }, model: r.model, words: q.words, attempts: i + 1 };
     feedback = q.fails.slice(0, 8).join('; ');

@@ -167,7 +167,11 @@ function validateSitemapParity() {
   const insightHtml = listHtmlFiles(HTML_INSIGHTS_DIR).map(cleanForFull);
   const pillarHtml = listHtmlFiles(HTML_PILLARS_DIR).map(cleanForFull);
 
+  // A page consolidated into its topic (data/seo/prune_ledger.json) 301s and is
+  // rightly absent from the sitemap.
+  const prune = require('./lib/prune.js');
   for (const url of [...insightHtml, ...pillarHtml]) {
+    if (prune.isPruned(url.replace(SITE_BASE, ''))) continue;
     if (!urlSet.has(url)) fail(`Sitemap missing generated clean URL: ${url}`);
   }
 

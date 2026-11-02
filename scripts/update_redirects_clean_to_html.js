@@ -8,9 +8,10 @@ const OUT = path.join(ROOT, '_redirects');
 // virtualagency-os.com is the educational/citation layer; westpeekproductions.com
 // is the commercial destination and holds the only hosted inquiry form in the
 // portfolio. #start-inquiry is the section that form sits in.
-const WPP_INQUIRY = 'https://www.westpeekproductions.com/';
+// Since 2 Nov 2026 every inquiry goes through /go/plan, which counts the visit
+// (Cloudflare Web Analytics) and opens the West Peek Productions inquiry form.
 function wppInquiry(content) {
-  return `${WPP_INQUIRY}?utm_source=virtualagency-os&utm_medium=referral&utm_campaign=retired-contact-route&utm_content=${content}#start-inquiry`;
+  return `/go/plan?from=${content}&at=guessed-route`;
 }
 const WPP_GUESSED_ROUTES = [
   ['/contact', 'contact'],
@@ -111,5 +112,53 @@ const lines = [
   '/tests/* /404 404',
   ''
 ];
-fs.writeFileSync(OUT, lines.join('\n'));
-console.log('Updated _redirects with clean-canonical anti-loop policy.');
+// Pages consolidated into the strongest page of their topic (scripts/lib/prune.js,
+// data/seo/prune_ledger.json). Together with every rule above whose source sits
+// under a Function prefix, these are answered by functions/_middleware.js:
+// Pages caps _redirects at 2,000 static rules, and a request a Function handles
+// never reaches _redirects, so every rule under those prefixes must be in the map.
+const prune = require('./lib/prune.js');
+const FUNCTION_PREFIXES = JSON.parse(fs.readFileSync(path.join(ROOT, '_routes.json'), 'utf8')).include.map((p) => p.replace(/\*$/, ''));
+const underFunction = (from) => FUNCTION_PREFIXES.some((p) => from.startsWith(p));
+const norm = (r) => (r.length > 1 ? r.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/\/+$/, '') : r);
+const all = new Map();
+for (const line of lines) {
+  const m = line.match(/^(\/\S*)\s+(\S+)\s+(301|302|308)$/);
+  if (m && !m[1].includes('*')) all.set(norm(m[1]), m[2]);
+}
+for (const r of prune.redirectRules()) if (!all.has(r.from)) all.set(r.from, r.to);
+const finalOf = (to) => {
+  let cur = to;
+  for (let i = 0; i < 12; i += 1) {
+    if (!cur.startsWith('/')) return cur;
+    const next = all.get(norm(cur.split('#')[0].split('?')[0]));
+    if (!next || next === cur) return cur;
+    cur = next;
+  }
+  throw new Error(`_redirects: redirect loop through ${to}`);
+};
+const fnMap = {};
+const kept = [];
+for (const line of lines) {
+  const m = line.match(/^(\/\S*)\s+(\S+)\s+(301|302|308)$/);
+  if (!m || m[1].includes('*')) { kept.push(line); continue; }
+  const to = finalOf(m[2]);
+  if (underFunction(m[1])) {
+    // The Function matches /x.html as /x; never let an alias shadow a live page.
+    if (m[1] !== norm(m[1]) && fs.existsSync(path.join(ROOT, `${norm(m[1]).replace(/^\//, '')}.html`)) && !prune.isRedirected(norm(m[1]))) continue;
+    fnMap[norm(m[1])] = to;
+    continue;
+  }
+  kept.push(`${m[1]} ${to} ${m[3]}`);
+}
+for (const r of prune.redirectRules()) if (!fnMap[r.from]) fnMap[r.from] = finalOf(r.to);
+const STATIC_LIMIT = 2000;
+const staticRules = kept.filter((l) => /^\/\S*\s+\S+\s+\d{3}$/.test(l) && !l.split(/\s+/)[0].includes('*')).length;
+if (staticRules > STATIC_LIMIT) {
+  console.error(`_redirects would hold ${staticRules} static rules; Cloudflare Pages ignores everything past ${STATIC_LIMIT}. Move a prefix into _routes.json.`);
+  process.exit(1);
+}
+const sorted = Object.fromEntries(Object.entries(fnMap).sort(([a], [b]) => a.localeCompare(b)));
+fs.writeFileSync(path.join(ROOT, 'functions/redirect_map.json'), `${JSON.stringify(sorted, null, 1)}\n`);
+fs.writeFileSync(OUT, kept.join('\n'));
+console.log(`Updated _redirects (${staticRules} static rules) and functions/redirect_map.json (${Object.keys(sorted).length} rules under ${FUNCTION_PREFIXES.join(' ')}).`);

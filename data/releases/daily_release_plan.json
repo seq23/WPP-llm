@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-02T20:16:33.643Z",
+  "generated_at": "2026-11-02T23:04:18.974Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -48,164 +48,19 @@
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "42686c3197582b25fb9f926435479ae33063881fe8b698cd24eee1ebe6f6197e",
-    "legacy_backlog": 90,
-    "thin_pages": 90,
+    "corpus_fingerprint": "589d45f8d5b565c255dab456b9628adad56812e2f164c4b70ac6450f856a5ef4",
+    "legacy_backlog": 93,
+    "thin_pages": 91,
     "exact_duplicate_pages": 0,
-    "near_duplicate_pages": 0
+    "near_duplicate_pages": 2
   },
   "units": [],
   "release_units": [],
-  "blocked": [
-    {
-      "target_route": "/programmatic/brand-look-legit",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/daily-backup-event-systems",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/executive-event-production",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/marketing-growth-2025",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/run-of-show-planning",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/speaker-onboarding-and-rehearsals",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/streamyard-livekit-daily-stack",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/streamyard-virtual-event-production",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-career-fair-production",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-backup-systems",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-failure-prevention",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-marketing",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-pricing",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-for-education",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-for-healthcare",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-for-real-estate",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/visual-event-portfolio",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/why-virtual-events-fail",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    }
-  ],
+  "blocked": [],
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
-    "opportunities_withheld": 3056
+    "opportunities_withheld": 4530
   },
   "status": "COMPLETED_NO_CHANGES",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",

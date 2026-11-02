@@ -43,6 +43,30 @@ hash-locked in `data/release/frozen_output_registry.json` and may only drift whe
 their route is listed in `data/release/active_mutation_scope.json`
 (see `docs/` and `scripts/authority_scale/frozen_outputs.mjs`).
 
+## What is served = committed HTML + the finish (2 Nov 2026)
+
+- **The assembler finishes every page on deploy** (`scripts/lib/page_finish.js`,
+  called by `scripts/assemble_pages_output.js`): one header, the "Get a production
+  plan" box and sticky button, junk removed, byline and dates, visible FAQ,
+  WebPage/Speakable schema, Cloudflare Web Analytics, and the accepted rewrite of
+  the page body from `data/seo/page_rewrites/` (free router,
+  `scripts/content/rewrite_kept_pages.js`, bar in `scripts/lib/rewrite_quality.js`).
+  A refused rewrite makes the page noindex until a retry is accepted. Proof:
+  `npm run test:page-finish` (reads the assembled site).
+- **Inquiries go through `/go/plan`** (`go/plan.html`): counted by Web Analytics,
+  then the West Peek Productions Google Form with source and service pre-filled.
+- **The site is ~290 kept pages** (`data/seo/prune_ledger.json`, rule in
+  `scripts/lib/prune.js`, re-plan with `npm run seo:plan-prune`). Every other
+  /programmatic/, /query-atlas/, /topics/, off-topic /answers/, /insights/ and
+  /learn/ page stays in the repo, is left out of the deploy and the sitemap, and
+  301s to its topic's strongest page through `functions/_middleware.js`
+  (`functions/redirect_map.json`, written by `update_redirects_clean_to_html.js`;
+  Pages allows only 2,000 `_redirects` rules). After a re-plan: link architecture
+  and relink with `--write-scope`, `npm run build`, freeze, clear scope.
+  Proof: `npm run test:prune` (every URL Google ever showed answers a page or one 301).
+- **Recovery line**: `data/search_intelligence/daily_totals.json` (impressions and
+  clicks per day, refreshed by the query-intelligence job).
+
 ## Search loop pages (`questions/`)
 
 Pages under `questions/` are published by the shared search loop (owner ruling

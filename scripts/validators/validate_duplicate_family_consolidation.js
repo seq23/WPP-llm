@@ -19,6 +19,7 @@
  * RULE 0: a ledger with no families or no retired variants fails.
  */
 const fs = require('fs');
+const prune = require('../lib/prune.js');
 const path = require('path');
 const { ROOT, parseRedirects } = require('../lib/pages_routing.js');
 const fam = require('../lib/consolidated_families.js');
@@ -50,7 +51,9 @@ for (const f of ledger.families) {
   if (!fs.existsSync(fileOf(k))) { errors.push(`keeper ${k}: no rendered page`); continue; }
   if (!(rows.get(k) || []).some((a) => a.status === 'admitted')) errors.push(`keeper ${k}: not admitted`);
   if (!frozen.has(k)) errors.push(`keeper ${k}: not in the freeze registry`);
-  if (redirects.has(k)) errors.push(`keeper ${k}: is itself a redirect source`);
+  // A keeper later folded into its topic's strongest page (data/seo/prune_ledger.json,
+  // 2 Nov 2026) redirects by that ledger; its retired variants follow it there.
+  if (redirects.has(k) && !prune.isRedirected(k)) errors.push(`keeper ${k}: is itself a redirect source`);
   if (thin.has(k)) errors.push(`keeper ${k}: is on the thin ledger, which is not touched before 2 Nov 2026`);
   const html = fs.readFileSync(fileOf(k), 'utf8');
   const blocks = (html.match(/<!--consolidated:answers-->/g) || []).length;
@@ -60,7 +63,8 @@ for (const r of rules) {
   if (keepers.has(r.from)) errors.push(`${r.from}: both a keeper and retired`);
   if (fs.existsSync(fileOf(r.from))) errors.push(`${r.from}: retired but still rendered`);
   const line = redirects.get(r.from);
-  if (!line || line.to !== r.to || line.status !== 301) errors.push(`${r.from}: _redirects has ${line ? `${line.to} ${line.status}` : 'no rule'}, ledger says ${r.to} 301`);
+  const want = prune.finalTarget(r.to);
+  if (!line || line.to !== want || line.status !== 301) errors.push(`${r.from}: _redirects has ${line ? `${line.to} ${line.status}` : 'no rule'}, ledger says ${want} 301`);
   const rs = rows.get(r.from) || [];
   if (rs.length && rs.some((a) => a.status !== 'consolidated' || a.redirect_to !== r.to)) errors.push(`${r.from}: an admission row is not consolidated to ${r.to}`);
   if (frozen.has(r.from)) errors.push(`${r.from}: retired but still a frozen page`);

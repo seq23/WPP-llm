@@ -33,7 +33,7 @@ const EXCLUDE = new Set([
   'logs',
   'artifacts', 'validation', 'data', 'prompts', 'content-bank',
   'content-recipes', '.wrangler', '.astro', 'coverage',
-  'package.json', 'package-lock.json', 'AGENTS.md', 'README.md',
+  'package.json', 'package-lock.json', 'AGENTS.md', 'README.md', 'functions',
   'ARTIFACT_MANIFEST.md', 'REPO_VALIDATION_MATRIX.md',
 ]);
 const EXCLUDE_EXT = new Set(['.md']);
@@ -55,6 +55,10 @@ function isPublishedPath(relPath) {
   if (!top) return false;
   if (EXCLUDE.has(top)) return false;
   if (parts.length === 1 && EXCLUDE_EXT.has(path.extname(top))) return false;
+  // A page consolidated into its topic's strongest page (data/seo/prune_ledger.json)
+  // stays in the repo but is not deployed: Pages serves a matching file before
+  // any redirect, so its 301 (functions/) only fires when the file is absent.
+  if (require('./lib/prune.js').isRedirectedFile(parts.join('/'))) return false;
   return true;
 }
 
@@ -93,6 +97,7 @@ function copyInto(srcDir, outDir, depth) {
   for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
     if (depth === 0 && EXCLUDE.has(entry.name)) continue;
     if (depth === 0 && EXCLUDE_EXT.has(path.extname(entry.name))) continue;
+    if (entry.isFile() && !isPublishedPath(path.relative(root, path.join(srcDir, entry.name)))) continue;
     const from = path.join(srcDir, entry.name);
     const to = path.join(outDir, entry.name);
     if (entry.isDirectory()) {

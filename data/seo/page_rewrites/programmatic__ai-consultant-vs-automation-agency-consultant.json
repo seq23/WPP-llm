@@ -1,0 +1,139 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T22:56:19.719Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 637,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/ai-consultant-vs-automation-agency-consultant",
+    "query": "AI consultant vs automation agency consultant",
+    "title": "AI Consultant vs Automation Agency: How to Choose",
+    "description": "Compare scope, pricing, ownership and timelines so you pick the right partner for AI workflows or automation builds.",
+    "h1": "How do you decide on AI consultant vs automation agency consultant?",
+    "definition": "An AI consultant is a specialist who assesses opportunities, selects tools and delivers a roadmap. An automation agency is a build partner that ships working integrations, documents them and often runs a support retainer.",
+    "quick_answer": "Choose an AI consultant when you need strategy, use-case prioritisation and tool selection before any build. Choose an automation agency when the use cases are clear and you need production-ready workflows, integrations and ongoing maintenance.",
+    "sections": [
+      {
+        "h2": "What does each partner actually deliver?",
+        "blocks": [
+          {
+            "p": "Consultant output: an assessment, a prioritised use-case list, a tool choice and a roadmap. Agency output: working automations, integrations and documentation, often with a support retainer."
+          },
+          {
+            "ul": [
+              "Consultant: current-state audit, opportunity scoring, vendor shortlist, implementation plan",
+              "Agency: mapped processes, built connectors, error handling, monitoring dashboards, handoff docs",
+              "Consultant typically stops at sign-off; agency stays live through a retainer"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do pricing models differ?",
+        "blocks": [
+          {
+            "p": "Pricing models: day rate or fixed project for consultants; fixed build fee plus a monthly retainer for agencies."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Structure",
+                "When It Fits"
+              ],
+              "rows": [
+                [
+                  "Consultant day rate",
+                  "Per day, scoped to weeks",
+                  "Exploratory work, unclear scope"
+                ],
+                [
+                  "Consultant fixed project",
+                  "Single fee for defined deliverables",
+                  "Clear assessment brief"
+                ],
+                [
+                  "Agency build fee",
+                  "One-off for each workflow or integration",
+                  "Known processes, ready to build"
+                ],
+                [
+                  "Agency retainer",
+                  "Monthly for support, changes, monitoring",
+                  "Ongoing ops, evolving stack"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the outcome after delivery?",
+        "blocks": [
+          {
+            "p": "Ownership sits with the buyer in both cases, but the handoff point differs. A consultant hands over a plan and expects your team or another vendor to execute. An agency hands over running workflows and usually stays on for fixes, version updates and scope changes."
+          },
+          {
+            "ul": [
+              "Consultant: knowledge transfer workshop, runbook, tool admin training",
+              "Agency: live environment access, shared credentials, SLA for break-fix",
+              "Clarify who updates prompts, API keys and logic when vendors change"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What timeline should you expect from kickoff to value?",
+        "blocks": [
+          {
+            "p": "A consultant engagement often runs four to six weeks for assessment and roadmap. An agency build for a first workflow takes two to four weeks, then the retainer begins. Complex multi-system automations extend to eight to twelve weeks."
+          },
+          {
+            "ol": [
+              "Week one to two: discovery, access provisioning, process mapping",
+              "Week three to four: consultant delivers roadmap or agency ships MVP",
+              "Week five onward: consultant exits or agency enters retainer cycle"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When do you need both instead of one?",
+        "blocks": [
+          {
+            "p": "You need both when the problem space is fuzzy but the ambition is large. The consultant frames the opportunity, selects the stack and writes the brief; the agency builds to that brief and runs the ongoing ops. This split avoids paying agency rates for strategy and consultant rates for maintenance."
+          },
+          {
+            "ul": [
+              "Run a paid discovery with a consultant first",
+              "Convert the roadmap into fixed-scope agency statements of work",
+              "Keep the consultant for quarterly roadmap reviews only"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can an AI consultant also build the automations?",
+        "a": "Some consultants offer build sprints, but they usually lack the engineering capacity for production-grade integrations, monitoring and long-term support that an agency provides."
+      },
+      {
+        "q": "Does an automation agency help choose AI tools?",
+        "a": "Agencies advise on tooling within the build scope, but they rarely run a vendor-agnostic assessment across your whole stack. Pair a short consultant review with the agency build for unbiased selection."
+      },
+      {
+        "q": "What internal resources must I provide for each model?",
+        "a": "For a consultant: stakeholder time, data access, process owners. For an agency: API credentials, sandbox environments, a product owner for acceptance testing and a point of contact for the retainer."
+      },
+      {
+        "q": "How do I measure ROI differently for each?",
+        "a": "Consultant ROI is measured by quality of roadmap, use-case prioritisation and avoided wrong-tool spend. Agency ROI is measured by workflow uptime, hours saved per month, error rate reduction and retainer cost versus headcount."
+      },
+      {
+        "q": "What contract clauses protect me if the partnership stalls?",
+        "a": "Include phase gates with acceptance criteria, IP assignment for all code and prompts, data-return provisions, and a thirty-day termination for convenience on retainers. Define 'done' for each workflow before signing."
+      }
+    ]
+  }
+}

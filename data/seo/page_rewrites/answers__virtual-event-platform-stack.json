@@ -1,0 +1,142 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T22:52:39.223Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 639,
+  "attempts": 3,
+  "page": {
+    "route": "/answers/virtual-event-platform-stack",
+    "query": "virtual event platform stack",
+    "title": "Virtual Event Platform Stack: How to Choose and Combine Tools",
+    "description": "A practical guide to selecting and combining streaming, engagement and analytics tools for virtual and hybrid events, with real checklists and a comparison table.",
+    "h1": "What platform stack does West Peek use for virtual events?",
+    "definition": "A virtual event platform stack is the set of software tools combined to produce, deliver and measure a live online experience, typically covering broadcast production, realtime attendee infrastructure, registration, engagement and analytics.",
+    "quick_answer": "Start with a broadcast studio such as StreamYard for production control, pair it with a realtime infrastructure layer such as LiveKit for venue and attendee logic, then add registration, CRM and analytics tools that match your team workflow.",
+    "sections": [
+      {
+        "h2": "Which broadcast studio handles multi-camera layouts and branded overlays?",
+        "blocks": [
+          {
+            "p": "StreamYard serves as the primary broadcast studio because it runs in a browser, supports multi-camera layouts, lower thirds and instant replay, and lets a single producer manage the run of show without a hardware switcher."
+          },
+          {
+            "ul": [
+              "Browser-based control room for remote producers",
+              "Native lower thirds, logos and colour themes",
+              "Guest links that work without software installs",
+              "Simultaneous output to multiple RTMP destinations",
+              "Local recording of each ISO track for post editing"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What realtime infrastructure powers the attendee venue and interaction layer?",
+        "blocks": [
+          {
+            "p": "LiveKit provides the realtime venue layer, handling WebRTC video rooms, chat, presence and data channels so attendees can move between sessions, network in breakouts and trigger interactive elements without latency spikes."
+          },
+          {
+            "ul": [
+              "WebRTC rooms for sessions, lounges and one-to-one meetings",
+              "Server-side recording and transcription hooks",
+              "Programmable layout engine for custom stage views",
+              "Token-based access control tied to registration data",
+              "Horizontal scaling across regions for global audiences"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do registration, CRM and analytics connect to the stack?",
+        "blocks": [
+          {
+            "p": "Registration feeds attendee data into the CRM, which then gates LiveKit tokens and tags StreamYard destinations, while analytics tools ingest event streams for live dashboards and post-event attribution."
+          },
+          {
+            "table": {
+              "head": [
+                "Function",
+                "Typical Tool"
+              ],
+              "rows": [
+                [
+                  "Registration and ticketing",
+                  "Eventbrite, Cvent, Bizzabo"
+                ],
+                [
+                  "CRM and marketing automation",
+                  "HubSpot, Salesforce, Marketo"
+                ],
+                [
+                  "Web analytics and attribution",
+                  "GA4, Mixpanel, Amplitude"
+                ],
+                [
+                  "Event-level reporting",
+                  "Zoom Events, ON24, Goldcast"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What production roles does the stack require on show day?",
+        "blocks": [
+          {
+            "p": "The platform is not the production; a crew still owns the run of show, rehearses speakers and keeps a backup stream ready, with staffing scaled to event complexity."
+          },
+          {
+            "ol": [
+              "Show caller owns timing, cues and contingency decisions",
+              "Speaker manager handles green room, audio checks and slide handoff",
+              "Platform operator drives StreamYard scenes and LiveKit room transitions",
+              "Moderator curates Q&amp;A, polls and chat highlights",
+              "Backup encoder operator monitors secondary stream health"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you validate the stack before a live event?",
+        "blocks": [
+          {
+            "p": "Run a full rehearsal on the real platform two to five days before, then a technical check sixty minutes before going live, verifying every integration path from registration token to analytics pixel."
+          },
+          {
+            "ul": [
+              "End-to-end registration flow with test attendees",
+              "StreamYard to LiveKit hand-off for each session type",
+              "CRM token gating and custom field mapping",
+              "Analytics event firing for join, leave and interaction",
+              "Backup stream failover triggered manually"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use Zoom Webinars instead of StreamYard for broadcast?",
+        "a": "Yes, Zoom Webinars works as the broadcast layer when you need native registration gating and simpler producer controls, but it limits multi-camera layouts and custom overlays compared with a dedicated studio."
+      },
+      {
+        "q": "Does West Peek Productions sell the platform licences?",
+        "a": "West Peek Productions does not sell event software; it produces events on the platform you choose and can help you evaluate and select the right stack for your format."
+      },
+      {
+        "q": "What is the typical lead time to lock the stack for a summit?",
+        "a": "Plan a hybrid conference six to eight weeks out; lock the venue AV and the platform before the agenda is final so integration testing and speaker onboarding stay on schedule."
+      },
+      {
+        "q": "How are replays delivered through this stack?",
+        "a": "StreamYard ISO recordings feed editing, then final assets publish to the CMS and CRM within twenty-four to forty-eight hours while attendees still remember the event."
+      },
+      {
+        "q": "What budget range should I expect for a produced summit on this stack?",
+        "a": "Executive summits, online conferences and hybrid productions typically range from ten thousand to fifty thousand dollars and above, depending on session count, hybrid venues and crew size."
+      }
+    ]
+  }
+}

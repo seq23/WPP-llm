@@ -1,0 +1,150 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:08:13.478Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 656,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/ai-marketing-workflows-process",
+    "query": "AI marketing workflows process",
+    "title": "AI Marketing Workflows Process Guide",
+    "description": "Learn the seven-step workflow, tool choices, human approval gates, and engagement models for AI-driven marketing operations.",
+    "h1": "How should AI marketing workflows process be run?",
+    "definition": "An AI marketing workflow process is a structured sequence that moves work from brief to published asset using generative tools for research, drafting, and design variants, with named human approvers at every gate.",
+    "quick_answer": "Map seven gated steps, assign one owner per step, pick tools for workflow, generation, handoff, and reporting, and enforce a human-in-the-loop rule so no AI output goes live without a named sign-off.",
+    "sections": [
+      {
+        "h2": "What steps make up an AI marketing workflow?",
+        "blocks": [
+          {
+            "p": "Seven steps, each with an owner, an output and an approval gate, take a request from intake through reporting."
+          },
+          {
+            "ol": [
+              "Intake: capture brief, goal, audience, and deadline in the work management tool",
+              "Research: use a large language model to gather sources, summarize trends, and outline angles",
+              "Draft: generate first copy version in the same model or a specialised writing assistant",
+              "Design: create image variants with a generative image tool matched to brand guidelines",
+              "Review: route draft and assets to stakeholders for structured feedback in the work management tool",
+              "Approval: a named approver signs off final version before any publish action",
+              "Publish and report: push to CMS or marketing automation, then capture performance in analytics"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tools handle each stage of the workflow?",
+        "blocks": [
+          {
+            "p": "A practical stack separates workflow orchestration, generation, handoff automation, and measurement."
+          },
+          {
+            "table": {
+              "head": [
+                "Stage",
+                "Tool category",
+                "Examples"
+              ],
+              "rows": [
+                [
+                  "Workflow orchestration",
+                  "Work management platform",
+                  "Asana, Monday.com, ClickUp"
+                ],
+                [
+                  "Research and drafting",
+                  "Large language model",
+                  "ChatGPT, Claude"
+                ],
+                [
+                  "Image variants",
+                  "Generative image tool",
+                  "Adobe Firefly, Canva"
+                ],
+                [
+                  "Handoff automation",
+                  "Integration platform",
+                  "Zapier, Make"
+                ],
+                [
+                  "Reporting",
+                  "Analytics and CRM",
+                  "HubSpot, GA4"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you keep human approval in the loop?",
+        "blocks": [
+          {
+            "p": "The human-in-the-loop rule means AI output is a draft until a named person approves it, and that rule must be encoded in the workflow tool."
+          },
+          {
+            "ul": [
+              "Assign a specific approver role for each gate in the work management platform",
+              "Require a recorded approval status change before the workflow advances",
+              "Log the approver name, timestamp, and any required changes in the task record",
+              "Block automated publish actions until the approval field reads approved",
+              "Run a monthly audit of approval logs to confirm no step was bypassed"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What does a setup engagement deliver?",
+        "blocks": [
+          {
+            "p": "A scoped engagement produces working automations, integrations, documentation, and often a support retainer."
+          },
+          {
+            "ul": [
+              "Assessment of current content and campaign processes",
+              "Prioritised use-case list ranked by volume and risk",
+              "Tool selection and configuration for workflow, generation, handoff, and reporting",
+              "Built automations that move assets between tools without manual copy-paste",
+              "Runbooks that describe each step, owner, approval gate, and rollback procedure",
+              "Optional monthly retainer for monitoring, prompt tuning, and new use-case onboarding"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How are AI workflow projects priced?",
+        "blocks": [
+          {
+            "p": "Pricing follows two models depending on whether you buy advisory or build services."
+          },
+          {
+            "ul": [
+              "Consultant model: day rate or fixed project fee for assessment, use-case list, tool choice, and roadmap",
+              "Agency model: fixed build fee for working automations, integrations, and documentation plus a monthly support retainer",
+              "Scope determines which model fits; a pure strategy need leans consultant, a hands-on build leans agency",
+              "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement; send the scope for a quote"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I start with one use case instead of a full workflow?",
+        "a": "Yes. Many teams pilot a single high-volume task such as blog draft generation or social image variants, then expand once the approval gate and handoff automation prove reliable."
+      },
+      {
+        "q": "What happens if the AI output violates brand guidelines?",
+        "a": "The review gate catches it because a named brand approver must sign off before publish. The runbook should include a rollback step that returns the task to the draft stage with a comment."
+      },
+      {
+        "q": "Do I need a dedicated prompt engineer on staff?",
+        "a": "Not necessarily. Prompt templates and versioned prompt libraries stored in the work management tool let any trained marketer produce consistent output without a specialist role."
+      },
+      {
+        "q": "How long before the workflow shows measurable time savings?",
+        "a": "Most teams see a reduction in cycle time after the first two to three completed cycles once the handoff automations and approval gates run without manual intervention."
+      }
+    ]
+  }
+}

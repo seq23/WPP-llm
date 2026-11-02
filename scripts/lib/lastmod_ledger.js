@@ -117,7 +117,9 @@ function contentBasis(html) {
   // too. On 26 Oct 2026 retiring 424 duplicate variants reshuffled the sibling
   // ring on 2,720 pages whose own text did not change; under v2 every one of them
   // claimed fresh content.
-  const content = main ? main[1].replace(/<!--link-arch:([a-z-]+)-->[\s\S]*?<!--\/link-arch:\1-->/g, '') : '';
+  // The "Common ways this gets searched" keyword block (removed sitewide on
+  // 2 Nov 2026) was boilerplate too: its removal is not new content.
+  const content = main ? main[1].replace(/<!--link-arch:([a-z-]+)-->[\s\S]*?<!--\/link-arch:\1-->/g, '').replace(/<section class="fanout-block"[\s\S]*?<\/section>\s*/g, '').replace(/\s+/g, ' ') : '';
   if (!content.trim()) return doc;
   return [title, description, canonical, content].join('\n');
 }

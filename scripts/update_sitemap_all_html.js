@@ -30,7 +30,11 @@ const isNoindex = (rel) => /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*
 // sitemap even if a page is ever written at its old path.
 const { parseRedirects } = require('./lib/pages_routing.js');
 const REDIRECTED = new Set(parseRedirects(ROOT).filter((r) => [301, 302, 307, 308].includes(r.status)).map((r) => r.from));
-const pages = walk(ROOT).filter((rel) => !isNoindex(rel) && !REDIRECTED.has(cleanPath(rel))).sort();
+// A kept page whose rewrite the free models could not bring over the quality
+// bar is noindex on the live site (scripts/lib/page_finish.js) until a retry is
+// accepted, so it is not submitted either.
+const rewrites = require('./lib/page_rewrites.js');
+const pages = walk(ROOT).filter((rel) => !isNoindex(rel) && !REDIRECTED.has(cleanPath(rel)) && !rewrites.isRefused(cleanPath(rel)) && !require('./lib/prune.js').isNoindexed(cleanPath(rel))).sort();
 
 // <lastmod> is a claim to a crawler about when the page changed, so it is
 // derived from the page's own content, not from the build clock. This used to
@@ -48,7 +52,8 @@ const entries = {};
 for (const rel of pages) {
   const clean = cleanPath(rel);
   entries[DOMAIN + (clean === '/' ? '/' : clean)] = {
-    hash: ledgerLib.contentHash(fs.readFileSync(path.join(ROOT, rel), 'utf8')),
+    // An accepted rewrite replaces the body on deploy, so it is part of the content.
+    hash: ledgerLib.contentHash(fs.readFileSync(path.join(ROOT, rel), 'utf8') + (rewrites.accepted(clean) ? JSON.stringify(rewrites.accepted(clean).page) : '')),
     file: rel
   };
 }

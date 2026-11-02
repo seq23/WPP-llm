@@ -35,6 +35,8 @@ let total = 0, attributed = 0, pagesScanned = 0;
     if (!e.name.endsWith('.html')) continue;
     const abs = path.join(dir, e.name);
     const rel = path.relative(ROOT, abs);
+    // Consolidated pages are not deployed (data/seo/prune_ledger.json).
+    if (require('../lib/prune.js').isRedirectedFile(rel)) continue;
     const html = fs.readFileSync(abs, 'utf8');
     pagesScanned += 1;
     let m;

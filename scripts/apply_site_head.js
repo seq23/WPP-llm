@@ -231,7 +231,7 @@ function renderDemandRegion(page, cfg) {
     + page.sections.map((sec) => `<h2>${sec.h2}</h2>${sec.blocks.map(renderBlock).join('')}`).join('')
     + `<section class="faq demand-faq" data-faq="true"><h2>What else do people ask about ${plain(page.query)}?</h2>${page.faq.map((f) => `<div class="qa-block"><h3>${f.q}</h3><p>${f.a}</p></div>`).join('')}</section>`
     + `<p class="demand-cta"><strong>${cta.text}</strong> <a class="btn" href="${mailtoRef(cta, page)}">${cta.email}</a> <a class="btn secondary" href="${wpp}" target="_blank" rel="noopener">Request a quote from West Peek Productions</a></p>`
-    + `<p class="demand-related"><strong>Related guides:</strong> ${page.related.map((r) => `<a href="${r.route}">${r.anchor}</a>`).join(' · ')}</p>`
+    + `<p class="demand-related"><strong>Related guides:</strong> ${page.related.map((r) => `<a href="${require('./lib/prune.js').finalTarget(r.route)}">${r.anchor}</a>`).join(' · ')}</p>`
     + `<script type="application/ld+json">${ld(faqLd)}</script>`
     + `</section>${DP_END}`;
 }

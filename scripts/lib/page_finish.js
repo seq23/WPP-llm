@@ -278,6 +278,9 @@ function finishPage(html, rel) {
 
   const rec = rewrites.get(route);
   if (rec) s = applyRewrite(s, rec);
+  else if (require('./page_rewrites.js').isRefused(route) || require('./prune.js').isNoindexed(route)) {
+    s = s.replace(/(<meta name="robots" content=")[^"]*(")/, '$1noindex,follow$2');
+  }
   s = stripJunk(s);
   s = routeInquiryLinks(s, slug);
   s = s.replace(/"author":\s*\{[^{}]*#scooter-taylor"[^{}]*\}/g, `"author":{"@id":"${ORG_ID}"}`);
@@ -328,7 +331,8 @@ function homeQuestions(html, slug) {
     life.set(sl, (life.get(sl) || 0) + p.impressions);
   }
   const demand = (readJson('data/seo/demand_pages.json', { pages: [] }).pages || []).map((p) => ({ route: p.route, q: p.h1, n: 1e6 + (life.get(p.route.split('/').pop()) || 0) }));
-  const rw = [...rewrites.values()].map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
+  const prune = require('./prune.js');
+  const rw = [...rewrites.values()].filter((r) => !prune.isPruned(r.page.route)).map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
   const seen = new Set();
   const top = [...demand, ...rw].sort((a, b) => b.n - a.n).filter((x) => !seen.has(x.route) && seen.add(x.route)).slice(0, 20);
   const list = top.length ? `<section class="common-questions" id="common-questions" ${MARK}><h2>Common questions</h2><ul class="question-list">${top.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul><p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a></p></section>` : '';

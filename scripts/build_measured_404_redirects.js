@@ -51,6 +51,11 @@ function measuredPages() {
   for (const r of truth.pages || []) add(r.page, r.impressions);
   for (const r of truth.pages_90d || []) add(r.page, r.impressions);
   for (const r of truth.page_history || []) add(r.page, r.impressions_best_window);
+  // Every page Search Console has EVER shown, over its whole retained window
+  // (2 Nov 2026). The 90-day sources above start after the 25-26 Aug cliff, so
+  // 40 root URLs Google showed from April to August (/webinar-production: 65
+  // impressions) were still answering 404 when they rolled out of every window.
+  for (const r of readJson('data/search_intelligence/page_impressions_lifetime.json', { pages: [] }).pages || []) add(r.page, r.impressions);
   const dir = rel('data/search_intelligence');
   for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => /^gsc_export_28d_.*\.json$/.test(x)) : []) {
     for (const r of readJson(`data/search_intelligence/${f}`, {}).top_pages || []) add(r.page || r.url, 0);
@@ -81,12 +86,17 @@ function main() {
   // measured twin that was one of them lands on the family page directly.
   const retiredTo = new Map(require('./lib/consolidated_families.js').redirectRules().map((r) => [r.from, r.to]));
 
+  const prune = require('./lib/prune.js');
   const rules = new Map();
   const consider = (from, impressions, prior) => {
-    if (legacy.has(from) || retiredTo.has(from) || isPage(from)) return;
+    if (legacy.has(from) || retiredTo.has(from) || prune.isRedirected(from) || isPage(from)) return;
+    // Pages answers /x.html with a 308 to /x on its own; a rule here would shadow
+    // the live page (and, under a Function prefix, replace it outright).
+    if (/\.html$/.test(from) && (isPage(from.replace(/\.html$/, '')) || prune.isRedirected(from.replace(/\.html$/, '')))) return;
     const twin = `/programmatic${from}`;
     let to; let why;
-    if (isPage(twin)) { to = twin; why = 'Measured in Search Console, then 404. The same page is published at this /programmatic/ route.'; }
+    if (prune.redirectTarget(twin)) { to = prune.redirectTarget(twin); why = 'Measured in Search Console, then 404. Its /programmatic/ twin was consolidated into the strongest page of its topic (data/seo/prune_ledger.json).'; }
+    else if (isPage(twin)) { to = twin; why = 'Measured in Search Console, then 404. The same page is published at this /programmatic/ route.'; }
     else if (retiredTo.get(twin) && isPage(retiredTo.get(twin))) { to = retiredTo.get(twin); why = 'Measured in Search Console, then 404. Its /programmatic/ twin was merged into the indexed page of its duplicate family.'; }
     else if (foldInto.get(twin) && isPage(foldInto.get(twin))) { to = foldInto.get(twin); why = 'Measured in Search Console, then 404. No same-slug page; lands on the hub its twin folds into.'; }
     else if (foldInto.get(from) && isPage(foldInto.get(from))) { to = foldInto.get(from); why = 'Measured in Search Console, then 404. No same-slug page; lands on the hub it folds into.'; }

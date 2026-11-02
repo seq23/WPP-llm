@@ -24,8 +24,14 @@ const ROOT = path.resolve(__dirname, '../..');
 
 function parseRedirects(root = ROOT) {
   const file = path.join(root, '_redirects');
-  if (!fs.existsSync(file)) return [];
   const rules = [];
+  // functions/_middleware.js answers these first (see _routes.json); Pages
+  // never applies _redirects to a request under a Function prefix.
+  const fnMap = path.join(root, 'functions/redirect_map.json');
+  if (fs.existsSync(fnMap)) {
+    for (const [from, to] of Object.entries(JSON.parse(fs.readFileSync(fnMap, 'utf8')))) rules.push({ from, to, status: 301, fn: true, line: `functions/redirect_map.json ${from}` });
+  }
+  if (!fs.existsSync(file)) return rules;
   fs.readFileSync(file, 'utf8').split('\n').forEach((raw, i) => {
     const line = raw.trim();
     if (!line || line.startsWith('#')) return;
@@ -36,6 +42,7 @@ function parseRedirects(root = ROOT) {
 }
 
 function ruleMatches(rule, p) {
+  if (rule.fn) return (p.length > 1 ? p.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/\/+$/, '') : p) === rule.from;
   if (rule.from.endsWith('/*')) return p.startsWith(rule.from.slice(0, -1));
   return rule.from === p;
 }
