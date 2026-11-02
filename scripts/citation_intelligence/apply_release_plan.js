@@ -26,7 +26,14 @@ let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = []; 
 let stagedCorpus = listProgrammaticPages();
 
 function recordAdmission(u, route) {
-  const i = (adm.admissions || []).findIndex(a => governedRoute(a.route) === route && a.query === u.query);
+  // A repair rewrites a page that is already admitted, so it updates that
+  // route's admission whatever query the plan carried (the quality-report
+  // fallback can phrase the query differently). Matching on route + query
+  // here once appended a second admission for the same page, which double-
+  // counted it in the frozen output registry.
+  const sameRoute = a => governedRoute(a.route) === route;
+  let i = u.release_action === 'repair' ? (adm.admissions || []).findIndex(sameRoute) : -1;
+  if (i < 0) i = (adm.admissions || []).findIndex(a => sameRoute(a) && a.query === u.query);
   const rec = {
     route,
     source_route: cleanRoute(u.source_route || u.target_route),
@@ -40,7 +47,11 @@ function recordAdmission(u, route) {
     updated_at: new Date().toISOString(),
     admitted_at: i >= 0 ? adm.admissions[i].admitted_at : new Date().toISOString(),
   };
-  if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
+  if (i >= 0 && u.release_action === 'repair') {
+    // Keep the page's original admission identity; record that it was repaired.
+    const prev = adm.admissions[i];
+    adm.admissions[i] = { ...prev, action: rec.action, status: 'admitted', updated_at: rec.updated_at };
+  } else if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
   if (!state.published_routes.includes(route)) state.published_routes.push(route);
 }
 
