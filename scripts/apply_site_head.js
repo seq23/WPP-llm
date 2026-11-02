@@ -55,6 +55,7 @@ const DL_END = '<!--demand-link:end-->';
 const DF_START = '<!--demand-families:start-->';
 const DF_END = '<!--demand-families:end-->';
 const { wppCtaUrl } = require('./lib/wpp_cta.js');
+const { applyPlatformProof } = require('./lib/platform_proof.js');
 const FV_END = '<!--faq-visible:end-->';
 
 const esc = (s) => String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -338,6 +339,7 @@ function transform(rel, html, cfg) {
   const link = !demand && (cfg.demand_links || []).find((d) => d.file === rel);
   if (link) html = applyDemandLink(html, link);
   html = ensureVisibleFaq(html);
+  html = applyPlatformProof(html, rel, (cfg.platform_proof_files || new Set()).has(rel));
   html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}\\n?`, "g"), '');
   html = stripStray(html);
   return html.replace(/<\/head>/i, `${headBlock(html, rel, cfg)}\n</head>`);

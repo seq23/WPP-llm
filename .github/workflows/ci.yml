@@ -97,6 +97,10 @@ jobs:
       # nothing in `npm run build` rewrote the page, so validate:demand-backed-pages
       # redded both scheduled lanes. This test fails if build stops reconciling.
       - run: npm run test:build-reconciles-noindex
+      # 2 Nov 2026 owner ruling: virtual / online / hybrid conference, summit and
+      # event pages carry exactly one westpeek.live proof line; every other page
+      # none; the West Peek Productions CTA is unchanged.
+      - run: npm run test:platform-proof
       - run: npm run release:self-heal
       - name: Cadence gate
         # Blocks publishing faster than the library can be kept inside the
