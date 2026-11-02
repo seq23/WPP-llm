@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T23:32:50.942Z",
+  "generated_at": "2026-11-02T23:34:08.532Z",
   "workflow_count": 10,
   "workflows": [
     "admin-command.yml",
@@ -815,6 +815,18 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 16,
+      "name": "Rewrite kept pages that have no accepted rewrite yet (free router only)",
+      "npm_script": "content:rewrite-kept",
+      "direct_paths": [],
+      "env_keys": [
+        "OPENROUTER_API_KEY"
+      ]
+    },
+    {
+      "workflow": "query-intelligence.yml",
+      "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
+      "job": "collect_score",
+      "step": 17,
       "name": "Rebuild pages, noindex policy and sitemap with the new Search Console evidence",
       "npm_script": "build",
       "direct_paths": [],
@@ -826,7 +838,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 17,
+      "step": 18,
       "name": "Validate query intelligence",
       "npm_script": "validate:autonomous",
       "direct_paths": [],
@@ -836,7 +848,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 18,
+      "step": 19,
       "name": "Commit query intelligence artifacts",
       "npm_script": null,
       "direct_paths": [
@@ -850,7 +862,7 @@
       "workflow": "query-intelligence.yml",
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
-      "step": 19,
+      "step": 20,
       "name": "actions/upload-artifact@v7",
       "npm_script": null,
       "direct_paths": [],
