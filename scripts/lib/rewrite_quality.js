@@ -56,6 +56,11 @@ function unsourcedNumbers(text, allowedFacts) {
   const bad = [];
   for (const m of String(text).matchAll(/\d[\d,.]*/g)) {
     const n = m[0].replace(/[.,]$/, '');
+    // A single-digit count ("3 options", "step 2") is not a statistic; a
+    // single digit that is a price or a percentage still is.
+    const before = text[m.index - 1] || '';
+    const after = String(text).slice(m.index + m[0].length).trimStart()[0] || '';
+    if (/^\d$/.test(n) && before !== '$' && after !== '%') continue;
     if (!allowed.has(n)) bad.push(n);
   }
   return [...new Set(bad)];

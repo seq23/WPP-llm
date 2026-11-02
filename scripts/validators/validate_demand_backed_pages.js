@@ -99,7 +99,10 @@ const robotsOf = (route) => {
 };
 const noindexOnDisk = (route) => /noindex/i.test(robotsOf(route) || '');
 
-const orphaned = onDisk.filter((r) => !sitemapSet.has(r) && !noindexOnDisk(r));
+// A page consolidated into its topic (data/seo/prune_ledger.json) is sanctioned:
+// it is not deployed and 301s, or is noindex on deploy.
+const pruneLedger = require('../lib/prune.js');
+const orphaned = onDisk.filter((r) => !sitemapSet.has(r) && !noindexOnDisk(r) && !pruneLedger.isPruned(r) && !require('../lib/page_rewrites.js').isRefused(r));
 if (orphaned.length) {
   errors.push(
     `${orphaned.length} programmatic page(s) exist on disk, are in no sitemap, and are not sanctioned noindex, e.g. ` +

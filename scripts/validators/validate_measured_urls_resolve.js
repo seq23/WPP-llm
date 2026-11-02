@@ -39,7 +39,9 @@ if (!measured.length) { console.error('MEASURED URL VALIDATION: data/redirects/m
 
 const byFrom = new Map(rules.map((r) => [r.from, r]));
 for (const m of measured) {
-  const r = byFrom.get(m.from);
+  // Consolidation-map rules (data/redirects/consolidation_map.json) are keyed by
+  // the clean path and answer the .html form too.
+  const r = byFrom.get(m.from) || byFrom.get(m.from.replace(/\.html$/, ''));
   if (!r) { problems.push(`${m.from} -> ${m.to} is in measured_404_redirects.json but not in _redirects`); continue; }
   if (r.to !== m.to || r.status !== 301) problems.push(`${m.from}: _redirects says ${r.to} ${r.status}, data says ${m.to} 301`);
   const t = resolvePath(m.to, { root: ROOT, rules });

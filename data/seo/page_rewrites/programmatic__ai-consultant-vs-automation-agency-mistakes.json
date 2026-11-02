@@ -1,0 +1,143 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T22:59:34.356Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 823,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/ai-consultant-vs-automation-agency-mistakes",
+    "query": "AI consultant vs automation agency mistakes",
+    "title": "AI Consultant vs Automation Agency Mistakes",
+    "description": "Avoid costly mismatches by learning the common mistakes when choosing between an AI consultant and an automation agency for marketing and event operations.",
+    "h1": "What are the most common AI consultant vs automation agency mistakes?",
+    "definition": "AI consultant vs automation agency mistakes are the frequent misalignments in scope, ownership, and delivery model that cause projects to stall, exceed budgets, or fail to integrate with existing marketing and event workflows.",
+    "quick_answer": "Match the engagement to the gap: hire a consultant for strategy and tool selection, hire an agency for building and maintaining working automations. Never pay a consultant to build or an agency to strategise without a clear handoff plan.",
+    "sections": [
+      {
+        "h2": "What is the difference in deliverables between a consultant and an agency?",
+        "blocks": [
+          {
+            "p": "Consultant output is an assessment, a prioritised use-case list, a tool choice and a roadmap. Agency output is working automations, integrations and documentation, often with a support retainer."
+          },
+          {
+            "ul": [
+              "Consultant hands over a slide deck and a decision matrix",
+              "Agency hands over a live Zapier or Make scenario with error handling",
+              "Consultant defines which large language model fits the brand voice",
+              "Agency builds the prompt library and the approval workflow in Asana or Monday.com"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do pricing models create hidden cost traps?",
+        "blocks": [
+          {
+            "p": "Pricing models differ: day rate or fixed project for consultants; fixed build fee plus a monthly retainer for agencies. Buyers often budget for the build but forget the retainer, or pay a day rate for implementation that never finishes."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Scope",
+                "Risk If Misunderstood"
+              ],
+              "rows": [
+                [
+                  "Consultant day rate",
+                  "Discovery, workshops, roadmap",
+                  "Scope creep into build work without technical capacity"
+                ],
+                [
+                  "Consultant fixed project",
+                  "Assessment and tool shortlist",
+                  "Delivered PDF sits unused because no one owns the build"
+                ],
+                [
+                  "Agency build fee",
+                  "Working automation and docs",
+                  "Retainer lapses and the integration breaks on the next API change"
+                ],
+                [
+                  "Agency retainer",
+                  "Monitoring, updates, support",
+                  "Paying for maintenance on automations that never reached production"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the human-in-the-loop approval after launch?",
+        "blocks": [
+          {
+            "p": "Human-in-the-loop rule: AI output is a draft until a named person approves it. Consultants often leave this undefined; agencies assume the client will assign an owner. The gap causes published errors or stalled workflows."
+          },
+          {
+            "ol": [
+              "Name a specific approver for each content type before the build starts",
+              "Build the approval step into the automation using Asana, Monday.com or ClickUp tasks",
+              "Set a fallback approver for holidays and sick leave",
+              "Log every approval in HubSpot or GA4 for audit trail"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Where do tool choices lock you into a vendor?",
+        "blocks": [
+          {
+            "p": "Consultants may recommend a platform that fits the roadmap but requires an agency to implement. Agencies may prefer tools they know well, even if a lighter option suits the team better. Both create lock-in if the contract does not specify portability."
+          },
+          {
+            "ul": [
+              "Require exportable prompt libraries and workflow JSON files in the statement of work",
+              "Avoid custom code where a native Zapier or Make module exists",
+              "Confirm the agency will document the data schema for future migration",
+              "Ask the consultant to rank tools by migration difficulty, not only feature fit"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you prevent the strategy-to-execution handoff from failing?",
+        "blocks": [
+          {
+            "p": "A consultant delivers a roadmap; an agency expects a detailed brief. The missing middle is a production-ready specification with sample data, error cases, and acceptance criteria. Without it, the agency rebuilds the strategy at build rates."
+          },
+          {
+            "ul": [
+              "Commission a technical spec document as the consultant's final milestone",
+              "Include three real examples per use case: happy path, edge case, failure mode",
+              "Define done as a passing test run in the staging environment",
+              "Schedule a joint review call with consultant, agency, and internal owner before build starts"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can one firm act as both consultant and agency?",
+        "a": "Some firms offer both, but the incentives differ. A consultant paid for strategy has no motive to minimise build complexity. An agency paid for build has no motive to challenge the use case. Separate the contracts or require a fixed-price audit before the build phase begins."
+      },
+      {
+        "q": "What should a statement of work include to avoid scope gaps?",
+        "a": "List every automation by trigger, action, and error path. Name the human approver for each output. Specify the exact tools, versions, and API limits. Define the retainer scope: monitoring, updates, and response time. Attach the consultant's roadmap as an appendix, not the scope itself."
+      },
+      {
+        "q": "How do I know if I need a consultant or an agency first?",
+        "a": "If you cannot name three specific processes to automate, start with a consultant for an assessment and prioritised use-case list. If you have a signed-off brief with sample data and a named approver, go straight to an agency for the build fee plus retainer model."
+      },
+      {
+        "q": "What is the typical timeline from assessment to live automation?",
+        "a": "A consultant assessment takes two to three weeks. A technical spec adds one week. An agency build for a single workflow takes two to four weeks including testing. Plan six to eight weeks total for the first automation; repeat formats move faster once the pattern library exists."
+      },
+      {
+        "q": "Does West Peek Productions provide AI consulting or agency builds?",
+        "a": "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement; it is not a general AI consultancy. It produces virtual, hybrid and webinar events and sets up marketing, content and creative operations."
+      }
+    ]
+  }
+}

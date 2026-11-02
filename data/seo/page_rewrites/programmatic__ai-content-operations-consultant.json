@@ -1,0 +1,167 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:03:10.655Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 782,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/ai-content-operations-consultant",
+    "query": "AI content operations consultant",
+    "title": "AI Content Operations Consultant Selection Guide",
+    "description": "Checklist, tool categories, and human-in-the-loop rules for hiring an AI content operations consultant who protects private data and delivers repeatable workflows.",
+    "h1": "How do you choose the right AI content operations partner?",
+    "definition": "An AI content operations consultant is a specialist who designs human-in-the-loop workflows that blend generative tools with editorial checkpoints, governance rules, and exception handling so marketing, content, and event teams publish faster without leaking private data.",
+    "quick_answer": "Start with a scoped assessment that maps your current seven-stage content cycle, identifies the two or three highest-impact use cases, and names the tool categories you will test before any build begins.",
+    "sections": [
+      {
+        "h2": "What does a scoped assessment deliver before you sign a contract?",
+        "blocks": [
+          {
+            "p": "A scoped assessment produces an audit of your existing intake-to-reporting pipeline, a prioritised use-case list ranked by volume and risk, a tool-choice matrix that matches each use case to a model or platform category, and a phased roadmap with owners and approval gates."
+          },
+          {
+            "ul": [
+              "Map the seven stages from intake through reporting with current owners and cycle times",
+              "Score each use case on content volume, review burden, and private-data exposure",
+              "Match use cases to tool categories: research and drafting, image variant generation, hand-off automation, and analytics summarisation",
+              "Deliver a ninety-day roadmap with milestones, owners, and go/no-go gates"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which human checkpoints and exception rules must be agreed up front?",
+        "blocks": [
+          {
+            "p": "Every AI output remains a draft until a named person approves it; exceptions route to a designated editor within a defined service-level window."
+          },
+          {
+            "ol": [
+              "Assign a human approver for each content type: article, social post, event script, email",
+              "Define exception triggers: factual claim, regulated language, brand voice deviation, personal data reference",
+              "Set response-time targets: two hours for webinar scripts, four hours for blog drafts, one business day for evergreen assets",
+              "Log every override in the workflow tool to feed the next model fine-tuning cycle"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you prevent private-data leakage across research, drafting, and hand-off tools?",
+        "blocks": [
+          {
+            "p": "Leakage risk lives in three places: prompt context windows, third-party model APIs, and automation bridges that move drafts between systems."
+          },
+          {
+            "table": {
+              "head": [
+                "Risk point",
+                "Control"
+              ],
+              "rows": [
+                [
+                  "Prompt context",
+                  "Strip identifiers before sending to any model; use a local sanitiser script"
+                ],
+                [
+                  "Model API",
+                  "Choose vendors with zero-retention contracts and regional data residency"
+                ],
+                [
+                  "Automation bridge",
+                  "Run Zapier or Make workflows on a private tenant; mask fields in transit"
+                ],
+                [
+                  "Asset storage",
+                  "Keep source documents in a governed drive; never upload to public model playgrounds"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What tool categories appear in a typical AI content operations stack?",
+        "blocks": [
+          {
+            "p": "The stack separates research and drafting, image variant generation, hand-off automation, and analytics summarisation so each category can be swapped without rewriting the whole workflow."
+          },
+          {
+            "ul": [
+              "Research and drafting: ChatGPT or Claude with prompt libraries stored in Notion",
+              "Image variants: Adobe Firefly or Canva Magic Studio fed from approved brand assets",
+              "Hand-off automation: Zapier or Make moving approved drafts into WordPress, Webflow, or HubSpot",
+              "Analytics summarisation: GA4 and HubSpot data piped to a summarisation prompt for weekly performance briefs"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do consultant and agency delivery models differ for AI content operations?",
+        "blocks": [
+          {
+            "p": "Consultants hand over an assessment, use-case list, tool choice, and roadmap; agencies deliver working automations, integrations, documentation, and often a support retainer."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical output",
+                "Pricing pattern"
+              ],
+              "rows": [
+                [
+                  "Consultant",
+                  "Assessment, prioritised use cases, tool matrix, ninety-day roadmap",
+                  "Day rate or fixed project fee"
+                ],
+                [
+                  "Agency",
+                  "Built workflows, connectors, prompt libraries, runbooks, monthly support",
+                  "Fixed build fee plus monthly retainer"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What does a ninety-day pilot look like from kickoff to go/no-go?",
+        "blocks": [
+          {
+            "p": "A first plan runs ninety days: long enough to see a trend, short enough to change course."
+          },
+          {
+            "ol": [
+              "Week one to two: inventory current seven-stage cycle, agree human-in-the-loop rule, select two pilot use cases",
+              "Week three to four: configure prompt library, sanitiser, and automation bridge in a sandbox",
+              "Month two: run live content through pilot workflows, log cycle time, revision rounds, and exception volume",
+              "Month three: review core metrics against baseline, present go/no-go with cost-per-asset comparison"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How quickly can a team see cycle-time improvement after pilot launch?",
+        "a": "Most teams measure a meaningful drop in review rounds by the end of month two once the prompt library stabilises and exception routing is trusted."
+      },
+      {
+        "q": "What happens if a regulated phrase slips through the sanitiser?",
+        "a": "The exception trigger fires, the draft routes to the named compliance approver within the agreed service-level window, and the sanitiser rule set is updated before the next run."
+      },
+      {
+        "q": "Can the same consultant support both marketing content and event scripts?",
+        "a": "Yes, the seven-stage framework covers articles, webinar run-of-shows, and summit agendas; the only change is the approver map and exception list per content type."
+      },
+      {
+        "q": "What internal roles must exist before hiring a consultant?",
+        "a": "You need a content owner who can approve brand voice, a legal or compliance contact for regulated language, and a workflow administrator who manages Asana, Monday.com, or ClickUp."
+      },
+      {
+        "q": "How is pricing scoped for a West Peek Productions engagement?",
+        "a": "West Peek Productions scopes AI content operations work per engagement; send the scope for a quote rather than using a published rate card."
+      }
+    ]
+  }
+}

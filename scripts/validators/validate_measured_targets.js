@@ -39,6 +39,9 @@ if (c && t) {
   const targetPages = new Set((t.targets || []).flatMap((x) => x.pages || []));
   if (c.candidate_count !== (c.candidates || []).length) errors.push('candidate_count does not match candidates');
   for (const x of c.candidates || []) {
+    // The thin-ledger re-read of 2 Nov 2026 is the topic consolidation in
+    // data/seo/prune_ledger.json: a candidate it folded away is rightly gone.
+    if (require('../lib/prune.js').isPruned(x.route) || require('../lib/page_rewrites.js').isRefused(x.route)) continue;
     if (!sm.includes(`<loc>https://virtualagency-os.com${x.route}</loc>`)) errors.push(`candidate ${x.route} is not in sitemap.xml`);
     if (x.impressions_measured !== 0 || targetPages.has(x.route)) errors.push(`candidate ${x.route} has measured impressions`);
     if (!(x.words < 700)) errors.push(`candidate ${x.route} is not thin (${x.words} words)`);

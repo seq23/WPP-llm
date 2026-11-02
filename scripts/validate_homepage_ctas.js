@@ -96,7 +96,10 @@ if (/href="\/contact(["/?#])/.test(html)) bad.push('homepage still links /contac
 if (fs.existsSync(path.join(ROOT, 'contact.html'))) bad.push('contact.html still exists; /contact is meant to be a 301');
 const contactRule = redirects.split(/\r?\n/).find((l) => l.trim().startsWith('/contact '));
 if (!contactRule) bad.push('_redirects has no rule for /contact');
-else if (!contactRule.includes(WPP) || !contactRule.trim().endsWith('301')) bad.push(`/contact redirect does not 301 to westpeekproductions: ${contactRule.trim()}`);
+// Since 2 Nov 2026 every inquiry, /contact included, goes through /go/plan: it
+// counts the visit and opens the West Peek Productions inquiry form.
+else if (!/^\/contact\s+\/go\/plan\?/.test(contactRule.trim()) || !contactRule.trim().endsWith('301')) bad.push(`/contact redirect does not 301 to the inquiry hop /go/plan: ${contactRule.trim()}`);
+else if (!fs.existsSync(path.join(ROOT, 'go/plan.html')) || !/docs\.google\.com\/forms\/[^"]*entry\.1604031867=Website/.test(fs.readFileSync(path.join(ROOT, 'go/plan.html'), 'utf8'))) bad.push('/go/plan does not open the inquiry form with the source pre-filled');
 
 // The calculator and its hub survived the retirement and must stay reachable.
 if (!html.includes(`href="${CALC}"`)) bad.push('homepage does not link the production scoping calculator');
@@ -107,4 +110,4 @@ const wppLinks = (html.match(/href="https:\/\/www\.westpeekproductions\.com/g) |
 if (wppLinks < 4) bad.push(`expected at least 4 westpeekproductions links on the homepage, found ${wppLinks}`);
 
 if (bad.length) { console.error('Homepage CTA validation failed:\n- ' + bad.join('\n- ')); process.exit(1); }
-console.log(`Homepage CTAs OK (${wppLinks} westpeekproductions links; 4 conversion points lead with the commercial site, UTM-tagged, calculator secondary; /contact 301s off-domain)`);
+console.log(`Homepage CTAs OK (${wppLinks} westpeekproductions links; 4 conversion points lead with the commercial site, UTM-tagged, calculator secondary; /contact 301s to the inquiry form via /go/plan)`);

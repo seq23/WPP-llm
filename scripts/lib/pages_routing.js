@@ -22,10 +22,17 @@ const { isPublishedPath } = require('../assemble_pages_output.js');
 
 const ROOT = path.resolve(__dirname, '../..');
 
-function parseRedirects(root = ROOT) {
+function parseRedirects(root = ROOT, opts = {}) {
   const file = path.join(root, '_redirects');
-  if (!fs.existsSync(file)) return [];
   const rules = [];
+  // The per-URL consolidation map (data/redirects/consolidation_map.json) is
+  // what the compressed splat rules in _redirects answer; reading it first gives
+  // validators one exact rule per URL. test:prune proves the two agree.
+  const fnMap = path.join(root, 'data/redirects/consolidation_map.json');
+  if (opts.withMap !== false && fs.existsSync(fnMap)) {
+    for (const [from, to] of Object.entries(JSON.parse(fs.readFileSync(fnMap, 'utf8')))) rules.push({ from, to, status: 301, fn: true, line: `consolidation_map ${from}` });
+  }
+  if (!fs.existsSync(file)) return rules;
   fs.readFileSync(file, 'utf8').split('\n').forEach((raw, i) => {
     const line = raw.trim();
     if (!line || line.startsWith('#')) return;
@@ -36,7 +43,8 @@ function parseRedirects(root = ROOT) {
 }
 
 function ruleMatches(rule, p) {
-  if (rule.from.endsWith('/*')) return p.startsWith(rule.from.slice(0, -1));
+  if (rule.fn) return (p.length > 1 ? p.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/\/+$/, '') : p) === rule.from;
+  if (rule.from.endsWith('*')) return p.startsWith(rule.from.slice(0, -1));
   return rule.from === p;
 }
 
@@ -51,7 +59,10 @@ function isFile(root, rel) {
  * Returns { kind: 'page' } | { kind: 'redirect', to, status, via } | { kind: 'missing' }.
  */
 function resolvePath(p, { root = ROOT, rules = parseRedirects(root) } = {}) {
-  const rule = rules.find((r) => ruleMatches(r, p));
+  // Pages serves a deployed file before any redirect; a splat over a slug
+  // prefix therefore only answers paths with no published file.
+  const hasFile = (q) => { const rel = decodeURIComponent(q).replace(/^\//, ''); return rel === '' ? isFile(root, 'index.html') : isFile(root, rel) || isFile(root, `${rel}.html`) || isFile(root, `${rel}/index.html`) || (rel.endsWith('.html') && isFile(root, rel)); };
+  const rule = rules.find((r) => ruleMatches(r, p) && !(r.from.endsWith('*') && !r.from.endsWith('/*') && hasFile(p)));
   if (rule) {
     if (rule.status === 404 || rule.status === 200) return rule.status === 404 ? { kind: 'missing', via: `_redirects line ${rule.line}` } : { kind: 'page' };
     return { kind: 'redirect', to: rule.to, status: rule.status, via: `_redirects line ${rule.line}` };

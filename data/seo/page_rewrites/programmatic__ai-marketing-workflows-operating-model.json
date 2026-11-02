@@ -1,0 +1,148 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:05:24.187Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 677,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/ai-marketing-workflows-operating-model",
+    "query": "AI marketing workflows operating model",
+    "title": "AI Marketing Workflows Operating Model Guide",
+    "description": "Define the inputs, tools, owners and approval gates for AI-assisted marketing workflows. Includes a seven-step model, tool categories and a human-in-the-loop rule.",
+    "h1": "How should an AI marketing workflows operating model be run?",
+    "definition": "An AI marketing workflows operating model is a governed system that assigns owners, tools and approval gates to every AI-assisted marketing step from intake through reporting so output remains on-brand, compliant and measurable.",
+    "quick_answer": "Adopt a seven-stage workflow with a named owner per stage, enforce a human-in-the-loop approval gate before any AI output goes live, and review the model monthly for the first 90 days.",
+    "sections": [
+      {
+        "h2": "What stages belong in an AI marketing workflow?",
+        "blocks": [
+          {
+            "p": "Seven stages, each with one owner and one output, move work from request to insight: intake, brief, production, review, approval, publishing, reporting."
+          },
+          {
+            "ol": [
+              "Intake captures the request and assigns a workflow ID.",
+              "Brief defines goal, audience, brand constraints and success metrics in a shared doc.",
+              "Production runs research, drafting and asset creation using approved AI tools.",
+              "Review checks factual accuracy, tone and legal compliance.",
+              "Approval is a single named sign-off before any asset leaves the workspace.",
+              "Publishing pushes approved assets to the CMS, social scheduler or email platform.",
+              "Reporting pulls performance data into a dashboard for the monthly model review."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tool categories support each stage?",
+        "blocks": [
+          {
+            "p": "Select one primary tool per category to avoid duplicate subscriptions and fragmented hand-offs."
+          },
+          {
+            "table": {
+              "head": [
+                "Category",
+                "Typical Tools"
+              ],
+              "rows": [
+                [
+                  "Workflow management",
+                  "Asana, Monday.com or ClickUp"
+                ],
+                [
+                  "Research and drafting",
+                  "ChatGPT or Claude"
+                ],
+                [
+                  "Image and design variants",
+                  "Adobe Firefly or Canva"
+                ],
+                [
+                  "Automation and hand-offs",
+                  "Zapier or Make"
+                ],
+                [
+                  "Publishing",
+                  "WordPress, Webflow or HubSpot"
+                ],
+                [
+                  "Analytics and reporting",
+                  "GA4 and HubSpot"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you enforce human-in-the-loop governance?",
+        "blocks": [
+          {
+            "p": "Every AI-generated asset remains a draft until a named person approves it; no automated publish step bypasses that gate."
+          },
+          {
+            "ul": [
+              "Assign an approver role in the workflow tool for each content type.",
+              "Require a comment trail showing the approver reviewed facts, tone and compliance.",
+              "Lock the publishing integration so only assets with an approval timestamp can be released.",
+              "Log every override in the reporting dashboard for the monthly audit."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What does the first 90-day operating cycle look like?",
+        "blocks": [
+          {
+            "p": "A first plan runs 90 days: long enough to see a trend, short enough to change course."
+          },
+          {
+            "ol": [
+              "Week one to two: map current processes, pick tools, assign owners and document the approval matrix.",
+              "Week three to four: pilot the workflow on two low-risk content types such as social posts and newsletter copy.",
+              "Month two: expand to email campaigns and landing-page copy; measure cycle time, revision rounds and approval latency.",
+              "Month three: run the monthly review, retire unused prompts, add guardrails for new use cases and set the next quarter roadmap."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When should you engage a specialist versus build internally?",
+        "blocks": [
+          {
+            "p": "Consultants deliver an assessment, a prioritised use-case list, a tool choice and a roadmap; agencies deliver working automations, integrations and documentation, often with a support retainer."
+          },
+          {
+            "ul": [
+              "Hire a consultant when you need an unbiased tool selection and a governance framework before buying licences.",
+              "Hire an agency when the workflow design is settled and you need production-ready Zapier or Make scenarios, prompt libraries and team training.",
+              "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement; send the scope for a quote."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many owners should each workflow stage have?",
+        "a": "One owner per stage. Shared ownership creates approval gaps; the model assigns a single named person to intake, brief, production, review, approval, publishing and reporting."
+      },
+      {
+        "q": "Can the same tool cover workflow management and publishing?",
+        "a": "HubSpot can manage tasks and publish, but separating workflow management (Asana, Monday.com, ClickUp) from publishing (WordPress, Webflow, HubSpot) keeps hand-offs auditable and prevents scope creep in either system."
+      },
+      {
+        "q": "What metrics prove the model is working?",
+        "a": "Track cycle time from brief to publish, revision rounds per asset, on-time publish rate and capacity utilisation. Review these four metrics in the monthly 90-day audit."
+      },
+      {
+        "q": "How do you handle brand voice drift in AI drafts?",
+        "a": "Store approved voice guidelines and exemplar snippets in the brief template. Require the reviewer to compare each draft against those exemplars before the approval gate."
+      },
+      {
+        "q": "What is the fastest way to start a pilot?",
+        "a": "Pick two low-risk content types, assign one owner per stage, use existing licences for ChatGPT and Zapier, and run a two-week sprint. Measure cycle time and revision rounds before expanding."
+      }
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:10:48.753Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 857,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/ai-content-operations-scope-of-work",
+    "query": "ai content operations",
+    "title": "AI Content Operations Setup Guide",
+    "description": "Decide governance, pick tools, set review gates and measure cycle time for AI-assisted content workflows.",
+    "h1": "What should you decide first about AI content operations?",
+    "definition": "AI content operations is the system that moves work from brief to published asset using generative tools under human approval gates, with named owners, defined stages and measurable cycle time.",
+    "quick_answer": "Name one owner per stage, pick a workflow tool, lock the human-in-the-loop rule, then pilot a single content type for two weeks before scaling.",
+    "sections": [
+      {
+        "h2": "Which governance model fits your team size and risk tolerance?",
+        "blocks": [
+          {
+            "p": "Choose a model that matches how many people touch each piece and how much brand risk you carry. A three-person team can run a light model with one producer owning intake through publishing; a ten-person team needs separate owners for brief, production, review, approval and reporting."
+          },
+          {
+            "ul": [
+              "Light model: one producer manages intake, brief, AI draft, review, approval, publish, report",
+              "Standard model: separate brief owner, AI operator, editor, approver, publisher, analyst",
+              "Regulated model: add legal or compliance sign-off between review and approval",
+              "Distributed model: each brand or product line runs its own standard model with shared tooling"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which AI tools belong in the workflow and where do they hand off?",
+        "blocks": [
+          {
+            "p": "Map each stage to a tool category so hand-offs are explicit and no step lives in a private chat window. The table below shows a typical stack with the hand-off mechanism for each transition."
+          },
+          {
+            "table": {
+              "head": [
+                "Stage",
+                "Tool category",
+                "Example tools",
+                "Hand-off mechanism"
+              ],
+              "rows": [
+                [
+                  "Intake",
+                  "Work management",
+                  "Asana, Monday.com, ClickUp",
+                  "Form submission creates task"
+                ],
+                [
+                  "Brief",
+                  "Collaborative doc",
+                  "Google Docs, Notion",
+                  "Comment tag triggers AI operator"
+                ],
+                [
+                  "Production",
+                  "LLM + image gen",
+                  "ChatGPT, Claude, Adobe Firefly, Canva",
+                  "Draft dropped in review folder"
+                ],
+                [
+                  "Review",
+                  "Annotation layer",
+                  "Frame.io, Google Docs suggestions",
+                  "Editor resolves comments"
+                ],
+                [
+                  "Approval",
+                  "Workflow status",
+                  "Asana, Monday.com, ClickUp",
+                  "Approver moves task to approved"
+                ],
+                [
+                  "Publishing",
+                  "CMS or scheduler",
+                  "WordPress, Webflow, HubSpot",
+                  "Publisher hits schedule"
+                ],
+                [
+                  "Reporting",
+                  "Analytics",
+                  "GA4, HubSpot",
+                  "Automated dashboard refresh"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you structure human review gates so AI output never publishes unchecked?",
+        "blocks": [
+          {
+            "p": "Enforce a named-person approval at every gate; the rule is that AI output is a draft until a specific individual signs off. Build the gates into the workflow tool so the task cannot advance without the approval action."
+          },
+          {
+            "ol": [
+              "Gate one: brief completeness checked by brief owner before AI generation starts",
+              "Gate two: factual accuracy and brand voice checked by editor after AI draft",
+              "Gate three: legal or compliance sign-off if required by regulated model",
+              "Gate four: final publish approval by publisher after CMS preview",
+              "Gate five: performance review by analyst at seven and thirty days post-publish"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What metrics prove the system is faster without losing quality?",
+        "blocks": [
+          {
+            "p": "Track four core metrics from day one; they reveal whether AI is actually reducing cycle time or just shifting work between stages. Capture them in the reporting dashboard that feeds from the workflow tool and analytics."
+          },
+          {
+            "ul": [
+              "Cycle time: working days from approved brief to published URL",
+              "Revision rounds: count of editor comment cycles per asset",
+              "On-time rate: percentage of assets published by target date",
+              "Capacity use: hours logged per role versus planned hours"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Should you hire a consultant, an agency or build in-house?",
+        "blocks": [
+          {
+            "p": "Match the engagement type to the gap you need to close. Consultants diagnose and design; agencies build and run; in-house owns the long-term roadmap. The table compares typical outputs, pricing and when each fits."
+          },
+          {
+            "table": {
+              "head": [
+                "Engagement",
+                "Typical output",
+                "Pricing model",
+                "Best when"
+              ],
+              "rows": [
+                [
+                  "Consultant",
+                  "Assessment, prioritised use-case list, tool choice, roadmap",
+                  "Day rate or fixed project",
+                  "You need an independent view before buying tools"
+                ],
+                [
+                  "Agency",
+                  "Working automations, integrations, documentation, support retainer",
+                  "Fixed build fee plus monthly retainer",
+                  "You want a running system without hiring operators"
+                ],
+                [
+                  "In-house",
+                  "Owned workflow, internal champions, continuous improvement",
+                  "Salaries plus tool licences",
+                  "You have volume to justify dedicated headcount"
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long does a pilot take before we know if AI content operations works?",
+        "a": "Run a two-week pilot on one content type using the full seven-stage workflow. Measure cycle time, revision rounds and on-time rate against your current baseline. If cycle time drops by at least twenty percent without quality complaints, expand to a second content type."
+      },
+      {
+        "q": "What is the minimum viable tool stack for a team of three?",
+        "a": "Use one work management tool for intake through approval, one collaborative doc for briefs and review, one LLM for drafts, one image generator for visuals, and your existing CMS for publishing. Avoid adding analytics until the workflow runs smoothly for four weeks."
+      },
+      {
+        "q": "How do we prevent brand voice drift when multiple people prompt the same LLM?",
+        "a": "Create a shared prompt library stored in the brief tool with approved system prompts, tone parameters and negative constraints. Require every AI operator to select from the library rather than free-prompt. Review the library monthly with the brand owner."
+      },
+      {
+        "q": "When should we add a compliance gate to the workflow?",
+        "a": "Add a compliance gate if your industry regulates claims, if legal currently reviews every asset manually, or if a single error could trigger fines. Insert it between editor review and final approval so the compliance owner sees a clean draft with tracked changes."
+      },
+      {
+        "q": "What does West Peek Productions deliver for AI content operations?",
+        "a": "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement. It delivers the assessment, tool selection, workflow build, prompt library, approval gates and reporting dashboard, then hands off or stays on retainer."
+      }
+    ]
+  }
+}

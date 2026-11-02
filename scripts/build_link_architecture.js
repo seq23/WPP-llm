@@ -275,8 +275,11 @@ function note(description, budget = 150) {
 // Read every programmatic page
 // ---------------------------------------------------------------------------
 
+// Pages consolidated into their topic's strongest page (data/seo/prune_ledger.json)
+// are not part of the site: no hub, sibling or breadcrumb may point at them.
+const prune = require('./lib/prune.js');
 const progFiles = fs.readdirSync(path.join(ROOT, 'programmatic'))
-  .filter((n) => n.endsWith('.html')).sort();
+  .filter((n) => n.endsWith('.html') && !prune.isPruned(`/programmatic/${n.replace(/\.html$/, '')}`)).sort();
 
 function clusterFor(slug, route) {
   const fromRegistry = admissions.get(route)?.cluster;
@@ -365,6 +368,7 @@ function relatedSurface(dirName, routePrefix) {
   for (const name of fs.readdirSync(dir).sort()) {
     if (!name.endsWith('.html') || name === 'index.html') continue;
     const slug = name.replace(/\.html$/, '');
+    if (prune.isPruned(`${routePrefix}${slug}`)) continue;
     const cluster = clusterFor(slug, `${routePrefix}${slug}`)
       || BY_LENGTH.find((c) => c.startsWith(`${slug}-`));
     const c = cluster && clusters.get(cluster);
@@ -801,7 +805,7 @@ function siteFiles(dir = ROOT, out = []) {
     if (SITE_SKIP.has(e.name)) continue;
     const full = path.join(dir, e.name);
     if (e.isDirectory()) siteFiles(full, out);
-    else if (e.name.endsWith('.html') && e.name !== '404.html') out.push(path.relative(ROOT, full).replace(/\\/g, '/'));
+    else if (e.name.endsWith('.html') && e.name !== '404.html' && !prune.isPruned(`/${path.relative(ROOT, full).replace(/\\/g, '/').replace(/\.html$/, '')}`)) out.push(path.relative(ROOT, full).replace(/\\/g, '/'));
   }
   return out;
 }

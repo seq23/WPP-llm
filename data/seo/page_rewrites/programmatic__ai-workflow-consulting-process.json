@@ -1,0 +1,141 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:09:43.417Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 628,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/ai-workflow-consulting-process",
+    "query": "AI workflow consulting process",
+    "title": "AI Workflow Consulting Process Guide",
+    "description": "Learn the steps, tools, and decisions to run an AI workflow consulting engagement from assessment to roadmap.",
+    "h1": "How should an AI workflow consulting process be run?",
+    "definition": "AI workflow consulting process is a structured engagement that assesses current operations, identifies high-value automation opportunities, selects appropriate tools, and delivers a prioritized roadmap with human-in-the-loop governance for marketing, content, and event teams.",
+    "quick_answer": "Start with a current-state audit, map use cases by impact and effort, choose tools that fit your existing stack, and build a phased roadmap with named approvers for every AI output. West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement; send the scope for a quote.",
+    "sections": [
+      {
+        "h2": "What does an AI workflow assessment cover?",
+        "blocks": [
+          {
+            "p": "The assessment maps current processes, identifies manual handoffs, and scores each step for automation readiness."
+          },
+          {
+            "ul": [
+              "Inventory of recurring content, event, and marketing tasks with owners and tools",
+              "Measurement of cycle time, revision rounds, and approval bottlenecks",
+              "Classification of steps as deterministic, generative, or judgment-based",
+              "Risk rating for brand voice, compliance, and data privacy per workflow",
+              "Gap analysis between current stack and required AI capabilities"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you prioritize use cases for automation?",
+        "blocks": [
+          {
+            "p": "Rank use cases by business impact, implementation effort, and risk tolerance to build a phased roadmap."
+          },
+          {
+            "ul": [
+              "Score each candidate on revenue influence, time savings, and error reduction",
+              "Estimate integration complexity with existing platforms and data sources",
+              "Flag workflows requiring legal review or executive sign-off",
+              "Group quick wins for pilot phase, strategic builds for second phase",
+              "Define success metrics per use case before development starts"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tools fit a human-in-the-loop workflow?",
+        "blocks": [
+          {
+            "p": "Choose workflow orchestration, content generation, asset creation, and integration layers that support named approvers at every gate."
+          },
+          {
+            "table": {
+              "head": [
+                "Layer",
+                "Typical Tools"
+              ],
+              "rows": [
+                [
+                  "Workflow orchestration",
+                  "Asana, Monday.com, ClickUp"
+                ],
+                [
+                  "Research and drafting",
+                  "ChatGPT, Claude"
+                ],
+                [
+                  "Image and variant creation",
+                  "Adobe Firefly, Canva"
+                ],
+                [
+                  "Integration and hand-offs",
+                  "Zapier, Make"
+                ],
+                [
+                  "Reporting and analytics",
+                  "HubSpot, GA4"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What does a consultant deliver versus an agency?",
+        "blocks": [
+          {
+            "p": "Consultants provide assessment, use-case list, tool choice, and roadmap; agencies build working automations, integrations, and documentation with ongoing support."
+          },
+          {
+            "ul": [
+              "Consultant output: an assessment, a prioritised use-case list, a tool choice and a roadmap",
+              "Agency output: working automations, integrations and documentation, often with a support retainer",
+              "Pricing models: day rate or fixed project for consultants; fixed build fee plus a monthly retainer for agencies",
+              "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams; it is not a general AI consultancy"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you govern AI outputs after launch?",
+        "blocks": [
+          {
+            "p": "Establish human-in-the-loop approval gates, monthly review cycles, and metrics for cycle time, revision rounds, and on-time rate."
+          },
+          {
+            "ul": [
+              "Human-in-the-loop rule: AI output is a draft until a named person approves it",
+              "Six components reviewed monthly: scope, tools, owners, metrics, risk, budget",
+              "Core metrics: cycle time, revision rounds, on-time rate and capacity use",
+              "Escalation path for brand voice deviations or compliance flags",
+              "Quarterly roadmap refresh based on performance data and new model capabilities"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long does a typical AI workflow consulting engagement take?",
+        "a": "A first plan runs 90 days: long enough to see a trend, short enough to change course. Assessment and roadmap delivery usually complete in four to six weeks, followed by pilot implementation and monthly reviews."
+      },
+      {
+        "q": "What internal roles must be assigned before starting?",
+        "a": "You need a workflow owner who signs off on automation scope, a brand approver for generated content, a technical lead for integration access, and a compliance contact for data and privacy review. Each gate requires a named person."
+      },
+      {
+        "q": "Can we keep our current project management and publishing tools?",
+        "a": "Yes. The engagement maps your existing stack — Asana, Monday.com, HubSpot, WordPress, Webflow — and selects AI layers that connect through Zapier or Make without replacing core systems."
+      },
+      {
+        "q": "What happens if the AI output fails quality checks?",
+        "a": "The human-in-the-loop rule treats every AI result as a draft. Failed outputs route back to the named approver with annotated feedback. The workflow pauses until the approver revises or rejects, preventing unpublished errors from reaching audiences."
+      }
+    ]
+  }
+}

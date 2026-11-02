@@ -211,6 +211,52 @@ def main():
           f'{len(pages_90)} page row(s) 90d; history {len(query_history)} quer(y/ies), '
           f'{len(page_history)} page(s)')
 
+    # 1c. The recovery line and the lifetime page record (2 Nov 2026).
+    #
+    # Impressions fell from ~100/day to ~1/day on 25-26 Aug 2026. Watching the
+    # recovery needs one number per day, not a rolling 28-day total, so
+    # daily_totals.json holds the date series. page_impressions_lifetime.json is
+    # what scripts/lib/prune.js reads to decide which pages are kept: every page
+    # Google ever showed, summed over Search Console's whole retained window.
+    # Both are additive: a day or page that ages out of Search Console's
+    # 16-month retention keeps the value it was last measured at.
+    LIFETIME_START = dt.date(2025, 7, 1)
+    life_start = max(LIFETIME_START, end - dt.timedelta(days=480))
+    daily = svc().searchanalytics().query(siteUrl=site, body={
+        'startDate': life_start.isoformat(), 'endDate': end.isoformat(),
+        'dimensions': ['date'], 'rowLimit': 25000}).execute().get('rows', [])
+    prior_daily = {r['date']: r for r in load('daily_totals.json', {}).get('days', [])}
+    for r in daily:
+        prior_daily[r['keys'][0]] = {'date': r['keys'][0], 'impressions': int(r.get('impressions', 0)),
+                                     'clicks': int(r.get('clicks', 0)),
+                                     'position': round(r.get('position', 0), 1)}
+    days = sorted(prior_daily.values(), key=lambda r: r['date'])
+    last7 = days[-7:]
+    write('daily_totals.json', {
+        'generated_at': stamp, 'site': site,
+        'baseline': {'note': 'Before the 25-26 Aug 2026 cliff: ~100 impressions/day (July 2026 ~160/day). '
+                             'On 2 Nov 2026: 41 impressions and 0 clicks over 30 days.'},
+        'last_7_days': {'impressions': sum(r['impressions'] for r in last7), 'clicks': sum(r['clicks'] for r in last7)},
+        'days': days})
+    print(f'daily totals: {len(days)} day(s); last 7 days {sum(r["impressions"] for r in last7)} impressions, '
+          f'{sum(r["clicks"] for r in last7)} clicks')
+
+    life = dim_rows('page', life_start, end)
+    prior_life = {r['page']: r for r in load('page_impressions_lifetime.json', {}).get('pages', [])}
+    for r in life:
+        was = prior_life.get(r['page'], {})
+        prior_life[r['page']] = {'page': r['page'],
+                                 'impressions': max(int(was.get('impressions') or 0), int(r['impressions'])),
+                                 'clicks': max(int(was.get('clicks') or 0), int(r['clicks']))}
+    life_rows = sorted(prior_life.values(), key=lambda r: (-r['impressions'], r['page']))
+    write('page_impressions_lifetime.json', {
+        'generated_at': stamp, 'site': site,
+        'window': {'start_date': life_start.isoformat(), 'end_date': end.isoformat()},
+        'rule': 'Per page, the largest impression and click total Search Console has reported over its whole retained '
+                'window. Additive. Read by scripts/lib/prune.js.',
+        'pages': life_rows})
+    print(f'lifetime pages: {len(life_rows)} page(s) with impressions since {life_start}')
+
     # 2. Sitemaps: list, submit sitemap.xml if Google does not have it.
     listed = svc().sitemaps().list(siteUrl=site).execute().get('sitemap', [])
     submitted = None

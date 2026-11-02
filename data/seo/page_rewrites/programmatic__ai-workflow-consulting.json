@@ -1,0 +1,169 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:16:06.346Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 697,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/ai-workflow-consulting",
+    "query": "AI workflow consulting",
+    "title": "AI Workflow Consulting Guide for Marketing Teams",
+    "description": "Learn what AI workflow consulting delivers, how to choose providers, tools, governance, and implementation steps for marketing operations.",
+    "h1": "How should AI workflow consulting be run?",
+    "definition": "AI workflow consulting is a structured engagement that assesses current processes, identifies high-impact use cases, selects appropriate tools, and builds a roadmap for human-in-the-loop automation across marketing, content, and event operations.",
+    "quick_answer": "Start with a scoped assessment that maps your current workflow, prioritises use cases by effort and value, and defines a human-in-the-loop approval gate before any automation goes live.",
+    "sections": [
+      {
+        "h2": "What does an AI workflow consulting engagement deliver?",
+        "blocks": [
+          {
+            "p": "A consulting engagement delivers an assessment, a prioritised use-case list, a tool choice, and a roadmap with clear owners and approval gates."
+          },
+          {
+            "ul": [
+              "Current-state audit of content, event, and marketing operations",
+              "Ranked use cases scored by effort, value, and risk",
+              "Tool shortlist with integration mapping",
+              "Phased roadmap with milestones and owners",
+              "Governance model including human-in-the-loop rules"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you choose between a consultant and an agency for AI workflows?",
+        "blocks": [
+          {
+            "p": "Consultants provide strategy and roadmap on a day rate or fixed project, while agencies build working automations, integrations, and documentation with a monthly retainer."
+          },
+          {
+            "table": {
+              "head": [
+                "Factor",
+                "Consultant",
+                "Agency"
+              ],
+              "rows": [
+                [
+                  "Output",
+                  "Assessment, use-case list, tool choice, roadmap",
+                  "Working automations, integrations, documentation"
+                ],
+                [
+                  "Pricing",
+                  "Day rate or fixed project",
+                  "Fixed build fee plus monthly retainer"
+                ],
+                [
+                  "Scope",
+                  "Strategy and prioritisation",
+                  "Build, test, maintain, support"
+                ],
+                [
+                  "Team",
+                  "Senior advisor or small team",
+                  "Engineers, prompt designers, project manager"
+                ],
+                [
+                  "Handoff",
+                  "Client implements or hires builder",
+                  "Agency runs retainer for changes"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What tools and integrations are typically recommended for AI workflows?",
+        "blocks": [
+          {
+            "p": "Typical tool stacks combine work management, AI drafting, image generation, automation hand-offs, and reporting in a connected chain."
+          },
+          {
+            "ul": [
+              "Work management: Asana, Monday.com or ClickUp for the workflow",
+              "Research and drafts: ChatGPT or Claude",
+              "Image variants: Adobe Firefly or Canva",
+              "Hand-offs between apps: Zapier or Make",
+              "Reporting: HubSpot or GA4"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you govern AI output with human-in-the-loop rules?",
+        "blocks": [
+          {
+            "p": "Every AI output remains a draft until a named person approves it, and each step in the workflow has an owner, an output, and an approval gate."
+          },
+          {
+            "ol": [
+              "Define Seven steps, each with an owner, an output and an approval gate",
+              "Assign a named approver for every AI-generated asset",
+              "Log prompt, model version, and output for audit trail",
+              "Set exception rate thresholds that trigger manual review",
+              "Schedule monthly governance review with stakeholders"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What does implementation timeline and cost structure look like?",
+        "blocks": [
+          {
+            "p": "Engagements are scoped per project with consultants charging day rates or fixed fees and agencies charging a fixed build fee plus monthly retainer."
+          },
+          {
+            "ul": [
+              "Discovery and assessment: two to three weeks",
+              "Tool selection and pilot design: two weeks",
+              "Build and test first automation: three to four weeks",
+              "Rollout to additional use cases: phased over 90 days",
+              "Monthly retainer for optimisation and support"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you measure success and iterate on AI workflows?",
+        "blocks": [
+          {
+            "p": "Success is measured by cycle time reduction, revision rounds, on-time rate, and capacity use, reviewed monthly over a 90-day initial plan."
+          },
+          {
+            "ul": [
+              "Cycle time from brief to publish",
+              "Revision rounds per asset",
+              "On-time delivery rate",
+              "Team capacity utilisation",
+              "Exception rate on AI-generated drafts"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the first deliverable I should expect from an AI workflow consultant?",
+        "a": "The first deliverable is a current-state assessment that maps your existing content, event, and marketing operations, identifies bottlenecks, and ranks use cases by effort, value, and risk before any tool is recommended."
+      },
+      {
+        "q": "How do I know if my team needs a consultant or an agency?",
+        "a": "Choose a consultant when you need strategy, prioritisation, and a roadmap your team can execute. Choose an agency when you need working automations built, integrated, and maintained without adding internal engineering capacity."
+      },
+      {
+        "q": "What governance rule prevents AI errors from reaching customers?",
+        "a": "The human-in-the-loop rule requires every AI output to remain a draft until a named person approves it. Each workflow step has an owner, an output, and an approval gate, with prompt logs and model versions recorded for audit."
+      },
+      {
+        "q": "What metrics prove the workflow is improving over time?",
+        "a": "Track cycle time from brief to publish, revision rounds per asset, on-time delivery rate, team capacity utilisation, and exception rate on AI drafts. Review these monthly during the first 90 days to adjust the roadmap."
+      },
+      {
+        "q": "Does West Peek Productions offer general AI consulting?",
+        "a": "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams; it is not a general AI consultancy. Engagements are scoped per project; send the scope for a quote."
+      }
+    ]
+  }
+}

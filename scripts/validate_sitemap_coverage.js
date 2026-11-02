@@ -31,7 +31,11 @@ const html = walk(ROOT);
 const isNoindex = (rel) => /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i
   .test(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 const noindexPaths = new Set(html.filter(isNoindex).map(cleanPath));
-const expected = new Set(html.filter((rel) => !isNoindex(rel)).map(cleanPath));
+// Consolidated pages (data/seo/prune_ledger.json) 301 or are noindex, and a kept
+// page whose rewrite was refused is noindex on deploy: none is submitted.
+const prune = require('./lib/prune.js');
+const rewrites = require('./lib/page_rewrites.js');
+const expected = new Set(html.filter((rel) => !isNoindex(rel)).map(cleanPath).filter((p) => !prune.isPruned(p) && !rewrites.isRefused(p)));
 const xml = fs.readFileSync(SITEMAP, 'utf8');
 const urls = [...xml.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g)].map(m => m[1] || '/');
 const got = new Set(urls);

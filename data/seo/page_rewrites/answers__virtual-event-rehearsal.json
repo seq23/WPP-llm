@@ -1,0 +1,165 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T22:54:48.325Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 844,
+  "attempts": 1,
+  "page": {
+    "route": "/answers/virtual-event-rehearsal",
+    "query": "virtual event rehearsal",
+    "title": "Virtual Event Rehearsal Checklist and Timeline",
+    "description": "A practical guide to planning, running and staffing a virtual event rehearsal with checklists, timelines and tool choices.",
+    "h1": "Virtual Event Rehearsal",
+    "definition": "A virtual event rehearsal is a scheduled practice session on the live platform where speakers, producers and moderators test audio, video, transitions, Q&amp;A flow and backup streams before the public broadcast.",
+    "quick_answer": "Book one full rehearsal on the real platform two to five days before the event and a technical check sixty minutes before going live. Assign a producer to own the run of show and a backup stream operator.",
+    "sections": [
+      {
+        "h2": "When should the rehearsal happen?",
+        "blocks": [
+          {
+            "p": "Schedule the full rehearsal two to five days before the live date so speakers can fix slides, test networks and rehearse timing without last-minute pressure. Hold a sixty-minute technical check immediately before doors open to verify encoder health, lower thirds and backup stream readiness."
+          },
+          {
+            "ul": [
+              "Full rehearsal: two to five days out, ninety minutes minimum",
+              "Technical check: sixty minutes before go-live, fifteen minutes max",
+              "Speaker dry-run: optional, one week out for new presenters",
+              "Backup stream test: run in parallel during full rehearsal"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Who needs to attend and what are their roles?",
+        "blocks": [
+          {
+            "p": "Every person who touches the live broadcast must be present. A simple webinar needs one producer; a summit or hybrid event needs a show caller, speaker manager, moderator and platform operator. Assign one owner per workstream so handoffs are explicit."
+          },
+          {
+            "table": {
+              "head": [
+                "Role",
+                "Rehearsal Responsibility"
+              ],
+              "rows": [
+                [
+                  "Show caller",
+                  "Owns run of show, cues transitions, holds the clock"
+                ],
+                [
+                  "Speaker manager",
+                  "Checks speaker audio, video, screen share, green room flow"
+                ],
+                [
+                  "Moderator",
+                  "Tests Q&amp;A tool, polls, chat routing, escalation path"
+                ],
+                [
+                  "Platform operator",
+                  "Drives the streaming studio, records, monitors backup stream"
+                ],
+                [
+                  "Backup stream operator",
+                  "Runs parallel encoder, ready to cut over in seconds"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What technical items must be verified?",
+        "blocks": [
+          {
+            "p": "Run through every production element on the actual platform — Zoom Webinars, Microsoft Teams, ON24, StreamYard or the chosen tool — so nothing is assumed. Verify encoder settings, bitrate, recording paths and failover logic."
+          },
+          {
+            "ol": [
+              "Confirm each speaker's microphone, camera and internet stability",
+              "Test screen share with slides, video playback and annotation",
+              "Validate lower thirds, name keys and branded overlays render correctly",
+              "Execute a full Q&amp;A cycle: submit, filter, approve, display on screen",
+              "Trigger the backup stream and measure cutover time",
+              "Record the rehearsal and spot-check the file for sync and quality",
+              "Verify closed captions or interpreter feed if required"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How does the rehearsal fit the overall production timeline?",
+        "blocks": [
+          {
+            "p": "A webinar production runs three to four weeks from brief to live; a summit or online conference needs six to eight weeks. The rehearsal sits at the end of the production stage, after speaker briefs, slide templates and run of show are approved, and before the approval gate that locks the show."
+          },
+          {
+            "ul": [
+              "Week one to two: intake, brief, speaker contracts, platform lock",
+              "Week two to three: build run of show, design lower thirds, configure platform",
+              "Week three: speaker briefs, slide review, dry-runs for new presenters",
+              "Two to five days before: full rehearsal on live platform",
+              "Day of: technical check sixty minutes prior, go live"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What deliverables come out of a rehearsal?",
+        "blocks": [
+          {
+            "p": "The rehearsal produces concrete artefacts that the show caller uses on the day and the post-production team uses for editing. Capture decisions in the run of show and flag any open risks."
+          },
+          {
+            "ul": [
+              "Updated run of show with verified timings and cue IDs",
+              "Speaker confidence rating and any remedial coaching notes",
+              "Confirmed backup stream cutover procedure and contact list",
+              "Recorded rehearsal file for editor reference",
+              "Final lower third and overlay asset package approved",
+              "Q&amp;A moderation workflow tested and documented"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What common mistakes derail a rehearsal?",
+        "blocks": [
+          {
+            "p": "Teams skip the rehearsal, run it on a different platform, or treat it as a casual chat. The result is missed cues, audio dropouts and no fallback when the primary encoder fails. Treat the rehearsal as a mandatory gate, not a nice-to-have."
+          },
+          {
+            "ul": [
+              "Running on a test account instead of the live licence tier",
+              "Allowing speakers to join from uncontrolled networks without a backup hotspot",
+              "Skipping the backup stream test because the primary looks stable",
+              "Not timing each segment, leading to overruns on the day",
+              "Failing to record the rehearsal for post-event editing reference"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long should a virtual event rehearsal last?",
+        "a": "Block ninety minutes for a webinar and two to three hours for a multi-session summit. Include buffer for speaker changes, backup stream tests and a full Q&amp;A cycle."
+      },
+      {
+        "q": "Can we rehearse on a free tier of the platform?",
+        "a": "No. Use the exact licence tier and configuration the live event will run on. Free tiers often disable recording, Q&amp;A, simultaneous interpretation or the bitrate needed for a backup stream."
+      },
+      {
+        "q": "What if a speaker cannot attend the scheduled rehearsal?",
+        "a": "Run a separate fifteen-minute technical check with that speaker at least forty-eight hours before the event. Verify their audio, video, screen share and network on the live platform."
+      },
+      {
+        "q": "Do we need a backup stream for a simple webinar?",
+        "a": "Yes. A parallel encoder on a second internet connection costs little and prevents a total outage if the primary stream fails. Test the cutover during rehearsal."
+      },
+      {
+        "q": "Who owns the rehearsal recording after the event?",
+        "a": "The production team retains the rehearsal file for editing reference, then archives or deletes it per the client data-retention policy. It is not published publicly."
+      }
+    ]
+  }
+}

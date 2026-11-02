@@ -36,7 +36,7 @@ function walk(dir, out = []) {
     const full = path.join(dir, name);
     const stat = fs.statSync(full);
     if (stat.isDirectory()) walk(full, out);
-    else if (name.endsWith('.html')) out.push(full);
+    else if (name.endsWith('.html') && isPublishedPath(path.relative(ROOT, full))) out.push(full);
   }
   return out;
 }

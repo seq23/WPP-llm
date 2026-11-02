@@ -43,7 +43,12 @@ const allOpps = readJson('data/opportunities/aeo_geo_opportunities.json', { oppo
 // Release is paused for every duplicate family consolidated in
 // data/seo/duplicate_family_consolidation.json: a create would bring back a URL
 // that now 301s, and a repair would rewrite a keeper underneath its merge.
-const pausedOpps = allOpps.filter((o) => o && o.target_route && consolidatedFamilies.isPaused(governedRoute(o.target_route), PAUSED_PREFIXES));
+// Same for every page consolidated into its topic's strongest page on 2 Nov 2026
+// (data/seo/prune_ledger.json): the plan may neither recreate nor repair it, so
+// the loop cannot grow the thin corpus back. A route returns only through the
+// ledger, when it earns impressions or measured demand.
+const prune = require('../lib/prune.js');
+const pausedOpps = allOpps.filter((o) => o && o.target_route && (consolidatedFamilies.isPaused(governedRoute(o.target_route), PAUSED_PREFIXES) || prune.isPruned(governedRoute(o.target_route))));
 const opps = allOpps.filter((o) => !pausedOpps.includes(o));
 const priority = readJson('data/seo/priority_pages.json', { pages: [] }).pages || [];
 const velocityDecision = readJson('data/authority_scale/velocity_decision.json', {});
@@ -256,7 +261,7 @@ const issueRows = quality.pages
 const repairs = [];
 for (const issue of issueRows) {
   if (repairs.length >= maxRepairs) break;
-  if (consolidatedFamilies.isPaused(issue.route, PAUSED_PREFIXES)) continue;
+  if (consolidatedFamilies.isPaused(issue.route, PAUSED_PREFIXES) || prune.isPruned(issue.route)) continue;
   let o = byRoute.get(issue.route);
   let metadataSource = (o && o.query) ? 'opportunity_record' : null;
   // The quality report's own row for this route already carries query,

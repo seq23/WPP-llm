@@ -1,0 +1,171 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:04:04.102Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 748,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/ai-in-production-marketing",
+    "query": "ai in production marketing",
+    "title": "AI in Production Marketing: Workflow Setup Guide",
+    "description": "Learn which AI tasks fit marketing production, which tools handle research and drafts, how to keep human approval in the loop, and who owns each step from brief to publish.",
+    "h1": "AI in production marketing: what to decide first",
+    "definition": "AI in production marketing is the use of generative and automation tools inside the content, event and creative workflows that move a brief to a published asset, with a named person approving every AI output before it goes live.",
+    "quick_answer": "Map your current production stages, pick one AI tool per stage for research, drafting, images or hand-offs, then add a human approval gate before each publish step.",
+    "sections": [
+      {
+        "h2": "What AI tasks belong in production marketing workflows?",
+        "blocks": [
+          {
+            "p": "Start by listing every repeatable step that consumes hours but follows a pattern, then match each to an AI capability that produces a draft a person can review."
+          },
+          {
+            "ul": [
+              "Research and outline for articles, scripts or speaker briefs",
+              "First draft of copy for emails, landing pages or social posts",
+              "Image variants for thumbnails, lower thirds or slide backgrounds",
+              "Transcript cleanup and clip selection from event recordings",
+              "Data summary for post-event reporting dashboards"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tools handle research, drafting, images and hand-offs?",
+        "blocks": [
+          {
+            "p": "Choose one primary tool per capability so the team learns a single interface and the approval gate stays consistent."
+          },
+          {
+            "ul": [
+              "ChatGPT or Claude for research, outlines and copy drafts",
+              "Adobe Firefly or Canva for branded image variants",
+              "Zapier or Make for moving drafts between docs, project boards and publishing platforms",
+              "Asana, Monday.com or ClickUp for the workflow board that shows stage, owner and approval status",
+              "HubSpot or GA4 for the reporting view that feeds the next planning cycle"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you keep human approval in the loop?",
+        "blocks": [
+          {
+            "p": "Enforce a rule that every AI output is a draft until a named person signs off, and record that sign-off in the workflow tool so auditors and teammates see the gate."
+          },
+          {
+            "ol": [
+              "Add an approval column to each stage board with the approver name",
+              "Require a comment or checkbox from that approver before the card moves forward",
+              "Lock publishing permissions so only the approver can hit publish in the CMS or event platform",
+              "Review the approval log monthly to catch stages where AI drafts skip review"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What does a staged AI workflow look like from brief to publish?",
+        "blocks": [
+          {
+            "p": "Seven steps, each with an owner, an output and an approval gate, keep the process visible and prevent silent failures where bad AI output goes live."
+          },
+          {
+            "table": {
+              "head": [
+                "Stage",
+                "AI assist",
+                "Human output",
+                "Approver"
+              ],
+              "rows": [
+                [
+                  "Intake",
+                  "Summarize request into brief template",
+                  "Signed brief",
+                  "Content lead"
+                ],
+                [
+                  "Research",
+                  "Gather sources and outline",
+                  "Annotated outline",
+                  "Subject expert"
+                ],
+                [
+                  "Draft",
+                  "Write first version",
+                  "Edited draft",
+                  "Editor"
+                ],
+                [
+                  "Design",
+                  "Generate image variants",
+                  "Approved assets",
+                  "Creative lead"
+                ],
+                [
+                  "Build",
+                  "Assemble in CMS or event platform",
+                  "Staged page or run of show",
+                  "Producer"
+                ],
+                [
+                  "Review",
+                  "Check links, tracking, accessibility",
+                  "QA sign-off",
+                  "Operations lead"
+                ],
+                [
+                  "Publish",
+                  "Schedule or go live",
+                  "Live URL or stream",
+                  "Content lead"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Who owns each step and what output do they deliver?",
+        "blocks": [
+          {
+            "p": "Assign a single owner per stage so handoffs are explicit and the approval gate has a named decision maker."
+          },
+          {
+            "ul": [
+              "Content lead owns intake and publish, delivers signed brief and live URL",
+              "Subject expert owns research, delivers annotated outline",
+              "Writer owns draft, delivers edited draft",
+              "Designer owns design, delivers approved assets",
+              "Producer owns build, delivers staged page or run of show",
+              "Operations lead owns review, delivers QA sign-off",
+              "Analytics owner owns reporting, delivers performance summary for next cycle"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use AI for the entire production without human review?",
+        "a": "No. The human-in-the-loop rule requires a named person to approve every AI output before it moves to the next stage or goes live. Skipping review creates silent failures that damage brand trust and waste budget on rework."
+      },
+      {
+        "q": "Which AI tool should I start with if budget is tight?",
+        "a": "Start with ChatGPT or Claude for research and drafts because they cover the highest volume of repetitive writing tasks. Add Firefly or Canva for images only after the text workflow runs smoothly for two cycles."
+      },
+      {
+        "q": "How do I measure whether AI actually saves time?",
+        "a": "Track cycle time from approved brief to publish, revision rounds per asset, and on-time rate across five to ten projects. Compare the averages to your pre-AI baseline; a real gain shows as fewer days and fewer revision rounds."
+      },
+      {
+        "q": "What happens when the AI output is wrong but the approver misses it?",
+        "a": "Build a retro step into the monthly review: pull three published assets, check the approval log, and note any errors that slipped through. Use those findings to tighten the brief template or add a checklist item for that stage."
+      },
+      {
+        "q": "Does West Peek Productions build these workflows for teams?",
+        "a": "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement; send the scope for a quote."
+      }
+    ]
+  }
+}

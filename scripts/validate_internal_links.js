@@ -46,6 +46,7 @@
 const fs = require('fs');
 const path = require('path');
 const { isPublishedPath } = require('./assemble_pages_output.js');
+const { resolvePath } = require('./lib/pages_routing.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const SKIP = new Set(['.pages-output', 'node_modules', '.git', '.build', 'logs', 'artifacts']);
@@ -65,7 +66,7 @@ function walk(dir, out = []) {
     if (dir === ROOT && !isPublishedPath(name)) continue;
     const stat = fs.statSync(full);
     if (stat.isDirectory()) walk(full, out);
-    else if (name.endsWith('.html')) out.push(full);
+    else if (name.endsWith('.html') && isPublishedPath(path.relative(ROOT, full))) out.push(full);
   }
   return out;
 }
@@ -87,6 +88,10 @@ function resolves(from, target) {
   for (const p of candidatePaths(from, target)) {
     if (!fs.existsSync(p) || !fs.statSync(p).isFile()) continue;
     if (!isPublishedPath(path.relative(ROOT, p))) {
+      // A consolidated page is left out of the deploy and answered by a 301
+      // (_redirects); that hop is validate_no_redirecting_internal_links' concern.
+      const clean = target.split('#')[0].split('?')[0];
+      if (clean.startsWith('/') && resolvePath(clean.replace(/\.html$/, '').replace(/\/+$/, '') || '/').kind === 'redirect') return true;
       return { published: false, hit: path.relative(ROOT, p) };
     }
     return true;

@@ -1,11 +1,174 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T22:45:18.150Z",
-  "route": "/answers/community-moderation-governance",
-  "last": {
-    "fails": [
-      "NOT_JSON"
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:09:11.536Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 742,
+  "attempts": 1,
+  "page": {
+    "route": "/answers/community-moderation-governance",
+    "query": "What should a community moderation and governance model include?",
+    "title": "Community Moderation and Governance Model Checklist",
+    "description": "A practical checklist for building a community moderation and governance model, covering rules, roles, escalation, tools and review cadence.",
+    "h1": "What should a community moderation and governance model include?",
+    "definition": "A community moderation and governance model is a documented framework that defines acceptable behaviour, moderator authority, escalation paths, response expectations, privacy boundaries, conflict handling and ongoing review cadence for an online community.",
+    "quick_answer": "Start with a written code of conduct, assign named moderators with clear powers, set response-time targets for each severity tier, define escalation steps up to platform bans, and schedule a monthly review of metrics and policy gaps.",
+    "sections": [
+      {
+        "h2": "What rules and behavioural expectations should be documented?",
+        "blocks": [
+          {
+            "p": "A code of conduct must be specific enough that a new member can read it and know exactly what will get a warning versus a ban."
+          },
+          {
+            "ul": [
+              "Harassment, hate speech and doxxing definitions with examples",
+              "Self-promotion limits and where promotional posts belong",
+              "Intellectual property and screenshot sharing rules",
+              "Language and tone standards for each channel",
+              "Consequences ladder from verbal warning to permanent removal"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How are moderator roles, powers and coverage defined?",
+        "blocks": [
+          {
+            "p": "Every moderator needs a written mandate that states what they can do without asking and what requires a second opinion."
+          },
+          {
+            "ul": [
+              "Named lead moderator and backup for each time zone",
+              "Authority to mute, delete, suspend or ban with documented thresholds",
+              "Access to moderation logs and private message review when policy allows",
+              "On-call rotation with handoff notes in a shared workspace",
+              "Quarterly training on platform updates and legal obligations"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What escalation paths and response-time targets apply?",
+        "blocks": [
+          {
+            "p": "Escalation tiers turn vague complaints into measurable service levels that moderators and members can both track."
+          },
+          {
+            "table": {
+              "head": [
+                "Severity",
+                "Example",
+                "First response",
+                "Resolution target",
+                "Owner"
+              ],
+              "rows": [
+                [
+                  "Low",
+                  "Off-topic post",
+                  "Four hours",
+                  "Same day",
+                  "Channel moderator"
+                ],
+                [
+                  "Medium",
+                  "Repeated self-promotion",
+                  "Two hours",
+                  "Four hours",
+                  "Lead moderator"
+                ],
+                [
+                  "High",
+                  "Harassment or threat",
+                  "Thirty minutes",
+                  "Two hours",
+                  "Community manager"
+                ],
+                [
+                  "Critical",
+                  "Doxxing or illegal content",
+                  "Immediate",
+                  "One hour",
+                  "Community manager plus legal"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Which privacy boundaries and data-handling rules are required?",
+        "blocks": [
+          {
+            "p": "Governance must state what member data moderators can see, how long logs are kept and when law enforcement requests override community privacy."
+          },
+          {
+            "ul": [
+              "Moderator access limited to public content plus reported messages only",
+              "Retention schedule: moderation logs kept ninety days, then anonymised",
+              "Process for data-subject access requests from members",
+              "Encryption standard for exported reports and backups",
+              "Clear notice to members at join about data use and moderation visibility"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How are conflicts of interest and appeals handled?",
+        "blocks": [
+          {
+            "p": "A fair model gives members a path to challenge decisions without creating moderator burnout."
+          },
+          {
+            "ol": [
+              "Member submits appeal through a dedicated form, not a public channel",
+              "Appeal reviewed by a moderator who did not take the original action",
+              "Decision documented with evidence references and communicated within forty-eight hours",
+              "Second appeal goes to community manager or external advisor if the first appeal is upheld",
+              "Final decision logged in the moderation tracker with outcome tag"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What review cadence keeps the model current?",
+        "blocks": [
+          {
+            "p": "Monthly reviews catch policy drift before it becomes a crisis and give moderators a forum to propose changes."
+          },
+          {
+            "ul": [
+              "Metrics dashboard: volume by severity, median response time, appeal rate, repeat offender count",
+              "Policy gap log: situations where the code of conduct was silent or ambiguous",
+              "Tool audit: new platform features that change moderation capabilities",
+              "Moderator wellness check: workload, burnout signals, coverage gaps",
+              "Action items assigned with owners and due dates for next review"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How do I choose between volunteer and paid moderators?",
+        "a": "Volunteer moderators work for passion-driven communities under twenty thousand members with low risk; paid moderators are justified when coverage hours exceed twenty per week, legal exposure is high or response-time targets are contractual."
+      },
+      {
+        "q": "What tools support the governance model day to day?",
+        "a": "Common platforms include Discord, Slack, Circle, Discourse, Khoros, Higher Logic and LinkedIn groups; moderation dashboards such as ModTools, AutoMod or native platform logs handle queue management, while Asana or Monday.com track escalation tickets and review tasks."
+      },
+      {
+        "q": "When should legal counsel review the model?",
+        "a": "Engage counsel before launch if the community collects personal data, operates in regulated industries, allows user-generated content that could infringe copyright, or plans to share data with third parties; schedule an annual re-review after any policy change."
+      },
+      {
+        "q": "How do I measure whether the governance model is working?",
+        "a": "Track median first-response time by severity, appeal overturn rate, repeat-offender percentage, moderator coverage gaps and member sentiment scores from quarterly surveys; a healthy model shows declining high-severity volume and stable or improving response times."
+      },
+      {
+        "q": "Can West Peek Productions help implement this model?",
+        "a": "West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations; it quotes Community as a Service by scope covering coverage hours, member volume, moderation risk and programming, and does not publish a fixed price."
+      }
+    ]
   }
 }

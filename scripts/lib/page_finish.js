@@ -167,17 +167,21 @@ function faqLd(faq) {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: plain(f.q), acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })) });
 }
 
+// Titles set from a measured query (data/seo/site_head.json title_overrides,
+// checklist b10) outrank a rewrite's title.
+const TITLE_LOCKED = new Set(Object.keys(readJson('data/seo/site_head.json', {}).title_overrides || {}).map((rel) => routeOf(rel)));
 function applyRewrite(html, rec) {
   const p = rec.page;
   let s = html;
+  const locked = TITLE_LOCKED.has(p.route);
   const title = plain(p.title).length && plain(p.title).length <= 44 ? `${plain(p.title)} | West Peek Productions` : plain(p.title || p.h1);
-  s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
+  if (!locked) s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
   if (p.description) {
     s = s.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
     s = s.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
     s = s.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
   }
-  s = s.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`).replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
+  if (!locked) s = s.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`).replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
   // H1 and the paragraph under it become the rewrite's heading and definition.
   s = s.replace(/<h1([^>]*)>[\s\S]*?<\/h1>\s*(<p[^>]*>[\s\S]*?<\/p>)?/, `<h1$1>${p.h1}</h1><p class="definition" id="definition">${p.definition}</p>`);
   // The old body - everything in the article before the link architecture.
@@ -278,6 +282,9 @@ function finishPage(html, rel) {
 
   const rec = rewrites.get(route);
   if (rec) s = applyRewrite(s, rec);
+  else if (require('./page_rewrites.js').isRefused(route) || require('./prune.js').isNoindexed(route)) {
+    s = s.replace(/(<meta name="robots" content=")[^"]*(")/, '$1noindex,follow$2');
+  }
   s = stripJunk(s);
   s = routeInquiryLinks(s, slug);
   s = s.replace(/"author":\s*\{[^{}]*#scooter-taylor"[^{}]*\}/g, `"author":{"@id":"${ORG_ID}"}`);
@@ -328,7 +335,8 @@ function homeQuestions(html, slug) {
     life.set(sl, (life.get(sl) || 0) + p.impressions);
   }
   const demand = (readJson('data/seo/demand_pages.json', { pages: [] }).pages || []).map((p) => ({ route: p.route, q: p.h1, n: 1e6 + (life.get(p.route.split('/').pop()) || 0) }));
-  const rw = [...rewrites.values()].map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
+  const prune = require('./prune.js');
+  const rw = [...rewrites.values()].filter((r) => !prune.isPruned(r.page.route)).map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
   const seen = new Set();
   const top = [...demand, ...rw].sort((a, b) => b.n - a.n).filter((x) => !seen.has(x.route) && seen.add(x.route)).slice(0, 20);
   const list = top.length ? `<section class="common-questions" id="common-questions" ${MARK}><h2>Common questions</h2><ul class="question-list">${top.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul><p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a></p></section>` : '';
