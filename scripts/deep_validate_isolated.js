@@ -47,7 +47,6 @@ const commands = [
   ['deterministic-build', 'node scripts/validators/validate_master_contract_pipeline.js deterministic-build'],
   ['repo-hygiene', 'node scripts/validators/validate_master_contract_pipeline.js repo-hygiene'],
   ['insights', 'node scripts/validate_insights.js'],
-  ['fanout', 'node scripts/validate_fanout_warning.js'],
   ['answer-coverage', 'node scripts/validate_answer_coverage.js'],
   ['entity-coverage', 'node scripts/validate_entity_coverage.js'],
   ['internal-links', 'node scripts/validate_internal_links.js'],

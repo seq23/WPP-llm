@@ -11,7 +11,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const CONFIG_REL = 'data/seo/site_head.json';
 const FROZEN_REL = 'data/release/frozen_output_registry.json';
 const SCOPE_REL = 'data/release/active_mutation_scope.json';
-const SKIP_DIRS = new Set(['.git', 'node_modules', '.pages-output', '.build', 'dist', 'scripts', 'data', 'reports',
+const SKIP_DIRS = new Set(['go', '.git', 'node_modules', '.pages-output', '.build', 'dist', 'scripts', 'data', 'reports',
   'artifacts', 'docs', 'tests', 'fixtures', 'config', 'content', 'templates', 'logs', 'releases', 'seo', 'distribution_scripts']);
 
 const DEMAND_PAGES_REL = 'data/seo/demand_pages.json';

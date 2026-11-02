@@ -1,0 +1,184 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T22:44:18.083Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 745,
+  "attempts": 2,
+  "page": {
+    "route": "/answers/how-to-choose-community-platform",
+    "query": "How should a brand choose a community platform?",
+    "title": "How to Choose a Community Platform for Your Brand",
+    "description": "A practical framework for selecting a community platform based on member behavior, access model, moderation needs, and integration requirements.",
+    "h1": "How should a brand choose a community platform?",
+    "definition": "A community platform is software that hosts branded member spaces where people interact through discussions, events, and content. It defines how members join, participate, and are moderated, and it connects to marketing, support, and analytics systems.",
+    "quick_answer": "Start with your member behavior and access model, then match platform capabilities to moderation, events, content, and integration needs before comparing pricing.",
+    "sections": [
+      {
+        "h2": "What member behavior and access model should drive the choice?",
+        "blocks": [
+          {
+            "p": "Map the primary member actions and the access rules before evaluating any tool."
+          },
+          {
+            "ul": [
+              "Identify whether members mainly ask questions, share resources, attend live sessions, or collaborate on projects",
+              "Decide between open signup, application approval, invitation only, or paid membership tiers",
+              "Determine if the community is public, private, or a mix of both",
+              "Clarify whether members use real names, handles, or anonymous profiles"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which moderation and safety features are essential?",
+        "blocks": [
+          {
+            "p": "Match moderation depth to community size, risk level, and team capacity."
+          },
+          {
+            "ul": [
+              "Automated spam filtering and keyword blocking for baseline protection",
+              "Tiered roles for community managers, volunteer moderators, and trusted members",
+              "Audit logs and appeal workflows for transparent enforcement",
+              "Integration with trust and safety vendors for high risk environments",
+              "Real time alerting for crisis escalation"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do events, content, and integrations shape the decision?",
+        "blocks": [
+          {
+            "p": "Compare platform strengths across the three core activity layers."
+          },
+          {
+            "table": {
+              "head": [
+                "Platform",
+                "Live events",
+                "Content library",
+                "Native integrations"
+              ],
+              "rows": [
+                [
+                  "Discord",
+                  "Voice and video stages, limited scheduling",
+                  "Pinned messages and threads only",
+                  "Webhooks, bots, Zapier"
+                ],
+                [
+                  "Slack",
+                  "Huddles and clips, no registration",
+                  "File search and canvas docs",
+                  "Extensive app directory, workflow builder"
+                ],
+                [
+                  "Circle",
+                  "Built in live streams with registration",
+                  "Courses, spaces, and member directories",
+                  "Zapier, Make, API, SSO"
+                ],
+                [
+                  "Discourse",
+                  "Plugin dependent, calendar topics",
+                  "Categories, tags, and wiki posts",
+                  "Webhooks, SSO, API, embedding"
+                ],
+                [
+                  "Khoros",
+                  "Enterprise event modules",
+                  "Knowledge base and ideation",
+                  "CRM, marketing automation, analytics"
+                ],
+                [
+                  "Higher Logic",
+                  "Webinar integration and RSVPs",
+                  "Resource library and volunteer management",
+                  "AMS, CRM, marketing cloud"
+                ],
+                [
+                  "LinkedIn Groups",
+                  "Live video via LinkedIn Events",
+                  "Posts, articles, and polls",
+                  "Limited to LinkedIn ecosystem"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What analytics and reporting do you need?",
+        "blocks": [
+          {
+            "p": "Define the metrics that prove community value to leadership and guide daily operations."
+          },
+          {
+            "ul": [
+              "Member growth, activation, and retention cohorts",
+              "Engagement depth: posts per active member, reply ratios, session duration",
+              "Content performance: views, shares, and conversion to owned channels",
+              "Sentiment trends and topic clustering",
+              "Exportable dashboards for CRM enrichment and executive reviews"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How should you evaluate pricing and vendor support?",
+        "blocks": [
+          {
+            "p": "Total cost includes platform fees, implementation, training, and ongoing administration."
+          },
+          {
+            "ul": [
+              "Per seat versus per community versus per active user models",
+              "Contract length, renewal terms, and data portability clauses",
+              "Support tiers: community forum, email, dedicated success manager, phone",
+              "Professional services for migration, customization, and SSO setup",
+              "SLA commitments for uptime and response times"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When should you build in-house versus outsource community operations?",
+        "blocks": [
+          {
+            "p": "Keep strategy and brand voice internal; outsource execution that requires coverage or specialized skills."
+          },
+          {
+            "ul": [
+              "In house: community strategy, brand voice approval, product feedback loops, executive reporting",
+              "Outsource: twenty four hour moderation, member onboarding sequences, event programming, technical support, weekly analytics reporting",
+              "Hybrid: internal community lead manages vendor, sets guidelines, reviews escalations"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long does it take to launch a branded community on a new platform?",
+        "a": "A minimum viable community can launch in four to six weeks if requirements are clear, content is ready, and the team focuses on one primary use case. Complex migrations with single sign on, custom roles, and historical data import often need eight to twelve weeks."
+      },
+      {
+        "q": "What is the most common reason community platforms fail after launch?",
+        "a": "Platforms fail when the brand treats the tool as the strategy. Without a dedicated owner, clear member value proposition, and a content calendar that drives daily habits, even feature rich platforms become ghost towns within three months."
+      },
+      {
+        "q": "Can I run the same community on two platforms simultaneously?",
+        "a": "Running parallel communities fragments conversation, splits analytics, and doubles moderation effort. Instead, choose a primary platform for depth and use a secondary channel only for discovery or announcements with clear cross linking."
+      },
+      {
+        "q": "How do I measure return on investment for a community platform?",
+        "a": "Track leading indicators like active member rate, time to first post, and support ticket deflection. Tie lagging indicators such as renewal rate, expansion revenue, and referral signups to community touchpoints using CRM tags and attribution models."
+      },
+      {
+        "q": "What should I ask vendors during a demo to avoid hidden limitations?",
+        "a": "Ask for a live walkthrough of the moderation queue, the member export format, the API rate limits, the single sign on configuration steps, and the process for requesting a feature. Request a sandbox environment with your data volume before signing."
+      }
+    ]
+  }
+}

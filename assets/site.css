@@ -1,10 +1,14 @@
 :root{
-  --bg:#0b0c10;
-  --fg:#f3f4f6;
-  --muted:#c7c9d1;
-  --card:#11131a;
-  --line:#23263a;
-  --link:#9bd3ff;
+  /* Light, high-readability theme (owner, 2 Nov 2026: "maybe not a dark mode
+     site"). Cream ground, dark ink, one accent used for buttons and links. */
+  --bg:#fbf8f2;
+  --fg:#1d1f24;
+  --muted:#4a4f5a;
+  --card:#ffffff;
+  --line:#e4ddd0;
+  --link:#1f5fbf;
+  --accent:#c2410c;
+  --accent-ink:#ffffff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -14,6 +18,7 @@ body{
   background:var(--bg);
   color:var(--fg);
   line-height:1.65;
+  font-size:17px;
 }
 a{color:var(--link); text-decoration:none}
 a:hover{text-decoration:underline}
@@ -80,9 +85,9 @@ ul{margin:0 0 14px 18px}
 .article h1{font-size:34px; line-height:1.14; margin:0 0 12px}
 .lede{font-size:18px; color:var(--muted)}
 .eyebrow{margin:0 0 8px; color:var(--link); text-transform:uppercase; letter-spacing:.08em; font-size:12px; font-weight:700}
-.btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px; border:1px solid var(--link); background:var(--link); color:#081018; font-weight:700; text-decoration:none}
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; border:1px solid var(--accent); background:var(--accent); color:var(--accent-ink); font-weight:700; text-decoration:none; min-height:44px}
 .btn:hover{text-decoration:none; filter:brightness(1.06)}
-.btn.secondary{background:transparent; color:var(--link)}
+.btn.secondary{background:transparent; color:var(--accent)}
 .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
 .cta-band{margin:24px 0; padding:18px; border:1px solid var(--link); border-radius:18px; background:linear-gradient(135deg, color-mix(in srgb, var(--link) 18%, transparent), color-mix(in srgb, var(--card) 95%, transparent)); display:flex; gap:16px; justify-content:space-between; align-items:center}
 .cta-band p{margin:4px 0 0}
@@ -149,3 +154,49 @@ button.btn{font:inherit; cursor:pointer}
 table{width:100%; border-collapse:collapse; margin:14px 0; font-size:15px}
 th, td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top}
 th{background: color-mix(in srgb, var(--card) 96%, transparent); font-weight:650}
+
+/* Site chrome, conversion box and page-shape blocks: written by
+   scripts/lib/page_finish.js on every published page. */
+.site-header{background:var(--card); backdrop-filter:none}
+.site-header .brand{color:var(--fg); text-decoration:none}
+.site-header .brand img{width:36px; height:36px}
+.site-header .nav{align-items:center; gap:16px}
+.site-header .nav a{color:var(--fg); font-size:15px; font-weight:500}
+.site-header .nav a.nav-cta{color:var(--accent-ink); padding:8px 14px; min-height:40px; font-size:15px}
+@media (max-width:720px){
+  .site-header .header-inner{flex-wrap:wrap; gap:8px}
+  .site-header .nav{gap:12px; justify-content:flex-start}
+  .site-header .nav a.nav-cta{display:none}
+  body{padding-bottom:76px}
+}
+.hero{background:var(--card)}
+.hero p{color:var(--fg)}
+.definition{font-size:18px}
+.byline{margin:10px 0 0; font-size:14px; color:var(--muted)}
+.byline a{color:var(--muted); text-decoration:underline}
+.cta-box{margin:22px 0; padding:18px 20px; border:2px solid var(--accent); border-radius:16px; background:#fff7ed}
+.cta-box__title{margin:0 0 6px; font-size:19px; font-weight:750}
+.cta-box p{margin:0 0 12px}
+.cta-box__btn{font-size:17px}
+.sticky-cta{display:none}
+@media (max-width:720px){
+  .sticky-cta{display:flex; position:fixed; left:12px; right:12px; bottom:12px; z-index:20; justify-content:center; align-items:center; min-height:52px; border-radius:999px; background:var(--accent); color:var(--accent-ink); font-weight:750; font-size:17px; box-shadow:0 6px 18px rgba(0,0,0,.18); text-decoration:none}
+}
+.quick-answer{margin:18px 0; padding:14px 16px; border-left:4px solid var(--link); background:var(--card); border-radius:0 12px 12px 0}
+.quick-answer h2{margin-top:0}
+.faq .qa-block{margin:0 0 14px}
+.faq h3{margin:0 0 4px; font-size:17px}
+.common-questions{margin:26px 0}
+.question-list{list-style:none; margin:10px 0; padding:0; display:grid; gap:8px}
+.question-list li{padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--card)}
+.question-list li a{font-weight:600; color:var(--fg)}
+@media (min-width:760px){ .question-list{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.site-footer{background:var(--card); padding:22px 0 28px}
+.site-footer .footer-inner{max-width:920px; margin:0 auto; padding:0 18px}
+.footer-nav{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:8px}
+.footer-nav a{color:var(--muted)}
+main a, article a{text-decoration:underline; text-underline-offset:2px}
+.hub-list li a, .question-list li a, .btn, .sticky-cta{text-decoration:none}
+.home-hero h1{font-size:30px}
+.hero-actions{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:14px}
+.quiet-link{color:var(--muted); font-size:15px}

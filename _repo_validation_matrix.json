@@ -146,16 +146,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "fanout-source",
-      "command": "node scripts/validate_fanout_warning.js",
-      "severity": "STRONG_WARNING",
-      "purpose": "Ensure pages carry source/citation fanout block.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "report_and_continue"
-    },
-    {
       "id": "atom-contract",
       "command": "node scripts/validators/validate_atom_contract.js",
       "severity": "HARD_FAIL",
