@@ -35,6 +35,8 @@ const remediation = {
       pillar: p.pillar,
       page_family: p.page_family,
       word_count: p.word_count,
+      word_floor: p.word_floor,
+      repair_owner: p.repair_owner,
       max_similarity: p.max_similarity,
       nearest_route: p.nearest_route,
       canonical_owner: p.nearest_route || p.route,

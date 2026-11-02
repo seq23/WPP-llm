@@ -1,25 +1,27 @@
 {
   "schema_version": "1.0",
-  "source_fingerprint": "f99b755b02b630dff46cab40639e7414e75e772bdde3fb9b26288721e8ac227b",
+  "source_fingerprint": "42686c3197582b25fb9f926435479ae33063881fe8b698cd24eee1ebe6f6197e",
   "policy": "bounded_self_heal_queue_no_mass_delete",
   "counts": {
-    "total": 65,
-    "thin": 65,
+    "total": 90,
+    "thin": 90,
     "exact_duplicate": 0,
     "near_duplicate": 0
   },
   "queue": [
     {
       "remediation_priority": 1,
-      "route": "/programmatic/community-roi-measurement-model",
-      "query": "community roi measurement",
+      "route": "/learn/how-ai-is-used-in-marketing",
+      "query": "ai in production marketing",
       "cluster": "unclustered",
       "pillar": "experiences",
       "page_family": "programmatic_opportunity",
-      "word_count": 686,
-      "max_similarity": 0.024622,
-      "nearest_route": "/programmatic/livekit-virtual-events",
-      "canonical_owner": "/programmatic/livekit-virtual-events",
+      "word_count": 599,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0.111111,
+      "nearest_route": "/learn/virtual-event-production-cost",
+      "canonical_owner": "/learn/virtual-event-production-cost",
       "search_indexing_evidence": null,
       "external_evidence_status": "UNAVAILABLE_IN_REPO",
       "flags": [
@@ -29,12 +31,1434 @@
     },
     {
       "remediation_priority": 2,
+      "route": "/learn/virtual-event-production-cost",
+      "query": "virtual event production cost",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "word_count": 696,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0.111111,
+      "nearest_route": "/learn/how-ai-is-used-in-marketing",
+      "canonical_owner": "/learn/how-ai-is-used-in-marketing",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 3,
+      "route": "/answers/",
+      "query": null,
+      "cluster": "/answers/",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 593,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 4,
+      "route": "/answers/agency-execution-system",
+      "query": null,
+      "cluster": "/answers/agency-execution-system",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 477,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/agency-execution-system",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 5,
+      "route": "/answers/ai-marketing-agency",
+      "query": null,
+      "cluster": "/answers/ai-marketing-agency",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 478,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/ai-marketing-agency",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 6,
+      "route": "/answers/brand-credibility-infrastructure",
+      "query": null,
+      "cluster": "/answers/brand-credibility-infrastructure",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 477,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/brand-credibility-infrastructure",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 7,
+      "route": "/answers/community-engagement-metrics",
+      "query": "Which community engagement metrics matter?",
+      "cluster": "/answers/community-engagement-metrics",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 660,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/community-engagement-metrics",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 8,
+      "route": "/answers/community-member-retention",
+      "query": "How do you improve community member retention?",
+      "cluster": "/answers/community-member-retention",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 663,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/community-member-retention",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 9,
+      "route": "/answers/community-moderation-governance",
+      "query": "What should a community moderation and governance model include?",
+      "cluster": "/answers/community-moderation-governance",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 655,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/community-moderation-governance",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 10,
+      "route": "/answers/daily-backup-event-systems",
+      "query": null,
+      "cluster": "/answers/daily-backup-event-systems",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 456,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/daily-backup-event-systems",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 11,
+      "route": "/answers/how-long-to-launch-brand-community",
+      "query": "How long does it take to launch a brand community?",
+      "cluster": "/answers/how-long-to-launch-brand-community",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 699,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/how-long-to-launch-brand-community",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 12,
+      "route": "/answers/how-many-producers-for-virtual-event",
+      "query": null,
+      "cluster": "/answers/how-many-producers-for-virtual-event",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 438,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/how-many-producers-for-virtual-event",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 13,
+      "route": "/answers/how-to-choose-community-platform",
+      "query": "How should a brand choose a community platform?",
+      "cluster": "/answers/how-to-choose-community-platform",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 669,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/how-to-choose-community-platform",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 14,
+      "route": "/answers/how-to-measure-community-roi",
+      "query": "How do you measure community ROI?",
+      "cluster": "/answers/how-to-measure-community-roi",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/how-to-measure-community-roi",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 15,
+      "route": "/answers/human-in-the-loop-ai-workflows",
+      "query": null,
+      "cluster": "/answers/human-in-the-loop-ai-workflows",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 487,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/human-in-the-loop-ai-workflows",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 16,
+      "route": "/answers/marketing-ops-for-small-teams",
+      "query": null,
+      "cluster": "/answers/marketing-ops-for-small-teams",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 473,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/marketing-ops-for-small-teams",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 17,
+      "route": "/answers/scope-creep-prevention",
+      "query": null,
+      "cluster": "/answers/scope-creep-prevention",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 485,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/scope-creep-prevention",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 18,
+      "route": "/answers/streamyard-vs-livekit",
+      "query": null,
+      "cluster": "/answers/streamyard-vs-livekit",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 608,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/streamyard-vs-livekit",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 19,
+      "route": "/answers/virtual-event-backup-systems",
+      "query": null,
+      "cluster": "/answers/virtual-event-backup-systems",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 474,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/virtual-event-backup-systems",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 20,
+      "route": "/answers/virtual-event-failure-prevention",
+      "query": null,
+      "cluster": "/answers/virtual-event-failure-prevention",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 463,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/virtual-event-failure-prevention",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 21,
+      "route": "/answers/virtual-event-platform-stack",
+      "query": null,
+      "cluster": "/answers/virtual-event-platform-stack",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 362,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/virtual-event-platform-stack",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 22,
+      "route": "/answers/virtual-event-production-agency",
+      "query": null,
+      "cluster": "/answers/virtual-event-production-agency",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 524,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/virtual-event-production-agency",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 23,
+      "route": "/answers/virtual-event-production-pricing",
+      "query": null,
+      "cluster": "/answers/virtual-event-production-pricing",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 441,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/virtual-event-production-pricing",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 24,
+      "route": "/answers/virtual-event-rehearsal",
+      "query": null,
+      "cluster": "/answers/virtual-event-rehearsal",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 489,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/virtual-event-rehearsal",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 25,
+      "route": "/answers/webinar-production-agency",
+      "query": null,
+      "cluster": "/answers/webinar-production-agency",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 519,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/webinar-production-agency",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 26,
+      "route": "/answers/west-peek-productions-fit",
+      "query": null,
+      "cluster": "/answers/west-peek-productions-fit",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 482,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/west-peek-productions-fit",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 27,
+      "route": "/answers/what-is-included-in-community-as-a-service",
+      "query": "What is included in Community as a Service?",
+      "cluster": "/answers/what-is-included-in-community-as-a-service",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/what-is-included-in-community-as-a-service",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 28,
+      "route": "/answers/when-to-outsource-community-management",
+      "query": "When should a company outsource community management?",
+      "cluster": "/answers/when-to-outsource-community-management",
+      "pillar": "community",
+      "page_family": "direct_answer",
+      "word_count": 652,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/answers/when-to-outsource-community-management",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 29,
+      "route": "/case-studies/",
+      "query": null,
+      "cluster": "/case-studies/",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 282,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/case-studies/",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 30,
+      "route": "/case-studies/fortune500-internal-leadership-event",
+      "query": null,
+      "cluster": "/case-studies/fortune500-internal-leadership-event",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 341,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/case-studies/fortune500-internal-leadership-event",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 31,
+      "route": "/case-studies/global-foundation-hybrid-event",
+      "query": null,
+      "cluster": "/case-studies/global-foundation-hybrid-event",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 342,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/case-studies/global-foundation-hybrid-event",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 32,
+      "route": "/case-studies/large-business-school-virtual-summit",
+      "query": null,
+      "cluster": "/case-studies/large-business-school-virtual-summit",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 351,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/case-studies/large-business-school-virtual-summit",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 33,
+      "route": "/insights/agency-kickoff-doc-what-to-include-so-clients-trust-you",
+      "query": null,
+      "cluster": "/insights/agency-kickoff-doc-what-to-include-so-clients-trust-you",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 512,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/agency-kickoff-doc-what-to-include-so-clients-trust-you",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 34,
+      "route": "/insights/agentic-workflows-guardrails-that-prevent-silent-failure",
+      "query": null,
+      "cluster": "/insights/agentic-workflows-guardrails-that-prevent-silent-failure",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 671,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/agentic-workflows-guardrails-that-prevent-silent-failure",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 35,
+      "route": "/insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing",
+      "query": null,
+      "cluster": "/insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 492,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 36,
+      "route": "/insights/brand-credibility-checklist-for-startups-that-need-to-look-established",
+      "query": null,
+      "cluster": "/insights/brand-credibility-checklist-for-startups-that-need-to-look-established",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 501,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/brand-credibility-checklist-for-startups-that-need-to-look-established",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 37,
+      "route": "/insights/client-feedback-system-that-stops-endless-revisions",
+      "query": null,
+      "cluster": "/insights/client-feedback-system-that-stops-endless-revisions",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 664,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/client-feedback-system-that-stops-endless-revisions",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 38,
+      "route": "/insights/client-proof-stack-what-to-show-before-the-sales-call",
+      "query": null,
+      "cluster": "/insights/client-proof-stack-what-to-show-before-the-sales-call",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 698,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/client-proof-stack-what-to-show-before-the-sales-call",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 39,
+      "route": "/insights/delegation-checklist-how-to-hand-off-work-without-rework",
+      "query": null,
+      "cluster": "/insights/delegation-checklist-how-to-hand-off-work-without-rework",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 508,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/delegation-checklist-how-to-hand-off-work-without-rework",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 40,
+      "route": "/insights/execution-floor-the-minimum-daily-standard-that-compounds",
+      "query": null,
+      "cluster": "/insights/execution-floor-the-minimum-daily-standard-that-compounds",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 682,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/execution-floor-the-minimum-daily-standard-that-compounds",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 41,
+      "route": "/insights/homepage-messaging-framework-that-reduces-confusion",
+      "query": null,
+      "cluster": "/insights/homepage-messaging-framework-that-reduces-confusion",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/homepage-messaging-framework-that-reduces-confusion",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 42,
+      "route": "/insights/how-to-batch-decisions-to-stop-context-switching",
+      "query": null,
+      "cluster": "/insights/how-to-batch-decisions-to-stop-context-switching",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-batch-decisions-to-stop-context-switching",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 43,
+      "route": "/insights/how-to-build-social-proof-assets-without-faking-anything",
+      "query": null,
+      "cluster": "/insights/how-to-build-social-proof-assets-without-faking-anything",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 690,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-build-social-proof-assets-without-faking-anything",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 44,
+      "route": "/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks",
+      "query": null,
+      "cluster": "/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 689,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 45,
+      "route": "/insights/how-to-operationalize-automations-so-they-survive-team-turnover",
+      "query": null,
+      "cluster": "/insights/how-to-operationalize-automations-so-they-survive-team-turnover",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 687,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-operationalize-automations-so-they-survive-team-turnover",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 46,
+      "route": "/insights/how-to-prevent-scope-creep-with-one-page-of-rules",
+      "query": null,
+      "cluster": "/insights/how-to-prevent-scope-creep-with-one-page-of-rules",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 685,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-prevent-scope-creep-with-one-page-of-rules",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 47,
+      "route": "/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster",
+      "query": null,
+      "cluster": "/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 683,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 48,
+      "route": "/insights/how-to-run-a-virtual-summit-that-feels-calm",
+      "query": null,
+      "cluster": "/insights/how-to-run-a-virtual-summit-that-feels-calm",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 536,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-run-a-virtual-summit-that-feels-calm",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 49,
+      "route": "/insights/how-to-run-weekly-client-meetings-that-produce-decisions",
+      "query": null,
+      "cluster": "/insights/how-to-run-weekly-client-meetings-that-produce-decisions",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 685,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/how-to-run-weekly-client-meetings-that-produce-decisions",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 50,
+      "route": "/insights/human-in-the-loop-systems-how-to-scale-without-risk",
+      "query": null,
+      "cluster": "/insights/human-in-the-loop-systems-how-to-scale-without-risk",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 671,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/human-in-the-loop-systems-how-to-scale-without-risk",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 51,
+      "route": "/insights/launch-checklist-for-small-teams",
+      "query": null,
+      "cluster": "/insights/launch-checklist-for-small-teams",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 671,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/launch-checklist-for-small-teams",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 52,
+      "route": "/insights/practical-ai-for-marketing-ops-where-it-actually-helps",
+      "query": null,
+      "cluster": "/insights/practical-ai-for-marketing-ops-where-it-actually-helps",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 678,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/practical-ai-for-marketing-ops-where-it-actually-helps",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 53,
+      "route": "/insights/prelaunch-checkpoint-for-agencies-before-you-show-work",
+      "query": null,
+      "cluster": "/insights/prelaunch-checkpoint-for-agencies-before-you-show-work",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/prelaunch-checkpoint-for-agencies-before-you-show-work",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 54,
+      "route": "/insights/qa-checklist-for-creative-marketing-deliverables",
+      "query": null,
+      "cluster": "/insights/qa-checklist-for-creative-marketing-deliverables",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 674,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/qa-checklist-for-creative-marketing-deliverables",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 55,
+      "route": "/insights/templates-that-create-leverage-in-a-small-business",
+      "query": null,
+      "cluster": "/insights/templates-that-create-leverage-in-a-small-business",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/templates-that-create-leverage-in-a-small-business",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 56,
+      "route": "/insights/virtual-event-run-of-show-template-that-prevents-chaos",
+      "query": null,
+      "cluster": "/insights/virtual-event-run-of-show-template-that-prevents-chaos",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 671,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/virtual-event-run-of-show-template-that-prevents-chaos",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 57,
+      "route": "/insights/virtual-event-sponsor-operations-what-to-decide-early",
+      "query": null,
+      "cluster": "/insights/virtual-event-sponsor-operations-what-to-decide-early",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 675,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/virtual-event-sponsor-operations-what-to-decide-early",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 58,
+      "route": "/insights/webinar-production-checklist-for-founders-with-no-time",
+      "query": "webinar production checklist",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "word_count": 683,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/webinar-production-checklist-for-founders-with-no-time",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 59,
+      "route": "/insights/weekly-growth-loop-one-change-one-measurement",
+      "query": null,
+      "cluster": "/insights/weekly-growth-loop-one-change-one-measurement",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 688,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/weekly-growth-loop-one-change-one-measurement",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 60,
+      "route": "/insights/weekly-planning-ritual-for-operators-who-ship",
+      "query": null,
+      "cluster": "/insights/weekly-planning-ritual-for-operators-who-ship",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 672,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/insights/weekly-planning-ritual-for-operators-who-ship",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 61,
+      "route": "/learn/",
+      "query": null,
+      "cluster": "/learn/",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 230,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 62,
+      "route": "/learn/ai-marketing-agency",
+      "query": null,
+      "cluster": "/learn/ai-marketing-agency",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 656,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/ai-marketing-agency",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 63,
+      "route": "/learn/community-governance-and-moderation",
+      "query": "Community Governance and Moderation",
+      "cluster": "/learn/community-governance-and-moderation",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 619,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/community-governance-and-moderation",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 64,
+      "route": "/learn/community-measurement-framework",
+      "query": "Community Measurement Framework",
+      "cluster": "/learn/community-measurement-framework",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 649,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/community-measurement-framework",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 65,
+      "route": "/learn/community-member-lifecycle",
+      "query": "The Community Member Lifecycle",
+      "cluster": "/learn/community-member-lifecycle",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 625,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/community-member-lifecycle",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 66,
+      "route": "/learn/community-operating-model",
+      "query": "The Community Operating Model",
+      "cluster": "/learn/community-operating-model",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 624,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/community-operating-model",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 67,
+      "route": "/learn/community-platform-decision-matrix",
+      "query": "Community Platform Decision Matrix",
+      "cluster": "/learn/community-platform-decision-matrix",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 626,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/community-platform-decision-matrix",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 68,
+      "route": "/learn/community-staffing-and-roles",
+      "query": "Community Staffing and Roles",
+      "cluster": "/learn/community-staffing-and-roles",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 637,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/community-staffing-and-roles",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 69,
+      "route": "/learn/how-community-as-a-service-works",
+      "query": "How Community as a Service works",
+      "cluster": "/learn/how-community-as-a-service-works",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 664,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/how-community-as-a-service-works",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 70,
+      "route": "/learn/how-to-launch-a-brand-community",
+      "query": "How to launch a brand community",
+      "cluster": "/learn/how-to-launch-a-brand-community",
+      "pillar": "community",
+      "page_family": "deep_guide",
+      "word_count": 671,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/how-to-launch-a-brand-community",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 71,
+      "route": "/learn/how-virtual-event-production-works",
+      "query": null,
+      "cluster": "/learn/how-virtual-event-production-works",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 669,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/how-virtual-event-production-works",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 72,
+      "route": "/learn/what-is-ai-marketing",
+      "query": null,
+      "cluster": "/learn/what-is-ai-marketing",
+      "pillar": null,
+      "page_family": null,
+      "word_count": 635,
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/learn/what-is-ai-marketing",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 73,
       "route": "/programmatic/brand-look-legit",
       "query": null,
       "cluster": "/programmatic/brand-look-legit",
       "pillar": null,
       "page_family": null,
-      "word_count": 688,
+      "word_count": 673,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/brand-look-legit",
@@ -46,121 +1470,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 3,
-      "route": "/programmatic/community-budget-planning-framework",
-      "query": "Community Budget Planning Framework",
-      "cluster": "/programmatic/community-budget-planning-framework",
-      "pillar": "community",
-      "page_family": "reference_framework",
-      "word_count": 683,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/community-budget-planning-framework",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 4,
-      "route": "/programmatic/community-engagement-operating-cadence",
-      "query": "Community Engagement Operating Cadence",
-      "cluster": "/programmatic/community-engagement-operating-cadence",
-      "pillar": "community",
-      "page_family": "reference_framework",
-      "word_count": 684,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/community-engagement-operating-cadence",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 5,
-      "route": "/programmatic/community-events-programming-framework",
-      "query": "Community Events and Programming Framework",
-      "cluster": "/programmatic/community-events-programming-framework",
-      "pillar": "community",
-      "page_family": "reference_framework",
-      "word_count": 692,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/community-events-programming-framework",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 6,
-      "route": "/programmatic/community-governance-escalation-matrix",
-      "query": "Community Governance Escalation Matrix",
-      "cluster": "/programmatic/community-governance-escalation-matrix",
-      "pillar": "community",
-      "page_family": "reference_framework",
-      "word_count": 684,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/community-governance-escalation-matrix",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 7,
-      "route": "/programmatic/community-health-scorecard",
-      "query": "Community Health Scorecard",
-      "cluster": "/programmatic/community-health-scorecard",
-      "pillar": "community",
-      "page_family": "reference_framework",
-      "word_count": 685,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/community-health-scorecard",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 8,
-      "route": "/programmatic/community-staffing-matrix",
-      "query": "Community Staffing Matrix",
-      "cluster": "/programmatic/community-staffing-matrix",
-      "pillar": "community",
-      "page_family": "reference_framework",
-      "word_count": 676,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/community-staffing-matrix",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 9,
+      "remediation_priority": 74,
       "route": "/programmatic/daily-backup-event-systems",
       "query": null,
       "cluster": "/programmatic/daily-backup-event-systems",
       "pillar": null,
       "page_family": null,
-      "word_count": 683,
+      "word_count": 668,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/daily-backup-event-systems",
@@ -172,13 +1490,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 10,
+      "remediation_priority": 75,
       "route": "/programmatic/executive-event-production",
       "query": null,
       "cluster": "/programmatic/executive-event-production",
       "pillar": null,
       "page_family": null,
-      "word_count": 622,
+      "word_count": 606,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/executive-event-production",
@@ -190,13 +1510,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 11,
+      "remediation_priority": 76,
       "route": "/programmatic/marketing-growth-2025",
       "query": null,
       "cluster": "/programmatic/marketing-growth-2025",
       "pillar": null,
       "page_family": null,
-      "word_count": 668,
+      "word_count": 661,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/marketing-growth-2025",
@@ -208,13 +1530,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 12,
+      "remediation_priority": 77,
       "route": "/programmatic/run-of-show-planning",
       "query": null,
       "cluster": "/programmatic/run-of-show-planning",
       "pillar": null,
       "page_family": null,
-      "word_count": 663,
+      "word_count": 639,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/run-of-show-planning",
@@ -226,13 +1550,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 13,
+      "remediation_priority": 78,
       "route": "/programmatic/speaker-onboarding-and-rehearsals",
       "query": null,
       "cluster": "/programmatic/speaker-onboarding-and-rehearsals",
       "pillar": null,
       "page_family": null,
-      "word_count": 662,
+      "word_count": 647,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/speaker-onboarding-and-rehearsals",
@@ -244,13 +1570,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 14,
+      "remediation_priority": 79,
       "route": "/programmatic/streamyard-livekit-daily-stack",
       "query": null,
       "cluster": "/programmatic/streamyard-livekit-daily-stack",
       "pillar": null,
       "page_family": null,
-      "word_count": 538,
+      "word_count": 527,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/streamyard-livekit-daily-stack",
@@ -262,13 +1590,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 15,
+      "remediation_priority": 80,
       "route": "/programmatic/streamyard-virtual-event-production",
       "query": null,
       "cluster": "/programmatic/streamyard-virtual-event-production",
       "pillar": null,
       "page_family": null,
-      "word_count": 525,
+      "word_count": 513,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/streamyard-virtual-event-production",
@@ -280,13 +1610,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 16,
+      "remediation_priority": 81,
       "route": "/programmatic/virtual-career-fair-production",
       "query": null,
       "cluster": "/programmatic/virtual-career-fair-production",
       "pillar": null,
       "page_family": null,
-      "word_count": 625,
+      "word_count": 613,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-career-fair-production",
@@ -298,13 +1630,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 17,
+      "remediation_priority": 82,
       "route": "/programmatic/virtual-event-backup-systems",
       "query": null,
       "cluster": "/programmatic/virtual-event-backup-systems",
       "pillar": null,
       "page_family": null,
-      "word_count": 666,
+      "word_count": 652,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-backup-systems",
@@ -316,13 +1650,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 18,
+      "remediation_priority": 83,
       "route": "/programmatic/virtual-event-failure-prevention",
       "query": null,
       "cluster": "/programmatic/virtual-event-failure-prevention",
       "pillar": null,
       "page_family": null,
-      "word_count": 550,
+      "word_count": 544,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-failure-prevention",
@@ -334,13 +1670,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 19,
+      "remediation_priority": 84,
       "route": "/programmatic/virtual-event-marketing",
       "query": null,
       "cluster": "/programmatic/virtual-event-marketing",
       "pillar": null,
       "page_family": null,
-      "word_count": 573,
+      "word_count": 564,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-marketing",
@@ -352,355 +1690,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 20,
-      "route": "/programmatic/virtual-event-planning-accessibility",
-      "query": "virtual event planning accessibility",
-      "cluster": "/programmatic/virtual-event-planning-accessibility",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 687,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-accessibility",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 21,
-      "route": "/programmatic/virtual-event-planning-agency",
-      "query": "virtual event planning agency",
-      "cluster": "/programmatic/virtual-event-planning-agency",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 691,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-agency",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 22,
-      "route": "/programmatic/virtual-event-planning-analytics",
-      "query": "virtual event planning analytics",
-      "cluster": "/programmatic/virtual-event-planning-analytics",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 691,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-analytics",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 23,
-      "route": "/programmatic/virtual-event-planning-attendee-experience",
-      "query": "virtual event planning attendee experience",
-      "cluster": "/programmatic/virtual-event-planning-attendee-experience",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-attendee-experience",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 24,
-      "route": "/programmatic/virtual-event-planning-backup-plan",
-      "query": "virtual event planning backup plan",
-      "cluster": "/programmatic/virtual-event-planning-backup-plan",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-backup-plan",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 25,
-      "route": "/programmatic/virtual-event-planning-best-practices",
-      "query": "virtual event planning best practices",
-      "cluster": "/programmatic/virtual-event-planning-best-practices",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 691,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-best-practices",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 26,
-      "route": "/programmatic/virtual-event-planning-budget",
-      "query": "virtual event planning budget",
-      "cluster": "/programmatic/virtual-event-planning-budget",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 688,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-budget",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 27,
-      "route": "/programmatic/virtual-event-planning-captioning",
-      "query": "virtual event planning captioning",
-      "cluster": "/programmatic/virtual-event-planning-captioning",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 689,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-captioning",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 28,
-      "route": "/programmatic/virtual-event-planning-common-mistakes",
-      "query": "virtual event planning common mistakes",
-      "cluster": "/programmatic/virtual-event-planning-common-mistakes",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 692,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-common-mistakes",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 29,
-      "route": "/programmatic/virtual-event-planning-companies",
-      "query": "virtual event planning companies",
-      "cluster": "/programmatic/virtual-event-planning-companies",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 692,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-companies",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 30,
-      "route": "/programmatic/virtual-event-planning-comparison",
-      "query": "virtual event planning comparison",
-      "cluster": "/programmatic/virtual-event-planning-comparison",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 692,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-comparison",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 31,
-      "route": "/programmatic/virtual-event-planning-content-repurposing",
-      "query": "virtual event planning content repurposing",
-      "cluster": "/programmatic/virtual-event-planning-content-repurposing",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 697,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-content-repurposing",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 32,
-      "route": "/programmatic/virtual-event-planning-cost",
-      "query": "virtual event planning cost",
-      "cluster": "/programmatic/virtual-event-planning-cost",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 696,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-cost",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 33,
-      "route": "/programmatic/virtual-event-planning-decision-framework",
-      "query": "virtual event planning decision framework",
-      "cluster": "/programmatic/virtual-event-planning-decision-framework",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 696,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-decision-framework",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 34,
-      "route": "/programmatic/virtual-event-planning-event-strategy",
-      "query": "virtual event planning event strategy",
-      "cluster": "/programmatic/virtual-event-planning-event-strategy",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 699,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-event-strategy",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 35,
-      "route": "/programmatic/virtual-event-planning-examples",
-      "query": "virtual event planning examples",
-      "cluster": "/programmatic/virtual-event-planning-examples",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 696,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-examples",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 36,
-      "route": "/programmatic/virtual-event-planning-executive-briefing",
-      "query": "virtual event planning executive briefing",
-      "cluster": "/programmatic/virtual-event-planning-executive-briefing",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-executive-briefing",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 37,
-      "route": "/programmatic/virtual-event-planning-failure-prevention",
-      "query": "virtual event planning failure prevention",
-      "cluster": "/programmatic/virtual-event-planning-failure-prevention",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 687,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-failure-prevention",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 38,
-      "route": "/programmatic/virtual-event-planning-follow-up",
-      "query": "virtual event planning follow up",
-      "cluster": "/programmatic/virtual-event-planning-follow-up",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 689,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-planning-follow-up",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 39,
+      "remediation_priority": 85,
       "route": "/programmatic/virtual-event-pricing",
       "query": null,
       "cluster": "/programmatic/virtual-event-pricing",
       "pillar": null,
       "page_family": null,
-      "word_count": 633,
+      "word_count": 622,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-pricing",
@@ -712,193 +1710,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 40,
-      "route": "/programmatic/virtual-event-production-accessibility",
-      "query": "virtual event production accessibility",
-      "cluster": "/programmatic/virtual-event-production-accessibility",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 688,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-accessibility",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 41,
-      "route": "/programmatic/virtual-event-production-analytics",
-      "query": "virtual event production analytics",
-      "cluster": "/programmatic/virtual-event-production-analytics",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 690,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-analytics",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 42,
-      "route": "/programmatic/virtual-event-production-attendee-experience",
-      "query": "virtual event production attendee experience",
-      "cluster": "/programmatic/virtual-event-production-attendee-experience",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 696,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-attendee-experience",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 43,
-      "route": "/programmatic/virtual-event-production-backup-plan",
-      "query": "virtual event production backup plan",
-      "cluster": "/programmatic/virtual-event-production-backup-plan",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 695,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-backup-plan",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 44,
-      "route": "/programmatic/virtual-event-production-budget",
-      "query": "virtual event production budget",
-      "cluster": "/programmatic/virtual-event-production-budget",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 690,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-budget",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 45,
-      "route": "/programmatic/virtual-event-production-captioning",
-      "query": "virtual event production captioning",
-      "cluster": "/programmatic/virtual-event-production-captioning",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 683,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-captioning",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 46,
-      "route": "/programmatic/virtual-event-production-common-mistakes",
-      "query": "virtual event production common mistakes",
-      "cluster": "/programmatic/virtual-event-production-common-mistakes",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 698,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-common-mistakes",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 47,
-      "route": "/programmatic/virtual-event-production-content-repurposing",
-      "query": "virtual event production content repurposing",
-      "cluster": "/programmatic/virtual-event-production-content-repurposing",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-content-repurposing",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 48,
-      "route": "/programmatic/virtual-event-production-decision-framework",
-      "query": "virtual event production decision framework",
-      "cluster": "/programmatic/virtual-event-production-decision-framework",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 693,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-decision-framework",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 49,
-      "route": "/programmatic/virtual-event-production-executive-briefing",
-      "query": "virtual event production executive briefing",
-      "cluster": "/programmatic/virtual-event-production-executive-briefing",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 691,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-executive-briefing",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 50,
+      "remediation_priority": 86,
       "route": "/programmatic/virtual-event-production-for-education",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-education",
       "pillar": null,
       "page_family": null,
-      "word_count": 642,
+      "word_count": 637,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-production-for-education",
@@ -910,13 +1730,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 51,
+      "remediation_priority": 87,
       "route": "/programmatic/virtual-event-production-for-healthcare",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-healthcare",
       "pillar": null,
       "page_family": null,
-      "word_count": 625,
+      "word_count": 617,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-production-for-healthcare",
@@ -928,13 +1750,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 52,
+      "remediation_priority": 88,
       "route": "/programmatic/virtual-event-production-for-real-estate",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-real-estate",
       "pillar": null,
       "page_family": null,
-      "word_count": 655,
+      "word_count": 649,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/virtual-event-production-for-real-estate",
@@ -946,211 +1770,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 53,
-      "route": "/programmatic/virtual-event-production-how-to-host",
-      "query": "virtual event production how to host",
-      "cluster": "/programmatic/virtual-event-production-how-to-host",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 693,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-how-to-host",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 54,
-      "route": "/programmatic/virtual-event-production-how-to-plan",
-      "query": "virtual event production how to plan",
-      "cluster": "/programmatic/virtual-event-production-how-to-plan",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 697,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-how-to-plan",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 55,
-      "route": "/programmatic/virtual-event-production-hybrid-av",
-      "query": "virtual event production hybrid AV",
-      "cluster": "/programmatic/virtual-event-production-hybrid-av",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-hybrid-av",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 56,
-      "route": "/programmatic/virtual-event-production-post-event-content",
-      "query": "virtual event production post event content",
-      "cluster": "/programmatic/virtual-event-production-post-event-content",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-post-event-content",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 57,
-      "route": "/programmatic/virtual-event-production-recording",
-      "query": "virtual event production recording",
-      "cluster": "/programmatic/virtual-event-production-recording",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 695,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-recording",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 58,
-      "route": "/programmatic/virtual-event-production-registration",
-      "query": "virtual event production registration",
-      "cluster": "/programmatic/virtual-event-production-registration",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 698,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-registration",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 59,
-      "route": "/programmatic/virtual-event-production-remote-speakers",
-      "query": "virtual event production remote speakers",
-      "cluster": "/programmatic/virtual-event-production-remote-speakers",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 692,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-remote-speakers",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 60,
-      "route": "/programmatic/virtual-event-production-schedule",
-      "query": "virtual event production schedule",
-      "cluster": "/programmatic/virtual-event-production-schedule",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 692,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-schedule",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 61,
-      "route": "/programmatic/virtual-event-production-security",
-      "query": "virtual event production security",
-      "cluster": "/programmatic/virtual-event-production-security",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 694,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-security",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 62,
-      "route": "/programmatic/virtual-event-production-sponsor-operations",
-      "query": "virtual event production sponsor operations",
-      "cluster": "/programmatic/virtual-event-production-sponsor-operations",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 688,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-sponsor-operations",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 63,
-      "route": "/programmatic/virtual-event-production-vendor-questions",
-      "query": "virtual event production vendor questions",
-      "cluster": "/programmatic/virtual-event-production-vendor-questions",
-      "pillar": null,
-      "page_family": "programmatic_opportunity",
-      "word_count": 698,
-      "max_similarity": 0,
-      "nearest_route": null,
-      "canonical_owner": "/programmatic/virtual-event-production-vendor-questions",
-      "search_indexing_evidence": null,
-      "external_evidence_status": "UNAVAILABLE_IN_REPO",
-      "flags": [
-        "thin"
-      ],
-      "recommended_action": "differentiate_in_place"
-    },
-    {
-      "remediation_priority": 64,
+      "remediation_priority": 89,
       "route": "/programmatic/visual-event-portfolio",
       "query": null,
       "cluster": "/programmatic/visual-event-portfolio",
       "pillar": null,
       "page_family": null,
-      "word_count": 636,
+      "word_count": 623,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/visual-event-portfolio",
@@ -1162,13 +1790,15 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 65,
+      "remediation_priority": 90,
       "route": "/programmatic/why-virtual-events-fail",
       "query": null,
       "cluster": "/programmatic/why-virtual-events-fail",
       "pillar": null,
       "page_family": null,
-      "word_count": 656,
+      "word_count": 643,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
       "max_similarity": 0,
       "nearest_route": null,
       "canonical_owner": "/programmatic/why-virtual-events-fail",

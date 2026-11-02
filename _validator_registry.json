@@ -575,6 +575,20 @@
       "owner": "repo"
     },
     {
+      "id": "thin-repair-reachable",
+      "command": "node scripts/validators/validate_thin_repair_reachable.js",
+      "severity": "HARD_FAIL",
+      "purpose": "A thin /programmatic/ page may not be blocked for 'quality_repair_missing_opportunity_metadata' when its own quality-report row already carries a query. 2 Nov 2026: this exact gap blocked 64 of 65 daily repair units against a ceiling of 100.",
+      "owner": "repo"
+    },
+    {
+      "id": "substance-scan-covers-sitemap",
+      "command": "node scripts/validators/validate_substance_scan_covers_sitemap.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every sitemapped route in a declared governed section (data/content/governed_page_sections.json) has a substance row from the quality scan and a declared repair owner. 2 Nov 2026: 74 of 160 still-thin pages lived outside /programmatic/ and had no substance row anywhere.",
+      "owner": "repo"
+    },
+    {
       "id": "sitemap-no-redirect-sources",
       "command": "node scripts/validators/validate_sitemap_no_redirect_sources.js",
       "severity": "HARD_FAIL",

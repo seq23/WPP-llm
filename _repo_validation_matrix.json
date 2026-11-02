@@ -664,6 +664,26 @@
       "tier": "tier1",
       "environment": "container_and_local",
       "failure_action": "block_release"
+    },
+    {
+      "id": "thin-repair-reachable",
+      "command": "node scripts/validators/validate_thin_repair_reachable.js",
+      "severity": "HARD_FAIL",
+      "purpose": "A thin /programmatic/ page may not be blocked for 'quality_repair_missing_opportunity_metadata' when its own quality-report row already carries a query.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "substance-scan-covers-sitemap",
+      "command": "node scripts/validators/validate_substance_scan_covers_sitemap.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Every sitemapped route in a declared governed section has a substance row and a declared repair owner.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
     }
   ]
 }

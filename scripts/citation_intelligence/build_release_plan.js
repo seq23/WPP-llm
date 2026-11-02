@@ -3,9 +3,16 @@
 const fs = require('fs');
 const path = require('path');
 const {
-  ROOT, readJson, cleanRoute, governedRoute, analyzeCorpus, listProgrammaticPages,
+  ROOT, readJson, cleanRoute, governedRoute, analyzeCorpus, listGovernedPages,
   candidateQuality, shingleSetFromHtml, wordCountFromHtml,
 } = require('./content_quality.js');
+// The renderer and the repair lane below write only /programmatic/ pages
+// today; the corpus used for duplicate-peer comparison and for pushing a
+// just-staged page back in stays scoped to that section so widening the
+// substance scan to every governed section (content_quality.js
+// listGovernedPages()) cannot pull an /answers/, /insights/, /learn/ or
+// /case-studies/ page in as a duplicate peer or a render target.
+const listProgrammaticPages = () => listGovernedPages().filter(p => p.route.startsWith('/programmatic/'));
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
 const demandGate = require('../lib/demand_gate.js');
 const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
@@ -230,7 +237,15 @@ for (const o of orderedCreates) {
 }
 
 const quality = analyzeCorpus();
+// Repair staging is scoped to /programmatic/, the only section the renderer
+// (render_programmatic_page.js) and the writer (apply_release_plan.js) know
+// how to produce. content_quality.js now flags thin/duplicate pages across
+// every governed section (listGovernedPages()), and those rows still carry a
+// declared repair_owner for reporting, but this lane only ever stages a unit
+// it can safely render; the other sections' re-render is deferred to
+// 2026-11-16 (thin-ledger re-read, 2 Nov 2026).
 const issueRows = quality.pages
+  .filter(p => p.route.startsWith('/programmatic/'))
   .filter(p => p.flags.some(f => ['thin','exact_duplicate','near_duplicate'].includes(f)))
   .sort((a,b) => {
     const at = a.flags.includes('thin') ? 1 : 0; const bt = b.flags.includes('thin') ? 1 : 0;
@@ -242,13 +257,32 @@ const repairs = [];
 for (const issue of issueRows) {
   if (repairs.length >= maxRepairs) break;
   if (consolidatedFamilies.isPaused(issue.route, PAUSED_PREFIXES)) continue;
-  const o = byRoute.get(issue.route);
+  let o = byRoute.get(issue.route);
+  let metadataSource = (o && o.query) ? 'opportunity_record' : null;
+  // The quality report's own row for this route already carries query,
+  // cluster, pillar and page_family (content_quality.js metadataIndex() reads
+  // the same opportunity/admission sources byRoute does above). Refusing the
+  // repair for metadata the row is already holding left a ceiling of 100
+  // doing 1 repair a day - 64 of 65 blocked on 2 Nov 2026. Block only when
+  // the row itself names no query.
+  if (!metadataSource && issue.query) {
+    o = { ...o, target_route: issue.route, query: issue.query, pillar: issue.pillar, page_family: issue.page_family };
+    // issue.cluster defaults to the page's own route when no opportunity or
+    // admission record names a real cluster (content_quality.js
+    // metadataIndex(): `cluster: m.cluster || route`). Writing that
+    // route-shaped value into the admission registry as a "cluster" breaks
+    // build_link_architecture.js's clusterFor(), which uses a truthy
+    // registry cluster verbatim as a hub filename/slug - only pass through a
+    // cluster that is not just the route repeated back.
+    if (issue.cluster && issue.cluster !== issue.route) o.cluster = issue.cluster;
+    metadataSource = 'quality_report_row';
+  }
   if (!o || !o.query) {
     blocked.push({ target_route:issue.route, release_action:'repair', reason:'quality_repair_missing_opportunity_metadata', details:issue.flags });
     continue;
   }
   const unit = stageCandidate(o, 'repair', issue.flags);
-  if (unit) { unit.release_order = repairs.length + 1; repairs.push(unit); }
+  if (unit) { unit.metadata_source = metadataSource; unit.release_order = repairs.length + 1; repairs.push(unit); }
 }
 
 const units = [...create, ...repairs];

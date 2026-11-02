@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { wordCount: sharedWordCount } = require('../lib/word_count.js');
 
 const ROOT = path.resolve(__dirname, '../..');
 const DEFAULTS = {
@@ -36,9 +37,10 @@ function governedRoute(route) {
   // sitemapped pages, 8 of them in the admission registry: every /learn/<slug>
   // opportunity was therefore rewritten to /programmatic/learn/<slug>, a route no
   // file has. That made existing pages look absent (planned as creates) and put
-  // them in a programmatic subdirectory that listProgrammaticPages() -- a flat
-  // readdir of programmatic/ -- can never see, so the quality report had no row
-  // for them and the substance gate failed on evidence that could not exist.
+  // them in a programmatic subdirectory that the substance scan (then a flat
+  // readdir of programmatic/, now listGovernedPages()) could never see, so the
+  // quality report had no row for them and the substance gate failed on
+  // evidence that could not exist.
   const publishedSections = ['/answers/', '/insights/', '/query-atlas/', '/pillars/', '/case-studies/', '/learn/'];
   if (top.has(r) || publishedSections.some(p => r.startsWith(p))) return r;
   return '/programmatic' + r;
@@ -81,7 +83,10 @@ function tokenize(text) {
     .filter(Boolean);
 }
 
-function wordCountFromHtml(html) { return tokenize(extractVisibleText(html)).length; }
+// Delegates to scripts/lib/word_count.js, the one body-word counter shared
+// with the consolidation ledger (scripts/build_measured_targets.js), so a page
+// is thin or not thin on one count, not two (thin-ledger re-read, 2 Nov 2026).
+function wordCountFromHtml(html) { return sharedWordCount(html); }
 
 function shingleSetFromHtml(html, width = qualityConfig().similarity_shingle_words) {
   const tokens = tokenize(extractVisibleText(html));
@@ -116,20 +121,31 @@ function metadataIndex() {
   return byRoute;
 }
 
-function listProgrammaticPages() {
-  const dir = path.join(ROOT, 'programmatic');
-  if (!fs.existsSync(dir)) return [];
+function governedSections() {
+  return readJson('data/content/governed_page_sections.json', { sections: [] }).sections || [];
+}
+
+// Every governed published section, declared in data/content/governed_page_sections.json
+// - not a hardcoded `readdirSync('programmatic/')`. That flat read could only ever
+// see /programmatic/; 74 of 160 still-thin sitemap pages lived in /answers/,
+// /insights/, /learn/ and /case-studies/ and had no row here, so the gate failed
+// on evidence that could not exist (thin-ledger re-read, 2 Nov 2026).
+function listGovernedPages() {
   const meta = metadataIndex();
-  return fs.readdirSync(dir)
-    .filter(name => name.endsWith('.html'))
-    .sort()
-    .map(name => {
-      const route = '/programmatic/' + name.replace(/\.html$/, '');
+  const rows = [];
+  for (const section of governedSections()) {
+    const dir = path.join(ROOT, section.dir);
+    if (!fs.existsSync(dir)) continue;
+    for (const name of fs.readdirSync(dir).filter(n => n.endsWith('.html')).sort()) {
+      // cleanRoute() folds an `index.html` file to the section's directory
+      // route (/answers/index -> /answers/), matching how the sitemap and
+      // every other route function in this file already treat an index file.
+      const route = cleanRoute(section.prefix + name.replace(/\.html$/, ''));
       const html = fs.readFileSync(path.join(dir, name), 'utf8');
       const m = meta.get(route) || {};
-      return {
+      rows.push({
         route,
-        file: `programmatic/${name}`,
+        file: `${section.dir}/${name}`,
         html,
         word_count: wordCountFromHtml(html),
         content_hash: crypto.createHash('sha256').update(html).digest('hex'),
@@ -138,35 +154,48 @@ function listProgrammaticPages() {
         query: m.query || null,
         pillar: m.pillar || null,
         page_family: m.page_family || null,
-      };
-    });
+        word_floor: Number(section.word_floor) || qualityConfig().min_programmatic_words,
+        repair_owner: section.repair_owner || null,
+        section: section.dir,
+      });
+    }
+  }
+  return rows;
 }
 
 function analyzeCorpus() {
   const cfg = qualityConfig();
-  const pages = listProgrammaticPages();
+  const pages = listGovernedPages();
+  // Grouped by section+cluster, not cluster alone: a shared cluster label
+  // across two unrelated sections (e.g. /answers/ and /programmatic/) is not
+  // evidence either page copies the other, and widening the scan to every
+  // governed section must not invent new near-duplicate pairs across them.
+  const groupKey = (page) => `${page.section}|${page.cluster}`;
   const groups = new Map();
   for (const page of pages) {
-    if (!groups.has(page.cluster)) groups.set(page.cluster, []);
-    groups.get(page.cluster).push(page);
+    const key = groupKey(page);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(page);
   }
   const exactHash = new Map();
   for (const page of pages) {
-    if (!exactHash.has(page.content_hash)) exactHash.set(page.content_hash, []);
-    exactHash.get(page.content_hash).push(page.route);
+    const key = `${page.section}|${page.content_hash}`;
+    if (!exactHash.has(key)) exactHash.set(key, []);
+    exactHash.get(key).push(page.route);
   }
   const rows = [];
   for (const page of pages) {
     let max = 0;
     let nearest = null;
-    for (const peer of groups.get(page.cluster) || []) {
+    for (const peer of groups.get(groupKey(page)) || []) {
       if (peer.route === page.route) continue;
       const score = jaccard(page.shingles, peer.shingles);
       if (score > max) { max = score; nearest = peer.route; }
     }
-    const exactPeers = (exactHash.get(page.content_hash) || []).filter(r => r !== page.route);
+    const exactPeers = (exactHash.get(`${page.section}|${page.content_hash}`) || []).filter(r => r !== page.route);
+    const floor = page.word_floor || cfg.min_programmatic_words;
     const flags = [];
-    if (page.word_count < cfg.min_programmatic_words) flags.push('thin');
+    if (page.word_count < floor) flags.push('thin');
     if (exactPeers.length) flags.push('exact_duplicate');
     else if (max >= cfg.duplicate_block_threshold) flags.push('near_duplicate');
     else if (max >= cfg.duplicate_warn_threshold) flags.push('similarity_warning');
@@ -178,6 +207,8 @@ function analyzeCorpus() {
       pillar: page.pillar,
       page_family: page.page_family,
       word_count: page.word_count,
+      word_floor: floor,
+      repair_owner: page.repair_owner,
       max_similarity: Number(max.toFixed(6)),
       nearest_route: nearest,
       exact_duplicate_routes: exactPeers,
@@ -210,7 +241,12 @@ function candidateQuality(html, meta, corpusPages = null) {
   const route = governedRoute(meta.target_route || meta.route);
   const cluster = meta.cluster || route;
   const candidateShingles = shingleSetFromHtml(html, cfg.similarity_shingle_words);
-  const peers = (corpusPages || listProgrammaticPages()).filter(p => p.route !== route && p.cluster === cluster);
+  // A release candidate is always a /programmatic/ page today (the only
+  // section the renderer and the repair lane write); the default corpus is
+  // scoped to that section so a caller that forgets to pass one cannot pick up
+  // a peer from /answers/, /insights/, /learn/ or /case-studies/.
+  const defaultCorpus = () => listGovernedPages().filter(p => p.route.startsWith('/programmatic/'));
+  const peers = (corpusPages || defaultCorpus()).filter(p => p.route !== route && p.cluster === cluster);
   let max = 0; let nearest = null;
   for (const peer of peers) {
     const score = jaccard(candidateShingles, peer.shingles);
@@ -232,7 +268,7 @@ module.exports = {
   wordCountFromHtml,
   shingleSetFromHtml,
   jaccard,
-  listProgrammaticPages,
+  listGovernedPages,
   analyzeCorpus,
   candidateQuality,
   readJson,
