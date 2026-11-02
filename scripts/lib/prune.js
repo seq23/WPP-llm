@@ -53,8 +53,8 @@ function load() {
   if (cache) return cache;
   const ledger = fs.existsSync(LEDGER) ? JSON.parse(fs.readFileSync(LEDGER, 'utf8')) : { kept: [], redirects: [], noindex: [] };
   const redirectTo = new Map((ledger.redirects || []).map((r) => [norm(r.from), r.to]));
-  const noindex = new Set((ledger.noindex || []).map(norm));
-  cache = { ledger, redirectTo, noindex, kept: new Set((ledger.kept || []).map(norm)) };
+  const noindex = new Set((ledger.noindex || []).map((r) => norm(r.route || r)));
+  cache = { ledger, redirectTo, noindex, kept: new Set((ledger.kept || []).map((r) => norm(r.route || r))) };
   return cache;
 }
 
