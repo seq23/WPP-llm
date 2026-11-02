@@ -11,6 +11,9 @@
  * block, written by query-intelligence after the release lane that used to
  * rebuild them was retired (#62).
  *
+ * Also pins that query-intelligence.yml runs `npm run build` between
+ * query:atlas and its commit (entity graph failed 222 on the same pages).
+ *
  * Runs the real generator on a scratch copy of its inputs and asserts each
  * owned page it writes has exactly one block and is a fixed point of
  * scripts/apply_site_head.js. Hard-fails when it checks no page.
@@ -28,6 +31,16 @@ for (const rel of ['data/seo', 'data/query_atlas/query_universe.json', 'data/rel
 
 const failures = [];
 let checked = 0;
+// The lane that regenerates the atlas on a schedule commits what it built. Its
+// push gate builds only in a throwaway clone, so the lane itself must run the
+// full build after query:atlas and before it commits, or the atlas ships
+// without the rest of the build's page finishing (Organization schema, fanout).
+{
+  const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/query-intelligence.yml'), 'utf8');
+  const at = (re) => { const m = wf.match(re); return m ? m.index : -1; };
+  const gen = at(/run:\s*npm run query:atlas\b/), build = at(/\n\s+npm run build\n/), commit = at(/commit_and_push_if_changed\.sh/);
+  if (gen < 0 || build < 0 || commit < 0 || !(gen < build && build < commit)) failures.push('query-intelligence.yml must run `npm run build` after `npm run query:atlas` and before committing');
+}
 try {
   execFileSync(process.execPath, [path.join(__dirname, 'citation_intelligence/generate_query_atlas_pages.js')], { env: { ...process.env, QUERY_ATLAS_ROOT: tmp }, stdio: ['ignore', 'ignore', 'inherit'] });
   const universe = JSON.parse(fs.readFileSync(path.join(tmp, 'data/query_atlas/query_universe.json'), 'utf8'));

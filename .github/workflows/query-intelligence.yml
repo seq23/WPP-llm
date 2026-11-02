@@ -97,16 +97,25 @@ jobs:
       - name: Build controlled release plan preview
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run release:plan
-      - name: Reconcile noindex policy and sitemap with the new Search Console evidence
+      - name: Rebuild pages, noindex policy and sitemap with the new Search Console evidence
         # The policy is recomputed from the signals this lane just pulled. A page
         # that earned its first impression must be returned to index, in its
         # frozen copy and in the sitemap, in the same push as the signals - or
         # the committed tree drifts from the policy until the next release run
-        # (5 Oct 2026, add924a84). test:build-reconciles-noindex pins this order.
+        # (5 Oct 2026, add924a84). test:build-reconciles-noindex pins the order
+        # inside `npm run build`.
+        # The full build also finishes the atlas pages query:atlas regenerated
+        # (site head, Organization schema, fanout, link architecture). The push
+        # gate builds only in a throwaway clone, so without this step the lane
+        # committed bare atlas pages; once the release lane that rebuilt them was
+        # retired (#62), Search Repair and Retest went red on 2 Nov 2026 (social
+        # meta 74, entity graph 222). test:atlas-site-head pins this step.
         if: steps.runtime.outputs.allowed == 'true'
+        env:
+          SKIP_RELEASE_PLAN: '1'
         run: |
-          node scripts/apply_noindex_policy.js
-          node scripts/update_sitemap_all_html.js
+          npm run build
+          npm run cta:attribute
       - name: Validate query intelligence
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run validate:autonomous

@@ -63,14 +63,21 @@ for (const writer of ['npm run authority:scale:restore', 'node scripts/install_c
 // reads but does not run `build`. 5 Oct 2026 (add924a84): it pushed a pull that
 // promoted a page and left the committed page noindex, so case 4 below was red
 // on main until the next release run. The lane must reconcile what its signals
-// govern before it commits.
+// govern before it commits: either the two steps in order, or `npm run build`
+// after its last signals step (build's own order is pinned above). Since 2 Nov
+// 2026 the lane runs the full build.
 {
   const qi = fs.readFileSync(path.join(ROOT, '.github/workflows/query-intelligence.yml'), 'utf8');
   const reconcileAt = qi.indexOf('node scripts/apply_noindex_policy.js');
   const sitemapQiAt = qi.indexOf('node scripts/update_sitemap_all_html.js');
+  const buildM = qi.match(/\n\s+npm run build\n/);
+  const buildAt = buildM ? buildM.index : -1;
+  const signalsAt = Math.max(qi.lastIndexOf('npm run signals:collect'), qi.lastIndexOf('npm run queries:ingest'));
   const commitAt = qi.indexOf('commit_and_push_if_changed.sh');
-  check(reconcileAt >= 0 && sitemapQiAt > reconcileAt && commitAt > sitemapQiAt,
-    'query-intelligence.yml must run node scripts/apply_noindex_policy.js then node scripts/update_sitemap_all_html.js before its commit step, or a signals push leaves the committed pages drifting from the policy');
+  const direct = reconcileAt >= 0 && sitemapQiAt > reconcileAt && commitAt > sitemapQiAt && reconcileAt > signalsAt;
+  const viaBuild = signalsAt >= 0 && buildAt > signalsAt && commitAt > buildAt;
+  check(direct || viaBuild,
+    'query-intelligence.yml must reconcile noindex then the sitemap (directly or via npm run build) after pulling signals and before its commit step, or a signals push leaves the committed pages drifting from the policy');
 }
 
 // --- pick subjects from the real corpus ---------------------------------------
