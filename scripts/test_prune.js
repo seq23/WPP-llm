@@ -52,13 +52,18 @@ for (const r of ledger.redirects) {
   if (deployed(rel)) errors.push(`${r.from} is consolidated but still deployed`);
   if (sitemap.includes(`<loc>${HOST}${r.from}</loc>`)) errors.push(`${r.from} is consolidated but in sitemap.xml`);
 }
-// The compressed _redirects answers every consolidated URL exactly as the
-// per-URL map does (and splats never catch a deployed page).
+// Every consolidated URL is answered, to the map's target, by an exact 301 in
+// _redirects (Pages ignores splats that do not follow a slash) or by a static
+// redirect stub the assembler writes; never both, never neither.
 const compressed = parseRedirects(ROOT, { withMap: false });
+if (compressed.some((r) => /[^/]\*$/.test(r.from))) errors.push('_redirects holds a mid-segment splat; Pages ignores it');
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_map.json'), 'utf8'));
+const stubs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_stubs.json'), 'utf8'));
 for (const [from, to] of Object.entries(map)) {
   const r = resolvePath(from, { root: ROOT, rules: compressed });
-  if (r.kind !== 'redirect' || r.to !== to) errors.push(`_redirects answers ${from} with ${r.kind} ${r.to || ''}, the map says ${to}`);
+  const viaRule = r.kind === 'redirect' && r.to === to;
+  const viaStub = stubs[from] === to;
+  if (viaRule === viaStub) errors.push(`${from}: ${viaRule ? 'both a 301 rule and a stub' : `neither a 301 rule nor a stub to ${to}`}`);
 }
 for (const k of ledger.kept) {
   const r = resolvePath(k.route, { root: ROOT, rules: compressed });

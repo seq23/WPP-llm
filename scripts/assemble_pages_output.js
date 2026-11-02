@@ -124,6 +124,23 @@ fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 copyInto(root, dist, 0);
 
+// Consolidated URLs past the 2,000-rule _redirects budget get a static redirect
+// stub (data/redirects/consolidation_stubs.json, written by
+// update_redirects_clean_to_html.js): noindex, a canonical to the target and an
+// instant meta refresh, which Google treats as a permanent redirect.
+let stubs = 0;
+const stubFile = path.join(root, 'data/redirects/consolidation_stubs.json');
+if (fs.existsSync(stubFile)) {
+  for (const [from, to] of Object.entries(JSON.parse(fs.readFileSync(stubFile, 'utf8')))) {
+    const out = path.join(dist, `${from.replace(/^\//, '')}.html`);
+    if (fs.existsSync(out)) continue; // never over a deployed page
+    const abs = `https://virtualagency-os.com${to}`;
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${abs}"><meta http-equiv="refresh" content="0;url=${to}"><title>Moved</title></head><body><p>This page moved to <a href="${to}">${abs}</a>.</p><script>location.replace(${JSON.stringify(to)})</script></body></html>\n`);
+    stubs += 1;
+  }
+}
+
 // A URL listed in the sitemap that is missing from dist means an exclusion was
 // wrong. Fail here rather than deploy a site with holes in it.
 const sitemapPath = path.join(dist, 'sitemap.xml');
@@ -173,4 +190,4 @@ if (wrapped === 0) {
   console.error('assemble: zero HTML pages wrapped in email_off; the copy found no pages to publish.');
   process.exit(1);
 }
-console.log(`assemble: ${copied} files into ${path.relative(root, dist) || dist}/ (sitemap URLs verified, ${wrapped} HTML pages wrapped in email_off)`);
+console.log(`assemble: ${stubs} redirect stubs; ${copied} files into ${path.relative(root, dist) || dist}/ (sitemap URLs verified, ${wrapped} HTML pages wrapped in email_off)`);

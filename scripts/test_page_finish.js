@@ -63,7 +63,9 @@ execFileSync('node', [path.join(ROOT, 'scripts/assemble_pages_output.js')], { cw
 const files = pick(out).filter((f) => !/\/index\.html$/.test(f) || /\/answers\/index\.html$/.test(f));
 const bad = [];
 for (const f of files) {
-  const p = problems(fs.readFileSync(f, 'utf8'));
+  const html = fs.readFileSync(f, 'utf8');
+  if (/http-equiv="refresh"/.test(html) && /name="robots" content="noindex/.test(html)) continue; // consolidation redirect stub
+  const p = problems(html);
   if (p.length) bad.push(`${path.relative(out, f)}: ${p.join('; ')}`);
 }
 fs.rmSync(out, { recursive: true, force: true });
