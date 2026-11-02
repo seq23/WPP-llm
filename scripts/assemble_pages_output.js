@@ -17,6 +17,7 @@
 const fs = require('fs');
 const path = require('path');
 const { stripUnscopedClarity } = require('./lib/clarity_scope.js');
+const { finishPage } = require('./lib/page_finish.js');
 
 const root = path.resolve(__dirname, '..');
 // PAGES_ASSEMBLE_OUT lets validate_email_obfuscation_safe.js assemble the real
@@ -101,7 +102,10 @@ function copyInto(srcDir, outDir, depth) {
       if (entry.name.endsWith('.html')) {
         // Scope every published page, including the homepage and frozen HTML,
         // to a form or buy link without changing accepted editorial content.
-        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(fs.readFileSync(from, 'utf8'))));
+        // finishPage: one header, the conversion box, page shape, analytics
+        // (scripts/lib/page_finish.js), on frozen and unfrozen pages alike.
+        const rel = path.relative(root, from);
+        fs.writeFileSync(to, wrapEmailOff(stripUnscopedClarity(finishPage(fs.readFileSync(from, 'utf8'), rel))));
         wrapped += 1;
       } else {
         fs.copyFileSync(from, to);

@@ -167,7 +167,8 @@
     "titles:refreeze": "node scripts/prepare_title_brand_refreeze.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
     "search-loop:heads": "node scripts/normalize_search_loop_heads.js",
     "platform-proof:refreeze": "node scripts/prepare_platform_proof_refreeze.js && node scripts/apply_site_head.js && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
-    "test:platform-proof": "node scripts/test_platform_proof_line.js"
+    "test:platform-proof": "node scripts/test_platform_proof_line.js",
+    "seo:first-published": "node scripts/build_first_published.js"
   },
   "dependencies": {
     "marked": "^12.0.2"
