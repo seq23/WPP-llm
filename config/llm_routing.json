@@ -1,66 +1,73 @@
 {
-  "policy": {
-    "max_cost_usd": 0,
-    "paid_fallback": false,
-    "decided": "2026-10-11",
-    "owner_instruction": "nothing should be paid ... cut the probes and make them free.",
-    "on_no_free_model": "named stop NO_FREE_MODEL_ANSWERED, exit 0 with FREE_LLM_RECEIPT; never a paid model",
-    "on_credential_refused": "named stop OPENROUTER_KEY_DISABLED_OR_INVALID"
+ "policy": {
+  "max_cost_usd": 0,
+  "paid_fallback": false,
+  "decided": "2026-10-11",
+  "owner_instruction": "nothing should be paid ... cut the probes and make them free.",
+  "on_no_free_model": "named stop NO_FREE_MODEL_ANSWERED, exit 0 with FREE_LLM_RECEIPT; never a paid model",
+  "on_credential_refused": "named stop OPENROUTER_KEY_DISABLED_OR_INVALID"
+ },
+ "provider": "openrouter",
+ "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+ "free_models": [
+  "nvidia/nemotron-3-super-120b-a12b:free",
+  "google/gemma-4-26b-a4b-it:free",
+  "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "google/gemma-4-31b-it:free"
+ ],
+ "selection": "Ordered by observed reliability, re-checked 2026-10-16 after the 13 + 16 Oct NO_FREE_MODEL_ANSWERED stops: nemotron-3-super answers at cost 0 (reasoning model: requested with low effort, retried with reasoning off when the answer is empty); gemma-4-26b-a4b-it is the sibling-proven non-reasoning $0 fallback; nemotron-3-ultra answers but timed out at 120s on 16 Oct; gemma-4-31b is often upstream 429 (Retry-After honoured once within 30s). Dropped: openrouter/free (empty answer in both stops; the meta-router can land on reasoning or harness-only models). Excluded: thinkingmachines/inkling:free (403 'only available on agentic harnesses' - a per-model refusal, never answers for this route).",
+ "pricing_snapshot": {
+  "fetched_at": "2026-10-16",
+  "source": "https://openrouter.ai/api/v1/models (unauthenticated)",
+  "filter": "pricing.prompt == \"0\" && pricing.completion == \"0\" && context_length >= 32768",
+  "models": {
+   "nvidia/nemotron-3-super-120b-a12b:free": {
+    "prompt": "0",
+    "completion": "0",
+    "request": "0",
+    "context_length": 262144
+   },
+   "google/gemma-4-26b-a4b-it:free": {
+    "prompt": "0",
+    "completion": "0",
+    "request": "0",
+    "context_length": 262144
+   },
+   "nvidia/nemotron-3-ultra-550b-a55b:free": {
+    "prompt": "0",
+    "completion": "0",
+    "request": "0",
+    "context_length": 1000000
+   },
+   "google/gemma-4-31b-it:free": {
+    "prompt": "0",
+    "completion": "0",
+    "request": "0",
+    "context_length": 262144
+   }
+  }
+ },
+ "paid_probe_lanes": [
+  {
+   "script": "scripts/llm_citation_probe.mjs",
+   "workflow": ".github/workflows/paid-citation-probe.yml",
+   "purpose": "asks a grounded model whether answer engines cite virtualagency-os.com"
+  }
+ ],
+ "free_router_consumers": [
+  {
+   "script": "scripts/citation_intelligence/collect_zero_cost_signals.js",
+   "invoked_by": [
+    "signals:collect"
+   ],
+   "purpose": "prompt panel of AEO/GEO query opportunities"
   },
-  "provider": "openrouter",
-  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
-  "free_models": [
-    "nvidia/nemotron-3-super-120b-a12b:free",
-    "google/gemma-4-26b-a4b-it:free",
-    "nvidia/nemotron-3-ultra-550b-a55b:free",
-    "google/gemma-4-31b-it:free"
-  ],
-  "selection": "Ordered by observed reliability, re-checked 2026-10-16 after the 13 + 16 Oct NO_FREE_MODEL_ANSWERED stops: nemotron-3-super answers at cost 0 (reasoning model: requested with low effort, retried with reasoning off when the answer is empty); gemma-4-26b-a4b-it is the sibling-proven non-reasoning $0 fallback; nemotron-3-ultra answers but timed out at 120s on 16 Oct; gemma-4-31b is often upstream 429 (Retry-After honoured once within 30s). Dropped: openrouter/free (empty answer in both stops; the meta-router can land on reasoning or harness-only models). Excluded: thinkingmachines/inkling:free (403 'only available on agentic harnesses' - a per-model refusal, never answers for this route).",
-  "pricing_snapshot": {
-    "fetched_at": "2026-10-16",
-    "source": "https://openrouter.ai/api/v1/models (unauthenticated)",
-    "filter": "pricing.prompt == \"0\" && pricing.completion == \"0\" && context_length >= 32768",
-    "models": {
-      "nvidia/nemotron-3-super-120b-a12b:free": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "context_length": 262144
-      },
-      "google/gemma-4-26b-a4b-it:free": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "context_length": 262144
-      },
-      "nvidia/nemotron-3-ultra-550b-a55b:free": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "context_length": 1000000
-      },
-      "google/gemma-4-31b-it:free": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "context_length": 262144
-      }
-    }
-  },
-  "paid_probe_lanes": [
-    {
-      "script": "scripts/llm_citation_probe.mjs",
-      "workflow": ".github/workflows/paid-citation-probe.yml",
-      "purpose": "asks a grounded model whether answer engines cite virtualagency-os.com"
-    }
-  ],
-  "free_router_consumers": [
-    {
-      "script": "scripts/citation_intelligence/collect_zero_cost_signals.js",
-      "invoked_by": [
-        "signals:collect"
-      ],
-      "purpose": "prompt panel of AEO/GEO query opportunities"
-    }
-  ]
+  {
+   "script": "scripts/content/rewrite_kept_pages.js",
+   "invoked_by": [
+    "content:rewrite-kept"
+   ],
+   "purpose": "rewrites the body of each kept page into plain, specific content (quality bar: scripts/lib/rewrite_quality.js)"
+  }
+ ]
 }

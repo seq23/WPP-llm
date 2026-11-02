@@ -1,6 +1,6 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-11-02T23:24:25.314Z
+Generated: 2026-11-02T23:34:08.532Z
 
 Workflows: 10
 
@@ -91,10 +91,11 @@ Workflows: 10
 - query-intelligence.yml :: collect_score #13 :: Collect normalized $0 signals including the free-model prompt panel :: npm:signals:collect
 - query-intelligence.yml :: collect_score #14 :: Score AEO and GEO opportunities :: npm:opportunities:score
 - query-intelligence.yml :: collect_score #15 :: Build controlled release plan preview :: npm:release:plan
-- query-intelligence.yml :: collect_score #16 :: Rebuild pages, noindex policy and sitemap with the new Search Console evidence :: npm:build
-- query-intelligence.yml :: collect_score #17 :: Validate query intelligence :: npm:validate:autonomous
-- query-intelligence.yml :: collect_score #18 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
-- query-intelligence.yml :: collect_score #19 :: actions/upload-artifact@v7
+- query-intelligence.yml :: collect_score #16 :: Rewrite kept pages that have no accepted rewrite yet (free router only) :: npm:content:rewrite-kept
+- query-intelligence.yml :: collect_score #17 :: Rebuild pages, noindex policy and sitemap with the new Search Console evidence :: npm:build
+- query-intelligence.yml :: collect_score #18 :: Validate query intelligence :: npm:validate:autonomous
+- query-intelligence.yml :: collect_score #19 :: Commit query intelligence artifacts :: paths:.github/scripts/commit_and_push_if_changed.sh
+- query-intelligence.yml :: collect_score #20 :: actions/upload-artifact@v7
 - search-loop.yml :: runtime #1 :: actions/checkout@v6
 - search-loop.yml :: runtime #2 :: node scripts/runtime_guard.mjs
 - search-repair-retest.yml :: diagnose_repair_retest #1 :: actions/checkout@v6

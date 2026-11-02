@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   collect_score:
-    timeout-minutes: 13  # ~3x median 4.1m over 8 green runs; fault detector, not a budget
+    timeout-minutes: 30  # ~3x median 4.1m plus up to ~12m of free-router rewrites (2 Nov 2026); fault detector, not a budget
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -97,6 +97,18 @@ jobs:
       - name: Build controlled release plan preview
         if: steps.runtime.outputs.allowed == 'true'
         run: npm run release:plan
+      - name: Rewrite kept pages that have no accepted rewrite yet (free router only)
+        # Owner, 2 Nov 2026: real content on the ~290 kept pages, filler never
+        # shipped. Three shards of four pages per run, resumable; a refused page
+        # stays noindex until a later run's retry is accepted. No free model
+        # answering is a note the next run retries, not a red lane.
+        if: steps.runtime.outputs.allowed == 'true'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          for i in 0 1 2; do npm run content:rewrite-kept --silent -- --limit 4 --retry-refused --shard $i/3 > /tmp/rewrite_$i.log 2>&1 & done
+          wait
+          grep -h -E '^(ACCEPT|REFUSE|NAMED_STOP)|^rewrite:' /tmp/rewrite_*.log || echo "NAMED_STOP: REWRITE_NOTHING_RAN (retried next run)"
       - name: Rebuild pages, noindex policy and sitemap with the new Search Console evidence
         # The policy is recomputed from the signals this lane just pulled. A page
         # that earned its first impression must be returned to index, in its
