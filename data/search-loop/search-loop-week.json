@@ -1,8 +1,8 @@
 {
   "schema": "search-loop-week-v1",
-  "week": "2026-W44",
+  "week": "2026-W45",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-01T17:10:15.190Z",
+  "generated_at": "2026-11-02T09:38:23.423Z",
   "state": "slow",
   "published": 0,
   "indexed": 0,
@@ -14,10 +14,9 @@
   "undone": 0,
   "merged": 0,
   "notes": [
-    "NAMED NOTE [FREE_MODEL_RATE_LIMITED] the free model route is rate-limited or exhausted (every free lane is out — gemini: not read: GEMINI_API_KEY is not passed; workers: not read: CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN (usage read) not passed; openrouter:nvidia/nemotron-3-ultra-550b-a55b:free: timed out after 60s (skipped this run); openrouter:dots-studio/dots-3-note-preview:free: timed out after 60s (skipped this run); openrouter:nvidia/nemotron-3.5-lightning:free: timed out after 33s (skipped this run) (openrouter:dots-3-note-preview:free:timeout, openrouter:xing4.0-29b-a4b:free:http_429, openrouter:nemotron-3.5-super-vl:free:empty, all::backoff 5s, openrouter:nemotron-3.5-lightning:free:timeout, all::call budget 240s used)); this run dropped itself to slow for today",
-    "BUILD stopped early: the free model route failed twice in a row",
-    "BUILD published 0 of quota 3: 0 draft(s) failed the gate and were dropped; 1 got no answer from the free model and stay queued",
-    "pace: held at 10/day: indexing not read (no pages old enough to measure)"
+    "NAMED NOTE [FREE_MODEL_RATE_LIMITED] the free model route is rate-limited or exhausted (every free lane is out — openrouter:nvidia/nemotron-3-ultra-550b-a55b:free: timed out after 60s (skipped this run); openrouter:dots-studio/dots-3-note-preview:free: timed out after 60s (skipped this run); openrouter:xingchen-agi/xing4.0-29b-a4b:free: timed out after 60s (skipped this run); openrouter:nvidia/nemotron-3.5-super-vl:free: timed out after 6s (skipped this run) (openrouter:gemma-4-26b-a4b-it:free:http_429, openrouter:nemotron-3-ultra-550b-a55b:free:timeout, openrouter:dots-3-note-preview:free:timeout, openrouter:xing4.0-29b-a4b:free:timeout, openrouter:nemotron-3.5-super-vl:free:timeout, all::call budget 240s used)); this run dropped itself to slow for today",
+    "BUILD published 0 of quota 3: 8 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued",
+    "CHECK runs weekly in mode=slow; last ran 2026-11-01"
   ],
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41330018366"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41422226175"
 }

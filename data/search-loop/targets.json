@@ -1,14 +1,14 @@
 {
   "schema": "search-loop-targets-v1",
   "site": "virtualagency-os.com",
-  "week": "2026-W44",
-  "generated_at": "2026-11-01T17:10:15.190Z",
+  "week": "2026-W45",
+  "generated_at": "2026-11-02T09:38:23.423Z",
   "sources": {
-    "search_console": "ok: 5 rows",
+    "search_console": "ok: 4 rows",
     "bing_webmaster": "ok: 66 rows",
     "suggestqueries.google.com": "ok",
     "api.bing.com": "ok",
-    "relevance_screen": "ok: kept 23 of 32 (free model)"
+    "relevance_screen": "ok: kept 30 of 74 (free model)"
   },
   "targets": [
     {
@@ -24,19 +24,7 @@
       "kind": "new"
     },
     {
-      "query": "is a webinar an online event",
-      "variants": [],
-      "signals": {
-        "words": 6,
-        "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 25,
-      "kind": "new"
-    },
-    {
-      "query": "is a webinar considered live",
+      "query": "are webinars live or recorded",
       "variants": [],
       "signals": {
         "words": 5,
@@ -72,39 +60,15 @@
       "kind": "new"
     },
     {
-      "query": "live event webinar support team",
+      "query": "how to hire a virtual event planner",
       "variants": [],
       "signals": {
-        "words": 5,
-        "question": false,
+        "words": 7,
+        "question": true,
         "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
       },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "project management live webinar",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "event planning free webinar",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
+      "score": 25,
       "kind": "new"
     },
     {
@@ -132,57 +96,7 @@
       "kind": "new"
     },
     {
-      "query": "live webinar of meeting",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
       "query": "free webinar production tips",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "live event vs webinar teams",
-      "variants": [
-        "teams webinar vs live event"
-      ],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "event marketing for webinars",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "learn to live webinars",
       "variants": [],
       "signals": {
         "words": 4,
@@ -206,10 +120,10 @@
       "kind": "new"
     },
     {
-      "query": "best event planning services for webinars",
+      "query": "live event webinar support team",
       "variants": [],
       "signals": {
-        "words": 6,
+        "words": 5,
         "question": false,
         "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
@@ -218,10 +132,10 @@
       "kind": "new"
     },
     {
-      "query": "virtual event video production service",
+      "query": "best event planning services for webinars",
       "variants": [],
       "signals": {
-        "words": 5,
+        "words": 6,
         "question": false,
         "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
@@ -242,7 +156,19 @@
       "kind": "new"
     },
     {
-      "query": "future of virtual production",
+      "query": "virtual event video production service",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "launching virtual events successfully",
       "variants": [],
       "signals": {
         "words": 4,
@@ -254,7 +180,7 @@
       "kind": "new"
     },
     {
-      "query": "virtual production and sustainability",
+      "query": "virtual event program planning",
       "variants": [],
       "signals": {
         "words": 4,
@@ -266,16 +192,161 @@
       "kind": "new"
     },
     {
-      "query": "is online webinar redundant",
+      "query": "virtual event program design",
       "variants": [],
       "signals": {
         "words": 4,
-        "question": true,
-        "bing_impressions": 1,
-        "bing_position": 8,
+        "question": false,
+        "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
       },
-      "score": 18,
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "virtual conference production costs",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "hot to set up a virtual event",
+      "variants": [],
+      "signals": {
+        "words": 7,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "virtual event program tips",
+      "variants": [
+        "virtual event program ideas"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "launching virtual events best practices",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "launching virtual events tips and tricks",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "launching virtual events for beginners",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "hybrid event production company europe",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "hybrid event production finland",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "hybrid event production louisville",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "rise of hybrid events",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "hybrid events pros and cons",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "kind": "new"
+    },
+    {
+      "query": "advantages of hybrid events",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
       "kind": "new"
     },
     {
@@ -289,11 +360,25 @@
       },
       "score": 15,
       "kind": "new"
+    },
+    {
+      "query": "hybrid event management",
+      "variants": [
+        "what is hybrid event management"
+      ],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 15,
+      "kind": "new"
     }
   ],
   "strengthen": [
     {
-      "query": "what is event production",
+      "query": "what is virtual production",
       "variants": [],
       "signals": {
         "words": 4,
@@ -306,13 +391,13 @@
       "page": "/programmatic/best-virtual-event-production-companies"
     },
     {
-      "query": "what is virtual production",
+      "query": "what is event production",
       "variants": [],
       "signals": {
         "words": 4,
         "question": true,
-        "bing_suggest": true,
         "google_suggest": true,
+        "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
       },
       "score": 45,
@@ -345,10 +430,57 @@
       "page": "/programmatic/best-virtual-event-production-companies"
     },
     {
+      "query": "virtual event management",
+      "variants": [
+        "what is virtual event management",
+        "virtual event management tips"
+      ],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 30,
+      "page": "/programmatic/virtual-event-management"
+    },
+    {
+      "query": "hybrid event production",
+      "variants": [],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 30,
+      "page": "/programmatic/hybrid-event-platform"
+    },
+    {
+      "query": "hybrid events examples",
+      "variants": [
+        "what is a hybrid event",
+        "examples of hybrid events",
+        "what is hybrid events"
+      ],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 30,
+      "page": "/programmatic/best-hybrid-event-platform"
+    },
+    {
       "query": "what is live webinar",
       "variants": [
+        "is a webinar live",
         "what is a live webinar",
-        "is a webinar live"
+        "what are live webinars"
       ],
       "signals": {
         "words": 4,
@@ -408,8 +540,24 @@
       "page": "/learn/how-virtual-event-production-works"
     },
     {
+      "query": "how to host a virtual event",
+      "variants": [
+        "can you host a virtual event"
+      ],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 25,
+      "page": "/programmatic/host-virtual-events"
+    },
+    {
       "query": "what is virtual event",
-      "variants": [],
+      "variants": [
+        "ideas for virtual events"
+      ],
       "signals": {
         "words": 4,
         "question": true,
@@ -420,18 +568,40 @@
       "page": "/programmatic/best-platform-for-virtual-events"
     },
     {
-      "query": "the event production company",
-      "variants": [
-        "what is an event production company"
-      ],
+      "query": "what is an event production company",
+      "variants": [],
       "signals": {
-        "words": 4,
-        "question": false,
+        "words": 6,
+        "question": true,
         "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
       },
-      "score": 20,
+      "score": 25,
       "page": "/programmatic/hybrid-event-production-company"
+    },
+    {
+      "query": "hybrid event production company",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 25,
+      "page": "/programmatic/hybrid-event-production-company"
+    },
+    {
+      "query": "hybrid event production services",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 25,
+      "page": "/programmatic/hybrid-event-production-for-professional-services-firms"
     },
     {
       "query": "virtual event production checklist",
@@ -446,18 +616,6 @@
       "page": "/programmatic/virtual-event-production-checklist"
     },
     {
-      "query": "virtual events for companies",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "page": "/programmatic/best-virtual-event-production-companies"
-    },
-    {
       "query": "platforms for virtual events production",
       "variants": [],
       "signals": {
@@ -470,8 +628,11 @@
       "page": "/programmatic/virtual-event-production-platform-stack"
     },
     {
-      "query": "virtual conference production examples",
-      "variants": [],
+      "query": "virtual conference production tips",
+      "variants": [
+        "virtual conference production examples",
+        "virtual conference production guide"
+      ],
       "signals": {
         "words": 4,
         "question": false,
@@ -482,18 +643,80 @@
       "page": "/programmatic/virtual-conference-production"
     },
     {
-      "query": "virtual event management",
-      "variants": [
-        "what is virtual event management"
-      ],
+      "query": "virtual events for work",
+      "variants": [],
       "signals": {
-        "words": 3,
+        "words": 4,
         "question": false,
-        "google_suggest": true,
+        "bing_suggest": true,
         "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
       },
-      "score": 15,
-      "page": "/programmatic/virtual-event-management"
+      "score": 20,
+      "page": "/learn/how-virtual-event-production-works"
+    },
+    {
+      "query": "launching virtual events examples",
+      "variants": [
+        "launching virtual events guide"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "page": "/programmatic/virtual-event-production-launch-plan"
+    },
+    {
+      "query": "virtual events for companies",
+      "variants": [
+        "virtual event ideas for companies"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "page": "/programmatic/best-virtual-event-production-companies"
+    },
+    {
+      "query": "best virtual event planning tips",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "page": "/programmatic/virtual-event-planning-accessibility"
+    },
+    {
+      "query": "virtual event systems tips",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "page": "/programmatic/virtual-event-backup-systems"
+    },
+    {
+      "query": "event marketing strategies for virtual events",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": false,
+        "bing_suggest": true,
+        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      },
+      "score": 20,
+      "page": "/programmatic/virtual-event-marketing"
     },
     {
       "query": "virtual event producer",
