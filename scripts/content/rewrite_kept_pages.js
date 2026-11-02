@@ -38,7 +38,8 @@ const FACTS = [...new Set(demand.pages.flatMap((p) => p.facts || []))].map((f) =
 const fileFor = (route) => path.join(OUT_DIR, `${route.replace(/^\//, '').replace(/\//g, '__')}.json`);
 
 function targets() {
-  const ledger = readJson('data/seo/prune_ledger.json');
+  const ledgerFile = path.join(ROOT, 'data/seo/prune_ledger.json');
+  const ledger = fs.existsSync(ledgerFile) ? readJson('data/seo/prune_ledger.json') : { kept: [] };
   const routes = ledger.kept.map((k) => k.route).filter((r) => r.startsWith('/programmatic/') && !demandRoutes.has(r));
   const answers = fs.readdirSync(path.join(ROOT, 'answers')).filter((n) => n.endsWith('.html') && n !== 'index.html').map((n) => `/answers/${n.replace(/\.html$/, '')}`);
   return [...routes, ...answers].sort();

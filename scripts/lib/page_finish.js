@@ -17,7 +17,7 @@
  * mode site ... easy to find answers, easy to click to get a virtual
  * conference CTA box"):
  *   1. One header everywhere: West Peek Productions, five plain links and one
- *      button, "Plan my virtual conference".
+ *      button, "Get a production plan" (one label everywhere).
  *   2. A conversion box under the direct answer and again at the end, and a
  *      sticky button on phones. Every inquiry link goes through /go/plan, which
  *      counts the click (Cloudflare Web Analytics) and opens the inquiry form.
@@ -39,7 +39,9 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const HOST = 'https://virtualagency-os.com';
 const CF_BEACON_TOKEN = '40a2faf84e3f45f086e8eaf84ddeec2c';
 const CONTACT_EMAIL = 'scooter@westpeek.ventures';
-const AUTHOR = { name: 'Scooter Taylor', id: 'https://www.westpeekproductions.com/#scooter-taylor' };
+// The pages are published by the company; no person is credited with words
+// they did not write (risk brain), so the author is the organisation.
+const AUTHOR = { name: 'West Peek Productions', id: 'https://www.westpeekproductions.com/#organization' };
 const ORG_ID = 'https://www.westpeekproductions.com/#organization';
 const MARK = 'data-page-finish';
 
@@ -101,16 +103,27 @@ const NAV = [
 ];
 function headerHtml(slug) {
   const links = NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('');
-  return `<header class="site-header" ${MARK}><div class="header-inner"><a class="brand" href="/" aria-label="West Peek Productions home"><img src="/assets/west-peek-productions-logo.jpeg" alt="West Peek Productions logo" width="36" height="36"><span class="name">West Peek Productions</span></a><nav class="nav" aria-label="Primary">${links}<a class="btn nav-cta" href="${inquiryHref(slug, 'nav')}">Plan my virtual conference</a></nav></div></header>`;
+  return `<header class="site-header" ${MARK}><div class="header-inner"><a class="brand" href="/" aria-label="West Peek Productions home"><img src="/assets/west-peek-productions-logo.jpeg" alt="West Peek Productions logo" width="36" height="36"><span class="name">West Peek Productions</span></a><nav class="nav" aria-label="Primary">${links}<a class="btn nav-cta" href="${inquiryHref(slug, 'nav')}">Get a production plan</a></nav></div></header>`;
 }
 function footerHtml() {
   return `<footer class="site-footer" ${MARK}><div class="footer-inner"><nav class="footer-nav" aria-label="More"><a href="/topics/">Topics</a><a href="/articles">Articles</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a><a href="/glossary">Glossary</a><a href="/about">About</a></nav><p>West Peek Productions plans and runs virtual, hybrid and webinar events. Questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p></div></footer>`;
+}
+/** The box speaks to the page's own event type. */
+function ctaHeading(slug) {
+  const s = String(slug);
+  if (/webinar/.test(s)) return 'Planning a webinar?';
+  if (/summit/.test(s)) return 'Planning a virtual summit?';
+  if (/town-?hall|all-hands/.test(s)) return 'Planning a virtual town hall?';
+  if (/investor|board-meeting|shareholder|agm/.test(s)) return 'Planning an investor or board event?';
+  if (/hybrid/.test(s)) return 'Planning a hybrid event?';
+  if (/launch/.test(s)) return 'Planning a launch event?';
+  return 'Planning a virtual or hybrid conference?';
 }
 function ctaBox(slug, at, heading) {
   return `<aside class="cta-box" ${MARK} aria-label="Plan your event"><p class="cta-box__title">${heading}</p><p>Tell us the date, the audience and what cannot go wrong. We send back a production plan and a price range.</p><a class="btn cta-box__btn" href="${inquiryHref(slug, at)}">Get a production plan</a></aside>`;
 }
 function stickyCta(slug) {
-  return `<a class="sticky-cta" ${MARK} href="${inquiryHref(slug, 'sticky')}">Plan my virtual conference</a>`;
+  return `<a class="sticky-cta" ${MARK} href="${inquiryHref(slug, 'sticky')}">Get a production plan</a>`;
 }
 
 // ----------------------------------------------------------------- junk --
@@ -193,14 +206,20 @@ function applyRewrite(html, rec) {
 }
 
 // ----------------------------------------------------------- page shape --
+const hasVisibleFaq = (html) => /class="faq|data-faq="true"|<h2[^>]*>\s*(Frequently asked|Questions people ask|FAQ|Common questions)/i.test(html);
 function visibleFaqFromSchema(html) {
-  if (/class="faq|data-faq="true"|<h2[^>]*>\s*(Frequently asked|Questions people ask|FAQ)/i.test(html)) return html;
-  const m = html.match(/<script type="application\/ld\+json">([\s\S]*?"@type"\s*:\s*"FAQPage"[\s\S]*?)<\/script>/);
+  if (hasVisibleFaq(html)) return html;
+  let m = null; let node = null;
+  for (const sc of html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    if (!/"FAQPage"/.test(sc[1])) continue;
+    let data;
+    try { data = JSON.parse(sc[1]); } catch { continue; }
+    const nodes = Array.isArray(data) ? data : Array.isArray(data['@graph']) ? data['@graph'] : [data];
+    node = nodes.find((n) => n && n['@type'] === 'FAQPage');
+    if (node) { m = sc; break; }
+  }
   if (!m) return html;
-  let data;
-  try { data = JSON.parse(m[1]); } catch { return html; }
-  const node = Array.isArray(data['@graph']) ? data['@graph'].find((n) => n['@type'] === 'FAQPage') : data;
-  const qs = (node && node.mainEntity) || [];
+  const qs = [].concat((node && node.mainEntity) || []);
   if (!qs.length) return html.replace(m[0], '');
   const faq = qs.map((q) => ({ q: esc(q.name), a: esc((q.acceptedAnswer && q.acceptedAnswer.text) || '') })).filter((f) => f.a);
   if (!faq.length) return html.replace(m[0], '');
@@ -214,14 +233,14 @@ function markDefinition(html) {
 }
 
 function bylineHtml(published, updated) {
-  const parts = [`By <a href="/about" rel="author">${AUTHOR.name}</a>, <a href="/about">West Peek Productions</a>`];
+  const parts = [`By <a href="/about" rel="author">${AUTHOR.name}</a>`];
   if (published) parts.push(`Published <time datetime="${published}">${fmtDate(published)}</time>`);
   if (updated && updated !== published) parts.push(`Updated <time datetime="${updated}">${fmtDate(updated)}</time>`);
   return `<p class="byline" ${MARK}>${parts.join(' · ')}</p>`;
 }
 
 function webPageLd({ url, name, published, updated, selectors }) {
-  const node = { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${url}#webpage`, url, name, author: { '@type': 'Person', '@id': AUTHOR.id, name: AUTHOR.name }, publisher: { '@id': ORG_ID } };
+  const node = { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${url}#webpage`, url, name, author: { '@id': AUTHOR.id }, publisher: { '@id': ORG_ID } };
   if (published) node.datePublished = published;
   if (updated) node.dateModified = updated;
   if (selectors.length) node.speakable = { '@type': 'SpeakableSpecification', cssSelector: selectors };
@@ -261,9 +280,12 @@ function finishPage(html, rel) {
   if (rec) s = applyRewrite(s, rec);
   s = stripJunk(s);
   s = routeInquiryLinks(s, slug);
+  s = s.replace(/"author":\s*\{[^{}]*#scooter-taylor"[^{}]*\}/g, `"author":{"@id":"${ORG_ID}"}`);
 
   // One header; one footer.
-  s = s.replace(/<header[\s\S]*?<\/header>/, headerHtml(slug));
+  if (/<header[\s>]/.test(s)) s = s.replace(/<header[\s\S]*?<\/header>/, headerHtml(slug));
+  else s = s.replace(/<body[^>]*>/, (b) => `${b}${headerHtml(slug)}`);
+  s = s.replace(/<meta name="author" content="[^"]*">/, `<meta name="author" content="${AUTHOR.name}">`);
   s = s.replace(/<footer[\s\S]*?<\/footer>\s*/g, '');
   s = s.replace(/<\/body>/, `${footerHtml()}\n</body>`);
 
@@ -275,7 +297,7 @@ function finishPage(html, rel) {
   const isContent = route !== '/' && !/^\/(topics|pillars)?\/?$/.test(route);
   const end = answerEnd(s);
   if (end > -1 && route !== '/') {
-    const box = ctaBox(slug, 'answer', 'Planning a virtual or hybrid conference?');
+    const box = ctaBox(slug, 'answer', ctaHeading(slug));
     const byline = isContent ? bylineHtml(pub, upd && pub && upd < pub ? pub : upd) : '';
     s = s.slice(0, end) + byline + box + s.slice(end);
   } else if (route === '/') {
@@ -283,7 +305,7 @@ function finishPage(html, rel) {
   }
   // The closing box, before the link architecture or the end of the main column.
   const close = s.search(/<!--link-arch:(related|site-related|neighbours)-->/);
-  const endBox = ctaBox(slug, 'end', 'Ready to plan your event?');
+  const endBox = ctaBox(slug, 'end', ctaHeading(slug));
   if (close > -1) s = s.slice(0, close) + endBox + s.slice(close);
   else s = s.replace(/<\/main>/, `${endBox}</main>`);
   s = s.replace(/<\/body>/, `${stickyCta(slug)}\n</body>`);
@@ -309,12 +331,16 @@ function homeQuestions(html, slug) {
   const rw = [...rewrites.values()].map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
   const seen = new Set();
   const top = [...demand, ...rw].sort((a, b) => b.n - a.n).filter((x) => !seen.has(x.route) && seen.add(x.route)).slice(0, 20);
-  const box = ctaBox(slug, 'home', 'Planning a virtual or hybrid conference?');
-  const list = top.length ? `<section class="common-questions" id="common-questions" ${MARK}><h2>Common questions</h2><ul class="question-list">${top.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul><p><a href="/answers/">All answers</a></p></section>` : '';
-  const heroClose = html.indexOf('</section>', html.indexOf('<section class="hero'));
-  if (heroClose < 0) return html;
+  const list = top.length ? `<section class="common-questions" id="common-questions" ${MARK}><h2>Common questions</h2><ul class="question-list">${top.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul><p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a></p></section>` : '';
+  const heroOpen = html.indexOf('<section class="hero');
+  let heroClose = html.indexOf('</section>', heroOpen);
+  if (heroOpen < 0 || heroClose < 0) return html;
+  // A short hero with one button (owner review, 2 Nov 2026).
+  const hero = `<section class="hero conversion-hero home-hero" ${MARK}><h1>West Peek Productions: virtual and hybrid conference production</h1><p class="definition" id="definition">We plan, rehearse and run virtual and hybrid conferences, webinars and executive broadcasts, so nothing important is improvised on the day.</p><p class="hero-actions"><a class="btn" href="${inquiryHref(slug, 'home-hero')}">Get a production plan</a> <a class="quiet-link" href="mailto:${CONTACT_EMAIL}">or email Scooter</a></p></section>`;
+  html = html.slice(0, heroOpen) + hero + html.slice(heroClose + '</section>'.length);
+  heroClose = heroOpen + hero.length - '</section>'.length;
   const at = heroClose + '</section>'.length;
-  return html.slice(0, at) + box + list + html.slice(at);
+  return html.slice(0, at) + list + html.slice(at);
 }
 
-module.exports = { finishPage, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, CF_BEACON_TOKEN, _reset() { ctx = null; } };
+module.exports = { finishPage, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, CF_BEACON_TOKEN, _reset() { ctx = null; } };

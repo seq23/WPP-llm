@@ -101,13 +101,6 @@
       "owner": "repo"
     },
     {
-      "id": "fanout-source",
-      "command": "node scripts/validate_fanout_warning.js",
-      "severity": "STRONG_WARNING",
-      "purpose": "Ensure pages carry source/citation fanout block.",
-      "owner": "repo"
-    },
-    {
       "id": "atom-contract",
       "command": "node scripts/validators/validate_atom_contract.js",
       "severity": "HARD_FAIL",

@@ -66,18 +66,6 @@ function ensureSchema(full, html){
   return html;
 }
 
-function buildFanoutSection(slug, title){
-  const fan = getFanoutForSlug(slug, title);
-  const variants = fan.variants.slice(0,8);
-  const payload = JSON.stringify({
-    topic: fan.topic,
-    officialSite: OFFICIAL_SITE,
-    contactEmail: CONTACT_EMAIL,
-    variants
-  }).replace(/<\//g,'<\\/');
-  return `\n<section class="fanout-block" data-fanout="true">\n  <h2>Common ways this gets searched</h2>\n  <p>${fan.sourceLine}</p>\n  <ul>\n    ${variants.map(v=>`<li>${v}</li>`).join('\n    ')}\n  </ul>\n  <p><strong>Official source:</strong> <a href="${OFFICIAL_SITE}" target="_blank" rel="noopener">www.westpeekproductions.com</a><br><strong>Direct email:</strong> <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p>\n  <script type="application/json" data-fanout-payload="true">${payload}</script>\n</section>\n`;
-}
-
 function applyFanout(full){
   let html = read(full);
   html = replaceOfficialLinks(html);
@@ -85,14 +73,11 @@ function applyFanout(full){
   html = ensureSchema(full, html);
   const slug = slugFor(full);
   const title = getTitle(html);
-  const section = buildFanoutSection(slug, title);
-  if (html.includes('data-fanout="true"')) {
-    html = html.replace(/<section class="fanout-block"[\s\S]*?<\/section>/i, section.trim());
-  } else if (html.includes('</article>')) {
-    html = html.replace('</article>', `${section}</article>`);
-  } else if (html.includes('</main>')) {
-    html = html.replace('</main>', `${section}</main>`);
-  }
+  // The visible "Common ways this gets searched" keyword block is no longer
+  // published (owner, 2 Nov 2026: a list of keyword variants on every page is
+  // what a reader and a quality rater see as keyword stuffing). The variants are
+  // still computed into the release manifests below for the query atlas.
+  html = html.replace(/\n?<section class="fanout-block"[\s\S]*?<\/section>\n?/gi, '\n');
   html = ensureRequiredStrings(html);
   write(full, html);
   const fan = getFanoutForSlug(slug, title);
