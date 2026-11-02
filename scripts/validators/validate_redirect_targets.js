@@ -53,7 +53,8 @@ for (const r of rules) {
 
 const present = new Map(rules.map((r) => [r.from, r]));
 for (const e of legacy) {
-  const r = present.get(e.from);
+  // Consolidation-map entries are keyed by the clean path and answer x.html too.
+  const r = present.get(e.from) || present.get(e.from.replace(/\.html$/, ''));
   if (!r) { problems.push(`legacy rule ${e.from} -> ${e.to} is in data/redirects/legacy_404_redirects.json but not in _redirects`); continue; }
   if (r.to !== e.to || r.status !== 301) problems.push(`legacy rule ${e.from}: _redirects says ${r.to} ${r.status}, data says ${e.to} 301`);
   if (!e.why) problems.push(`legacy rule ${e.from} has no reason recorded`);

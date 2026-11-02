@@ -72,7 +72,10 @@ if (fs.existsSync(path.join(ROOT, 'virtual-event-production-for-nonprofit.html')
 const { parseRedirects, resolvePath } = require('./lib/pages_routing.js');
 const redirectRules = parseRedirects(ROOT);
 for (const alias of ['/virtual-event-production-for-nonprofit', '/virtual-event-production-for-nonprofit.html']) {
-  const rule = redirectRules.find((r) => r.from === alias);
+  // Resolved the way Pages answers it (a consolidation-map entry is keyed by the
+  // clean path and answers the .html form too).
+  const hit = resolvePath(alias, { root: ROOT, rules: redirectRules });
+  const rule = hit.kind === 'redirect' ? { to: hit.to, status: hit.status } : null;
   if (!rule || rule.status !== 301) { bad.push(`missing singular nonprofit clean alias redirect: ${alias}`); continue; }
   const landing = resolvePath(rule.to, { root: ROOT, rules: redirectRules });
   if (landing.kind !== 'page') bad.push(`singular nonprofit alias ${alias} -> ${rule.to} does not land on a published page (${landing.kind})`);

@@ -112,20 +112,28 @@ const lines = [
   '/tests/* /404 404',
   ''
 ];
-// Pages consolidated into the strongest page of their topic (scripts/lib/prune.js,
-// data/seo/prune_ledger.json). With every rule above whose source sits under a
-// content prefix, that is ~3,000 rules, and Pages serves at most 2,000 static
-// _redirects rules. The full per-URL map is kept in
-// data/redirects/consolidation_map.json for the validators; test:prune proves
-// every entry is answered by a 301 rule or a stub to the same target.
+// Every internal 301 above, plus the pages consolidated into the strongest page
+// of their topic (scripts/lib/prune.js, data/seo/prune_ledger.json), is one
+// entry in data/redirects/consolidation_map.json (source -> final page, chains
+// resolved), which the validators read through scripts/lib/pages_routing.js.
+//
+// WHY THE BUDGET. Measured live on 2 Nov 2026 (two deployments): Pages honoured
+// only the first 500 non-blank lines of _redirects, comments included; every
+// rule after line ~506 answered 404 (the documented 2,000 does not hold here,
+// and splats after anything but a slash are ignored). So _redirects carries the
+// fixed rules (contact routes, 404 guards) and the highest-value exact 301s
+// (measured impressions, then Google-indexed) up to that budget, with no
+// comments; every other entry is a static stub the assembler writes (noindex,
+// canonical and an instant meta refresh to the same page, which Google treats
+// as a permanent redirect): data/redirects/consolidation_stubs.json.
 const prune = require('./lib/prune.js');
-const PREFIXES = ['/programmatic/', '/query-atlas/', '/topics/', '/answers/', '/insights/', '/learn/'];
-const underPrefix = (from) => PREFIXES.some((p) => from.startsWith(p));
+const LINE_BUDGET = 480; // measured cut-off: the 500th non-blank line was the first ignored; keep a margin
 const norm = (r) => (r.length > 1 ? r.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/\/+$/, '') : r);
+const RULE = /^(\/\S*)\s+(\S+)\s+(301|302|308|404)$/;
 const all = new Map();
-for (const line of lines) {
-  const m = line.match(/^(\/\S*)\s+(\S+)\s+(301|302|308)$/);
-  if (m && !m[1].includes('*')) all.set(norm(m[1]), m[2]);
+for (const line of [...lines].sort((a, b) => Number(/\.html\s/.test(b)) - Number(/\.html\s/.test(a)))) {
+  const m = line.match(RULE);
+  if (m && m[3] !== '404' && !m[1].includes('*')) all.set(norm(m[1]), m[2]);
 }
 for (const r of prune.redirectRules()) if (!all.has(r.from)) all.set(r.from, r.to);
 const finalOf = (to) => {
@@ -138,29 +146,24 @@ const finalOf = (to) => {
   }
   throw new Error(`_redirects: redirect loop through ${to}`);
 };
+const fixed = [];
 const map = {};
-const kept = [];
-for (const line of lines) {
-  const m = line.match(/^(\/\S*)\s+(\S+)\s+(301|302|308)$/);
-  if (!m || m[1].includes('*')) { kept.push(line); continue; }
-  const to = finalOf(m[2]);
-  if (underPrefix(m[1])) {
-    // A .html alias of a live page would shadow it once keyed by its clean path.
-    if (m[1] !== norm(m[1]) && fs.existsSync(path.join(ROOT, `${norm(m[1]).replace(/^\//, '')}.html`)) && !prune.isRedirected(norm(m[1]))) continue;
-    map[norm(m[1])] = to;
-    continue;
-  }
-  kept.push(`${m[1]} ${to} ${m[3]}`);
+const isLivePage = (r) => fs.existsSync(path.join(ROOT, `${r.replace(/^\//, '')}.html`)) || fs.existsSync(path.join(ROOT, r.replace(/^\//, ''), 'index.html'));
+const ordered = [...lines].sort((a, b) => Number(/\.html\s/.test(a)) - Number(/\.html\s/.test(b)));
+for (const line of ordered) {
+  const m = line.match(RULE);
+  if (!m) continue;
+  // Guards and routes that carry a query or leave the site stay as written.
+  if (m[3] === '404' || m[1].includes('*') || m[2].includes('?') || !m[2].startsWith('/')) { fixed.push(line); continue; }
+  const from = norm(m[1]);
+  // A .html alias of a live page would shadow it once keyed by its clean path.
+  if (m[1] !== from && isLivePage(from) && !prune.isRedirected(from)) continue;
+  // The clean source's own rule wins over its .html alias (they share a key).
+  if (m[1] !== from && map[from] !== undefined) continue;
+  map[from] = finalOf(m[2]);
 }
 for (const r of prune.redirectRules()) if (!map[r.from]) map[r.from] = finalOf(r.to);
 
-// Pages ignores a splat that does not follow a slash (live, 2 Nov 2026: every
-// /programmatic/<prefix>-* rule answered 404), so prefix compression is out.
-// Exact 301s go to the URLs with the most to pass on (measured impressions,
-// then Google-indexed, then the rest) up to the static budget; every other
-// consolidated URL gets a static stub from the assembler (noindex, canonical
-// and an instant meta refresh to the same target, which Google treats as a
-// permanent redirect). data/redirects/consolidation_stubs.json lists them.
 const life = new Map();
 for (const p of (JSON.parse(fs.readFileSync(path.join(ROOT, 'data/search_intelligence/page_impressions_lifetime.json'), 'utf8')).pages || [])) {
   const r = norm(p.page.replace('https://virtualagency-os.com', '') || '/');
@@ -170,24 +173,19 @@ const cov = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/search_intelligence
 const covOf = (r) => ((cov.urls || {})[`https://virtualagency-os.com${r}`] || (cov.priority_urls || {})[`https://virtualagency-os.com${r}`] || {}).coverageState || '';
 const weight = (r) => (life.get(r) || 0) * 1000 + (/indexed|canonical/i.test(covOf(r)) ? 10 : 0) + (/Discovered|Crawled/.test(covOf(r)) ? 1 : 0);
 const entries = Object.entries(map).sort(([a], [b]) => a.localeCompare(b));
+const header = ['# Generated by scripts/update_redirects_clean_to_html.js. Pages ignored every line from the 500th non-blank one (2 Nov 2026): this file stays under 480.'];
+const budget = LINE_BUDGET - header.length - fixed.length;
 const ranked = [...entries].sort(([a], [b]) => weight(b) - weight(a) || a.localeCompare(b));
-const isRule0 = (l) => /^\/\S*\s+\S+\s+\d{3}$/.test(l);
-const STATIC_BUDGET = 2000 - 25 - kept.filter((l) => isRule0(l) && !l.split(/\s+/)[0].includes('*')).length;
-const exactSet = new Set(ranked.slice(0, STATIC_BUDGET).map(([f]) => f));
+const exactSet = new Set(ranked.slice(0, Math.max(0, budget)).map(([f]) => f));
 const exact = entries.filter(([f]) => exactSet.has(f)).map(([f, t]) => `${f} ${t} 301`);
 const stubs = Object.fromEntries(entries.filter(([f]) => !exactSet.has(f)));
-const STATIC_LIMIT = 2000;
-const DYNAMIC_LIMIT = 100;
-const isRule = (l) => /^\/\S*\s+\S+\s+\d{3}$/.test(l);
-const out = [...kept, '', '# Pages consolidated into the strongest page of their topic (data/seo/prune_ledger.json).',
-  '# Full map: data/redirects/consolidation_map.json; URLs past the rule budget get a static redirect stub (data/redirects/consolidation_stubs.json).', ...exact, ''];
-const staticRules = out.filter((l) => isRule(l) && !l.split(/\s+/)[0].includes('*')).length;
-const dynamicRules = out.filter((l) => isRule(l) && l.split(/\s+/)[0].includes('*')).length;
-if (staticRules > STATIC_LIMIT || dynamicRules > DYNAMIC_LIMIT) {
-  console.error(`_redirects would hold ${staticRules} static / ${dynamicRules} dynamic rules; Cloudflare Pages ignores everything past ${STATIC_LIMIT} / ${DYNAMIC_LIMIT}.`);
+const out = [...header, ...fixed, ...exact];
+const nonBlank = out.filter((l) => l.trim()).length;
+if (nonBlank > LINE_BUDGET || budget < 100) {
+  console.error(`_redirects: ${nonBlank} non-blank lines (budget ${LINE_BUDGET}), ${budget} slots for 301s; Pages ignores everything past line ${LINE_BUDGET}.`);
   process.exit(1);
 }
 fs.writeFileSync(path.join(ROOT, 'data/redirects/consolidation_map.json'), `${JSON.stringify(Object.fromEntries(entries), null, 1)}\n`);
 fs.writeFileSync(path.join(ROOT, 'data/redirects/consolidation_stubs.json'), `${JSON.stringify(stubs, null, 1)}\n`);
-fs.writeFileSync(OUT, out.join('\n'));
-console.log(`Updated _redirects: ${staticRules} static and ${dynamicRules} dynamic rules (limits ${STATIC_LIMIT}/${DYNAMIC_LIMIT}); ${entries.length} consolidated URLs: ${exact.length} as 301 rules, ${Object.keys(stubs).length} as static redirect stubs.`);
+fs.writeFileSync(OUT, `${out.join('\n')}\n`);
+console.log(`Updated _redirects: ${nonBlank} non-blank lines (budget ${LINE_BUDGET}): ${fixed.length} fixed rules, ${exact.length} exact 301s; ${Object.keys(stubs).length} more redirects as static stubs; ${entries.length} entries in data/redirects/consolidation_map.json.`);
