@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T08:26:10.647Z",
+  "generated_at": "2026-11-02T13:35:01.120Z",
   "workflow_count": 10,
   "workflows": [
     "admin-command.yml",
@@ -235,6 +235,16 @@
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
       "step": 14,
+      "name": "npm run test:atlas-site-head",
+      "npm_script": "test:atlas-site-head",
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ci.yml",
+      "workflow_name": "CI - Build and Validate",
+      "job": "build_validate",
+      "step": 15,
       "name": "npm run test:search-readiness-repairs",
       "npm_script": "test:search-readiness-repairs",
       "direct_paths": [],
@@ -244,7 +254,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 15,
+      "step": 16,
       "name": "npm run test:demand-families-declared",
       "npm_script": "test:demand-families-declared",
       "direct_paths": [],
@@ -254,7 +264,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 16,
+      "step": 17,
       "name": "npm run test:render-robots-parity",
       "npm_script": "test:render-robots-parity",
       "direct_paths": [],
@@ -264,7 +274,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 17,
+      "step": 18,
       "name": "npm run test:static-edge-path",
       "npm_script": "test:static-edge-path",
       "direct_paths": [],
@@ -274,7 +284,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 18,
+      "step": 19,
       "name": "npm run test:build-reconciles-noindex",
       "npm_script": "test:build-reconciles-noindex",
       "direct_paths": [],
@@ -284,7 +294,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 19,
+      "step": 20,
       "name": "npm run release:self-heal",
       "npm_script": "release:self-heal",
       "direct_paths": [],
@@ -294,7 +304,7 @@
       "workflow": "ci.yml",
       "workflow_name": "CI - Build and Validate",
       "job": "build_validate",
-      "step": 20,
+      "step": 21,
       "name": "Cadence gate",
       "npm_script": "validate:cadence-integrity",
       "direct_paths": [],
@@ -795,13 +805,12 @@
       "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
       "job": "collect_score",
       "step": 16,
-      "name": "Reconcile noindex policy and sitemap with the new Search Console evidence",
-      "npm_script": null,
-      "direct_paths": [
-        "scripts/apply_noindex_policy.js",
-        "scripts/update_sitemap_all_html.js"
-      ],
-      "env_keys": []
+      "name": "Rebuild pages, noindex policy and sitemap with the new Search Console evidence",
+      "npm_script": "build",
+      "direct_paths": [],
+      "env_keys": [
+        "SKIP_RELEASE_PLAN"
+      ]
     },
     {
       "workflow": "query-intelligence.yml",
