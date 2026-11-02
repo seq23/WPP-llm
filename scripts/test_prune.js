@@ -56,9 +56,12 @@ for (const r of ledger.redirects) {
 // _redirects (Pages ignores splats that do not follow a slash) or by a static
 // redirect stub the assembler writes; never both, never neither.
 const compressed = parseRedirects(ROOT, { withMap: false });
-if (compressed.some((r) => /[^/]\*$/.test(r.from))) errors.push('_redirects holds a mid-segment splat; Pages ignores it');
-const nonBlank = fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8').split('\n').filter((l) => l.trim()).length;
-if (nonBlank >= 500) errors.push(`_redirects has ${nonBlank} non-blank lines; Pages ignores everything from the 500th`);
+// Pages counts every rule after the first dynamic one (a splat or placeholder)
+// as dynamic and drops all past 100 (deploy log, 2 Nov 2026); 404 is not a
+// valid status. So: no splat, no placeholder, no 404, at most 2,000 rules.
+if (compressed.some((r) => /\*|:/.test(r.from))) errors.push('_redirects holds a dynamic rule; Pages would count every later rule as dynamic');
+if (compressed.some((r) => r.status === 404)) errors.push('_redirects holds a 404 line; Pages rejects it');
+if (compressed.length > 2000) errors.push(`_redirects has ${compressed.length} rules; Pages allows 2,000 static`);
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_map.json'), 'utf8'));
 const stubs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_stubs.json'), 'utf8'));
 for (const [from, to] of Object.entries(map)) {
