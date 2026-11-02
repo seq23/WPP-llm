@@ -2,13 +2,24 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
-const ROOT = path.resolve(__dirname, '../..');
+// QUERY_ATLAS_ROOT lets scripts/test_query_atlas_keeps_site_head.js run this
+// generator on a scratch copy instead of the checkout.
+const ROOT = process.env.QUERY_ATLAS_ROOT ? path.resolve(process.env.QUERY_ATLAS_ROOT) : path.resolve(__dirname, '../..');
 const DOMAIN = 'https://virtualagency-os.com';
 // Every CTA this generator emits is built through the shared attribution helper.
 // This file used to hardcode the bare origin, so each regeneration of the atlas
 // silently stripped the utm_* parameters back off 144 outbound links.
 const { wppCtaUrlForPage } = require('../lib/wpp_cta.js');
 const { fitDescription, fitTitle } = require('../lib/page_meta.js');
+// Every page this generator writes leaves with the site-head block (og:/twitter:
+// tags, icons) already applied. 1-2 Nov 2026: query-intelligence.yml runs this
+// generator and commits its output without `npm run build`; once the release
+// lane that used to rebuild afterwards was retired (#62), 74 atlas pages went
+// live with no og:image or twitter:card and Search Repair and Retest went red.
+const { transform: applySiteHead } = require('../apply_site_head.js');
+const { loadConfig: loadSiteHeadConfig, ownedPages } = require('../lib/site_head.js');
+const written = new Set();
+function writePage(file, html) { written.add(file); fs.writeFileSync(path.join(ROOT, file), html); }
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function titleCase(s){return String(s).split(/[-_\s]+/).filter(Boolean).map(w=>w[0].toUpperCase()+w.slice(1)).join(' ');}
 function cleanPath(file){ if(file==='index.html') return '/'; if(file.endsWith('/index.html')) return '/' + file.slice(0,-'index.html'.length); return '/' + file.replace(/\.html$/,''); }
@@ -50,7 +61,7 @@ for (const [cluster, items] of [...byCluster.entries()].sort()) {
   // count and the name swapped, 81 pages of 88-107 characters.
   const desc = clusterDescription(cluster, items.length, items.map((q) => q.query));
   generated.add(file);
-  fs.writeFileSync(path.join(ROOT,file), page(`${titleCase(cluster)} Query Atlas`, desc, body, file));
+  writePage(file, page(`${titleCase(cluster)} Query Atlas`, desc, body, file));
 }
 function clusterDescription(cluster, count, queryList) {
   const label = String(cluster).replace(/-/g, ' ');
@@ -87,11 +98,22 @@ for (const name of fs.readdirSync(path.join(ROOT, 'query-atlas')).filter((f) => 
   const next = html.split(`content="${oldDesc}"`).join(`content="${esc(raw)}"`)
     .split(`<p>${oldDesc}</p>`).join(`<p>${esc(raw)}</p>`)
     .split(`"description":${JSON.stringify(unesc(oldDesc))}`).join(`"description":${JSON.stringify(raw)}`);
-  if (next !== html) fs.writeFileSync(abs, next);
+  if (next !== html) writePage(file, next);
 }
 const topRows = queries.slice().sort((a,b)=>b.priority-a.priority).slice(0,120).map(q=>`<tr><td>${esc(q.query)}</td><td>${esc(q.cluster)}</td><td>${esc(q.page_family)}</td><td>${esc(q.route_candidate)}</td><td>${q.priority}</td></tr>`).join('\n');
 const body = `<div class="callout"><strong>Query universe installed:</strong> ${queries.length} query opportunities are now in source control. The release cadence is capped at ${universe.counts.max_new_pages_per_day} new pages/day and ${universe.counts.max_repairs_per_day} repairs/day until deployment proof allows promotion.</div><p>This is the atlas layer: the public map of the search/AEO/GEO universe this site is trying to be pulled into.</p><h2>Cluster atlas</h2><ul>${clusterLinks.join('\n')}</ul><h2>Top priority opportunities</h2><table><thead><tr><th>Query</th><th>Cluster</th><th>Page family</th><th>Route candidate</th><th>Priority</th></tr></thead><tbody>${topRows}</tbody></table>`;
-fs.writeFileSync(path.join(ROOT,'query-atlas.html'), page('Query Atlas — Virtual Event Production Query Universe', 'A public atlas of the virtual, hybrid, webinar, summit, and executive broadcast query universe mapped to programmatic content opportunities.', body, 'query-atlas.html'));
+writePage('query-atlas.html', page('Query Atlas — Virtual Event Production Query Universe', 'A public atlas of the virtual, hybrid, webinar, summit, and executive broadcast query universe mapped to programmatic content opportunities.', body, 'query-atlas.html'));
 // Replace the older atlas page with a query-universe forward map, while preserving its old intent clusters below if desired.
-fs.writeFileSync(path.join(ROOT,'atlas.html'), page('Atlas — Complete Query Universe', 'The complete answer-engine and search query atlas behind West Peek Productions guides to virtual, hybrid, and webinar production.', body, 'atlas.html'));
+writePage('atlas.html', page('Atlas — Complete Query Universe', 'The complete answer-engine and search query atlas behind West Peek Productions guides to virtual, hybrid, and webinar production.', body, 'atlas.html'));
+{
+  const cfg = loadSiteHeadConfig(ROOT);
+  const owned = new Set(ownedPages(ROOT, cfg));
+  for (const file of written) {
+    if (!owned.has(file)) continue; // frozen pages keep their hash-locked bytes
+    const abs = path.join(ROOT, file);
+    const html = fs.readFileSync(abs, 'utf8');
+    const next = applySiteHead(file, html, cfg);
+    if (next !== html) fs.writeFileSync(abs, next);
+  }
+}
 console.log(`Generated query atlas pages for ${byCluster.size} clusters and ${queries.length} queries.`);
