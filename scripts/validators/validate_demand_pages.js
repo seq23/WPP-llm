@@ -5,9 +5,11 @@
  *
  * For every page in data/seo/demand_pages.json (the primary page of a top-12
  * family in data/seo/demand_families.json), the built HTML must have:
- *   - a 30-65 character title that starts with the family's measured query,
+ *   - a title (TITLE_MIN-TITLE_MAX aimed for; over is a note, under fails only
+ *     below 75% of TITLE_MIN) that starts with the family's measured query,
  *     and exactly one H1, both as configured;
- *   - a 40-60 word definition as the first paragraph under the H1;
+ *   - a definition as the first paragraph under the H1 (40-60 words aimed for;
+ *     over is a note, under fails only below 75% of 40);
  *   - at least three H2s in the page body, every one phrased as a question;
  *   - a visible FAQ of at least three questions, each taken from a measured
  *     query, and exactly ONE FAQPage in the document matching it;
@@ -33,6 +35,7 @@ const fs = require('fs');
 const path = require('path');
 const { loadConfig } = require('../lib/site_head.js');
 const { resolvePath } = require('../lib/pages_routing.js');
+const { TITLE_MIN, TITLE_MAX, failsFloor } = require('../lib/page_meta.js');
 
 const ROOT = path.resolve(__dirname, '../..');
 const DP_START = '<!--demand-page:start-->';
@@ -47,6 +50,8 @@ const SOFTWARE_CLAIMS = [
   /\b(free trial|start (your|a) trial|sign up free|download (the|our) app|log ?in to (the|your) dashboard)\b/i,
 ];
 const NOT_SOFTWARE = 'does not sell event software';
+const DEF_MIN_WORDS = 40;
+const DEF_MAX_WORDS = 60;
 
 const cfg = loadConfig();
 const fams = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/seo/demand_families.json'), 'utf8'));
@@ -55,6 +60,16 @@ const declared = new Set((JSON.parse(fs.readFileSync(path.join(ROOT, 'data/seo/d
 const pages = (cfg.demand_pages || []).filter((d) => d.full);
 const errors = [];
 const warnings = [];
+
+// Length rule probes (owner ruling 2 Nov 2026): over a ceiling never fails,
+// under a floor fails only below 75% of it. A re-tightened helper turns this red.
+for (const [n, min, want, label] of [
+  [200, TITLE_MIN, false, 'a 200-character title'],
+  [Math.ceil(TITLE_MIN * 0.75), TITLE_MIN, false, 'a title at 75% of the floor'],
+  [Math.ceil(TITLE_MIN * 0.75) - 1, TITLE_MIN, true, 'a title under 75% of the floor'],
+  [500, DEF_MIN_WORDS, false, 'a 500-word definition'],
+  [Math.ceil(DEF_MIN_WORDS * 0.75) - 1, DEF_MIN_WORDS, true, 'a definition under 75% of the floor'],
+]) if (failsFloor(n, min) !== want) errors.push(`LENGTH RULE: ${label} should ${want ? '' : 'not '}fail`);
 const read = (rel) => (fs.existsSync(path.join(ROOT, rel)) ? fs.readFileSync(path.join(ROOT, rel), 'utf8') : null);
 const home = read('index.html') || '';
 const topics = read('topics/index.html') || '';
@@ -77,7 +92,8 @@ for (const d of pages) {
 
   const title = unesc((h.match(/<title>([^<]*)<\/title>/) || [])[1] || '');
   if (title !== unesc(d.title)) e(`title is not the configured title ("${title}")`);
-  if (title.length < 30 || title.length > 65) e(`title is ${title.length} chars; must be 30-65`);
+  if (failsFloor(title.length, TITLE_MIN)) e(`title is ${title.length} chars, under 75% of the ${TITLE_MIN}-character floor`);
+  else if (title.length < TITLE_MIN || title.length > TITLE_MAX) warnings.push(`${d.file}: title is ${title.length} chars; the generator aims for ${TITLE_MIN}-${TITLE_MAX}`);
   if (!norm(title).startsWith(norm(d.query))) e(`title does not start with the query "${d.query}"`);
   if (!(fam.queries || []).some((q) => q.query === d.query)) warnings.push(`${d.file}: title query "${d.query}" is no longer a measured query of ${d.family}`);
 
@@ -89,7 +105,8 @@ for (const d of pages) {
   if (!def) e('no definition paragraph directly under the H1');
   else {
     const w = words(def[1]);
-    if (w < 40 || w > 60) e(`definition is ${w} words; must be 40-60`);
+    if (failsFloor(w, DEF_MIN_WORDS)) e(`definition is ${w} words, under 75% of the ${DEF_MIN_WORDS}-word floor`);
+    else if (w < DEF_MIN_WORDS || w > DEF_MAX_WORDS) warnings.push(`${d.file}: definition is ${w} words; aimed for ${DEF_MIN_WORDS}-${DEF_MAX_WORDS}`);
     if (text(def[1]) !== text(d.definition)) e('definition is not the configured definition');
   }
 

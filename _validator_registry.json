@@ -550,7 +550,7 @@
       "id": "demand-pages",
       "command": "node scripts/validators/validate_demand_pages.js",
       "severity": "HARD_FAIL",
-      "purpose": "Each top-12 query-family page serves its intent: query-first 30-65 char title, one H1, 40-60 word definition under it, question H2s, a visible FAQ from measured queries with exactly one FAQPage, a CTA with a ref, links from the homepage and /topics/, a table on comparison pages, a numbered list for checklist queries, no software claims; every pinned landing page links to its family primary.",
+      "purpose": "Each top-12 query-family page serves its intent: query-first title (over its 65-char ceiling is a note; under fails only below 75% of 30), one H1, a definition under it (over 60 words is a note; under fails only below 75% of 40), question H2s, a visible FAQ from measured queries with exactly one FAQPage, a CTA with a ref, links from the homepage and /topics/, a table on comparison pages, a numbered list for checklist queries, no software claims; every pinned landing page links to its family primary.",
       "owner": "repo"
     },
     {
