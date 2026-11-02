@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-01T20:16:33.810Z",
+  "generated_at": "2026-11-02T08:26:08.948Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 531,
-    "candidates_considered": 6021,
+    "candidates_considered": 6055,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-02",
       "2026-11-01",
       "2026-10-31",
       "2026-10-30",
       "2026-10-29",
       "2026-10-28",
-      "2026-10-27",
-      "2026-10-26"
+      "2026-10-27"
     ],
     "usage_source": "data/cadence/known_urls.json",
     "new_pages_used_this_week": 2,
@@ -635,10 +635,10 @@
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
-    "opportunities_withheld": 3103
+    "opportunities_withheld": 3056
   },
   "status": "READY",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-  "create_stop_detail": "6021 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+  "create_stop_detail": "6055 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
   "create_stop_is_legitimate": true
 }
