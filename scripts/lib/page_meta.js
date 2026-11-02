@@ -20,6 +20,13 @@ const TITLE_MAX = 65;
 const DESC_MIN = 120;
 const DESC_MAX = 160;
 
+// Owner ruling 2 Nov 2026 (no petty validation): a check never fails a title,
+// description or word count for being OVER its ceiling (the generators trim to
+// fit), and fails one UNDER its floor only below 75% of it. Every guard reads
+// this helper instead of its own numbers; the generators still aim for the band.
+const FLOOR_SLACK = 0.75;
+const failsFloor = (n, min) => n < Math.ceil(min * FLOOR_SLACK);
+
 const fits = (s) => typeof s === 'string' && s.length >= DESC_MIN && s.length <= DESC_MAX;
 
 /**
@@ -245,5 +252,6 @@ function programmaticDescriptionFromHero(query, hero) {
 }
 
 module.exports = {
+  FLOOR_SLACK, failsFloor,
   TITLE_MIN, TITLE_MAX, DESC_MIN, DESC_MAX, fits, fitDescription, titleFits, fitTitle, shortenName, compressName, SHORTER, programmaticDescription, parseHero, programmaticDescriptionFromHero,
 };
