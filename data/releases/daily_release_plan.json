@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-02T08:26:08.948Z",
+  "generated_at": "2026-11-02T15:49:46.908Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -41,134 +41,24 @@
   "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
   "daily_new_pages_already_used": 0,
-  "daily_repairs_already_used": 0,
+  "daily_repairs_already_used": 52,
   "max_new_pages_this_run": 0,
-  "max_repairs_this_run": 100,
+  "max_repairs_this_run": 48,
   "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "f99b755b02b630dff46cab40639e7414e75e772bdde3fb9b26288721e8ac227b",
-    "legacy_backlog": 65,
-    "thin_pages": 65,
+    "corpus_fingerprint": "42686c3197582b25fb9f926435479ae33063881fe8b698cd24eee1ebe6f6197e",
+    "legacy_backlog": 90,
+    "thin_pages": 90,
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 0
   },
-  "units": [
-    {
-      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
-      "query": "community roi measurement",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 43,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/programmatic/community-roi-measurement-model",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1147,
-        "max_similarity": 0.290189,
-        "nearest_route": "/programmatic/livekit-virtual-events",
-        "reasons": []
-      },
-      "release_order": 1
-    }
-  ],
-  "release_units": [
-    {
-      "opportunity_id": "opp_Y29tbXVuaXR5IHJvaSBtZWFz",
-      "query": "community roi measurement",
-      "cluster": "unclustered",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/community-roi-measurement-model",
-      "page_family": "programmatic_opportunity",
-      "source": "gsc",
-      "demand_estimate": 0,
-      "score": 43,
-      "exists": false,
-      "action": "quality_repair",
-      "status": "admitted_candidate",
-      "source_route": "/programmatic/community-roi-measurement-model",
-      "exists_now": true,
-      "release_action": "repair",
-      "quality_reason": [
-        "thin"
-      ],
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1147,
-        "max_similarity": 0.290189,
-        "nearest_route": "/programmatic/livekit-virtual-events",
-        "reasons": []
-      },
-      "release_order": 1
-    }
-  ],
+  "units": [],
+  "release_units": [],
   "blocked": [
     {
       "target_route": "/programmatic/brand-look-legit",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/community-budget-planning-framework",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/community-engagement-operating-cadence",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/community-events-programming-framework",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/community-governance-escalation-matrix",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/community-health-scorecard",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/community-staffing-matrix",
       "release_action": "repair",
       "reason": "quality_repair_missing_opportunity_metadata",
       "details": [
@@ -264,239 +154,7 @@
       ]
     },
     {
-      "target_route": "/programmatic/virtual-event-planning-accessibility",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-agency",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-analytics",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-attendee-experience",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-backup-plan",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-best-practices",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-budget",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-captioning",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-common-mistakes",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-companies",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-comparison",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-content-repurposing",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-cost",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-decision-framework",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-event-strategy",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-examples",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-executive-briefing",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-failure-prevention",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-planning-follow-up",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
       "target_route": "/programmatic/virtual-event-pricing",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-accessibility",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-analytics",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-attendee-experience",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-backup-plan",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-budget",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-captioning",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-common-mistakes",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-content-repurposing",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-decision-framework",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-executive-briefing",
       "release_action": "repair",
       "reason": "quality_repair_missing_opportunity_metadata",
       "details": [
@@ -528,94 +186,6 @@
       ]
     },
     {
-      "target_route": "/programmatic/virtual-event-production-how-to-host",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-how-to-plan",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-hybrid-av",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-post-event-content",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-recording",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-registration",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-remote-speakers",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-schedule",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-security",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-sponsor-operations",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
-      "target_route": "/programmatic/virtual-event-production-vendor-questions",
-      "release_action": "repair",
-      "reason": "quality_repair_missing_opportunity_metadata",
-      "details": [
-        "thin"
-      ]
-    },
-    {
       "target_route": "/programmatic/visual-event-portfolio",
       "release_action": "repair",
       "reason": "quality_repair_missing_opportunity_metadata",
@@ -637,7 +207,7 @@
     "families": 30,
     "opportunities_withheld": 3056
   },
-  "status": "READY",
+  "status": "COMPLETED_NO_CHANGES",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
   "create_stop_detail": "6055 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
   "create_stop_is_legitimate": true

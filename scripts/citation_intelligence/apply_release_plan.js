@@ -3,9 +3,14 @@
 const fs = require('fs');
 const path = require('path');
 const {
-  ROOT, readJson, cleanRoute, governedRoute, listProgrammaticPages, candidateQuality,
+  ROOT, readJson, cleanRoute, governedRoute, listGovernedPages, candidateQuality,
   shingleSetFromHtml, wordCountFromHtml,
 } = require('./content_quality.js');
+// This writer only ever renders /programmatic/ pages (renderProgrammaticPage());
+// the staged corpus it compares against and pushes into stays scoped there so
+// the wider governed-section scan (content_quality.js listGovernedPages()) does
+// not hand it an /answers/, /insights/, /learn/ or /case-studies/ peer.
+const listProgrammaticPages = () => listGovernedPages().filter(p => p.route.startsWith('/programmatic/'));
 const { renderProgrammaticPage } = require('./render_programmatic_page.js');
 const noindexPolicy = require('../lib/noindex_policy.js');
 const { QUALITY_REJECTION_REASONS } = require('./quality_rejection_reasons.js');
@@ -17,11 +22,18 @@ const MEASURED = publicationFreeze.measuredQueries(undefined, FREEZE);
 const plan = readJson('data/releases/daily_release_plan.json', { units: [] });
 const adm = readJson('data/content/page_admission_registry.json', { admissions: [] });
 const state = readJson('data/content/content_state_registry.json', { published_routes: [], blocked_routes: [] });
-let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = []; const createdRoutes = [];
+let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = []; const createdRoutes = []; const repairedRoutes = [];
 let stagedCorpus = listProgrammaticPages();
 
 function recordAdmission(u, route) {
-  const i = (adm.admissions || []).findIndex(a => governedRoute(a.route) === route && a.query === u.query);
+  // A repair rewrites a page that is already admitted, so it updates that
+  // route's admission whatever query the plan carried (the quality-report
+  // fallback can phrase the query differently). Matching on route + query
+  // here once appended a second admission for the same page, which double-
+  // counted it in the frozen output registry.
+  const sameRoute = a => governedRoute(a.route) === route;
+  let i = u.release_action === 'repair' ? (adm.admissions || []).findIndex(sameRoute) : -1;
+  if (i < 0) i = (adm.admissions || []).findIndex(a => sameRoute(a) && a.query === u.query);
   const rec = {
     route,
     source_route: cleanRoute(u.source_route || u.target_route),
@@ -35,7 +47,11 @@ function recordAdmission(u, route) {
     updated_at: new Date().toISOString(),
     admitted_at: i >= 0 ? adm.admissions[i].admitted_at : new Date().toISOString(),
   };
-  if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
+  if (i >= 0 && u.release_action === 'repair') {
+    // Keep the page's original admission identity; record that it was repaired.
+    const prev = adm.admissions[i];
+    adm.admissions[i] = { ...prev, action: rec.action, status: 'admitted', updated_at: rec.updated_at };
+  } else if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
   if (!state.published_routes.includes(route)) state.published_routes.push(route);
 }
 
@@ -84,6 +100,7 @@ for (const u of plan.units || []) {
     if (existing === html) { skipped.push({route:publicRoute,source_route:u.target_route,reason:'repair_no_change'}); continue; }
     fs.writeFileSync(file, html);
     repaired += 1;
+    repairedRoutes.push(publicRoute);
   } else {
     skipped.push({route:publicRoute,source_route:u.target_route,reason:'unsupported_release_action'});
     continue;
@@ -132,5 +149,5 @@ if (createdRoutes.length) console.log(`[cadence] recorded ${recorded.recorded} g
 
 fs.mkdirSync(path.join(ROOT,'artifacts/release'),{recursive:true});
 const status=(created||repaired)?'COMPLETED_WITH_CHANGES':skipped.length?'COMPLETED_ALL_SKIPPED':'COMPLETED_NO_CHANGES';
-fs.writeFileSync(path.join(ROOT,'artifacts/release/apply_release_plan_summary.json'),JSON.stringify({status,plan_generated_at:plan.generated_at||null,created,repaired,quality_rejected:qualityRejected,skipped:skipped.length,total:(plan.units||[]).length,skipped_records:skipped,at:new Date().toISOString()},null,2)+'\n');
+fs.writeFileSync(path.join(ROOT,'artifacts/release/apply_release_plan_summary.json'),JSON.stringify({status,plan_generated_at:plan.generated_at||null,created,repaired,quality_rejected:qualityRejected,skipped:skipped.length,total:(plan.units||[]).length,skipped_records:skipped,created_routes:createdRoutes,repaired_routes:repairedRoutes,at:new Date().toISOString()},null,2)+'\n');
 console.log(`Applied quality-gated release plan: ${created} created, ${repaired} pages substantively repaired, ${qualityRejected} quality-rejected, ${skipped.length} total skipped.`);

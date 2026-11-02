@@ -1,0 +1,41 @@
+{
+  "note": "Every published section the substance gate must scan, declared explicitly - never a path heuristic, matching the pattern data/content/structural_pages.json already uses for exemptions. scripts/citation_intelligence/content_quality.js listGovernedPages() reads exactly this list. A section missing from here is a section the thin/duplicate gate cannot see, which is the defect this file exists to close (thin-ledger re-read, 2 Nov 2026: 74 of 160 still-thin sitemap pages lived outside /programmatic/ and had no substance row anywhere).",
+  "schema_version": "1.0",
+  "sections": [
+    {
+      "prefix": "/programmatic/",
+      "dir": "programmatic",
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "reason": "Wired: build_release_plan.js stages a repair unit for a thin/duplicate programmatic page and apply_release_plan.js (npm run release:content) renders and writes it, inside the daily repair ceiling."
+    },
+    {
+      "prefix": "/answers/",
+      "dir": "answers",
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "reason": "Imported baseline content (git history: 'snapshot update from baseline ZIP'); no generator in this repo writes /answers/ pages. A thin row here is flagged and named, not auto-rewritten - re-render through its own section generator is deferred to 2026-11-16."
+    },
+    {
+      "prefix": "/insights/",
+      "dir": "insights",
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "reason": "scripts/build_insights.js (npm run build:insights) publishes new daily insights; it does not yet re-render an existing thin one. A thin row here is flagged and named, not auto-rewritten - thin-repair wiring is deferred to 2026-11-16."
+    },
+    {
+      "prefix": "/learn/",
+      "dir": "learn",
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "reason": "Imported baseline content (git history: 'snapshot update from baseline ZIP'); no generator in this repo writes /learn/ pages. A thin row here is flagged and named, not auto-rewritten - re-render through its own section generator is deferred to 2026-11-16."
+    },
+    {
+      "prefix": "/case-studies/",
+      "dir": "case-studies",
+      "word_floor": 700,
+      "repair_owner": "none_yet:deferred_2026-11-16",
+      "reason": "Imported baseline content (git history: 'snapshot update from baseline ZIP'); no generator in this repo writes /case-studies/ pages. A thin row here is flagged and named, not auto-rewritten - re-render through its own section generator is deferred to 2026-11-16."
+    }
+  ]
+}

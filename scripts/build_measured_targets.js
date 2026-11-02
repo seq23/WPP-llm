@@ -23,6 +23,7 @@
 const fs = require('fs');
 const path = require('path');
 const { norm } = require('./lib/publication_freeze.js');
+const { wordCount } = require('./lib/word_count.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://virtualagency-os.com';
@@ -51,10 +52,12 @@ function fileForRoute(route) {
   return null;
 }
 
-function words(html) {
-  const body = (html.match(/<main[\s\S]*?<\/main>/i) || html.match(/<body[\s\S]*<\/body>/i) || [html])[0];
-  return body.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-}
+// scripts/lib/word_count.js - shared with the substance gate
+// (scripts/citation_intelligence/content_quality.js) so a page is thin or not
+// thin on one count, not two (thin-ledger re-read, 2 Nov 2026: 22 pages
+// disagreed between this file's <main>/<body>-only count and the gate's
+// whole-document count).
+function words(html) { return wordCount(html); }
 
 function hubFor(html, route, pillarByRoute) {
   const m = html.match(/"@type":"BreadcrumbList","itemListElement":(\[[\s\S]*?\])\}/);
