@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T09:41:27.718Z",
+  "generated_at": "2026-11-02T23:24:10.652Z",
   "validation_summary": [
     {
       "id": "github-actions-workflows",
@@ -218,7 +218,7 @@
     }
   ],
   "workflow_trace": {
-    "generated_at": "2026-11-01T08:21:04.822Z",
+    "generated_at": "2026-11-02T23:23:02.783Z",
     "workflow_count": 10,
     "workflows": [
       "admin-command.yml",
@@ -227,8 +227,8 @@
       "distribution.yml",
       "entity-backlink-watch.yml",
       "paid-citation-probe.yml",
-      "programmatic-release.yml",
       "query-intelligence.yml",
+      "search-loop.yml",
       "search-repair-retest.yml",
       "self-heal.yml"
     ],
@@ -454,6 +454,16 @@
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
         "step": 14,
+        "name": "npm run test:atlas-site-head",
+        "npm_script": "test:atlas-site-head",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 15,
         "name": "npm run test:search-readiness-repairs",
         "npm_script": "test:search-readiness-repairs",
         "direct_paths": [],
@@ -463,7 +473,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 15,
+        "step": 16,
         "name": "npm run test:demand-families-declared",
         "npm_script": "test:demand-families-declared",
         "direct_paths": [],
@@ -473,7 +483,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 16,
+        "step": 17,
         "name": "npm run test:render-robots-parity",
         "npm_script": "test:render-robots-parity",
         "direct_paths": [],
@@ -483,7 +493,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 17,
+        "step": 18,
         "name": "npm run test:static-edge-path",
         "npm_script": "test:static-edge-path",
         "direct_paths": [],
@@ -493,7 +503,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 18,
+        "step": 19,
         "name": "npm run test:build-reconciles-noindex",
         "npm_script": "test:build-reconciles-noindex",
         "direct_paths": [],
@@ -503,7 +513,17 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 19,
+        "step": 20,
+        "name": "npm run test:platform-proof",
+        "npm_script": "test:platform-proof",
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "ci.yml",
+        "workflow_name": "CI - Build and Validate",
+        "job": "build_validate",
+        "step": 21,
         "name": "npm run release:self-heal",
         "npm_script": "release:self-heal",
         "direct_paths": [],
@@ -513,7 +533,7 @@
         "workflow": "ci.yml",
         "workflow_name": "CI - Build and Validate",
         "job": "build_validate",
-        "step": 20,
+        "step": 22,
         "name": "Cadence gate",
         "npm_script": "validate:cadence-integrity",
         "direct_paths": [],
@@ -842,152 +862,6 @@
         ]
       },
       {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 1,
-        "name": "actions/checkout@v6",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 2,
-        "name": "actions/setup-node@v6",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 3,
-        "name": "actions/setup-python@v6",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 4,
-        "name": "bash scripts/ci_npm_install.sh",
-        "npm_script": null,
-        "direct_paths": [
-          "scripts/ci_npm_install.sh"
-        ],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 5,
-        "name": "node scripts/runtime_guard.mjs",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 6,
-        "name": "python -m pip install --upgrade pip && python -m pip install google-api-python-client goog",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 7,
-        "name": "Sync latest main before autonomous release",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 8,
-        "name": "Validate workflow syntax",
-        "npm_script": "actions:validate",
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 9,
-        "name": "Run GSC primary collector",
-        "npm_script": null,
-        "direct_paths": [
-          "distribution_scripts/gsc_collect_query_signals.py"
-        ],
-        "env_keys": [
-          "GSC_SERVICE_ACCOUNT_JSON",
-          "GSC_SITE_URL_SECRET",
-          "GSC_SITE_URL_VAR"
-        ]
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 10,
-        "name": "Ingest measured Search Console queries as T1 atlas evidence",
-        "npm_script": "queries:ingest",
-        "direct_paths": [],
-        "env_keys": [
-          "GSC_SERVICE_ACCOUNT_JSON",
-          "GSC_SITE_URL_SECRET",
-          "GSC_SITE_URL_VAR"
-        ]
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 11,
-        "name": "Run controlled autonomous content release",
-        "npm_script": "release:autonomous",
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 12,
-        "name": "Commit generated pages and registries",
-        "npm_script": null,
-        "direct_paths": [
-          ".github/scripts/commit_and_push_if_changed.sh"
-        ],
-        "env_keys": [
-          "PRE_PUSH_VALIDATION_ARGV"
-        ]
-      },
-      {
-        "workflow": "programmatic-release.yml",
-        "workflow_name": "Programmatic Content Release - Full Flow 90 Day",
-        "job": "release",
-        "step": 13,
-        "name": "actions/upload-artifact@v7",
-        "npm_script": null,
-        "direct_paths": [],
-        "env_keys": []
-      },
-      {
         "workflow": "query-intelligence.yml",
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
@@ -1160,13 +1034,12 @@
         "workflow_name": "Query Intelligence - GSC Gemini and $0 Signals",
         "job": "collect_score",
         "step": 16,
-        "name": "Reconcile noindex policy and sitemap with the new Search Console evidence",
-        "npm_script": null,
-        "direct_paths": [
-          "scripts/apply_noindex_policy.js",
-          "scripts/update_sitemap_all_html.js"
-        ],
-        "env_keys": []
+        "name": "Rebuild pages, noindex policy and sitemap with the new Search Console evidence",
+        "npm_script": "build",
+        "direct_paths": [],
+        "env_keys": [
+          "SKIP_RELEASE_PLAN"
+        ]
       },
       {
         "workflow": "query-intelligence.yml",
@@ -1198,6 +1071,26 @@
         "job": "collect_score",
         "step": 19,
         "name": "actions/upload-artifact@v7",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-loop.yml",
+        "workflow_name": "Search Loop",
+        "job": "runtime",
+        "step": 1,
+        "name": "actions/checkout@v6",
+        "npm_script": null,
+        "direct_paths": [],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-loop.yml",
+        "workflow_name": "Search Loop",
+        "job": "runtime",
+        "step": 2,
+        "name": "node scripts/runtime_guard.mjs",
         "npm_script": null,
         "direct_paths": [],
         "env_keys": []
@@ -1476,6 +1369,42 @@
         "npm_script": null,
         "direct_paths": [],
         "env_keys": []
+      },
+      {
+        "workflow": "search-loop.yml",
+        "workflow_name": "Search Loop",
+        "job": "search-loop",
+        "step": "setup_command",
+        "name": "bash scripts/ci_npm_install.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "scripts/ci_npm_install.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-loop.yml",
+        "workflow_name": "Search Loop",
+        "job": "search-loop",
+        "step": "post_build_command",
+        "name": "bash .github/scripts/search_loop_post_build.sh",
+        "npm_script": null,
+        "direct_paths": [
+          ".github/scripts/search_loop_post_build.sh"
+        ],
+        "env_keys": []
+      },
+      {
+        "workflow": "search-loop.yml",
+        "workflow_name": "Search Loop",
+        "job": "search-loop",
+        "step": "commit_command",
+        "name": "./.github/scripts/search_loop_commit.sh",
+        "npm_script": null,
+        "direct_paths": [
+          "./.github/scripts/search_loop_commit.sh"
+        ],
+        "env_keys": []
       }
     ],
     "required_data": [
@@ -1528,7 +1457,7 @@
   },
   "release_plan": {
     "schema_version": "2.0-quality-gated",
-    "generated_at": "2026-11-01T09:40:48.701Z",
+    "generated_at": "2026-11-02T23:24:05.096Z",
     "mode": "demand_gated_then_quality_gated",
     "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
     "demand_gate": {
@@ -1537,7 +1466,7 @@
         "data/demand/measured_demand.json"
       ],
       "demand_records_available": 531,
-      "candidates_considered": 6021,
+      "candidates_considered": 6055,
       "refused_for_no_demand": 0,
       "collapsed_synonym_candidates": 0
     },
@@ -1547,13 +1476,13 @@
       "new_pages_per_week": 2,
       "window_days": 7,
       "window_dates": [
+        "2026-11-02",
         "2026-11-01",
         "2026-10-31",
         "2026-10-30",
         "2026-10-29",
         "2026-10-28",
-        "2026-10-27",
-        "2026-10-26"
+        "2026-10-27"
       ],
       "usage_source": "data/cadence/known_urls.json",
       "new_pages_used_this_week": 2,
@@ -1569,559 +1498,34 @@
     "daily_new_page_ceiling": 2,
     "daily_repair_ceiling": 100,
     "daily_new_pages_already_used": 0,
-    "daily_repairs_already_used": 0,
+    "daily_repairs_already_used": 52,
     "max_new_pages_this_run": 0,
-    "max_repairs_this_run": 100,
+    "max_repairs_this_run": 48,
     "max_new_pages_per_day": 2,
     "max_repairs_per_day": 100,
     "max_route_mutations_per_day": 102,
     "quality_snapshot": {
-      "corpus_fingerprint": "f99b755b02b630dff46cab40639e7414e75e772bdde3fb9b26288721e8ac227b",
-      "legacy_backlog": 65,
-      "thin_pages": 65,
+      "corpus_fingerprint": "589d45f8d5b565c255dab456b9628adad56812e2f164c4b70ac6450f856a5ef4",
+      "legacy_backlog": 93,
+      "thin_pages": 91,
       "exact_duplicate_pages": 0,
-      "near_duplicate_pages": 0
+      "near_duplicate_pages": 2
     },
     "units": [],
     "release_units": [],
-    "blocked": [
-      {
-        "target_route": "/programmatic/brand-look-legit",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-budget-planning-framework",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-engagement-operating-cadence",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-events-programming-framework",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-governance-escalation-matrix",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-health-scorecard",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-staffing-matrix",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/daily-backup-event-systems",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/executive-event-production",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/marketing-growth-2025",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/run-of-show-planning",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/speaker-onboarding-and-rehearsals",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/streamyard-livekit-daily-stack",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/streamyard-virtual-event-production",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-career-fair-production",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-backup-systems",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-failure-prevention",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-marketing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-accessibility",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-agency",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-analytics",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-attendee-experience",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-backup-plan",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-best-practices",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-budget",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-captioning",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-common-mistakes",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-companies",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-comparison",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-content-repurposing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-cost",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-decision-framework",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-event-strategy",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-examples",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-executive-briefing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-failure-prevention",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-planning-follow-up",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-pricing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-accessibility",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-analytics",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-attendee-experience",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-backup-plan",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-budget",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-captioning",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-common-mistakes",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-content-repurposing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-decision-framework",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-executive-briefing",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-for-education",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-for-healthcare",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-for-real-estate",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-how-to-host",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-how-to-plan",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-hybrid-av",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-post-event-content",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-recording",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-registration",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-remote-speakers",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-schedule",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-security",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-sponsor-operations",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/virtual-event-production-vendor-questions",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/visual-event-portfolio",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/why-virtual-events-fail",
-        "release_action": "repair",
-        "reason": "quality_repair_missing_opportunity_metadata",
-        "details": [
-          "thin"
-        ]
-      },
-      {
-        "target_route": "/programmatic/community-roi-measurement-model",
-        "query": "community roi measurement",
-        "release_action": "repair",
-        "reason": "postbuild_quality_quarantine",
-        "details": [
-          "thin"
-        ],
-        "max_similarity": 0.024622,
-        "nearest_route": "/programmatic/livekit-virtual-events",
-        "self_heal_cycle": 1
-      }
-    ],
+    "blocked": [],
     "paused_for_consolidation": {
       "ledger": "data/seo/duplicate_family_consolidation.json",
       "families": 30,
-      "opportunities_withheld": 3103
+      "opportunities_withheld": 4530
     },
     "status": "COMPLETED_NO_CHANGES",
     "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-    "create_stop_detail": "6021 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
+    "create_stop_detail": "6055 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
     "create_stop_is_legitimate": true
   },
   "content_state": {
-    "updated": "2026-11-01T09:40:53.252Z",
+    "updated": "2026-11-02T15:43:43.666Z",
     "published_routes": [
       "/programmatic/virtual-event-production-checklist",
       "/programmatic/virtual-event-production-timeline",
@@ -5246,15 +4650,22 @@
       "/programmatic/live-event-production-webinar",
       "/programmatic/marketing-operating-model-design",
       "/programmatic/brand-implementation-strategy",
-      "/programmatic/what-is-creative-consulting"
+      "/programmatic/what-is-creative-consulting",
+      "/programmatic/community-roi-measurement-model",
+      "/programmatic/community-budget-planning-framework",
+      "/programmatic/community-engagement-operating-cadence",
+      "/programmatic/community-events-programming-framework",
+      "/programmatic/community-governance-escalation-matrix",
+      "/programmatic/community-health-scorecard",
+      "/programmatic/community-staffing-matrix"
     ],
     "blocked_routes": [],
     "last_release_run": {
       "created": 0,
-      "repaired": 0,
-      "skipped": 1,
-      "quality_rejected": 1,
-      "at": "2026-11-01T09:40:53.252Z"
+      "repaired": 52,
+      "skipped": 0,
+      "quality_rejected": 0,
+      "at": "2026-11-02T15:43:43.666Z"
     }
   },
   "query_universe_count": 10597

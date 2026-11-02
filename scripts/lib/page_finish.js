@@ -167,17 +167,21 @@ function faqLd(faq) {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: plain(f.q), acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })) });
 }
 
+// Titles set from a measured query (data/seo/site_head.json title_overrides,
+// checklist b10) outrank a rewrite's title.
+const TITLE_LOCKED = new Set(Object.keys(readJson('data/seo/site_head.json', {}).title_overrides || {}).map((rel) => routeOf(rel)));
 function applyRewrite(html, rec) {
   const p = rec.page;
   let s = html;
+  const locked = TITLE_LOCKED.has(p.route);
   const title = plain(p.title).length && plain(p.title).length <= 44 ? `${plain(p.title)} | West Peek Productions` : plain(p.title || p.h1);
-  s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
+  if (!locked) s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
   if (p.description) {
     s = s.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
     s = s.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
     s = s.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
   }
-  s = s.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`).replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
+  if (!locked) s = s.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`).replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
   // H1 and the paragraph under it become the rewrite's heading and definition.
   s = s.replace(/<h1([^>]*)>[\s\S]*?<\/h1>\s*(<p[^>]*>[\s\S]*?<\/p>)?/, `<h1$1>${p.h1}</h1><p class="definition" id="definition">${p.definition}</p>`);
   // The old body - everything in the article before the link architecture.

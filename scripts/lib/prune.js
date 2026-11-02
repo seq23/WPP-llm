@@ -28,9 +28,9 @@
  * drops it, the link architecture stops linking to it, and the release plan may
  * not recreate it. Re-planning after a page earns impressions brings it back.
  *
- * /programmatic/* and /query-atlas/* redirects are answered by the Pages
- * Function in functions/ (Cloudflare Pages serves at most 2,000 static
- * _redirects rules; this ledger alone is larger).
+ * The 301s are emitted into _redirects by scripts/update_redirects_clean_to_html.js,
+ * compressed to one splat per slug prefix (Pages allows 2,000 static and 100
+ * dynamic rules; the per-URL map is data/redirects/consolidation_map.json).
  */
 const fs = require('fs');
 const path = require('path');

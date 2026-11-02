@@ -33,7 +33,7 @@ const EXCLUDE = new Set([
   'logs',
   'artifacts', 'validation', 'data', 'prompts', 'content-bank',
   'content-recipes', '.wrangler', '.astro', 'coverage',
-  'package.json', 'package-lock.json', 'AGENTS.md', 'README.md', 'functions',
+  'package.json', 'package-lock.json', 'AGENTS.md', 'README.md',
   'ARTIFACT_MANIFEST.md', 'REPO_VALIDATION_MATRIX.md',
 ]);
 const EXCLUDE_EXT = new Set(['.md']);
@@ -57,7 +57,7 @@ function isPublishedPath(relPath) {
   if (parts.length === 1 && EXCLUDE_EXT.has(path.extname(top))) return false;
   // A page consolidated into its topic's strongest page (data/seo/prune_ledger.json)
   // stays in the repo but is not deployed: Pages serves a matching file before
-  // any redirect, so its 301 (functions/) only fires when the file is absent.
+  // any redirect, so its 301 (_redirects) only fires when the file is absent.
   if (require('./lib/prune.js').isRedirectedFile(parts.join('/'))) return false;
   return true;
 }

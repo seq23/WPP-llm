@@ -89,7 +89,7 @@ function resolves(from, target) {
     if (!fs.existsSync(p) || !fs.statSync(p).isFile()) continue;
     if (!isPublishedPath(path.relative(ROOT, p))) {
       // A consolidated page is left out of the deploy and answered by a 301
-      // (functions/redirect_map.json); that hop is validate_no_redirecting_internal_links' concern.
+      // (_redirects); that hop is validate_no_redirecting_internal_links' concern.
       const clean = target.split('#')[0].split('?')[0];
       if (clean.startsWith('/') && resolvePath(clean.replace(/\.html$/, '').replace(/\/+$/, '') || '/').kind === 'redirect') return true;
       return { published: false, hit: path.relative(ROOT, p) };
