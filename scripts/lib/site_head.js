@@ -77,6 +77,9 @@ function loadConfig(root = ROOT) {
     const lp = path.join(root, DEMAND_LINKS_REL);
     cfg.demand_links = fs.existsSync(lp) ? (JSON.parse(fs.readFileSync(lp, 'utf8')).links || []) : [];
   }
+  // Pages whose topic is a virtual / online / hybrid conference, summit or event
+  // carry the westpeek.live proof line (scripts/lib/platform_proof.js).
+  cfg.platform_proof_files = require('./platform_proof.js').platformProofFiles(root);
   return cfg;
 }
 
