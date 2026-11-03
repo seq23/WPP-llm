@@ -154,4 +154,10 @@ for (const p of [...guides, ...others]) {
   }
 }
 
-console.log(`apply_page_meta_policy: ${guides.length} programmatic guides parsed, ${renamed} renamed from their route to end a shared title, ${written} file(s) rewritten.`);
+// Listed pages outside the guide template are counted and named, never dropped
+// silently: a hand-written hero (investor-event-production reads "the audience
+// outcome and format to settle first", not "what ... has to settle") does not
+// parse, and such a page keeps its own hand-written description by design.
+const ownMeta = pages.filter((p) => !guides.includes(p) && listedFiles.includes(`programmatic/${p.file}`))
+  .map((p) => `${p.slug} (${!p.query ? 'no about name' : !p.hero ? 'no hero sentence' : !parseHero(p.hero) ? 'hand-written hero' : 'no title or description'})`);
+console.log(`apply_page_meta_policy: ${guides.length} programmatic guides parsed, ${renamed} renamed from their route to end a shared title, ${written} file(s) rewritten; ${ownMeta.length} listed page(s) outside the guide template kept their own description${ownMeta.length ? `: ${ownMeta.join(', ')}` : ''}.`);

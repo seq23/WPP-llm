@@ -46,6 +46,7 @@
 const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const titleCase = (s) => String(s || '').replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()).replace(/\bAnd\b/g, 'and').replace(/\bFor\b/g, 'for').replace(/\bVs\b/g, 'vs.');
 const cap = (s) => String(s || '').replace(/^./, (c) => c.toUpperCase());
+const { isBucketName } = require('./rewrite_quality.js');
 const lower = (s) => String(s || '').replace(/^([A-Z])(?=[a-z])/, (c) => c.toLowerCase());
 const article = (s) => (/^[aeiou]/i.test(String(s || '').trim()) ? 'An' : 'A');
 
@@ -400,6 +401,31 @@ const HEADINGS = {
  * Composition
  * ------------------------------------------------------------------ */
 
+/** The subject a page's prose names: its query without the intent phrase or
+ * audience clause, else its cluster label, else the query. Never a bucket key. */
+function topicFor({ query, needle, audience, clusterLabel }) {
+  const subject = lower(query);
+  // The subject with the intent phrase lifted off it, which keeps the query's own
+  // capitalisation ("agency RFP questions") where the cluster slug has lost it.
+  const split = splitOnNeedle(query, needle);
+  let topic = split.pos === 'none' ? query : split.core;
+  // "investor storytelling for founders" is about investor storytelling; the
+  // audience clause is handled in its own section and does not belong in every
+  // sentence that names the subject.
+  if (audience) {
+    const trimmed = topic.replace(new RegExp(`\\s+for\\s+${audience.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i'), '').trim();
+    if (trimmed && trimmed.split(/\s+/).length >= 2) topic = trimmed;
+  }
+  if (!topic || topic.toLowerCase() === subject.toLowerCase()) {
+    // A bucket key ("unclustered") is a grouping, not a subject: printing it
+    // gave readers "A decision guide to unclustered". The query names the page.
+    const label = clusterLabel && !isBucketName(clusterLabel) ? String(clusterLabel) : '';
+    topic = label && label.toLowerCase() !== subject.toLowerCase() ? label.toLowerCase() : query;
+  }
+  topic = lower(topic);
+  return topic;
+}
+
 /**
  * ctx carries only what the page's own record already holds:
  *   query, pillarKey, p (pillar record), intentKey, intent (intent profile),
@@ -424,21 +450,7 @@ function build(ctx) {
   const voice = voiceFor(ctx.pillarKey);
   const question = headingQuestion(query, intentKey, needle);
   const subject = lower(query);
-  // The subject with the intent phrase lifted off it, which keeps the query's own
-  // capitalisation ("agency RFP questions") where the cluster slug has lost it.
-  const split = splitOnNeedle(query, needle);
-  let topic = split.pos === 'none' ? query : split.core;
-  // "investor storytelling for founders" is about investor storytelling; the
-  // audience clause is handled in its own section and does not belong in every
-  // sentence that names the subject.
-  if (audience) {
-    const trimmed = topic.replace(new RegExp(`\\s+for\\s+${audience.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i'), '').trim();
-    if (trimmed && trimmed.split(/\s+/).length >= 2) topic = trimmed;
-  }
-  if (!topic || topic.toLowerCase() === subject.toLowerCase()) {
-    topic = clusterLabel && String(clusterLabel).toLowerCase() !== subject.toLowerCase() ? String(clusterLabel).toLowerCase() : query;
-  }
-  topic = lower(topic);
+  const topic = topicFor({ query, needle, audience, clusterLabel });
   const lens = LENS_OF[intent.label] || intent.label;
 
   // The extractable answer: 40-60 words, self-contained, naming its own subject in
@@ -570,4 +582,4 @@ function build(ctx) {
   };
 }
 
-module.exports = { build, modeFor, voiceFor, headingQuestion, splitOnNeedle, MODE_OF, VOICE_OF };
+module.exports = { build, topicFor, modeFor, voiceFor, headingQuestion, splitOnNeedle, MODE_OF, VOICE_OF };

@@ -22,6 +22,11 @@ const written = new Set();
 function writePage(file, html) { if (require('../lib/prune.js').isPruned('/' + file)) return; written.add(file); fs.writeFileSync(path.join(ROOT, file), html); }
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function titleCase(s){return String(s).split(/[-_\s]+/).filter(Boolean).map(w=>w[0].toUpperCase()+w.slice(1)).join(' ');}
+// The query universe's bucket key ("unclustered") is never shown to readers; the
+// file keeps its slug so no URL changes.
+const { isBucketName } = require('../lib/rewrite_quality.js');
+const BUCKET_LABEL = 'other queries';
+function clusterName(c){return isBucketName(c) ? titleCase(BUCKET_LABEL) : titleCase(c);}
 function cleanPath(file){ if(file==='index.html') return '/'; if(file.endsWith('/index.html')) return '/' + file.slice(0,-'index.html'.length); return '/' + file.replace(/\.html$/,''); }
 function page(title, desc, body, file){
   const canonical = DOMAIN + cleanPath(file);
@@ -38,7 +43,7 @@ const clusterLinks = [];
 const generated = new Set();
 for (const [cluster, items] of [...byCluster.entries()].sort()) {
   const file = `query-atlas/${cluster}.html`;
-  clusterLinks.push(`<li><a href="/${file.replace(/\.html$/,'')}">${esc(titleCase(cluster))}</a> <span class="muted">${items.length} query opportunities</span></li>`);
+  clusterLinks.push(`<li><a href="/${file.replace(/\.html$/,'')}">${esc(clusterName(cluster))}</a> <span class="muted">${items.length} query opportunities</span></li>`);
   // The "Demand" column used to print `demand_estimate`, which was priority x 3.
   // These 82 pages published a fabricated search-volume figure to the open web
   // under a column header that read "Demand". Its replacement printed
@@ -61,10 +66,10 @@ for (const [cluster, items] of [...byCluster.entries()].sort()) {
   // count and the name swapped, 81 pages of 88-107 characters.
   const desc = clusterDescription(cluster, items.length, items.map((q) => q.query));
   generated.add(file);
-  writePage(file, page(`${titleCase(cluster)} Query Atlas`, desc, body, file));
+  writePage(file, page(`${clusterName(cluster)} Query Atlas`, desc, body, file));
 }
 function clusterDescription(cluster, count, queryList) {
-  const label = String(cluster).replace(/-/g, ' ');
+  const label = isBucketName(cluster) ? BUCKET_LABEL : String(cluster).replace(/-/g, ' ');
   const items = { length: count };
   const top = queryList.filter((q) => q && q.toLowerCase() !== label.toLowerCase()).slice(0, 2);
   return fitDescription([
@@ -100,7 +105,7 @@ for (const name of fs.readdirSync(path.join(ROOT, 'query-atlas')).filter((f) => 
     .split(`"description":${JSON.stringify(unesc(oldDesc))}`).join(`"description":${JSON.stringify(raw)}`);
   if (next !== html) writePage(file, next);
 }
-const topRows = queries.slice().sort((a,b)=>b.priority-a.priority).slice(0,120).map(q=>`<tr><td>${esc(q.query)}</td><td>${esc(q.cluster)}</td><td>${esc(q.page_family)}</td><td>${esc(q.route_candidate)}</td><td>${q.priority}</td></tr>`).join('\n');
+const topRows = queries.slice().sort((a,b)=>b.priority-a.priority).slice(0,120).map(q=>`<tr><td>${esc(q.query)}</td><td>${esc(isBucketName(q.cluster) ? BUCKET_LABEL : q.cluster)}</td><td>${esc(q.page_family)}</td><td>${esc(q.route_candidate)}</td><td>${q.priority}</td></tr>`).join('\n');
 const body = `<div class="callout"><strong>Query universe installed:</strong> ${queries.length} query opportunities are now in source control. The release cadence is capped at ${universe.counts.max_new_pages_per_day} new pages/day and ${universe.counts.max_repairs_per_day} repairs/day until deployment proof allows promotion.</div><p>This is the atlas layer: the public map of the search/AEO/GEO universe this site is trying to be pulled into.</p><h2>Cluster atlas</h2><ul>${clusterLinks.join('\n')}</ul><h2>Top priority opportunities</h2><table><thead><tr><th>Query</th><th>Cluster</th><th>Page family</th><th>Route candidate</th><th>Priority</th></tr></thead><tbody>${topRows}</tbody></table>`;
 writePage('query-atlas.html', page('Query Atlas — Virtual Event Production Query Universe', 'A public atlas of the virtual, hybrid, webinar, summit, and executive broadcast query universe mapped to programmatic content opportunities.', body, 'query-atlas.html'));
 // Replace the older atlas page with a query-universe forward map, while preserving its old intent clusters below if desired.

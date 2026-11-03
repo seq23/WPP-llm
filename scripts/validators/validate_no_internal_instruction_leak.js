@@ -53,6 +53,20 @@ const PATTERNS = [
     'heading is a build instruction, not a title a reader would recognise'],
 ];
 
+// Every page the sitemap lists is reader-facing, so it may never print an
+// internal bucket key. 32 kept pages printed "A decision guide to unclustered:"
+// in their hero and JSON-LD (3 Nov 2026) because three generators fell back to
+// the query universe's `unclustered` grouping as a topic. BUCKET_LEAK is the same
+// pattern rewrite_quality.js bans in a rewrite.
+const { BUCKET_LEAK } = require('../lib/rewrite_quality.js');
+const { sitemapPaths, candidates } = require('../lib/sitemap_floor.js');
+const listed = new Set();
+for (const u of sitemapPaths(ROOT)) {
+  const hit = candidates(u).find((f) => fs.existsSync(path.join(ROOT, f)));
+  if (hit) listed.add(path.normalize(hit));
+}
+let listedChecked = 0;
+
 const offenders = [];
 let scanned = 0;
 const examined = [];
@@ -70,6 +84,10 @@ const examined = [];
     scanned += 1;
     examined.push(rel);
     const html = fs.readFileSync(abs, 'utf8');
+    if (listed.has(path.normalize(rel))) {
+      listedChecked += 1;
+      if (BUCKET_LEAK.test(html)) { offenders.push({ path: rel, reason: 'sitemap page prints an internal bucket name ("unclustered") as reader-facing text' }); continue; }
+    }
     for (const [re, why] of PATTERNS) {
       if (re.test(html)) { offenders.push({ path: rel, reason: why }); break; }
     }
@@ -105,8 +123,9 @@ if (offenders.length) {
 // The floor is the site's own sitemap (scripts/lib/sitemap_floor.js): every listed page
 // must be among those examined, and an empty sitemap fails. No fixed page count (3 Nov 2026).
 const floor = require('../lib/sitemap_floor.js').sitemapFloorProblems(ROOT, examined, 'no internal instruction leak');
+if (!listedChecked) floor.push(`no internal instruction leak: 0 sitemap-listed pages were checked for bucket names (${listed.size} resolved from the sitemap)`);
 if (floor.length) {
   console.error(`NO INTERNAL INSTRUCTION LEAK PAGE FLOOR FAILED: every page the sitemap lists must be built and examined (a gate that examines nothing cannot fail).\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
-console.log(`NO INTERNAL INSTRUCTION LEAK: ${scanned} published pages contain no build directives`);
+console.log(`NO INTERNAL INSTRUCTION LEAK: ${scanned} published pages contain no build directives; ${listedChecked} sitemap pages print no bucket name`);

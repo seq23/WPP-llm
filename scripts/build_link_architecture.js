@@ -97,7 +97,16 @@ const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/content/page_a
 const admissions = new Map(registry.admissions.map((a) => [a.route, a]));
 
 // Clusters the registry already names.
-const registryClusters = [...new Set(registry.admissions.map((a) => a.cluster).filter(Boolean))];
+// `unclustered` is the query universe's bucket for rows that matched no head
+// (scripts/lib/rewrite_quality.js isBucketName): a grouping key, not a topic. As
+// a cluster it printed "Unclustered" breadcrumbs and "Related unclustered
+// decisions" on sitemap pages, so bucket rows are filed by slug instead.
+const { isBucketName } = require('./lib/rewrite_quality.js');
+const registryClusters = [...new Set(registry.admissions.map((a) => a.cluster).filter((c) => c && !isBucketName(c)))];
+// Where a bucket page lands when neither EXPLICIT nor a slug prefix files it:
+// the cluster the old /topics/unclustered hub was consolidated into
+// (data/redirects/consolidation_map.json).
+const BUCKET_HOME = 'virtual-event-production';
 
 // Three clusters the registry never got a name for. These are not new topics:
 // they are existing page groups whose admission records predate the cluster
@@ -119,6 +128,15 @@ const EXPLICIT = {
   'streamyard-livekit-daily-stack': 'virtual-event-platform-selection',
   'streamyard-virtual-event-production': 'virtual-event-platform-selection',
   'software-vs-production': 'virtual-event-platform-selection',
+  'best-platform-for-virtual-events': 'virtual-event-platform-selection',
+  'best-platforms-for-virtual-events': 'virtual-event-platform-selection',
+  'best-virtual-conference-platforms': 'virtual-event-platform-selection',
+  'best-virtual-events-platforms': 'virtual-event-platform-selection',
+  'hybrid-events-platform': 'virtual-event-platform-selection',
+  'platforms-to-host-virtual-events': 'virtual-event-platform-selection',
+  'top-virtual-conference-platforms': 'virtual-event-platform-selection',
+  'virtual-events-platform-comparison': 'virtual-event-platform-selection',
+  'virtual-events-platforms': 'virtual-event-platform-selection',
   'community-30-60-90-day-launch-plan': 'community-operating-frameworks',
   'community-budget-planning-framework': 'community-operating-frameworks',
   'community-engagement-operating-cadence': 'community-operating-frameworks',
@@ -283,12 +301,13 @@ const progFiles = fs.readdirSync(path.join(ROOT, 'programmatic'))
 
 function clusterFor(slug, route) {
   const fromRegistry = admissions.get(route)?.cluster;
-  if (fromRegistry) return fromRegistry;
+  if (fromRegistry && !isBucketName(fromRegistry)) return fromRegistry;
   if (EXPLICIT[slug]) return EXPLICIT[slug];
   const m = BY_LENGTH.find((c) => slug === c || slug.startsWith(`${c}-`));
   if (m) return m;
   const wi = BY_LENGTH.find((c) => slug === `what-is-${c}`);
-  return wi || null;
+  if (wi) return wi;
+  return isBucketName(fromRegistry) ? BUCKET_HOME : null;
 }
 
 function suffixFor(slug, cluster) {
@@ -323,7 +342,7 @@ for (const name of progFiles) {
     heading: h1m ? h1m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() : slug,
     description: dm ? dm[1] : '',
     cluster,
-    pillar: admissions.get(route)?.pillar || EXTRA_CLUSTERS[cluster]?.pillar || null,
+    pillar: (isBucketName(admissions.get(route)?.pillar) ? null : admissions.get(route)?.pillar) || EXTRA_CLUSTERS[cluster]?.pillar || null,
     suffix,
     section: sectionFor(suffix),
   });
