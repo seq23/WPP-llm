@@ -61,9 +61,10 @@ their route is listed in `data/release/active_mutation_scope.json`
   /learn/ page stays in the repo, is left out of the deploy and the sitemap, and
   redirects to its topic's strongest page: `update_redirects_clean_to_html.js`
   writes every redirect to `data/redirects/consolidation_map.json`, puts the
-  highest-value ones in `_redirects` as 301s and the rest in
-  `consolidation_stubs.json`, which the assembler turns into static stubs
-  (noindex + canonical + instant meta refresh). **Never put a splat,
+  highest-value ones in `_redirects` as 301s. `functions/_middleware.js` reads
+  the complete generated map and answers every retired URL (clean, trailing
+  slash or .html) with one HTTP 301 to its final kept page. The assembler omits
+  retired HTML and publishes no refresh stubs. **Never put a splat,
   placeholder or 404 line in `_redirects`**: Pages counts every rule after the
   first dynamic one as dynamic and drops all past 100 (deploy log, 2 Nov 2026);
   static rules cap at 2,000. After a re-plan: link architecture

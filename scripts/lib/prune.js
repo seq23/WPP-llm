@@ -29,7 +29,7 @@
  * not recreate it. Only on-topic pages may return after earning evidence.
  *
  * The 301s are emitted into _redirects by scripts/update_redirects_clean_to_html.js,
- * prioritized within the static-rule budget; overflow uses redirect stubs.
+ * prioritized within the static-rule budget; the Pages Function covers all entries.
  * The per-URL map is data/redirects/consolidation_map.json.
  */
 const fs = require('fs');

@@ -2,8 +2,8 @@
 /* eslint-disable no-console */
 /*
  * Contract test: every public page and the sitemap are served by Cloudflare
- * Pages' static asset path, never by code that runs on every request, and
- * never with headers that forbid caching. Redirects stay static too.
+ * Pages' static asset path with its response unchanged and no headers that
+ * forbid caching. Retired routes may redirect in middleware.
  *
  * Why (21 Oct 2026): HTML showed `cf-cache-status: DYNAMIC` with 380-555 ms
  * TTFB and the suspicion was a Function running on every request. There was
@@ -15,15 +15,13 @@
  * main would empty. The slow TTFB was network: the zone's anycast IPs landed
  * this client in ARN/SJC instead of DFW a third to half of the time.
  *
- * So the fast path is the one Pages already gives: static files, _headers,
- * _redirects. This test fails if any change takes a page off it:
- *   1. a functions/ directory or _worker.js whose routes reach a sitemap page
- *      or /sitemap.xml (no _routes.json, or one whose include matches it and
- *      whose exclude does not)
- *   2. a _headers rule matching a page or the sitemap that sets Cache-Control
- *      or CDN-Cache-Control to no-store, no-cache or private
- *   3. redirects moved out of _redirects (zero 301 rules is a failure)
- *   4. zero sitemap URLs (a guard that checked nothing would pass)
+ * Kept pages still use the static asset server. The retirement middleware must
+ * return next() unchanged for each guarded page and sitemap request. Fail on:
+ *   1. a Worker replacing assets, an unexpected Function, or middleware that
+ *      intercepts a guarded GET/HEAD or changes the static response
+ *   2. cache-forbidding page/sitemap headers
+ *   3. zero static 301 rules
+ *   4. zero sitemap URLs
  */
 const fs = require('fs');
 const path = require('path');
@@ -52,20 +50,24 @@ const pagePaths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
 if (pagePaths.length === 0) failures.push('sitemap.xml lists zero URLs; nothing to guard');
 const guarded = [...new Set([...pagePaths, '/', '/sitemap.xml'])];
 
-// 1. Nothing that runs per request may reach a guarded path.
+// 1. Every kept page retains the exact static asset response.
 const hasFunctions = exists('functions') && fs.readdirSync(path.join(ROOT, 'functions')).length > 0;
 const hasWorker = exists('_worker.js');
-if (hasFunctions || hasWorker) {
-  const what = hasWorker ? '_worker.js' : 'functions/';
-  if (!exists('_routes.json')) {
-    failures.push(`${what} exists with no _routes.json, so it runs on every request including every page`);
-  } else {
-    const routes = JSON.parse(read('_routes.json'));
-    const inc = (routes.include || []).map(patternToRegex);
-    const exc = (routes.exclude || []).map(patternToRegex);
-    const reached = guarded.filter((p) => inc.some((r) => r.test(p)) && !exc.some((r) => r.test(p)));
-    if (reached.length) {
-      failures.push(`${what} runs on ${reached.length} static page(s) via _routes.json, e.g. ${reached.slice(0, 3).join(', ')}`);
+if (hasWorker) failures.push('_worker.js replaces the static asset server');
+if (hasFunctions) {
+  if (fs.readdirSync(path.join(ROOT, 'functions')).some((f) => f !== '_middleware.js')) failures.push('unexpected Function may intercept static pages');
+  // Redirect middleware may run first, but every kept page must reach exactly
+  // the unchanged static response via next(), for both navigation methods.
+  const vm = require('vm');
+  const redirects = JSON.parse(read('data/redirects/consolidation_map.json'));
+  const source = read('functions/_middleware.js').replace(/^import redirects[^;]+;/m, '').replace('export function onRequest', 'function onRequest');
+  const handler = vm.runInNewContext(source + '\nonRequest', { redirects, URL, Response });
+  for (const p of guarded) {
+    for (const method of ['GET', 'HEAD']) {
+      const asset = new Response('static asset', { headers: { 'Cache-Control': 'public, max-age=60' } });
+      let calls = 0;
+      const response = handler({ request: new Request('https://virtualagency-os.com' + p, { method }), next: () => { calls += 1; return asset; } });
+      if (calls !== 1 || response !== asset) failures.push(`${method} ${p} did not preserve the static asset response`);
     }
   }
 }

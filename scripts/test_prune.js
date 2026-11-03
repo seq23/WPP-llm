@@ -69,9 +69,7 @@ for (const r of ledger.redirects) {
   if (deployed(rel)) errors.push(`${r.from} is consolidated but still deployed`);
   if (sitemap.includes(`<loc>${HOST}${r.from}</loc>`)) errors.push(`${r.from} is consolidated but in sitemap.xml`);
 }
-// Every consolidated URL is answered, to the map's target, by an exact 301 in
-// _redirects (Pages ignores splats that do not follow a slash) or by a static
-// redirect stub the assembler writes; never both, never neither.
+// Static rules stay within the Pages budget; the actual middleware covers the full map.
 const compressed = parseRedirects(ROOT, { withMap: false });
 // Pages counts every rule after the first dynamic one (a splat or placeholder)
 // as dynamic and drops all past 100 (deploy log, 2 Nov 2026); 404 is not a
@@ -80,12 +78,36 @@ if (compressed.some((r) => /\*|:/.test(r.from))) errors.push('_redirects holds a
 if (compressed.some((r) => r.status === 404)) errors.push('_redirects holds a 404 line; Pages rejects it');
 if (compressed.length > 2000) errors.push(`_redirects has ${compressed.length} rules; Pages allows 2,000 static`);
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_map.json'), 'utf8'));
-const stubs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/redirects/consolidation_stubs.json'), 'utf8'));
-for (const [from, to] of Object.entries(map)) {
-  const r = resolvePath(from, { root: ROOT, rules: compressed });
-  const viaRule = r.kind === 'redirect' && r.to === to;
-  const viaStub = stubs[from] === to;
-  if (viaRule === viaStub) errors.push(`${from}: ${viaRule ? 'both a 301 rule and a stub' : `neither a 301 rule nor a stub to ${to}`}`);
+const vm = require('vm');
+const source = fs.readFileSync(path.join(ROOT, 'functions/_middleware.js'), 'utf8')
+  .replace(/^import redirects[^;]+;/m, '')
+  .replace('export function onRequest', 'function onRequest');
+function mapProblems(redirects) {
+  const handler = vm.runInNewContext(source + '\nonRequest', { redirects, URL, Response });
+  const problems = [];
+  if (!Object.keys(redirects).length) problems.push('empty redirect map');
+  for (const { from } of ledger.redirects) {
+    if (!redirects[from]) problems.push(`retired ${from} has no map entry`);
+  }
+  for (const [from, to] of Object.entries(redirects)) {
+    const target = resolvePath(to.split('?')[0], { root: ROOT, rules: compressed });
+    if (redirects[prune.norm(to)] || target.kind !== 'page' || prune.isPruned(to)) problems.push(`${from} -> ${to} is not a kept 200 target`);
+    for (const alias of [from, from + '/', from + '.html', from + '.html/']) {
+      for (const method of ['GET', 'HEAD']) {
+        const response = handler({ request: new Request(HOST + alias + '?source=test', { method }), next: () => null });
+        const expected = new URL(to, HOST);
+        if (!expected.search) expected.search = '?source=test';
+        if (!response || response.status !== 301 || response.headers.get('Location') !== expected.href) problems.push(`${method} ${alias} did not answer one 301 to ${expected.href}`);
+      }
+    }
+  }
+  return problems;
+}
+errors.push(...mapProblems(map));
+// Prove this same behaviour check catches missing coverage, chains and loops.
+const [first, second] = ledger.redirects.slice(0, 2).map((r) => r.from);
+for (const broken of [Object.fromEntries(Object.entries(map).filter(([f]) => f !== first)), { ...map, [first]: second }, { ...map, [first]: first }]) {
+  assert.ok(mapProblems(broken).length, 'negative proof: corrupt redirect map went unnoticed');
 }
 for (const k of ledger.kept) {
   const r = resolvePath(k.route, { root: ROOT, rules: compressed });
