@@ -66,7 +66,18 @@ function unsourcedNumbers(text, allowedFacts) {
   return [...new Set(bad)];
 }
 
-const BANNED = [/unclustered/i, /\bslot\b/i, /lorem/i, /\{\{|\}\}/, /as an ai\b/i, /\bguarantee[ds]?\b/i, /\bbest-in-class\b/i, /\bworld-class\b/i];
+// Internal grouping keys from the query universe (generate_query_universe.js
+// files every unmatched row under pillar/cluster `unclustered`). They are bucket
+// names, never a topic: a renderer that falls back to one prints it to readers
+// ("A decision guide to unclustered: ..."). isBucketName is the one test every
+// generator uses before treating a cluster or pillar as a label; BUCKET_LEAK is
+// the one pattern the published-page guard refuses
+// (scripts/validators/validate_no_internal_instruction_leak.js).
+const BUCKET_NAMES = ['unclustered'];
+const BUCKET_LEAK = /unclustered/i;
+const isBucketName = (s) => BUCKET_NAMES.includes(String(s || '').trim().toLowerCase());
+
+const BANNED = [BUCKET_LEAK, /\bslot\b/i, /lorem/i, /\{\{|\}\}/, /as an ai\b/i, /\bguarantee[ds]?\b/i, /\bbest-in-class\b/i, /\bworld-class\b/i];
 
 function check(page, { allowedFacts = [] } = {}) {
   const fails = [];
@@ -98,4 +109,4 @@ function check(page, { allowedFacts = [] } = {}) {
   return { ok: fails.length === 0, fails, words: total };
 }
 
-module.exports = { check, repeatedPhrases, unsourcedNumbers, bodyText, MAX_REPEAT };
+module.exports = { BANNED, BUCKET_NAMES, BUCKET_LEAK, isBucketName, check, repeatedPhrases, unsourcedNumbers, bodyText, MAX_REPEAT };
