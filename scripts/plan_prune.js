@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, norm } = require('./lib/prune.js');
+const { ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, norm, isOnTopic, onTopicHub } = require('./lib/prune.js');
 const demandGate = require('./lib/demand_gate.js');
 
 const readJson = (rel, fb) => {
@@ -70,6 +70,7 @@ function clusterOf(file) {
 const PILLAR_ALIAS = { community: 'community-as-a-service', authority: 'agency-decisions' };
 function pillarRoute(p) {
   const key = PILLAR_ALIAS[p] || p;
+  if (key && !isOnTopic(key)) return onTopicHub(key);
   if (!key) return null;
   if (fs.existsSync(path.join(ROOT, 'pillars', `${key}.html`))) return `/pillars/${key}`;
   if (fs.existsSync(path.join(ROOT, 'pillars', key, 'index.html'))) return `/pillars/${key}/`;
@@ -77,9 +78,8 @@ function pillarRoute(p) {
 }
 
 // The site is about virtual and hybrid event production (owner review, 2 Nov
-// 2026). Answer, insight and learn pages stay when they are on that subject or
-// carry evidence; an off-topic one with neither folds into its topic like the rest.
-const ON_TOPIC = /virtual|hybrid|webinar|event|summit|conference|broadcast|town-?hall|speaker|livestream|stream|production|run-of-show|rehears|platform|moderat|backup/;
+// 2026). Evidence never overrides topic eligibility.
+
 const SECONDARY = new Set(['answers', 'insights', 'learn']);
 const candidates = [...pagesIn('programmatic'), ...pagesIn('query-atlas'), ...pagesIn('answers'), ...pagesIn('insights'), ...pagesIn('learn')].map((p) => {
   const a = admissions.get(p.route) || admissions.get(`/programmatic/${slugOf(p.route)}`) || {};
@@ -90,8 +90,8 @@ const candidates = [...pagesIn('programmatic'), ...pagesIn('query-atlas'), ...pa
   if (impressions >= KEEP_MIN_IMPRESSIONS) reasons.push(`impressions:${impressions}`);
   if (demand) reasons.push('measured_demand');
   if (demandFiles.has(p.route)) reasons.push('demand_page');
-  if (SECONDARY.has(p.route.split('/')[1]) && ON_TOPIC.test(slugOf(p.route))) reasons.push('on_topic');
-  return { ...p, query, impressions, demand, cluster: clusterOf(p.file), pillar: a.pillar || null, keep: reasons.length > 0, reasons };
+  if (SECONDARY.has(p.route.split('/')[1]) && isOnTopic(p.route)) reasons.push('on_topic');
+  return { ...p, query, impressions, demand, cluster: clusterOf(p.file), pillar: a.pillar || null, keep: isOnTopic(p.route) && reasons.length > 0, reasons };
 });
 
 // A query-atlas page whose /programmatic/ twin is kept is the same topic in a
@@ -150,6 +150,7 @@ const redirects = [];
 const noindex = [];
 for (const c of candidates) {
   if (c.keep) { kept.push({ route: c.route, reasons: c.reasons }); continue; }
+  if (!isOnTopic(c.route)) { redirects.push({ from: c.route, to: onTopicHub(c.route), reason: 'off-topic: event production only, regardless of traffic or demand' }); continue; }
   if (c.twin) { redirects.push({ from: c.route, to: c.twin, reason: 'query-atlas twin of a kept page' }); continue; }
   const keeper = c.cluster && keeperOfCluster.get(c.cluster);
   if (keeper && keeper.route !== c.route) { redirects.push({ from: c.route, to: keeper.route, reason: `topic ${c.cluster}: strongest kept page` }); continue; }
@@ -163,9 +164,21 @@ for (const c of candidates) {
   noindex.push({ route: c.route, reason: 'no kept page in its topic and no pillar' });
 }
 
+// Retire legacy generic marketing/AI entry points and unrelated pillar hubs.
+const legacyOffTopic = ['ai-helps-breaks', 'ai-human-os', 'started-business', 'community-as-a-service'];
+for (const slug of legacyOffTopic) {
+  if (fs.existsSync(path.join(ROOT, `${slug}.html`))) redirects.push({ from: `/${slug}`, to: onTopicHub(slug), reason: 'off-topic legacy entry point' });
+}
+for (const name of fs.readdirSync(path.join(ROOT, 'pillars')).sort()) {
+  if (name === 'index.html' || isOnTopic(name.replace(/\.html$/, ''))) continue;
+  const route = `/pillars/${name.replace(/\.html$/, '')}`;
+  redirects.push({ from: route, to: onTopicHub(route), reason: 'off-topic pillar: event production hub' });
+}
+
 // Topic hubs whose topic kept nothing: fold into the pillar.
 for (const t of pagesIn('topics')) {
   const c = slugOf(t.route);
+  if (!isOnTopic(t.route)) { redirects.push({ from: t.route, to: onTopicHub(t.route), reason: 'off-topic topic hub: event production only' }); continue; }
   if (keeperOfCluster.has(c)) continue;
   const pillar = pillarRoute(pillarOfCluster.get(c));
   if (pillar) redirects.push({ from: t.route, to: pillar, reason: 'topic with no kept page: pillar hub' });
@@ -173,7 +186,7 @@ for (const t of pagesIn('topics')) {
 
 const ledger = {
   schema_version: '1.0',
-  rule: `Kept: >= ${KEEP_MIN_IMPRESSIONS} lifetime Search Console impressions (slug-joined), measured demand, or a demand page. ` +
+  rule: `Event-production topics only; off-topic pages redirect regardless of traffic or demand. Kept: >= ${KEEP_MIN_IMPRESSIONS} lifetime Search Console impressions (slug-joined), measured demand, or a demand page. ` +
     'Everything else 301s to the strongest kept page of its topic, else its pillar hub; noindex only with neither. See scripts/lib/prune.js.',
   evidence: ['data/search_intelligence/page_impressions_lifetime.json', 'data/search_intelligence/gsc_truth.json',
     'data/signals/gsc_query_signals.json', 'data/authority_scale/query_atlas.json + data/demand/measured_demand.json (demand_gate)',

@@ -304,7 +304,8 @@ function buildInsightsIndex(posts) {
 
 function buildPillars(posts) {
   // Pillars index
-  const pillarCards = CLUSTERS.map((c) => {
+  const eligibleClusters = CLUSTERS.filter((c) => !require('./lib/prune.js').isPruned(`/pillars/${c.pillarSlug}/`));
+  const pillarCards = eligibleClusters.map((c) => {
     return `<li class="list-item">
       <div class="list-title"><a href="${htmlEscape(pillarHref(c.pillarSlug))}">${htmlEscape(c.name)}</a></div>
       <div class="list-excerpt">Best answers and a structured entry point for ${htmlEscape(c.name.toLowerCase())}.</div>
@@ -323,7 +324,7 @@ function buildPillars(posts) {
     </section>`,
   }));
 
-  for (const c of CLUSTERS) {
+  for (const c of eligibleClusters) {
     const ps = posts
       .filter((p) => p.cluster === c.id)
       .sort((a, b) => (b.publishOn || "").localeCompare(a.publishOn || "") || a.slug.localeCompare(b.slug));
@@ -413,7 +414,7 @@ function updateLlmsTxt(topUrls) {
 function main() {
   ensureCleanDirs();
   const files = listMarkdownFiles(CONTENT_DIR).filter((fp) => !fp.includes(`${path.sep}_drafts${path.sep}`));
-  const posts = files.map(parsePost);
+  const posts = files.map(parsePost).filter((p) => !require('./lib/prune.js').isPruned(`/insights/${p.slug}`));
 
   // Build pages
   buildPostPages(posts);

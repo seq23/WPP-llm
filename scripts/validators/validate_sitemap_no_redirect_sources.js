@@ -15,7 +15,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { ROOT, parseRedirects } = require('../lib/pages_routing.js');
+const { ROOT, parseRedirects, resolvePath } = require('../lib/pages_routing.js');
 
 const MIN_URLS = 100;
 const sitemap = path.join(ROOT, 'sitemap.xml');
@@ -26,14 +26,12 @@ if (urls.length < MIN_URLS || !rules.length) {
   console.error(`sitemap-no-redirect-sources: examined ${urls.length} sitemap URL(s) and ${rules.length} redirect rule(s); refusing to pass on an empty scan.`);
   process.exit(1);
 }
-const norm = (p) => (p === '/' ? '/' : p.replace(/\/+$/, ''));
-const sources = new Map(rules.map((r) => [norm(r.from), r]));
 const bad = [];
 for (const u of urls) {
   let p;
-  try { p = norm(new URL(u).pathname); } catch { bad.push(`${u}: not a URL`); continue; }
-  const r = sources.get(p) || sources.get(`${p}.html`);
-  if (r) bad.push(`${u} is a ${r.status} source in _redirects (line ${r.line}) -> ${r.to}`);
+  try { p = new URL(u).pathname; } catch { bad.push(`${u}: not a URL`); continue; }
+  const r = resolvePath(p, { root: ROOT, rules });
+  if (r.kind === 'redirect') bad.push(`${u} is a ${r.status} source in _redirects (line ${r.via}) -> ${r.to}`);
 }
 if (bad.length) {
   console.error(`sitemap-no-redirect-sources: ${bad.length} sitemap URL(s) answer with a redirect:`);

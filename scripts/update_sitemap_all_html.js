@@ -83,3 +83,10 @@ console.log(
   `${advanced} lastmod advanced to ${today} (new or changed content), ` +
   `${pages.length - advanced} held their existing date.`
 );
+
+const llms = ['# West Peek Productions — llms.txt',
+  'Virtual, hybrid and online event and conference production, webinars and live broadcasts.',
+  'Production inquiries: https://virtualagency-os.com/go/plan',
+  'Official company: https://www.westpeekproductions.com/', '', '## Pages',
+  ...Object.keys(entries).map((url) => `- ${url}`), ''].join('\n');
+fs.writeFileSync(path.join(ROOT, 'llms.txt'), llms);

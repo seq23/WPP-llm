@@ -85,6 +85,18 @@ for (const d of pages) {
   if (!declared.has(d.family)) { e(`family "${d.family}" is not declared in demand_family_rules.json`); continue; }
   if (!fam) { e(`family "${d.family}" is declared but missing from demand_families.json; run npm run seo:strengthening-sweep`); continue; }
   if (fam.primary_route !== d.route) e(`route ${d.route} is not the family primary ${fam.primary_route}`);
+  const prune = require('../lib/prune.js');
+  if (prune.isPruned(d.route)) {
+    const retirement = prune.load().ledger.redirects.find((r) => r.from === d.route);
+    const rules = require('../lib/pages_routing.js').parseRedirects(ROOT, { withMap: false });
+    const response = resolvePath(d.route, { root: ROOT, rules });
+    if (!retirement || response.kind !== 'redirect' || response.status !== 301 || response.to !== retirement.to ||
+        resolvePath(response.to, { root: ROOT, rules }).kind !== 'page') e('retired demand page lacks a ledger-backed single 301 to a published page');
+    if (require('../assemble_pages_output.js').isPublishedPath(d.file)) e('retired demand page is still deployed');
+    if (home.includes(`href="${d.route}"`) || topics.includes(`href="${d.route}"`)) e('retired demand page is still recommended');
+    if (fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8').includes(`<loc>https://virtualagency-os.com${d.route}</loc>`)) e('retired demand page remains in sitemap');
+    if (!read(d.file)) e('retired demand source is missing');
+  } else {
   const r = resolvePath(d.route, { root: ROOT });
   if (r.kind !== 'page') e(`primary route ${d.route} does not resolve to a page (${r.kind})`);
   const h = read(d.file);
@@ -154,6 +166,7 @@ for (const d of pages) {
   }
   for (const re of SOFTWARE_CLAIMS) if (re.test(body)) e(`claims to be software: ${re}`);
   if (/platform|software/.test(d.query) && !body.includes(NOT_SOFTWARE)) e(`platform-category page must say West Peek Productions "${NOT_SOFTWARE}"`);
+  }
 }
 
 const links = cfg.demand_links || [];

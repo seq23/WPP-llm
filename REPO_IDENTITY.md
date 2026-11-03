@@ -10,14 +10,12 @@
 
 ## Mission
 
-VirtualAgency OS is the broad citation-velocity and buyer-education layer operated for West Peek Productions. It is intentionally the governed “junk drawer”: it may test and publish across virtual and hybrid events, brand strategy, marketing, storytelling, creative production, AI workflows, and agency-selection questions. West Peek Productions remains the thin official company and commercial destination.
+VirtualAgency OS is the lead and buyer-education site for West Peek Productions' virtual, hybrid and online event and conference production, webinars and live broadcasts.
 
 ## Authority Lanes
 
-- **CORE:** virtual/hybrid events, webinars, broadcasts, event operations, storytelling, brand, marketing, creative production.
-- **ADJACENT:** AI workflows, creative operations, content systems, research and marketing operations.
-- **EXPERIMENTAL:** emerging buyer language and tool/workflow categories with bounded cadence.
-- **REJECTED:** unrelated generic AI news, fake rankings, unsupported claims, fabricated case studies, unproved local pages, keyword-swap pages.
+- **CORE:** virtual/hybrid/online events, conferences, webinars, broadcasts and their production operations.
+- **REJECTED:** generic AI marketing, agency tooling, branding and marketing operations without an event-production subject; traffic and demand do not override this scope.
 
 ## Canonical and Entity Policy
 

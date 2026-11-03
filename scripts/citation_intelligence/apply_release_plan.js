@@ -65,6 +65,7 @@ function robotsPolicyDisagreement(html, route, query) {
 
 for (const u of plan.units || []) {
   const publicRoute = governedRoute(u.target_route);
+  if (require('../lib/prune.js').isPruned(publicRoute)) { skipped.push({ route: publicRoute, reason: 'pruned_or_off_topic' }); continue; }
   const rel = publicRoute.replace(/^\//, '');
   const file = path.join(ROOT, rel + '.html');
   const html = renderProgrammaticPage({ ...u, target_route: publicRoute });

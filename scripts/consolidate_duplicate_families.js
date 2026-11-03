@@ -306,12 +306,12 @@ function relink() {
     }
   };
   walk(ROOT);
-  const re = /href="(?:https:\/\/(?:www\.)?virtualagency-os\.com)?(\/(?:programmatic|query-atlas|topics|answers|insights|learn)\/[a-z0-9-]+)(?:\.html)?\/?(#[^"]*)?"/g;
+  const re = /href="(?:https:\/\/(?:www\.)?virtualagency-os\.com)?(\/[a-z0-9/-]+)(?:\.html)?\/?(#[^"]*)?"/g;
   const changed = [];
   for (const abs of files) {
     if (prune.isRedirectedFile(path.relative(ROOT, abs))) continue; // not published
     const html = fs.readFileSync(abs, 'utf8');
-    const next = html.replace(re, (m, route, frag) => (to.has(route) ? `href="${to.get(route)}${frag || ''}"` : m));
+    const next = html.replace(re, (m, route, frag) => (to.has(prune.norm(route)) ? `href="${to.get(prune.norm(route))}${frag || ''}"` : m));
     if (next !== html) { fs.writeFileSync(abs, next); changed.push(path.relative(ROOT, abs)); }
   }
   if (process.argv.includes('--write-scope') && changed.length) {
