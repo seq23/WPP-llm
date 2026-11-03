@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-03T03:45:39.401Z",
+  "generated_at": "2026-11-03T16:41:25.347Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -48,21 +48,85 @@
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "628d0eb6bb3595d5ffd851be9d9e8f06696aab4f679f8a0658a5e33321514b6a",
-    "legacy_backlog": 95,
-    "thin_pages": 93,
+    "corpus_fingerprint": "c61e11af18f497e954a10c417d9d504e4c175cf12584859ac03c064eb054ade4",
+    "legacy_backlog": 102,
+    "thin_pages": 100,
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 2
   },
-  "units": [],
-  "release_units": [],
+  "units": [
+    {
+      "opportunity_id": "opp_dmlydHVhbCBjb25mZXJlbmNl",
+      "query": "virtual conference production",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-conference-production",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 62,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-conference-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1099,
+        "max_similarity": 0.587302,
+        "nearest_route": "/programmatic/virtual-event-case-studies",
+        "reasons": []
+      },
+      "metadata_source": "opportunity_record",
+      "release_order": 1
+    }
+  ],
+  "release_units": [
+    {
+      "opportunity_id": "opp_dmlydHVhbCBjb25mZXJlbmNl",
+      "query": "virtual conference production",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/virtual-conference-production",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 62,
+      "exists": false,
+      "action": "quality_repair",
+      "status": "admitted_candidate",
+      "source_route": "/virtual-conference-production",
+      "exists_now": true,
+      "release_action": "repair",
+      "quality_reason": [
+        "thin"
+      ],
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1099,
+        "max_similarity": 0.587302,
+        "nearest_route": "/programmatic/virtual-event-case-studies",
+        "reasons": []
+      },
+      "metadata_source": "opportunity_record",
+      "release_order": 1
+    }
+  ],
   "blocked": [],
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
     "opportunities_withheld": 9474
   },
-  "status": "COMPLETED_NO_CHANGES",
+  "status": "READY",
   "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
   "create_stop_detail": "1301 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
   "create_stop_is_legitimate": true

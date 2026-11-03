@@ -228,17 +228,70 @@ const OPENERS = {
   guide: 'The decision comes before the deliverable.',
 };
 
-// How the mode wants its evidence stated.
+// How the mode wants its evidence stated. Four noun phrases per mode, one per
+// slot that asks for evidence on a page - the direct answer, the decision table,
+// the measurement paragraph and the FAQ. Same reason as STEP_TAILS: a single
+// phrase reused across all four slots read as template filler on the page
+// itself (the Search Readiness q1 sample fails any 8-word phrase repeated more
+// than three times in one body). Each slot now states the same stance in the
+// terms that slot is about, so a page says something only it can say.
 const EVIDENCE_STANCE = {
-  define: 'inclusion and exclusion stated as examples someone can check',
-  select: 'proof drawn from a situation close enough to this one to transfer',
-  commercial: 'assumptions and exclusions written down beside the number',
-  operate: 'a named owner and an entry condition for every stage',
-  risk: 'the earliest signal that would have shown the problem, not the eventual symptom',
-  measure: 'a baseline taken before the work starts, so the change is attributable',
-  time: 'a dependency map showing what each date is waiting on',
-  guide: 'a written record of what was assumed and what was observed',
+  define: [
+    'inclusion and exclusion stated as examples someone can check',
+    'a boundary written so a reader can test a case against it',
+    'the same wording applied to every borderline case',
+    'two worked cases, one clearly inside the definition and one outside it',
+  ],
+  select: [
+    'proof drawn from a situation close enough to this one to transfer',
+    'a like-for-like comparison rather than a vendor summary',
+    'the same scoring applied to every option on the list',
+    'references from work of the same size and the same constraint',
+  ],
+  commercial: [
+    'assumptions and exclusions written down beside the number',
+    'a quote that separates fixed cost from what varies',
+    'a figure traceable to the assumption that drives it',
+    'the internal time counted alongside the invoice',
+  ],
+  operate: [
+    'a named owner and an entry condition for every stage',
+    'a written definition of finished for each stage',
+    'an exception path agreed before the stage runs',
+    'a handover record that survives the person who wrote it',
+  ],
+  risk: [
+    'the earliest signal that would have shown the problem, not the eventual symptom',
+    'a trigger and a recovery step named in advance',
+    'the cause separated from the symptom it produced',
+    'a record of what was observed before the failure, not after it',
+  ],
+  measure: [
+    'a baseline taken before the work starts, so the change is attributable',
+    'a figure tied to the decision it is allowed to change',
+    'the counter-signal that would expose a flattering number',
+    'a named reader for every number, and a cadence for reading it',
+  ],
+  time: [
+    'a dependency map showing what each date is waiting on',
+    'every date marked immovable or negotiable',
+    'contingency placed in front of the irreversible step',
+    'the approval date worked backwards from, not forwards',
+  ],
+  guide: [
+    'a written record of what was assumed and what was observed',
+    'the decision written down with its owner beside it',
+    'a stated review point rather than a standing assumption',
+    'the real constraint separated from the one only assumed',
+  ],
 };
+
+/** The evidence stance for one slot. Slots are fixed per call site, not rotated
+ *  by content, so a page's wording is stable between builds. */
+function evidenceStance(mode, slot) {
+  const pool = EVIDENCE_STANCE[mode] || EVIDENCE_STANCE.guide;
+  return pool[slot % pool.length];
+}
 
 // The step tail. Four shapes per mode, rotated by step position, so the ordered
 // list stops repeating one sentence four times on the same page - and each shape
@@ -495,6 +548,10 @@ function build(ctx) {
     audience = trimmed || null;
   }
   const mode = modeFor(intentKey);
+  // The evidence stance for one slot. Slot 0 is the phrase that shipped before
+  // the split, so a page's leading sentence is unchanged and only the three
+  // slots that were repeating it are restated.
+  const stance = (slot) => evidenceStance(mode, slot);
   const voice = voiceFor(ctx.pillarKey);
   const question = headingQuestion(query, intentKey, needle);
   const subject = lower(query);
@@ -517,7 +574,7 @@ function build(ctx) {
   const s1 = `${cap(subject)} turns on two decisions: ${primaryDecision}, then ${secondDecision}.`;
   const s1short = `${cap(subject)} turns on ${primaryDecision}.`;
   const s2 = OPENERS[mode];
-  const s3 = `Require ${EVIDENCE_STANCE[mode]}, put an early warning on ${primaryRisk}, and treat ${proofMetric} as ${SIGNAL[mode]}.`;
+  const s3 = `Require ${stance(0)}, put an early warning on ${primaryRisk}, and treat ${proofMetric} as ${SIGNAL[mode]}.`;
   const s3short = `Put an early warning on ${primaryRisk}, and treat ${proofMetric} as ${SIGNAL[mode]}.`;
   const s4 = `Settle ${secondDecision} before the scope is agreed.`;
   let answer = [s1, s2, s3].join(' ');
@@ -551,7 +608,7 @@ function build(ctx) {
   const rows = [
     ['Primary outcome', `The business or audience outcome ${topic} is supposed to move.`],
     ['Ownership', `One accountable owner for ${primaryDecision}; a named approver for ${secondDecision}.`],
-    ['Evidence', `What ${article(lens).toLowerCase()} ${lens} call has to rest on: ${EVIDENCE_STANCE[mode]}.`],
+    ['Evidence', `What ${article(lens).toLowerCase()} ${lens} call has to rest on: ${stance(1)}.`],
     ['Risk', `An early-warning signal on ${primaryRisk} and a rehearsed fallback for ${secondRisk}.`],
     ['Measurement', `${cap(proofMetric)} as the leading signal; ${secondMetric} as the operating signal.`],
   ];
@@ -559,7 +616,7 @@ function build(ctx) {
 
   // Measurement - one paragraph. The second paragraph that used to sit here
   // interpolated nothing and is deleted rather than rewritten.
-  const p5 = `Measure ${esc(topic)} at two levels: the outcome the work exists to change, and the operating signals that move first. Here that means ${esc(proofMetric)} as the leading signal and ${esc(secondMetric)} as the one that shows whether the system underneath is healthy. Both need ${esc(EVIDENCE_STANCE[mode])}, and each should be attached to a decision - continue, narrow, change owner, or stop.`;
+  const p5 = `Measure ${esc(topic)} at two levels: the outcome the work exists to change, and the operating signals that move first. Here that means ${esc(proofMetric)} as the leading signal and ${esc(secondMetric)} as the one that shows whether the system underneath is healthy. Both need ${esc(stance(2))}, and each should be attached to a decision - continue, narrow, change owner, or stop.`;
 
   // Failure modes - the pillar's own risks, each with a control phrased for where
   // in the sequence it lands, rather than one sentence repeated five times.
@@ -597,7 +654,7 @@ function build(ctx) {
     [`What goes wrong most often with ${named}?`,
       `${cap(primaryRisk)} first, then ${secondRisk}. Both need a named trigger, an early warning, an owner, and a recovery step agreed before the work starts.`],
     [`What evidence should you require for ${named}?`,
-      `For ${article(lens).toLowerCase()} ${lens} call, require ${EVIDENCE_STANCE[mode]}. Keep sourced facts and stated assumptions in separate columns so a reader can see which is which.`],
+      `For ${article(lens).toLowerCase()} ${lens} call, require ${stance(3)}. Keep sourced facts and stated assumptions in separate columns so a reader can see which is which.`],
   ];
   if (audience) {
     faqPairs.push([`How does ${named} differ for ${audience}?`, context]);
@@ -633,4 +690,4 @@ function build(ctx) {
   };
 }
 
-module.exports = { build, topicFor, nounTopic, modeFor, voiceFor, headingQuestion, splitOnNeedle, MODE_OF, VOICE_OF };
+module.exports = { build, evidenceStance, topicFor, nounTopic, modeFor, voiceFor, headingQuestion, splitOnNeedle, MODE_OF, VOICE_OF };

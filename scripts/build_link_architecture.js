@@ -265,6 +265,78 @@ const SECTIONS = [
 const SECTION_BY_SUFFIX = new Map();
 for (const s of SECTIONS) for (const suf of s.suffixes || []) SECTION_BY_SUFFIX.set(suf, s.id);
 
+// What each page on a hub actually answers, keyed by the slug suffix that makes
+// it different from its siblings. The hub used to show a truncation of each
+// member's own meta description, but every member of a cluster shares that
+// sentence's shape and its topic terms, so a hub of eight pages printed one
+// sentence eight times and the Search Readiness q1 sample read the hub as
+// template filler. The suffix is the only thing unique to a member, so it is
+// what the note is built from.
+const NOTE_BY_SUFFIX = new Map(Object.entries({
+  '': 'the overview, if you are starting from the topic itself',
+  definition: 'what the term includes and excludes',
+  'strategy-framework': 'the framework, as a sequence you can follow',
+  framework: 'the framework, as a sequence you can follow',
+  strategy: 'how the strategy is set before any work starts',
+  comparison: 'the options side by side',
+  'how-to-choose': 'how to choose between the options',
+  'how-to-compare-vendors': 'what to compare vendors on',
+  'vs-in-house-team': 'hiring out against building the team',
+  'when-to-hire': 'when hiring out is the right call',
+  agency: 'what an agency does on this',
+  'n-agency': 'what an agency does on this',
+  consultant: 'what a consultant does on this',
+  companies: 'who does this work',
+  company: 'who does this work',
+  services: 'what the service covers',
+  cost: 'what it costs and what moves the number',
+  pricing: 'how it is priced',
+  'roi-factors': 'what decides the return',
+  'scope-of-work': 'what is in scope and what is not',
+  deliverables: 'what you actually receive',
+  timeline: 'how long it takes',
+  'how-to-avoid-scope-creep': 'how to stop the scope drifting',
+  'what-a-good-engagement-includes': 'what a good engagement includes',
+  process: 'how the process runs, stage by stage',
+  workflow: 'the workflow in practice',
+  'operating-model': 'the operating model behind it',
+  'implementation-guide': 'how to implement it',
+  measurement: 'what to measure, and against what',
+  'how-to-measure-success': 'how success is measured',
+  'how-to-build-an-internal-workflow': 'building the workflow in house',
+  operations: 'how it is run day to day',
+  checklist: 'the checklist to work through',
+  template: 'the template to start from',
+  'questions-to-ask': 'the questions to ask before committing',
+  examples: 'worked examples',
+  'case-pattern': 'the pattern a real case followed',
+  'how-to-brief-a-partner': 'how to brief a partner',
+  'what-to-prepare-before-kickoff': 'what to prepare before kickoff',
+  'best-practices': 'what good practice looks like',
+  'red-flags': 'the red flags to watch for',
+  'common-failure-points': 'where it commonly fails',
+  mistakes: 'the mistakes that cost most',
+  'why-it-fails': 'why it fails when it fails',
+  audit: 'the audit that catches it early',
+  2026: 'what to re-verify this year',
+}));
+
+/** Title-free words from a slug suffix: `sponsor-operations` -> `sponsor operations`. */
+const suffixWords = (suffix) => String(suffix).replace(/-/g, ' ').trim();
+
+/** The hub note for one member: what only this page covers, never the shared
+ *  topic sentence. Returns '' when the suffix carries no distinguishing sense,
+ *  because no note reads better than the same note on every row. */
+function hubNote(m) {
+  const suffix = String(m.suffix ?? '');
+  if (NOTE_BY_SUFFIX.has(suffix)) return NOTE_BY_SUFFIX.get(suffix);
+  const audience = suffix.match(/(?:^|-)for-(.+)$/);
+  if (audience) return `sized for ${suffixWords(audience[1])}`;
+  if (/(^|-)2026$/.test(suffix)) return 'what to re-verify this year';
+  if (suffix === '__other__' || !suffix) return '';
+  return suffixWords(suffix);
+}
+
 const ACRONYM = {
   ai: 'AI', rfp: 'RFP', roi: 'ROI', saas: 'SaaS', os: 'OS', b2b: 'B2B',
   faq: 'FAQ', kpi: 'KPI', ceo: 'CEO', vs: 'vs',
@@ -618,10 +690,16 @@ function hubHtml(c) {
     ],
   });
 
+  // One note may appear once on a hub. Two members that reduce to the same note
+  // print it once and the second goes without, so a hub can never repeat a
+  // sentence down the page again.
+  const usedNotes = new Set();
   const sectionsHtml = present.map((s) => {
     const items = c.members.filter((m) => m.section === s.id);
     const lis = items.map((m) => {
-      const summary = note(m.description);
+      let summary = hubNote(m);
+      if (summary && usedNotes.has(summary)) summary = '';
+      if (summary) usedNotes.add(summary);
       return `<li><a href="${m.route}">${esc(m.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
     }).join('');
     return `<section class="hub-section" id="${s.id}"><h2>${esc(s.heading)}</h2><p>${esc(s.blurb)}</p><ul class="hub-list">${lis}</ul></section>`;
@@ -788,8 +866,15 @@ function injectProgrammatic(page) {
   }
   html = html.slice(0, insertAt) + crumb.trimStart() + html.slice(insertAt);
 
+  // Siblings are members of the same cluster, so they share the topic terms in
+  // each other's meta description: printing a truncation of it put one sentence
+  // on every row of this block. The suffix is what makes a sibling different,
+  // and a note already used on this page is dropped rather than repeated.
+  const sibNotes = new Set();
   const sibs = page.siblings.map((s) => {
-    const summary = note(s.description, 120);
+    let summary = hubNote(s);
+    if (summary && sibNotes.has(summary)) summary = '';
+    if (summary) sibNotes.add(summary);
     return `<li><a href="${s.route}">${esc(s.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
   }).join('');
 

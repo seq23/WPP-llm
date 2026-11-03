@@ -164,6 +164,7 @@
     "validate:published-head-parity": "node scripts/validators/validate_published_head_parity.js",
     "validate:sitemap-lastmod-honest": "node scripts/validators/validate_sitemap_lastmod_honest.js",
     "titles:refreeze": "node scripts/prepare_title_brand_refreeze.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
+    "stance:refreeze": "node scripts/content/restate_evidence_stance.js && npm run build && npm run cta:attribute && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
     "search-loop:heads": "node scripts/normalize_search_loop_heads.js",
     "platform-proof:refreeze": "node scripts/prepare_platform_proof_refreeze.js && node scripts/apply_site_head.js && npm run authority:scale:freeze && npm run authority:scale:clear-scope",
     "test:platform-proof": "node scripts/test_platform_proof_line.js",
