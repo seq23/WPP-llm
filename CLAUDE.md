@@ -63,9 +63,10 @@ their route is listed in `data/release/active_mutation_scope.json`
   writes every redirect to `data/redirects/consolidation_map.json`, puts the
   highest-value ones in `_redirects` as 301s and the rest in
   `consolidation_stubs.json`, which the assembler turns into static stubs
-  (noindex + canonical + instant meta refresh). **Pages ignored every
-  `_redirects` line from the 500th non-blank one (measured 2 Nov 2026), and
-  splats after anything but a slash**: the file stays under 480 lines. After a re-plan: link architecture
+  (noindex + canonical + instant meta refresh). **Never put a splat,
+  placeholder or 404 line in `_redirects`**: Pages counts every rule after the
+  first dynamic one as dynamic and drops all past 100 (deploy log, 2 Nov 2026);
+  static rules cap at 2,000. After a re-plan: link architecture
   and relink with `--write-scope`, `npm run build`, freeze, clear scope.
   Proof: `npm run test:prune` (every URL Google ever showed answers a page or one 301).
 - **Recovery line**: `data/search_intelligence/daily_totals.json` (impressions and
