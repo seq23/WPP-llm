@@ -24,17 +24,17 @@
  * NOT A HAND EDIT
  * ---------------
  * Nothing here is written per page. For each page the replacement text is
- * computed by the generator itself: the page's record comes from the admission
- * registry (route, query, pillar), the mode from that query, and the phrases
- * from `prose.evidenceStance(mode, slot)`. This script only decides where each
- * slot's phrase goes.
+ * computed by the generator itself: the mode is whichever mode's published
+ * phrase the page actually carries, and the phrases come from
+ * `prose.evidenceStance(mode, slot)`. This script only decides where each slot's
+ * phrase goes.
  *
  * THE SAFETY PROPERTY
  * -------------------
  * Each slot is anchored on the host sentence the generator wrote around it, so a
  * match is unambiguous. A page is written only when:
- *   - its record is in the admission registry,
- *   - the legacy phrase is found in a slot's anchor exactly once, and
+ *   - exactly one mode's phrase is present, so the mode is not a guess,
+ *   - that phrase is found in a slot's anchor the expected number of times, and
  *   - no href on the page disappears and the anchor count does not fall.
  * Slot 0 is deliberately left alone: its phrase is unchanged, which keeps the
  * page's opening sentence and its meta description stable.
@@ -47,16 +47,18 @@
 const fs = require('fs');
 const path = require('path');
 const prose = require('../lib/programmatic_prose.js');
-const { intentMatch } = require('../citation_intelligence/render_programmatic_page.js');
 
 const ROOT = path.join(__dirname, '../..');
 const DIR = path.join(ROOT, 'programmatic');
 const DRY = process.argv.includes('--dry-run');
 
-const ADMISSIONS = new Map(
-  (JSON.parse(fs.readFileSync(path.join(ROOT, 'data/content/page_admission_registry.json'), 'utf8')).admissions || [])
-    .map((a) => [a.route, a]),
-);
+// Every mode whose stance could be the one on a page. The mode is read off the
+// page rather than re-derived from its record: a page's published wording is the
+// only reliable statement of which mode rendered it, and on some pages the mode
+// the record implies today is not the one that wrote the body. Deriving it
+// instead would either skip those pages or, worse, write another mode's phrase
+// into them.
+const MODES = [...new Set(Object.values(prose.MODE_OF))];
 
 // Accepted output is hash-locked. The freeze contract's repair policy is
 // EXACT_ROUTE_THAW_VALIDATE_REFREEZE, so a route this driver rewrites has to be
@@ -86,17 +88,29 @@ const SLOTS = [
 const hrefs = (html) => [...String(html).matchAll(/href="([^"]*)"/g)].map((m) => m[1]);
 const anchors = (html) => (String(html).match(/<a\b/g) || []).length;
 
+/**
+ * Which mode's stance this body carries, by looking for each mode's slot 0
+ * phrase in the slots that used to repeat it. Exactly one mode may match: two
+ * would make the replacement a guess, so the page is left alone instead.
+ */
+function modeOnPage(body) {
+  const hits = MODES.filter((m) => {
+    const legacy = prose.evidenceStance(m, 0);
+    return SLOTS.some((s) => body.includes(`${s.before}${legacy}${s.after}`));
+  });
+  return hits.length === 1 ? hits[0] : null;
+}
+
 function restateOne(html, file) {
   const route = `/programmatic/${file.replace(/\.html$/, '')}`;
-  const a = ADMISSIONS.get(route);
-  if (!a || !a.query) return { skip: 'no_record' };
-
-  const mode = prose.modeFor(intentMatch(a.query).key);
-  const legacy = prose.evidenceStance(mode, 0);
 
   const art = html.match(ARTICLE_RE);
   if (!art) return { skip: 'no_article' };
   let body = art[1];
+
+  const mode = modeOnPage(body);
+  if (!mode) return { skip: 'no_legacy_slot' };
+  const legacy = prose.evidenceStance(mode, 0);
 
   let changed = 0;
   for (const s of SLOTS) {

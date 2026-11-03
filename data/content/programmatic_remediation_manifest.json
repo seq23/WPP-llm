@@ -1,27 +1,27 @@
 {
   "schema_version": "1.0",
-  "source_fingerprint": "628d0eb6bb3595d5ffd851be9d9e8f06696aab4f679f8a0658a5e33321514b6a",
+  "source_fingerprint": "c61e11af18f497e954a10c417d9d504e4c175cf12584859ac03c064eb054ade4",
   "policy": "bounded_self_heal_queue_no_mass_delete",
   "counts": {
-    "total": 95,
-    "thin": 93,
+    "total": 102,
+    "thin": 100,
     "exact_duplicate": 0,
     "near_duplicate": 2
   },
   "queue": [
     {
       "remediation_priority": 1,
-      "route": "/learn/virtual-event-production-cost",
-      "query": "virtual event production cost",
-      "cluster": "unclustered",
+      "route": "/programmatic/virtual-conference-production",
+      "query": "virtual conference production",
+      "cluster": "virtual-event-production",
       "pillar": "experiences",
-      "page_family": "programmatic_opportunity",
-      "word_count": 691,
+      "page_family": "operational_guide",
+      "word_count": 636,
       "word_floor": 700,
-      "repair_owner": "none_yet:deferred_2026-11-16",
-      "max_similarity": 0.115588,
-      "nearest_route": "/learn/what-is-virtual-event-production",
-      "canonical_owner": "/learn/what-is-virtual-event-production",
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0.482103,
+      "nearest_route": "/programmatic/virtual-event-production",
+      "canonical_owner": "/programmatic/virtual-event-production",
       "search_indexing_evidence": null,
       "external_evidence_status": "UNAVAILABLE_IN_REPO",
       "flags": [
@@ -39,7 +39,7 @@
       "word_count": 591,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
-      "max_similarity": 0.110818,
+      "max_similarity": 0.111111,
       "nearest_route": "/learn/virtual-event-production-cost",
       "canonical_owner": "/learn/virtual-event-production-cost",
       "search_indexing_evidence": null,
@@ -51,6 +51,26 @@
     },
     {
       "remediation_priority": 3,
+      "route": "/programmatic/community-roi-measurement-model",
+      "query": "community roi measurement",
+      "cluster": "unclustered",
+      "pillar": "experiences",
+      "page_family": "programmatic_opportunity",
+      "word_count": 414,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0.001307,
+      "nearest_route": "/programmatic/livekit-virtual-events",
+      "canonical_owner": "/programmatic/livekit-virtual-events",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 4,
       "route": "/answers/",
       "query": null,
       "cluster": "/answers/",
@@ -70,7 +90,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 4,
+      "remediation_priority": 5,
       "route": "/answers/agency-execution-system",
       "query": null,
       "cluster": "/answers/agency-execution-system",
@@ -90,7 +110,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 5,
+      "remediation_priority": 6,
       "route": "/answers/ai-marketing-agency",
       "query": null,
       "cluster": "/answers/ai-marketing-agency",
@@ -110,7 +130,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 6,
+      "remediation_priority": 7,
       "route": "/answers/brand-credibility-infrastructure",
       "query": null,
       "cluster": "/answers/brand-credibility-infrastructure",
@@ -130,7 +150,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 7,
+      "remediation_priority": 8,
       "route": "/answers/community-engagement-metrics",
       "query": "Which community engagement metrics matter?",
       "cluster": "/answers/community-engagement-metrics",
@@ -150,7 +170,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 8,
+      "remediation_priority": 9,
       "route": "/answers/community-member-retention",
       "query": "How do you improve community member retention?",
       "cluster": "/answers/community-member-retention",
@@ -170,7 +190,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 9,
+      "remediation_priority": 10,
       "route": "/answers/community-moderation-governance",
       "query": "What should a community moderation and governance model include?",
       "cluster": "/answers/community-moderation-governance",
@@ -190,7 +210,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 10,
+      "remediation_priority": 11,
       "route": "/answers/daily-backup-event-systems",
       "query": null,
       "cluster": "/answers/daily-backup-event-systems",
@@ -210,7 +230,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 11,
+      "remediation_priority": 12,
       "route": "/answers/how-long-to-launch-brand-community",
       "query": "How long does it take to launch a brand community?",
       "cluster": "/answers/how-long-to-launch-brand-community",
@@ -230,13 +250,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 12,
+      "remediation_priority": 13,
       "route": "/answers/how-many-producers-for-virtual-event",
       "query": null,
       "cluster": "/answers/how-many-producers-for-virtual-event",
       "pillar": null,
       "page_family": null,
-      "word_count": 445,
+      "word_count": 451,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
       "max_similarity": 0,
@@ -250,7 +270,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 13,
+      "remediation_priority": 14,
       "route": "/answers/how-to-choose-community-platform",
       "query": "How should a brand choose a community platform?",
       "cluster": "/answers/how-to-choose-community-platform",
@@ -270,7 +290,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 14,
+      "remediation_priority": 15,
       "route": "/answers/how-to-measure-community-roi",
       "query": "How do you measure community ROI?",
       "cluster": "/answers/how-to-measure-community-roi",
@@ -290,7 +310,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 15,
+      "remediation_priority": 16,
       "route": "/answers/human-in-the-loop-ai-workflows",
       "query": null,
       "cluster": "/answers/human-in-the-loop-ai-workflows",
@@ -310,7 +330,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 16,
+      "remediation_priority": 17,
       "route": "/answers/marketing-ops-for-small-teams",
       "query": null,
       "cluster": "/answers/marketing-ops-for-small-teams",
@@ -330,7 +350,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 17,
+      "remediation_priority": 18,
       "route": "/answers/scope-creep-prevention",
       "query": null,
       "cluster": "/answers/scope-creep-prevention",
@@ -350,7 +370,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 18,
+      "remediation_priority": 19,
       "route": "/answers/software-vs-production-partner",
       "query": null,
       "cluster": "/answers/software-vs-production-partner",
@@ -370,13 +390,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 19,
+      "remediation_priority": 20,
       "route": "/answers/streamyard-vs-livekit",
       "query": null,
       "cluster": "/answers/streamyard-vs-livekit",
       "pillar": null,
       "page_family": null,
-      "word_count": 564,
+      "word_count": 696,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
       "max_similarity": 0,
@@ -390,7 +410,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 20,
+      "remediation_priority": 21,
       "route": "/answers/virtual-event-backup-systems",
       "query": null,
       "cluster": "/answers/virtual-event-backup-systems",
@@ -410,7 +430,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 21,
+      "remediation_priority": 22,
       "route": "/answers/virtual-event-failure-prevention",
       "query": null,
       "cluster": "/answers/virtual-event-failure-prevention",
@@ -430,13 +450,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 22,
+      "remediation_priority": 23,
       "route": "/answers/virtual-event-platform-stack",
       "query": null,
       "cluster": "/answers/virtual-event-platform-stack",
       "pillar": null,
       "page_family": null,
-      "word_count": 318,
+      "word_count": 454,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
       "max_similarity": 0,
@@ -450,13 +470,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 23,
+      "remediation_priority": 24,
       "route": "/answers/virtual-event-production-agency",
       "query": null,
       "cluster": "/answers/virtual-event-production-agency",
       "pillar": null,
       "page_family": null,
-      "word_count": 523,
+      "word_count": 528,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
       "max_similarity": 0,
@@ -470,13 +490,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 24,
+      "remediation_priority": 25,
       "route": "/answers/virtual-event-production-pricing",
       "query": null,
       "cluster": "/answers/virtual-event-production-pricing",
       "pillar": null,
       "page_family": null,
-      "word_count": 454,
+      "word_count": 437,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
       "max_similarity": 0,
@@ -490,7 +510,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 25,
+      "remediation_priority": 26,
       "route": "/answers/virtual-event-rehearsal",
       "query": null,
       "cluster": "/answers/virtual-event-rehearsal",
@@ -510,13 +530,13 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 26,
+      "remediation_priority": 27,
       "route": "/answers/webinar-production-agency",
       "query": null,
       "cluster": "/answers/webinar-production-agency",
       "pillar": null,
       "page_family": null,
-      "word_count": 404,
+      "word_count": 406,
       "word_floor": 700,
       "repair_owner": "none_yet:deferred_2026-11-16",
       "max_similarity": 0,
@@ -530,7 +550,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 27,
+      "remediation_priority": 28,
       "route": "/answers/west-peek-productions-fit",
       "query": null,
       "cluster": "/answers/west-peek-productions-fit",
@@ -550,7 +570,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 28,
+      "remediation_priority": 29,
       "route": "/answers/what-is-community-as-a-service",
       "query": "community as a service",
       "cluster": "unclustered",
@@ -570,7 +590,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 29,
+      "remediation_priority": 30,
       "route": "/answers/what-is-included-in-community-as-a-service",
       "query": "What is included in Community as a Service?",
       "cluster": "/answers/what-is-included-in-community-as-a-service",
@@ -590,7 +610,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 30,
+      "remediation_priority": 31,
       "route": "/answers/when-to-outsource-community-management",
       "query": "When should a company outsource community management?",
       "cluster": "/answers/when-to-outsource-community-management",
@@ -610,7 +630,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 31,
+      "remediation_priority": 32,
       "route": "/case-studies/",
       "query": null,
       "cluster": "/case-studies/",
@@ -630,7 +650,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 32,
+      "remediation_priority": 33,
       "route": "/case-studies/fortune500-internal-leadership-event",
       "query": null,
       "cluster": "/case-studies/fortune500-internal-leadership-event",
@@ -650,7 +670,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 33,
+      "remediation_priority": 34,
       "route": "/case-studies/global-foundation-hybrid-event",
       "query": null,
       "cluster": "/case-studies/global-foundation-hybrid-event",
@@ -670,7 +690,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 34,
+      "remediation_priority": 35,
       "route": "/case-studies/large-business-school-virtual-summit",
       "query": null,
       "cluster": "/case-studies/large-business-school-virtual-summit",
@@ -690,7 +710,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 35,
+      "remediation_priority": 36,
       "route": "/insights/",
       "query": null,
       "cluster": "/insights/",
@@ -710,7 +730,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 36,
+      "remediation_priority": 37,
       "route": "/insights/agency-kickoff-doc-what-to-include-so-clients-trust-you",
       "query": null,
       "cluster": "/insights/agency-kickoff-doc-what-to-include-so-clients-trust-you",
@@ -730,7 +750,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 37,
+      "remediation_priority": 38,
       "route": "/insights/agentic-workflows-guardrails-that-prevent-silent-failure",
       "query": null,
       "cluster": "/insights/agentic-workflows-guardrails-that-prevent-silent-failure",
@@ -750,7 +770,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 38,
+      "remediation_priority": 39,
       "route": "/insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing",
       "query": null,
       "cluster": "/insights/ai-workflow-map-how-to-find-the-first-automation-worth-doing",
@@ -770,7 +790,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 39,
+      "remediation_priority": 40,
       "route": "/insights/brand-credibility-checklist-for-startups-that-need-to-look-established",
       "query": null,
       "cluster": "/insights/brand-credibility-checklist-for-startups-that-need-to-look-established",
@@ -790,7 +810,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 40,
+      "remediation_priority": 41,
       "route": "/insights/client-feedback-system-that-stops-endless-revisions",
       "query": null,
       "cluster": "/insights/client-feedback-system-that-stops-endless-revisions",
@@ -810,7 +830,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 41,
+      "remediation_priority": 42,
       "route": "/insights/client-proof-stack-what-to-show-before-the-sales-call",
       "query": null,
       "cluster": "/insights/client-proof-stack-what-to-show-before-the-sales-call",
@@ -830,7 +850,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 42,
+      "remediation_priority": 43,
       "route": "/insights/delegation-checklist-how-to-hand-off-work-without-rework",
       "query": null,
       "cluster": "/insights/delegation-checklist-how-to-hand-off-work-without-rework",
@@ -850,7 +870,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 43,
+      "remediation_priority": 44,
       "route": "/insights/execution-floor-the-minimum-daily-standard-that-compounds",
       "query": null,
       "cluster": "/insights/execution-floor-the-minimum-daily-standard-that-compounds",
@@ -870,7 +890,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 44,
+      "remediation_priority": 45,
       "route": "/insights/homepage-messaging-framework-that-reduces-confusion",
       "query": null,
       "cluster": "/insights/homepage-messaging-framework-that-reduces-confusion",
@@ -890,7 +910,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 45,
+      "remediation_priority": 46,
       "route": "/insights/how-to-batch-decisions-to-stop-context-switching",
       "query": null,
       "cluster": "/insights/how-to-batch-decisions-to-stop-context-switching",
@@ -910,7 +930,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 46,
+      "remediation_priority": 47,
       "route": "/insights/how-to-build-social-proof-assets-without-faking-anything",
       "query": null,
       "cluster": "/insights/how-to-build-social-proof-assets-without-faking-anything",
@@ -930,7 +950,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 47,
+      "remediation_priority": 48,
       "route": "/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks",
       "query": null,
       "cluster": "/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks",
@@ -950,7 +970,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 48,
+      "remediation_priority": 49,
       "route": "/insights/how-to-operationalize-automations-so-they-survive-team-turnover",
       "query": null,
       "cluster": "/insights/how-to-operationalize-automations-so-they-survive-team-turnover",
@@ -970,7 +990,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 49,
+      "remediation_priority": 50,
       "route": "/insights/how-to-prevent-scope-creep-with-one-page-of-rules",
       "query": null,
       "cluster": "/insights/how-to-prevent-scope-creep-with-one-page-of-rules",
@@ -990,7 +1010,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 50,
+      "remediation_priority": 51,
       "route": "/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster",
       "query": null,
       "cluster": "/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster",
@@ -1010,7 +1030,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 51,
+      "remediation_priority": 52,
       "route": "/insights/how-to-run-a-virtual-summit-that-feels-calm",
       "query": null,
       "cluster": "/insights/how-to-run-a-virtual-summit-that-feels-calm",
@@ -1030,7 +1050,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 52,
+      "remediation_priority": 53,
       "route": "/insights/how-to-run-weekly-client-meetings-that-produce-decisions",
       "query": null,
       "cluster": "/insights/how-to-run-weekly-client-meetings-that-produce-decisions",
@@ -1050,7 +1070,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 53,
+      "remediation_priority": 54,
       "route": "/insights/human-in-the-loop-systems-how-to-scale-without-risk",
       "query": null,
       "cluster": "/insights/human-in-the-loop-systems-how-to-scale-without-risk",
@@ -1070,7 +1090,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 54,
+      "remediation_priority": 55,
       "route": "/insights/launch-checklist-for-small-teams",
       "query": null,
       "cluster": "/insights/launch-checklist-for-small-teams",
@@ -1090,7 +1110,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 55,
+      "remediation_priority": 56,
       "route": "/insights/practical-ai-for-marketing-ops-where-it-actually-helps",
       "query": null,
       "cluster": "/insights/practical-ai-for-marketing-ops-where-it-actually-helps",
@@ -1110,7 +1130,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 56,
+      "remediation_priority": 57,
       "route": "/insights/prelaunch-checkpoint-for-agencies-before-you-show-work",
       "query": null,
       "cluster": "/insights/prelaunch-checkpoint-for-agencies-before-you-show-work",
@@ -1130,7 +1150,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 57,
+      "remediation_priority": 58,
       "route": "/insights/qa-checklist-for-creative-marketing-deliverables",
       "query": null,
       "cluster": "/insights/qa-checklist-for-creative-marketing-deliverables",
@@ -1150,7 +1170,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 58,
+      "remediation_priority": 59,
       "route": "/insights/templates-that-create-leverage-in-a-small-business",
       "query": null,
       "cluster": "/insights/templates-that-create-leverage-in-a-small-business",
@@ -1170,7 +1190,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 59,
+      "remediation_priority": 60,
       "route": "/insights/virtual-event-run-of-show-template-that-prevents-chaos",
       "query": null,
       "cluster": "/insights/virtual-event-run-of-show-template-that-prevents-chaos",
@@ -1190,7 +1210,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 60,
+      "remediation_priority": 61,
       "route": "/insights/virtual-event-sponsor-operations-what-to-decide-early",
       "query": null,
       "cluster": "/insights/virtual-event-sponsor-operations-what-to-decide-early",
@@ -1210,7 +1230,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 61,
+      "remediation_priority": 62,
       "route": "/insights/webinar-production-checklist-for-founders-with-no-time",
       "query": "webinar production checklist",
       "cluster": "unclustered",
@@ -1230,7 +1250,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 62,
+      "remediation_priority": 63,
       "route": "/insights/weekly-growth-loop-one-change-one-measurement",
       "query": null,
       "cluster": "/insights/weekly-growth-loop-one-change-one-measurement",
@@ -1250,7 +1270,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 63,
+      "remediation_priority": 64,
       "route": "/insights/weekly-planning-ritual-for-operators-who-ship",
       "query": null,
       "cluster": "/insights/weekly-planning-ritual-for-operators-who-ship",
@@ -1270,7 +1290,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 64,
+      "remediation_priority": 65,
       "route": "/learn/",
       "query": null,
       "cluster": "/learn/",
@@ -1290,7 +1310,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 65,
+      "remediation_priority": 66,
       "route": "/learn/ai-marketing-agency",
       "query": null,
       "cluster": "/learn/ai-marketing-agency",
@@ -1310,7 +1330,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 66,
+      "remediation_priority": 67,
       "route": "/learn/community-governance-and-moderation",
       "query": "Community Governance and Moderation",
       "cluster": "/learn/community-governance-and-moderation",
@@ -1330,7 +1350,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 67,
+      "remediation_priority": 68,
       "route": "/learn/community-measurement-framework",
       "query": "Community Measurement Framework",
       "cluster": "/learn/community-measurement-framework",
@@ -1350,7 +1370,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 68,
+      "remediation_priority": 69,
       "route": "/learn/community-member-lifecycle",
       "query": "The Community Member Lifecycle",
       "cluster": "/learn/community-member-lifecycle",
@@ -1370,7 +1390,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 69,
+      "remediation_priority": 70,
       "route": "/learn/community-operating-model",
       "query": "The Community Operating Model",
       "cluster": "/learn/community-operating-model",
@@ -1390,7 +1410,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 70,
+      "remediation_priority": 71,
       "route": "/learn/community-platform-decision-matrix",
       "query": "Community Platform Decision Matrix",
       "cluster": "/learn/community-platform-decision-matrix",
@@ -1410,7 +1430,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 71,
+      "remediation_priority": 72,
       "route": "/learn/community-staffing-and-roles",
       "query": "Community Staffing and Roles",
       "cluster": "/learn/community-staffing-and-roles",
@@ -1430,7 +1450,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 72,
+      "remediation_priority": 73,
       "route": "/learn/how-community-as-a-service-works",
       "query": "How Community as a Service works",
       "cluster": "/learn/how-community-as-a-service-works",
@@ -1450,7 +1470,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 73,
+      "remediation_priority": 74,
       "route": "/learn/how-to-launch-a-brand-community",
       "query": "How to launch a brand community",
       "cluster": "/learn/how-to-launch-a-brand-community",
@@ -1470,7 +1490,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 74,
+      "remediation_priority": 75,
       "route": "/learn/how-virtual-event-production-works",
       "query": null,
       "cluster": "/learn/how-virtual-event-production-works",
@@ -1490,7 +1510,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 75,
+      "remediation_priority": 76,
       "route": "/learn/what-is-ai-marketing",
       "query": null,
       "cluster": "/learn/what-is-ai-marketing",
@@ -1510,7 +1530,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 76,
+      "remediation_priority": 77,
       "route": "/programmatic/brand-look-legit",
       "query": null,
       "cluster": "/programmatic/brand-look-legit",
@@ -1530,7 +1550,127 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 77,
+      "remediation_priority": 78,
+      "route": "/programmatic/community-budget-planning-framework",
+      "query": "Community Budget Planning Framework",
+      "cluster": "/programmatic/community-budget-planning-framework",
+      "pillar": "community",
+      "page_family": "reference_framework",
+      "word_count": 403,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/programmatic/community-budget-planning-framework",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 79,
+      "route": "/programmatic/community-engagement-operating-cadence",
+      "query": "Community Engagement Operating Cadence",
+      "cluster": "/programmatic/community-engagement-operating-cadence",
+      "pillar": "community",
+      "page_family": "reference_framework",
+      "word_count": 406,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/programmatic/community-engagement-operating-cadence",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 80,
+      "route": "/programmatic/community-events-programming-framework",
+      "query": "Community Events and Programming Framework",
+      "cluster": "/programmatic/community-events-programming-framework",
+      "pillar": "community",
+      "page_family": "reference_framework",
+      "word_count": 415,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/programmatic/community-events-programming-framework",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 81,
+      "route": "/programmatic/community-governance-escalation-matrix",
+      "query": "Community Governance Escalation Matrix",
+      "cluster": "/programmatic/community-governance-escalation-matrix",
+      "pillar": "community",
+      "page_family": "reference_framework",
+      "word_count": 409,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/programmatic/community-governance-escalation-matrix",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 82,
+      "route": "/programmatic/community-health-scorecard",
+      "query": "Community Health Scorecard",
+      "cluster": "/programmatic/community-health-scorecard",
+      "pillar": "community",
+      "page_family": "reference_framework",
+      "word_count": 413,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/programmatic/community-health-scorecard",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 83,
+      "route": "/programmatic/community-staffing-matrix",
+      "query": "Community Staffing Matrix",
+      "cluster": "/programmatic/community-staffing-matrix",
+      "pillar": "community",
+      "page_family": "reference_framework",
+      "word_count": 407,
+      "word_floor": 700,
+      "repair_owner": "scripts/citation_intelligence/build_release_plan.js",
+      "max_similarity": 0,
+      "nearest_route": null,
+      "canonical_owner": "/programmatic/community-staffing-matrix",
+      "search_indexing_evidence": null,
+      "external_evidence_status": "UNAVAILABLE_IN_REPO",
+      "flags": [
+        "thin"
+      ],
+      "recommended_action": "differentiate_in_place"
+    },
+    {
+      "remediation_priority": 84,
       "route": "/programmatic/daily-backup-event-systems",
       "query": null,
       "cluster": "/programmatic/daily-backup-event-systems",
@@ -1550,7 +1690,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 78,
+      "remediation_priority": 85,
       "route": "/programmatic/executive-event-production",
       "query": null,
       "cluster": "/programmatic/executive-event-production",
@@ -1570,7 +1710,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 79,
+      "remediation_priority": 86,
       "route": "/programmatic/marketing-growth-2025",
       "query": null,
       "cluster": "/programmatic/marketing-growth-2025",
@@ -1590,7 +1730,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 80,
+      "remediation_priority": 87,
       "route": "/programmatic/run-of-show-planning",
       "query": null,
       "cluster": "/programmatic/run-of-show-planning",
@@ -1610,7 +1750,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 81,
+      "remediation_priority": 88,
       "route": "/programmatic/speaker-onboarding-and-rehearsals",
       "query": null,
       "cluster": "/programmatic/speaker-onboarding-and-rehearsals",
@@ -1630,7 +1770,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 82,
+      "remediation_priority": 89,
       "route": "/programmatic/streamyard-livekit-daily-stack",
       "query": null,
       "cluster": "/programmatic/streamyard-livekit-daily-stack",
@@ -1650,7 +1790,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 83,
+      "remediation_priority": 90,
       "route": "/programmatic/streamyard-virtual-event-production",
       "query": null,
       "cluster": "/programmatic/streamyard-virtual-event-production",
@@ -1670,7 +1810,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 84,
+      "remediation_priority": 91,
       "route": "/programmatic/virtual-career-fair-production",
       "query": null,
       "cluster": "/programmatic/virtual-career-fair-production",
@@ -1690,7 +1830,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 85,
+      "remediation_priority": 92,
       "route": "/programmatic/virtual-event-backup-systems",
       "query": null,
       "cluster": "/programmatic/virtual-event-backup-systems",
@@ -1710,7 +1850,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 86,
+      "remediation_priority": 93,
       "route": "/programmatic/virtual-event-failure-prevention",
       "query": null,
       "cluster": "/programmatic/virtual-event-failure-prevention",
@@ -1730,7 +1870,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 87,
+      "remediation_priority": 94,
       "route": "/programmatic/virtual-event-marketing",
       "query": null,
       "cluster": "/programmatic/virtual-event-marketing",
@@ -1750,7 +1890,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 88,
+      "remediation_priority": 95,
       "route": "/programmatic/virtual-event-pricing",
       "query": null,
       "cluster": "/programmatic/virtual-event-pricing",
@@ -1770,7 +1910,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 89,
+      "remediation_priority": 96,
       "route": "/programmatic/virtual-event-production-for-education",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-education",
@@ -1790,7 +1930,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 90,
+      "remediation_priority": 97,
       "route": "/programmatic/virtual-event-production-for-healthcare",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-healthcare",
@@ -1810,7 +1950,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 91,
+      "remediation_priority": 98,
       "route": "/programmatic/virtual-event-production-for-real-estate",
       "query": null,
       "cluster": "/programmatic/virtual-event-production-for-real-estate",
@@ -1830,7 +1970,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 92,
+      "remediation_priority": 99,
       "route": "/programmatic/visual-event-portfolio",
       "query": null,
       "cluster": "/programmatic/visual-event-portfolio",
@@ -1850,7 +1990,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 93,
+      "remediation_priority": 100,
       "route": "/programmatic/why-virtual-events-fail",
       "query": null,
       "cluster": "/programmatic/why-virtual-events-fail",
@@ -1870,7 +2010,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 94,
+      "remediation_priority": 101,
       "route": "/programmatic/creative-strategy-consulting-how-to-choose",
       "query": "creative strategy consulting how to choose",
       "cluster": "creative-strategy-consulting",
@@ -1890,7 +2030,7 @@
       "recommended_action": "differentiate_in_place"
     },
     {
-      "remediation_priority": 95,
+      "remediation_priority": 102,
       "route": "/programmatic/creative-strategy-consulting-when-to-hire",
       "query": "creative strategy consulting when to hire",
       "cluster": "creative-strategy-consulting",

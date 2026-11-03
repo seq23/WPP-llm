@@ -321,6 +321,9 @@ const NOTE_BY_SUFFIX = new Map(Object.entries({
   2026: 'what to re-verify this year',
 }));
 
+/** "1 page", "12 pages": a cluster of one was reading "1 pages" on every hub. */
+const pageCount = (n) => `${n} page${n === 1 ? '' : 's'}`;
+
 /** Title-free words from a slug suffix: `sponsor-operations` -> `sponsor operations`. */
 const suffixWords = (suffix) => String(suffix).replace(/-/g, ' ').trim();
 
@@ -712,7 +715,7 @@ function hubHtml(c) {
   const siblingClusterList = relatedClusters(c, 12);
   const crossPillar = siblingClusterList.some((o) => o.pillar !== c.pillar);
   const siblingClusters = siblingClusterList
-    .map((o) => `<li><a href="/topics/${o.slug}">${esc(sentenceCase(o.label))}</a> <span class="hub-note">${o.members.length} pages${o.pillar !== c.pillar ? `, in ${esc(PILLAR_LABEL[o.pillar] || o.pillar)}` : ''}</span></li>`)
+    .map((o) => `<li><a href="/topics/${o.slug}">${esc(sentenceCase(o.label))}</a> <span class="hub-note">${pageCount(o.members.length)}${o.pillar !== c.pillar ? `, in ${esc(PILLAR_LABEL[o.pillar] || o.pillar)}` : ''}</span></li>`)
     .join('');
 
   const surfaces = (c.surfaces || []);
@@ -785,7 +788,7 @@ function topicsIndexHtml() {
     const cs = byPillar.get(p);
     const count = cs.reduce((s, c) => s + c.members.length, 0);
     const pillarRoute = PILLAR_PAGE[p];
-    const lis = cs.map((c) => `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${c.members.length} pages</span></li>`).join('');
+    const lis = cs.map((c) => `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${pageCount(c.members.length)}</span></li>`).join('');
     return `<section class="hub-section" id="${esc(p)}"><h2>${esc(PILLAR_LABEL[p] || sentenceCase(deslug(p)))}</h2><p>${cs.length} topics, ${count} pages.${pillarRoute ? ` The <a href="${pillarRoute}">pillar overview</a> explains what this area covers.` : ''}</p><ul class="hub-list">${lis}</ul></section>`;
   }).join('\n');
 
@@ -887,7 +890,11 @@ function injectProgrammatic(page) {
   const nbrs = (page.neighbours || []).filter((n) => n.opener && n.opener.route !== page.route);
   if (nbrs.length) {
     const pillarLabel = PILLAR_LABEL[c.pillar] || sentenceCase(deslug(c.pillar));
-    const lis = nbrs.map((n) => `<li><a href="/topics/${n.cluster.slug}">${esc(sentenceCase(n.cluster.label))}</a> <span class="hub-note">${n.cluster.members.length} pages, opening with <a href="${n.opener.route}">${esc(n.opener.heading)}</a></span></li>`).join('');
+    // The opener's own heading is formulaic ("What should you decide first
+    // about X?"), so using it as the anchor text on every row repeated one
+    // phrase down the block. The topic's label is what differs between rows,
+    // and it describes the target at least as well.
+    const lis = nbrs.map((n) => `<li><a href="/topics/${n.cluster.slug}">${esc(sentenceCase(n.cluster.label))}</a> <span class="hub-note">${pageCount(n.cluster.members.length)}, opening with <a href="${n.opener.route}">${esc(n.cluster.label)} overview</a></span></li>`).join('');
     const neighbours = `\n<!--link-arch:neighbours--><section class="related-links" data-related="neighbours"><h2>If this is not the decision in front of you</h2><p>Neighbouring topics in ${esc(pillarLabel)}, each with the page that opens it. ${pillarRoute ? `The <a href="${pillarRoute}">pillar overview</a> lists them all` : `<a href="/topics/">The topic directory</a> lists them all`}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:neighbours-->`;
     const closeNbr = html.lastIndexOf('</article>');
     html = html.slice(0, closeNbr) + neighbours + '\n' + html.slice(closeNbr);
@@ -930,7 +937,7 @@ function injectPillar(rel, pillarKey) {
   const total = cs.reduce((s, c) => s + c.members.length, 0);
   const lis = cs.map((c) => {
     const root = c.members.find((m) => m.suffix === '') || c.members[0];
-    return `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${c.members.length} pages, starting with &ldquo;${esc(root.heading)}&rdquo;</span></li>`;
+    return `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${pageCount(c.members.length)}, starting with &ldquo;${esc(root.heading)}&rdquo;</span></li>`;
   }).join('');
   const block = `\n<!--link-arch:pillar-topics--><section class="hub-section" id="topics"><h2>Topics in this pillar</h2><p>${cs.length} topics, ${total} pages. Each topic hub groups its pages by the decision they settle rather than listing them alphabetically. <a href="/topics/">All topics across the library</a>.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:pillar-topics-->`;
 
@@ -1023,8 +1030,17 @@ function crumbRegion(trail, currentName, route) {
   return `<!--link-arch:breadcrumb-->${breadcrumbHtml(trail, currentName)}<script type="application/ld+json">${breadcrumbLd([...trail, { name: currentName, route }])}</script><!--/link-arch:breadcrumb-->`;
 }
 
-function linkItem(t, noteText) {
-  const summary = noteText === undefined ? note(t.description, 120) : noteText;
+// `used` carries the notes already printed in this block. A caller that passes
+// it gets each note at most once: the candidates here are usually members of one
+// cluster, whose meta descriptions share the topic's terms, so the fallback note
+// is the suffix (what only that page covers) and a repeat is dropped rather than
+// printed again.
+function linkItem(t, noteText, used) {
+  let summary = noteText === undefined ? hubNote(t) : noteText;
+  if (used && summary) {
+    if (used.has(summary)) summary = '';
+    else used.add(summary);
+  }
   return `<li><a href="${t.href || t.route}">${esc(t.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
 }
 
@@ -1139,7 +1155,7 @@ function injectSitePage(m, all) {
     for (const o of relatedClusters(c, 12)) {
       ordered.push({
         page: { route: `/topics/${o.slug}`, heading: sentenceCase(o.label), description: '' },
-        why: `${o.members.length} pages on this topic`,
+        why: `${pageCount(o.members.length)} on this topic`,
       });
       const opener = openerOf(o);
       if (opener) ordered.push({ page: opener, why: `opens ${sentenceCase(o.label)}` });
@@ -1147,13 +1163,15 @@ function injectSitePage(m, all) {
     const picks = takeUntilTarget(ordered);
     if (picks.length) {
       const pillarRoute = PILLAR_PAGE[c.pillar];
-      const lis = picks.map((x) => linkItem(x.page, x.why)).join('');
-      block = `<!--link-arch:site-related--><section class="related-links" data-related="cluster"><h2>The rest of the ${esc(c.label)} coverage</h2><p>This page is ${esc(section ? section.kind : 'one format')} on ${esc(c.label)}. The <a href="/topics/${c.slug}">${esc(sentenceCase(c.label))} hub</a> holds all ${c.members.length} pages on it${pillarRoute ? `, inside the <a href="${pillarRoute}">${esc(PILLAR_LABEL[c.pillar] || c.pillar)}</a> pillar` : ''}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:site-related-->`;
+      const used = new Set();
+      const lis = picks.map((x) => linkItem(x.page, x.why, used)).join("");
+      block = `<!--link-arch:site-related--><section class="related-links" data-related="cluster"><h2>The rest of the ${esc(c.label)} coverage</h2><p>This page is ${esc(section ? section.kind : 'one format')} on ${esc(c.label)}. The <a href="/topics/${c.slug}">${esc(sentenceCase(c.label))} hub</a> holds all ${pageCount(c.members.length)} on it${pillarRoute ? `, inside the <a href="${pillarRoute}">${esc(PILLAR_LABEL[c.pillar] || c.pillar)}</a> pillar` : ''}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:site-related-->`;
     }
   } else {
     const picks = takeUntilTarget(sectionCandidates(m, all));
     if (picks.length) {
-      const lis = picks.map((x) => linkItem(x.page, x.why)).join('');
+      const used = new Set();
+      const lis = picks.map((x) => linkItem(x.page, x.why, used)).join("");
       const inSection = picks.some((x) => !x.why);
       const where = section && inSection
         ? `Other pages in <a href="${section.index}">${esc(section.name)}</a>, and the pillar overviews that place them.`
