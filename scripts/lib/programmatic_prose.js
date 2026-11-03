@@ -584,20 +584,23 @@ function build(ctx) {
   // FAQ - every answer is this page's own record, restated as an answer rather
   // than as a table row. Rendered visibly and mirrored into FAQPage JSON-LD, so
   // the schema never claims something the page does not say.
+  // The FAQ and the outside-help paragraph name the page's own subject, but as a
+  // noun phrase: "Who should own how to host a virtual event?" read as a slot fill.
+  const named = lower(nounTopic(subject));
   const faqPairs = [
     [question,
       answer],
-    [`Who should own ${subject}?`,
+    [`Who should own ${named}?`,
       `One accountable owner for ${primaryDecision}, and a named approver for ${secondDecision}. Splitting those two roles is what keeps ${article(topic).toLowerCase()} ${topic} decision from stalling in review.`],
-    [`How do you measure ${subject}?`,
+    [`How do you measure ${named}?`,
       `${cap(proofMetric)} is the leading signal and ${secondMetric} is the operating signal. Each one should be tied to a decision to continue, narrow, change owner, or stop.`],
-    [`What goes wrong most often with ${subject}?`,
+    [`What goes wrong most often with ${named}?`,
       `${cap(primaryRisk)} first, then ${secondRisk}. Both need a named trigger, an early warning, an owner, and a recovery step agreed before the work starts.`],
-    [`What evidence should you require for ${subject}?`,
+    [`What evidence should you require for ${named}?`,
       `For ${article(lens).toLowerCase()} ${lens} call, require ${EVIDENCE_STANCE[mode]}. Keep sourced facts and stated assumptions in separate columns so a reader can see which is which.`],
   ];
   if (audience) {
-    faqPairs.push([`How does ${subject} differ for ${audience}?`, context]);
+    faqPairs.push([`How does ${named} differ for ${audience}?`, context]);
   }
   const faqSection = `<section class="faq" data-faq="true"><h2>${esc(HEADINGS.faq[mode])}</h2>${faqPairs.map(([q, a]) => `<div class="qa-block"><h3>${esc(q)}</h3><p>${esc(a)}</p></div>`).join('')}</section>`;
   const faqSchema = {
@@ -606,7 +609,7 @@ function build(ctx) {
     mainEntity: faqPairs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
   };
 
-  const p6 = `Outside help earns its place on ${esc(subject)} when ${esc(CROSSES[mode])}, when it needs specialists the team does not employ full time, or when ${esc(primaryRisk)} would land somewhere nobody currently owns. It does not replace internal judgment: ${esc(OUTSIDE[mode])}.`;
+  const p6 = `Outside help earns its place on ${esc(named)} when ${esc(CROSSES[mode])}, when it needs specialists the team does not employ full time, or when ${esc(primaryRisk)} would land somewhere nobody currently owns. It does not replace internal judgment: ${esc(OUTSIDE[mode])}.`;
 
   return {
     mode,
