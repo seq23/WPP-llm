@@ -106,8 +106,25 @@ function headerHtml(slug) {
   const links = NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('');
   return `<header class="site-header" ${MARK}><div class="header-inner"><a class="brand" href="/" aria-label="West Peek Productions home"><img src="/assets/west-peek-productions-logo.jpeg" alt="West Peek Productions logo" width="36" height="36"><span class="name">West Peek Productions</span></a><nav class="nav" aria-label="Primary">${links}<a class="btn nav-cta" href="${inquiryHref(slug, 'nav')}">Get a production plan</a></nav></div></header>`;
 }
+// Every page the sitemap announces must be reachable from the finished chrome
+// or from another page's body. /atlas and /how-west-peek-helps were linked only
+// by the old committed header and footer, which this finish replaces, so after
+// a deploy nothing on the live site linked them while the sitemap still did
+// (Search Readiness b7, 3 Nov 2026). The footer is the one place that reaches
+// every page in one click; `npm run test:no-orphan-sitemap-pages` holds the line.
+const FOOTER_NAV = [
+  ['/topics/', 'Topics'],
+  ['/articles', 'Articles'],
+  ['/insights/', 'Insights'],
+  ['/tools/', 'Tools'],
+  ['/glossary', 'Glossary'],
+  ['/atlas', 'Atlas'],
+  ['/how-west-peek-helps', 'How we help'],
+  ['/about', 'About'],
+];
 function footerHtml() {
-  return `<footer class="site-footer" ${MARK}><div class="footer-inner"><nav class="footer-nav" aria-label="More"><a href="/topics/">Topics</a><a href="/articles">Articles</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a><a href="/glossary">Glossary</a><a href="/about">About</a></nav><p>West Peek Productions plans and runs virtual, hybrid and webinar events. Questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p></div></footer>`;
+  const links = FOOTER_NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('');
+  return `<footer class="site-footer" ${MARK}><div class="footer-inner"><nav class="footer-nav" aria-label="More">${links}</nav><p>West Peek Productions plans and runs virtual, hybrid and webinar events. Questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p></div></footer>`;
 }
 /** The box speaks to the page's own event type. */
 function ctaHeading(slug) {

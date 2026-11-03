@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-11-03",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
     {
@@ -602,6 +602,13 @@
       "purpose": "Every West Peek Organization and founder Person node on every public page states exactly the sameAs (and org description, name, logo) declared in data/entity/entity.json; no sameAs on this site's own host; entity.mjs agrees with entity.json. Zero Organization nodes is a failure.",
       "owner": "repo",
       "repair_command": "npm run entity:converge"
+    },
+    {
+      "id": "no-orphan-sitemap-pages",
+      "command": "npm run test:no-orphan-sitemap-pages",
+      "severity": "HARD_FAIL",
+      "purpose": "Every sitemap URL is linked from at least one page of the ASSEMBLED site, so a link that lives only in pre-finish markup cannot ship an orphan.",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."
