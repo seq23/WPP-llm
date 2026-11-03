@@ -401,6 +401,54 @@ const HEADINGS = {
  * Composition
  * ------------------------------------------------------------------ */
 
+/* A query is often a question or a ranking ("how to host a virtual event",
+ * "best virtual event platforms"), and dropped whole into a sentence slot it reads
+ * as "narrow how to host a virtual event work". nounTopic turns it into the noun
+ * phrase those slots expect ("virtual event hosting", "virtual event platforms").
+ * A phrase it does not recognise is returned unchanged. */
+const NOMINAL = {
+  host: 'hosting', run: 'running', plan: 'planning', produce: 'production', manage: 'management',
+  choose: 'selection', select: 'selection', create: 'creation', promote: 'promotion', market: 'marketing',
+  stream: 'streaming', record: 'recording', build: 'building', organize: 'organizing', organise: 'organising',
+  moderate: 'moderation', engage: 'engagement', measure: 'measurement', price: 'pricing', scope: 'scoping',
+};
+const TIED = /\b(?:for|with|without|on|in|to|from|at|by|of|into|across|using)\b/i;
+function gerund(verb) {
+  const v = String(verb).toLowerCase();
+  if (NOMINAL[v]) return NOMINAL[v];
+  if (/[^aeiou]e$/.test(v) && !/(?:ee|ye|oe)$/.test(v)) return `${v.slice(0, -1)}ing`;
+  if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(v)) return `${v}${v.slice(-1)}ing`;
+  return `${v}ing`;
+}
+const singular = (w) => (/[^s]s$/i.test(w) && !/(?:ss|us|is)$/i.test(w) ? w.slice(0, -1) : w);
+function actionTopic(verb, object, head) {
+  const whole = String(object || '').trim();
+  const obj = whole.replace(/^(?:a|an|the|your|our|my)\s+/i, '');
+  const act = gerund(verb);
+  if (!obj) return head ? `${act} ${head}` : act;
+  // "a virtual event for 500 people" cannot be reordered without garbling it.
+  if (TIED.test(obj)) return head ? `${head} for ${act} ${whole}` : `${act} ${whole}`;
+  const words = obj.split(/\s+/);
+  words[words.length - 1] = singular(words[words.length - 1]);
+  return [words.join(' '), act, head].filter(Boolean).join(' ');
+}
+function nounTopic(phrase) {
+  let t = String(phrase || '').trim().replace(/\s+/g, ' ');
+  const original = t;
+  t = t.replace(/\s+(?:in\s+)?20\d\d$/i, '').replace(/\s+near me$/i, '');
+  t = t.replace(/^(?:the\s+)?(?:best|top(?:\s+\d+)?|leading|recommended)\s+/i, '');
+  t = t.replace(/^(?:what|which|who|why|when|where)\s+(?:is|are|does|do|makes?)\s+(?:an?\s+|the\s+)?/i, '');
+  t = t.replace(/^(?:common\s+)?(?:challenges|problems|issues|mistakes|pitfalls)\s+(?:in|with|of|for)\s+/i, '');
+  const how = t.match(/^how\s+(?:to|do\s+(?:i|you|we)|can\s+(?:i|you|we)|should\s+(?:i|you|we))\s+([a-z]+)\b\s*(.*)$/i);
+  if (how) t = actionTopic(how[1], how[2]);
+  const tool = t.match(/^(platforms?|tools?|software|apps?|services?|ways?)\s+to\s+([a-z]+)\b\s*(.*)$/i);
+  if (tool) t = actionTopic(tool[2], tool[3], tool[1]);
+  t = t.replace(/\s+templates?$/i, '').trim();
+  // One bare word ("platforms" from "best platforms") names nothing; keep the query.
+  const count = (x) => x.split(/\s+/).filter(Boolean).length;
+  return t && (count(t) >= 2 || count(original) < 2) ? t : original;
+}
+
 /** The subject a page's prose names: its query without the intent phrase or
  * audience clause, else its cluster label, else the query. Never a bucket key. */
 function topicFor({ query, needle, audience, clusterLabel }) {
@@ -422,7 +470,7 @@ function topicFor({ query, needle, audience, clusterLabel }) {
     const label = clusterLabel && !isBucketName(clusterLabel) ? String(clusterLabel) : '';
     topic = label && label.toLowerCase() !== subject.toLowerCase() ? label.toLowerCase() : query;
   }
-  topic = lower(topic);
+  topic = lower(nounTopic(topic));
   return topic;
 }
 
@@ -582,4 +630,4 @@ function build(ctx) {
   };
 }
 
-module.exports = { build, topicFor, modeFor, voiceFor, headingQuestion, splitOnNeedle, MODE_OF, VOICE_OF };
+module.exports = { build, topicFor, nounTopic, modeFor, voiceFor, headingQuestion, splitOnNeedle, MODE_OF, VOICE_OF };
