@@ -2,7 +2,7 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W45",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-02T14:33:24.430Z",
+  "generated_at": "2026-11-03T09:38:53.775Z",
   "state": "running",
   "published": 0,
   "indexed": 0,
@@ -13,9 +13,17 @@
   "wins": 0,
   "undone": 0,
   "merged": 0,
+  "held_by_cap": 0,
+  "redirected": [],
+  "cap": {
+    "max_live_pages": 22,
+    "live": 0,
+    "room": 22,
+    "why": "up from 20 to 22: Google impressions 40 in the last 28 days beat 24 in the 28 before"
+  },
   "notes": [
-    "BUILD published 0 of quota 10: 22 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued",
-    "pace: held at 10/day: indexing not read (no pages old enough to measure)"
+    "cap: up from 20 to 22: Google impressions 40 in the last 28 days beat 24 in the 28 before",
+    "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued"
   ],
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41462958099"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41612589919"
 }
