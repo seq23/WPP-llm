@@ -265,6 +265,81 @@ const SECTIONS = [
 const SECTION_BY_SUFFIX = new Map();
 for (const s of SECTIONS) for (const suf of s.suffixes || []) SECTION_BY_SUFFIX.set(suf, s.id);
 
+// What each page on a hub actually answers, keyed by the slug suffix that makes
+// it different from its siblings. The hub used to show a truncation of each
+// member's own meta description, but every member of a cluster shares that
+// sentence's shape and its topic terms, so a hub of eight pages printed one
+// sentence eight times and the Search Readiness q1 sample read the hub as
+// template filler. The suffix is the only thing unique to a member, so it is
+// what the note is built from.
+const NOTE_BY_SUFFIX = new Map(Object.entries({
+  '': 'the overview, if you are starting from the topic itself',
+  definition: 'what the term includes and excludes',
+  'strategy-framework': 'the framework, as a sequence you can follow',
+  framework: 'the framework, as a sequence you can follow',
+  strategy: 'how the strategy is set before any work starts',
+  comparison: 'the options side by side',
+  'how-to-choose': 'how to choose between the options',
+  'how-to-compare-vendors': 'what to compare vendors on',
+  'vs-in-house-team': 'hiring out against building the team',
+  'when-to-hire': 'when hiring out is the right call',
+  agency: 'what an agency does on this',
+  'n-agency': 'what an agency does on this',
+  consultant: 'what a consultant does on this',
+  companies: 'who does this work',
+  company: 'who does this work',
+  services: 'what the service covers',
+  cost: 'what it costs and what moves the number',
+  pricing: 'how it is priced',
+  'roi-factors': 'what decides the return',
+  'scope-of-work': 'what is in scope and what is not',
+  deliverables: 'what you actually receive',
+  timeline: 'how long it takes',
+  'how-to-avoid-scope-creep': 'how to stop the scope drifting',
+  'what-a-good-engagement-includes': 'what a good engagement includes',
+  process: 'how the process runs, stage by stage',
+  workflow: 'the workflow in practice',
+  'operating-model': 'the operating model behind it',
+  'implementation-guide': 'how to implement it',
+  measurement: 'what to measure, and against what',
+  'how-to-measure-success': 'how success is measured',
+  'how-to-build-an-internal-workflow': 'building the workflow in house',
+  operations: 'how it is run day to day',
+  checklist: 'the checklist to work through',
+  template: 'the template to start from',
+  'questions-to-ask': 'the questions to ask before committing',
+  examples: 'worked examples',
+  'case-pattern': 'the pattern a real case followed',
+  'how-to-brief-a-partner': 'how to brief a partner',
+  'what-to-prepare-before-kickoff': 'what to prepare before kickoff',
+  'best-practices': 'what good practice looks like',
+  'red-flags': 'the red flags to watch for',
+  'common-failure-points': 'where it commonly fails',
+  mistakes: 'the mistakes that cost most',
+  'why-it-fails': 'why it fails when it fails',
+  audit: 'the audit that catches it early',
+  2026: 'what to re-verify this year',
+}));
+
+/** "1 page", "12 pages": a cluster of one was reading "1 pages" on every hub. */
+const pageCount = (n) => `${n} page${n === 1 ? '' : 's'}`;
+
+/** Title-free words from a slug suffix: `sponsor-operations` -> `sponsor operations`. */
+const suffixWords = (suffix) => String(suffix).replace(/-/g, ' ').trim();
+
+/** The hub note for one member: what only this page covers, never the shared
+ *  topic sentence. Returns '' when the suffix carries no distinguishing sense,
+ *  because no note reads better than the same note on every row. */
+function hubNote(m) {
+  const suffix = String(m.suffix ?? '');
+  if (NOTE_BY_SUFFIX.has(suffix)) return NOTE_BY_SUFFIX.get(suffix);
+  const audience = suffix.match(/(?:^|-)for-(.+)$/);
+  if (audience) return `sized for ${suffixWords(audience[1])}`;
+  if (/(^|-)2026$/.test(suffix)) return 'what to re-verify this year';
+  if (suffix === '__other__' || !suffix) return '';
+  return suffixWords(suffix);
+}
+
 const ACRONYM = {
   ai: 'AI', rfp: 'RFP', roi: 'ROI', saas: 'SaaS', os: 'OS', b2b: 'B2B',
   faq: 'FAQ', kpi: 'KPI', ceo: 'CEO', vs: 'vs',
@@ -618,10 +693,16 @@ function hubHtml(c) {
     ],
   });
 
+  // One note may appear once on a hub. Two members that reduce to the same note
+  // print it once and the second goes without, so a hub can never repeat a
+  // sentence down the page again.
+  const usedNotes = new Set();
   const sectionsHtml = present.map((s) => {
     const items = c.members.filter((m) => m.section === s.id);
     const lis = items.map((m) => {
-      const summary = note(m.description);
+      let summary = hubNote(m);
+      if (summary && usedNotes.has(summary)) summary = '';
+      if (summary) usedNotes.add(summary);
       return `<li><a href="${m.route}">${esc(m.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
     }).join('');
     return `<section class="hub-section" id="${s.id}"><h2>${esc(s.heading)}</h2><p>${esc(s.blurb)}</p><ul class="hub-list">${lis}</ul></section>`;
@@ -634,7 +715,7 @@ function hubHtml(c) {
   const siblingClusterList = relatedClusters(c, 12);
   const crossPillar = siblingClusterList.some((o) => o.pillar !== c.pillar);
   const siblingClusters = siblingClusterList
-    .map((o) => `<li><a href="/topics/${o.slug}">${esc(sentenceCase(o.label))}</a> <span class="hub-note">${o.members.length} pages${o.pillar !== c.pillar ? `, in ${esc(PILLAR_LABEL[o.pillar] || o.pillar)}` : ''}</span></li>`)
+    .map((o) => `<li><a href="/topics/${o.slug}">${esc(sentenceCase(o.label))}</a> <span class="hub-note">${pageCount(o.members.length)}${o.pillar !== c.pillar ? `, in ${esc(PILLAR_LABEL[o.pillar] || o.pillar)}` : ''}</span></li>`)
     .join('');
 
   const surfaces = (c.surfaces || []);
@@ -707,7 +788,7 @@ function topicsIndexHtml() {
     const cs = byPillar.get(p);
     const count = cs.reduce((s, c) => s + c.members.length, 0);
     const pillarRoute = PILLAR_PAGE[p];
-    const lis = cs.map((c) => `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${c.members.length} pages</span></li>`).join('');
+    const lis = cs.map((c) => `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${pageCount(c.members.length)}</span></li>`).join('');
     return `<section class="hub-section" id="${esc(p)}"><h2>${esc(PILLAR_LABEL[p] || sentenceCase(deslug(p)))}</h2><p>${cs.length} topics, ${count} pages.${pillarRoute ? ` The <a href="${pillarRoute}">pillar overview</a> explains what this area covers.` : ''}</p><ul class="hub-list">${lis}</ul></section>`;
   }).join('\n');
 
@@ -788,8 +869,15 @@ function injectProgrammatic(page) {
   }
   html = html.slice(0, insertAt) + crumb.trimStart() + html.slice(insertAt);
 
+  // Siblings are members of the same cluster, so they share the topic terms in
+  // each other's meta description: printing a truncation of it put one sentence
+  // on every row of this block. The suffix is what makes a sibling different,
+  // and a note already used on this page is dropped rather than repeated.
+  const sibNotes = new Set();
   const sibs = page.siblings.map((s) => {
-    const summary = note(s.description, 120);
+    let summary = hubNote(s);
+    if (summary && sibNotes.has(summary)) summary = '';
+    if (summary) sibNotes.add(summary);
     return `<li><a href="${s.route}">${esc(s.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
   }).join('');
 
@@ -802,7 +890,11 @@ function injectProgrammatic(page) {
   const nbrs = (page.neighbours || []).filter((n) => n.opener && n.opener.route !== page.route);
   if (nbrs.length) {
     const pillarLabel = PILLAR_LABEL[c.pillar] || sentenceCase(deslug(c.pillar));
-    const lis = nbrs.map((n) => `<li><a href="/topics/${n.cluster.slug}">${esc(sentenceCase(n.cluster.label))}</a> <span class="hub-note">${n.cluster.members.length} pages, opening with <a href="${n.opener.route}">${esc(n.opener.heading)}</a></span></li>`).join('');
+    // The opener's own heading is formulaic ("What should you decide first
+    // about X?"), so using it as the anchor text on every row repeated one
+    // phrase down the block. The topic's label is what differs between rows,
+    // and it describes the target at least as well.
+    const lis = nbrs.map((n) => `<li><a href="/topics/${n.cluster.slug}">${esc(sentenceCase(n.cluster.label))}</a> <span class="hub-note">${pageCount(n.cluster.members.length)}, opening with <a href="${n.opener.route}">${esc(n.cluster.label)} overview</a></span></li>`).join('');
     const neighbours = `\n<!--link-arch:neighbours--><section class="related-links" data-related="neighbours"><h2>If this is not the decision in front of you</h2><p>Neighbouring topics in ${esc(pillarLabel)}, each with the page that opens it. ${pillarRoute ? `The <a href="${pillarRoute}">pillar overview</a> lists them all` : `<a href="/topics/">The topic directory</a> lists them all`}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:neighbours-->`;
     const closeNbr = html.lastIndexOf('</article>');
     html = html.slice(0, closeNbr) + neighbours + '\n' + html.slice(closeNbr);
@@ -845,7 +937,7 @@ function injectPillar(rel, pillarKey) {
   const total = cs.reduce((s, c) => s + c.members.length, 0);
   const lis = cs.map((c) => {
     const root = c.members.find((m) => m.suffix === '') || c.members[0];
-    return `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${c.members.length} pages, starting with &ldquo;${esc(root.heading)}&rdquo;</span></li>`;
+    return `<li><a href="/topics/${c.slug}">${esc(sentenceCase(c.label))}</a> <span class="hub-note">${pageCount(c.members.length)}, starting with &ldquo;${esc(root.heading)}&rdquo;</span></li>`;
   }).join('');
   const block = `\n<!--link-arch:pillar-topics--><section class="hub-section" id="topics"><h2>Topics in this pillar</h2><p>${cs.length} topics, ${total} pages. Each topic hub groups its pages by the decision they settle rather than listing them alphabetically. <a href="/topics/">All topics across the library</a>.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:pillar-topics-->`;
 
@@ -938,8 +1030,17 @@ function crumbRegion(trail, currentName, route) {
   return `<!--link-arch:breadcrumb-->${breadcrumbHtml(trail, currentName)}<script type="application/ld+json">${breadcrumbLd([...trail, { name: currentName, route }])}</script><!--/link-arch:breadcrumb-->`;
 }
 
-function linkItem(t, noteText) {
-  const summary = noteText === undefined ? note(t.description, 120) : noteText;
+// `used` carries the notes already printed in this block. A caller that passes
+// it gets each note at most once: the candidates here are usually members of one
+// cluster, whose meta descriptions share the topic's terms, so the fallback note
+// is the suffix (what only that page covers) and a repeat is dropped rather than
+// printed again.
+function linkItem(t, noteText, used) {
+  let summary = noteText === undefined ? hubNote(t) : noteText;
+  if (used && summary) {
+    if (used.has(summary)) summary = '';
+    else used.add(summary);
+  }
   return `<li><a href="${t.href || t.route}">${esc(t.heading)}</a>${summary ? ` <span class="hub-note">${esc(summary)}</span>` : ''}</li>`;
 }
 
@@ -1054,7 +1155,7 @@ function injectSitePage(m, all) {
     for (const o of relatedClusters(c, 12)) {
       ordered.push({
         page: { route: `/topics/${o.slug}`, heading: sentenceCase(o.label), description: '' },
-        why: `${o.members.length} pages on this topic`,
+        why: `${pageCount(o.members.length)} on this topic`,
       });
       const opener = openerOf(o);
       if (opener) ordered.push({ page: opener, why: `opens ${sentenceCase(o.label)}` });
@@ -1062,13 +1163,15 @@ function injectSitePage(m, all) {
     const picks = takeUntilTarget(ordered);
     if (picks.length) {
       const pillarRoute = PILLAR_PAGE[c.pillar];
-      const lis = picks.map((x) => linkItem(x.page, x.why)).join('');
-      block = `<!--link-arch:site-related--><section class="related-links" data-related="cluster"><h2>The rest of the ${esc(c.label)} coverage</h2><p>This page is ${esc(section ? section.kind : 'one format')} on ${esc(c.label)}. The <a href="/topics/${c.slug}">${esc(sentenceCase(c.label))} hub</a> holds all ${c.members.length} pages on it${pillarRoute ? `, inside the <a href="${pillarRoute}">${esc(PILLAR_LABEL[c.pillar] || c.pillar)}</a> pillar` : ''}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:site-related-->`;
+      const used = new Set();
+      const lis = picks.map((x) => linkItem(x.page, x.why, used)).join("");
+      block = `<!--link-arch:site-related--><section class="related-links" data-related="cluster"><h2>The rest of the ${esc(c.label)} coverage</h2><p>This page is ${esc(section ? section.kind : 'one format')} on ${esc(c.label)}. The <a href="/topics/${c.slug}">${esc(sentenceCase(c.label))} hub</a> holds all ${pageCount(c.members.length)} on it${pillarRoute ? `, inside the <a href="${pillarRoute}">${esc(PILLAR_LABEL[c.pillar] || c.pillar)}</a> pillar` : ''}.</p><ul class="hub-list">${lis}</ul></section><!--/link-arch:site-related-->`;
     }
   } else {
     const picks = takeUntilTarget(sectionCandidates(m, all));
     if (picks.length) {
-      const lis = picks.map((x) => linkItem(x.page, x.why)).join('');
+      const used = new Set();
+      const lis = picks.map((x) => linkItem(x.page, x.why, used)).join("");
       const inSection = picks.some((x) => !x.why);
       const where = section && inSection
         ? `Other pages in <a href="${section.index}">${esc(section.name)}</a>, and the pillar overviews that place them.`
