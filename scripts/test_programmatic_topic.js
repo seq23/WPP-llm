@@ -43,5 +43,12 @@ expect('topicFor keeps a real cluster label',
   topicFor({ query: 'livekit', needle: null, audience: null, clusterLabel: 'Virtual Event Platforms' }),
   'virtual event platforms');
 
+// A rendered page asks its FAQ and names outside help by that noun phrase too.
+const { renderProgrammaticPageBody } = require('./citation_intelligence/render_programmatic_page.js');
+const page = renderProgrammaticPageBody({ query: 'how to host a virtual event', pillar: 'experiences', cluster: 'unclustered', target_route: '/programmatic/host-virtual-events' });
+expect('FAQ owner question uses the noun phrase', /Who should own virtual event hosting\?/.test(page), true);
+expect('FAQ never asks about the raw how-to query', /(?:own|measure|often with|require for) how to host/.test(page), false);
+expect('outside-help paragraph uses the noun phrase', /Outside help earns its place on virtual event hosting /.test(page), true);
+
 if (failed) process.exit(1);
-console.log(`test:programmatic-topic OK: ${cases.length + 2} queries named by a noun phrase`);
+console.log(`test:programmatic-topic OK: ${cases.length + 2} queries named by a noun phrase; FAQ and outside help follow it`);
