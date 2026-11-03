@@ -29,6 +29,7 @@ const EMPTY_CELL = /<(td|th)\b[^>]*>\s*<\/\1>/gi;
 
 const offenders = [];
 let scanned = 0;
+const examined = [];
 (function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name.startsWith('.') && entry.name !== '.') continue;
@@ -41,6 +42,7 @@ let scanned = 0;
     }
     if (!entry.name.endsWith('.html')) continue;
     scanned += 1;
+    examined.push(rel);
     const html = fs.readFileSync(abs, 'utf8');
     const matches = html.match(EMPTY_CELL);
     if (matches) offenders.push({ path: rel, empty_cells: matches.length });
@@ -75,9 +77,11 @@ if (offenders.length) {
 // produces its input, the walk would find zero files, report no offenders and exit 0 -
 // a HARD_FAIL gate that is incapable of failing. A sibling repo shipped exactly that on
 // three release-blocking gates. The floor below makes "found nothing" loud instead of green.
-const MIN_PAGES_EXPECTED = 100;
-if (scanned < MIN_PAGES_EXPECTED) {
-  console.error(`NO EMPTY TABLE CELLS EXAMINED ONLY ${scanned} PAGES (floor ${MIN_PAGES_EXPECTED}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+// The floor is the site's own sitemap (scripts/lib/sitemap_floor.js): every listed page
+// must be among those examined, and an empty sitemap fails. No fixed page count (3 Nov 2026).
+const floor = require('../lib/sitemap_floor.js').sitemapFloorProblems(ROOT, examined, 'no empty table cells');
+if (floor.length) {
+  console.error(`NO EMPTY TABLE CELLS PAGE FLOOR FAILED: every page the sitemap lists must be built and examined (a gate that examines nothing cannot fail).\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
 console.log(`NO EMPTY TABLE CELLS: ${scanned} published pages contain no empty <td>/<th>`);

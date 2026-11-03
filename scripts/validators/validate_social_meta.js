@@ -11,15 +11,19 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { ROOT, loadConfig, ownedPages, pageKind } = require('../lib/site_head.js');
+const { ROOT, loadConfig, ownedPages, pageKind, frozenFiles } = require('../lib/site_head.js');
 const { transform, START, END } = require('../apply_site_head.js');
 
-const MIN_PAGES = 50;
 const errors = [];
 let cfg;
 try { cfg = loadConfig(); } catch (e) { console.error(`social meta FAILED: ${e.message}`); process.exit(1); }
 const pages = ownedPages(ROOT, cfg);
-if (pages.length < MIN_PAGES) { console.error(`social meta FAILED: ${pages.length} owned page(s); expected at least ${MIN_PAGES}. The page walk is not reaching the site.`); process.exit(1); }
+// The floor is the site's own sitemap (scripts/lib/sitemap_floor.js): every listed page is
+// either an owned page checked here or a frozen page (outside this build step by the freeze
+// ledger), no owned page at all fails, and an empty sitemap fails. No fixed page count (3 Nov 2026).
+if (!pages.length) { console.error('social meta FAILED: 0 owned pages. The page walk is not reaching the site.'); process.exit(1); }
+const floor = require('../lib/sitemap_floor.js').sitemapFloorProblems(ROOT, [...pages, ...frozenFiles(ROOT)], 'social meta');
+if (floor.length) { console.error(`social meta FAILED: the page walk is not reaching every sitemap page.\n- ${floor.slice(0, 20).join('\n- ')}`); process.exit(1); }
 const img = cfg.site_url.replace(/\/$/, '') + cfg.og_image.path;
 const count = (h, re) => (h.match(re) || []).length;
 const content = (h, attr, key) => ((h.match(new RegExp(`<meta\\s+${attr}="${key}"\\s+content="([^"]*)"`)) || [])[1] || '');

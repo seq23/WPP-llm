@@ -36,9 +36,11 @@ if(bad.length){ console.error('Canonical route validation failed:\n- '+bad.slice
 // exits 0 - a gate incapable of failing, reporting green over an empty set. That
 // is the defect class validate:workflow-liveness caught in itself on 2026-09-04.
 // The floor makes "found nothing" loud instead of green.
-const MIN_PAGES_EXPECTED = 100;
-if (pages.length < MIN_PAGES_EXPECTED) {
-  console.error(`CANONICAL ROUTES EXAMINED ONLY ${pages.length} PAGES (floor ${MIN_PAGES_EXPECTED}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+// The floor is the site's own sitemap (scripts/lib/sitemap_floor.js): every listed page
+// must be among those examined, and an empty sitemap fails. No fixed page count (3 Nov 2026).
+const floor = require('./lib/sitemap_floor.js').sitemapFloorProblems(ROOT, pages, 'canonical routes');
+if (floor.length) {
+  console.error(`CANONICAL ROUTES PAGE FLOOR FAILED: every page the sitemap lists must be built and examined (a gate that examines nothing cannot fail).\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
 console.log(`Canonical routes OK (${pages.length} pages; clean URLs, no clean-to-html loop rules)`);

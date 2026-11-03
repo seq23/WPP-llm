@@ -22,21 +22,20 @@
  * noindex pages and admin views are not public content and are excluded, exactly
  * as scripts/apply_organization_entity.mjs excludes them.
  *
- * RULE 0: the walk must check at least every URL sitemap.xml submits (each is
- * an indexable page), and never fewer than MIN_PAGES. Short of that the walk
+ * RULE 0: the walk must check every page sitemap.xml lists, as an indexable page
+ * (scripts/lib/sitemap_floor.js), and an empty sitemap fails. Short of that the walk
  * stopped reaching the site, and that exits 1 rather than reporting success.
  * The floor used to be a fixed 2,500; on 26 Oct 2026 424 duplicate variants
  * were retired by 301 (data/seo/duplicate_family_consolidation.json) and the
- * site is 2,298 sitemap pages, so the floor now tracks the sitemap exactly.
+ * site is 2,298 sitemap pages, so the floor now tracks the sitemap exactly. The
+ * extra fixed 2,000 minimum was removed on 3 Nov 2026 (owner ruling: no
+ * "more pages = healthy" checks); each listed page must now be checked by name.
  */
 const fs = require('fs');
 const path = require('path');
 const { ROOT, walk } = require('../lib/site_head.js');
 
-const MIN_PAGES = 2000;
-const sitemapFile = path.join(ROOT, 'sitemap.xml');
-const SITEMAP_URLS = fs.existsSync(sitemapFile) ? (fs.readFileSync(sitemapFile, 'utf8').match(/<loc>/g) || []).length : 0;
-const FLOOR = Math.max(MIN_PAGES, SITEMAP_URLS);
+const checkedRels = [];
 const ORG_ID = 'https://www.westpeekproductions.com/#organization';
 const ORG_NAME = 'West Peek Productions';
 const ORG_TYPE = /^(Organization|Corporation|NewsMediaOrganization|ProfessionalService|LocalBusiness)$/;
@@ -69,6 +68,7 @@ for (const rel of walk(ROOT, ROOT, [])) {
   if (!/<\/head>/i.test(html)) continue;
   if (/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(html) || /^admin\//.test(rel) || rel.includes('/admin/')) continue;
   checked++;
+  checkedRels.push(rel);
   const miss = REQUIRED_META.filter(([re]) => !re.test(html)).map(([, name]) => name);
   if (miss.length) problems.push(`${rel}: missing ${miss.join(', ')}`);
 
@@ -96,8 +96,9 @@ for (const rel of walk(ROOT, ROOT, [])) {
   }
 }
 
-if (checked < FLOOR) {
-  console.error(`published head parity FAILED: only ${checked} indexable page(s) checked (floor ${FLOOR}: max of ${MIN_PAGES} and the ${SITEMAP_URLS} sitemap URLs). The walk has stopped reaching the site; a gate that reads nothing cannot fail.`);
+const floor = require('../lib/sitemap_floor.js').sitemapFloorProblems(ROOT, checkedRels, 'published head parity');
+if (floor.length) {
+  console.error(`published head parity FAILED: ${checked} indexable page(s) checked, but not every sitemap page. The walk has stopped reaching the site; a gate that reads nothing cannot fail.\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
 if (!orgsChecked) {

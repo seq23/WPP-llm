@@ -10,19 +10,25 @@
  * already filters redirect sources, and this gate keeps that a checked fact
  * rather than a property of one script.
  *
- * RULE 0: a sitemap with fewer than MIN_URLS entries, or a _redirects with no
- * 301 rules, means nothing was examined, and fails.
+ * RULE 0: an empty sitemap, a listed page that is not built (scripts/lib/sitemap_floor.js),
+ * or a _redirects with no 301 rules means nothing real was examined, and fails.
+ * No fixed URL count (owner ruling 3 Nov 2026).
  */
 const fs = require('fs');
 const path = require('path');
 const { ROOT, parseRedirects, resolvePath } = require('../lib/pages_routing.js');
 
-const MIN_URLS = 100;
 const sitemap = path.join(ROOT, 'sitemap.xml');
 if (!fs.existsSync(sitemap)) { console.error('sitemap.xml is missing'); process.exit(1); }
 const urls = [...fs.readFileSync(sitemap, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
 const rules = parseRedirects(ROOT).filter((r) => [301, 302, 307, 308].includes(r.status));
-if (urls.length < MIN_URLS || !rules.length) {
+const { sitemapPaths, candidates } = require('../lib/sitemap_floor.js');
+const unbuilt = sitemapPaths(ROOT).filter((u) => !candidates(u).some((f) => fs.existsSync(path.join(ROOT, f))));
+if (unbuilt.length) {
+  console.error(`sitemap-no-redirect-sources: ${unbuilt.length} listed page(s) are not built: ${unbuilt.slice(0, 20).join(', ')}`);
+  process.exit(1);
+}
+if (!urls.length || !rules.length) {
   console.error(`sitemap-no-redirect-sources: examined ${urls.length} sitemap URL(s) and ${rules.length} redirect rule(s); refusing to pass on an empty scan.`);
   process.exit(1);
 }
