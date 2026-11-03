@@ -1,4 +1,4 @@
-import redirects from '../data/redirects/consolidation_map.json' with { type: 'json' };
+import redirects from '../data/redirects/consolidation_map.json';
 
 // Generated from the prune ledger and legacy rules by
 // scripts/update_redirects_clean_to_html.js. Targets are flattened at build time.
