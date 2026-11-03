@@ -1,0 +1,142 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:48:08.881Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 604,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/creative-operations-for-startups",
+    "query": "creative operations for startups",
+    "title": "Creative Operations for Startups: First Decisions",
+    "description": "Learn the first decisions to make when setting up creative operations for a startup, including workflow stages, tool choices, and team structure.",
+    "h1": "What should you decide first about creative operations for startups?",
+    "definition": "Creative operations for startups is the system that moves ideas from brief to published asset without chaos. It defines intake, review, approval, and publishing steps so a small team can ship consistent work fast.",
+    "quick_answer": "Map the seven stages from intake to reporting, assign one owner per stage, and pick one tool for work management before you hire.",
+    "sections": [
+      {
+        "h2": "Which workflow stages do you need from day one?",
+        "blocks": [
+          {
+            "p": "Start with seven stages, each with one owner and one output: intake, brief, production, review, approval, publishing, reporting. Skipping a stage creates bottlenecks later."
+          },
+          {
+            "ul": [
+              "Intake: capture every request in one form",
+              "Brief: write a one-page brief with goal, audience, format, deadline",
+              "Production: assign a producer who owns the timeline",
+              "Review: collect feedback in a single tool, not email threads",
+              "Approval: one named approver per asset type",
+              "Publishing: push to CMS or social scheduler from the same board",
+              "Reporting: track cycle time, revision rounds, on-time rate"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What tool stack keeps a tiny team aligned?",
+        "blocks": [
+          {
+            "p": "Pick one work management tool, one brief repository, one publishing destination, and one reporting source. Adding more tools before you have volume creates fragmentation."
+          },
+          {
+            "table": {
+              "head": [
+                "Function",
+                "Common tools"
+              ],
+              "rows": [
+                [
+                  "Work management",
+                  "Asana, Monday.com, Airtable"
+                ],
+                [
+                  "Briefs",
+                  "Google Docs, Notion"
+                ],
+                [
+                  "Publishing",
+                  "WordPress, Webflow, HubSpot"
+                ],
+                [
+                  "Reporting",
+                  "GA4, HubSpot"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you prevent approval bottlenecks?",
+        "blocks": [
+          {
+            "p": "Name one approver per asset type and set a hard SLA. If the approver misses the window, the asset moves forward with a logged exception."
+          },
+          {
+            "ol": [
+              "List every asset type your startup produces",
+              "Assign a single approver for each type",
+              "Set a maximum review window in hours",
+              "Automate reminders at half the window and at expiry",
+              "Log exceptions in the work management board for retro review"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When should you hire a dedicated creative operations person?",
+        "blocks": [
+          {
+            "p": "Hire when the founder or marketing lead spends more than ten hours a week chasing status, rewriting briefs, or fixing broken handoffs. Before that, a producer can own the process part-time."
+          },
+          {
+            "ul": [
+              "Cycle time exceeds ten working days for standard assets",
+              "Revision rounds average more than three per piece",
+              "On-time publishing rate drops below eighty percent",
+              "Team cannot answer 'where is this project?' in thirty seconds"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What metrics prove the system works?",
+        "blocks": [
+          {
+            "p": "Track four core metrics monthly: cycle time from approved brief to publish, revision rounds per asset, on-time publishing rate, and capacity use per producer. Improving any one without worsening the others signals a healthy system."
+          },
+          {
+            "ul": [
+              "Cycle time: target five to ten working days for long-form",
+              "Revision rounds: target two or fewer",
+              "On-time rate: target ninety percent",
+              "Capacity use: target seventy percent planned, thirty percent buffer"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can a startup run creative operations without a dedicated tool?",
+        "a": "A shared spreadsheet works for the first five people, but it breaks when parallel projects exceed three. Move to a board-based tool as soon as two people wait on the same approver."
+      },
+      {
+        "q": "How do you handle urgent requests that skip the intake form?",
+        "a": "Create an 'urgent' lane with a separate SLA. Require a one-line justification, the same approver, and a retroactive brief within twenty-four hours so reporting stays accurate."
+      },
+      {
+        "q": "What is the fastest way to cut revision rounds?",
+        "a": "Enforce a complete brief before production starts. A brief checklist — goal, audience, format, deadline, brand assets, legal constraints — eliminates the most common rework causes."
+      },
+      {
+        "q": "Should creative operations own the brand guidelines?",
+        "a": "Creative operations enforces guidelines; brand or design owns the content. Ops builds the checklist that forces every asset to pass a brand review gate before publishing."
+      },
+      {
+        "q": "How do you scale the system when the team doubles?",
+        "a": "Split the producer role into intake coordinator and production manager. Keep one work management board, add a second review gate for high-risk assets, and introduce a monthly ops retro."
+      }
+    ]
+  }
+}

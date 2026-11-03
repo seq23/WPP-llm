@@ -1,0 +1,157 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-03T00:04:53.617Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 669,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/event-run-of-show-workflow",
+    "query": "event run of show workflow",
+    "title": "Event Run of Show Workflow Guide",
+    "description": "A step‑by‑step breakdown of the run of show workflow, owners, rehearsals, backup plans, tools and replay timing for virtual and hybrid events.",
+    "h1": "What does the event run of show workflow look like?",
+    "definition": "A run of show is the master timeline that maps every cue, speaker, graphic and technical switch from pre‑show to post‑event follow‑up, assigning one owner to each workstream so nothing falls through the cracks.",
+    "quick_answer": "Assign one owner per workstream, run a full rehearsal on the live platform two to five days before go‑live, keep a backup stream ready, and ship the recording within 24 to 48 hours.",
+    "sections": [
+      {
+        "h2": "What is a run of show and why does it matter?",
+        "blocks": [
+          {
+            "p": "The run of show is the single source of truth that aligns producers, speakers, moderators and platform operators on every cue, transition and contingency. Without it, cues are missed, speakers talk over each other and the backup plan is never tested."
+          },
+          {
+            "ul": [
+              "Defines every segment from countdown to closing remarks",
+              "Links each segment to a named owner and a time code",
+              "Includes speaker briefs, slide cues, lower‑third graphics and Q&amp;A windows",
+              "Serves as the checklist for the technical rehearsal and the live show caller"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Who owns each workstream in the run of show?",
+        "blocks": [
+          {
+            "table": {
+              "head": [
+                "Workstream",
+                "Owner"
+              ],
+              "rows": [
+                [
+                  "Registration &amp; Attendee Management",
+                  "Event Coordinator"
+                ],
+                [
+                  "Speaker Management &amp; Briefing",
+                  "Speaker Manager"
+                ],
+                [
+                  "Platform Operations",
+                  "Platform Operator"
+                ],
+                [
+                  "Live Production &amp; Show Calling",
+                  "Show Caller"
+                ],
+                [
+                  "Q&amp;A Moderation &amp; Chat",
+                  "Moderator"
+                ],
+                [
+                  "Backup Stream &amp; Encoding",
+                  "Backup Engineer"
+                ],
+                [
+                  "Recording, Editing &amp; Clips",
+                  "Post‑Production Lead"
+                ],
+                [
+                  "Follow‑Up &amp; Reporting",
+                  "Marketing Operations"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What does a rehearsal schedule look like?",
+        "blocks": [
+          {
+            "p": "A realistic rehearsal plan fits into the three to four week webinar lead time or the six to eight week summit lead time and culminates in a full platform run‑through."
+          },
+          {
+            "ol": [
+              "Kick‑off call with all owners to review the run of show document",
+              "Individual speaker tech checks on the chosen platform",
+              "Dry run of transitions, graphics and lower‑thirds with the show caller",
+              "Full dress rehearsal on the live platform two to five days before the event",
+              "Final technical check 60 minutes before go‑live to verify backup stream and audio levels"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you handle backup streams and technical failures?",
+        "blocks": [
+          {
+            "p": "Redundancy is built into the run of show so a single point of failure cannot stop the broadcast."
+          },
+          {
+            "ul": [
+              "Run a parallel encoder feeding a secondary streaming destination",
+              "Assign a backup engineer to monitor the secondary feed throughout the event",
+              "Pre‑record critical speaker segments as a fallback if a live connection drops",
+              "Document the switch‑over procedure in the run of show with time codes and owner initials"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tools keep the run of show on track?",
+        "blocks": [
+          {
+            "p": "The workflow relies on a small, consistent toolset that the whole team already knows."
+          },
+          {
+            "ul": [
+              "Asana or Monday.com for the master calendar and task assignments",
+              "Google Docs or Notion for speaker briefs and cue sheets",
+              "Zoom Events, Cvent or Bizzabo for the event platform and registration",
+              "Eventbrite or Cvent for ticketing and attendee capture",
+              "HubSpot or Salesforce for post‑event follow‑up and reporting"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When do you send the replay and follow‑up?",
+        "blocks": [
+          {
+            "p": "Send the edited recording and highlight clips within 24 to 48 hours while the content is still fresh, then trigger the nurture sequence in HubSpot or Salesforce based on attendance and engagement tags."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many people are needed to run a simple webinar versus a summit?",
+        "a": "One producer can manage a simple webinar, but a summit or hybrid event requires a show caller, speaker manager, moderator and platform operator to cover the eight workstreams without overload."
+      },
+      {
+        "q": "What is the typical lead time for a hybrid conference?",
+        "a": "Plan a hybrid conference six to eight weeks out; lock the venue AV and the streaming platform before the agenda is final so the run of show can be built on fixed technical parameters."
+      },
+      {
+        "q": "Can the run of show be reused for a recurring series?",
+        "a": "Yes, a repeat format can move faster once the template, speaker brief structure and tool integrations are established, but each edition still needs a fresh rehearsal and updated cue sheet."
+      },
+      {
+        "q": "Does West Peek Productions provide the run of show template?",
+        "a": "West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations, including a custom run of show, speaker briefs, rehearsal management, backup stream and edited deliverables."
+      }
+    ]
+  }
+}

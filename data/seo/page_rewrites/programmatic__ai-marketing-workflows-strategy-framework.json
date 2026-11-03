@@ -1,0 +1,203 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:17:32.720Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 963,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/ai-marketing-workflows-strategy-framework",
+    "query": "AI marketing workflows strategy framework",
+    "title": "AI Marketing Workflows Strategy Framework Guide",
+    "description": "A practical framework for building AI marketing workflows with human approval gates, tool choices, owner assignments, and engagement models.",
+    "h1": "How should an AI marketing workflows strategy framework be run?",
+    "definition": "An AI marketing workflows strategy framework is a structured system that maps marketing tasks to AI tools, assigns human owners to each step, and embeds approval gates so every AI output is reviewed before use.",
+    "quick_answer": "Map seven workflow steps, assign a named owner to each, and enforce a human-in-the-loop rule so no AI draft publishes without approval.",
+    "sections": [
+      {
+        "h2": "What are the core steps in an AI marketing workflow framework?",
+        "blocks": [
+          {
+            "p": "The framework runs on seven steps, each with an owner, an output and an approval gate. Begin with intake to capture the request and success criteria. Move to brief where the owner writes the prompt context and constraints. Production runs the AI tool to generate the draft. Review lets the owner check quality and brand fit. Approval is a named person signing off. Publishing pushes the approved asset live. Reporting captures performance against the original criteria."
+          },
+          {
+            "ol": [
+              "Intake: request captured with goal and audience",
+              "Brief: prompt context, constraints and brand rules written",
+              "Production: AI tool generates draft content or assets",
+              "Review: owner checks quality, accuracy and brand alignment",
+              "Approval: named approver signs off before any publish",
+              "Publishing: approved asset goes live in the target channel",
+              "Reporting: metrics collected and fed back to intake"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tools belong in each stage of the workflow?",
+        "blocks": [
+          {
+            "p": "Match tool categories to the seven steps so hand-offs are automated and auditable. Use a work management platform for intake, brief, review and approval tracking. Use generative AI for production. Use image generators for visual variants. Use automation middleware for hand-offs between tools. Use analytics for reporting."
+          },
+          {
+            "ul": [
+              "Work management: Asana, Monday.com or ClickUp for intake through approval",
+              "Generative text: ChatGPT or Claude for research and drafts",
+              "Image variants: Adobe Firefly or Canva for visual production",
+              "Automation hand-offs: Zapier or Make to move assets between stages",
+              "Reporting: HubSpot or GA4 for performance data"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you enforce human approval gates?",
+        "blocks": [
+          {
+            "p": "The human-in-the-loop rule states AI output is a draft until a named person approves it. Build the gate into the work management tool: the production task cannot move to publishing until the approval field shows a specific user and timestamp. Require the approver to leave a comment confirming brand, legal and accuracy checks. Log every approval for audit."
+          },
+          {
+            "ul": [
+              "Add approval field to the production task in the work management tool",
+              "Require named approver and timestamp before status changes to approved",
+              "Mandate comment covering brand, legal and accuracy verification",
+              "Export approval log monthly for compliance review"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What roles and owners does the framework need?",
+        "blocks": [
+          {
+            "p": "Each of the seven steps needs a single owner. In small teams one producer may cover multiple steps, but the approval gate must always be a different person than the producer. Define the owner for intake, brief, production, review, approval, publishing and reporting in a RACI chart shared with the team."
+          },
+          {
+            "table": {
+              "head": [
+                "Step",
+                "Typical Owner",
+                "Output"
+              ],
+              "rows": [
+                [
+                  "Intake",
+                  "Marketing operations lead",
+                  "Scoped request with success metrics"
+                ],
+                [
+                  "Brief",
+                  "Content strategist",
+                  "Prompt pack with brand rules"
+                ],
+                [
+                  "Production",
+                  "AI operator or writer",
+                  "Draft asset or copy"
+                ],
+                [
+                  "Review",
+                  "Subject matter expert",
+                  "Annotated feedback"
+                ],
+                [
+                  "Approval",
+                  "Brand or legal lead",
+                  "Signed approval record"
+                ],
+                [
+                  "Publishing",
+                  "Channel manager",
+                  "Live URL or file"
+                ],
+                [
+                  "Reporting",
+                  "Analyst",
+                  "Performance dashboard"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Consultant versus agency: which engagement model fits?",
+        "blocks": [
+          {
+            "p": "Choose based on whether you need a plan or working automations. A consultant delivers an assessment, a prioritised use-case list, a tool choice and a roadmap. An agency delivers working automations, integrations and documentation, often with a support retainer. Pricing differs: consultants charge a day rate or fixed project; agencies charge a fixed build fee plus a monthly retainer."
+          },
+          {
+            "table": {
+              "head": [
+                "Factor",
+                "Consultant",
+                "Agency"
+              ],
+              "rows": [
+                [
+                  "Output",
+                  "Assessment, use-case list, tool choice, roadmap",
+                  "Working automations, integrations, documentation"
+                ],
+                [
+                  "Ongoing support",
+                  "Optional advisory retainer",
+                  "Monthly support retainer typical"
+                ],
+                [
+                  "Pricing model",
+                  "Day rate or fixed project",
+                  "Fixed build fee plus monthly retainer"
+                ],
+                [
+                  "Best for",
+                  "Teams building internal capability",
+                  "Teams wanting hands-off implementation"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you measure and iterate the framework?",
+        "blocks": [
+          {
+            "p": "Run a first plan for 90 days: long enough to see a trend, short enough to change course. Track cycle time from intake to publish, revision rounds per asset, on-time rate and capacity use. Review the six framework components monthly: tool stack, prompt library, approval gates, owner assignments, reporting dashboards and training plan. Adjust one component per cycle to avoid disruption."
+          },
+          {
+            "ul": [
+              "Cycle time: intake to publish in working days",
+              "Revision rounds: count per asset type",
+              "On-time rate: percentage meeting publish deadline",
+              "Capacity use: producer hours versus available hours",
+              "Monthly review of tool stack, prompts, gates, owners, dashboards, training",
+              "Change one component per 90-day cycle"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the minimum viable AI marketing workflow?",
+        "a": "A minimum viable workflow needs three steps: intake with a scoped request, production using one approved AI tool, and approval by a named person before publish. Skip the brief, review and reporting steps only for low-risk, repeatable assets like social captions."
+      },
+      {
+        "q": "How do you prevent prompt drift across the team?",
+        "a": "Store every approved prompt in a shared prompt library inside the work management tool. Version each prompt and require the brief owner to link the library version used. Audit the library quarterly and retire prompts that no longer match brand guidelines."
+      },
+      {
+        "q": "When should you hire an agency instead of a consultant?",
+        "a": "Hire an agency when you need working automations, integrations and documentation delivered and maintained. Hire a consultant when you need an assessment, prioritised use cases, tool selection and a roadmap your team will build and run."
+      },
+      {
+        "q": "What metrics prove the framework is working?",
+        "a": "Track cycle time from intake to publish, revision rounds per asset, on-time publish rate and producer capacity utilisation. Improving cycle time and falling revision rounds show the framework is reducing friction. Stable on-time rate above 90 percent shows reliability."
+      },
+      {
+        "q": "How does West Peek Productions support this framework?",
+        "a": "West Peek Productions sets up human-in-the-loop AI workflows for marketing, content and event teams, scoped per engagement; send the scope for a quote."
+      }
+    ]
+  }
+}

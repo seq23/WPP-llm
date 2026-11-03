@@ -1,0 +1,206 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:57:52.118Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 776,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/event-run-of-show-for-marketing-teams",
+    "query": "event run of show for marketing teams",
+    "title": "Event Run of Show for Marketing Teams",
+    "description": "A practical checklist for marketing teams to build, rehearse and deliver a reliable run of show for webinars, summits and hybrid events.",
+    "h1": "Event run of show for marketing teams: what to decide first and how to execute",
+    "definition": "An event run of show is a minute-by-minute production plan that assigns every cue, speaker, graphic and backup path to a named owner so the live broadcast runs without gaps or confusion.",
+    "quick_answer": "Lock the platform and broadcast method first, then assign one owner per workstream and schedule a full rehearsal on the real platform two to five days before going live.",
+    "sections": [
+      {
+        "h2": "Which platform and broadcast method should we choose?",
+        "blocks": [
+          {
+            "p": "Pick the platform before the agenda; the tool dictates what cues are possible and how backups work. Ten platforms compared below, from self-serve streaming studios to enterprise event suites."
+          },
+          {
+            "table": {
+              "head": [
+                "Category",
+                "Typical Use",
+                "Cost Model"
+              ],
+              "rows": [
+                [
+                  "Self-serve streaming studio",
+                  "Webinars, town halls",
+                  "Self-serve monthly plans"
+                ],
+                [
+                  "Webinar platform",
+                  "Lead-gen webinars, training",
+                  "Per-host licences sized by attendee capacity"
+                ],
+                [
+                  "Enterprise event suite",
+                  "Summits, hybrid conferences",
+                  "Annual contracts quoted by sales"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What workstreams and owners do we need?",
+        "blocks": [
+          {
+            "p": "Eight workstreams, each with one owner, cover the full production lifecycle from intake to reporting."
+          },
+          {
+            "ul": [
+              "Intake and brief: marketing lead owns the brief document in Google Docs or Notion",
+              "Creative and assets: designer builds branded slide template and lower thirds in Figma",
+              "Speaker management: speaker manager collects decks, runs tech checks and sends speaker brief",
+              "Platform configuration: platform operator sets up Zoom Webinars, ON24, StreamYard or chosen tool",
+              "Run of show authoring: producer writes the minute-by-minute cue sheet in Airtable or Asana",
+              "Rehearsal and backup: producer runs one full rehearsal on the real platform two to five days before live",
+              "Live production: show caller executes cues, moderator handles Q&amp;A, backup stream runs in parallel",
+              "Post-event: editor delivers edited recording and clips; analyst pushes data to HubSpot or GA4"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do we structure the run of show document?",
+        "blocks": [
+          {
+            "p": "Use a table with columns for timecode, segment, speaker, graphic cue, audio cue, platform action and owner so every row is actionable during the live show."
+          },
+          {
+            "table": {
+              "head": [
+                "Column",
+                "Purpose"
+              ],
+              "rows": [
+                [
+                  "Timecode",
+                  "Exact minute and second from stream start"
+                ],
+                [
+                  "Segment",
+                  "Name of block (intro, keynote, panel, break)"
+                ],
+                [
+                  "Speaker",
+                  "Name and backup contact"
+                ],
+                [
+                  "Graphic cue",
+                  "Lower third, full-screen slide or video file name"
+                ],
+                [
+                  "Audio cue",
+                  "Music bed, sting or mic switch instruction"
+                ],
+                [
+                  "Platform action",
+                  "Spotlight, screen share, poll launch, breakout open"
+                ],
+                [
+                  "Owner",
+                  "Producer, platform operator or moderator"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What rehearsal cadence prevents surprises?",
+        "blocks": [
+          {
+            "p": "Schedule three checkpoints so issues surface early and the live day stays calm."
+          },
+          {
+            "ol": [
+              "Technical check 60 minutes before going live: verify camera, mic, screen share and backup stream",
+              "Speaker walk-through 24 hours before: each presenter runs their segment on the real platform",
+              "Full dress rehearsal two to five days before: execute the complete run of show with all cues and owners"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do we handle accessibility and backup paths?",
+        "blocks": [
+          {
+            "p": "Build redundancy into every critical path so a single failure never stops the broadcast."
+          },
+          {
+            "ul": [
+              "Captions: enable live captioning in the platform or route audio to a third-party captioner",
+              "Sign language: pin an interpreter window or use a dedicated layout in Zoom Events or ON24",
+              "Backup stream: run a simultaneous encode to a second CDN or record locally via OBS",
+              "Failover host: assign a co-host with full permissions who can take over if the primary host drops",
+              "Asset mirror: store all slides, videos and lower thirds in a shared drive accessible to the backup operator"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What staffing model fits our event size?",
+        "blocks": [
+          {
+            "p": "Match crew depth to complexity; one producer can run a simple webinar while summits and hybrid events need a show caller, speaker manager, moderator and platform operator."
+          },
+          {
+            "table": {
+              "head": [
+                "Event Type",
+                "Typical Crew",
+                "Lead Time"
+              ],
+              "rows": [
+                [
+                  "Webinar",
+                  "One producer",
+                  "Three to four weeks"
+                ],
+                [
+                  "Summit or online conference",
+                  "Show caller, speaker manager, moderator, platform operator",
+                  "Six to eight weeks"
+                ],
+                [
+                  "Hybrid conference",
+                  "All summit roles plus venue AV liaison and in-room camera operator",
+                  "Six to eight weeks"
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When should we send the replay to attendees?",
+        "a": "Send the replay within 24 to 48 hours while attendees still remember the event; include timestamped chapters and a one-page takeaway PDF."
+      },
+      {
+        "q": "How long does a typical webinar production take from brief to live?",
+        "a": "Allow two to three weeks from approved brief to live date; a repeat format can move faster because templates and run of show structures already exist."
+      },
+      {
+        "q": "What deliverables should a production partner provide?",
+        "a": "Run of show, speaker brief and rehearsal, branded slide template and lower thirds, live producer, Q&amp;A moderation, backup stream, edited recording and clips."
+      },
+      {
+        "q": "Can we produce on the platform we already use?",
+        "a": "Yes, production works on Zoom Webinars, Microsoft Teams, ON24, StreamYard or any platform your team already licenses; the crew adapts cues to the tool."
+      },
+      {
+        "q": "What is the cost range for a moderated webinar production?",
+        "a": "Moderated webinars typically cost $2,500 to $7,500 per production based on published ranges from West Peek Productions; summits and hybrid events run $10,000 to $50,000 and above."
+      }
+    ]
+  }
+}
