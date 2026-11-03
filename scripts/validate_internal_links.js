@@ -37,7 +37,8 @@
  * ─── RULE 0 ─────────────────────────────────────────────────────────────────
  *
  * Three floors, because a corpus can be empty in three ways. Fewer than
- * MIN_PAGES published pages means the generators have not run yet. Zero link
+ * the sitemap's pages examined (scripts/lib/sitemap_floor.js) means the
+ * generators have not run yet. Zero link
  * attributes means the scan regex matched nothing. Fewer than MIN_SRC src
  * attributes means the newly-added src coverage examined nothing - which is how
  * hole (1) would silently come back. Each exits non-zero rather than passing
@@ -51,7 +52,6 @@ const { resolvePath } = require('./lib/pages_routing.js');
 const ROOT = path.resolve(__dirname, '..');
 const SKIP = new Set(['.pages-output', 'node_modules', '.git', '.build', 'logs', 'artifacts']);
 
-const MIN_PAGES = 100;
 const MIN_SRC = 50;
 // Image URLs carried in og:image / twitter:image and in JSON-LD "logo"/"image".
 const MIN_IMAGE_URLS = 20;
@@ -159,8 +159,9 @@ for (const file of files) {
 
 // RULE 0 - an empty corpus is a failure, not a pass. Checked before the verdict
 // so that "0 offenders over 0 pages" can never be printed as success.
-if (files.length < MIN_PAGES) {
-  console.error(`INTERNAL LINK VALIDATION EXAMINED ONLY ${files.length} PUBLISHED PAGES (floor ${MIN_PAGES}). A gate that examines nothing cannot fail, so this is reported as a failure rather than a pass. Check that the published HTML surface is present in this checkout and that this gate runs AFTER whatever produces it.`);
+const floor = require('./lib/sitemap_floor.js').sitemapFloorProblems(ROOT, files, 'internal link validation');
+if (floor.length) {
+  console.error(`INTERNAL LINK VALIDATION PAGE FLOOR FAILED: every page the sitemap lists must be built and examined (a gate that examines nothing cannot fail).\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
 if (attrs === 0) {

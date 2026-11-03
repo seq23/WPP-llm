@@ -24,8 +24,9 @@
  * build it changes nothing on them; a thawed route (EXACT_ROUTE_THAW_VALIDATE_
  * REFREEZE) picks it up. The central search-readiness audit (boss-os, b1/b2) checks the result.
  *
- * RULE 0: fewer than MIN_PAGES programmatic pages parsed means the parser has
- * stopped matching the template, and that exits non-zero.
+ * RULE 0: every /programmatic/ page the sitemap lists must be built and at least
+ * one must parse as a guide (scripts/lib/sitemap_floor.js), and an empty sitemap fails; a parser that has
+ * stopped matching the template exits non-zero. No fixed page count (3 Nov 2026).
  */
 const fs = require('fs');
 const path = require('path');
@@ -34,7 +35,6 @@ const { TITLE_MIN, fitTitle, programmaticDescriptionFromHero, programmaticDescri
 const ROOT = path.resolve(__dirname, '..');
 const DIR = path.join(ROOT, 'programmatic');
 const SUFFIX = ' | VirtualAgency OS';
-const MIN_PAGES = 1000;
 
 const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const unesc = (s) => String(s || '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
@@ -65,8 +65,17 @@ function read(file) {
 const pages = fs.readdirSync(DIR).filter((f) => f.endsWith('.html')).sort().map(read);
 const guides = pages.filter((p) => p.query && p.hero && parseHero(p.hero) && p.title && p.desc !== null);
 
-if (guides.length < MIN_PAGES) {
-  console.error(`apply_page_meta_policy: parsed only ${guides.length} programmatic guides (floor ${MIN_PAGES}). The hero or about markup has changed shape, so this step would silently do nothing.`);
+// Floor (3 Nov 2026, no fixed page count): every /programmatic/ page the sitemap lists is
+// built, and at least one of them parses as a guide. Hand-built and rewritten pages use
+// other templates and are not this step's; a template change breaks every guide at
+// once, so zero parsed listed guides is the drift signal.
+const { sitemapPaths, candidates, sitemapFloorProblems } = require('./lib/sitemap_floor.js');
+const listedFiles = sitemapPaths(ROOT).filter((u) => u.startsWith('/programmatic/')).map((u) => candidates(u).find((f) => fs.existsSync(path.join(ROOT, f))) || candidates(u)[0]);
+const floor = sitemapFloorProblems(ROOT, listedFiles, 'apply_page_meta_policy', { under: '/programmatic/' });
+const listedGuides = guides.filter((g) => listedFiles.includes(`programmatic/${g.file}`)).length;
+if (!floor.length && !listedGuides) floor.push(`apply_page_meta_policy: none of the ${listedFiles.length} listed /programmatic/ pages parsed as a guide`);
+if (floor.length) {
+  console.error(`apply_page_meta_policy: the hero or about markup has changed shape, or a listed page is missing, so this step would silently do nothing.\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
 

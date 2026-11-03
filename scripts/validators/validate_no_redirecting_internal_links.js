@@ -16,7 +16,8 @@
  * scripts/lib/pages_routing.js, which reads the build output and _redirects,
  * so this gate and validate_redirect_targets.js cannot disagree.
  *
- * RULE 0: fewer than MIN_PAGES pages or MIN_LINKS internal hrefs means the scan
+ * RULE 0: a sitemap page not examined (scripts/lib/sitemap_floor.js), an empty
+ * sitemap, or fewer than MIN_LINKS internal hrefs means the scan
  * examined nothing, which is reported as a failure, not a pass.
  */
 const fs = require('fs');
@@ -26,7 +27,6 @@ const { ROOT, parseRedirects, resolvePath, routeOfFile } = require('../lib/pages
 
 const HOST = 'virtualagency-os.com';
 const SKIP = new Set(['.pages-output', 'node_modules', '.git', '.build', 'logs', 'artifacts']);
-const MIN_PAGES = 100;
 const MIN_LINKS = 1000;
 
 function walk(dir, out = []) {
@@ -75,8 +75,9 @@ for (const file of files) {
   }
 }
 
-if (files.length < MIN_PAGES) {
-  console.error(`REDIRECTING-LINK VALIDATION EXAMINED ONLY ${files.length} PUBLISHED PAGES (floor ${MIN_PAGES}). A gate that examines nothing cannot fail; run it after the build.`);
+const floor = require('../lib/sitemap_floor.js').sitemapFloorProblems(ROOT, files, 'redirecting-link validation');
+if (floor.length) {
+  console.error(`REDIRECTING-LINK VALIDATION PAGE FLOOR FAILED: every page the sitemap lists must be built and examined (a gate that examines nothing cannot fail).\n- ${floor.slice(0, 20).join('\n- ')}`);
   process.exit(1);
 }
 if (links < MIN_LINKS) {

@@ -19,8 +19,9 @@
  * the band, naming nobody. It now reads "Community Management: Comparing Vendors
  * | VirtualAgency OS", 57 characters, with the same meaning.
  *
- * RULE 0: fewer than MIN_PAGES pages parsed means the walk or the <title> parser
- * has stopped matching, and that exits non-zero.
+ * RULE 0: every page the sitemap lists must be parsed (scripts/lib/sitemap_floor.js),
+ * and an empty sitemap fails; a walk or <title> parser that has stopped matching
+ * exits non-zero before writing anything. No fixed page count (3 Nov 2026).
  */
 const fs = require('fs');
 const path = require('path');
@@ -28,7 +29,6 @@ const { TITLE_MIN, TITLE_MAX } = require('./lib/page_meta.js');
 const { ROOT, walk } = require('./lib/site_head.js');
 const { BRAND, planTitles } = require('./lib/title_brand.js');
 
-const MIN_PAGES = 1000;
 const DRY = process.argv.includes('--dry-run');
 
 const unesc = (s) => String(s || '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
@@ -41,6 +41,12 @@ for (const rel of walk(ROOT, ROOT, [])) {
   const tm = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   if (!tm) continue;
   pages.push({ rel, abs, html, tm, title: unesc(tm[1]).trim() });
+}
+
+const floor = require('./lib/sitemap_floor.js').sitemapFloorProblems(ROOT, pages.map((p) => p.rel), 'apply_title_suffix_band');
+if (floor.length) {
+  console.error(`apply_title_suffix_band FAILED: ${floor.length} floor problem(s); nothing written.\n- ${floor.slice(0, 20).join('\n- ')}`);
+  process.exit(1);
 }
 
 const { changes, kept, tooLong, collisions } = planTitles(pages);
@@ -63,7 +69,4 @@ if (tooLong.length) {
   for (const t of tooLong.slice(0, 30)) console.log(`   - ${t.rel}: ${t.why}`);
   if (tooLong.length > 30) console.log(`   - and ${tooLong.length - 30} more`);
 }
-if (pages.length < MIN_PAGES) {
-  console.error(`apply_title_suffix_band FAILED: only ${pages.length} page(s) parsed (floor ${MIN_PAGES}).`);
-  process.exit(1);
-}
+
