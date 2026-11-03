@@ -10,6 +10,10 @@
  * answer), inquiry links that go through /go/plan, no keyword block, and - if it
  * declares FAQPage schema - a visible FAQ.
  *
+ * No published page (go/ and admin/ included) may carry a hard-coded Cloudflare
+ * Web Analytics beacon: the zone auto-installs it at the edge, so a second copy
+ * counts every visit twice.
+ *
  * Negative proof: `--self-test` runs the same checks on a committed page as it
  * sits in the repo (no finish) and must see them fail.
  * RULE 0: every sitemapped page must be among those checked; fewer pages than
@@ -65,6 +69,11 @@ const out = fs.mkdtempSync(path.join(os.tmpdir(), 'page-finish-'));
 execFileSync('node', [path.join(ROOT, 'scripts/assemble_pages_output.js')], { cwd: ROOT, env: { ...process.env, PAGES_ASSEMBLE_OUT: out }, stdio: 'ignore' });
 const files = pick(out).filter((f) => !/\/index\.html$/.test(f) || /\/answers\/index\.html$/.test(f));
 const bad = [];
+const allHtml = [];
+(function walkAll(d) { for (const n of fs.readdirSync(d)) { const f = path.join(d, n); if (fs.statSync(f).isDirectory()) walkAll(f); else if (n.endsWith('.html')) allHtml.push(f); } })(out);
+for (const f of allHtml) {
+  if (/cloudflareinsights\.com\/beacon|data-cf-beacon/.test(fs.readFileSync(f, 'utf8'))) bad.push(`${path.relative(out, f)}: hard-coded analytics beacon (Cloudflare injects it at the edge)`);
+}
 for (const f of files) {
   const html = fs.readFileSync(f, 'utf8');
   if (/http-equiv="refresh"/.test(html) && /name="robots" content="noindex/.test(html)) continue; // consolidation redirect stub
@@ -72,6 +81,7 @@ for (const f of files) {
   if (p.length) bad.push(`${path.relative(out, f)}: ${p.join('; ')}`);
 }
 fs.rmSync(out, { recursive: true, force: true });
+if (allHtml.length < files.length) { console.error('test:page-finish beacon scan saw fewer pages than the finish check'); process.exit(1); }
 if (files.length < MIN_PAGES) { console.error(`test:page-finish checked only ${files.length} pages (floor: the ${SITEMAP_URLS} sitemap URLs)`); process.exit(1); }
 if (bad.length) { console.error(`test:page-finish FAILED on ${bad.length} of ${files.length} pages:\n  ${bad.slice(0, 15).join('\n  ')}`); process.exit(1); }
 console.log(`test:page-finish OK: ${files.length} published pages finished`);

@@ -29,7 +29,9 @@
  *      updated dates, a visible FAQ wherever FAQPage schema exists (built from
  *      that schema), and WebPage schema with dates and Speakable over the
  *      definition and the FAQ.
- *   5. Cloudflare Web Analytics (no cookies) on every page.
+ *   5. No analytics snippet here: Cloudflare Web Analytics is auto-installed at
+ *      the edge for this zone (as on every other zone), so a hard-coded beacon
+ *      would count every visit twice (test:page-finish guards it).
  */
 const fs = require('fs');
 const path = require('path');
@@ -37,7 +39,6 @@ const { contentForPage } = require('./wpp_cta.js');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const HOST = 'https://virtualagency-os.com';
-const CF_BEACON_TOKEN = '40a2faf84e3f45f086e8eaf84ddeec2c';
 const CONTACT_EMAIL = 'scooter@westpeek.ventures';
 // The pages are published by the company; no person is credited with words
 // they did not write (risk brain), so the author is the organisation.
@@ -322,7 +323,6 @@ function finishPage(html, rel) {
   if (/class="faq/.test(s)) selectors.push('.faq');
   const name = plain((s.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '');
   s = s.replace('</head>', `${webPageLd({ url: `${HOST}${route === '/' ? '/' : route}`, name, published: pub, updated: upd, selectors })}\n</head>`);
-  s = s.replace(/<\/body>/, `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${CF_BEACON_TOKEN}"}'></script>\n</body>`);
   return s;
 }
 
@@ -351,4 +351,4 @@ function homeQuestions(html, slug) {
   return html.slice(0, at) + list + html.slice(at);
 }
 
-module.exports = { finishPage, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, CF_BEACON_TOKEN, _reset() { ctx = null; } };
+module.exports = { finishPage, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, _reset() { ctx = null; } };
