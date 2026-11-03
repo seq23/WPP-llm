@@ -22,7 +22,7 @@
  *      record in it, the real sitemap URL set, a finite cap. Zero of any of
  *      these is a hard failure, not a pass.
  *   2. Every governed URL recorded this week is present in the sitemap the gate
- *      reads. If the recorder's origin ever drifts from the sitemap builder's,
+ *      reads, or has a proven retirement to a sitemap page. If the recorder's origin ever drifts from the sitemap builder's,
  *      the gate would count governed pages as ungoverned - the same disagreement
  *      in a new costume.
  *   3. The gate's weekly_cap verdict is exactly `used + ungoverned > cap`, where
@@ -75,9 +75,32 @@ for (const u of governedAll) {
 
 // --- 2. what was recorded this week is what the gate reads ------------------
 const realAllowance = weeklyCap.weeklyAllowance(ROOT, { today, ledger: realLedger });
+const prune = require('../lib/prune.js');
+const routing = require('../lib/pages_routing.js');
+const retirementRules = routing.parseRedirects(ROOT, { withMap: false });
+function provenRetirement(u, ledger = prune.load().ledger, rules = retirementRules) {
+  const route = new URL(u).pathname;
+  const retirement = ledger.redirects.find((r) => r.from === route);
+  if (!retirement) return false;
+  const response = routing.resolvePath(route, { root: ROOT, rules });
+  return response.kind === 'redirect' && response.status === 301 && response.to === retirement.to &&
+    routing.resolvePath(response.to, { root: ROOT, rules }).kind === 'page' &&
+    realUrls.has(weeklyCap.SITE_ORIGIN + response.to);
+}
 for (const u of realAllowance.used_urls) {
   examined += 1;
-  if (!realUrls.has(u)) fail(`governed_not_in_sitemap: ${u} was recorded as published this week but is not in any sitemap. Either the page was never built or the recorder's origin (${weeklyCap.SITE_ORIGIN}) differs from the sitemap builder's; in both cases the gate cannot tie the record to the page.`);
+  // Retirement never refunds publication capacity: used/headroom stay intact.
+  if (!realUrls.has(u) && !provenRetirement(u)) fail(`governed_not_in_sitemap: ${u} has neither a sitemap page nor a ledger-backed single 301 to an indexed page.`);
+}
+// Negative proof: an absent page, a missing redirect and a redirect loop do
+// not become legitimate publications merely because a ledger names them.
+const retiredThisWeek = realAllowance.used_urls.filter((u) => !realUrls.has(u));
+for (const u of retiredThisWeek) {
+  examined += 3;
+  if (provenRetirement(u, { redirects: [] })) fail('retirement_without_ledger_accepted');
+  if (provenRetirement(u, prune.load().ledger, [])) fail('retirement_without_301_accepted');
+  const route = new URL(u).pathname;
+  if (provenRetirement(u, { redirects: [{ from: route, to: route }] }, [{ from: route, to: route, status: 301 }])) fail('retirement_loop_accepted');
 }
 
 // --- 3-5. fixtures: verdict and headroom are one function --------------------

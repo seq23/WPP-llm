@@ -28,17 +28,21 @@ const ok = (cond, msg) => { assert.ok(cond, msg); checks += 1; };
 
 // 1 + 2: synthetic rules, one family with no query this window.
 const rules = { families: [
-  { id: 'measured-fam', label: 'Measured', intent: 'service', primary_route: '/', pattern: 'measured' },
-  { id: 'aged-out-fam', label: 'Aged out', intent: 'service', primary_route: '/', pattern: 'nothing matches this' },
+  { id: 'measured-fam', label: 'Measured', intent: 'service', primary_route: '/programmatic/virtual-event-production', pattern: 'measured' },
+  { id: 'off-topic-fam', label: 'AI tooling', intent: 'service', primary_route: '/programmatic/ai-marketing-workflows', pattern: 'AI tooling' },
+  { id: 'aged-out-fam', label: 'Aged out', intent: 'service', primary_route: '/programmatic/virtual-event-production', pattern: 'nothing matches this' },
 ] };
-const targets = [{ query: 'a measured query', impressions: 5, clicks: 0, best_position: 3, pages: ['/'] }];
+const targets = [{ query: 'AI tooling', impressions: 10000, clicks: 0, best_position: 1, pages: ['/programmatic/ai-marketing-workflows'] }, { query: 'a measured query', impressions: 5, clicks: 0, best_position: 3, pages: ['/'] }];
 const fams = buildFamilies({ targets, rules, root: ROOT });
 const aged = fams.find((f) => f.family === 'aged-out-fam');
 ok(aged, 'a declared family with no measured query this window vanished from the built family list');
 ok(aged.no_measured_queries === true && aged.impressions === 0 && aged.queries.length === 0, 'unmeasured family is not marked no_measured_queries with zero impressions');
-ok(aged.primary_route === '/', 'unmeasured family lost its declared primary route');
+ok(aged.primary_route === '/programmatic/virtual-event-production', 'unmeasured family lost its declared primary route');
 ok(aged.top12 === false, 'an unmeasured family entered the top 12');
 ok(fams.find((f) => f.family === 'measured-fam').top12 === true, 'the measured family is not top 12');
+
+ok(fams.find((f) => f.family === 'off-topic-fam').top12 === false, 'off-topic traffic entered the top 12');
+ok(fams.find((f) => f.family === 'off-topic-fam').impressions === 10000, 'off-topic search history was lost');
 
 // 3: a demand page pinned to an undeclared family is refused.
 ok(undeclaredDemandPageFamilies(rules, { pages: [{ file: 'x.html', family: 'not-declared' }] }).length === 1, 'an undeclared demand-page family was accepted');

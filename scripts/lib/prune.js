@@ -26,11 +26,11 @@
  * The HTML of a pruned page stays in the repo (nothing is deleted); the deploy
  * leaves it out (scripts/assemble_pages_output.js isPublishedPath), the sitemap
  * drops it, the link architecture stops linking to it, and the release plan may
- * not recreate it. Re-planning after a page earns impressions brings it back.
+ * not recreate it. Only on-topic pages may return after earning evidence.
  *
  * The 301s are emitted into _redirects by scripts/update_redirects_clean_to_html.js,
- * compressed to one splat per slug prefix (Pages allows 2,000 static and 100
- * dynamic rules; the per-URL map is data/redirects/consolidation_map.json).
+ * prioritized within the static-rule budget; overflow uses redirect stubs.
+ * The per-URL map is data/redirects/consolidation_map.json.
  */
 const fs = require('fs');
 const path = require('path');
@@ -48,6 +48,24 @@ const norm = (r) => {
   return s || '/';
 };
 
+// Topic eligibility precedes traffic: generic production/platform/AI words are
+// insufficient. Explicit event operations pages are retained by route identity.
+const EVENT_CONTEXT = /(?:^|[-/ ])(?:virtual|hybrid|online|event|events|webinar|conference|summit|broadcast|livestream|run-of-show|town-hall)(?:$|[-/ ])/i;
+const EVENT_ROUTES = new Set(['streamyard-vs-livekit', 'software-vs-production-partner', 'west-peek-productions-fit', 'run-of-show-meaning', 'how-to-run-a-rehearsal-that-actually-prevents-disaster']);
+function isOnTopic(route) {
+  const slug = norm(route).split('/').pop();
+  return EVENT_CONTEXT.test(slug) || EVENT_ROUTES.has(slug);
+}
+function isOffTopic(route) {
+  return /^\/(?:programmatic|query-atlas|answers|insights|learn|topics|questions)\/[^/]+$/.test(norm(route)) && !/\/index$/.test(String(route).replace(/\.html$/, '')) && !isOnTopic(route);
+}
+function onTopicHub(route) {
+  const s = norm(route);
+  if (/webinar/.test(s)) return '/programmatic/webinar-production';
+  if (/hybrid/.test(s)) return '/programmatic/hybrid-event-production';
+  return '/programmatic/virtual-event-production';
+}
+
 let cache = null;
 function load() {
   if (cache) return cache;
@@ -61,14 +79,14 @@ function load() {
 /** Pruned = not served as a page (301) or not indexed. */
 function isRedirected(route) { return load().redirectTo.has(norm(route)); }
 function isNoindexed(route) { return load().noindex.has(norm(route)); }
-function isPruned(route) { return isRedirected(route) || isNoindexed(route); }
+function isPruned(route) { return isOffTopic(route) || isRedirected(route) || isNoindexed(route); }
 function redirectTarget(route) { return load().redirectTo.get(norm(route)) || null; }
 
 /** True when a repo-relative file is a pruned page the deploy must leave out. */
 function isRedirectedFile(rel) {
   const r = '/' + String(rel).replace(/\\/g, '/').replace(/^\.?\//, '');
   if (!r.endsWith('.html')) return false;
-  return isRedirected(r);
+  return isRedirected(r) || isOffTopic(r);
 }
 
 /** Follow a chain of rules (prune and any extra map) to the page it ends on. */
@@ -89,6 +107,6 @@ function redirectRules() {
 
 module.exports = {
   ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, PRUNABLE_PREFIXES,
-  norm, load, finalTarget, isRedirected, isNoindexed, isPruned, redirectTarget, isRedirectedFile, redirectRules,
+  isOnTopic, isOffTopic, onTopicHub, norm, load, finalTarget, isRedirected, isNoindexed, isPruned, redirectTarget, isRedirectedFile, redirectRules,
   _reset() { cache = null; },
 };

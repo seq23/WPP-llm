@@ -23,7 +23,7 @@ const selfTest = process.argv.includes('--self-test');
 let rules = parseRedirects(ROOT);
 const ledger = prune.load().ledger;
 const measured = (JSON.parse(fs.readFileSync(path.join(ROOT, 'data/search_intelligence/page_impressions_lifetime.json'), 'utf8')).pages || [])
-  .map((p) => p.page.replace(HOST, '').replace(/\/+$/, '') || '/');
+  .map((p) => new URL(p.page).pathname);
 if (selfTest) {
   const m = new Set(measured);
   const drop = ledger.redirects.find((r) => m.has(r.from));
@@ -43,8 +43,8 @@ if (!selfTest) {
   }
 }
 for (const p of new Set(measured)) {
-  let r = resolvePath(p, { root: ROOT, rules });
-  if (r.kind === 'redirect' && r.status === 308) r = resolvePath(r.to.replace(/\/+$/, '') || '/', { root: ROOT, rules });
+  const r = resolvePath(p, { root: ROOT, rules });
+  if (r.kind === 'redirect' && r.status !== 301) errors.push(`${p} answers ${r.status}, expected 301`);
   if (r.kind === 'redirect') {
     const t = resolvePath(r.to.split('?')[0], { root: ROOT, rules });
     if (t.kind !== 'page') errors.push(`${p} -> ${r.to} does not land on a page`);
@@ -55,9 +55,17 @@ if (selfTest) {
   console.log(`test:prune self-test OK: a dropped redirect is caught (${errors[0]})`);
   process.exit(0);
 }
+const assert = require('assert/strict');
+for (const route of ['/answers/ai-marketing-agency', '/programmatic/ai-consultant-vs-automation-agency', '/query-atlas/new-ai-marketing-tool', '/answers/new-agency-platform']) {
+  assert.equal(isPublishedPath(route.slice(1) + '.html'), false, `off-topic deploy admission: ${route}`);
+  assert.equal(prune.isPruned(route), true, `off-topic generator admission: ${route}`);
+}
+for (const k of ledger.kept) assert.equal(prune.isOnTopic(k.route), true, `off-topic keeper: ${k.route}`);
+const llms = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8');
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 for (const r of ledger.redirects) {
   const rel = `${r.from.replace(/^\//, '')}.html`;
+  if (llms.includes(`${HOST}${r.from}\n`) || llms.includes(`${HOST}${r.from}.html`)) errors.push(`${r.from} is consolidated but in llms.txt`);
   if (deployed(rel)) errors.push(`${r.from} is consolidated but still deployed`);
   if (sitemap.includes(`<loc>${HOST}${r.from}</loc>`)) errors.push(`${r.from} is consolidated but in sitemap.xml`);
 }

@@ -290,7 +290,7 @@ function applyDemandLink(html, entry) {
 // The homepage and the Topics hub (in the nav of every page) list the 12 family pages.
 function applyDemandFamilies(html, cfg) {
   html = html.replace(new RegExp(`${DF_START}[\\s\\S]*?${DF_END}`, 'g'), '');
-  const pages = (cfg.demand_pages || []).filter((d) => d.full);
+  const pages = (cfg.demand_pages || []).filter((d) => d.full && !require('./lib/prune.js').isPruned(d.route));
   if (!pages.length) return html;
   const cap = (s) => plain(s).replace(/^./, (c) => c.toUpperCase());
   const block = `${DF_START}<section class="demand-families" id="most-searched"><h2>What people search for most</h2>`

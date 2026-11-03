@@ -19,7 +19,7 @@ const { fitDescription, fitTitle } = require('../lib/page_meta.js');
 const { transform: applySiteHead } = require('../apply_site_head.js');
 const { loadConfig: loadSiteHeadConfig, ownedPages } = require('../lib/site_head.js');
 const written = new Set();
-function writePage(file, html) { written.add(file); fs.writeFileSync(path.join(ROOT, file), html); }
+function writePage(file, html) { if (require('../lib/prune.js').isPruned('/' + file)) return; written.add(file); fs.writeFileSync(path.join(ROOT, file), html); }
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function titleCase(s){return String(s).split(/[-_\s]+/).filter(Boolean).map(w=>w[0].toUpperCase()+w.slice(1)).join(' ');}
 function cleanPath(file){ if(file==='index.html') return '/'; if(file.endsWith('/index.html')) return '/' + file.slice(0,-'index.html'.length); return '/' + file.replace(/\.html$/,''); }
