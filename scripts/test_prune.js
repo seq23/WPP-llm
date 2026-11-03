@@ -33,6 +33,15 @@ if (selfTest) {
 const errors = [];
 if (measured.length < 100) errors.push(`only ${measured.length} measured URLs to check (floor 100)`);
 const deployed = (rel) => isPublishedPath(rel) && fs.existsSync(path.join(ROOT, rel));
+// A measured /x.html must be answered literally: Pages strips .html only for a
+// deployed file, so a rule for /x does not cover a missing /x.html.
+if (!selfTest) {
+  const literal = new Set(parseRedirects(ROOT, { withMap: false }).map((r) => r.from));
+  for (const p of new Set(measured)) {
+    if (!p.endsWith('.html')) continue;
+    if (!literal.has(p) && !deployed(p.replace(/^\//, ''))) errors.push(`${p} has no literal _redirects rule and no deployed file (Pages answers 404)`);
+  }
+}
 for (const p of new Set(measured)) {
   let r = resolvePath(p, { root: ROOT, rules });
   if (r.kind === 'redirect' && r.status === 308) r = resolvePath(r.to.replace(/\/+$/, '') || '/', { root: ROOT, rules });

@@ -1,0 +1,206 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-02T23:48:07.649Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 749,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/content-operations-system",
+    "query": "content operations system",
+    "title": "Content Operations System: Decisions, Workflow, Tools",
+    "description": "Decide audience and demand signals first, then build intake, brief, production, review, approval, publishing and reporting stages with owners, tools and gates.",
+    "h1": "What should you decide first about a content operations system?",
+    "definition": "A content operations system is the end-to-end process that moves an idea from intake through brief, production, review, approval, publishing and reporting, with a named owner, a defined output and an approval gate at every stage.",
+    "quick_answer": "Lock audience and demand signal before buying tools. Map seven stages with one owner and one output each, then choose a calendar tool, a brief template, a publishing destination and a reporting dashboard.",
+    "sections": [
+      {
+        "h2": "Which audience and demand signal must be settled first?",
+        "blocks": [
+          {
+            "p": "Define the primary audience segment and the measurable signal that proves demand, such as search volume for a topic cluster, webinar registration rate or community question frequency."
+          },
+          {
+            "ul": [
+              "Primary persona: job title, industry, buying stage",
+              "Demand signal: keyword volume, event sign-ups, support tickets, community threads",
+              "Success metric: marketing qualified leads, pipeline influenced, retention uplift"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What are the seven stages every piece of content must pass through?",
+        "blocks": [
+          {
+            "p": "Seven stages, each with one owner and one output: intake, brief, production, review, approval, publishing, reporting."
+          },
+          {
+            "table": {
+              "head": [
+                "Stage",
+                "Owner",
+                "Output",
+                "Approval gate"
+              ],
+              "rows": [
+                [
+                  "Intake",
+                  "Content strategist",
+                  "Prioritised request log",
+                  "Strategic fit sign-off"
+                ],
+                [
+                  "Brief",
+                  "Editor",
+                  "Approved brief document",
+                  "Stakeholder sign-off"
+                ],
+                [
+                  "Production",
+                  "Writer or designer",
+                  "First draft or design",
+                  "Peer review complete"
+                ],
+                [
+                  "Review",
+                  "Subject expert",
+                  "Annotated draft",
+                  "Expert approval"
+                ],
+                [
+                  "Approval",
+                  "Legal or brand",
+                  "Final approved version",
+                  "Legal or brand sign-off"
+                ],
+                [
+                  "Publishing",
+                  "CMS operator",
+                  "Live URL",
+                  "QA checklist passed"
+                ],
+                [
+                  "Reporting",
+                  "Analyst",
+                  "Performance dashboard",
+                  "Monthly review meeting"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Which tool categories belong in the stack and who owns each?",
+        "blocks": [
+          {
+            "p": "Assign one tool category per stage so hand-offs are unambiguous and reporting stays connected to the original brief."
+          },
+          {
+            "ul": [
+              "Calendar and intake: Asana, Monday.com or Airtable",
+              "Briefs: Google Docs or Notion with locked template",
+              "Production: Figma for design, Google Docs for copy, Frame.io for video review",
+              "Publishing: WordPress, Webflow or HubSpot CMS",
+              "Reporting: GA4 and HubSpot or Salesforce for attribution"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How long should a realistic cycle take from brief to publish?",
+        "blocks": [
+          {
+            "p": "A long-form article typically needs five to ten working days from approved brief to live, with most time spent in review and approval."
+          },
+          {
+            "ol": [
+              "Day one: brief finalised and assigned",
+              "Days two to four: first draft produced",
+              "Days five to seven: expert and legal review",
+              "Day eight: revisions and final approval",
+              "Day nine: publish and QA",
+              "Day ten: baseline reporting configured"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What early warning shows the offer clarity is too weak to scale?",
+        "blocks": [
+          {
+            "p": "If briefs return to the strategist more than twice per piece, or if reviewers consistently ask 'who is this for' and 'what action do we want', the offer definition is not sharp enough to support volume."
+          },
+          {
+            "ul": [
+              "Brief rejection rate above twenty percent",
+              "Average revision rounds above three",
+              "Stakeholder feedback loops exceed two cycles"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you prove the system is working with conversion rate?",
+        "blocks": [
+          {
+            "p": "Track conversion from published asset to marketing qualified lead, then to pipeline, and compare cycle time and revision rounds against the baseline set in month one."
+          },
+          {
+            "table": {
+              "head": [
+                "Metric",
+                "Target after ninety days",
+                "Owner"
+              ],
+              "rows": [
+                [
+                  "Cycle time brief to publish",
+                  "Five to seven working days",
+                  "Editor"
+                ],
+                [
+                  "Revision rounds per asset",
+                  "Two or fewer",
+                  "Editor"
+                ],
+                [
+                  "On-time publish rate",
+                  "Ninety percent",
+                  "CMS operator"
+                ],
+                [
+                  "MQL per asset",
+                  "Trending up month over month",
+                  "Analyst"
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the minimum viable content operations system for a team of three?",
+        "a": "Use a shared Airtable base for intake and calendar, a Notion template for briefs, Google Docs for drafts, WordPress for publishing and a GA4 dashboard for reporting. Assign one person to own each stage and hold a weekly stand-up to clear blockers."
+      },
+      {
+        "q": "When should we add a dedicated review tool like Frame.io?",
+        "a": "Add Frame.io once video or interactive assets exceed two per month and email-based feedback creates version confusion. Before that, Google Docs comments and Figma comments cover design and copy review without extra cost."
+      },
+      {
+        "q": "How do we keep legal approval from becoming a bottleneck?",
+        "a": "Create a pre-approved clause library in Notion, route only net-new claims to legal, and set a forty-eight hour SLA with an automatic escalation to the content lead. Track legal turnaround in the same dashboard as editorial cycle time."
+      },
+      {
+        "q": "What reporting cadence keeps the system honest without creating noise?",
+        "a": "Weekly pulse on cycle time and revision rounds for the team, monthly deep dive on MQL per asset and pipeline influence for leadership, quarterly reset of brief templates and tool stack based on trend data."
+      },
+      {
+        "q": "Can the same system serve both SEO articles and webinar follow-up content?",
+        "a": "Yes. Use the same seven stages but swap the brief template: SEO briefs include keyword cluster and search intent; webinar briefs include speaker quotes, timestamped highlights and registration-to-attendee conversion data. Publishing destinations differ but the workflow stays identical."
+      }
+    ]
+  }
+}
