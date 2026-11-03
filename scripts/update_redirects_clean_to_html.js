@@ -112,8 +112,7 @@ const lines = [
 // rules, including all 424 duplicate-family 301s of 26 Oct. Now: no splats, no
 // 404 lines, at most 2,000 static rules (fixed contact routes first, then the
 // highest-value 301s by measured impressions and Google-indexed state); every
-// other entry is a static stub the assembler writes (noindex, canonical and an
-// instant meta refresh to the same page): data/redirects/consolidation_stubs.json.
+// other entry is handled by functions/_middleware.js using the complete map.
 const prune = require('./lib/prune.js');
 const LINE_BUDGET = 1990; // Pages: 2,000 static rules, and no dynamic rule may precede them
 const norm = (r) => (r.length > 1 ? r.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/\/+$/, '') : r);
@@ -129,7 +128,7 @@ const finalOf = (to) => {
   for (let i = 0; i < 12; i += 1) {
     if (!cur.startsWith('/')) return cur;
     const next = all.get(norm(cur.split('#')[0].split('?')[0]));
-    if (!next || next === cur) return cur;
+    if (!next) return cur;
     cur = next;
   }
   throw new Error(`_redirects: redirect loop through ${to}`);
@@ -190,7 +189,7 @@ const budget = LINE_BUDGET - header.length - fixed.length;
 const ranked = [...entries].sort(([a], [b]) => weight(b) - weight(a) || a.localeCompare(b));
 const exactSet = new Set(ranked.slice(0, Math.max(0, budget)).map(([f]) => f));
 const exact = entries.filter(([f]) => exactSet.has(f)).map(([f, t]) => `${f} ${t} 301`);
-const stubs = Object.fromEntries(entries.filter(([f]) => !exactSet.has(f)));
+const overflow = entries.length - exact.length;
 if (fixed.some((l) => /\*|\s404$/.test(l))) { console.error('_redirects: a splat or 404 line would make Pages drop every later rule'); process.exit(1); }
 const out = [...header, ...fixed, ...exact];
 const nonBlank = out.filter((l) => l.trim()).length;
@@ -199,6 +198,11 @@ if (nonBlank > LINE_BUDGET || budget < 100) {
   process.exit(1);
 }
 fs.writeFileSync(path.join(ROOT, 'data/redirects/consolidation_map.json'), `${JSON.stringify(Object.fromEntries(entries), null, 1)}\n`);
-fs.writeFileSync(path.join(ROOT, 'data/redirects/consolidation_stubs.json'), `${JSON.stringify(stubs, null, 1)}\n`);
+
+// Keep query-bearing inquiry routes and literal kept-page aliases on the
+// static redirect path: _redirects does not apply to Function-handled requests.
+fs.writeFileSync(path.join(ROOT, '_routes.json'), JSON.stringify({
+  version: 1, include: ['/*'], exclude: [...new Set(fixed.map((line) => line.split(' ')[0]))],
+}, null, 2) + '\n');
 fs.writeFileSync(OUT, `${out.join('\n')}\n`);
-console.log(`Updated _redirects: ${nonBlank} non-blank lines (budget ${LINE_BUDGET}): ${fixed.length} fixed rules, ${exact.length} exact 301s; ${Object.keys(stubs).length} more redirects as static stubs; ${entries.length} entries in data/redirects/consolidation_map.json.`);
+console.log(`Updated _redirects: ${nonBlank} non-blank lines (budget ${LINE_BUDGET}): ${fixed.length} fixed rules, ${exact.length} exact 301s; ${overflow} overflow redirects handled by the Pages Function; ${entries.length} entries in data/redirects/consolidation_map.json.`);

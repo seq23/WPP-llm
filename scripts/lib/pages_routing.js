@@ -26,7 +26,7 @@ function parseRedirects(root = ROOT, opts = {}) {
   const file = path.join(root, '_redirects');
   const rules = [];
   // The per-URL consolidation map (data/redirects/consolidation_map.json) is
-  // what the compressed splat rules in _redirects answer; reading it first gives
+  // what functions/_middleware.js answers; reading it first gives
   // validators one exact rule per URL. test:prune proves the two agree.
   const fnMap = path.join(root, 'data/redirects/consolidation_map.json');
   if (opts.withMap !== false && fs.existsSync(fnMap)) {

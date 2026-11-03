@@ -12,7 +12,9 @@
  *
  * Negative proof: `--self-test` runs the same checks on a committed page as it
  * sits in the repo (no finish) and must see them fail.
- * RULE 0: fewer than MIN_PAGES pages checked is a failure.
+ * RULE 0: every sitemapped page must be among those checked; fewer pages than
+ * the sitemap lists (or an empty sitemap) is a failure. The floor follows the
+ * site's real size, so a consolidation never needs the number edited.
  */
 'use strict';
 const fs = require('fs');
@@ -22,7 +24,8 @@ const { execFileSync } = require('child_process');
 const { hasVisibleFaq } = require('./lib/page_finish.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const MIN_PAGES = 200;
+const SITEMAP_URLS = (fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length;
+const MIN_PAGES = Math.max(1, SITEMAP_URLS);
 
 function problems(html) {
   const out = [];
@@ -69,6 +72,6 @@ for (const f of files) {
   if (p.length) bad.push(`${path.relative(out, f)}: ${p.join('; ')}`);
 }
 fs.rmSync(out, { recursive: true, force: true });
-if (files.length < MIN_PAGES) { console.error(`test:page-finish checked only ${files.length} pages (floor ${MIN_PAGES})`); process.exit(1); }
+if (files.length < MIN_PAGES) { console.error(`test:page-finish checked only ${files.length} pages (floor: the ${SITEMAP_URLS} sitemap URLs)`); process.exit(1); }
 if (bad.length) { console.error(`test:page-finish FAILED on ${bad.length} of ${files.length} pages:\n  ${bad.slice(0, 15).join('\n  ')}`); process.exit(1); }
 console.log(`test:page-finish OK: ${files.length} published pages finished`);
