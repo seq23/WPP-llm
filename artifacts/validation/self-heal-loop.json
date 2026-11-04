@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-28T21:13:44.816Z",
+  "generated_at": "2026-11-04T16:34:57.655Z",
   "validate_command": "npm run validate:all",
   "max_attempts": 3,
   "dry_run": false,
@@ -9,7 +9,8 @@
     "normalized-agent-run-schema": "npm run citation:normalize-artifacts",
     "programmatic-substance": "npm run content:quality:report && npm run release:quality:self-heal",
     "search-quality-basics": "npm run repairs:diagnose && npm run repairs:apply",
-    "programmatic-quality": "npm run content:quality:report && npm run release:quality:self-heal"
+    "programmatic-quality": "npm run content:quality:report && npm run release:quality:self-heal",
+    "entity-graph": "npm run entity:converge"
   },
   "status": "CLEAN",
   "safe_to_push": true,
