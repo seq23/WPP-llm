@@ -2,13 +2,13 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W45",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-03T09:38:53.775Z",
+  "generated_at": "2026-11-05T09:38:52.382Z",
   "state": "running",
   "published": 0,
   "indexed": 0,
   "pace": 10,
-  "ai_visitors": "not read: CLOUDFLARE_API_TOKEN is not set",
-  "ai_bot_hits": "not read: CLOUDFLARE_API_TOKEN is not set",
+  "ai_visitors": 0,
+  "ai_bot_hits": 1187,
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
   "wins": 0,
   "undone": 0,
@@ -22,8 +22,33 @@
     "why": "up from 20 to 22: Google impressions 40 in the last 28 days beat 24 in the 28 before"
   },
   "notes": [
-    "cap: up from 20 to 22: Google impressions 40 in the last 28 days beat 24 in the 28 before",
     "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued"
   ],
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/41612589919"
+  "lanes": {
+    "ratio": {
+      "can_be_one": 2,
+      "striking": 1
+    },
+    "can_be_one": {
+      "pages": 0,
+      "measured": 0,
+      "top3": 0,
+      "hit_rate": "not read: no page in this lane has reached its 2-week check yet"
+    },
+    "striking": {
+      "pages": 0,
+      "measured": 0,
+      "top3": 0,
+      "hit_rate": "not read: no page in this lane has reached its 2-week check yet"
+    },
+    "weights": {
+      "neighbour": 35,
+      "unanswered": 30,
+      "weak_top10": 40,
+      "demand": 10
+    },
+    "weight_changes": [],
+    "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+  },
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/42003971701"
 }
