@@ -77,7 +77,14 @@ for (const u of governedAll) {
 const realAllowance = weeklyCap.weeklyAllowance(ROOT, { today, ledger: realLedger });
 const prune = require('../lib/prune.js');
 const routing = require('../lib/pages_routing.js');
-const retirementRules = routing.parseRedirects(ROOT, { withMap: false });
+// The live site answers a retired URL from _redirects OR from the per-URL map the
+// Pages Function serves (functions/_middleware.js, a real 301), and which of the
+// two holds a given URL moves with the _redirects line budget
+// (update_redirects_clean_to_html.js ranks by fresh Search Console data). Read
+// both, as the site does: on 3-6 Nov 2026 /programmatic/what-is-creative-consulting
+// fell out of the budget into the map and this check called a proven 301 missing,
+// failing Search Repair and Retest every day.
+const retirementRules = routing.parseRedirects(ROOT);
 function provenRetirement(u, ledger = prune.load().ledger, rules = retirementRules) {
   const route = new URL(u).pathname;
   const retirement = ledger.redirects.find((r) => r.from === route);
