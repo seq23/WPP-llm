@@ -88,7 +88,7 @@ for (const d of pages) {
   const prune = require('../lib/prune.js');
   if (prune.isPruned(d.route)) {
     const retirement = prune.load().ledger.redirects.find((r) => r.from === d.route);
-    const rules = require('../lib/pages_routing.js').parseRedirects(ROOT, { withMap: false });
+    const rules = require('../lib/pages_routing.js').parseRedirects(ROOT); // _redirects and the Pages Function map, as the site answers (validate_cadence_cap_parity.js)
     const response = resolvePath(d.route, { root: ROOT, rules });
     if (!retirement || response.kind !== 'redirect' || response.status !== 301 || response.to !== retirement.to ||
         resolvePath(response.to, { root: ROOT, rules }).kind !== 'page') e('retired demand page lacks a ledger-backed single 301 to a published page');

@@ -59,6 +59,8 @@ const PATTERNS = [
 // the query universe's `unclustered` grouping as a topic. BUCKET_LEAK is the same
 // pattern rewrite_quality.js bans in a rewrite.
 const { BUCKET_LEAK } = require('../lib/rewrite_quality.js');
+const rewrites = require('../lib/page_rewrites.js');
+const { applyRewrite, stripJunk } = require('../lib/page_finish.js');
 const { sitemapPaths, candidates } = require('../lib/sitemap_floor.js');
 const listed = new Set();
 for (const u of sitemapPaths(ROOT)) {
@@ -86,7 +88,15 @@ const examined = [];
     const html = fs.readFileSync(abs, 'utf8');
     if (listed.has(path.normalize(rel))) {
       listedChecked += 1;
-      if (BUCKET_LEAK.test(html)) { offenders.push({ path: rel, reason: 'sitemap page prints an internal bucket name ("unclustered") as reader-facing text' }); continue; }
+      // A page with an accepted rewrite is served with the rewrite applied
+      // (scripts/lib/page_finish.js applyRewrite), so the reader-facing text is the
+      // rewritten page plus whatever the rewrite leaves in place (6 Nov 2026: the
+      // Article JSON-LD description still said "unclustered"). Check what is
+      // served; every other listed page is checked as committed.
+      const route = `/${rel.replace(/\\/g, '/').replace(/(?:^|\/)index\.html$/, '').replace(/\.html$/, '')}`;
+      const rec = rewrites.accepted(route);
+      const served = rec ? stripJunk(applyRewrite(html, rec)) : html;
+      if (BUCKET_LEAK.test(served)) { offenders.push({ path: rel, reason: 'sitemap page prints an internal bucket name ("unclustered") as reader-facing text' }); continue; }
     }
     for (const [re, why] of PATTERNS) {
       if (re.test(html)) { offenders.push({ path: rel, reason: why }); break; }

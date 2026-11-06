@@ -199,6 +199,16 @@ function applyRewrite(html, rec) {
     s = s.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
     s = s.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
   }
+  // The page's own Article JSON-LD description is the same claim as the meta
+  // description, so it moves with the rewrite. It used to keep the pre-rewrite
+  // text: 6 Nov 2026 the query-intelligence run accepted a rewrite of
+  // /programmatic/best-virtual-conference-platforms whose served JSON-LD still
+  // said "A decision guide to unclustered: ..." (a bucket key, never a topic),
+  // and the release gate refused the push.
+  if (p.description) {
+    s = s.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (m, open, json, close) => (
+      /"headline"\s*:/.test(json) ? `${open}${json.replace(/"description"\s*:\s*"(?:[^"\\]|\\.)*"/, () => `"description":${JSON.stringify(plain(p.description)).replace(/</g, '\\u003c')}`)}${close}` : m));
+  }
   if (!locked) s = s.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`).replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
   // H1 and the paragraph under it become the rewrite's heading and definition.
   s = s.replace(/<h1([^>]*)>[\s\S]*?<\/h1>\s*(<p[^>]*>[\s\S]*?<\/p>)?/, `<h1$1>${p.h1}</h1><p class="definition" id="definition">${p.definition}</p>`);
