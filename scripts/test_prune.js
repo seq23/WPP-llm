@@ -61,6 +61,11 @@ for (const route of ['/answers/ai-marketing-agency', '/programmatic/ai-consultan
   assert.equal(prune.isPruned(route), true, `off-topic generator admission: ${route}`);
 }
 for (const k of ledger.kept) assert.equal(prune.isOnTopic(k.route), true, `off-topic keeper: ${k.route}`);
+// A plural is the same topic: an on-topic question page is deployed, never pruned.
+for (const r of ['/questions/are-webinars-live-or-recorded', '/questions/how-do-virtual-conferences-work', '/programmatic/hybrid-summits-checklist']) {
+  assert.equal(prune.isOffTopic(r), false, `on-topic page called off-topic: ${r}`);
+}
+assert.equal(prune.isOffTopic('/questions/brand-strategy-consulting-scope'), true, 'an off-topic question page is still pruned');
 const llms = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8');
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 for (const r of ledger.redirects) {
