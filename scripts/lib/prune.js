@@ -50,7 +50,12 @@ const norm = (r) => {
 
 // Topic eligibility precedes traffic: generic production/platform/AI words are
 // insufficient. Explicit event operations pages are retained by route identity.
-const EVENT_CONTEXT = /(?:^|[-/ ])(?:virtual|hybrid|online|event|events|webinar|conference|summit|broadcast|livestream|run-of-show|town-hall)(?:$|[-/ ])/i;
+// Plurals count: the search loop's first real page here was
+// /questions/are-webinars-live-or-recorded (6 Nov 2026), which the singular-only
+// pattern called off-topic, so the deploy left it out while the sitemap listed it
+// and the release gate refused the push. No existing route changes side with the
+// plural forms (checked across 2,996 routes and the prune ledger).
+const EVENT_CONTEXT = /(?:^|[-/ ])(?:virtual|hybrid|online|events?|webinars?|conferences?|summits?|broadcasts?|livestreams?|run-of-show|town-halls?)(?:$|[-/ ])/i;
 const EVENT_ROUTES = new Set(['streamyard-vs-livekit', 'software-vs-production-partner', 'west-peek-productions-fit', 'run-of-show-meaning', 'how-to-run-a-rehearsal-that-actually-prevents-disaster']);
 function isOnTopic(route) {
   const slug = norm(route).split('/').pop();
