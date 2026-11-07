@@ -1,54 +1,33 @@
 {
-  "generated_at": "2026-11-06T23:46:56.733243Z",
+  "generated_at": "2026-11-07T13:00:57.587139Z",
   "site": "sc-domain:virtualagency-os.com",
-  "sitemap_url_count": 145,
+  "sitemap_url_count": 170,
   "rotation": {
     "per_day": 150,
     "parallel": 8,
-    "full_cycle_days": 1
+    "full_cycle_days": 2
   },
-  "inspected_ever": 145,
+  "inspected_ever": 170,
   "never_inspected": 0,
   "counts_by_coverage_state": {
+    "Discovered - currently not indexed": 57,
     "Submitted and indexed": 52,
-    "Discovered - currently not indexed": 41,
-    "Duplicate, Google chose different canonical than user": 26,
-    "Crawled - currently not indexed": 21,
-    "URL is unknown to Google": 5
+    "Duplicate, Google chose different canonical than user": 28,
+    "Crawled - currently not indexed": 26,
+    "URL is unknown to Google": 7
   },
   "last_run": {
-    "at": "2026-11-06T23:46:56.733243Z",
+    "at": "2026-11-07T13:00:57.587139Z",
     "due": 150,
-    "inspected": 141,
-    "errors": 9,
-    "error_sample": [
-      {
-        "url": "https://virtualagency-os.com/programmatic/virtual-events-production",
-        "error": "TimeoutError: The read operation timed out"
-      },
-      {
-        "url": "https://virtualagency-os.com/programmatic/virtual-summit-production",
-        "error": "TimeoutError: The read operation timed out"
-      },
-      {
-        "url": "https://virtualagency-os.com/programmatic/webinar-production-agency",
-        "error": "TimeoutError: The read operation timed out"
-      },
-      {
-        "url": "https://virtualagency-os.com/programmatic/webinar-production-cost",
-        "error": "TimeoutError: The read operation timed out"
-      },
-      {
-        "url": "https://virtualagency-os.com/programmatic/what-is-hybrid-event-production",
-        "error": "HttpError: <HttpError 500 when requesting https://searchconsole.googleapis.com/v1/urlInspection/index:inspect?alt=json returned \"Internal error encountered.\". Details: \"In"
-      }
-    ]
+    "inspected": 150,
+    "errors": 0,
+    "error_sample": []
   },
   "priority_queue": {
     "source": "data/redirects/measured_404_redirects.json + consolidation_candidates dead_urls_with_live_twin",
     "queued": 305,
     "inspected_ever": 308,
-    "inspected_this_run": 40
+    "inspected_this_run": 0
   },
   "priority_urls": {
     "https://virtualagency-os.com/agency-rfp-questions-comparison": {
@@ -3141,17 +3120,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-06T05:06:17Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/about": {
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/": {
       "coverageState": "Submitted and indexed",
@@ -3161,7 +3140,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-09T05:56:54Z",
       "googleCanonical": "https://virtualagency-os.com/answers/",
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/daily-backup-event-systems": {
       "coverageState": "Submitted and indexed",
@@ -3171,7 +3150,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-20T23:03:15Z",
       "googleCanonical": "https://virtualagency-os.com/answers/daily-backup-event-systems",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/how-many-producers-for-virtual-event": {
       "coverageState": "Crawled - currently not indexed",
@@ -3181,7 +3160,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-20T02:22:41Z",
       "googleCanonical": "https://virtualagency-os.com/answers/how-many-producers-for-virtual-event",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/software-vs-production-partner": {
       "coverageState": "Crawled - currently not indexed",
@@ -3191,7 +3170,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-17T02:54:55Z",
       "googleCanonical": "https://virtualagency-os.com/answers/software-vs-production-partner",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/answers/streamyard-vs-livekit": {
+      "coverageState": "Crawled - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-06-27T20:24:21Z",
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/virtual-event-backup-systems": {
       "coverageState": "Submitted and indexed",
@@ -3201,7 +3190,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-09T03:46:43Z",
       "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-backup-systems",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/virtual-event-failure-prevention": {
       "coverageState": "Crawled - currently not indexed",
@@ -3211,7 +3200,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-19T07:42:40Z",
       "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-failure-prevention",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/virtual-event-platform-stack": {
       "coverageState": "Crawled - currently not indexed",
@@ -3221,7 +3210,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-07T14:09:51Z",
       "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-platform-stack",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/virtual-event-production-agency": {
       "coverageState": "Crawled - currently not indexed",
@@ -3231,7 +3220,27 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-25T05:43:32Z",
       "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-production-agency",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/answers/virtual-event-production-cost": {
+      "coverageState": "Crawled - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-06-20T22:22:32Z",
+      "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-production-cost",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/answers/virtual-event-production-pricing": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-13T06:42:02Z",
+      "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-production-pricing",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/virtual-event-rehearsal": {
       "coverageState": "Submitted and indexed",
@@ -3241,7 +3250,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-14T11:19:34Z",
       "googleCanonical": "https://virtualagency-os.com/answers/virtual-event-rehearsal",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/webinar-production-agency": {
       "coverageState": "Submitted and indexed",
@@ -3251,7 +3260,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-11T22:05:10Z",
       "googleCanonical": "https://virtualagency-os.com/answers/webinar-production-agency",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/answers/west-peek-productions-fit": {
       "coverageState": "Crawled - currently not indexed",
@@ -3261,7 +3270,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-17T22:09:42Z",
       "googleCanonical": "https://virtualagency-os.com/answers/west-peek-productions-fit",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/articles": {
       "coverageState": "Submitted and indexed",
@@ -3269,9 +3278,9 @@
       "indexingState": "INDEXING_ALLOWED",
       "pageFetchState": "SUCCESSFUL",
       "robotsTxtState": "ALLOWED",
-      "lastCrawlTime": "2026-10-19T11:37:34Z",
+      "lastCrawlTime": "2026-11-03T11:04:56Z",
       "googleCanonical": "https://virtualagency-os.com/articles",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/atlas": {
       "coverageState": "Crawled - currently not indexed",
@@ -3281,7 +3290,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-29T00:05:29Z",
       "googleCanonical": "https://virtualagency-os.com/atlas",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/case-studies/": {
       "coverageState": "Submitted and indexed",
@@ -3291,7 +3300,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-24T20:35:36Z",
       "googleCanonical": "https://virtualagency-os.com/case-studies/",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/case-studies/fortune500-internal-leadership-event": {
       "coverageState": "Submitted and indexed",
@@ -3301,7 +3310,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-11T14:27:36Z",
       "googleCanonical": "https://virtualagency-os.com/case-studies/fortune500-internal-leadership-event",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/case-studies/global-foundation-hybrid-event": {
       "coverageState": "Submitted and indexed",
@@ -3311,7 +3320,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-01T23:23:33Z",
       "googleCanonical": "https://virtualagency-os.com/case-studies/global-foundation-hybrid-event",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/case-studies/large-business-school-virtual-summit": {
       "coverageState": "Submitted and indexed",
@@ -3321,7 +3330,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-14T12:12:03Z",
       "googleCanonical": "https://virtualagency-os.com/case-studies/large-business-school-virtual-summit",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/glossary": {
       "coverageState": "Submitted and indexed",
@@ -3331,7 +3340,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-02T20:50:14Z",
       "googleCanonical": "https://virtualagency-os.com/glossary",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/how-west-peek-helps": {
       "coverageState": "Submitted and indexed",
@@ -3341,7 +3350,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-15T06:56:51Z",
       "googleCanonical": "https://virtualagency-os.com/how-west-peek-helps",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/": {
       "coverageState": "Submitted and indexed",
@@ -3349,9 +3358,9 @@
       "indexingState": "INDEXING_ALLOWED",
       "pageFetchState": "SUCCESSFUL",
       "robotsTxtState": "ALLOWED",
-      "lastCrawlTime": "2026-10-06T17:35:51Z",
+      "lastCrawlTime": "2026-11-05T10:20:55Z",
       "googleCanonical": "https://virtualagency-os.com/insights/",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks": {
       "coverageState": "Crawled - currently not indexed",
@@ -3361,7 +3370,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-06-27T12:06:12Z",
       "googleCanonical": "https://virtualagency-os.com/insights/how-to-choose-speakers-for-a-virtual-summit-without-wasting-weeks",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster": {
       "coverageState": "Submitted and indexed",
@@ -3371,7 +3380,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-14T14:01:13Z",
       "googleCanonical": "https://virtualagency-os.com/insights/how-to-run-a-rehearsal-that-actually-prevents-disaster",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/how-to-run-a-virtual-summit-that-feels-calm": {
       "coverageState": "Submitted and indexed",
@@ -3381,7 +3390,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-19T10:14:16Z",
       "googleCanonical": "https://virtualagency-os.com/insights/how-to-run-a-virtual-summit-that-feels-calm",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/virtual-event-run-of-show-template-that-prevents-chaos": {
       "coverageState": "Submitted and indexed",
@@ -3391,7 +3400,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-02T18:11:47Z",
       "googleCanonical": "https://virtualagency-os.com/insights/virtual-event-run-of-show-template-that-prevents-chaos",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/virtual-event-sponsor-operations-what-to-decide-early": {
       "coverageState": "Crawled - currently not indexed",
@@ -3401,7 +3410,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-05-25T06:15:08Z",
       "googleCanonical": "https://virtualagency-os.com/insights/virtual-event-sponsor-operations-what-to-decide-early",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/insights/webinar-production-checklist-for-founders-with-no-time": {
       "coverageState": "Submitted and indexed",
@@ -3411,7 +3420,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-09T06:50:04Z",
       "googleCanonical": "https://virtualagency-os.com/insights/webinar-production-checklist-for-founders-with-no-time",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/learn/": {
       "coverageState": "Submitted and indexed",
@@ -3421,7 +3430,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-06T19:05:04Z",
       "googleCanonical": "https://virtualagency-os.com/learn/",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/learn/how-virtual-event-production-works": {
       "coverageState": "Submitted and indexed",
@@ -3431,17 +3440,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-20T14:36:30Z",
       "googleCanonical": "https://virtualagency-os.com/learn/how-virtual-event-production-works",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/learn/virtual-event-production-agency": {
-      "coverageState": "Submitted and indexed",
-      "verdict": "PASS",
+      "coverageState": "Crawled - currently not indexed",
+      "verdict": "NEUTRAL",
       "indexingState": "INDEXING_ALLOWED",
       "pageFetchState": "SUCCESSFUL",
       "robotsTxtState": "ALLOWED",
-      "lastCrawlTime": "2026-07-24T19:25:44Z",
+      "lastCrawlTime": "2026-11-05T11:30:27Z",
       "googleCanonical": "https://virtualagency-os.com/learn/virtual-event-production-agency",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/learn/virtual-event-production-cost": {
       "coverageState": "Crawled - currently not indexed",
@@ -3451,7 +3460,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-06-28T00:51:16Z",
       "googleCanonical": "https://virtualagency-os.com/learn/virtual-event-production-cost",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/learn/what-is-virtual-event-production": {
       "coverageState": "Crawled - currently not indexed",
@@ -3461,7 +3470,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-06T21:45:59Z",
       "googleCanonical": "https://virtualagency-os.com/learn/what-is-virtual-event-production",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/pillars/": {
       "coverageState": "Submitted and indexed",
@@ -3471,7 +3480,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-20T01:25:56Z",
       "googleCanonical": "https://virtualagency-os.com/pillars/",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/pillars/virtual-events-os/": {
       "coverageState": "Submitted and indexed",
@@ -3481,7 +3490,67 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-25T19:00:02Z",
       "googleCanonical": "https://virtualagency-os.com/pillars/virtual-events-os/",
-      "inspected_at": "2026-11-02T13:42:14.736173Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-hybrid-event-platform": {
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-hybrid-event-platforms": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-platform-for-virtual-events": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-platforms-for-virtual-events": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-virtual-conference-platforms": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-virtual-event-platform": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/best-virtual-event-platforms": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3491,17 +3560,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-04T19:40:24Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/best-virtual-event-production-companies": {
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/best-virtual-event-technology": {
       "coverageState": "Discovered - currently not indexed",
@@ -3511,7 +3580,27 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/best-virtual-events-platforms": {
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/broadcast-style-virtual-events": {
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T00:16:23Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-marketing-strategy-deliverables": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3521,7 +3610,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T20:54:14Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-marketing-strategy-for-enterprise-teams": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3531,17 +3620,27 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T09:30:52Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-marketing-strategy-template": {
-      "coverageState": "Submitted and indexed",
-      "verdict": "PASS",
+      "coverageState": "Crawled - currently not indexed",
+      "verdict": "NEUTRAL",
       "indexingState": "INDEXING_ALLOWED",
       "pageFetchState": "SUCCESSFUL",
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-02T12:28:59Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/event-marketing-strategy-template",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/event-marketing-strategy-timeline": {
+      "coverageState": "Submitted and indexed",
+      "verdict": "PASS",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-10-14T11:33:07Z",
+      "googleCanonical": "https://virtualagency-os.com/programmatic/event-marketing-strategy-timeline",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show": {
       "coverageState": "Crawled - currently not indexed",
@@ -3551,7 +3650,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-05T20:28:47Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/event-run-of-show",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/event-run-of-show-comparison": {
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-09-06T11:30:17Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-examples": {
       "coverageState": "Crawled - currently not indexed",
@@ -3561,7 +3670,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-06T06:54:15Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/event-run-of-show-examples",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-for-marketing-teams": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3571,7 +3680,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-24T18:06:04Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-for-professional-services-firms": {
       "coverageState": "Submitted and indexed",
@@ -3581,7 +3690,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-17T03:51:55Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/event-run-of-show-for-professional-services-firms",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-how-to-choose": {
       "coverageState": "Submitted and indexed",
@@ -3591,7 +3700,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-02T00:06:21Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/event-run-of-show-how-to-choose",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-template": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3601,7 +3710,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-09T05:51:57Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/event-run-of-show-timeline": {
+      "coverageState": "Duplicate, Google chose different canonical than user",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "lastCrawlTime": "2026-07-23T22:01:39Z",
+      "googleCanonical": "https://virtualagency-os.com/",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-vs-in-house-team": {
       "coverageState": "Submitted and indexed",
@@ -3611,7 +3730,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-04T00:10:21Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/event-run-of-show-vs-in-house-team",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/event-run-of-show-workflow": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3621,7 +3740,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T21:38:15Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/executive-broadcast-production-common-failure-points": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3631,17 +3750,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-09T07:01:22Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/executive-broadcast-production-deliverables": {
-      "coverageState": "Duplicate, Google chose different canonical than user",
+      "coverageState": "Crawled - currently not indexed",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_ALLOWED",
       "pageFetchState": "SUCCESSFUL",
       "robotsTxtState": "ALLOWED",
-      "lastCrawlTime": "2026-09-25T20:18:50Z",
-      "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "lastCrawlTime": "2026-11-07T02:49:53Z",
+      "googleCanonical": "https://virtualagency-os.com/programmatic/executive-broadcast-production-deliverables",
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/host-virtual-events": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3651,7 +3770,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-26T23:08:20Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hosted-event-zero1vent": {
       "coverageState": "Discovered - currently not indexed",
@@ -3661,7 +3780,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/how-to-host-a-virtual-event": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3671,17 +3790,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-28T23:52:05Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/how-to-host-virtual-events": {
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-platform": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3691,7 +3810,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-03T07:15:44Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-platforms": {
       "coverageState": "Submitted and indexed",
@@ -3701,7 +3820,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-20T20:59:08Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-platforms",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production": {
       "coverageState": "Submitted and indexed",
@@ -3711,7 +3830,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-06T17:06:36Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-production",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production-agency": {
       "coverageState": "Crawled - currently not indexed",
@@ -3721,7 +3840,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-06T11:40:33Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-production-agency",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production-best-practices": {
       "coverageState": "Submitted and indexed",
@@ -3731,7 +3850,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T09:39:44Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-production-best-practices",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production-company": {
       "coverageState": "Discovered - currently not indexed",
@@ -3741,7 +3860,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production-mistakes": {
       "coverageState": "Submitted and indexed",
@@ -3751,7 +3870,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-24T10:20:10Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-production-mistakes",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production-services": {
       "coverageState": "Submitted and indexed",
@@ -3761,7 +3880,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-13T20:17:21Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-production-services",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-event-production-timeline": {
       "coverageState": "Submitted and indexed",
@@ -3771,7 +3890,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-29T00:11:49Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/hybrid-event-production-timeline",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-events-platform": {
       "coverageState": "Discovered - currently not indexed",
@@ -3781,17 +3900,17 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/hybrid-events-production-agency": {
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/investor-event-production": {
       "coverageState": "Submitted and indexed",
@@ -3801,7 +3920,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-15T20:50:13Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/investor-event-production",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/investor-relations-event-production": {
       "coverageState": "Discovered - currently not indexed",
@@ -3811,7 +3930,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/live-event-production-webinar": {
       "coverageState": "Discovered - currently not indexed",
@@ -3821,7 +3940,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/livekit-virtual-events": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3831,7 +3950,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T11:14:43Z",
       "googleCanonical": "https://virtualagency-os.com/livekit-virtual-events",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/multi-speaker-event-production": {
       "coverageState": "Submitted and indexed",
@@ -3841,7 +3960,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-19T15:58:49Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/multi-speaker-event-production",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/online-conference-platforms": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3851,17 +3970,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-02T18:16:22Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/platforms-to-host-virtual-events": {
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/professional-webinar-production-services": {
       "coverageState": "Discovered - currently not indexed",
@@ -3871,7 +3990,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/run-of-show-meaning": {
       "coverageState": "Discovered - currently not indexed",
@@ -3881,19 +4000,9 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/top-virtual-conference-platforms": {
-      "coverageState": "Discovered - currently not indexed",
-      "verdict": "NEUTRAL",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
-    },
-    "https://virtualagency-os.com/programmatic/top-virtual-event-platforms": {
       "coverageState": "URL is unknown to Google",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
@@ -3901,7 +4010,17 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/programmatic/top-virtual-event-platforms": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-and-hybrid-event-platform": {
       "coverageState": "Discovered - currently not indexed",
@@ -3911,7 +4030,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-conference-production": {
       "coverageState": "Submitted and indexed",
@@ -3921,7 +4040,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-02T12:00:20Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-conference-production",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-case-studies": {
       "coverageState": "Discovered - currently not indexed",
@@ -3931,7 +4050,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-checklist": {
       "coverageState": "Discovered - currently not indexed",
@@ -3941,7 +4060,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-management": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -3951,7 +4070,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T02:31:25Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-planning": {
       "coverageState": "Submitted and indexed",
@@ -3961,7 +4080,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-05T12:07:59Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-planning",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-planning-checklist": {
       "coverageState": "Submitted and indexed",
@@ -3971,17 +4090,17 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-20T00:34:38Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-planning-checklist",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-planning-timeline": {
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-platform-comparison": {
       "coverageState": "Discovered - currently not indexed",
@@ -3991,7 +4110,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-platforms": {
       "coverageState": "Discovered - currently not indexed",
@@ -4001,7 +4120,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-platforms-comparison": {
       "coverageState": "Discovered - currently not indexed",
@@ -4011,7 +4130,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production": {
       "coverageState": "Submitted and indexed",
@@ -4019,9 +4138,9 @@
       "indexingState": "INDEXING_ALLOWED",
       "pageFetchState": "SUCCESSFUL",
       "robotsTxtState": "ALLOWED",
-      "lastCrawlTime": "2026-11-06T16:43:11Z",
+      "lastCrawlTime": "2026-11-07T05:06:29Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-agency": {
       "coverageState": "Submitted and indexed",
@@ -4031,7 +4150,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-12T05:20:31Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production-agency",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-checklist": {
       "coverageState": "Submitted and indexed",
@@ -4041,7 +4160,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-07T04:53:25Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production-checklist",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-companies": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4051,7 +4170,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T23:57:53Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-company": {
       "coverageState": "Submitted and indexed",
@@ -4061,7 +4180,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-05T17:26:05Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production-company",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-cost": {
       "coverageState": "Crawled - currently not indexed",
@@ -4071,7 +4190,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-02T12:21:50Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production-cost",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-for-biotech": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4081,7 +4200,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T00:10:45Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-for-finance": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4091,7 +4210,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-28T23:42:10Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-for-government": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4101,7 +4220,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T03:24:43Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-for-manufacturing": {
       "coverageState": "Crawled - currently not indexed",
@@ -4111,7 +4230,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-11-05T21:16:29Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production-for-manufacturing",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-for-professional-services": {
       "coverageState": "Crawled - currently not indexed",
@@ -4121,7 +4240,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-02T16:51:23Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-event-production-for-professional-services",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-for-saas": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4131,7 +4250,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-08-24T11:44:52Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-producer-roles": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4141,7 +4260,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-09-09T07:45:48Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-production-team": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4151,7 +4270,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T21:07:35Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-rfp-questions": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4161,7 +4280,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T21:17:55Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-services": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4171,7 +4290,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T00:30:30Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-staff": {
       "coverageState": "Discovered - currently not indexed",
@@ -4181,7 +4300,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-production-technical-rehearsal": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4191,7 +4310,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T00:45:48Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-providers": {
       "coverageState": "Discovered - currently not indexed",
@@ -4201,7 +4320,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-services": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4211,7 +4330,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T22:30:10Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-streaming-platforms": {
       "coverageState": "Discovered - currently not indexed",
@@ -4221,7 +4340,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-timeline": {
       "coverageState": "Discovered - currently not indexed",
@@ -4231,7 +4350,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-event-trends-2026": {
       "coverageState": "Duplicate, Google chose different canonical than user",
@@ -4241,7 +4360,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-07-23T01:45:49Z",
       "googleCanonical": "https://virtualagency-os.com/",
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-events-checklist": {
       "coverageState": "Discovered - currently not indexed",
@@ -4251,7 +4370,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-events-management": {
       "coverageState": "Discovered - currently not indexed",
@@ -4261,17 +4380,17 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-events-platform-comparison": {
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-06T23:46:56.733243Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-events-platforms": {
       "coverageState": "Discovered - currently not indexed",
@@ -4291,7 +4410,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-10-31T10:41:18.889601Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/virtual-summit-platform": {
       "coverageState": "Discovered - currently not indexed",
@@ -4321,7 +4440,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-28T12:03:21Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/virtual-summit-production",
-      "inspected_at": "2026-10-31T10:41:18.889601Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/webinar-production": {
       "coverageState": "Submitted and indexed",
@@ -4341,7 +4460,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-09T08:09:28Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/webinar-production-agency",
-      "inspected_at": "2026-10-31T10:41:18.889601Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/webinar-production-checklist": {
       "coverageState": "Submitted and indexed",
@@ -4381,7 +4500,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-21T03:37:59Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/webinar-production-cost",
-      "inspected_at": "2026-10-31T10:41:18.889601Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/webinar-production-services": {
       "coverageState": "Submitted and indexed",
@@ -4401,7 +4520,7 @@
       "robotsTxtState": "ALLOWED",
       "lastCrawlTime": "2026-10-01T11:21:33Z",
       "googleCanonical": "https://virtualagency-os.com/programmatic/what-is-hybrid-event-production",
-      "inspected_at": "2026-10-31T10:41:18.889601Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/programmatic/what-is-virtual-event-production": {
       "coverageState": "Submitted and indexed",
@@ -4453,6 +4572,116 @@
       "googleCanonical": "https://virtualagency-os.com/query-atlas/virtual-event-trends",
       "inspected_at": "2026-11-06T23:46:56.733243Z"
     },
+    "https://virtualagency-os.com/questions/are-webinars-live-or-recorded": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/best-event-planning-for-webinars": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/hot-to-set-up-a-virtual-event": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/how-to-run-a-webinar": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/hybrid-events-pros-and-cons": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/launching-virtual-events-successfully": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/live-event-webinar-support-team": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/live-streaming-a-webinar": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/online-event-production": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/prepare-a-live-webinar": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
+    "https://virtualagency-os.com/questions/rise-of-hybrid-events": {
+      "coverageState": "Discovered - currently not indexed",
+      "verdict": "NEUTRAL",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "googleCanonical": null,
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
+    },
     "https://virtualagency-os.com/selected-work": {
       "coverageState": "Crawled - currently not indexed",
       "verdict": "NEUTRAL",
@@ -4481,7 +4710,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/topics/": {
       "coverageState": "Discovered - currently not indexed",
@@ -4491,17 +4720,17 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/topics/event-marketing-strategy": {
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "verdict": "NEUTRAL",
       "indexingState": "INDEXING_STATE_UNSPECIFIED",
       "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/topics/event-run-of-show": {
       "coverageState": "Discovered - currently not indexed",
@@ -4561,7 +4790,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/topics/virtual-summit-production": {
       "coverageState": "Discovered - currently not indexed",
@@ -4571,7 +4800,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     },
     "https://virtualagency-os.com/topics/webinar-production": {
       "coverageState": "Discovered - currently not indexed",
@@ -4581,7 +4810,7 @@
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "lastCrawlTime": null,
       "googleCanonical": null,
-      "inspected_at": "2026-11-01T11:42:38.983871Z"
+      "inspected_at": "2026-11-07T13:00:57.587139Z"
     }
   }
 }

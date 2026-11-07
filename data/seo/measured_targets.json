@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-06T23:50:36.088Z",
+  "generated_at": "2026-11-07T13:03:00.318Z",
   "rule": "A target exists only where a Search Console row measured impressions for the query. Rebuilt by `npm run seo:measured-targets`; read by the publication freeze gate (scripts/lib/publication_freeze.js).",
   "sources": [
     {
       "id": "gsc_28d_query_page",
-      "window": "2026-10-08..2026-11-04",
+      "window": "2026-10-09..2026-11-05",
       "rows": 4
     },
     {
@@ -14,18 +14,18 @@
     },
     {
       "id": "gsc_90d_query_page",
-      "window": "90 days to 2026-11-02",
-      "rows": 418
+      "window": "90 days to 2026-11-07",
+      "rows": 327
     }
   ],
   "excluded_operator_probe_rows": 0,
-  "target_count": 294,
+  "target_count": 232,
   "targets": [
     {
       "query": "hybrid event production",
-      "impressions": 282,
+      "impressions": 164,
       "clicks": 0,
-      "best_position": 71.4,
+      "best_position": 70.5,
       "pages": [
         "/hybrid-event-platform",
         "/programmatic/what-is-hybrid-event-production"
@@ -33,26 +33,13 @@
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 282
-    },
-    {
-      "query": "hybrid event platform",
-      "impressions": 262,
-      "clicks": 0,
-      "best_position": 51.5,
-      "pages": [
-        "/hybrid-event-platform"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 262
+      "impressions_gsc_90d_query_page": 164
     },
     {
       "query": "virtual events production",
-      "impressions": 161,
+      "impressions": 144,
       "clicks": 0,
-      "best_position": 69.2,
+      "best_position": 69,
       "pages": [
         "/learn/what-is-virtual-event-production",
         "/programmatic/virtual-event-production-for-saas"
@@ -60,33 +47,20 @@
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 161
-    },
-    {
-      "query": "best virtual event platforms",
-      "impressions": 159,
-      "clicks": 0,
-      "best_position": 20.9,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 159
-    },
-    {
-      "query": "best virtual event platform",
-      "impressions": 144,
-      "clicks": 0,
-      "best_position": 23.2,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
       "impressions_gsc_90d_query_page": 144
+    },
+    {
+      "query": "hybrid event platform",
+      "impressions": 143,
+      "clicks": 0,
+      "best_position": 50.9,
+      "pages": [
+        "/hybrid-event-platform"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 143
     },
     {
       "query": "community management outsourcing",
@@ -111,53 +85,77 @@
       "impressions_gsc_90d_query_page": 118
     },
     {
-      "query": "webinar production services",
-      "impressions": 102,
+      "query": "best virtual event platform",
+      "impressions": 90,
       "clicks": 0,
-      "best_position": 52,
-      "pages": [
-        "/programmatic/virtual-event-production-for-saas",
-        "/programmatic/webinar-production",
-        "/programmatic/what-is-webinar-production"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 102
-    },
-    {
-      "query": "virtual event platforms",
-      "impressions": 96,
-      "clicks": 0,
-      "best_position": 23.7,
+      "best_position": 22.1,
       "pages": [
         "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 96
+      "impressions_gsc_90d_query_page": 90
+    },
+    {
+      "query": "best virtual event platforms",
+      "impressions": 90,
+      "clicks": 0,
+      "best_position": 19.9,
+      "pages": [
+        "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 90
+    },
+    {
+      "query": "webinar production services",
+      "impressions": 75,
+      "clicks": 0,
+      "best_position": 52,
+      "pages": [
+        "/programmatic/virtual-event-production-for-saas",
+        "/programmatic/what-is-webinar-production"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 75
+    },
+    {
+      "query": "virtual event platforms",
+      "impressions": 73,
+      "clicks": 0,
+      "best_position": 21.4,
+      "pages": [
+        "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 73
     },
     {
       "query": "audience growth strategy",
-      "impressions": 92,
+      "impressions": 59,
       "clicks": 0,
       "best_position": 24.8,
       "pages": [
         "/programmatic/audience-growth-strategy",
-        "/programmatic/audience-growth-strategy-for-startups",
         "/programmatic/what-is-audience-growth-strategy"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 92
+      "impressions_gsc_90d_query_page": 59
     },
     {
       "query": "professional webinar production services",
-      "impressions": 67,
+      "impressions": 57,
       "clicks": 0,
-      "best_position": 51.8,
+      "best_position": 52.1,
       "pages": [
         "/programmatic/virtual-event-production-for-saas",
         "/virtual-event-production-for-professional-services"
@@ -165,28 +163,11 @@
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 67
-    },
-    {
-      "query": "content marketing operation services",
-      "impressions": 56,
-      "clicks": 0,
-      "best_position": 56,
-      "pages": [
-        "/content-marketing-operations-services",
-        "/programmatic/ai-content-operations-for-marketing-teams",
-        "/programmatic/content-marketing-operations-for-financial-services-teams",
-        "/programmatic/content-marketing-operations-for-professional-services-firms",
-        "/query-atlas/content-marketing-operations"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 56
+      "impressions_gsc_90d_query_page": 57
     },
     {
       "query": "west peak",
-      "impressions": 46,
+      "impressions": 45,
       "clicks": 0,
       "best_position": 71.1,
       "pages": [
@@ -200,38 +181,7 @@
       ],
       "impressions_gsc_28d_query_page": 15,
       "impressions_gsc_28d_export": 6,
-      "impressions_gsc_90d_query_page": 46
-    },
-    {
-      "query": "webinar production",
-      "impressions": 44,
-      "clicks": 0,
-      "best_position": 71,
-      "pages": [
-        "/programmatic/webinar-production",
-        "/programmatic/what-is-webinar-production"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 44
-    },
-    {
-      "query": "agency content operations",
-      "impressions": 37,
-      "clicks": 0,
-      "best_position": 73.2,
-      "pages": [
-        "/content-marketing-operations",
-        "/content-marketing-operations-for-marketing-teams",
-        "/content-marketing-operations-process",
-        "/content-marketing-operations-services",
-        "/programmatic/ai-content-operations-for-marketing-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 37
+      "impressions_gsc_90d_query_page": 45
     },
     {
       "query": "narrative strategy",
@@ -247,15 +197,16 @@
       "impressions_gsc_90d_query_page": 37
     },
     {
-      "query": "ai content operations",
+      "query": "content marketing operation services",
       "impressions": 36,
       "clicks": 0,
-      "best_position": 70.2,
+      "best_position": 56,
       "pages": [
-        "/programmatic/ai-content-operations",
+        "/content-marketing-operations-services",
         "/programmatic/ai-content-operations-for-marketing-teams",
-        "/programmatic/ai-content-operations-scope-of-work",
-        "/programmatic/what-is-ai-content-operations"
+        "/programmatic/content-marketing-operations-for-financial-services-teams",
+        "/programmatic/content-marketing-operations-for-professional-services-firms",
+        "/query-atlas/content-marketing-operations"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -281,28 +232,6 @@
       "impressions_gsc_90d_query_page": 35
     },
     {
-      "query": "ai consultant vs ai agency",
-      "impressions": 33,
-      "clicks": 0,
-      "best_position": 56.6,
-      "pages": [
-        "/programmatic/ai-consultant-vs-automation-agency-best-practices",
-        "/programmatic/ai-consultant-vs-automation-agency-comparison",
-        "/programmatic/ai-consultant-vs-automation-agency-examples",
-        "/programmatic/ai-consultant-vs-automation-agency-for-founders",
-        "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-        "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
-        "/programmatic/ai-consultant-vs-automation-agency-implementation-guide",
-        "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
-        "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
-        "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 33
-    },
-    {
       "query": ".brand implementation",
       "impressions": 32,
       "clicks": 0,
@@ -316,73 +245,34 @@
       "impressions_gsc_90d_query_page": 32
     },
     {
-      "query": "webinar production checklist",
-      "impressions": 32,
+      "query": "webinar production",
+      "impressions": 30,
       "clicks": 0,
-      "best_position": 9.9,
+      "best_position": 71,
       "pages": [
-        "/insights/webinar-production-checklist-for-founders-with-no-time",
-        "/programmatic/webinar-production-checklist"
+        "/programmatic/what-is-webinar-production"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 32
+      "impressions_gsc_90d_query_page": 30
     },
     {
-      "query": "brand messaging architecture",
-      "impressions": 31,
+      "query": "agency content operations",
+      "impressions": 25,
       "clicks": 0,
-      "best_position": 53.2,
+      "best_position": 71,
       "pages": [
-        "/programmatic/brand-messaging-architecture",
-        "/programmatic/what-is-brand-messaging-architecture"
+        "/content-marketing-operations",
+        "/content-marketing-operations-for-marketing-teams",
+        "/content-marketing-operations-process",
+        "/content-marketing-operations-services",
+        "/programmatic/ai-content-operations-for-marketing-teams"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 31
-    },
-    {
-      "query": "top virtual event platforms",
-      "impressions": 29,
-      "clicks": 0,
-      "best_position": 37.7,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 29
-    },
-    {
-      "query": "virtual event platform comparison",
-      "impressions": 27,
-      "clicks": 0,
-      "best_position": 39,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 27
-    },
-    {
-      "query": "investor relations event production",
-      "impressions": 26,
-      "clicks": 0,
-      "best_position": 76.5,
-      "pages": [
-        "/investor-event-production"
-      ],
-      "sources": [
-        "gsc_28d_export",
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_28d_export": 3,
-      "impressions_gsc_90d_query_page": 26
+      "impressions_gsc_90d_query_page": 25
     },
     {
       "query": "creative strategy consulting",
@@ -414,13 +304,13 @@
       "impressions_gsc_90d_query_page": 25
     },
     {
-      "query": "virtual event production",
+      "query": "brand messaging architecture",
       "impressions": 24,
       "clicks": 0,
-      "best_position": 61.5,
+      "best_position": 53.2,
       "pages": [
-        "/programmatic/virtual-event-production-for-saas",
-        "/programmatic/what-is-virtual-event-production"
+        "/programmatic/brand-messaging-architecture",
+        "/programmatic/what-is-brand-messaging-architecture"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -428,58 +318,49 @@
       "impressions_gsc_90d_query_page": 24
     },
     {
-      "query": "best hybrid event platforms",
-      "impressions": 21,
+      "query": "investor relations event production",
+      "impressions": 23,
       "clicks": 0,
-      "best_position": 47,
+      "best_position": 77.4,
       "pages": [
-        "/best-virtual-event-platforms"
+        "/investor-event-production"
+      ],
+      "sources": [
+        "gsc_28d_export",
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_28d_export": 3,
+      "impressions_gsc_90d_query_page": 23
+    },
+    {
+      "query": "webinar production checklist",
+      "impressions": 22,
+      "clicks": 0,
+      "best_position": 10,
+      "pages": [
+        "/insights/webinar-production-checklist-for-founders-with-no-time",
+        "/programmatic/webinar-production-checklist"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 21
+      "impressions_gsc_90d_query_page": 22
     },
     {
-      "query": "virtual event providers",
-      "impressions": 21,
-      "clicks": 0,
-      "best_position": 38.1,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 21
-    },
-    {
-      "query": "best platforms for virtual events",
+      "query": "ai content operations",
       "impressions": 20,
       "clicks": 0,
-      "best_position": 30.3,
+      "best_position": 69.5,
       "pages": [
-        "/best-virtual-event-platforms"
+        "/programmatic/ai-content-operations",
+        "/programmatic/ai-content-operations-for-marketing-teams",
+        "/programmatic/ai-content-operations-scope-of-work",
+        "/programmatic/what-is-ai-content-operations"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
       "impressions_gsc_90d_query_page": 20
-    },
-    {
-      "query": "integrated agency",
-      "impressions": 19,
-      "clicks": 0,
-      "best_position": 15,
-      "pages": [
-        "/programmatic/integrated-agency-vs-specialist-agencies-companies",
-        "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams",
-        "/programmatic/what-is-integrated-agency-vs-specialist-agencies"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 19
     },
     {
       "query": "integrated agency definition",
@@ -500,12 +381,13 @@
       "impressions_gsc_90d_query_page": 19
     },
     {
-      "query": "virtual event production staff",
+      "query": "virtual event production",
       "impressions": 19,
       "clicks": 0,
-      "best_position": 76,
+      "best_position": 60.8,
       "pages": [
-        "/programmatic/virtual-event-production-for-saas"
+        "/programmatic/virtual-event-production-for-saas",
+        "/programmatic/what-is-virtual-event-production"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -513,23 +395,24 @@
       "impressions_gsc_90d_query_page": 19
     },
     {
-      "query": "virtual summit platforms",
-      "impressions": 18,
+      "query": "integrated agency",
+      "impressions": 17,
       "clicks": 0,
-      "best_position": 40.1,
+      "best_position": 5,
       "pages": [
-        "/best-virtual-event-platforms"
+        "/programmatic/integrated-agency-vs-specialist-agencies-companies",
+        "/programmatic/what-is-integrated-agency-vs-specialist-agencies"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 18
+      "impressions_gsc_90d_query_page": 17
     },
     {
-      "query": "best platform for virtual events",
+      "query": "top virtual event platforms",
       "impressions": 17,
       "clicks": 0,
-      "best_position": 49.1,
+      "best_position": 36,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -552,40 +435,38 @@
       "impressions_gsc_90d_query_page": 15
     },
     {
-      "query": "best hybrid event platform",
-      "impressions": 14,
+      "query": "best hybrid event platforms",
+      "impressions": 15,
       "clicks": 0,
-      "best_position": 45.8,
+      "best_position": 45.4,
       "pages": [
         "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 14
+      "impressions_gsc_90d_query_page": 15
     },
     {
-      "query": "human in the loop examples",
-      "impressions": 14,
+      "query": "virtual event providers",
+      "impressions": 15,
       "clicks": 0,
-      "best_position": 80.1,
+      "best_position": 37.3,
       "pages": [
-        "/programmatic/human-in-the-loop-ai-systems-case-pattern",
-        "/programmatic/human-in-the-loop-ai-systems-examples"
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 14
+      "impressions_gsc_90d_query_page": 15
     },
     {
-      "query": "marketing content operation solution",
+      "query": "virtual event production staff",
       "impressions": 14,
       "clicks": 0,
-      "best_position": 52.5,
+      "best_position": 76.1,
       "pages": [
-        "/content-marketing-operations-implementation-guide",
-        "/content-marketing-operations-process"
+        "/programmatic/virtual-event-production-for-saas"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -599,19 +480,6 @@
       "best_position": 66.9,
       "pages": [
         "/programmatic/what-is-ai-marketing-workflows"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 13
-    },
-    {
-      "query": "best virtual event production companies",
-      "impressions": 13,
-      "clicks": 0,
-      "best_position": 29.2,
-      "pages": [
-        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -692,13 +560,30 @@
       "impressions_gsc_90d_query_page": 12
     },
     {
-      "query": "community strategy and consultancy",
+      "query": "ai consultant vs ai agency",
       "impressions": 11,
       "clicks": 0,
-      "best_position": 37,
+      "best_position": 54.7,
       "pages": [
-        "/programmatic/community-engagement-strategy-consultant",
-        "/programmatic/customer-community-strategy-consultant"
+        "/programmatic/ai-consultant-vs-automation-agency-comparison",
+        "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
+        "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
+        "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
+        "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
+        "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 11
+    },
+    {
+      "query": "best hybrid event platform",
+      "impressions": 11,
+      "clicks": 0,
+      "best_position": 42.6,
+      "pages": [
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -719,10 +604,10 @@
       "impressions_gsc_90d_query_page": 11
     },
     {
-      "query": "virtual event platforms comparison",
+      "query": "virtual event platform comparison",
       "impressions": 11,
       "clicks": 0,
-      "best_position": 42.8,
+      "best_position": 31.3,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -732,17 +617,30 @@
       "impressions_gsc_90d_query_page": 11
     },
     {
-      "query": "virtual event production cost",
-      "impressions": 11,
+      "query": "best platforms for virtual events",
+      "impressions": 10,
       "clicks": 0,
-      "best_position": 23.1,
+      "best_position": 29.2,
       "pages": [
-        "/learn/virtual-event-production-cost"
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 11
+      "impressions_gsc_90d_query_page": 10
+    },
+    {
+      "query": "best virtual event production companies",
+      "impressions": 10,
+      "clicks": 0,
+      "best_position": 26.5,
+      "pages": [
+        "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 10
     },
     {
       "query": "community as a service",
@@ -754,6 +652,20 @@
         "/programmatic/community-as-a-service-for-professional-services-firms",
         "/programmatic/community-as-a-service-for-saas-companies",
         "/programmatic/what-is-community-as-a-service"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 10
+    },
+    {
+      "query": "community strategy and consultancy",
+      "impressions": 10,
+      "clicks": 0,
+      "best_position": 37,
+      "pages": [
+        "/programmatic/community-engagement-strategy-consultant",
+        "/programmatic/customer-community-strategy-consultant"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -775,20 +687,6 @@
       "impressions_gsc_90d_query_page": 10
     },
     {
-      "query": "marketing content operations",
-      "impressions": 10,
-      "clicks": 0,
-      "best_position": 80.3,
-      "pages": [
-        "/programmatic/ai-content-operations-for-marketing-teams",
-        "/programmatic/what-is-content-marketing-operations"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 10
-    },
-    {
       "query": "virtual and hybrid event platform",
       "impressions": 10,
       "clicks": 0,
@@ -800,33 +698,6 @@
         "gsc_90d_query_page"
       ],
       "impressions_gsc_90d_query_page": 10
-    },
-    {
-      "query": "virtual events platform comparison",
-      "impressions": 10,
-      "clicks": 0,
-      "best_position": 36.5,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 10
-    },
-    {
-      "query": "best platforms for virtual conferences",
-      "impressions": 9,
-      "clicks": 0,
-      "best_position": 29.3,
-      "pages": [
-        "/best-virtual-event-platforms",
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 9
     },
     {
       "query": "content marketing operations",
@@ -868,10 +739,23 @@
       "impressions_gsc_90d_query_page": 9
     },
     {
-      "query": "platforms to host virtual events",
+      "query": "virtual event production cost",
       "impressions": 9,
       "clicks": 0,
-      "best_position": 56.3,
+      "best_position": 23,
+      "pages": [
+        "/learn/virtual-event-production-cost"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 9
+    },
+    {
+      "query": "virtual summit platforms",
+      "impressions": 9,
+      "clicks": 0,
+      "best_position": 40.3,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -881,17 +765,17 @@
       "impressions_gsc_90d_query_page": 9
     },
     {
-      "query": "what is a virtual event platform",
-      "impressions": 9,
+      "query": "best platform for virtual events",
+      "impressions": 8,
       "clicks": 0,
-      "best_position": 68.2,
+      "best_position": 50.3,
       "pages": [
         "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 9
+      "impressions_gsc_90d_query_page": 8
     },
     {
       "query": "community programming",
@@ -920,27 +804,38 @@
       "impressions_gsc_90d_query_page": 8
     },
     {
-      "query": "best virtual event technology",
-      "impressions": 7,
+      "query": "platforms to host virtual events",
+      "impressions": 8,
       "clicks": 0,
-      "best_position": 53.9,
+      "best_position": 54,
       "pages": [
         "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 7
+      "impressions_gsc_90d_query_page": 8
     },
     {
-      "query": "community operations",
+      "query": "virtual event platforms comparison",
+      "impressions": 8,
+      "clicks": 0,
+      "best_position": 40,
+      "pages": [
+        "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 8
+    },
+    {
+      "query": "best virtual event technology",
       "impressions": 7,
       "clicks": 0,
-      "best_position": 8.2,
+      "best_position": 53.9,
       "pages": [
-        "/programmatic/community-operations-examples",
-        "/programmatic/community-operations-questions-to-ask",
-        "/programmatic/what-is-community-operations"
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -991,26 +886,13 @@
       "impressions_gsc_90d_query_page": 7
     },
     {
-      "query": "marketing content operation workflow",
+      "query": "marketing content operation solution",
       "impressions": 7,
       "clicks": 0,
-      "best_position": 54,
+      "best_position": 15,
       "pages": [
-        "/content-marketing-operations-process",
-        "/content-marketing-operations-workflow"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 7
-    },
-    {
-      "query": "marketing operating model design",
-      "impressions": 7,
-      "clicks": 0,
-      "best_position": 78.6,
-      "pages": [
-        "/programmatic/launch-marketing-strategy-operating-model"
+        "/content-marketing-operations-implementation-guide",
+        "/content-marketing-operations-process"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1036,20 +918,6 @@
       "impressions_gsc_90d_query_page": 7
     },
     {
-      "query": "virtual event production checklist",
-      "impressions": 7,
-      "clicks": 0,
-      "best_position": 61,
-      "pages": [
-        "/programmatic/how-to-host-a-virtual-event",
-        "/virtual-event-production-checklist"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 7
-    },
-    {
       "query": "virtual events platforms",
       "impressions": 7,
       "clicks": 0,
@@ -1063,10 +931,10 @@
       "impressions_gsc_90d_query_page": 7
     },
     {
-      "query": "virtual summit platform",
+      "query": "what is a virtual event platform",
       "impressions": 7,
       "clicks": 0,
-      "best_position": 69,
+      "best_position": 69.6,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -1074,19 +942,6 @@
         "gsc_90d_query_page"
       ],
       "impressions_gsc_90d_query_page": 7
-    },
-    {
-      "query": "best virtual conference platforms",
-      "impressions": 6,
-      "clicks": 0,
-      "best_position": 31.5,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 6
     },
     {
       "query": "branding scope of work",
@@ -1154,19 +1009,6 @@
       "impressions_gsc_90d_query_page": 6
     },
     {
-      "query": "hybrid events company",
-      "impressions": 6,
-      "clicks": 0,
-      "best_position": 82.8,
-      "pages": [
-        "/hybrid-event-platform"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 6
-    },
-    {
       "query": "hybrid events production",
       "impressions": 6,
       "clicks": 0,
@@ -1206,19 +1048,6 @@
       "impressions_gsc_90d_query_page": 6
     },
     {
-      "query": "top virtual conference platforms",
-      "impressions": 6,
-      "clicks": 0,
-      "best_position": 47,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 6
-    },
-    {
       "query": "what is virtual event platform",
       "impressions": 6,
       "clicks": 0,
@@ -1232,12 +1061,13 @@
       "impressions_gsc_90d_query_page": 6
     },
     {
-      "query": "best virtual networking platforms",
+      "query": "best platforms for virtual conferences",
       "impressions": 5,
       "clicks": 0,
-      "best_position": 30.4,
+      "best_position": 29,
       "pages": [
-        "/best-virtual-event-platforms"
+        "/best-virtual-event-platforms",
+        "/online-conference-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1258,12 +1088,11 @@
       "impressions_gsc_90d_query_page": 5
     },
     {
-      "query": "community ops",
+      "query": "community operations",
       "impressions": 5,
       "clicks": 0,
-      "best_position": 28.3,
+      "best_position": 8.2,
       "pages": [
-        "/programmatic/community-operations-scope-of-work",
         "/programmatic/what-is-community-operations"
       ],
       "sources": [
@@ -1272,13 +1101,13 @@
       "impressions_gsc_90d_query_page": 5
     },
     {
-      "query": "content ops ia",
+      "query": "community ops",
       "impressions": 5,
       "clicks": 0,
-      "best_position": 80.5,
+      "best_position": 28.3,
       "pages": [
-        "/programmatic/ai-content-operations",
-        "/programmatic/ai-content-operations-for-marketing-teams"
+        "/programmatic/community-operations-scope-of-work",
+        "/programmatic/what-is-community-operations"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1302,12 +1131,12 @@
       "impressions_gsc_90d_query_page": 5
     },
     {
-      "query": "enterprise brand experience consulting",
+      "query": "hybrid events company",
       "impressions": 5,
       "clicks": 0,
-      "best_position": 25,
+      "best_position": 82.8,
       "pages": [
-        "/brand-strategy-consulting-for-enterprise-teams"
+        "/hybrid-event-platform"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1315,13 +1144,13 @@
       "impressions_gsc_90d_query_page": 5
     },
     {
-      "query": "marketing deliverables",
+      "query": "marketing content operations",
       "impressions": 5,
       "clicks": 0,
-      "best_position": 40.3,
+      "best_position": 78,
       "pages": [
-        "/programmatic/launch-marketing-strategy-deliverables",
-        "/programmatic/marketing-strategy-consulting-deliverables"
+        "/programmatic/ai-content-operations-for-marketing-teams",
+        "/programmatic/what-is-content-marketing-operations"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1329,10 +1158,10 @@
       "impressions_gsc_90d_query_page": 5
     },
     {
-      "query": "virtual event platforms for conferences",
+      "query": "virtual events platform comparison",
       "impressions": 5,
       "clicks": 0,
-      "best_position": 56.5,
+      "best_position": 37.6,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -1340,32 +1169,6 @@
         "gsc_90d_query_page"
       ],
       "impressions_gsc_90d_query_page": 5
-    },
-    {
-      "query": "virtual event streaming platforms",
-      "impressions": 5,
-      "clicks": 0,
-      "best_position": 52,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 5
-    },
-    {
-      "query": "agency reputation roi",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 80,
-      "pages": [
-        "/brand-agency-vs-marketing-agency-roi-factors"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
     },
     {
       "query": "ai consultant vs automation agency south africa",
@@ -1384,38 +1187,12 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "ai timeline planning consulting",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 74.3,
-      "pages": [
-        "/programmatic/ai-workflow-consulting-timeline"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
       "query": "audience growth",
       "impressions": 4,
       "clicks": 0,
       "best_position": 59.8,
       "pages": [
         "/programmatic/what-is-audience-growth-strategy"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "best platform for hybrid events",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 50.8,
-      "pages": [
-        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1449,53 +1226,12 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "content and marketing operations",
+      "query": "enterprise brand experience consulting",
       "impressions": 4,
       "clicks": 0,
-      "best_position": 57,
+      "best_position": 21,
       "pages": [
-        "/content-marketing-operations-process",
-        "/content-marketing-operations-scope-of-work",
-        "/programmatic/what-is-content-marketing-operations"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "event marketing checklist",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 78.5,
-      "pages": [
-        "/programmatic/event-marketing-strategy-checklist"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "event marketing plan timeline",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 61,
-      "pages": [
-        "/programmatic/event-marketing-strategy-timeline"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "event marketing strategy template",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 73.8,
-      "pages": [
-        "/programmatic/event-marketing-strategy-template"
+        "/brand-strategy-consulting-for-enterprise-teams"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1516,33 +1252,6 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "how to build a human-in-the-loop ai marketing system",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 35.3,
-      "pages": [
-        "/programmatic/human-in-the-loop-ai-systems-for-marketing-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "how to choose a platform for an online event",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 56.5,
-      "pages": [
-        "/best-virtual-event-platforms",
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
       "query": "hybrid events platform",
       "impressions": 4,
       "clicks": 0,
@@ -1556,53 +1265,13 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "integrated agency team",
+      "query": "marketing content operation workflow",
       "impressions": 4,
       "clicks": 0,
-      "best_position": 17.5,
+      "best_position": 53,
       "pages": [
-        "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "marketing operating model",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 71.3,
-      "pages": [
-        "/programmatic/launch-marketing-strategy-operating-model"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "messaging architecture",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 82,
-      "pages": [
-        "/programmatic/brand-messaging-architecture",
-        "/programmatic/what-is-brand-messaging-architecture"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
-    },
-    {
-      "query": "run of show meaning",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 94,
-      "pages": [
-        "/programmatic/event-run-of-show-deliverables",
-        "/programmatic/event-run-of-show-for-professional-services-firms"
+        "/content-marketing-operations-process",
+        "/content-marketing-operations-workflow"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1623,13 +1292,12 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "webinar production company",
+      "query": "top virtual conference platforms",
       "impressions": 4,
       "clicks": 0,
-      "best_position": 61.3,
+      "best_position": 48.3,
       "pages": [
-        "/programmatic/virtual-event-production-for-saas",
-        "/programmatic/webinar-production"
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1637,23 +1305,23 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "best virtual event platforms 2020",
-      "impressions": 3,
+      "query": "virtual event streaming platforms",
+      "impressions": 4,
       "clicks": 0,
-      "best_position": 39,
+      "best_position": 51.3,
       "pages": [
         "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 3
+      "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "best virtual event software platforms",
+      "query": "best virtual conference platforms",
       "impressions": 3,
       "clicks": 0,
-      "best_position": 51.7,
+      "best_position": 37.3,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -1715,20 +1383,6 @@
       "impressions_gsc_90d_query_page": 3
     },
     {
-      "query": "communityos pricing",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 45,
-      "pages": [
-        "/programmatic/community-as-a-service-cost",
-        "/programmatic/community-programming-cost"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
       "query": "content marketing ops",
       "impressions": 3,
       "clicks": 0,
@@ -1772,20 +1426,6 @@
       "impressions_gsc_90d_query_page": 3
     },
     {
-      "query": "creative operations solution",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 68,
-      "pages": [
-        "/creative-operations-services",
-        "/programmatic/what-is-creative-operations"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
       "query": "deliverables for broadcast",
       "impressions": 3,
       "clicks": 0,
@@ -1801,120 +1441,12 @@
       "impressions_gsc_90d_query_page": 3
     },
     {
-      "query": "digital run of show",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 83,
-      "pages": [
-        "/programmatic/event-run-of-show-comparison",
-        "/programmatic/event-run-of-show-implementation-guide",
-        "/programmatic/event-run-of-show-template"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "enterprise event marketing",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 31.7,
-      "pages": [
-        "/programmatic/event-marketing-strategy-for-enterprise-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "human in the loop services",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 41.7,
-      "pages": [
-        "/programmatic/human-in-the-loop-ai-systems-services"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "hybrid event timeline",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 48.7,
-      "pages": [
-        "/programmatic/hybrid-event-production-timeline"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "hybrid show platform",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 57,
-      "pages": [
-        "/best-virtual-event-platforms",
-        "/hybrid-event-platform"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
       "query": "marketing roi consulting",
       "impressions": 3,
       "clicks": 0,
       "best_position": 57,
       "pages": [
         "/programmatic/marketing-strategy-consulting-roi-factors"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "marketing timeline",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 69,
-      "pages": [
-        "/programmatic/event-marketing-strategy-timeline",
-        "/programmatic/launch-marketing-strategy-timeline"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "platform virtual events -- --",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 73.3,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "platforms for hosting virtual events -- --",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 75,
-      "pages": [
-        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -1975,51 +1507,12 @@
       "impressions_gsc_90d_query_page": 3
     },
     {
-      "query": "virtual conference platform comparison",
+      "query": "run of show meaning",
       "impressions": 3,
       "clicks": 0,
-      "best_position": 42.7,
+      "best_position": 94,
       "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "virtual convention platform 47 --",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 69,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "virtual convention platforms -- --",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 68,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "virtual event platform comparison chart",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 37.3,
-      "pages": [
-        "/best-virtual-event-platforms"
+        "/programmatic/event-run-of-show-for-professional-services-firms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2053,25 +1546,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "best av production partner for hybrid town halls and zoom webinars",
+      "query": "best platform for hybrid events",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 32,
+      "best_position": 50.5,
       "pages": [
         "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "best hybrid event platform solution",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 77,
-      "pages": [
-        "/hybrid-event-platform"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2083,6 +1563,32 @@
       "impressions": 2,
       "clicks": 0,
       "best_position": 44,
+      "pages": [
+        "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "best virtual event platforms 2020",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 36,
+      "pages": [
+        "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "best virtual networking platforms",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 22.5,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -2159,6 +1665,34 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
+      "query": "communityos pricing",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 49,
+      "pages": [
+        "/programmatic/community-as-a-service-cost",
+        "/programmatic/community-programming-cost"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "content and marketing operations",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 57,
+      "pages": [
+        "/content-marketing-operations-process",
+        "/programmatic/what-is-content-marketing-operations"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
       "query": "content ops consulting",
       "impressions": 2,
       "clicks": 0,
@@ -2172,12 +1706,38 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
+      "query": "content ops ia",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 80.5,
+      "pages": [
+        "/programmatic/ai-content-operations"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
       "query": "creative operations process",
       "impressions": 2,
       "clicks": 0,
       "best_position": 74.5,
       "pages": [
         "/creative-operations-process"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "creative operations solution",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 71,
+      "pages": [
+        "/programmatic/what-is-creative-operations"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2224,32 +1784,6 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "event marketing timeline",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 63.5,
-      "pages": [
-        "/programmatic/event-marketing-strategy-timeline"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "event strategy template",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 80,
-      "pages": [
-        "/programmatic/event-marketing-strategy-template"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
       "query": "how do i compare marketing measurement vendors objectively?",
       "impressions": 2,
       "clicks": 0,
@@ -2263,10 +1797,10 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "how to choose a platform for a virtual event",
+      "query": "how to choose a platform for an online event",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 61,
+      "best_position": 56.5,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -2276,12 +1810,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "important narratives investors",
+      "query": "human in the loop examples",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 76.5,
+      "best_position": 72.5,
       "pages": [
-        "/programmatic/investor-storytelling-examples"
+        "/programmatic/human-in-the-loop-ai-systems-examples"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2289,12 +1823,51 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "investor workflow",
+      "query": "hybrid event timeline",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 55,
+      "best_position": 47,
       "pages": [
-        "/programmatic/investor-storytelling-workflow"
+        "/programmatic/hybrid-event-production-timeline"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "integrated agency team",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 17.5,
+      "pages": [
+        "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "marketing operating model design",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 79.5,
+      "pages": [
+        "/programmatic/launch-marketing-strategy-operating-model"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "messaging architecture",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 89,
+      "pages": [
+        "/programmatic/what-is-brand-messaging-architecture"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2316,59 +1889,6 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "monetization strategy template",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 18.5,
-      "pages": [
-        "/programmatic/community-monetization-strategy-template"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "online convention platform -- --",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 82,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "online event conference platforms -- --",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 47,
-      "pages": [
-        "/best-virtual-event-platforms",
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "online virtual conference platforms -- --",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 46.5,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
       "query": "outsourcing community management",
       "impressions": 2,
       "clicks": 0,
@@ -2382,12 +1902,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "platforms for virtual conferences -- --",
+      "query": "platform virtual events -- --",
       "impressions": 2,
       "clicks": 0,
       "best_position": 64,
       "pages": [
-        "/online-conference-platforms"
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2452,19 +1972,6 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "run of show example",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 72.5,
-      "pages": [
-        "/programmatic/event-run-of-show-examples"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
       "query": "storytelling and activation services",
       "impressions": 2,
       "clicks": 0,
@@ -2491,23 +1998,10 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "virtual event conference platform -- --",
+      "query": "virtual event platforms for conferences",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 62.5,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "virtual event platform with networking",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 72,
+      "best_position": 54,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -2523,33 +2017,6 @@
       "best_position": 66.5,
       "pages": [
         "/programmatic/virtual-event-production-producer-roles"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "virtual networking platforms",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 52.5,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
-      "query": "virtual symposium platforms -- --",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 69,
-      "pages": [
-        "/best-virtual-event-platforms",
-        "/online-conference-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2596,38 +2063,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "agency deliverables",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 86,
-      "pages": [
-        "/programmatic/marketing-strategy-consulting-deliverables"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "agency engagement",
       "impressions": 1,
       "clicks": 0,
       "best_position": 54,
       "pages": [
         "/programmatic/integrated-agency-vs-specialist-agencies-what-a-good-engagement-includes"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "agency framework",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 89,
-      "pages": [
-        "/programmatic/integrated-agency-vs-specialist-agencies-strategy-framework"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -2648,88 +2089,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "best affordable town hall production company for small companies broadcasting on webinar platforms",
+      "query": "best virtual event software platforms",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 35,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "best event production firms for secure webinar broadcasts across multiple countries",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 63,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "best platform for online conference",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 72,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "best platforms for virtual conference",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 43,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "best turnkey virtual broadcast services for conferences",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 66,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "best virtual event platform 2025",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 49,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "best virtual summit platforms",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 75,
+      "best_position": 53,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -2806,19 +2169,6 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "comment moderation roi",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 74,
-      "pages": [
-        "/programmatic/community-moderation-strategy-roi-factors"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "community operation",
       "impressions": 1,
       "clicks": 0,
@@ -2858,58 +2208,6 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "conference platform online -- --",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 100,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "content operations tools comparison",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 90,
-      "pages": [
-        "/content-marketing-operations-comparison"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "content operations workflow",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 97,
-      "pages": [
-        "/content-marketing-operations-workflow"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "content ops assessment",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 79,
-      "pages": [
-        "/programmatic/ai-content-operations-for-marketing-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "corporate storytelling definition",
       "impressions": 1,
       "clicks": 0,
@@ -2929,19 +2227,6 @@
       "best_position": 82,
       "pages": [
         "/programmatic/virtual-event-production-for-saas"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "creative agency process",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 62,
-      "pages": [
-        "/programmatic/how-to-choose-a-creative-agency-process"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3014,12 +2299,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "deliverables marketing",
+      "query": "digital run of show",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 16,
+      "best_position": 83,
       "pages": [
-        "/programmatic/launch-marketing-strategy-deliverables"
+        "/programmatic/event-run-of-show-template"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3053,12 +2338,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "event run of show meaning",
+      "query": "event marketing checklist",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 61,
+      "best_position": 74,
       "pages": [
-        "/programmatic/event-run-of-show-for-professional-services-firms"
+        "/programmatic/event-marketing-strategy-checklist"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3066,12 +2351,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "event strategy framework",
+      "query": "event run of show meaning",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 80,
+      "best_position": 61,
       "pages": [
-        "/programmatic/event-marketing-strategy-strategy-framework"
+        "/programmatic/event-run-of-show-for-professional-services-firms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3118,19 +2403,6 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "generic marketing agency vs security industry specialist agency",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 98,
-      "pages": [
-        "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "how do i compare audience measurement vendors before making a decision?",
       "impressions": 1,
       "clicks": 0,
@@ -3144,12 +2416,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "how to host an online conference",
+      "query": "how to choose a platform for a virtual event",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 100,
+      "best_position": 59,
       "pages": [
-        "/online-conference-platforms"
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3157,12 +2429,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "human in the loop ai operations",
+      "query": "how to host an online conference",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 88,
+      "best_position": 100,
       "pages": [
-        "/programmatic/human-in-the-loop-ai-systems-operating-model"
+        "/online-conference-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3189,6 +2461,19 @@
       "best_position": 67,
       "pages": [
         "/programmatic/human-in-the-loop-ai-systems-cost"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "human in the loop services",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 41,
+      "pages": [
+        "/programmatic/human-in-the-loop-ai-systems-services"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3228,6 +2513,19 @@
       "best_position": 89,
       "pages": [
         "/programmatic/hybrid-event-production-agency"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "hybrid show platform",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 56,
+      "pages": [
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3280,6 +2578,19 @@
       "best_position": 2,
       "pages": [
         "/programmatic/audience-growth-strategy-how-to-compare-vendors"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "marketing operating model",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 69,
+      "pages": [
+        "/programmatic/launch-marketing-strategy-operating-model"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3354,23 +2665,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "online conference production",
+      "query": "online virtual conference platforms -- --",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 28,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "online platforms for conferences -- --",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 90,
+      "best_position": 43,
       "pages": [
         "/online-conference-platforms"
       ],
@@ -3406,51 +2704,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "platform for hybrid and virtual events",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 74,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "platform for hybrid events",
       "impressions": 1,
       "clicks": 0,
       "best_position": 59,
       "pages": [
         "/hybrid-event-platform"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "platforms for online events -- --",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 84,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "platforms to host virtual conferences -- --",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 53,
-      "pages": [
-        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3510,90 +2769,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "professional virtual event platform",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 54,
-      "pages": [
-        "/best-virtual-event-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "rebranding roi",
       "impressions": 1,
       "clicks": 0,
       "best_position": 90,
       "pages": [
         "/programmatic/rebrand-strategy-roi-factors"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "roi oriented agency",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 48,
-      "pages": [
-        "/programmatic/integrated-agency-vs-specialist-agencies-roi-factors"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "run of show",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 90,
-      "pages": [
-        "/programmatic/event-run-of-show-examples"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "run of show sample",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 74,
-      "pages": [
-        "/programmatic/event-run-of-show-examples"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "storytelling timeline",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 59,
-      "pages": [
-        "/programmatic/founder-storytelling-timeline"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "targeted event marketing for enterprise accounts",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 96,
-      "pages": [
-        "/programmatic/event-marketing-strategy-for-enterprise-teams"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3627,10 +2808,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "top virtual event platform",
+      "query": "virtual conference platform comparison",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 41,
+      "best_position": 44,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -3640,23 +2821,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "virtual conference platform -- --",
+      "query": "virtual convention platform 47 --",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 86,
-      "pages": [
-        "/online-conference-platforms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "virtual event networking platform -- --",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 84,
+      "best_position": 62,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -3666,10 +2834,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "virtual event platform -- --",
+      "query": "virtual convention platforms -- --",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 87,
+      "best_position": 63,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -3679,10 +2847,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "virtual event platform with spaces",
+      "query": "virtual event conference platform -- --",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 84,
+      "best_position": 61,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -3692,10 +2860,10 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "virtual events platform",
+      "query": "virtual event platform comparison chart",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 17,
+      "best_position": 42,
       "pages": [
         "/best-virtual-event-platforms"
       ],
@@ -3705,12 +2873,25 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "virtual live event platforms -- --",
+      "query": "virtual event platform with networking -- --",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 81,
+      "best_position": 75,
       "pages": [
         "/best-virtual-event-platforms"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "virtual event production checklist",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 56,
+      "pages": [
+        "/programmatic/how-to-host-a-virtual-event"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3724,6 +2905,19 @@
       "best_position": 51,
       "pages": [
         "/programmatic/virtual-summit-production-checklist"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "virtual summit platform",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 55,
+      "pages": [
+        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3757,6 +2951,19 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
+      "query": "webinar production company",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 69,
+      "pages": [
+        "/programmatic/virtual-event-production-for-saas"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
       "query": "webinar production cost",
       "impressions": 1,
       "clicks": 0,
@@ -3776,19 +2983,6 @@
       "best_position": 85,
       "pages": [
         "/programmatic/virtual-event-production-for-saas"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "westmark productions",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 34,
-      "pages": [
-        "/"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -3830,32 +3024,6 @@
       "best_position": 77,
       "pages": [
         "/"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "what are marketing deliverables",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 41,
-      "pages": [
-        "/programmatic/launch-marketing-strategy-deliverables"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "what are the best virtual event platforms",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 41,
-      "pages": [
-        "/best-virtual-event-platforms"
       ],
       "sources": [
         "gsc_90d_query_page"
