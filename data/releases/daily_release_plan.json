@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-03T17:03:54.965Z",
+  "generated_at": "2026-11-07T00:41:58.632Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -19,42 +19,111 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
       "2026-11-03",
       "2026-11-02",
-      "2026-11-01",
-      "2026-10-31",
-      "2026-10-30",
-      "2026-10-29",
-      "2026-10-28"
+      "2026-11-01"
     ],
     "usage_source": "data/cadence/known_urls.json",
-    "new_pages_used_this_week": 2,
-    "new_pages_used_this_week_urls": [
-      "https://virtualagency-os.com/programmatic/brand-implementation-strategy",
-      "https://virtualagency-os.com/programmatic/what-is-creative-consulting"
-    ],
-    "weekly_headroom": 0,
+    "new_pages_used_this_week": 0,
+    "new_pages_used_this_week_urls": [],
+    "weekly_headroom": 2,
     "daily_headroom": 2,
-    "new_page_allowance_this_run": 0,
+    "new_page_allowance_this_run": 2,
     "governed_by": "weekly_cadence_policy"
   },
   "daily_new_page_ceiling": 2,
   "daily_repair_ceiling": 100,
   "daily_new_pages_already_used": 0,
   "daily_repairs_already_used": 0,
-  "max_new_pages_this_run": 0,
+  "max_new_pages_this_run": 2,
   "max_repairs_this_run": 100,
   "max_new_pages_per_day": 2,
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "a00946dfa31c3c1e57b8135fafc0b5936b35c3b09af241e922b63e1b1a35c5d9",
+    "corpus_fingerprint": "1d6d8db21686a2aca12242f8aeaafa25310832a1355f78c09559534838f83fc8",
     "legacy_backlog": 123,
     "thin_pages": 121,
     "exact_duplicate_pages": 0,
     "near_duplicate_pages": 2
   },
   "units": [
+    {
+      "opportunity_id": "opp_YmVzdCBwbGF0Zm9ybXMgZm9y",
+      "query": "best platforms for virtual conferences",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-platforms-for-virtual-conferences",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/best-platforms-for-virtual-conferences",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1244,
+        "max_similarity": 0.828968,
+        "nearest_route": "/programmatic/online-conference-platforms",
+        "reasons": []
+      },
+      "release_order": 1,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 9,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_d2hhdCBpcyBhIHZpcnR1YWwg",
+      "query": "what is a virtual event platform",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/what-is-a-virtual-event-platform",
+      "page_family": "definition",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/what-is-a-virtual-event-platform",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1163,
+        "max_similarity": 0.529647,
+        "nearest_route": "/programmatic/what-is-virtual-event-production",
+        "reasons": []
+      },
+      "release_order": 2,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 9,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
     {
       "opportunity_id": "opp_dmlydHVhbCBjb25mZXJlbmNl",
       "query": "virtual conference production",
@@ -150,6 +219,78 @@
     }
   ],
   "release_units": [
+    {
+      "opportunity_id": "opp_YmVzdCBwbGF0Zm9ybXMgZm9y",
+      "query": "best platforms for virtual conferences",
+      "cluster": "unclustered",
+      "pillar": "unclustered",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-platforms-for-virtual-conferences",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/best-platforms-for-virtual-conferences",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1244,
+        "max_similarity": 0.828968,
+        "nearest_route": "/programmatic/online-conference-platforms",
+        "reasons": []
+      },
+      "release_order": 1,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 9,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_d2hhdCBpcyBhIHZpcnR1YWwg",
+      "query": "what is a virtual event platform",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/what-is-a-virtual-event-platform",
+      "page_family": "definition",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/what-is-a-virtual-event-platform",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1163,
+        "max_similarity": 0.529647,
+        "nearest_route": "/programmatic/what-is-virtual-event-production",
+        "reasons": []
+      },
+      "release_order": 2,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 9,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
     {
       "opportunity_id": "opp_dmlydHVhbCBjb25mZXJlbmNl",
       "query": "virtual conference production",
@@ -250,8 +391,5 @@
     "families": 30,
     "opportunities_withheld": 9474
   },
-  "status": "READY",
-  "create_stop_reason": "WEEKLY_CADENCE_ALLOWANCE_EXHAUSTED",
-  "create_stop_detail": "1301 candidate(s) considered, 0 refused for no demand record, 0 rejected downstream, allowance this run 0 (weekly headroom 0 of 2/wk, daily headroom 2)",
-  "create_stop_is_legitimate": true
+  "status": "READY"
 }
