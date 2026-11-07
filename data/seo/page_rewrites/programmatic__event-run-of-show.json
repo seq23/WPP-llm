@@ -1,0 +1,151 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-07T08:26:42.094Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 578,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/event-run-of-show",
+    "query": "event run of show",
+    "title": "Event Run of Show Planning Guide",
+    "description": "Learn the key decisions, checklist items, and tools to build a reliable run of show for virtual, hybrid, and webinar events covering platform choice, backup streams, rehearsals.",
+    "h1": "What should you decide first about event run of show?",
+    "definition": "An event run of show is a detailed, time‑coded document that lists every segment, speaker, media cue, and technical switch for a virtual, hybrid, or webinar production, assigning owners and backup paths so the live broadcast runs without surprises and provides a single source of truth for the crew.",
+    "quick_answer": "Lock the platform, confirm backup streaming, and assign a single show caller before you write any cues.",
+    "sections": [
+      {
+        "h2": "Which platform and broadcast method should you choose?",
+        "blocks": [
+          {
+            "p": "Select a platform that matches audience size, interaction needs, and your production budget before you build the run of show."
+          },
+          {
+            "ul": [
+              "Self‑serve streaming studios for quick webinars",
+              "Enterprise event suites for large summits",
+              "Webinar licences tied to attendee capacity"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What accessibility and compliance requirements must be baked in?",
+        "blocks": [
+          {
+            "p": "Add captions, sign language, keyboard navigation, and data‑privacy checks to the run of show so every attendee can participate."
+          },
+          {
+            "ul": [
+              "Live captions for all spoken content",
+              "ASL interpreter feed on a dedicated video track",
+              "Screen‑reader friendly overlays and controls",
+              "GDPR and CCPA consent logging"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you structure the run of show document?",
+        "blocks": [
+          {
+            "p": "Organise the document into columns that capture segment, owner, timing, media cue, and fallback stream."
+          },
+          {
+            "table": {
+              "head": [
+                "Segment",
+                "Owner",
+                "Timing",
+                "Media Cue",
+                "Fallback"
+              ],
+              "rows": [
+                [
+                  "Opening",
+                  "Show Caller",
+                  "First five minutes",
+                  "Intro video",
+                  "Backup stream"
+                ],
+                [
+                  "Keynote",
+                  "Speaker Manager",
+                  "Five to thirty minutes",
+                  "Slides and live camera",
+                  "Backup stream"
+                ],
+                [
+                  "Q&amp;A",
+                  "Moderator",
+                  "Thirty to forty‑five minutes",
+                  "Audience feed",
+                  "Backup stream"
+                ],
+                [
+                  "Close",
+                  "Producer",
+                  "Forty‑five to fifty minutes",
+                  "Outro video",
+                  "Backup stream"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Who owns each production role and what are the staffing levels?",
+        "blocks": [
+          {
+            "p": "Assign a show caller, speaker manager, moderator, platform operator, and producer, scaling the team to event complexity."
+          },
+          {
+            "ol": [
+              "Show caller – owns timing and cues",
+              "Speaker manager – coordinates rehearsals and green‑room",
+              "Moderator – fields audience questions",
+              "Platform operator – runs the streaming console",
+              "Producer – oversees backup stream and recording"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What rehearsal and go‑live checklist ensures a smooth broadcast?",
+        "blocks": [
+          {
+            "p": "Run a full rehearsal on the live platform two to five days before, then a technical check sixty minutes before air."
+          },
+          {
+            "ul": [
+              "Full rehearsal with all speakers and media cues",
+              "Verify captions and interpreter feed",
+              "Test backup stream switch",
+              "Confirm recording start",
+              "Final run‑through of run of show",
+              "Go‑live checklist: audio levels, video sources, chat moderation, backup stream live, recording confirmed"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How far in advance should the run of show be finalized?",
+        "a": "Finalize the run of show at least one week before the event for webinars and two weeks for summits, giving time for speaker reviews, cue testing, and backup‑stream validation and allows the producer to lock timing, confirm media assets, and brief the platform operator."
+      },
+      {
+        "q": "What is the difference between platform and production?",
+        "a": "The platform is the software that hosts the stream, while production is the crew, cameras, encoder, run of show, and backup stream that turn the platform into a live show. Production also includes speaker rehearsals, lower‑third graphics, and real‑time moderation."
+      },
+      {
+        "q": "When should the replay be delivered to attendees?",
+        "a": "Send the edited replay within twenty‑four to forty‑eight hours after the live event so attendees still recall key moments and can share highlights. Include timestamped chapters, downloadable slides, and a short feedback form to extend engagement and gives the marketing team ready‑to‑post assets for social channels."
+      },
+      {
+        "q": "How many people are needed to run a hybrid summit?",
+        "a": "A hybrid summit typically requires a show caller, speaker manager, moderator, platform operator, on‑site AV lead, and a producer, totalling six dedicated roles for a smooth broadcast. Each role owns a distinct workstream and has a backup person identified in the run of show."
+      }
+    ]
+  }
+}

@@ -1,12 +1,132 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-07T01:33:13.550Z",
-  "route": "/programmatic/best-virtual-event-platform",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:27",
-      "FAQ_ANSWER_SHORT:18"
+  "status": "accepted",
+  "generated_at": "2026-11-07T08:22:11.178Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 641,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/best-virtual-event-platform",
+    "query": "best virtual event platform",
+    "title": "Best Virtual Event Platform Guide for Buyers",
+    "description": "Compare top virtual event platforms, pick a cost model, plan rehearsals, and align production before purchase. Checklist and timeline for webinars and hybrid events.",
+    "h1": "What is the best virtual event platform for my needs?",
+    "definition": "A virtual event platform is software that hosts live, recorded, or hybrid experiences for audiences ranging from a few dozen to tens of thousands, providing streaming, registration, engagement tools, analytics, and integration with marketing systems. It also supports branding, networking, and on‑demand replay distribution.",
+    "quick_answer": "Start by defining audience size, format (webinar, summit, hybrid), and budget model; then shortlist three platforms that match those constraints and run a full rehearsal on the chosen tool two to five days before the event. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations.",
+    "sections": [
+      {
+        "h2": "Which cost model fits my event type?",
+        "blocks": [
+          {
+            "p": "Choose a cost model that matches how you sell tickets and how many hosts you need. The three common models are per‑host licence sized by attendee capacity, self‑serve monthly plan, and annual enterprise contract."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Use",
+                "Pricing Style"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence sized by attendee capacity",
+                  "Large webinars with recurring hosts",
+                  "Annual contract quoted by sales"
+                ],
+                [
+                  "Self‑serve monthly plan",
+                  "Frequent small webinars or community streams",
+                  "Monthly subscription"
+                ],
+                [
+                  "Annual enterprise contract",
+                  "Summits, conferences, hybrid productions",
+                  "Custom quote per event"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What platform features do I need for a webinar versus a summit?",
+        "blocks": [
+          {
+            "p": "Webinars need simple registration, Q&amp;A, and recording; summits add multi‑track agendas, networking lounges, and sponsor booths."
+          },
+          {
+            "ul": [
+              "Webinar: registration, live chat, poll, recording",
+              "Summit: multi‑track schedule, virtual expo, attendee matchmaking, sponsor analytics"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do I plan rehearsals and backup streams?",
+        "blocks": [
+          {
+            "p": "Schedule a full technical rehearsal on the live platform two to five days before the event and a final check sixty minutes before go‑live."
+          },
+          {
+            "ol": [
+              "Confirm speaker slides and lower‑thirds",
+              "Run audio‑video test on the production encoder",
+              "Activate backup stream and verify failover",
+              "Record rehearsal for reference"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the run of show and production roles?",
+        "blocks": [
+          {
+            "p": "Assign a single show caller, a speaker manager, a moderator, and a platform operator for any event larger than a simple webinar."
+          },
+          {
+            "ul": [
+              "Show caller – owns the run of show and cues all segments",
+              "Speaker manager – coordinates rehearsals, slide uploads, and speaker timing",
+              "Moderator – fields audience questions and manages chat",
+              "Platform operator – monitors stream health, switches scenes, triggers backup"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What timeline should I follow from brief to live?",
+        "blocks": [
+          {
+            "p": "Lock the platform and venue AV six to eight weeks out for a summit, three to four weeks for a webinar, then follow a weekly milestone plan."
+          },
+          {
+            "ul": [
+              "Week one: brief and platform contract",
+              "Week two: speaker confirmations and run of show draft",
+              "Week three: rehearsal and backup test",
+              "Week four: final approvals and go‑live checklist"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How many platforms should I evaluate before deciding?",
+        "a": "Limit the shortlist to three to five platforms that meet your audience size, format, and budget; testing more than five adds review time without improving fit and can delay the contract decision. A focused shortlist also makes it easier to run a comparable rehearsal on each candidate."
+      },
+      {
+        "q": "What is the difference between platform and production?",
+        "a": "The platform is the software that streams and manages attendees; production is the crew, cameras, encoder, run of show, and backup stream that turn a schedule into a live experience. Both purchases are required for a professional event, and they are typically sourced from separate vendors."
+      },
+      {
+        "q": "When should I send the replay to attendees?",
+        "a": "Deliver the edited recording and highlight clips within twenty four to forty eight hours after the event ends, while the content is still fresh in participants’ minds. Prompt delivery also supports post‑event marketing and lead nurturing workflows. Include a short survey link to capture feedback for the next program."
+      },
+      {
+        "q": "Do I need a dedicated producer for a simple webinar?",
+        "a": "A single producer can manage a straightforward webinar, but adding a moderator and a backup operator reduces risk if the host experiences technical issues. For recurring series, a consistent producer also speeds up rehearsal cycles and maintains brand continuity. This consistency lowers onboarding time for new speakers and improves overall show quality."
+      }
+    ]
   }
 }

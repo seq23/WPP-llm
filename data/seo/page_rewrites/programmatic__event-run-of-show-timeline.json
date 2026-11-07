@@ -1,15 +1,165 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-03T00:03:17.641Z",
-  "route": "/programmatic/event-run-of-show-timeline",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:29",
-      "REPEATED_PHRASE:4x \"two to five days before\"",
-      "UNSOURCED_NUMBER:1",
-      "UNSOURCED_NUMBER:10",
-      "UNSOURCED_NUMBER:15"
+  "status": "accepted",
+  "generated_at": "2026-11-07T08:20:44.825Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 737,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/event-run-of-show-timeline",
+    "query": "event run of show timeline",
+    "title": "Event Run of Show Timeline Guide",
+    "description": "Learn what a run of show timeline includes, when to start, who owns each workstream, and how to rehearse and escalate late assets.",
+    "h1": "How long does an event run of show take to build and lock?",
+    "definition": "A run of show timeline is a minute-by-minute production plan that assigns every cue, speaker, graphic, and backup stream to a named owner from rehearsal through live delivery and post-event replay.",
+    "quick_answer": "Start the run of show two to three weeks before a webinar or six to eight weeks before a summit; lock speaker slides and lower thirds at least five days out and run one full rehearsal on the real platform two to five days before going live.",
+    "sections": [
+      {
+        "h2": "What workstreams belong in a run of show timeline?",
+        "blocks": [
+          {
+            "p": "A complete run of show breaks into eight workstreams, each with a single owner and a concrete output that feeds the next stage."
+          },
+          {
+            "table": {
+              "head": [
+                "Workstream",
+                "Owner",
+                "Output"
+              ],
+              "rows": [
+                [
+                  "Agenda &amp; timing",
+                  "Show caller",
+                  "Minute-by-minute script with buffers"
+                ],
+                [
+                  "Speaker management",
+                  "Speaker manager",
+                  "Confirmed bios, slides, and tech specs"
+                ],
+                [
+                  "Platform operations",
+                  "Platform operator",
+                  "Scene layout, polls, Q&amp;A settings"
+                ],
+                [
+                  "Graphics &amp; lower thirds",
+                  "Designer",
+                  "Branded templates, name straps, transitions"
+                ],
+                [
+                  "Video &amp; playback",
+                  "Video engineer",
+                  "Encoded files, backup stream URLs"
+                ],
+                [
+                  "Moderation &amp; Q&amp;A",
+                  "Moderator",
+                  "Question queue rules, escalation path"
+                ],
+                [
+                  "Rehearsal coordination",
+                  "Producer",
+                  "Run-through schedule, feedback log"
+                ],
+                [
+                  "Recording &amp; clips",
+                  "Editor",
+                  "Edited recording, highlight clips, captions"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "When should you start building the run of show?",
+        "blocks": [
+          {
+            "p": "Lead time depends on event size: a webinar needs three to four weeks from brief to live, while a summit or online conference requires six to eight weeks of management."
+          },
+          {
+            "ul": [
+              "Week one: intake brief, confirm platform, assign workstream owners",
+              "Week two: collect speaker slides, bios, and technical requirements",
+              "Week three: build branded templates, lower thirds, and scene layouts",
+              "Week four: load assets into platform, configure polls and Q&amp;A",
+              "Week five (summit): integrate venue AV, test hybrid signal paths",
+              "Week six (summit): full speaker rehearsals on the real platform",
+              "Final week: technical check 60 minutes before go-live, backup stream verified"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the run of show and rehearsal schedule?",
+        "blocks": [
+          {
+            "p": "Staffing scales with complexity: one producer can run a simple webinar; summits and hybrid events need a show caller, speaker manager, moderator, and platform operator each owning a workstream."
+          },
+          {
+            "ol": [
+              "Show caller owns the master script and calls every cue live",
+              "Speaker manager confirms slides, bios, and tech checks for every presenter",
+              "Platform operator builds scenes, loads media, and monitors stream health",
+              "Moderator runs the question queue and escalates issues to the show caller",
+              "Producer coordinates rehearsals, distributes feedback, and locks final assets"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What does a rehearsal schedule look like?",
+        "blocks": [
+          {
+            "p": "Plan one full rehearsal on the real platform two to five days before the event, plus a technical check 60 minutes before going live."
+          },
+          {
+            "ul": [
+              "Day minus five: speaker tech checks (audio, camera, screen share)",
+              "Day minus three: full run-through with all cues, graphics, and playback",
+              "Day minus two: incorporate feedback, lock final slide order and lower thirds",
+              "Day minus one: dry run with moderator and Q&amp;A flow",
+              "Go-live minus 60 minutes: final signal test, backup stream handshake, cue sheet review"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you handle late assets and escalation?",
+        "blocks": [
+          {
+            "p": "Late slides, missing bios, or untested videos are the top risk; build a hard cutoff and a clear escalation ladder into the run of show."
+          },
+          {
+            "ul": [
+              "Asset freeze: speaker slides and videos due five days before rehearsal",
+              "Escalation tier one: speaker manager contacts presenter within four hours of miss",
+              "Escalation tier two: producer alerts show caller and adjusts script buffers",
+              "Escalation tier three: executive sponsor notified if gap threatens live flow",
+              "Backup plan: placeholder graphic and scripted host transition for any missing segment"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "Can I reuse a run of show template for recurring webinars?",
+        "a": "Yes. A repeat format can move faster because the agenda structure, graphic templates, and platform scenes stay consistent; only speaker-specific assets and timing buffers need updating each cycle."
+      },
+      {
+        "q": "What platform features must be configured in the run of show?",
+        "a": "Scene layouts, poll timing, Q&amp;A moderation settings, recording start and stop cues, backup stream ingest points, and closed-caption toggles all belong in the run of show so the platform operator executes them on cue."
+      },
+      {
+        "q": "How do I staff a hybrid event run of show differently from a virtual one?",
+        "a": "Hybrid adds a venue AV lead, a signal engineer for the in-room to cloud bridge, and a dedicated camera operator; the show caller then cues both the virtual platform and the physical stage from one master script."
+      },
+      {
+        "q": "When should the edited replay and clips be delivered?",
+        "a": "Send the replay within 24 to 48 hours while attendees still remember the event; highlight clips for social follow the same deadline to keep momentum in the owned audience channels."
+      }
+    ]
   }
 }

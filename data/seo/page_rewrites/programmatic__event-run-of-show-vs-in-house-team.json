@@ -1,0 +1,160 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-07T08:22:39.597Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 762,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/event-run-of-show-vs-in-house-team",
+    "query": "event run of show vs in house team",
+    "title": "Event run of show vs in house team decision guide",
+    "description": "Compare run of show structure with in-house team roles, rehearsal plans, escalation paths and tool choices for virtual and hybrid events.",
+    "h1": "How do you decide between a run of show and an in-house team for events?",
+    "definition": "A run of show is a detailed timeline that sequences every cue, speaker and technical switch for a live event, while an in-house team consists of internal staff who execute that plan or produce the event without external crew.",
+    "quick_answer": "Start with a written run of show for every event; assign each cue to a named owner, then decide whether your internal staff can cover all roles or if you need a dedicated producer, show caller and platform operator.",
+    "sections": [
+      {
+        "h2": "What is the difference between a run of show and an in-house team?",
+        "blocks": [
+          {
+            "p": "A run of show is a living document that lists every segment, transition, graphic cue and backup plan in chronological order, while an in-house team is the group of people who operate the platform, manage speakers and handle audience interaction during the live event."
+          },
+          {
+            "ul": [
+              "Run of show defines what happens and when; in-house team defines who does it.",
+              "Run of show is created before rehearsal; in-house team is assembled before production.",
+              "Run of show can be reused across events; in-house team capacity changes with workload.",
+              "Run of show includes escalation triggers; in-house team executes those triggers."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When should you build a run of show internally versus hiring a production crew?",
+        "blocks": [
+          {
+            "p": "Build the run of show internally when the event format is repeatable, the platform is familiar and the internal staff have bandwidth for cue calling, speaker management and backup streaming."
+          },
+          {
+            "ul": [
+              "Event is a recurring webinar series with a stable agenda.",
+              "Team includes a trained producer who can call cues on the platform.",
+              "Budget limits external crew to only high-stakes summits.",
+              "Risk tolerance allows a single point of failure for technical switching."
+            ]
+          },
+          {
+            "p": "Hire a production crew when the event is a summit, hybrid conference or executive briefing that demands a show caller, dedicated platform operator, speaker manager and redundant stream."
+          }
+        ]
+      },
+      {
+        "h2": "What roles belong in a run of show versus an in-house team?",
+        "blocks": [
+          {
+            "p": "The table maps each critical live-event role to the typical owner in a run of show document and the typical owner when the work stays in-house."
+          },
+          {
+            "table": {
+              "head": [
+                "Role",
+                "Run of show owner",
+                "In-house team owner"
+              ],
+              "rows": [
+                [
+                  "Show caller",
+                  "External producer",
+                  "Senior marketing manager"
+                ],
+                [
+                  "Platform operator",
+                  "External technician",
+                  "IT specialist"
+                ],
+                [
+                  "Speaker manager",
+                  "External coordinator",
+                  "Content lead"
+                ],
+                [
+                  "Moderator",
+                  "External host",
+                  "Community manager"
+                ],
+                [
+                  "Backup stream engineer",
+                  "External crew",
+                  "Not staffed"
+                ],
+                [
+                  "Graphics cue operator",
+                  "External designer",
+                  "Creative coordinator"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do you rehearse and escalate with each approach?",
+        "blocks": [
+          {
+            "p": "Both models require a full rehearsal on the real platform two to five days before the event and a technical check sixty minutes before going live, but the escalation path differs."
+          },
+          {
+            "ol": [
+              "Schedule a full walk-through with every speaker using the exact platform link.",
+              "Assign a cue caller to read the run of show aloud while the operator executes each transition.",
+              "Document any timing drift and adjust the run of show immediately.",
+              "Define escalation triggers: audio loss, speaker disconnect, platform error.",
+              "Name a single decision maker for each trigger and share contact details in a shared channel."
+            ]
+          },
+          {
+            "p": "With an external crew the show caller owns escalation; with an in-house team the senior marketing manager or IT lead owns it."
+          }
+        ]
+      },
+      {
+        "h2": "What tools and timelines support each model?",
+        "blocks": [
+          {
+            "p": "Choose tools that match the complexity of the run of show and the size of the in-house team, then lock the timeline early."
+          },
+          {
+            "ul": [
+              "Project plan in Asana, Monday.com or Airtable for the calendar and task owners.",
+              "Run of show drafted in Google Docs or Notion with version history.",
+              "Platform selection from Zoom Webinars, Microsoft Teams, ON24 or StreamYard.",
+              "Registration via Eventbrite or Cvent; follow-up in HubSpot or Salesforce.",
+              "Backup stream configured on a secondary encoder or cloud ingest."
+            ]
+          },
+          {
+            "p": "Typical lead time is six to eight weeks for a summit or online conference and three to four weeks for a webinar; a repeat format can move faster."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can a single person serve as both show caller and platform operator?",
+        "a": "Only for simple webinars with one speaker and no backup stream; summits and hybrid events need separate people to avoid missed cues during technical issues."
+      },
+      {
+        "q": "How do you handle a speaker who refuses to rehearse?",
+        "a": "Flag the speaker in the run of show as unrehearsed, assign a dedicated speaker manager to run a private tech check, and prepare a pre-recorded fallback segment."
+      },
+      {
+        "q": "What is the minimum run of show for a recurring webinar?",
+        "a": "A one-page timeline with segment start times, speaker names, graphic cues, Q&amp;A windows and a backup stream link, updated each cycle."
+      },
+      {
+        "q": "When should you bring in an external producer for an in-house team?",
+        "a": "When the event adds a second stage, hybrid audience, simultaneous translation or a backup stream requirement that exceeds internal bandwidth."
+      }
+    ]
+  }
+}
