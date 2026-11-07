@@ -1,12 +1,138 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T23:28:05.274Z",
-  "route": "/programmatic/best-virtual-conference-platforms",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:23",
-      "FAQ_ANSWER_SHORT:19"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:34:33.420Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 752,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/best-virtual-conference-platforms",
+    "query": "best virtual conference platforms",
+    "title": "Best Virtual Conference Platforms Buyer Guide",
+    "description": "Compare top virtual conference platforms, decide format, budget, and production needs, and get a practical checklist for a smooth launch.",
+    "h1": "What are the best virtual conference platforms for my event?",
+    "definition": "Virtual conference platforms are software suites that host live, multi‑session events with registration, streaming, networking, and analytics, letting organizers run webinars, summits, or hybrid gatherings from a single dashboard. They typically include agenda builders, audience interaction tools, sponsor booths, and integration with CRM or marketing automation for follow‑up.",
+    "quick_answer": "Pick the platform that matches your audience size, interaction style, and production budget. Then lock the run‑of‑show and rehearsal schedule before you sign.",
+    "sections": [
+      {
+        "h2": "Which audience outcome and format should drive the platform choice?",
+        "blocks": [
+          {
+            "p": "Start by defining the primary outcome — lead generation, education, community building — and the session format that serves it. The outcome determines whether you need simple registration and streaming or advanced networking, sponsor booths, and multi‑track scheduling."
+          },
+          {
+            "ul": [
+              "Single‑track webinar",
+              "Multi‑track summit with breakout rooms",
+              "Hybrid event with on‑site streaming",
+              "Virtual expo with sponsor booths",
+              "Community‑focused series with recurring rooms"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What cost model fits my budget and scaling needs?",
+        "blocks": [
+          {
+            "p": "Match the pricing structure to how you plan to grow attendance and how often you host. A per‑host licence scales with capacity, a self‑serve monthly plan keeps costs predictable for frequent small events, and an enterprise annual contract unlocks dedicated support for large summits."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Use",
+                "Billing Cycle"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence sized by attendee capacity",
+                  "Large recurring webinars",
+                  "Annual contract"
+                ],
+                [
+                  "Self‑serve monthly plan",
+                  "Frequent small‑to‑mid events",
+                  "Month‑to‑month"
+                ],
+                [
+                  "Enterprise annual contract quoted by sales",
+                  "High‑volume summits and hybrid productions",
+                  "Multi‑year agreement"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "How do I evaluate production requirements versus platform features?",
+        "blocks": [
+          {
+            "p": "List the production tasks you must own and compare them to the built‑in capabilities of each platform. Gaps in native Q&amp;A, polling, networking lounges, or recording controls will require external crew or software, so score each platform against a documented gap list."
+          },
+          {
+            "ol": [
+              "Map required deliverables such as run of show, speaker brief, branded slides, live producer, backup stream",
+              "Check platform for native Q&amp;A, polling, networking lounges, recording controls",
+              "Identify gaps that need external crew or software",
+              "Confirm integration with CRM or marketing automation for follow‑up",
+              "Score each platform against the gap list"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What timeline and staffing plan ensures a smooth launch?",
+        "blocks": [
+          {
+            "p": "Lock the platform and venue AV early, then build a work‑back schedule that includes rehearsals and a technical check. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations."
+          },
+          {
+            "ul": [
+              "Six to eight weeks before: finalize agenda, sign platform contract, confirm venue AV",
+              "Four weeks before: distribute speaker briefs, collect slides, schedule full rehearsal on the real platform",
+              "Two to five days before: run full rehearsal, verify backup stream",
+              "Sixty minutes before go‑live: technical check of audio, video, and streaming keys",
+              "Within twenty‑four to forty‑eight hours after: send replay and highlight clips"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do I handle post‑event follow‑up and analytics?",
+        "blocks": [
+          {
+            "p": "Turn attendance data into owned audience by syncing registrants to your CRM and delivering targeted nurture sequences. The platform’s engagement reports become the source for segmentation, automated email series, and pipeline attribution."
+          },
+          {
+            "ul": [
+              "Export attendance and engagement reports from the platform",
+              "Import contacts into HubSpot or Salesforce with source tags",
+              "Segment by session attended, poll responses, and dwell time",
+              "Launch automated email series with replay, resources, and next‑event invite",
+              "Track conversion metrics such as pipeline influence and community sign‑ups"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How do I choose between a self‑serve streaming studio and an enterprise event suite?",
+        "a": "Choose a self‑serve studio when you run frequent, low‑complexity webinars and want month‑to‑month flexibility. Choose an enterprise suite when you need multi‑track agendas, sponsor booths, advanced analytics, and dedicated support for large summits or hybrid productions. Match the feature depth to your event complexity and team capacity."
+      },
+      {
+        "q": "What production staff do I need for a hybrid summit?",
+        "a": "A hybrid summit typically requires a show caller to cue cues, a speaker manager to coordinate rehearsals, a moderator for live Q&amp;A, a platform operator to manage streaming keys and backup, and an on‑site AV lead to sync venue feeds. Small teams can combine roles but each function must have a named owner."
+      },
+      {
+        "q": "When should I schedule the rehearsal and technical check?",
+        "a": "Run a full rehearsal on the actual platform two to five days before the event, using the same streaming keys and backup encoder you will use live. Conduct a final technical check sixty minutes before go‑live to verify audio, video, and network stability."
+      },
+      {
+        "q": "What post‑event assets should I deliver to attendees?",
+        "a": "Deliver the edited full recording, short highlight clips, slide decks, and a resource list within twenty‑four to forty‑eight hours. Include a personalized thank‑you email with a link to the on‑demand library, a feedback survey, and an invitation to the next community event or webinar."
+      }
+    ]
   }
 }

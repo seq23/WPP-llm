@@ -1,11 +1,140 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T23:22:10.847Z",
-  "route": "/programmatic/best-hybrid-event-platform",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:25"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:28:42.776Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 613,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/best-hybrid-event-platform",
+    "query": "best hybrid event platform",
+    "title": "Best Hybrid Event Platform Buyer Guide",
+    "description": "Compare cost models, must‑have features, ownership roles and timelines so you can choose a hybrid event platform that fits your audience and budget.",
+    "h1": "What is the best hybrid event platform for your event?",
+    "definition": "A hybrid event platform is software that lets organizers run simultaneous in‑person and online experiences, handling registration, live streaming, audience interaction, recording and post‑event follow‑up in one system. It also integrates with marketing automation, CRM and analytics tools so data flows from sign‑up to pipeline.",
+    "quick_answer": "Pick a platform that matches your audience size, budget model and production capacity, then assign a single owner for the run‑of‑show and a backup stream. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations.",
+    "sections": [
+      {
+        "h2": "Which cost model fits your event size and budget?",
+        "blocks": [
+          {
+            "p": "Three cost models cover most buyers: per‑host licences sized by attendee capacity, self‑serve monthly plans, and annual contracts quoted by sales."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Providers",
+                "Best For"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence",
+                  "Zoom Webinars",
+                  "Large webinars with predictable headcount"
+                ],
+                [
+                  "Self‑serve monthly",
+                  "StreamYard, Livestorm",
+                  "Frequent small‑to‑mid events run in‑house"
+                ],
+                [
+                  "Annual contract",
+                  "ON24, Cvent, Bizzabo, Goldcast",
+                  "Enterprise conferences needing dedicated support"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What registration, engagement and recording features are non‑negotiable?",
+        "blocks": [
+          {
+            "p": "A platform must handle branded registration, live Q&amp;A, polls, chat moderation, automated recording and instant replay delivery."
+          },
+          {
+            "ul": [
+              "Branded registration pages with custom fields",
+              "Live Q&amp;A with up‑vote and moderator queue",
+              "Real‑time polls and surveys",
+              "Chat moderation tools (pin, delete, private messages)",
+              "Automatic cloud recording and editable clips",
+              "Replay link sent within 24 to 48 hours"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the run‑of‑show and the backup stream?",
+        "blocks": [
+          {
+            "p": "Assign a single show caller to own the run‑of‑show, a platform operator for the backup stream, and a speaker manager for rehearsals."
+          },
+          {
+            "ol": [
+              "Intake brief and confirm agenda",
+              "Build run‑of‑show with cue points",
+              "Conduct full rehearsal on the real platform two to five days before",
+              "Technical check sixty minutes before go‑live",
+              "Execute live show with backup stream monitored",
+              "Deliver edited recording and clips within two to three weeks"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How far in advance should you lock venue AV and the platform?",
+        "blocks": [
+          {
+            "p": "Lock venue AV and the platform six to eight weeks before the event, then finalize the agenda."
+          },
+          {
+            "ul": [
+              "Confirm venue AV contracts and test signal paths",
+              "Sign platform agreement and provision admin accounts",
+              "Align speaker schedule with platform time zones",
+              "Set up registration and marketing automation",
+              "Schedule rehearsal and technical check dates"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which tools integrate with the platform for follow‑up and reporting?",
+        "blocks": [
+          {
+            "p": "Connect the platform to a CRM, marketing automation and analytics stack so leads flow from attendance to pipeline."
+          },
+          {
+            "ul": [
+              "HubSpot or Salesforce for lead capture and nurture",
+              "GA4 for event‑level attribution",
+              "Asana or Monday.com for post‑event task tracking",
+              "Zapier or Make for custom hand‑offs",
+              "Email platform for replay distribution"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How do I choose between a self‑serve plan and an enterprise contract?",
+        "a": "Choose a self‑serve monthly plan when you run frequent webinars with a stable internal team and predictable attendee numbers. Move to an annual enterprise contract when you need dedicated onboarding, SLA‑backed support, advanced analytics and integration with a CRM for large conferences."
+      },
+      {
+        "q": "What is the minimum rehearsal schedule for a hybrid summit?",
+        "a": "Run a full rehearsal on the actual platform two to five days before the event, followed by a technical check sixty minutes before go‑live. This two‑step rehearsal catches encoder settings, speaker audio and backup‑stream failover before a live audience reliably."
+      },
+      {
+        "q": "When should the replay be sent to attendees?",
+        "a": "Send the replay link within 24 to 48 hours after the session ends, while the content is still fresh. Pair the link with a short survey and a next‑step call to action to convert attendance into pipeline activity quickly effectively."
+      },
+      {
+        "q": "Do I need a dedicated production crew for a simple webinar?",
+        "a": "A single producer can run a straightforward webinar on platforms like Zoom Webinars or Microsoft Teams. For summits or hybrid events you need a show caller, speaker manager, moderator and platform operator to handle cues, backup streams and audience interaction."
+      }
+    ]
   }
 }

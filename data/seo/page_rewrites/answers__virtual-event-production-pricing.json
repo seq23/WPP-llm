@@ -1,11 +1,139 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T23:12:36.258Z",
-  "route": "/answers/virtual-event-production-pricing",
-  "last": {
-    "fails": [
-      "NOT_JSON"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:27:01.257Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 677,
+  "attempts": 1,
+  "page": {
+    "route": "/answers/virtual-event-production-pricing",
+    "query": "virtual event production pricing",
+    "title": "Virtual event production pricing guide",
+    "description": "Learn what drives cost, platform licensing models, staffing levels, timelines, and deliverables for virtual and hybrid events, with typical price ranges for professional production.",
+    "h1": "How much does virtual event production cost?",
+    "definition": "Virtual event production pricing is the total expense for platform licences, crew, encoding, run‑of‑show management, rehearsal, backup streaming, and post‑event editing that a buyer pays to deliver a live online or hybrid experience including project management, speaker coordination, and quality assurance.",
+    "quick_answer": "Start by defining the event format and audience size, then match a platform licence model to your budget and hire a production crew that covers run‑of‑show, rehearsal, and backup streaming. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations.",
+    "sections": [
+      {
+        "h2": "What drives the cost of a virtual event production?",
+        "blocks": [
+          {
+            "p": "The main cost drivers are platform licence tier, crew size, event complexity, and post‑production deliverables. Each factor scales independently, so a change in one area can shift the overall budget significantly."
+          },
+          {
+            "ul": [
+              "Platform licence tier (per‑host, self‑serve monthly, annual enterprise)",
+              "Crew size (producer, show caller, speaker manager, moderator, platform operator)",
+              "Event complexity (single‑track webinar vs multi‑track summit with hybrid venues)",
+              "Post‑production deliverables (edited recording, clips, caption files)"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do platform licensing models affect the budget?",
+        "blocks": [
+          {
+            "p": "Three cost models dominate the market and each maps to a different spending pattern. Choosing the right model aligns platform expense with event scale and internal resources."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Platforms",
+                "Pricing Approach"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence sized by attendee capacity",
+                  "Zoom Webinars",
+                  "Pay per host based on max attendees"
+                ],
+                [
+                  "Self‑serve monthly plan",
+                  "StreamYard, Livestorm",
+                  "Flat monthly fee for feature set"
+                ],
+                [
+                  "Annual contract quoted by sales",
+                  "ON24, Cvent, Bizzabo, Goldcast",
+                  "Custom quote based on volume and services"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What staffing levels are typical for webinars versus summits?",
+        "blocks": [
+          {
+            "p": "A simple webinar can be run by one producer while a summit or hybrid event needs a larger crew. Staffing expands with the number of concurrent tracks and the need for on‑site coordination."
+          },
+          {
+            "ol": [
+              "Show caller owns the run of show",
+              "Speaker manager coordinates rehearsals and briefs",
+              "Moderator handles live Q&amp;A",
+              "Platform operator monitors streaming health",
+              "Producer oversees all technical elements"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What is the typical timeline from brief to live?",
+        "blocks": [
+          {
+            "p": "A webinar usually needs three to four weeks while a summit or online conference requires six to eight weeks of preparation. The timeline includes intake, planning, rehearsals, technical checks, live execution, and replay delivery."
+          },
+          {
+            "ul": [
+              "Intake and brief",
+              "Production planning and run of show",
+              "Speaker rehearsals on the real platform two to five days before",
+              "Technical check sixty minutes before go live",
+              "Live event execution",
+              "Replay delivery within 24 to 48 hours"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What deliverables should you expect from a production partner?",
+        "blocks": [
+          {
+            "p": "A professional production delivers a complete package that covers planning, live support, and post‑event assets. Each deliverable has an owner and an approval gate to keep the project on track."
+          },
+          {
+            "ul": [
+              "Run of show document",
+              "Speaker brief and rehearsal schedule",
+              "Branded slide template and lower thirds",
+              "Live producer and Q&amp;A moderation",
+              "Backup stream",
+              "Edited recording and highlight clips"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How much should I budget for a moderated webinar?",
+        "a": "A moderated webinar typically falls between $2,500 to $7,500 per production, covering platform fees, a single producer, rehearsal, live moderation, backup stream, and an edited recording. This range reflects standard crew size and post‑production work for up to a few hundred attendees."
+      },
+      {
+        "q": "What is the price range for a multi‑track virtual summit?",
+        "a": "A multi‑track virtual summit or hybrid conference usually starts at $10,000 to $50,000 and above, reflecting additional show callers, speaker managers, platform operators, venue AV coordination, and extended post‑production editing. The final figure depends on attendee capacity, number of concurrent tracks, and any on‑site hybrid requirements."
+      },
+      {
+        "q": "Do I need to purchase the platform separately from production?",
+        "a": "Yes, the platform licence is a separate purchase; production covers crew, encoding, run of show, rehearsal, backup stream, and post‑event assets, while the platform provides the streaming infrastructure. Budget for both line items to avoid surprise costs at launch early."
+      },
+      {
+        "q": "How far in advance should I start planning a hybrid conference?",
+        "a": "Plan a hybrid conference six to eight weeks out; lock the venue AV and the platform before the agenda is final, then schedule a full rehearsal on the real platform two to five days before go live. This timeline also allows time for speaker briefs and backup stream testing."
+      }
+    ]
   }
 }

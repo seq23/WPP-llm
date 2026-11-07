@@ -1,11 +1,136 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T23:26:50.709Z",
-  "route": "/programmatic/best-platforms-for-virtual-events",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:24"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:33:41.100Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 756,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/best-platforms-for-virtual-events",
+    "query": "best platforms for virtual events",
+    "title": "Best Platforms for Virtual Events Guide",
+    "description": "Compare top virtual event platforms, learn key decision steps, and see a side‑by‑side table of cost models and features for you",
+    "h1": "What are the best platforms for virtual events?",
+    "definition": "Virtual event platforms are software services that host live, recorded, or hybrid experiences for audiences ranging from a few dozen to tens of thousands, providing streaming, registration, engagement tools, analytics, and integration with marketing systems. They also support branding, interactive polls, Q&amp;A moderation, and on‑demand replay distribution.",
+    "quick_answer": "Start by defining audience size, format, and budget; then match those needs to a platform tier that offers the required engagement features and integration options.",
+    "sections": [
+      {
+        "h2": "Which platform tier fits my audience size and format?",
+        "blocks": [
+          {
+            "p": "Start by defining the maximum concurrent attendees and the event format, because a platform built for single‑track webinars will not scale to a multi‑track conference with breakout rooms and an expo hall. Matching capacity to format prevents last‑minute upgrades and ensures a smooth attendee experience."
+          },
+          {
+            "ul": [
+              "Self‑serve streaming studio for up to a few hundred viewers",
+              "Mid‑market suite with breakout rooms and networking for up to several thousand",
+              "Enterprise event suite with multi‑track agenda, expo hall, and advanced analytics for large audiences"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What cost model matches my budget?",
+        "blocks": [
+          {
+            "p": "Platforms typically offer three cost models, and the right one depends on whether you prefer predictable monthly spend, a per‑host licence tied to attendee caps, or a negotiated annual contract with dedicated support. Understanding the billing rhythm early avoids surprise invoices during high‑traffic periods."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Structure",
+                "Best For"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence sized by attendee capacity",
+                  "Pay per host based on max attendees",
+                  "Teams that run frequent webinars with known headcount"
+                ],
+                [
+                  "Self‑serve monthly plan",
+                  "Flat monthly fee with tiered features",
+                  "Organizations that need flexibility and low commitment"
+                ],
+                [
+                  "Annual contract quoted by sales",
+                  "Custom pricing with dedicated support",
+                  "Large enterprises running multi‑day summits"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Which engagement features are essential for my event?",
+        "blocks": [
+          {
+            "p": "Identify the interaction tools your agenda requires, because missing a feature such as live polling or virtual networking can reduce audience participation and limit lead capture. A clear feature checklist aligned with session goals keeps the evaluation focused and prevents scope creep."
+          },
+          {
+            "ul": [
+              "Live chat and Q&amp;A moderation",
+              "Polls, surveys, and quizzes",
+              "Virtual networking lounges or matchmaking",
+              "On‑demand replay with chapter markers",
+              "Branded stage layout and lower‑third graphics"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do I evaluate integration and analytics capabilities?",
+        "blocks": [
+          {
+            "p": "Map the data flow from registration through to CRM so you can measure pipeline impact without manual exports, and confirm that each system can receive attendee records in real time. A documented integration plan also simplifies hand‑off to the operations team after launch."
+          },
+          {
+            "ol": [
+              "List every system that must receive attendee data",
+              "Confirm native connectors or API availability for each system",
+              "Test a sample registration to verify field mapping",
+              "Define the key metrics you will track in the dashboard",
+              "Assign an owner to maintain the integration after launch"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What production support do I need beyond the platform?",
+        "blocks": [
+          {
+            "p": "The platform handles streaming, but a live producer, backup encoder, and speaker rehearsal are still required for a smooth show, and the production crew manages run of show, cueing, and real‑time troubleshooting. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations."
+          },
+          {
+            "ul": [
+              "Dedicated show caller to run the run of show",
+              "Speaker manager for technical checks and cueing",
+              "Platform operator to monitor stream health",
+              "Backup stream ready on a second encoder",
+              "Post‑event editing for replay and highlight clips"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How far in advance should I book a platform for a multi‑day summit?",
+        "a": "Reserve the platform at least six to eight weeks before the event date to allow time for contract review, integration setup, speaker rehearsals, and contingency planning. Early booking also secures preferred feature tiers and dedicated support. This timeline also gives your production partner enough lead time to configure branding and backup streams."
+      },
+      {
+        "q": "Can I run a hybrid event on a self‑serve platform?",
+        "a": "Self‑serve platforms can support a hybrid event if they offer simultaneous in‑room and online streaming, but you will still need on‑site AV staff, a reliable internet uplink, and a producer to synchronize the two feeds. Verify these capabilities before committing for a smooth experience."
+      },
+      {
+        "q": "What is the difference between platform licensing and production services?",
+        "a": "Platform licensing provides the software that hosts the stream, registration, and analytics, while production services supply the crew, cameras, encoders, run of show, and backup stream. You purchase both separately; the platform does not include live direction or technical rehearsal for the event."
+      },
+      {
+        "q": "How quickly can I get a replay to attendees?",
+        "a": "Deliver the edited replay within twenty‑four to forty‑eight hours after the live session ends, while the content is still fresh in attendees' minds. Automate the upload to your hosting site and send a follow‑up email with a direct link to maximize engagement."
+      }
+    ]
   }
 }

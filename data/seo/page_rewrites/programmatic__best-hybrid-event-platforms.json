@@ -1,13 +1,137 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T23:12:06.174Z",
-  "route": "/programmatic/best-hybrid-event-platforms",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:26",
-      "FAQ_ANSWER_SHORT:17",
-      "UNSOURCED_NUMBER:2"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:29:16.147Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 574,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/best-hybrid-event-platforms",
+    "query": "best hybrid event platforms",
+    "title": "Best Hybrid Event Platforms Buyer Guide",
+    "description": "Compare cost models, ownership roles, rehearsal steps and production needs to choose the right hybrid event platform for your team.",
+    "h1": "What to decide first when choosing a hybrid event platform",
+    "definition": "Hybrid event platforms are software suites that combine live streaming, audience interaction and on‑site integration so remote and in‑person attendees share a single experience. They handle registration, virtual rooms, real‑time Q&amp;A, polling and analytics while syncing with venue AV and production crews.",
+    "quick_answer": "Pick a cost model that matches your audience size and internal production capacity, then assign a single owner for the run of show before you sign any contract.",
+    "sections": [
+      {
+        "h2": "Which cost model fits my audience size and budget?",
+        "blocks": [
+          {
+            "p": "Choose a cost model that matches your expected attendee capacity and internal production resources."
+          },
+          {
+            "table": {
+              "head": [
+                "Cost model",
+                "Typical use",
+                "Examples"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence sized by attendee capacity",
+                  "Large enterprise webinars with predictable headcount",
+                  "Zoom Webinars"
+                ],
+                [
+                  "Self‑serve monthly plan",
+                  "Teams that need quick setup for up to a few hundred viewers",
+                  "StreamYard, Livestorm"
+                ],
+                [
+                  "Annual contract quoted by sales",
+                  "Summits and conferences requiring dedicated support and scaling to thousands",
+                  "Cvent, Bizzabo, Goldcast"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the run of show and rehearsal schedule?",
+        "blocks": [
+          {
+            "p": "Assign a single show caller who controls the run of show, speaker rehearsals and the backup stream."
+          },
+          {
+            "ul": [
+              "Show caller",
+              "Speaker manager",
+              "Platform operator",
+              "Moderator",
+              "Backup stream engineer"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What production staff do I need for a hybrid summit versus a webinar?",
+        "blocks": [
+          {
+            "p": "A simple webinar needs one producer while a hybrid summit requires a show caller, speaker manager, moderator and platform operator."
+          },
+          {
+            "ol": [
+              "Define event scope and audience size",
+              "Hire a show caller for the run of show",
+              "Add a speaker manager for rehearsals",
+              "Assign a moderator for live Q&amp;A",
+              "Staff a platform operator for streaming controls"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How far in advance should I lock venue AV and platform?",
+        "blocks": [
+          {
+            "p": "Lock the venue AV contract and the platform license six to eight weeks before the event date."
+          },
+          {
+            "ul": [
+              "Six to eight weeks: sign venue AV and platform",
+              "Four weeks: finalize agenda and speaker briefs",
+              "Two weeks: run full rehearsal on the real platform",
+              "One hour before live: technical check"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What early warning signals indicate unclear ownership?",
+        "blocks": [
+          {
+            "p": "Watch for missing run‑of‑show documents, duplicated speaker briefs and no named backup stream owner."
+          },
+          {
+            "ul": [
+              "No single owner for the run of show",
+              "Speaker briefs sent by multiple people",
+              "Backup stream not assigned",
+              "Rehearsal schedule not published",
+              "Escalation path undefined"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How do I compare self‑serve and enterprise hybrid platforms?",
+        "a": "Self‑serve plans charge a monthly fee per host and suit audiences up to a few hundred, while enterprise suites require an annual contract, provide dedicated support and scale to thousands of concurrent viewers. Evaluate integration needs, analytics depth and on‑site sync before deciding."
+      },
+      {
+        "q": "What is the minimum rehearsal window for a hybrid event?",
+        "a": "Run a full rehearsal on the actual platform two to five days before the live date, then conduct a technical check sixty minutes before going live to verify audio, video and backup stream paths. Confirm speaker cues, lower‑third timing and Q&amp;A flow during this window."
+      },
+      {
+        "q": "When should I send the replay to attendees?",
+        "a": "Deliver the edited recording and highlight clips within twenty four to forty eight hours after the event ends, while the content is still fresh in attendees’ minds and before they move on to other priorities. Include a short thank‑you note and a link to the next session."
+      },
+      {
+        "q": "Do I need a separate production crew if I use a platform with built‑in streaming?",
+        "a": "The platform supplies the streaming infrastructure but does not replace a producer who owns the run of show, cues speakers, manages the backup stream and handles on‑site camera feeds; a dedicated crew is still required for any hybrid summit or large webinar."
+      }
+    ]
   }
 }

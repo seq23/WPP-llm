@@ -1,11 +1,127 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T22:53:26.191Z",
-  "route": "/answers/virtual-event-production-cost",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:28"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:26:52.015Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 605,
+  "attempts": 2,
+  "page": {
+    "route": "/answers/virtual-event-production-cost",
+    "query": "virtual event production cost",
+    "title": "Virtual Event Production Cost Guide",
+    "description": "Learn what drives virtual event production cost, see typical price ranges, and get a checklist to budget your next webinar or summit.",
+    "h1": "What determines virtual event production cost?",
+    "definition": "Virtual event production cost is the total spend for platform licences, crew, creative assets, rehearsals and backup streaming needed to deliver a live online experience, and it varies with event length, speaker count, sponsor demands and platform complexity.",
+    "quick_answer": "Start by defining event length, speaker count and platform choice; then budget $2,500 to $7,500 for a moderated webinar or $10,000 to $50,000 for a summit, and add crew and rehearsal time.",
+    "sections": [
+      {
+        "h2": "How does event length and speaker count affect cost?",
+        "blocks": [
+          {
+            "p": "Longer events and more speakers increase platform licences, crew hours and rehearsal slots, raising the overall budget. A three‑hour summit with ten speakers typically costs more than a one‑hour webinar with two speakers."
+          },
+          {
+            "ul": [
+              "Event duration drives platform tier and streaming hours",
+              "Each additional speaker adds briefing, rehearsal and Q&amp;A moderation time",
+              "Sponsor requirements such as branded overlays add design and technical work",
+              "Allow two to three weeks from brief to live; a repeat format can move faster"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which platform pricing model fits my budget?",
+        "blocks": [
+          {
+            "p": "Platform cost follows three main models that map to different event scales and internal resources. Choose the model that matches your attendee capacity and contract preference."
+          },
+          {
+            "table": {
+              "head": [
+                "Model",
+                "Typical Use",
+                "Examples"
+              ],
+              "rows": [
+                [
+                  "Per‑host licence sized by attendee capacity",
+                  "Large webinars with predictable headcount",
+                  "Zoom Webinars"
+                ],
+                [
+                  "Self‑serve monthly plan",
+                  "Frequent small‑to‑mid events run in‑house",
+                  "StreamYard, Livestorm"
+                ],
+                [
+                  "Annual contract quoted by sales",
+                  "Enterprise summits needing dedicated support",
+                  "ON24, Cvent, Bizzabo, Goldcast"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What crew and rehearsal steps are required?",
+        "blocks": [
+          {
+            "p": "A reliable live show needs a defined crew structure and rehearsal cadence; the staffing level scales with event complexity. One producer can run a simple webinar; summits and hybrid events need a show caller, speaker manager, moderator and platform operator."
+          },
+          {
+            "ol": [
+              "Intake and brief – capture goals, agenda and sponsor assets",
+              "Production planning – build run of show, assign owners, set backup stream",
+              "Speaker rehearsal – one full rehearsal on the real platform two to five days before, and a technical check 60 minutes before going live",
+              "Live execution – show caller cues, moderator manages Q&amp;A, platform operator monitors stream health",
+              "Post‑show – send the replay within 24 to 48 hours, while attendees still remember the event"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What deliverables should I expect from a production partner?",
+        "blocks": [
+          {
+            "p": "A production partner should hand over a complete package that lets you reuse content and measure results. Deliverables cover creative, technical and reporting assets."
+          },
+          {
+            "ul": [
+              "Run of show and speaker brief with rehearsal schedule",
+              "Branded slide template and lower thirds",
+              "Live producer, Q&amp;A moderation and backup stream",
+              "Edited recording and short clips for social distribution"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How far in advance should I plan a hybrid conference?",
+        "blocks": [
+          {
+            "p": "Hybrid conferences need venue AV contracts, platform selection and speaker logistics locked early; the typical lead time is six to eight weeks for a summit or conference and three to four weeks for a webinar. Plan a hybrid conference six to eight weeks out; lock the venue AV and the platform before the agenda is final."
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "What is the typical price range for a moderated webinar?",
+        "a": "A moderated webinar usually falls between $2,500 and $7,500 per production, covering platform fees, a single producer, rehearsal and a backup stream."
+      },
+      {
+        "q": "How much should I budget for a multi‑day virtual summit?",
+        "a": "Multi‑day summits and hybrid productions start around $10,000 and can exceed $50,000 depending on speaker count, custom creative and dedicated crew."
+      },
+      {
+        "q": "Which tools help manage the production workflow?",
+        "a": "Teams often use Asana, Monday.com or Airtable for the calendar; Google Docs or Notion for briefs; and HubSpot or GA4 for post‑event reporting."
+      },
+      {
+        "q": "When should the final rehearsal happen?",
+        "a": "Schedule one full rehearsal on the actual platform two to five days before the event, plus a 60‑minute technical check right before going live."
+      }
+    ]
   }
 }

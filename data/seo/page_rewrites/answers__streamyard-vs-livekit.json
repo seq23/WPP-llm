@@ -1,12 +1,88 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T22:52:54.821Z",
-  "route": "/answers/streamyard-vs-livekit",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:26",
-      "UNSOURCED_NUMBER:3"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:25:24.408Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 554,
+  "attempts": 1,
+  "page": {
+    "route": "/answers/streamyard-vs-livekit",
+    "query": "streamyard vs livekit",
+    "title": "StreamYard vs LiveKit for Virtual Events",
+    "description": "Compare StreamYard's browser-based studio and LiveKit's realtime infrastructure for webinars, summits and hybrid productions with a practical buyer's checklist.",
+    "h1": "StreamYard or LiveKit: which fits your virtual event?",
+    "definition": "StreamYard is a browser-based streaming studio that handles switching, overlays and multi-platform distribution without code. LiveKit is an open-source realtime infrastructure platform that developers use to build custom video, audio and data applications with WebRTC.",
+    "quick_answer": "Choose StreamYard when you need a ready-to-use broadcast studio for webinars and social streams. Choose LiveKit when you need programmable realtime infrastructure for custom virtual venues, spatial audio or embedded video in your own product.",
+    "sections": [
+      {
+        "h2": "What is the core difference between StreamYard and LiveKit?",
+        "blocks": [
+          {
+            "p": "StreamYard is a managed broadcast studio; LiveKit is a programmable realtime infrastructure. StreamYard runs in the browser, handles RTMP ingest, multi-stream to YouTube, LinkedIn, Facebook, and provides overlays, lower thirds, and guest links without installation. LiveKit provides SDKs and a self-hosted or cloud SFU for WebRTC, letting developers build custom rooms, spatial audio, data channels, and recording pipelines inside their own application."
+          }
+        ]
+      },
+      {
+        "h2": "Which platform fits a marketing webinar versus a custom virtual venue?",
+        "blocks": [
+          {
+            "p": "StreamYard fits marketing webinars and social broadcasts; LiveKit fits custom virtual venues and embedded video products."
+          }
+        ]
+      },
+      {
+        "h2": "How do setup time and technical requirements compare?",
+        "blocks": [
+          {
+            "p": "StreamYard launches in minutes with no code; LiveKit requires development effort and infrastructure decisions."
+          }
+        ]
+      },
+      {
+        "h2": "What are the pricing models and hidden costs?",
+        "blocks": [
+          {
+            "p": "StreamYard uses monthly seat licences; LiveKit charges for cloud minutes or self-hosted infrastructure."
+          }
+        ]
+      },
+      {
+        "h2": "Can you use StreamYard and LiveKit together in one production?",
+        "blocks": [
+          {
+            "p": "Yes, StreamYard can ingest a LiveKit room via RTMP or WHIP for broadcast while LiveKit powers the custom venue. A common pattern runs the interactive venue on LiveKit — spatial networking, breakout rooms, custom UI — then pushes a composed RTMP stream from a LiveKit Egress worker into StreamYard for multi-platform distribution, overlays, and cloud recording. This splits interactive logic from broadcast polish."
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the production workload on each platform?",
+        "blocks": [
+          {
+            "p": "StreamYard shifts production to the host; LiveKit shifts it to the engineering team."
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "Does StreamYard support custom RTMP destinations beyond the major platforms?",
+        "a": "StreamYard supports custom RTMP outputs on paid plans, letting you send to any ingest endpoint including a LiveKit Egress worker, a private CDN, or a hybrid encoder. You configure the server URL and stream key in the destination settings before going live."
+      },
+      {
+        "q": "Can LiveKit replace StreamYard for a simple weekly webinar?",
+        "a": "LiveKit can power a simple webinar but you must build the host interface, guest lobby, recording, and multi-platform streaming yourself or adopt a prebuilt sample. For a recurring marketing webinar with no engineering bandwidth, StreamYard is faster to operate."
+      },
+      {
+        "q": "What happens if the internet drops during a StreamYard broadcast?",
+        "a": "StreamYard records locally in each guest's browser and uploads when connectivity returns. The host sees a reconnecting indicator. For mission-critical events, run a parallel backup stream from a hardware encoder or a second StreamYard instance on a separate connection."
+      },
+      {
+        "q": "Is LiveKit Cloud HIPAA or SOC two compliant for regulated events?",
+        "a": "LiveKit Cloud offers SOC two Type two and HIPAA-eligible configurations on dedicated clusters with a business associate agreement. Self-hosted deployments inherit your own infrastructure compliance. Verify the current attestation scope before committing regulated workloads."
+      },
+      {
+        "q": "How do you rehearse speakers on each platform?",
+        "a": "StreamYard provides a private rehearsal mode with the same studio controls; guests join via link without going live. LiveKit rehearsal requires a staging environment or a separate room name in your application. Schedule one full rehearsal on the real platform two to five days before the event."
+      }
+    ]
   }
 }

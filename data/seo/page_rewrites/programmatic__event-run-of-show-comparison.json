@@ -1,12 +1,161 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-02T23:58:17.369Z",
-  "route": "/programmatic/event-run-of-show-comparison",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:28",
-      "BANNED:\\bslot\\b"
+  "status": "accepted",
+  "generated_at": "2026-11-07T01:35:32.100Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 719,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/event-run-of-show-comparison",
+    "query": "event run of show comparison",
+    "title": "Event Run of Show Comparison Guide",
+    "description": "Compare run of show formats, ownership models, rehearsal needs and escalation paths for webinars, summits and hybrid events.",
+    "h1": "How do you compare event run of show options?",
+    "definition": "Event run of show comparison is the process of evaluating different production formats by mapping roles, rehearsal cadence, escalation paths and ownership assignments across webinar, summit and hybrid event types to match complexity with the right staffing and tooling.",
+    "quick_answer": "Match the event type to a run of show template: a single producer handles a webinar in three to four weeks, while a summit needs a show caller, speaker manager, moderator and platform operator over six to eight weeks.",
+    "sections": [
+      {
+        "h2": "What run of show formats exist for different event types?",
+        "blocks": [
+          {
+            "p": "Three main formats cover most virtual and hybrid events: a linear webinar run of show with one producer, a multi-session summit run of show with parallel tracks, and a hybrid run of show that synchronises venue AV with the streaming platform."
+          },
+          {
+            "ul": [
+              "Webinar: single track, one producer owns cues, slides, Q&amp;A and backup stream",
+              "Summit: multiple tracks, show caller coordinates session producers, speaker manager handles green room",
+              "Hybrid: venue technical director mirrors platform operator cues, shared run of show document with timecode sync"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "Which roles own each section of the run of show?",
+        "blocks": [
+          {
+            "p": "Ownership splits by event scale: a webinar consolidates five roles into one producer, while a summit distributes them across a dedicated team with named escalation contacts."
+          },
+          {
+            "table": {
+              "head": [
+                "Run of show section",
+                "Webinar owner",
+                "Summit owner",
+                "Hybrid owner"
+              ],
+              "rows": [
+                [
+                  "Pre-show technical check",
+                  "Producer",
+                  "Platform operator",
+                  "Venue TD and platform operator"
+                ],
+                [
+                  "Speaker cueing",
+                  "Producer",
+                  "Speaker manager",
+                  "Speaker manager"
+                ],
+                [
+                  "Slide and lower-third triggers",
+                  "Producer",
+                  "Session producer",
+                  "Session producer"
+                ],
+                [
+                  "Q&amp;A moderation",
+                  "Producer",
+                  "Moderator",
+                  "Moderator"
+                ],
+                [
+                  "Backup stream monitoring",
+                  "Producer",
+                  "Platform operator",
+                  "Platform operator"
+                ],
+                [
+                  "Escalation decision",
+                  "Producer",
+                  "Show caller",
+                  "Show caller and venue TD"
+                ],
+                [
+                  "Post-show replay handoff",
+                  "Producer",
+                  "Content lead",
+                  "Content lead"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What rehearsal cadence prevents live failures?",
+        "blocks": [
+          {
+            "p": "Every format needs one full rehearsal on the real platform two to five days before and a technical check sixty minutes before going live; summits add a speaker-only walkthrough for each track."
+          },
+          {
+            "ol": [
+              "Schedule full rehearsal with all speakers, producers and moderators on the production platform",
+              "Run through every transition, poll launch, video playback and backup stream switch",
+              "Document timing deviations and assign fixes to named owners",
+              "Hold sixty-minute technical check on event day for audio, video, captioning and stream health",
+              "For summits, run a thirty-minute speaker-only walkthrough per track the day before"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do escalation paths differ by complexity?",
+        "blocks": [
+          {
+            "p": "Escalation depth grows with event scale: a webinar producer decides alone, a summit show caller consults the speaker manager and platform operator, and a hybrid event adds the venue technical director to the decision loop."
+          },
+          {
+            "ul": [
+              "Webinar: producer escalates to client stakeholder only for content changes",
+              "Summit: show caller escalates speaker no-shows to speaker manager, platform issues to platform operator, content cuts to client stakeholder",
+              "Hybrid: venue technical director joins escalation for power, connectivity or AV sync failures; joint go or no-go call with show caller"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What tools keep the run of show visible to all owners?",
+        "blocks": [
+          {
+            "p": "A shared run of show document with timecodes, owner columns and status flags lives in a collaborative editor; the project plan tracks milestones in a work management tool."
+          },
+          {
+            "ul": [
+              "Google Docs or Notion for the live run of show with conditional formatting for overdue cues",
+              "Asana, Monday.com or Airtable for the production calendar and task assignments",
+              "Shared drive folder for slide decks, lower-third assets, video files and backup stream keys",
+              "Communication channel in Slack or Teams with dedicated threads per session"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "How early should the run of show be finalised before a summit?",
+        "a": "Lock the run of show at least two weeks before a summit to allow speaker rehearsals, asset collection and platform configuration; a webinar can finalise one week out."
+      },
+      {
+        "q": "Can one person produce a hybrid event run of show?",
+        "a": "No. Hybrid events need a venue technical director, a platform operator and a show caller at minimum; the venue AV and streaming platform require simultaneous, independent cueing."
+      },
+      {
+        "q": "What triggers a backup stream switch during a live event?",
+        "a": "Primary stream bitrate drops below platform threshold, encoder disconnects for more than ten seconds, or audio and video desync beyond recovery; the platform operator executes the switch on the show caller's command."
+      },
+      {
+        "q": "How do you version control the run of show during rehearsals?",
+        "a": "Use suggestion mode in Google Docs or page history in Notion; each rehearsal produces a new version labelled with date and rehearsal number, and the show caller approves the final version before event day."
+      }
+    ]
   }
 }
