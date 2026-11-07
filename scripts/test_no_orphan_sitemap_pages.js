@@ -83,7 +83,46 @@ function findOrphans(pages, sitemapRoutes) {
   return { orphans, edges, inbound };
 }
 
+/**
+ * Search Readiness b7 is stricter than "something links to it": every sitemap URL
+ * must be reachable from the homepage within three clicks. On 7 Nov 2026 the 11
+ * /questions/ pages each had an inbound link (from each other), so the inbound
+ * check passed while no path from / reached any of them.
+ */
+function findUnreachable(pages, sitemapRoutes, maxDepth = 3) {
+  const out = new Map();
+  for (const page of pages) {
+    const tos = new Set();
+    for (const m of page.html.matchAll(/<a\b[^>]*href="([^"]*)"/gi)) {
+      const href = m[1].replace(/&amp;/g, '&');
+      if (!isInternal(href)) continue;
+      const to = route(href);
+      if (to && !ASSET_RE.test(to) && to !== page.route) tos.add(to);
+    }
+    out.set(page.route, tos);
+  }
+  const depth = new Map([['/', 0]]);
+  let frontier = ['/'];
+  for (let d = 1; d <= maxDepth && frontier.length; d++) {
+    const next = [];
+    for (const r of frontier) for (const to of out.get(r) || []) if (!depth.has(to)) { depth.set(to, d); next.push(to); }
+    frontier = next;
+  }
+  return sitemapRoutes.filter((r) => !depth.has(r));
+}
+
 if (process.argv.includes('--self-test')) {
+  const island = [
+    { route: '/', html: '<a href="/linked">Linked</a>' },
+    { route: '/linked', html: '<a href="/">Home</a>' },
+    { route: '/island-a', html: '<a href="/island-b">B</a>' },
+    { route: '/island-b', html: '<a href="/island-a">A</a>' },
+  ];
+  const far = findUnreachable(island, ['/', '/linked', '/island-a', '/island-b']);
+  if (far.join(',') !== '/island-a,/island-b') {
+    console.error(`test:no-orphan-sitemap-pages self-test FAILED: a cluster that links only itself must be unreachable from /, got [${far.join(', ')}]`);
+    process.exit(1);
+  }
   const fixture = [
     { route: '/', html: '<a href="/linked">Linked</a><a href="https://elsewhere.example/x">Out</a>' },
     { route: '/linked', html: '<a href="/">Home</a>' },
@@ -97,7 +136,7 @@ if (process.argv.includes('--self-test')) {
     console.error(`test:no-orphan-sitemap-pages self-test FAILED: expected 2 internal edges, counted ${res.edges}`);
     process.exit(1);
   }
-  console.log('test:no-orphan-sitemap-pages self-test OK: a sitemap page nothing links to is reported, and an external link is not an edge');
+  console.log('test:no-orphan-sitemap-pages self-test OK: a sitemap page nothing links to is reported, a self-linked cluster is unreachable from /, and an external link is not an edge');
   process.exit(0);
 }
 
@@ -139,6 +178,13 @@ try {
     console.error(`test:no-orphan-sitemap-pages FAILED: ${orphans.length} of ${sitemapRoutes.length} sitemap URLs are linked from no assembled page:`);
     for (const o of orphans.slice(0, 25)) console.error(`  - ${o}`);
     console.error('Link them from the finished chrome (scripts/lib/page_finish.js) or from another page body - a link that lives only in pre-finish markup does not ship.');
+    process.exit(1);
+  }
+  const far = findUnreachable(pages, sitemapRoutes, 3);
+  if (far.length) {
+    console.error(`test:no-orphan-sitemap-pages FAILED: ${far.length} of ${sitemapRoutes.length} sitemap URLs are not reachable from the homepage within three clicks (Search Readiness b7):`);
+    for (const o of far.slice(0, 25)) console.error(`  - ${o}`);
+    console.error('Link them from a hub the finished chrome reaches (scripts/lib/page_finish.js), not only from each other.');
     process.exit(1);
   }
   console.log(`test:no-orphan-sitemap-pages OK: all ${sitemapRoutes.length} sitemap URLs are linked from the assembled site (${pages.length} pages, ${edges} internal links)`);

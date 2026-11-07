@@ -114,4 +114,35 @@ function planTitles(pages) {
   return { changes, kept, tooLong, collisions };
 }
 
-module.exports = { BRAND, ACCEPTED, BRAND_CLAUSE, namesTheSite, inBand, nameOf, planTitles };
+/** The brand clause the finished chrome uses (header, og:site_name). 24 characters. */
+const FINISH_BRAND = ' | West Peek Productions';
+
+/**
+ * The title a page gets on the live site (scripts/lib/page_finish.js).
+ *
+ * Until 7 Nov 2026 the finish appended " | West Peek Productions" to any rewrite
+ * title of 44 characters or fewer and left every longer one bare. 44 + 24 = 68, over
+ * the band (b1: /answers/west-peek-productions-fit served "When Is West Peek
+ * Productions the Right Fit? | West Peek Productions", 68 chars and the name twice),
+ * and every title of 45+ shipped naming nobody (b10:
+ * /programmatic/best-virtual-conference-platforms served "Best Virtual Conference
+ * Platforms Buyer Guide"). This is the same ladder the build uses (planTitles):
+ * a name that already says the site and fits is kept alone; otherwise the
+ * finish's own brand, then the shorter canonical one, each through fitTitle's
+ * compression and never a cut at a word. Only when neither fits does the page
+ * keep `fallback` (its committed title, already fitted by the build) if that
+ * names the site and fits, else the bare name.
+ */
+function finishTitle(rawTitle, fallback = '') {
+  const { name } = nameOf(String(rawTitle || '').trim());
+  const fallbackOk = namesTheSite(fallback) && inBand(fallback);
+  if (!name) return fallback;
+  if (namesTheSite(name)) return inBand(name) || !fallbackOk ? name : fallback;
+  for (const suffix of [FINISH_BRAND, BRAND]) {
+    const next = fitTitle(name, suffix, { truncate: false });
+    if (next && namesTheSite(next)) return next;
+  }
+  return fallbackOk ? fallback : name;
+}
+
+module.exports = { BRAND, FINISH_BRAND, ACCEPTED, BRAND_CLAUSE, namesTheSite, inBand, nameOf, planTitles, finishTitle };
