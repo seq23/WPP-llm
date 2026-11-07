@@ -188,11 +188,35 @@ function faqLd(faq) {
 // Titles set from a measured query (data/seo/site_head.json title_overrides,
 // checklist b10) outrank a rewrite's title.
 const TITLE_LOCKED = new Set(Object.keys(readJson('data/seo/site_head.json', {}).title_overrides || {}).map((rel) => routeOf(rel)));
+// Every served title inside 30-65 and naming this site (Search Readiness b1,
+// b10), not only the rewritten ones: 24 committed titles were too long to carry
+// the brand, so apply_title_suffix_band.js (which never cuts a name) left them
+// naming nobody. The page's own name goes through finishTitle first; only when it
+// cannot fit does a hand-written shorter name (data/seo/served_title_names.json)
+// stand in. A title already right is left strictly alone.
+const SERVED_NAMES = readJson('data/seo/served_title_names.json', { names: {} }).names || {};
+function setTitle(html, title) {
+  return html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
+    .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
+}
+function fitServedTitle(html, rel) {
+  const tb = require('./title_brand.js');
+  const ok = (t) => tb.inBand(t) && tb.namesTheSite(t);
+  const now = plain((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '');
+  if (!now || ok(now)) return html;
+  let next = tb.finishTitle(now, '');
+  if (!ok(next) && SERVED_NAMES[rel]) next = tb.finishTitle(SERVED_NAMES[rel], '');
+  return ok(next) ? setTitle(html, next) : html;
+}
 function applyRewrite(html, rec) {
   const p = rec.page;
   let s = html;
   const locked = TITLE_LOCKED.has(p.route);
-  const title = plain(p.title).length && plain(p.title).length <= 44 ? `${plain(p.title)} | West Peek Productions` : plain(p.title || p.h1);
+  // One ladder for every title (scripts/lib/title_brand.js finishTitle): inside
+  // 30-65, naming this site once (Search Readiness b1, b10).
+  const committed = plain((s.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '');
+  const title = require('./title_brand.js').finishTitle(plain(p.title || p.h1), committed);
   if (!locked) s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
   if (p.description) {
     s = s.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
@@ -313,6 +337,7 @@ function finishPage(html, rel) {
   else if (require('./page_rewrites.js').isRefused(route) || require('./prune.js').isNoindexed(route)) {
     s = s.replace(/(<meta name="robots" content=")[^"]*(")/, '$1noindex,follow$2');
   }
+  if (!TITLE_LOCKED.has(route)) s = fitServedTitle(s, r);
   s = stripJunk(s);
   s = routeInquiryLinks(s, slug);
   s = s.replace(/"author":\s*\{[^{}]*#scooter-taylor"[^{}]*\}/g, `"author":{"@id":"${ORG_ID}"}`);
@@ -338,6 +363,7 @@ function finishPage(html, rel) {
   } else if (route === '/') {
     s = homeQuestions(s, slug);
   }
+  if (route === '/answers/') s = searchQuestionsIndex(s);
   // The closing box, before the link architecture or the end of the main column.
   const close = s.search(/<!--link-arch:(related|site-related|neighbours)-->/);
   const endBox = ctaBox(slug, 'end', ctaHeading(slug));
@@ -351,6 +377,32 @@ function finishPage(html, rel) {
   const name = plain((s.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '');
   s = s.replace('</head>', `${webPageLd({ url: `${HOST}${route === '/' ? '/' : route}`, name, published: pub, updated: upd, selectors })}\n</head>`);
   return s;
+}
+
+// Every /questions/ page the search loop publishes, listed on the /answers/ hub.
+// The search loop links each new page to at most two others, and the questions
+// only ever linked each other, so the whole cluster sat in the sitemap with no
+// path from the homepage (Search Readiness b7, 7 Nov 2026: 11 of 11 unreachable
+// within three clicks). /answers/ is in the header on every page, so each
+// question is two clicks from home. Read from the directory at finish time, so a
+// page the loop publishes tomorrow is listed without anyone touching this.
+function searchQuestionPages() {
+  const dir = path.join(ROOT, 'questions');
+  if (!fs.existsSync(dir)) return [];
+  const prune = require('./prune.js');
+  return fs.readdirSync(dir).filter((n) => n.endsWith('.html') && n !== 'index.html').sort().map((n) => {
+    const html = fs.readFileSync(path.join(dir, n), 'utf8');
+    const q = plain((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || (html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '')
+      .replace(/\s*[|·–—]\s*(?:VirtualAgency OS|West Peek Productions)\s*$/i, '');
+    return { route: `/questions/${n.replace(/\.html$/, '')}`, q, noindex: /<meta name="robots" content="[^"]*noindex/i.test(html) };
+  }).filter((x) => x.q && !x.noindex && !prune.isPruned(x.route));
+}
+function searchQuestionsIndex(html) {
+  const qs = searchQuestionPages();
+  if (!qs.length) return html;
+  const section = `<section class="search-questions" id="search-questions" ${MARK}><h2>Questions people search</h2><ul class="question-list">${qs.map((x) => `<li><a href="${x.route}">${esc(x.q)}</a></li>`).join('')}</ul></section>`;
+  if (/<\/main>/.test(html)) return html.replace(/<\/main>/, `${section}</main>`);
+  return html.replace(/<\/body>/, `${section}\n</body>`);
 }
 
 // The home page: an index of the best answers, so a visitor finds one in a click.
@@ -378,4 +430,4 @@ function homeQuestions(html, slug) {
   return html.slice(0, at) + list + html.slice(at);
 }
 
-module.exports = { finishPage, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, _reset() { ctx = null; } };
+module.exports = { finishPage, searchQuestionPages, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, _reset() { ctx = null; } };

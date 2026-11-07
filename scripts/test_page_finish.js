@@ -26,6 +26,7 @@ const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
 const { hasVisibleFaq } = require('./lib/page_finish.js');
+const { namesTheSite, inBand } = require('./lib/title_brand.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITEMAP_URLS = (fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length;
@@ -42,6 +43,11 @@ function problems(html) {
   if (/<a\b[^>]*href="https?:\/\/(?:www\.)?westpeekproductions\.com/.test(html)) out.push('inquiry link bypasses /go/plan');
   if (/Common ways this gets searched|class="fanout-block"/.test(html)) out.push('keyword block still published');
   if (/"@type"\s*:\s*"FAQPage"/.test(html) && !hasVisibleFaq(html)) out.push('FAQPage schema without a visible FAQ');
+  // Search Readiness b1 and b10 read the SERVED title, and the finish rewrites it,
+  // so they are proven here on the assembled page, not on the committed one.
+  const t = ((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&middot;/g, '·').trim();
+  if (!inBand(t)) out.push(`title is ${t.length} chars, outside 30-65 ("${t}")`);
+  if (!namesTheSite(t)) out.push(`title does not name the site ("${t}")`);
   return out;
 }
 
@@ -61,6 +67,14 @@ if (process.argv.includes('--self-test')) {
   const raw = fs.readFileSync(path.join(ROOT, 'programmatic/webinar-production.html'), 'utf8');
   const p = problems(raw);
   if (!p.length) { console.error('test:page-finish self-test FAILED: an unfinished page passed the checks'); process.exit(1); }
+  // The two served-title defects of 7 Nov 2026 must each be reported.
+  const finished = (title) => problems(`<header class="site-header"><a href="/go/plan?from=x" class="btn">Get a production plan</a></header><title>${title}</title><p class="cta-box"></p>`);
+  const long = finished('When Is West Peek Productions the Right Fit? | West Peek Productions');
+  const bare = finished('Best Virtual Conference Platforms Buyer Guide');
+  const good = finished('Best Virtual Conference Platforms Buyer Guide | VirtualAgency OS');
+  if (!long.some((x) => /outside 30-65/.test(x)) || !bare.some((x) => /does not name the site/.test(x)) || good.length) {
+    console.error(`test:page-finish self-test FAILED: title checks did not separate bad from good (long: ${long}; bare: ${bare}; good: ${good})`); process.exit(1);
+  }
   console.log(`test:page-finish self-test OK: an unfinished page fails (${p.join('; ')})`);
   process.exit(0);
 }
@@ -79,6 +93,19 @@ for (const f of files) {
   if (/http-equiv="refresh"/.test(html) && /name="robots" content="noindex/.test(html)) continue; // consolidation redirect stub
   const p = problems(html);
   if (p.length) bad.push(`${path.relative(out, f)}: ${p.join('; ')}`);
+}
+// b1 also says unique: no two indexable served pages share a title.
+const byTitle = new Map();
+for (const f of files) {
+  const html = fs.readFileSync(f, 'utf8');
+  if (/name="robots" content="[^"]*noindex/.test(html)) continue;
+  const t = ((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').trim();
+  byTitle.set(t, [...(byTitle.get(t) || []), path.relative(out, f)]);
+}
+for (const [t, rels] of byTitle) if (rels.length > 1) bad.push(`${rels.join(', ')}: share the title "${t}"`);
+// Every hand-written served name points at a page that exists.
+for (const rel of Object.keys(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/seo/served_title_names.json'), 'utf8')).names || {})) {
+  if (!fs.existsSync(path.join(ROOT, rel))) bad.push(`data/seo/served_title_names.json: ${rel} does not exist`);
 }
 fs.rmSync(out, { recursive: true, force: true });
 if (allHtml.length < files.length) { console.error('test:page-finish beacon scan saw fewer pages than the finish check'); process.exit(1); }
