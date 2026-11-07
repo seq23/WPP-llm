@@ -25,7 +25,7 @@ const state = readJson('data/content/content_state_registry.json', { published_r
 let created = 0; let repaired = 0; let qualityRejected = 0; const skipped = []; const createdRoutes = []; const repairedRoutes = [];
 let stagedCorpus = listProgrammaticPages();
 
-function recordAdmission(u, route) {
+function recordAdmission(u, route, freezeMeasurement = null) {
   // A repair rewrites a page that is already admitted, so it updates that
   // route's admission whatever query the plan carried (the quality-report
   // fallback can phrase the query differently). Matching on route + query
@@ -51,7 +51,12 @@ function recordAdmission(u, route) {
     // Keep the page's original admission identity; record that it was repaired.
     const prev = adm.admissions[i];
     adm.admissions[i] = { ...prev, action: rec.action, status: 'admitted', updated_at: rec.updated_at };
-  } else if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
+  } else {
+    // The measurement the freeze gate admitted this create on; the rolling
+    // Search Console window can drop it later (scripts/lib/publication_freeze.js).
+    if (freezeMeasurement) rec.freeze_measurement = freezeMeasurement;
+    if (i >= 0) adm.admissions[i] = { ...adm.admissions[i], ...rec }; else adm.admissions.push(rec);
+  }
   if (!state.published_routes.includes(route)) state.published_routes.push(route);
 }
 
@@ -106,9 +111,11 @@ for (const u of plan.units || []) {
     skipped.push({route:publicRoute,source_route:u.target_route,reason:'unsupported_release_action'});
     continue;
   }
+  let freezeMeasurement = null;
+  if (u.release_action === 'create') freezeMeasurement = publicationFreeze.createAllowed(u.query, { flag: FREEZE, measured: MEASURED }).measurement;
   stagedCorpus = stagedCorpus.filter(p => p.route !== publicRoute);
   if (publicRoute.startsWith('/programmatic/')) stagedCorpus.push({route:publicRoute,cluster:u.cluster||publicRoute,html,word_count:wordCountFromHtml(html),shingles:shingleSetFromHtml(html)});
-  recordAdmission(u, publicRoute);
+  recordAdmission(u, publicRoute, freezeMeasurement);
 }
 
 adm.updated = new Date().toISOString();

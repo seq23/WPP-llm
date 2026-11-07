@@ -9,7 +9,11 @@
  *  3. The only page creator, apply_release_plan.js, loads the gate and calls it
  *     on the create path - a gate the publisher never calls governs nothing.
  *  4. No page admitted with action "create" on or after the freeze date lacks a
- *     measured target.
+ *     measured target, today or recorded at creation (freeze_measurement) - the
+ *     90-day window rolls, so a page created on a real measurement stays legal
+ *     after that measurement ages out. Exercised on synthetic rows first: a
+ *     freeze-period create with no measurement must be caught, a recorded one
+ *     must not, and a measurement dated after the admission must not count.
  */
 const fs = require('fs');
 const path = require('path');
@@ -42,7 +46,14 @@ if (!/publicationFreeze\.createAllowed\(/.test(createBranch.slice(0, 600))) erro
 if (flag.frozen) {
   const adm = path.join(ROOT, 'data/content/page_admission_registry.json');
   const rows = fs.existsSync(adm) ? (JSON.parse(fs.readFileSync(adm, 'utf8')).admissions || []) : [];
-  const late = rows.filter((a) => a.action === 'create' && String(a.admitted_at || '').slice(0, 10) >= flag.since && !measured.has(gate.norm(a.query)));
+  const day = `${flag.since}T12:00:00.000Z`;
+  const probeQ = 'zz unmeasured probe query 7f3a';
+  const unrecorded = { route: '/probe/unrecorded', action: 'create', admitted_at: day, query: probeQ };
+  const recorded = { ...unrecorded, route: '/probe/recorded', freeze_measurement: { query: probeQ, impressions: 3, measured_targets_generated_at: `${flag.since}T00:00:00.000Z` } };
+  const postdated = { ...recorded, route: '/probe/postdated', freeze_measurement: { ...recorded.freeze_measurement, measured_targets_generated_at: '2999-01-01T00:00:00.000Z' } };
+  const caught = gate.lateUnmeasuredCreates([unrecorded, recorded, postdated], flag, measured).map((a) => a.route).sort().join(',');
+  if (caught !== '/probe/postdated,/probe/unrecorded') errors.push(`late-create check is wrong on probe rows: caught [${caught}], expected [/probe/postdated,/probe/unrecorded]`);
+  const late = gate.lateUnmeasuredCreates(rows, flag, measured);
   for (const a of late.slice(0, 20)) errors.push(`${a.route} was created ${String(a.admitted_at).slice(0, 10)} during the freeze for unmeasured query "${a.query}"`);
 }
 
