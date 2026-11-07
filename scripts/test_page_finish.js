@@ -82,6 +82,21 @@ for (const f of files) {
 }
 fs.rmSync(out, { recursive: true, force: true });
 if (allHtml.length < files.length) { console.error('test:page-finish beacon scan saw fewer pages than the finish check'); process.exit(1); }
-if (files.length < MIN_PAGES) { console.error(`test:page-finish checked only ${files.length} pages (floor: the ${SITEMAP_URLS} sitemap URLs)`); process.exit(1); }
+// Floor: every page the sitemap lists is among those checked (section index pages
+// are exempt from the finish check, as above, so they are exempt here too). This
+// used to compare counts - checked files >= sitemap URLs - which failed once
+// accepted rewrites made 12 already-checked pages indexable (6-7 Nov 2026: 161
+// checked, 167 listed, every listed page checked) and blocked Query Intelligence.
+const { sitemapPaths, candidates } = require('./lib/sitemap_floor.js');
+const checked = new Set(files.map((f) => path.relative(out, f).replace(/\\/g, '/')));
+const exempt = (rel) => /(^|\/)index\.html$/.test(rel) && !/^answers\/index\.html$/.test(rel);
+const unchecked = [];
+let listedChecked = 0;
+for (const url of sitemapPaths(ROOT)) {
+  const rel = candidates(url).find((f) => fs.existsSync(path.join(ROOT, f)));
+  if (rel && exempt(rel)) continue;
+  if (rel && checked.has(rel)) listedChecked += 1; else unchecked.push(`${url}${rel ? ` (${rel})` : ' (not built)'}`);
+}
+if (!SITEMAP_URLS || unchecked.length || !listedChecked) { console.error(`test:page-finish floor: ${unchecked.length} sitemap page(s) not checked in the assembled site (${listedChecked} checked of ${SITEMAP_URLS} listed):\n  ${unchecked.slice(0, 15).join('\n  ')}`); process.exit(1); }
 if (bad.length) { console.error(`test:page-finish FAILED on ${bad.length} of ${files.length} pages:\n  ${bad.slice(0, 15).join('\n  ')}`); process.exit(1); }
 console.log(`test:page-finish OK: ${files.length} published pages finished`);
