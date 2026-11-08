@@ -26,6 +26,11 @@ const START = '<!--platform-proof:start-->';
 const END = '<!--platform-proof:end-->';
 const PLATFORM_ORIGIN = 'https://westpeek.live/';
 const LABEL = 'See the platform we run it on';
+// The public demo venue (owner, 7 Nov 2026). Only the pages listed here may link
+// it, and on them every westpeek.live link must be the demo venue: a preview,
+// never an attendee sign-up. Enquiries stay with the inquiry form.
+const DEMO_VENUE = 'https://westpeek.live/venue/demo/lobby';
+const DEMO_VENUE_PAGES = new Set(['answers/hopin-alternatives-virtual-events.html']);
 
 // Online / virtual / hybrid, then within a few words a conference, summit or event.
 const TOPIC = /\b(?:virtual|online|hybrid)\b[\w\s-]{0,20}?\b(?:conferences?|summits?|events?)\b/i;
@@ -94,4 +99,4 @@ function applyPlatformProof(html, rel, matches) {
   throw new Error(`platform-proof: no CTA callout, </article> or </main> to anchor the line in ${rel}`);
 }
 
-module.exports = { START, END, PLATFORM_ORIGIN, isPlatformProofTopic, loadTopics, platformProofFiles, applyPlatformProof };
+module.exports = { DEMO_VENUE, DEMO_VENUE_PAGES, START, END, PLATFORM_ORIGIN, isPlatformProofTopic, loadTopics, platformProofFiles, applyPlatformProof };

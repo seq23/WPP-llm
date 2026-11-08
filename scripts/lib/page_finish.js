@@ -453,10 +453,13 @@ function searchQuestionsIndex(html) {
 // An answer about an event goes under events; every other answer under
 // community as a service, which is described in the words of the live
 // westpeekproductions.com page and links to its 3-minute quiz.
+const FEATURED_EVENT_ANSWERS = [{ route: '/answers/hopin-alternatives-virtual-events', q: 'Hopin alternatives: which virtual event platform to use in 2026' }];
 function twoWays(top, slug) {
   const { isOnTopic } = require('./prune.js');
   const ul = (xs) => (xs.length ? `<ul class="question-list">${xs.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul>` : '');
-  const events = top.filter((x) => isOnTopic(x.route));
+  // Answers she asked to see on the home page by name (7 Nov 2026), first in their block.
+  const featured = FEATURED_EVENT_ANSWERS.filter((x) => fs.existsSync(path.join(ROOT, `${x.route.slice(1)}.html`)) && !require('./prune.js').isPruned(x.route) && !top.some((t) => t.route === x.route));
+  const events = [...featured, ...top.filter((x) => isOnTopic(x.route))];
   const community = top.filter((x) => !isOnTopic(x.route));
   return `<section class="common-questions two-ways" id="common-questions" ${MARK}><h2>Two ways West Peek Productions helps</h2><div class="ways">`
     + `<div class="way" id="virtual-and-hybrid-events"><h3>Virtual and hybrid events</h3><p>Virtual and hybrid events fail when the production system is vague: no run of show, no rehearsal discipline, no backup room, no speaker owner, no decision path, and no one watching the show like an operator. West Peek Productions plans, rehearses and runs them, so nothing important is improvised on the day.</p><p class="platform-line">We run shows on our own platform, westpeek.live, now in early access: live stream, stage, 4-minute 1:1 speed networking, breakout groups, chat, expo and replays. <a href="${LIVE_DEMO}">Preview the demo venue \u2197</a></p>${ul(events)}<p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a> · <a href="${inquiryHref(slug, 'home-events')}">Get a production plan</a></p></div>`
