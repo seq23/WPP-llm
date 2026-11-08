@@ -45,6 +45,7 @@ if (!selfTest) {
 for (const p of new Set(measured)) {
   const r = resolvePath(p, { root: ROOT, rules });
   if (r.kind === 'redirect' && r.status !== 301) errors.push(`${p} answers ${r.status}, expected 301`);
+  if (r.kind === 'redirect' && prune.isOffSiteDoor(r.to)) continue;
   if (r.kind === 'redirect') {
     const t = resolvePath(r.to.split('?')[0], { root: ROOT, rules });
     if (t.kind !== 'page') errors.push(`${p} -> ${r.to} does not land on a page`);
@@ -95,8 +96,8 @@ function mapProblems(redirects) {
     if (!redirects[from]) problems.push(`retired ${from} has no map entry`);
   }
   for (const [from, to] of Object.entries(redirects)) {
-    const target = resolvePath(to.split('?')[0], { root: ROOT, rules: compressed });
-    if (redirects[prune.norm(to)] || target.kind !== 'page' || prune.isPruned(to)) problems.push(`${from} -> ${to} is not a kept 200 target`);
+    const target = prune.isOffSiteDoor(to) ? { kind: 'page' } : resolvePath(to.split('?')[0], { root: ROOT, rules: compressed });
+    if (!prune.isOffSiteDoor(to) && redirects[prune.norm(to)] || target.kind !== 'page' || (!prune.isOffSiteDoor(to) && prune.isPruned(to))) problems.push(`${from} -> ${to} is not a kept 200 target`);
     for (const alias of [from, from + '/', from + '.html', from + '.html/']) {
       for (const method of ['GET', 'HEAD']) {
         const response = handler({ request: new Request(HOST + alias + '?source=test', { method }), next: () => null });

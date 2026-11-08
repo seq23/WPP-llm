@@ -184,6 +184,16 @@ for (const t of pagesIn('topics')) {
   if (pillar) redirects.push({ from: t.route, to: pillar, reason: 'topic with no kept page: pillar hub' });
 }
 
+// Community as a service is West Peek Productions' own service page, the one
+// main door (owner, 7 Nov 2026). The library's old community-as-a-service hubs
+// pointed a community buyer at the virtual event production page; they go to
+// the service itself instead.
+const [COMMUNITY_DOOR] = require('./lib/prune.js').OFF_SITE_DOORS;
+const COMMUNITY_HUBS = new Set(['/community-as-a-service', '/pillars/community-as-a-service', '/topics/community-as-a-service', '/query-atlas/community-as-a-service']);
+for (const r of redirects) {
+  if (COMMUNITY_HUBS.has(r.from)) { r.to = COMMUNITY_DOOR; r.reason = 'community as a service: the West Peek Productions service page'; }
+}
+
 const ledger = {
   schema_version: '1.0',
   rule: `Event-production topics only; off-topic pages redirect regardless of traffic or demand. Kept: >= ${KEEP_MIN_IMPRESSIONS} lifetime Search Console impressions (slug-joined), measured demand, or a demand page. ` +
