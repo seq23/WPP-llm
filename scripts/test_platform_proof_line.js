@@ -47,8 +47,16 @@ for (const [rel, want] of [[matching[0], 1], [other.find((r) => /westpeekproduct
 }
 
 // 3: what is published.
+const { DEMO_VENUE, DEMO_VENUE_PAGES } = require('./lib/platform_proof.js');
+for (const rel of DEMO_VENUE_PAGES) if (!pages.includes(rel)) failures.push(`${rel}: listed as a demo-venue page but not published`);
 for (const rel of pages) {
   const live = hrefs(read(rel), LIVE);
+  if (DEMO_VENUE_PAGES.has(rel)) {
+    // A demo-venue page links the demo venue, and nothing else on westpeek.live.
+    if (!live.length) failures.push(`${rel}: demo-venue page has no westpeek.live demo link`);
+    for (const h of live) if (h !== DEMO_VENUE) failures.push(`${rel}: westpeek.live link is not the demo venue: ${h}`);
+    continue;
+  }
   const want = proof.has(rel) ? 1 : 0;
   if (live.length !== want) failures.push(`${rel}: ${live.length} westpeek.live link(s) published, want ${want}`);
   for (const h of live) if (!/^https:\/\/westpeek\.live\/(?:\?|$)/.test(h)) failures.push(`${rel}: westpeek.live link goes past the front page: ${h}`);
