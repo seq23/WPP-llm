@@ -18,7 +18,10 @@ for (const file of fs.readdirSync(ANSWERS).filter(f => f.endsWith('.html') && f 
   if (!html.includes('rel="alternate" type="application/ld+json"')) {
     html = html.replace('</head>', `  <link rel="alternate" type="application/ld+json" href="${jsonHref}">\n</head>`);
   }
-  if (!html.includes('"@type":"FAQPage"')) {
+  // Hand-written answers (Hopin, 7 Nov 2026; the community answers) carry their
+  // FAQPage with spaces after the colons; the old exact-string check missed it
+  // and the next build would have added a second, one-question FAQPage.
+  if (!/"@type"\s*:\s*"FAQPage"/.test(html)) {
     const faq = { '@context':'https://schema.org', '@type':'FAQPage', mainEntity: [{ '@type':'Question', name: data.query || data.entity || file, acceptedAnswer: { '@type':'Answer', text: data.direct_answer || '' } }] };
     const breadcrumb = { '@context':'https://schema.org', '@type':'BreadcrumbList', itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:SITE+'/'},{'@type':'ListItem',position:2,name:'Answers',item:SITE+'/answers/index.html'},{'@type':'ListItem',position:3,name:data.query || data.entity || file,item:SITE+'/answers/'+file}] };
     html = html.replace('</head>', `<script type="application/ld+json">${escClose(faq)}</script>\n<script type="application/ld+json">${escClose(breadcrumb)}</script>\n</head>`);

@@ -61,7 +61,30 @@ for (const route of ['/answers/ai-marketing-agency', '/programmatic/ai-consultan
   assert.equal(isPublishedPath(route.slice(1) + '.html'), false, `off-topic deploy admission: ${route}`);
   assert.equal(prune.isPruned(route), true, `off-topic generator admission: ${route}`);
 }
-for (const k of ledger.kept) assert.equal(prune.isOnTopic(k.route), true, `off-topic keeper: ${k.route}`);
+for (const k of ledger.kept) assert.equal(prune.isInScope(k.route), true, `off-topic keeper: ${k.route}`);
+// Community as a service is in scope (owner, 7 Nov 2026): the three community
+// answers are kept and deployed, and a search-loop question page on any of the
+// loop's community topics is deployed, never pruned. The old generated
+// community pages stay retired and fold into the matching answer, and a
+// property-management or civic "community" page is still off-topic.
+const keptRoutes = new Set(ledger.kept.map((k) => k.route));
+for (const r of Object.values(prune.COMMUNITY_ANSWERS)) {
+  assert.ok(keptRoutes.has(r), `community answer not kept: ${r}`);
+  assert.equal(isPublishedPath(r.slice(1) + '.html'), true, `community answer not deployed: ${r}`);
+}
+const loopCfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'search-loop.config.json'), 'utf8'));
+const communityTopics = loopCfg.topics.filter((t) => /communit/.test(t));
+assert.ok(communityTopics.length >= 5, `search loop has ${communityTopics.length} community topics`);
+for (const t of [...communityTopics, 'how to build communities for small businesses']) {
+  const r = `/questions/${t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+  assert.equal(prune.isOffTopic(r), false, `community question page called off-topic: ${r}`);
+}
+for (const r of ['/questions/hoa-community-manager-salary', '/questions/community-service-hours-for-students', '/answers/community-member-retention', '/programmatic/outsourced-community-management']) {
+  assert.equal(prune.isPruned(r), true, `retired or non-brand community page admitted: ${r}`);
+}
+const folds = new Map(ledger.redirects.map((r) => [r.from, r.to]));
+assert.equal(folds.get('/programmatic/outsourced-community-management'), prune.COMMUNITY_ANSWERS.staffing, 'outsourced community management folds into the staffing answer');
+assert.equal(folds.get('/answers/how-long-to-launch-brand-community'), prune.COMMUNITY_ANSWERS.build, 'a launch-a-community page folds into the build answer');
 // A plural is the same topic: an on-topic question page is deployed, never pruned.
 for (const r of ['/questions/are-webinars-live-or-recorded', '/questions/how-do-virtual-conferences-work', '/programmatic/hybrid-summits-checklist']) {
   assert.equal(prune.isOffTopic(r), false, `on-topic page called off-topic: ${r}`);
