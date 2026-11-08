@@ -394,7 +394,9 @@ function finishPage(html, rel) {
   // Page shape.
   s = visibleFaqFromSchema(s);
   s = markDefinition(s);
-  const pub = published.get(route) || null;
+  // A page the history snapshot has not seen yet (a search-loop page published
+  // after the last seo:first-published run) still carries its own date.
+  const pub = published.get(route) || published.get(route.replace(/(.)\/$/, '$1')) || ((html.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || [])[1]) || null;
   const upd = rec ? String(rec.generated_at).slice(0, 10) : (updated.get(route) || null);
   const isContent = route !== '/' && !/^\/(topics|pillars)?\/?$/.test(route);
   const end = answerEnd(s);

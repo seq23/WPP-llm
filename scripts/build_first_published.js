@@ -19,9 +19,12 @@ if (git(['rev-parse', '--is-shallow-repository']).trim() === 'true') {
   console.error('NAMED_STOP: SHALLOW_CLONE - first-published dates need full history; fetch with --unshallow');
   process.exit(1);
 }
+// --no-renames: a page moved to its route (programmatic/virtual-conference-production
+// was moved there 22 Jul 2026) counts as added there; with rename detection the
+// move shows as R, not A, and the page had no Published date.
 const routes = {};
 let cur = null;
-for (const line of git(['log', '--diff-filter=A', '--name-only', '--format=@@%as', '--', '*.html']).split('\n')) {
+for (const line of git(['log', '--no-renames', '--diff-filter=A', '--name-only', '--format=@@%as', '--', '*.html']).split('\n')) {
   const l = line.trim();
   if (!l) continue;
   if (l.startsWith('@@')) { cur = l.slice(2); continue; }
