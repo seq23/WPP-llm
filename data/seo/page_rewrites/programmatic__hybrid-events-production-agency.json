@@ -1,11 +1,172 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-08T08:26:26.209Z",
-  "route": "/programmatic/hybrid-events-production-agency",
-  "last": {
-    "fails": [
-      "BANNED:\\bguarantee[ds]?\\b"
+  "status": "accepted",
+  "generated_at": "2026-11-08T20:18:42.653Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 1212,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/hybrid-events-production-agency",
+    "query": "hybrid events production agency",
+    "title": "How to Choose a Hybrid Events Production Agency",
+    "description": "Learn what to evaluate when hiring a hybrid events production partner, from platform expertise to backup plans and staffing models.",
+    "h1": "How do you choose the right hybrid events production partner?",
+    "definition": "A hybrid events production agency is a specialist team that designs and runs events with both in-person and virtual audiences, handling cameras, encoding, platform operation, run of show and backup streams so the client does not have to build that capability in house.",
+    "quick_answer": "Ask for a run of show template, a backup stream plan and a staffing chart that shows who owns the platform, the room and the speakers before you sign. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations.",
+    "sections": [
+      {
+        "h2": "What deliverables should a hybrid production partner provide?",
+        "blocks": [
+          {
+            "p": "A hybrid production partner should hand you a run of show, speaker brief and rehearsal plan, branded slide template and lower thirds, live producer, Q&amp;A moderation, backup stream, edited recording and clips. These items cover the full lifecycle from pre-production through post-event assets. The run of show becomes the single source of truth for every cue. The speaker brief sets expectations for lighting, audio and platform controls. Branded templates keep the visual language consistent across room and stream. The backup stream is a parallel encode pushed to a second ingest point so a single encoder failure does not kill the broadcast. Edited recording and clips arrive within 24 to 48 hours while attendees still remember the event."
+          },
+          {
+            "ul": [
+              "Run of show with cue timestamps and owner assignments",
+              "Speaker brief covering platform controls, mute protocol and contact tree",
+              "Branded slide template and lower thirds package",
+              "Live producer calling cues on the day",
+              "Q&amp;A moderation across chat, room mic and virtual audience",
+              "Backup stream to a second ingest URL",
+              "Edited recording and highlight clips delivered within 24 to 48 hours"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How many people does a hybrid event need on the crew?",
+        "blocks": [
+          {
+            "p": "A simple webinar runs with one producer while a summit or hybrid event needs a show caller, speaker manager, moderator and platform operator. Staffing scales with complexity. The show caller owns the run of show and calls every cue. The speaker manager handles green room logistics, tech checks and slide advances for presenters. The moderator fields audience questions across chat, Q&amp;A and the room mic. The platform operator rides the streaming encoder, switches scenes and monitors the backup ingest. For a hybrid conference the venue AV crew stays separate from the streaming crew so neither side waits on the other."
+          },
+          {
+            "table": {
+              "head": [
+                "Role",
+                "Webinar",
+                "Summit",
+                "Hybrid Conference"
+              ],
+              "rows": [
+                [
+                  "Show caller",
+                  "Producer covers",
+                  "Dedicated",
+                  "Dedicated"
+                ],
+                [
+                  "Speaker manager",
+                  "Producer covers",
+                  "Dedicated",
+                  "Dedicated"
+                ],
+                [
+                  "Moderator",
+                  "Optional",
+                  "Dedicated",
+                  "Dedicated"
+                ],
+                [
+                  "Platform operator",
+                  "Producer covers",
+                  "Dedicated",
+                  "Dedicated"
+                ],
+                [
+                  "Venue AV lead",
+                  "Not applicable",
+                  "Not applicable",
+                  "Separate crew"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What platform experience should the agency demonstrate?",
+        "blocks": [
+          {
+            "p": "The agency should show fluency on the platform you already use such as Zoom Webinars, Microsoft Teams, ON24 or StreamYard and be able to run a backup stream on a second ingest. Platform and production are two purchases. The platform is software; production is the crew, cameras, encoder, run of show and backup stream. Ask for a recent run of show built on your platform. Verify the agency has managed simultaneous room and stream outputs, handled interpreter channels and switched between presenter layouts without dropping the backup. Ten platforms compared below from self-serve streaming studios to enterprise event suites."
+          },
+          {
+            "ul": [
+              "Recent run of show on your chosen platform",
+              "Simultaneous room and stream output management",
+              "Interpreter channel handling",
+              "Layout switching without backup drop",
+              "Encoder configuration for primary and backup ingest",
+              "Recording and clip export workflow on that platform"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How far in advance must you book a hybrid production?",
+        "blocks": [
+          {
+            "p": "Plan a hybrid conference six to eight weeks out and lock the venue AV and the platform before the agenda is final. Lead time for a summit or conference is six to eight weeks; a webinar needs three to four weeks. The critical path starts with intake and brief, then production design, speaker onboarding, technical rehearsals and final approval gates. Seven stages each with one owner and one output: intake, brief, production, review, approval, publishing, reporting. A repeat format can move faster but the first run needs the full window."
+          },
+          {
+            "ol": [
+              "Intake and scope confirmation",
+              "Brief with platform, venue and audience specs",
+              "Production design and run of show draft",
+              "Speaker onboarding and tech check scheduling",
+              "Full rehearsal on real platform two to five days before",
+              "Technical check 60 minutes before go live",
+              "Post-event reporting and clip delivery"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What backup plans should be in place before go live?",
+        "blocks": [
+          {
+            "p": "Every hybrid production needs a parallel backup stream, a secondary internet path at the venue and a pre-recorded failover segment ready to play. Single points of failure are the biggest risk. The backup stream pushes to a second ingest URL on the same platform or a standby platform. The venue needs a bonded cellular kit or a second ISP circuit. The pre-recorded segment covers the opening keynote if the live feed drops. One full rehearsal on the real platform two to five days before and a technical check 60 minutes before going live validate both paths."
+          },
+          {
+            "ul": [
+              "Parallel backup stream to second ingest URL",
+              "Bonded cellular or second ISP circuit at venue",
+              "Pre-recorded failover segment for opening keynote",
+              "Backup encoder configured and tested",
+              "Secondary platform account on standby",
+              "Clear failover decision tree with owner assigned"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How does the agency handle rehearsals and speaker prep?",
+        "blocks": [
+          {
+            "p": "The agency runs a full rehearsal on the real platform two to five days before the event and a technical check 60 minutes before going live. Speakers join from their actual location using their actual hardware. The rehearsal walks through slide advances, video playback, interpreter handoffs and Q&amp;A flow. The technical check confirms audio levels, camera framing, encoder health and backup stream sync. A speaker brief document goes out one week prior with platform screenshots, mute protocols and contact numbers for the speaker manager."
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "What is the typical cost range for a hybrid production?",
+        "a": "Moderated webinars range from $2,500 to $7,500 per production. Executive summits, online conferences and hybrid productions range from $10,000 to $50,000 and above. The platform licence is separate from the production fee. Pricing depends on crew size, venue complexity and stream redundancy requirements."
+      },
+      {
+        "q": "Does the agency provide the event platform licence?",
+        "a": "The agency does not sell event software. It produces events on the platform you choose and can help you choose it. Platform and production are two purchases: the platform is software; production is the crew, cameras, encoder, run of show and backup stream."
+      },
+      {
+        "q": "How quickly can a repeat hybrid format launch?",
+        "a": "Allow two to three weeks from brief to live for a repeat format. The first run needs six to eight weeks for a summit or conference and three to four weeks for a webinar. A realistic cycle for a long-form article is five to ten working days from approved brief to publish."
+      },
+      {
+        "q": "What tools does the agency use for project management?",
+        "a": "Common tools include Asana, Monday.com or Airtable for the calendar; Google Docs or Notion for briefs; WordPress, Webflow or HubSpot for publishing; GA4 and HubSpot for reporting. Eight workstreams each with one owner keep the plan visible."
+      },
+      {
+        "q": "Who owns the run of show on event day?",
+        "a": "The show caller owns the run of show and calls every cue. The platform operator rides the encoder and backup stream. The speaker manager handles presenters. The moderator fields audience questions. One producer can run a simple webinar; summits and hybrid events need all four roles."
+      }
+    ]
   }
 }

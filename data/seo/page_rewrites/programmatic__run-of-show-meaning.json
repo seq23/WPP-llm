@@ -1,0 +1,156 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-08T20:20:13.863Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 943,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/run-of-show-meaning",
+    "query": "run of show meaning",
+    "title": "Run of Show Meaning: Definition, Ownership, and Template",
+    "description": "Learn what a run of show is, who owns it, what it contains, and when to lock it before your virtual or hybrid event goes live.",
+    "h1": "What does run of show mean in event production?",
+    "definition": "A run of show is a minute-by-minute production script that sequences every segment, speaker, graphic, video cue and technical switch for a live virtual or hybrid event. It assigns ownership, timing and backup plans so the producer, platform operator and speakers execute in sync.",
+    "quick_answer": "Lock your run of show two to five days before the event, run one full rehearsal on the actual platform, and assign a single owner for every cue.",
+    "sections": [
+      {
+        "h2": "What is a run of show and why does it matter?",
+        "blocks": [
+          {
+            "p": "A run of show is the master timing document that aligns every speaker, graphic, video and technical switch so the live event runs without gaps or collisions. It replaces vague agendas with second-level precision. The document lists each segment start time, duration, speaker name, slide deck file, lower-third text, video playback cue, poll launch moment and the backup stream trigger. Without it, producers guess, speakers talk over each other and the audience sees dead air."
+          }
+        ]
+      },
+      {
+        "h2": "Who owns the run of show in a virtual event?",
+        "blocks": [
+          {
+            "p": "A single producer owns the run of show for a simple webinar; summits and hybrid events split ownership across a show caller, speaker manager, moderator and platform operator. The show caller holds the master clock and calls every cue. The speaker manager queues presenters in the green room and confirms audio and video. The moderator runs Q&amp;A and chat while tracking time. The platform operator executes scene switches, launches polls and monitors the backup stream. Each role has one output and one approval gate."
+          },
+          {
+            "ul": [
+              "Show caller: master clock, cue calls, go/no-go decisions",
+              "Speaker manager: green room queue, tech checks, slide advances",
+              "Moderator: Q&amp;A flow, chat triage, time warnings",
+              "Platform operator: scene switches, poll launches, backup stream monitor"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What goes into a run of show document?",
+        "blocks": [
+          {
+            "p": "Every run of show contains segment timing, speaker details, asset cues, technical switches and contingency triggers. The table below compares a standard webinar run of show with a summit run of show so you see the scope difference."
+          },
+          {
+            "table": {
+              "head": [
+                "Element",
+                "Webinar",
+                "Summit"
+              ],
+              "rows": [
+                [
+                  "Segment count",
+                  "Five to eight",
+                  "Twenty to forty"
+                ],
+                [
+                  "Speaker entries",
+                  "One to three",
+                  "Ten to twenty"
+                ],
+                [
+                  "Graphic cues",
+                  "Lower thirds, title slide",
+                  "Lower thirds, sponsor bugs, transition animations, session titles"
+                ],
+                [
+                  "Video roll-ins",
+                  "Zero to one",
+                  "Three to eight"
+                ],
+                [
+                  "Poll launches",
+                  "One to two",
+                  "Five to ten"
+                ],
+                [
+                  "Backup stream trigger",
+                  "Manual switch",
+                  "Automated failover with alert"
+                ],
+                [
+                  "Rehearsal slots",
+                  "One full run",
+                  "One full run plus two technical checks"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "When should you finalize the run of show before going live?",
+        "blocks": [
+          {
+            "p": "Finalize the run of show two to five days before the event, then run one full rehearsal on the real platform and a technical check sixty minutes before going live. The timeline works backward from the live date. Lock speaker slides and video files four days out. Distribute the final run of show three days out. Conduct the full rehearsal two days out. Make only emergency edits after rehearsal. The sixty-minute technical check verifies audio, camera, screen share and backup stream health."
+          },
+          {
+            "ul": [
+              "Four days out: collect final slides and video files",
+              "Three days out: distribute locked run of show to all roles",
+              "Two days out: full rehearsal on production platform",
+              "One day out: incorporate rehearsal notes, no new assets",
+              "Live day minus sixty minutes: technical check, backup stream test"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What tools help manage a run of show?",
+        "blocks": [
+          {
+            "p": "Teams use a project board for the calendar, a shared doc for the live script, and a communication channel for real-time cues during the show. The project board tracks milestones and owner assignments. The shared doc holds the second-by-second script with color-coded rows for each role. The communication channel stays open for the show caller to relay cues without speaking over the broadcast."
+          },
+          {
+            "ul": [
+              "Calendar and milestones: Asana, Monday.com or Airtable",
+              "Live script collaboration: Google Docs or Notion",
+              "Real-time cue channel: Slack or Discord private channel",
+              "Asset storage: Google Drive or Dropbox with versioned file names",
+              "Post-show reporting: GA4 and HubSpot for attendance and engagement metrics"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How does a run of show differ for webinars versus summits?",
+        "blocks": [
+          {
+            "p": "A webinar run of show fits on one page with five to eight segments; a summit run of show spans multiple pages with twenty to forty segments, dedicated rehearsal blocks and automated failover triggers. The webinar version lists welcome, speaker one, speaker two, panel, Q&amp;A and close. The summit version adds session blocks, sponsor transitions, networking breaks, track switches, speaker changeovers and contingency rows for each stage. Staffing scales from one producer to a four-person crew. Lead time stretches from three to four weeks for a webinar to six to eight weeks for a summit."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use a spreadsheet instead of a doc for the run of show?",
+        "a": "A spreadsheet works for timing calculations but fails at live cueing because rows cannot show color-coded role assignments, embedded asset links and real-time cursor tracking that a shared doc provides during rehearsal and broadcast."
+      },
+      {
+        "q": "What happens if a speaker misses their cue during the live event?",
+        "a": "The show caller follows the contingency row: advance to the next segment, trigger the backup video or graphic, and alert the speaker manager to pull the late presenter into the green room for a delayed entry."
+      },
+      {
+        "q": "Do I need a separate run of show for the backup stream?",
+        "a": "The master run of show includes a backup stream trigger row with the exact timecode and switch command; the platform operator executes it without a second document, keeping the failover path single-source."
+      },
+      {
+        "q": "How detailed should speaker notes be in the run of show?",
+        "a": "Include slide number, talking time limit, poll launch cue, and the exact phrase the moderator uses to introduce the speaker; omit full scripts so speakers stay natural while the producer tracks precision."
+      }
+    ]
+  }
+}
