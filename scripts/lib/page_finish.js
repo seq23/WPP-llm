@@ -96,7 +96,25 @@ function inquiryHref(slug, at) {
 }
 
 // ---------------------------------------------------------------- chrome --
+// West Peek Productions is the one main door (owner rulings 2 Nov and 7 Nov
+// 2026). This site is its answer library, so the logo and two marked links in
+// the header and footer leave for westpeekproductions.com, and "Library home"
+// is the way back to the answers. Before 7 Nov the logo said "West Peek
+// Productions home" but opened this site, and no visible link reached the
+// company's website at all. `npm run test:main-door` holds the line.
+const WPP_SITE = 'https://westpeekproductions.com/';
+const WPP_COMMUNITY = 'https://westpeekproductions.com/community-as-a-service/';
+const DOOR = [
+  [WPP_SITE, 'West Peek Productions \u2197'],
+  [WPP_COMMUNITY, 'Community as a service \u2197'],
+];
+// The home page's one westpeek.live line (owner, 7 Nov 2026): the demo venue,
+// a preview only. Enquiries still go to the inquiry form, never to westpeek.live's
+// own sign-up forms.
+const LIVE_DEMO = 'https://westpeek.live/venue/demo/lobby';
+const doorLinks = (cls) => DOOR.map(([h, t]) => `<a class="${cls}" href="${h}">${t}</a>`).join('');
 const NAV = [
+  ['/', 'Library home'],
   ['/pillars/experiences', 'Virtual events'],
   ['/programmatic/webinar-production', 'Webinars'],
   ['/answers/', 'Answers'],
@@ -104,7 +122,7 @@ const NAV = [
 ];
 function headerHtml(slug) {
   const links = NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('');
-  return `<header class="site-header" ${MARK}><div class="header-inner"><a class="brand" href="/" aria-label="West Peek Productions home"><img src="/assets/west-peek-productions-logo.jpeg" alt="West Peek Productions logo" width="36" height="36"><span class="name">West Peek Productions</span></a><nav class="nav" aria-label="Primary">${links}<a class="btn nav-cta" href="${inquiryHref(slug, 'nav')}">Get a production plan</a></nav></div></header>`;
+  return `<header class="site-header" ${MARK}><div class="header-inner"><a class="brand" href="${WPP_SITE}" aria-label="West Peek Productions website"><img src="/assets/west-peek-productions-logo.jpeg" alt="West Peek Productions logo" width="36" height="36"><span class="name">West Peek Productions</span></a><nav class="nav" aria-label="Primary">${links}${doorLinks('door')}<a class="btn nav-cta" href="${inquiryHref(slug, 'nav')}">Get a production plan</a></nav></div></header>`;
 }
 // Every page the sitemap announces must be reachable from the finished chrome
 // or from another page's body. /atlas and /how-west-peek-helps were linked only
@@ -113,6 +131,7 @@ function headerHtml(slug) {
 // (Search Readiness b7, 3 Nov 2026). The footer is the one place that reaches
 // every page in one click; `npm run test:no-orphan-sitemap-pages` holds the line.
 const FOOTER_NAV = [
+  ['/', 'Library home'],
   ['/topics/', 'Topics'],
   ['/articles', 'Articles'],
   ['/insights/', 'Insights'],
@@ -124,7 +143,7 @@ const FOOTER_NAV = [
 ];
 function footerHtml() {
   const links = FOOTER_NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('');
-  return `<footer class="site-footer" ${MARK}><div class="footer-inner"><nav class="footer-nav" aria-label="More">${links}</nav><p>West Peek Productions plans and runs virtual, hybrid and webinar events. Questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p></div></footer>`;
+  return `<footer class="site-footer" ${MARK}><div class="footer-inner"><nav class="footer-nav" aria-label="More">${links}${doorLinks('door')}</nav><p>West Peek Productions runs virtual, hybrid and webinar events and community as a service. Website: <a href="${WPP_SITE}">westpeekproductions.com</a>. Questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p></div></footer>`;
 }
 /** The box speaks to the page's own event type. */
 function ctaHeading(slug) {
@@ -158,11 +177,34 @@ function stripJunk(html) {
 
 // Every West Peek Productions link becomes the counted inquiry link, keeping
 // the page it came from (its utm_content) and where on the page (utm_campaign).
+// A link whose words are a web address goes to that address. Before 7 Nov 2026
+// every westpeekproductions.com link was sent to the inquiry form, so About's
+// two links reading "westpeekproductions.com" opened a Google Form instead of
+// the company's website. Inquiry wording still routes through /go/plan.
+// Web suffixes only, so a label like "Node.js" is never read as an address.
+const ADDRESS_LABEL = /^(?:https?:\/\/)?((?:[a-z0-9-]+\.)+(?:com|org|net|io|co|ai|app|dev|live|ventures|vc|fm|tv|us|edu|gov|me|so))(\/[^\s]*)?$/i;
+function labelAddress(inner) {
+  const m = plain(inner).match(ADDRESS_LABEL);
+  return m ? `https://${m[1].toLowerCase()}${m[2] || '/'}` : null;
+}
+function sameAddress(href, addr) {
+  const at = (u) => { try { const x = new URL(u.replace(/&amp;/g, '&')); return `${x.host.replace(/^www\./, '')}${x.pathname.replace(/\/+$/, '')}`; } catch { return null; } };
+  return at(href) !== null && at(href) === at(addr);
+}
 function routeInquiryLinks(html, slug) {
-  return html.replace(/href="https:\/\/(?:www\.)?westpeekproductions\.com\/?[^"]*"/g, (m) => {
-    const content = (m.match(/utm_content=([^&"]+)/) || [])[1] || slug;
-    const campaign = (m.match(/utm_campaign=([^&"]+)/) || [])[1] || 'link';
-    return `href="${inquiryHref(decodeURIComponent(content), decodeURIComponent(campaign))}"`;
+  return html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (a, attrs, inner) => {
+    const addr = labelAddress(inner);
+    if (addr) {
+      // Already going to that address (tracking tags allowed): leave it as it is.
+      const href = (attrs.match(/href="([^"]*)"/) || [])[1] || '';
+      if (sameAddress(href, addr)) return a;
+      return `<a${href ? attrs.replace(/href="[^"]*"/, `href="${addr}"`) : attrs}>${inner}</a>`;
+    }
+    return a.replace(/href="https:\/\/(?:www\.)?westpeekproductions\.com\/?[^"]*"/g, (m) => {
+      const content = (m.match(/utm_content=([^&"]+)/) || [])[1] || slug;
+      const campaign = (m.match(/utm_campaign=([^&"]+)/) || [])[1] || 'link';
+      return `href="${inquiryHref(decodeURIComponent(content), decodeURIComponent(campaign))}"`;
+    });
   }).replace(/\s+target="_blank" rel="noopener"(?=[^>]*href="\/go\/plan)/g, '').replace(/(href="\/go\/plan[^"]*")\s+target="_blank"\s+rel="noopener"/g, '$1');
 }
 
@@ -405,6 +447,23 @@ function searchQuestionsIndex(html) {
   return html.replace(/<\/body>/, `${section}\n</body>`);
 }
 
+// The home page's "Two ways West Peek Productions helps" (owner, 7 Nov 2026).
+// The site described only events, so the community, audience-growth, creative
+// and content answers sat under "virtual events" with no service to point to.
+// An answer about an event goes under events; every other answer under
+// community as a service, which is described in the words of the live
+// westpeekproductions.com page and links to its 3-minute quiz.
+function twoWays(top, slug) {
+  const { isOnTopic } = require('./prune.js');
+  const ul = (xs) => (xs.length ? `<ul class="question-list">${xs.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul>` : '');
+  const events = top.filter((x) => isOnTopic(x.route));
+  const community = top.filter((x) => !isOnTopic(x.route));
+  return `<section class="common-questions two-ways" id="common-questions" ${MARK}><h2>Two ways West Peek Productions helps</h2><div class="ways">`
+    + `<div class="way" id="virtual-and-hybrid-events"><h3>Virtual and hybrid events</h3><p>Virtual and hybrid events fail when the production system is vague: no run of show, no rehearsal discipline, no backup room, no speaker owner, no decision path, and no one watching the show like an operator. West Peek Productions plans, rehearses and runs them, so nothing important is improvised on the day.</p><p class="platform-line">We run shows on our own platform, westpeek.live, now in early access: live stream, stage, 4-minute 1:1 speed networking, breakout groups, chat, expo and replays. <a href="${LIVE_DEMO}">Preview the demo venue \u2197</a></p>${ul(events)}<p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a> · <a href="${inquiryHref(slug, 'home-events')}">Get a production plan</a></p></div>`
+    + `<div class="way" id="community-as-a-service"><h3>Community as a service</h3><p>West Peek Productions is also a Community-as-a-Service and creative agency. It helps organizations build, engage and grow communities through strategy, experiences, storytelling, brand, content and audience growth, so the work before, during and after any single moment compounds.</p><p><a href="${WPP_COMMUNITY}">Can your business build a community? Take the 3-minute quiz \u2197</a></p><p><a href="${WPP_SITE}">Community as a service at West Peek Productions \u2197</a></p>${ul(community)}</div>`
+    + '</div></section>';
+}
+
 // The home page: an index of the best answers, so a visitor finds one in a click.
 function homeQuestions(html, slug) {
   const { rewrites } = context();
@@ -418,7 +477,7 @@ function homeQuestions(html, slug) {
   const rw = [...rewrites.values()].filter((r) => !prune.isPruned(r.page.route)).map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
   const seen = new Set();
   const top = [...demand, ...rw].sort((a, b) => b.n - a.n).filter((x) => !seen.has(x.route) && seen.add(x.route)).slice(0, 20);
-  const list = top.length ? `<section class="common-questions" id="common-questions" ${MARK}><h2>Common questions</h2><ul class="question-list">${top.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul><p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a></p></section>` : '';
+  const list = top.length ? twoWays(top, slug) : '';
   const heroOpen = html.indexOf('<section class="hero');
   let heroClose = html.indexOf('</section>', heroOpen);
   if (heroOpen < 0 || heroClose < 0) return html;

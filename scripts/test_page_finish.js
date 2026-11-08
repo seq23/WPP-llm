@@ -40,7 +40,16 @@ function problems(html) {
   const h2 = html.search(/<h2[\s>]/);
   if (box < 0) out.push('no conversion box');
   else if (h2 > -1 && box > h2 && !/class="quick-answer"|id="recommendation-summary"/.test(html.slice(0, box))) out.push('conversion box is below the first section');
-  if (/<a\b[^>]*href="https?:\/\/(?:www\.)?westpeekproductions\.com/.test(html)) out.push('inquiry link bypasses /go/plan');
+  // A link may leave for westpeekproductions.com only as the logo, a link marked
+  // as leaving (its words end in "↗", owner 7 Nov 2026: the one main door) or a
+  // link whose words are the address; any other wording is an inquiry and goes
+  // through /go/plan (test:main-door proves the door links themselves).
+  for (const m of html.matchAll(/<a\b([^>]*href="https?:\/\/(?:www\.)?westpeekproductions\.com[^"]*"[^>]*)>([\s\S]*?)<\/a>/g)) {
+    const label = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (/class="brand"/.test(m[1]) || /\u2197$/.test(label) || /^(?:https?:\/\/)?(?:www\.)?westpeekproductions\.com\/?/i.test(label)) continue;
+    out.push(`inquiry link "${label}" bypasses /go/plan`);
+    break;
+  }
   if (/Common ways this gets searched|class="fanout-block"/.test(html)) out.push('keyword block still published');
   if (/"@type"\s*:\s*"FAQPage"/.test(html) && !hasVisibleFaq(html)) out.push('FAQPage schema without a visible FAQ');
   // Search Readiness b1 and b10 read the SERVED title, and the finish rewrites it,

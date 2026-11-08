@@ -200,3 +200,13 @@ main a, article a{text-decoration:underline; text-underline-offset:2px}
 .home-hero h1{font-size:30px}
 .hero-actions{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:14px}
 .quiet-link{color:var(--muted); font-size:15px}
+/* Home: "Two ways West Peek Productions helps", side by side, stacked on a phone. */
+.ways{display:grid; gap:16px}
+.way{padding:16px 18px; border:1px solid var(--line); border-radius:16px; background:var(--card); min-width:0}
+.way h3{margin:0 0 6px; font-size:20px}
+.way .question-list{grid-template-columns:1fr}
+@media (min-width:860px){ .ways{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.site-header .nav a.door, .footer-nav a.door{font-weight:600}
+/* About: Scooter Taylor's photo beside the section on wide screens. */
+.about-person__photo{display:block; width:160px; height:160px; border-radius:50%; object-fit:cover; margin:4px 0 12px}
+@media (min-width:760px){ .about-person__photo{float:right; margin:0 0 12px 18px} .about-person{overflow:hidden} }

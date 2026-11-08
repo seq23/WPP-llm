@@ -609,6 +609,13 @@
       "severity": "HARD_FAIL",
       "purpose": "Every sitemap URL is linked from at least one page of the ASSEMBLED site, so a link that lives only in pre-finish markup cannot ship an orphan.",
       "owner": "repo"
+    },
+    {
+      "id": "main-door-links",
+      "command": "npm run test:main-door",
+      "severity": "HARD_FAIL",
+      "purpose": "Every published page's logo, header menu and footer reach westpeekproductions.com (the one main door) and every link labelled with a web address goes to that address (7 Nov 2026: the logo stayed on this site and About's westpeekproductions.com links opened the inquiry form).",
+      "owner": "repo"
     }
   ],
   "repair_policy": "repair_command is only declared where the repair targets the same defect the validator detects. Adding one so a failure disappears is forbidden; an unrepairable failure must stay unrepairable and be reported by name."

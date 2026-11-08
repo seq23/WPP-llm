@@ -71,6 +71,12 @@ function onTopicHub(route) {
   return '/programmatic/virtual-event-production';
 }
 
+// The only off-site redirect targets: West Peek Productions' own service pages,
+// the one main door (owner, 7 Nov 2026). test:prune checks every other target
+// lands on a kept page here, and these only for one exact 301.
+const OFF_SITE_DOORS = new Set(['https://westpeekproductions.com/community-as-a-service/']);
+const isOffSiteDoor = (to) => OFF_SITE_DOORS.has(String(to || '').split('?')[0]);
+
 let cache = null;
 function load() {
   if (cache) return cache;
@@ -111,7 +117,7 @@ function redirectRules() {
 }
 
 module.exports = {
-  ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, PRUNABLE_PREFIXES,
+  OFF_SITE_DOORS, isOffSiteDoor, ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, PRUNABLE_PREFIXES,
   isOnTopic, isOffTopic, onTopicHub, norm, load, finalTarget, isRedirected, isNoindexed, isPruned, redirectTarget, isRedirectedFile, redirectRules,
   _reset() { cache = null; },
 };
