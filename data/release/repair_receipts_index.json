@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-30T10:43:29.982Z",
+  "updated_at": "2026-11-08T11:44:51.358Z",
   "lane": "technical_diagnostic_repair",
   "lane_notes": "Separate from the release-plan create/repair lane in data/releases/daily_velocity_ledger.json. This lane repairs specific diagnosed defects on already-admitted pages and never creates or deletes routes.",
   "daily_cap": 20,
   "route_cooldown_days": 14,
   "today": {
-    "date": "2026-10-30",
-    "repairs_used": 1
+    "date": "2026-11-08",
+    "repairs_used": 9
   },
   "receipts": [
     {
@@ -5997,6 +5997,60 @@
       "route": "/query-atlas/brand-narrative-strategy",
       "repair_type": "meta_description_length",
       "repaired_at": "2026-10-30T10:43:29.980Z"
+    },
+    {
+      "repair_id": "repair_51383e8f0e72",
+      "route": "/query-atlas/ai-workflow-consulting",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.339Z"
+    },
+    {
+      "repair_id": "repair_f1e158715a05",
+      "route": "/query-atlas/community-as-a-service",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.343Z"
+    },
+    {
+      "repair_id": "repair_d186fd5880c2",
+      "route": "/query-atlas/community-launch-strategy",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.345Z"
+    },
+    {
+      "repair_id": "repair_73f649d21d0c",
+      "route": "/query-atlas/community-operations",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.346Z"
+    },
+    {
+      "repair_id": "repair_8ab49d9e0702",
+      "route": "/query-atlas/community-staffing-model",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.349Z"
+    },
+    {
+      "repair_id": "repair_fd5b4631db6a",
+      "route": "/query-atlas/host-virtual-events",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.351Z"
+    },
+    {
+      "repair_id": "repair_bfe191ec5688",
+      "route": "/query-atlas/hybrid-event-production",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.353Z"
+    },
+    {
+      "repair_id": "repair_a59662d5d908",
+      "route": "/query-atlas/presentation-storytelling",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.355Z"
+    },
+    {
+      "repair_id": "repair_1977825e6101",
+      "route": "/query-atlas/webinar-production",
+      "repair_type": "meta_description_length",
+      "repaired_at": "2026-11-08T11:44:51.357Z"
     }
   ]
 }
