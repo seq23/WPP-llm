@@ -52,6 +52,11 @@ function problems(html) {
   }
   if (/Common ways this gets searched|class="fanout-block"/.test(html)) out.push('keyword block still published');
   if (/"@type"\s*:\s*"FAQPage"/.test(html) && !hasVisibleFaq(html)) out.push('FAQPage schema without a visible FAQ');
+  // Page shape: the finished WebPage schema carries the published date (the
+  // Hopin page shipped without one on 7 Nov 2026: new since the last
+  // seo:first-published run). Any page with a byline is a content page.
+  const webPage = (html.match(/<script type="application\/ld\+json" data-page-finish>(\{"@context":"https:\/\/schema\.org","@type":"WebPage"[\s\S]*?)<\/script>/) || [])[1];
+  if (/class="byline"/.test(html) && !(webPage && /"datePublished":"\d{4}-\d{2}-\d{2}"/.test(webPage))) out.push('WebPage schema has no datePublished (run npm run seo:first-published)');
   // Search Readiness b1 and b10 read the SERVED title, and the finish rewrites it,
   // so they are proven here on the assembled page, not on the committed one.
   const t = ((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&middot;/g, '·').trim();
@@ -84,6 +89,10 @@ if (process.argv.includes('--self-test')) {
   if (!long.some((x) => /outside 30-65/.test(x)) || !bare.some((x) => /does not name the site/.test(x)) || good.length) {
     console.error(`test:page-finish self-test FAILED: title checks did not separate bad from good (long: ${long}; bare: ${bare}; good: ${good})`); process.exit(1);
   }
+  const ld = (d) => `<script type="application/ld+json" data-page-finish>{"@context":"https://schema.org","@type":"WebPage"${d}}</script>`;
+  const undated = finished(`Best Virtual Conference Platforms Buyer Guide | VirtualAgency OS</title><p class="byline"></p>${ld('')}<title>`);
+  const dated = finished(`Best Virtual Conference Platforms Buyer Guide | VirtualAgency OS</title><p class="byline"></p>${ld(',"datePublished":"2026-11-07"')}<title>`);
+  if (!undated.some((x) => /no datePublished/.test(x)) || dated.length) { console.error(`test:page-finish self-test FAILED: published-date check did not separate (undated: ${undated}; dated: ${dated})`); process.exit(1); }
   console.log(`test:page-finish self-test OK: an unfinished page fails (${p.join('; ')})`);
   process.exit(0);
 }
