@@ -51,6 +51,9 @@ function problems(html) {
     break;
   }
   if (/Common ways this gets searched|class="fanout-block"/.test(html)) out.push('keyword block still published');
+  // Search Readiness b2: the served description fits in 160 characters.
+  const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+  if (desc && desc.replace(/&amp;/g, '&').replace(/&#39;|&quot;/g, "'").length > 160) out.push(`meta description is ${desc.length} chars, over 160`);
   if (/"@type"\s*:\s*"FAQPage"/.test(html) && !hasVisibleFaq(html)) out.push('FAQPage schema without a visible FAQ');
   // Page shape: the finished WebPage schema carries the published date (the
   // Hopin page shipped without one on 7 Nov 2026: new since the last

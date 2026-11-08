@@ -258,6 +258,18 @@ function fitServedTitle(html, rel) {
   if (!ok(next) && SERVED_NAMES[rel]) next = tb.finishTitle(SERVED_NAMES[rel], '');
   return ok(next) ? setTitle(html, next) : html;
 }
+// Search Readiness b2: a served description is at most 160 characters. An
+// accepted rewrite of /answers/virtual-event-production-pricing carried 181
+// (audit, 8 Nov 2026), so the finish fits every rewrite's description: cut at
+// the last clause break that keeps at least 100 characters, else a word break.
+function fitDescription(d) {
+  const t = String(d || '').trim();
+  if (t.length <= 160) return t;
+  const head = t.slice(0, 159);
+  const clause = Math.max(head.lastIndexOf(', '), head.lastIndexOf('; '), head.lastIndexOf(' \u2014 '));
+  const cut = clause >= 100 ? clause : head.lastIndexOf(' ');
+  return `${t.slice(0, cut).replace(/[\s,;:\u2014-]+$/, '')}.`;
+}
 function applyRewrite(html, rec) {
   const p = rec.page;
   let s = html;
@@ -267,10 +279,11 @@ function applyRewrite(html, rec) {
   const committed = plain((s.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '');
   const title = require('./title_brand.js').finishTitle(plain(p.title || p.h1), committed);
   if (!locked) s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
-  if (p.description) {
-    s = s.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
-    s = s.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
-    s = s.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(plain(p.description))}$2`);
+  const desc = p.description ? fitDescription(plain(p.description)) : '';
+  if (desc) {
+    s = s.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
+    s = s.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
+    s = s.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
   }
   // The page's own Article JSON-LD description is the same claim as the meta
   // description, so it moves with the rewrite. It used to keep the pre-rewrite
@@ -280,7 +293,7 @@ function applyRewrite(html, rec) {
   // and the release gate refused the push.
   if (p.description) {
     s = s.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (m, open, json, close) => (
-      /"headline"\s*:/.test(json) ? `${open}${json.replace(/"description"\s*:\s*"(?:[^"\\]|\\.)*"/, () => `"description":${JSON.stringify(plain(p.description)).replace(/</g, '\\u003c')}`)}${close}` : m));
+      /"headline"\s*:/.test(json) ? `${open}${json.replace(/"description"\s*:\s*"(?:[^"\\]|\\.)*"/, () => `"description":${JSON.stringify(desc).replace(/</g, '\\u003c')}`)}${close}` : m));
   }
   if (!locked) s = s.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`).replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
   // H1 and the paragraph under it become the rewrite's heading and definition.
@@ -511,4 +524,4 @@ function homeQuestions(html, slug) {
   return html.slice(0, at) + list + html.slice(at);
 }
 
-module.exports = { finishPage, searchQuestionPages, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, _reset() { ctx = null; } };
+module.exports = { finishPage, fitDescription, searchQuestionPages, hasVisibleFaq, stripJunk, routeInquiryLinks, applyRewrite, visibleFaqFromSchema, answerEnd, MARK, _reset() { ctx = null; } };
