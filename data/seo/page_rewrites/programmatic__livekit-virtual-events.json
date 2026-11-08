@@ -1,0 +1,184 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-08T08:22:29.610Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 1093,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/livekit-virtual-events",
+    "query": "livekit",
+    "title": "LiveKit First Decisions for Live Video Infrastructure",
+    "description": "Learn the key decisions before adopting LiveKit for real-time video: hosting model, concurrency planning, SDK selection, recording options, and team responsibilities.",
+    "h1": "What should you decide first about LiveKit?",
+    "definition": "LiveKit is an open-source WebRTC platform that provides APIs and SDKs for building real-time audio and video applications, offering self-hosted and cloud-managed options for developers who need low-latency streaming, video conferencing, or live broadcast capabilities. It handles signaling, media routing, and recording while letting teams customize the client experience.",
+    "quick_answer": "Choose between self-hosting on your own infrastructure or using LiveKit Cloud for managed scaling, then define your peak concurrent participant count to size the deployment.",
+    "sections": [
+      {
+        "h2": "Should you self-host or use LiveKit Cloud?",
+        "blocks": [
+          {
+            "p": "Self-hosting gives full control over data and cost at scale, while LiveKit Cloud removes operational burden but adds per-minute pricing. Self-hosted deployments require your team to provision media servers, manage networking, handle updates, and design failover. LiveKit Cloud provides auto-scaling, multi-region redundancy, and managed maintenance, letting you focus on the client experience. A hybrid approach can run baseline traffic on-prem and burst to the cloud for large events."
+          },
+          {
+            "ul": [
+              "Self-hosted: you manage servers, networking, and updates; ideal for high-volume or compliance-heavy workloads.",
+              "LiveKit Cloud: managed infrastructure with auto-scaling; pay per participant minute; faster to start.",
+              "Hybrid: run core services on-prem and burst to cloud for peak events.",
+              "Data residency: self-hosted keeps all media within your network; cloud offers regional data centers.",
+              "Support: cloud includes SLA-backed support; self-hosted relies on community or internal expertise."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What peak concurrency and bandwidth do you need to plan for?",
+        "blocks": [
+          {
+            "p": "Estimate maximum simultaneous participants and average bitrate per stream to size server capacity or cloud budget. Concurrency drives the number of media server instances, CPU, and memory. Bandwidth depends on video resolution, frame rate, and the number of published tracks per room. Plan for headroom to absorb spikes during popular sessions. Geographic distribution affects latency and may require regional media nodes."
+          },
+          {
+            "table": {
+              "head": [
+                "Factor",
+                "Self-hosted consideration",
+                "Cloud consideration"
+              ],
+              "rows": [
+                [
+                  "Peak participants",
+                  "Provision servers for maximum plus headroom",
+                  "Auto-scales but costs rise linearly"
+                ],
+                [
+                  "Bitrate per stream",
+                  "Calculate egress bandwidth per node",
+                  "Included in per-minute rate up to limits"
+                ],
+                [
+                  "Geographic distribution",
+                  "Deploy regional media servers",
+                  "Edge locations handled by provider"
+                ],
+                [
+                  "Failover",
+                  "Design redundant clusters",
+                  "Built-in multi-region redundancy"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Which client SDKs and platforms must you support?",
+        "blocks": [
+          {
+            "p": "LiveKit provides native SDKs for web, iOS, Android, React Native, Flutter, and Unity, so match your target platforms to the available libraries. Each SDK exposes the same core APIs for joining rooms, publishing tracks, and handling connection state. Choose the SDK that aligns with your development stack and user experience requirements. Consider future platform expansion when evaluating the ecosystem."
+          },
+          {
+            "ol": [
+              "Web: JavaScript or TypeScript SDK for browser apps.",
+              "iOS: Swift SDK with native UI components.",
+              "Android: Kotlin or Java SDK with background support.",
+              "React Native: Bridge module for cross-platform mobile.",
+              "Flutter: Dart plugin for consistent UI.",
+              "Unity: C# SDK for gaming or immersive experiences.",
+              "Server SDKs: Go and Node for building custom backend services."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How will you handle recording, streaming, and analytics?",
+        "blocks": [
+          {
+            "p": "Decide whether you need server-side recording, live streaming to third-party CDNs, and real-time analytics before writing integration code. LiveKit's egress service can composite multiple tracks into a single MP4 or write per-track files to S3-compatible storage. RTMP and SRT outputs enable simulcast to platforms like YouTube, Twitch, or Mux. Webhook events feed join, leave, track, and network quality data into your observability stack."
+          },
+          {
+            "ul": [
+              "Egress recording: composite or per-track MP4 files stored to S3-compatible storage.",
+              "Live streaming: RTMP or SRT output to platforms like YouTube or Mux.",
+              "Analytics: webhook events for join, leave, track published, and network quality metrics.",
+              "Custom pipeline: use the Go or Node server SDK to build bespoke processing.",
+              "Replay: recorded files can be served via CDN for on-demand viewing."
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What integration and authentication model fits your stack?",
+        "blocks": [
+          {
+            "p": "LiveKit uses token-based authentication with JSON Web Tokens, so choose a token service that fits your identity provider and permission model. Tokens encode room access, participant permissions, and expiry. Your backend mints tokens using an API key and secret or validates tokens issued by an OIDC provider. Custom claims allow fine-grained control over publishing, subscribing, and data channels."
+          },
+          {
+            "table": {
+              "head": [
+                "Approach",
+                "Description",
+                "Best for"
+              ],
+              "rows": [
+                [
+                  "API key and secret",
+                  "Generate tokens on your backend with shared secret",
+                  "Simple server-to-server integration"
+                ],
+                [
+                  "OIDC provider",
+                  "Validate tokens issued by Auth0, Firebase, or custom OIDC",
+                  "Enterprise single sign-on"
+                ],
+                [
+                  "Custom claims",
+                  "Embed room permissions, metadata, and expiry in token",
+                  "Fine-grained access control"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What operational responsibilities fall on your team?",
+        "blocks": [
+          {
+            "p": "Even with LiveKit Cloud, your team owns client integration, token issuance, monitoring, and incident response. You must build and maintain the user-facing video experience, run a secure token endpoint, and define alerting for connection failures or media degradation. Compliance requirements such as data residency and encryption standards remain your responsibility. Plan for on-call rotations and runbooks for media server issues."
+          },
+          {
+            "ul": [
+              "Client integration: build and maintain the user-facing video experience.",
+              "Token service: run a secure endpoint that mints access tokens for each participant.",
+              "Monitoring: track connection success rates, latency, and error rates via webhooks or Prometheus.",
+              "Incident response: define escalation paths for media server degradation or API outages.",
+              "Compliance: ensure data residency and encryption meet regulatory requirements.",
+              "Capacity planning: forecast usage and adjust cloud spend or server fleet accordingly."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can LiveKit replace a full virtual event platform like Zoom Events?",
+        "a": "LiveKit provides the real-time media layer but lacks built-in registration, agenda management, and attendee networking features. You would need to build or integrate those components yourself, which suits custom experiences but adds development effort compared to turnkey event platforms for most teams."
+      },
+      {
+        "q": "What is the typical cost difference between self-hosting and LiveKit Cloud?",
+        "a": "Self-hosting shifts expense to engineering time and server infrastructure, which can be lower at high volume but requires upfront capacity planning. LiveKit Cloud charges per participant minute with volume discounts, making costs predictable for variable loads but potentially higher at sustained large scale."
+      },
+      {
+        "q": "How does LiveKit handle network variability for global audiences?",
+        "a": "LiveKit uses selective forwarding units and adaptive bitrate to adjust video quality per participant. Deploying media servers in multiple regions reduces latency, and the cloud offering includes automatic regional routing. For self-hosted deployments, you must provision and configure regional clusters yourself."
+      },
+      {
+        "q": "What monitoring and alerting tools integrate with LiveKit?",
+        "a": "LiveKit exposes Prometheus metrics and webhook events for connection state, track statistics, and server health. Common integrations include Grafana for dashboards, PagerDuty for alerts, and Datadog for correlated infrastructure monitoring. You can also build custom consumers for the webhook stream."
+      },
+      {
+        "q": "Is LiveKit suitable for HIPAA-compliant telehealth applications?",
+        "a": "LiveKit supports end-to-end encryption and can be deployed in a private VPC with no external dependencies, which satisfies many HIPAA technical safeguards. However, you must sign a business associate agreement with LiveKit if using their cloud service, and you remain responsible for audit logging and access controls."
+      }
+    ]
+  }
+}
