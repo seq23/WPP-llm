@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, norm, isOnTopic, onTopicHub } = require('./lib/prune.js');
+const { ROOT, LEDGER, LEDGER_REL, KEEP_MIN_IMPRESSIONS, norm, isOnTopic, isInScope, onTopicHub } = require('./lib/prune.js');
 const demandGate = require('./lib/demand_gate.js');
 
 const readJson = (rel, fb) => {
@@ -90,8 +90,8 @@ const candidates = [...pagesIn('programmatic'), ...pagesIn('query-atlas'), ...pa
   if (impressions >= KEEP_MIN_IMPRESSIONS) reasons.push(`impressions:${impressions}`);
   if (demand) reasons.push('measured_demand');
   if (demandFiles.has(p.route)) reasons.push('demand_page');
-  if (SECONDARY.has(p.route.split('/')[1]) && isOnTopic(p.route)) reasons.push('on_topic');
-  return { ...p, query, impressions, demand, cluster: clusterOf(p.file), pillar: a.pillar || null, keep: isOnTopic(p.route) && reasons.length > 0, reasons };
+  if (SECONDARY.has(p.route.split('/')[1]) && isInScope(p.route)) reasons.push('on_topic');
+  return { ...p, query, impressions, demand, cluster: clusterOf(p.file), pillar: a.pillar || null, keep: isInScope(p.route) && reasons.length > 0, reasons };
 });
 
 // A query-atlas page whose /programmatic/ twin is kept is the same topic in a
@@ -150,7 +150,7 @@ const redirects = [];
 const noindex = [];
 for (const c of candidates) {
   if (c.keep) { kept.push({ route: c.route, reasons: c.reasons }); continue; }
-  if (!isOnTopic(c.route)) { redirects.push({ from: c.route, to: onTopicHub(c.route), reason: 'off-topic: event production only, regardless of traffic or demand' }); continue; }
+  if (!isInScope(c.route)) { redirects.push({ from: c.route, to: onTopicHub(c.route), reason: onTopicHub(c.route).startsWith('/answers/') ? 'retired community page: folds into its community answer' : 'off-topic: event production or community only, regardless of traffic or demand' }); continue; }
   if (c.twin) { redirects.push({ from: c.route, to: c.twin, reason: 'query-atlas twin of a kept page' }); continue; }
   const keeper = c.cluster && keeperOfCluster.get(c.cluster);
   if (keeper && keeper.route !== c.route) { redirects.push({ from: c.route, to: keeper.route, reason: `topic ${c.cluster}: strongest kept page` }); continue; }

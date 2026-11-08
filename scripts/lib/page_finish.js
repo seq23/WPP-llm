@@ -159,6 +159,13 @@ function ctaHeading(slug) {
 function ctaBox(slug, at, heading) {
   return `<aside class="cta-box" ${MARK} aria-label="Plan your event"><p class="cta-box__title">${heading}</p><p>Tell us the date, the audience and what cannot go wrong. We send back a production plan and a price range.</p><a class="btn cta-box__btn" href="${inquiryHref(slug, at)}">Get a production plan</a></aside>`;
 }
+// A community page ends in the community service, not an event production plan
+// (owner, 7 Nov 2026): the 3-minute quiz on the live community-as-a-service
+// page, worded from that page, and the company's own site. Both are marked as
+// leaving (\u2197), the main-door rule.
+function communityBox(at) {
+  return `<aside class="cta-box" ${MARK} aria-label="Build your community" data-at="${at}"><p class="cta-box__title">Building a community around your business?</p><p>Take West Peek Productions' free 3-minute quiz. It scores whether your business has what a community needs and names three priorities for the next 90 days.</p><a class="btn cta-box__btn" href="${WPP_COMMUNITY}">Can your business build a community? Take the 3-minute quiz \u2197</a><p><a href="${WPP_SITE}">Community as a service at West Peek Productions \u2197</a></p></aside>`;
+}
 function stickyCta(slug) {
   return `<a class="sticky-cta" ${MARK} href="${inquiryHref(slug, 'sticky')}">Get a production plan</a>`;
 }
@@ -400,20 +407,21 @@ function finishPage(html, rel) {
   const upd = rec ? String(rec.generated_at).slice(0, 10) : (updated.get(route) || null);
   const isContent = route !== '/' && !/^\/(topics|pillars)?\/?$/.test(route);
   const end = answerEnd(s);
+  const isCommunity = require('./prune.js').isCommunityTopic(route);
+  const box = (at) => (isCommunity ? communityBox(at) : ctaBox(slug, at, ctaHeading(slug)));
   if (end > -1 && route !== '/') {
-    const box = ctaBox(slug, 'answer', ctaHeading(slug));
     const byline = isContent ? bylineHtml(pub, upd && pub && upd < pub ? pub : upd) : '';
-    s = s.slice(0, end) + byline + box + s.slice(end);
+    s = s.slice(0, end) + byline + box('answer') + s.slice(end);
   } else if (route === '/') {
     s = homeQuestions(s, slug);
   }
   if (route === '/answers/') s = searchQuestionsIndex(s);
   // The closing box, before the link architecture or the end of the main column.
   const close = s.search(/<!--link-arch:(related|site-related|neighbours)-->/);
-  const endBox = ctaBox(slug, 'end', ctaHeading(slug));
+  const endBox = box('end');
   if (close > -1) s = s.slice(0, close) + endBox + s.slice(close);
   else s = s.replace(/<\/main>/, `${endBox}</main>`);
-  s = s.replace(/<\/body>/, `${stickyCta(slug)}\n</body>`);
+  s = s.replace(/<\/body>/, `${isCommunity ? `<a class="sticky-cta" ${MARK} href="${WPP_COMMUNITY}">Take the community quiz \u2197</a>` : stickyCta(slug)}\n</body>`);
 
   const selectors = [];
   if (/class="definition"|id="definition"/.test(s)) selectors.push('.definition');
@@ -456,13 +464,22 @@ function searchQuestionsIndex(html) {
 // community as a service, which is described in the words of the live
 // westpeekproductions.com page and links to its 3-minute quiz.
 const FEATURED_EVENT_ANSWERS = [{ route: '/answers/hopin-alternatives-virtual-events', q: 'Hopin alternatives: which virtual event platform to use in 2026' }];
+// The community answers (owner approval, 7 Nov 2026), first in the community
+// block. Before them every community link here was a retired page that 301'd
+// to the virtual event production page.
+const FEATURED_COMMUNITY_ANSWERS = [
+  { route: '/answers/how-to-build-a-community-around-your-business', q: 'How to build a community around your business, with brand community examples' },
+  { route: '/answers/community-manager-vs-community-agency', q: 'Community manager or community agency: costs, trade-offs and community as a service' },
+  { route: '/answers/what-is-community-led-growth', q: 'Community-led growth: what it is and whether it works for a small business' },
+];
+const liveFeatured = (xs, top) => xs.filter((x) => fs.existsSync(path.join(ROOT, `${x.route.slice(1)}.html`)) && !require('./prune.js').isPruned(x.route) && !top.some((t) => t.route === x.route));
 function twoWays(top, slug) {
   const { isOnTopic } = require('./prune.js');
   const ul = (xs) => (xs.length ? `<ul class="question-list">${xs.map((x) => `<li><a href="${x.route}">${x.q}</a></li>`).join('')}</ul>` : '');
   // Answers she asked to see on the home page by name (7 Nov 2026), first in their block.
-  const featured = FEATURED_EVENT_ANSWERS.filter((x) => fs.existsSync(path.join(ROOT, `${x.route.slice(1)}.html`)) && !require('./prune.js').isPruned(x.route) && !top.some((t) => t.route === x.route));
+  const featured = liveFeatured(FEATURED_EVENT_ANSWERS, top);
   const events = [...featured, ...top.filter((x) => isOnTopic(x.route))];
-  const community = top.filter((x) => !isOnTopic(x.route));
+  const community = [...liveFeatured(FEATURED_COMMUNITY_ANSWERS, top), ...top.filter((x) => !isOnTopic(x.route))];
   return `<section class="common-questions two-ways" id="common-questions" ${MARK}><h2>Two ways West Peek Productions helps</h2><div class="ways">`
     + `<div class="way" id="virtual-and-hybrid-events"><h3>Virtual and hybrid events</h3><p>Virtual and hybrid events fail when the production system is vague: no run of show, no rehearsal discipline, no backup room, no speaker owner, no decision path, and no one watching the show like an operator. West Peek Productions plans, rehearses and runs them, so nothing important is improvised on the day.</p><p class="platform-line">We run shows on our own platform, westpeek.live, now in early access: live stream, stage, 4-minute 1:1 speed networking, breakout groups, chat, expo and replays. <a href="${LIVE_DEMO}">Preview the demo venue \u2197</a></p>${ul(events)}<p><a href="/answers/">All answers</a> · <a href="/tools/production-scoping-calculator">Price band calculator</a> · <a href="${inquiryHref(slug, 'home-events')}">Get a production plan</a></p></div>`
     + `<div class="way" id="community-as-a-service"><h3>Community as a service</h3><p>West Peek Productions is also a Community-as-a-Service and creative agency. It helps organizations build, engage and grow communities through strategy, experiences, storytelling, brand, content and audience growth, so the work before, during and after any single moment compounds.</p><p><a href="${WPP_COMMUNITY}">Can your business build a community? Take the 3-minute quiz \u2197</a></p><p><a href="${WPP_SITE}">Community as a service at West Peek Productions \u2197</a></p>${ul(community)}</div>`
@@ -477,7 +494,7 @@ function homeQuestions(html, slug) {
     const sl = p.page.replace(/\/+$/, '').split('/').pop();
     life.set(sl, (life.get(sl) || 0) + p.impressions);
   }
-  const demand = (readJson('data/seo/demand_pages.json', { pages: [] }).pages || []).map((p) => ({ route: p.route, q: p.h1, n: 1e6 + (life.get(p.route.split('/').pop()) || 0) }));
+  const demand = (readJson('data/seo/demand_pages.json', { pages: [] }).pages || []).filter((p) => !require('./prune.js').isPruned(p.route)).map((p) => ({ route: p.route, q: p.h1, n: 1e6 + (life.get(p.route.split('/').pop()) || 0) }));
   const prune = require('./prune.js');
   const rw = [...rewrites.values()].filter((r) => !prune.isPruned(r.page.route)).map((r) => ({ route: r.page.route, q: r.page.h1, n: life.get(r.page.route.split('/').pop()) || 0 }));
   const seen = new Set();
