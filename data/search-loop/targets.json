@@ -1,39 +1,52 @@
 {
   "schema": "search-loop-targets-v1",
   "site": "virtualagency-os.com",
-  "week": "2026-W45",
-  "generated_at": "2026-11-02T09:38:23.423Z",
+  "week": "2026-W46",
+  "generated_at": "2026-11-09T15:43:17.146Z",
   "sources": {
     "search_console": "ok: 4 rows",
-    "bing_webmaster": "ok: 66 rows",
+    "bing_webmaster": "ok: 73 rows",
+    "easy_wins": "ok: 0 easy win(s) in Search Console",
     "suggestqueries.google.com": "ok",
     "api.bing.com": "ok",
-    "relevance_screen": "ok: kept 30 of 74 (free model)"
+    "relevance_screen": "ok: kept 11 of 70 (free model)",
+    "top10": "ok: 11 top-10 read(s) via brave"
   },
   "targets": [
     {
-      "query": "how to run a webinar",
+      "query": "small business virtual event production",
       "variants": [],
       "signals": {
         "words": 5,
-        "question": true,
+        "question": false,
         "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.23,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 3,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 25,
-      "kind": "new"
-    },
-    {
-      "query": "are webinars live or recorded",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 19.2
       },
-      "score": 25,
-      "kind": "new"
+      "score": 19.2,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.23): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
     },
     {
       "query": "virtual event management company",
@@ -42,252 +55,33 @@
         "words": 4,
         "question": false,
         "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 1
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 1 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 16
       },
       "score": 25,
-      "kind": "new"
-    },
-    {
-      "query": "how to create virtual event",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 25,
-      "kind": "new"
-    },
-    {
-      "query": "how to hire a virtual event planner",
-      "variants": [],
-      "signals": {
-        "words": 7,
-        "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 25,
-      "kind": "new"
-    },
-    {
-      "query": "prepare a live webinar",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "live streaming a webinar",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "free webinar production tips",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "best event planning for webinars",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "live event webinar support team",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "best event planning services for webinars",
-      "variants": [],
-      "signals": {
-        "words": 6,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "small business virtual event production",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "virtual event video production service",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "launching virtual events successfully",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "virtual event program planning",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "virtual event program design",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "virtual conference production costs",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "hot to set up a virtual event",
-      "variants": [],
-      "signals": {
-        "words": 7,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "virtual event program tips",
-      "variants": [
-        "virtual event program ideas"
-      ],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "launching virtual events best practices",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "launching virtual events tips and tricks",
-      "variants": [],
-      "signals": {
-        "words": 6,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "launching virtual events for beginners",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
-    },
-    {
-      "query": "hybrid event production company europe",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
-      },
-      "score": 20,
-      "kind": "new"
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 score 16 too (taken by the striking lane's turn)"
+      ]
     },
     {
       "query": "hybrid event production finland",
@@ -296,230 +90,335 @@
         "words": 4,
         "question": false,
         "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.23,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 2,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 20,
-      "kind": "new"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 19.2
+      },
+      "score": 19.2,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.23): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
     },
     {
-      "query": "hybrid event production louisville",
+      "query": "best event planning services for webinars",
       "variants": [],
       "signals": {
-        "words": 4,
+        "words": 6,
         "question": false,
         "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 1,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 1 forums, 0 off-target national, 1 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 20,
-      "kind": "new"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 1 forums, 0 off-target national, 1 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
     },
     {
-      "query": "rise of hybrid events",
+      "query": "how to hire a virtual event planner",
       "variants": [],
       "signals": {
-        "words": 4,
-        "question": false,
+        "words": 7,
+        "question": true,
         "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.08,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 3
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 3 answer the exact question"
+          ]
+        }
       },
-      "score": 20,
-      "kind": "new"
+      "scores": {
+        "striking": 25,
+        "can_be_one": 13.2
+      },
+      "score": 25,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (13.2 < 15)"
+      ]
     },
     {
-      "query": "hybrid events pros and cons",
+      "query": "virtual event video production service",
       "variants": [],
       "signals": {
         "words": 5,
         "question": false,
         "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 20,
-      "kind": "new"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
     },
     {
-      "query": "advantages of hybrid events",
+      "query": "hybrid event production company europe",
       "variants": [],
       "signals": {
-        "words": 4,
+        "words": 5,
         "question": false,
         "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 20,
-      "kind": "new"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
     },
     {
-      "query": "online event production",
+      "query": "launching virtual events tips and tricks",
       "variants": [],
       "signals": {
-        "words": 3,
+        "words": 6,
         "question": false,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 15,
-      "kind": "new"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (0 < 15)"
+      ]
     },
     {
-      "query": "hybrid event management",
-      "variants": [
-        "what is hybrid event management"
-      ],
+      "query": "launching virtual events for beginners",
+      "variants": [],
       "signals": {
-        "words": 3,
+        "words": 5,
         "question": false,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.08,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 1,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 1 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
+          ]
+        }
       },
-      "score": 15,
-      "kind": "new"
+      "scores": {
+        "striking": 20,
+        "can_be_one": 13.2
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (13.2 < 15)"
+      ]
+    },
+    {
+      "query": "webinar production agency sheffield request a quote",
+      "variants": [],
+      "signals": {
+        "words": 7,
+        "question": false,
+        "bing_impressions": 1,
+        "bing_position": 10,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 13,
+        "can_be_one": 0
+      },
+      "score": 13,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (0 < 15)"
+      ]
+    },
+    {
+      "query": "webinar production agency get a quote",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": false,
+        "bing_impressions": 1,
+        "bing_position": 10,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 13,
+        "can_be_one": 0
+      },
+      "score": 13,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (0 < 15)"
+      ]
     }
   ],
   "strengthen": [
     {
-      "query": "hybrid event production louisville",
-      "page": "/programmatic/hybrid-event-production-examples",
-      "url": "https://virtualagency-os.com/programmatic/hybrid-event-production-examples",
-      "score": 20,
+      "query": "webinar production agency get a quote",
+      "page": "/programmatic/webinar-production-agency",
+      "url": "https://virtualagency-os.com/programmatic/webinar-production-agency",
+      "score": 13,
       "from": "distinct-gate",
       "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-06"
+      "at": "2026-11-09"
     },
     {
-      "query": "hybrid event production finland",
-      "page": "/programmatic/hybrid-event-production-examples",
-      "url": "https://virtualagency-os.com/programmatic/hybrid-event-production-examples",
-      "score": 20,
+      "query": "webinar production agency sheffield request a quote",
+      "page": "/programmatic/webinar-production-agency",
+      "url": "https://virtualagency-os.com/programmatic/webinar-production-agency",
+      "score": 13,
       "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "hybrid event production company europe",
-      "page": "/programmatic/hybrid-event-production-company",
-      "url": "https://virtualagency-os.com/programmatic/hybrid-event-production-company",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.67 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "launching virtual events for beginners",
-      "page": "/questions/launching-virtual-events-successfully",
-      "url": "https://virtualagency-os.com/questions/launching-virtual-events-successfully",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "launching virtual events tips and tricks",
-      "page": "/questions/launching-virtual-events-successfully",
-      "url": "https://virtualagency-os.com/questions/launching-virtual-events-successfully",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "launching virtual events best practices",
-      "page": "/programmatic/virtual-event-planning-best-practices",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-planning-best-practices",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "virtual event program tips",
-      "page": "/pillars/virtual-events-os/",
-      "url": "https://virtualagency-os.com/pillars/virtual-events-os/",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.67 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "virtual conference production costs",
-      "page": "/programmatic/virtual-event-production-cost",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-cost",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "virtual event program planning",
-      "page": "/programmatic/virtual-event-planning-examples",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-planning-examples",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "virtual event video production service",
-      "page": "/programmatic/virtual-event-production-examples",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-examples",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "small business virtual event production",
-      "page": "/programmatic/virtual-event-production-examples",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-examples",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "best event planning services for webinars",
-      "page": "/questions/best-event-planning-for-webinars",
-      "url": "https://virtualagency-os.com/questions/best-event-planning-for-webinars",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "free webinar production tips",
-      "page": "/programmatic/virtual-event-production-for-manufacturing",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-for-manufacturing",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.67 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "how to hire a virtual event planner",
-      "page": "/programmatic/virtual-event-planning-examples",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-planning-examples",
-      "score": 25,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "how to create virtual event",
-      "page": "/pillars/virtual-events-os/",
-      "url": "https://virtualagency-os.com/pillars/virtual-events-os/",
-      "score": 25,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.67 >= 0.6)",
-      "at": "2026-11-06"
-    },
-    {
-      "query": "virtual event management company",
-      "page": "/programmatic/virtual-events-management",
-      "url": "https://virtualagency-os.com/programmatic/virtual-events-management",
-      "score": 25,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-06"
+      "matched_by": "same 3 intent words plus modifiers",
+      "at": "2026-11-09"
     },
     {
       "query": "what is virtual production",
@@ -528,8 +427,11 @@
         "words": 4,
         "question": true,
         "bing_suggest": true,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 45,
+        "can_be_one": 0
       },
       "score": 45,
       "page": "/programmatic/best-virtual-event-production-companies"
@@ -541,8 +443,11 @@
         "words": 4,
         "question": true,
         "google_suggest": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 45,
+        "can_be_one": 0
       },
       "score": 45,
       "page": "/programmatic/best-virtual-event-production-companies"
@@ -554,8 +459,11 @@
         "words": 4,
         "question": false,
         "google_suggest": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 40,
+        "can_be_one": 0
       },
       "score": 40,
       "page": "/programmatic/virtual-event-production-company"
@@ -567,8 +475,11 @@
         "words": 3,
         "question": false,
         "google_suggest": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
       },
       "score": 30,
       "page": "/programmatic/best-virtual-event-production-companies"
@@ -583,8 +494,11 @@
         "words": 3,
         "question": false,
         "google_suggest": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
       },
       "score": 30,
       "page": "/programmatic/virtual-event-management"
@@ -596,8 +510,11 @@
         "words": 3,
         "question": false,
         "google_suggest": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
       },
       "score": 30,
       "page": "/programmatic/hybrid-event-platform"
@@ -613,8 +530,11 @@
         "words": 3,
         "question": false,
         "google_suggest": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
       },
       "score": 30,
       "page": "/programmatic/best-hybrid-event-platform"
@@ -629,8 +549,11 @@
       "signals": {
         "words": 4,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/live-event-production-webinar"
@@ -641,8 +564,11 @@
       "signals": {
         "words": 4,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/live-event-production-webinar"
@@ -653,8 +579,11 @@
       "signals": {
         "words": 5,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/live-event-production-webinar"
@@ -665,8 +594,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/virtual-event-production-services"
@@ -677,8 +609,11 @@
       "signals": {
         "words": 5,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/learn/how-virtual-event-production-works"
@@ -691,8 +626,11 @@
       "signals": {
         "words": 6,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/host-virtual-events"
@@ -705,8 +643,11 @@
       "signals": {
         "words": 4,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/best-platform-for-virtual-events"
@@ -717,8 +658,11 @@
       "signals": {
         "words": 6,
         "question": true,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/hybrid-event-production-company"
@@ -729,8 +673,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/hybrid-event-production-company"
@@ -741,11 +688,47 @@
       "signals": {
         "words": 4,
         "question": false,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
       },
       "score": 25,
       "page": "/programmatic/hybrid-event-production-for-professional-services-firms"
+    },
+    {
+      "query": "live event vs webinar teams",
+      "variants": [
+        "teams webinars vs live events",
+        "teams live events vs webinar"
+      ],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/questions/live-event-webinar-support-team"
+    },
+    {
+      "query": "branding agency for startups",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/programmatic/startup-brand-strategy-agency"
     },
     {
       "query": "virtual event production checklist",
@@ -753,8 +736,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-event-production-checklist"
@@ -765,8 +751,11 @@
       "signals": {
         "words": 5,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-event-production-platform-stack"
@@ -780,8 +769,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-conference-production"
@@ -792,8 +784,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/learn/how-virtual-event-production-works"
@@ -806,8 +801,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-event-production-launch-plan"
@@ -820,8 +818,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/best-virtual-event-production-companies"
@@ -832,8 +833,11 @@
       "signals": {
         "words": 5,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-event-planning-accessibility"
@@ -844,8 +848,11 @@
       "signals": {
         "words": 4,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-event-backup-systems"
@@ -856,8 +863,11 @@
       "signals": {
         "words": 6,
         "question": false,
-        "bing_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
       },
       "score": 20,
       "page": "/programmatic/virtual-event-marketing"
@@ -870,8 +880,11 @@
       "signals": {
         "words": 3,
         "question": false,
-        "google_suggest": true,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 15,
+        "can_be_one": 0
       },
       "score": 15,
       "page": "/programmatic/virtual-event-production-producer-roles"
@@ -883,8 +896,11 @@
         "words": 4,
         "question": false,
         "bing_impressions": 1,
-        "bing_position": 9,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_position": 9
+      },
+      "scores": {
+        "striking": 13,
+        "can_be_one": 0
       },
       "score": 13,
       "page": "/programmatic/podcast-strategy-consulting-deliverables"
@@ -896,8 +912,11 @@
         "words": 3,
         "question": false,
         "bing_impressions": 1,
-        "bing_position": 10,
-        "competition": "not read: no free, ToS-safe competition signal (SERP scraping is not used)"
+        "bing_position": 10
+      },
+      "scores": {
+        "striking": 3,
+        "can_be_one": 0
       },
       "score": 3,
       "page": "/insights/qa-checklist-for-creative-marketing-deliverables"
