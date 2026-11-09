@@ -1,0 +1,136 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-09T08:40:15.811Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 604,
+  "attempts": 3,
+  "page": {
+    "route": "/programmatic/virtual-event-production-checklist",
+    "query": "virtual event production checklist",
+    "title": "Virtual Event Production Checklist Guide",
+    "description": "A practical checklist covering platform choice, broadcast setup, accessibility, backup streams, run‑of‑show ownership and rehearsal timing for virtual and hybrid events.",
+    "h1": "What belongs on a virtual event production checklist?",
+    "definition": "A virtual event production checklist is a structured list of decisions, tools and responsibilities that ensures a live online program runs smoothly from platform selection through broadcast configuration, accessibility compliance, backup stream preparation, run‑of‑show ownership, rehearsal scheduling and post‑event replay delivery.",
+    "quick_answer": "Pick a platform, assign a run‑of‑show owner, schedule a full rehearsal on the real system two to five days before go‑live, and prepare a backup stream and replay delivery within 24 to 48 hours.",
+    "sections": [
+      {
+        "h2": "Which platform and cost model fit the event size?",
+        "blocks": [
+          {
+            "p": "Choose a platform that matches attendee capacity and budget, then match it to one of three cost models. The decision drives registration integration, branding flexibility and the level of production support you will need."
+          },
+          {
+            "ul": [
+              "Per‑host licences sized by attendee capacity (Zoom Webinars)",
+              "Self‑serve monthly plans (StreamYard, Livestorm)",
+              "Annual contracts quoted by sales (ON24, Cvent, Bizzabo, Goldcast)"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What broadcast and accessibility items must be locked before rehearsal?",
+        "blocks": [
+          {
+            "p": "Lock broadcast settings, captioning, sign‑language windows and branding assets before the first full rehearsal. Early lock‑down prevents last‑minute changes that break the run‑of‑show."
+          },
+          {
+            "ul": [
+              "Encoder configuration and bitrate targets",
+              "Closed‑caption provider and language list",
+              "Sign‑language interpreter feed",
+              "Lower‑third templates and sponsor logos",
+              "Audio routing for Q&amp;A and panel mixes"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How should run‑of‑show ownership and staffing be assigned?",
+        "blocks": [
+          {
+            "p": "Assign a single run‑of‑show owner and scale the crew to the event complexity. A simple webinar needs one producer; a summit or hybrid event requires a show caller, speaker manager, moderator and platform operator."
+          },
+          {
+            "table": {
+              "head": [
+                "Role",
+                "Webinar",
+                "Summit or Hybrid"
+              ],
+              "rows": [
+                [
+                  "Producer",
+                  "One producer handles all tasks",
+                  "Lead producer oversees show caller and platform operator"
+                ],
+                [
+                  "Show caller",
+                  "None",
+                  "One dedicated show caller"
+                ],
+                [
+                  "Speaker manager",
+                  "None",
+                  "One speaker manager"
+                ],
+                [
+                  "Moderator",
+                  "Optional",
+                  "One moderator"
+                ],
+                [
+                  "Platform operator",
+                  "Producer doubles as operator",
+                  "One platform operator"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What backup and replay steps protect the live experience?",
+        "blocks": [
+          {
+            "p": "Prepare a redundant stream, a local recording and a rapid replay hand‑off. These steps keep the audience connected if the primary ingest fails and ensure content is available quickly after the event."
+          },
+          {
+            "ol": [
+              "Start a secondary encoder feeding a private ingest point",
+              "Record locally on the producer workstation",
+              "Switch to backup if primary drops",
+              "Deliver edited recording and highlight clips within 24 to 48 hours"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "When should the timeline and approval gates be set?",
+        "blocks": [
+          {
+            "p": "Set a six to eight week timeline for summits and a three to four week timeline for webinars, with approval gates at brief, rehearsal and go‑live. Each gate requires sign‑off from the run‑of‑show owner, the producer and the stakeholder responsible for content."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How far in advance should the platform be selected?",
+        "a": "Select the platform at least six to eight weeks before a summit and three to four weeks before a webinar so that registration, branding and integration work can be completed before the agenda is final and allows time for speaker tech checks."
+      },
+      {
+        "q": "What is the minimum rehearsal schedule?",
+        "a": "Run one full rehearsal on the actual platform two to five days before the event and a technical check sixty minutes before going live to verify audio, video and backup paths and confirm caption and interpreter feeds for all sessions."
+      },
+      {
+        "q": "Who owns the run‑of‑show during the live event?",
+        "a": "A single show caller owns the run‑of‑show, cues speakers, manages the agenda clock and authorises any on‑the‑fly changes while the producer monitors the backup stream and coordinates with the moderator for Q&amp;A timing and logs any deviations for post‑event review."
+      },
+      {
+        "q": "When should the replay be sent to attendees?",
+        "a": "Send the edited replay and highlight clips within 24 to 48 hours after the event closes so attendees receive the content while the experience is fresh and include a short survey link for feedback to improve future programming and measure engagement metrics."
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-08T20:15:41.443Z",
+  "generated_at": "2026-11-09T08:24:42.085Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 531,
-    "candidates_considered": 1303,
+    "candidates_considered": 1291,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-09",
       "2026-11-08",
       "2026-11-07",
       "2026-11-06",
       "2026-11-05",
       "2026-11-04",
-      "2026-11-03",
-      "2026-11-02"
+      "2026-11-03"
     ],
     "usage_source": "data/cadence/known_urls.json",
     "new_pages_used_this_week": 0,
@@ -389,7 +389,7 @@
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
-    "opportunities_withheld": 9412
+    "opportunities_withheld": 9411
   },
   "status": "READY"
 }
