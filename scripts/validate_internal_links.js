@@ -50,7 +50,7 @@ const { isPublishedPath } = require('./assemble_pages_output.js');
 const { resolvePath } = require('./lib/pages_routing.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const SKIP = new Set(['.pages-output', 'node_modules', '.git', '.build', 'logs', 'artifacts']);
+const SKIP = new Set(['.pages-output', 'node_modules', '.git', '.build', 'logs', 'artifacts', 'data']);
 
 const MIN_SRC = 50;
 // Image URLs carried in og:image / twitter:image and in JSON-LD "logo"/"image".

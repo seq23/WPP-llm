@@ -20,8 +20,13 @@ try {
   const locs = xml.match(/<loc>/g) || [];
   assert.ok(locs.length > 10, `sitemap has only ${locs.length} pages; the walker examined nothing`);
   assert.ok(!xml.includes('planted-by-test'), 'a page under data/ was listed in the sitemap');
+  // data/ is never deployed (assemble_pages_output.js), so no page check may demand it either.
+  for (const v of ['validate_sitemap_coverage.js', 'validate_canonical_routes.js', 'validate_internal_links.js']) {
+    try { execFileSync('node', [path.join(ROOT, 'scripts', v)], { cwd: ROOT, stdio: 'pipe' }); }
+    catch (e) { assert.fail(`${v} failed with a page under data/:\n${String(e.stdout || '').slice(-600)}`); }
+  }
 } finally {
   fs.rmSync(planted);
   for (const [f, buf] of keep) { const p = path.join(ROOT, f); if (buf === null) fs.rmSync(p, { force: true }); else fs.writeFileSync(p, buf); }
 }
-console.log('ok: sitemap skips internal data/ pages');
+console.log('ok: sitemap and page checks skip internal data/ pages');
