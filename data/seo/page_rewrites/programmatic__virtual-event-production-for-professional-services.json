@@ -1,11 +1,167 @@
 {
-  "status": "refused",
-  "generated_at": "2026-11-09T08:42:11.010Z",
-  "route": "/programmatic/virtual-event-production-for-professional-services",
-  "last": {
-    "fails": [
-      "DEFINITION_SHORT:26"
+  "status": "accepted",
+  "generated_at": "2026-11-09T20:18:35.097Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 654,
+  "attempts": 2,
+  "page": {
+    "route": "/programmatic/virtual-event-production-for-professional-services",
+    "query": "virtual event production for professional services",
+    "title": "Virtual Event Production for Professional Services",
+    "description": "Learn what virtual event production includes, typical timelines, staffing models, platform choices, and cost ranges for professional services firms.",
+    "h1": "What does virtual event production for professional services include?",
+    "definition": "Virtual event production for professional services is the end-to-end management of live online events, including platform configuration, speaker rehearsals, branded assets, live moderation, backup streaming, and post-event editing, delivered by a dedicated crew so firms can focus on content and client relationships.",
+    "quick_answer": "Start by choosing a platform that matches your attendee capacity and compliance needs, then book a producer at least three to four weeks before a webinar or six to eight weeks before a summit. West Peek Productions produces virtual, hybrid and webinar events and sets up marketing, content and creative operations.",
+    "sections": [
+      {
+        "h2": "Which platforms suit professional services webinars and summits?",
+        "blocks": [
+          {
+            "p": "The right platform depends on attendee capacity, compliance requirements, and whether you need self-serve simplicity or enterprise-grade analytics. Most firms choose from three categories: self-serve streaming studios, enterprise event suites, or video conferencing add-ons."
+          },
+          {
+            "table": {
+              "head": [
+                "Category",
+                "Examples"
+              ],
+              "rows": [
+                [
+                  "Self-serve streaming studios",
+                  "StreamYard, Livestorm"
+                ],
+                [
+                  "Enterprise event suites",
+                  "ON24, Cvent, Bizzabo, Goldcast"
+                ],
+                [
+                  "Video conferencing add-ons",
+                  "Zoom Webinars, Microsoft Teams"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What deliverables come with a full production package?",
+        "blocks": [
+          {
+            "p": "A full package provides a run of show, speaker briefs and rehearsals, branded templates, live producer, Q&amp;A moderation, backup stream, and edited recordings with clips."
+          },
+          {
+            "ul": [
+              "Run of show with timed cues",
+              "Speaker brief and rehearsal session",
+              "Branded slide template and lower thirds",
+              "Live producer managing the broadcast",
+              "Q&amp;A moderation and audience chat",
+              "Backup stream on a second encoder",
+              "Edited recording and highlight clips delivered within 24 to 48 hours"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How long does production take from kickoff to live?",
+        "blocks": [
+          {
+            "p": "A webinar needs three to four weeks, while a summit or online conference requires six to eight weeks, each following seven gated stages with an owner and output."
+          },
+          {
+            "ol": [
+              "Intake and scope agreement",
+              "Creative brief and run of show draft",
+              "Production build and asset creation",
+              "Internal review and speaker rehearsals",
+              "Client approval and final tweaks",
+              "Publishing and live broadcast",
+              "Reporting and replay distribution"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What staffing roles are required for different event sizes?",
+        "blocks": [
+          {
+            "p": "A simple webinar can run with one producer, but summits and hybrid events need a show caller, speaker manager, moderator, and platform operator to keep every workstream on track."
+          },
+          {
+            "table": {
+              "head": [
+                "Role",
+                "Webinar",
+                "Summit or Hybrid"
+              ],
+              "rows": [
+                [
+                  "Producer",
+                  "One",
+                  "One"
+                ],
+                [
+                  "Show caller",
+                  "None",
+                  "One"
+                ],
+                [
+                  "Speaker manager",
+                  "None",
+                  "One"
+                ],
+                [
+                  "Moderator",
+                  "Optional",
+                  "One"
+                ],
+                [
+                  "Platform operator",
+                  "Optional",
+                  "One"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "What are the typical cost ranges for professional services events?",
+        "blocks": [
+          {
+            "p": "Moderated webinars typically range from $2,500 to $7,500 per production, while executive summits and hybrid productions start at $10,000 and can exceed $50,000, plus platform fees."
+          },
+          {
+            "ul": [
+              "Per-host licences sized by attendee capacity (Zoom Webinars)",
+              "Self-serve monthly plans (StreamYard, Livestorm)",
+              "Annual contracts quoted by sales (ON24, Cvent, Bizzabo, Goldcast)"
+            ]
+          }
+        ]
+      }
     ],
-    "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    "faq": [
+      {
+        "q": "Can we use our existing Zoom or Teams licence for a produced webinar?",
+        "a": "Yes, production crews work on the platform you already use, including Zoom Webinars, Microsoft Teams, ON24, or StreamYard, so you keep your existing licences, security settings, and attendee data without migration. This avoids new vendor approvals and keeps your compliance posture intact."
+      },
+      {
+        "q": "How do you ensure accessibility for attendees with disabilities?",
+        "a": "We enable live captions, provide sign language interpreter windows, ensure slide contrast meets WCAG guidelines, and deliver post-event transcripts and audio descriptions within 24 to 48 hours so all attendees can engage fully."
+      },
+      {
+        "q": "What happens if the primary stream fails during a live event?",
+        "a": "A backup encoder runs in parallel on a separate internet connection; the producer can switch instantly with no audience disruption, and the failover is rehearsed during the technical check 60 minutes before go-live."
+      },
+      {
+        "q": "Do you handle post-event follow-up and lead handoff to sales?",
+        "a": "We deliver edited recordings, highlight clips, and engagement reports within 24 to 48 hours, and can integrate attendance data into HubSpot or Salesforce so your sales team receives qualified leads immediately."
+      },
+      {
+        "q": "Can you manage a hybrid event with an in-person audience and remote speakers?",
+        "a": "Yes, we coordinate venue AV, remote speaker ingest, and a unified run of show so both audiences share the same experience, typically planned six to eight weeks in advance with a dedicated show caller on site."
+      }
+    ]
   }
 }
