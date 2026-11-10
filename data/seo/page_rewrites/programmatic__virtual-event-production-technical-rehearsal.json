@@ -1,0 +1,148 @@
+{
+  "status": "accepted",
+  "generated_at": "2026-11-10T08:31:35.244Z",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "words": 687,
+  "attempts": 1,
+  "page": {
+    "route": "/programmatic/virtual-event-production-technical-rehearsal",
+    "query": "technical rehearsal",
+    "title": "Technical rehearsal checklist for virtual events",
+    "description": "Learn the decisions, owners, and backup steps that make a technical rehearsal reliable for webinars, hybrid conferences, and live streams.",
+    "h1": "What should you decide first about technical rehearsal?",
+    "definition": "Technical rehearsal is a structured run‑through on the live platform that validates audio, video, screen sharing, backup streams, and speaker cues before an event goes live. It confirms that every presenter can join, that the run of show matches the platform controls, and that a fallback encoder is ready.",
+    "quick_answer": "Assign a single rehearsal owner, schedule the full run on the actual platform two to five days before the event, and verify a backup stream works before the live start.",
+    "sections": [
+      {
+        "h2": "Who owns the technical rehearsal and what is their scope?",
+        "blocks": [
+          {
+            "p": "A single rehearsal owner should control the run of show, speaker coordination, platform settings, and backup stream verification. This person becomes the point of contact for every technical decision and the escalation path if something fails."
+          },
+          {
+            "ul": [
+              "Define the rehearsal owner in the project plan",
+              "Lock the run of show version that will be rehearsed",
+              "Confirm each speaker’s hardware, connection, and backup device",
+              "Validate platform permissions for host, co‑host, and producer roles",
+              "Document the fallback encoder configuration and test switch"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What platform checks must be completed during the rehearsal?",
+        "blocks": [
+          {
+            "p": "Run the full agenda on the live platform, test each speaker’s audio, video, screen share, and the fallback encoder. Every transition, poll, and Q&amp;A module should be exercised exactly as it will appear live."
+          },
+          {
+            "ol": [
+              "Join the session as host and verify recording starts",
+              "Bring each speaker in sequentially and confirm microphone and camera quality",
+              "Share slides or screen from each presenter and watch for lag",
+              "Trigger a poll or quiz and confirm results display",
+              "Activate the backup stream and switch back to primary"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "How do you structure the run of show for a rehearsal?",
+        "blocks": [
+          {
+            "p": "Map every segment to a time block, assign a cue owner, and note the backup trigger for each transition. A clear table lets the whole crew see who calls the next element and what happens if the primary feed drops."
+          },
+          {
+            "table": {
+              "head": [
+                "Segment",
+                "Cue Owner",
+                "Backup Trigger"
+              ],
+              "rows": [
+                [
+                  "Opening remarks",
+                  "Show caller",
+                  "Switch to backup encoder"
+                ],
+                [
+                  "Keynote presentation",
+                  "Speaker manager",
+                  "Activate secondary stream"
+                ],
+                [
+                  "Panel discussion",
+                  "Moderator",
+                  "Failover to recorded insert"
+                ],
+                [
+                  "Q&amp;A session",
+                  "Platform operator",
+                  "Enable chat‑only mode"
+                ],
+                [
+                  "Closing credits",
+                  "Producer",
+                  "Play pre‑rendered video"
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "h2": "Which tools help coordinate the rehearsal across the team?",
+        "blocks": [
+          {
+            "p": "Use a project board for the run of show, a shared doc for speaker briefs, and a communication channel for real‑time alerts. Keeping every artifact in a single workspace prevents version drift."
+          },
+          {
+            "ul": [
+              "Asana, Monday.com, or Airtable for the rehearsal calendar and task ownership",
+              "Google Docs or Notion for speaker briefs, run of show, and backup plan",
+              "Slack or Microsoft Teams channel dedicated to rehearsal alerts",
+              "Zoom Webinars, Microsoft Teams, ON24, or StreamYard as the live platform",
+              "OBS or vMix as the fallback encoder software"
+            ]
+          }
+        ]
+      },
+      {
+        "h2": "What backup plan proves the rehearsal succeeded?",
+        "blocks": [
+          {
+            "p": "A verified secondary stream that can take over within seconds demonstrates readiness. The rehearsal is not complete until the failover has been exercised and the team knows the exact steps to activate it."
+          },
+          {
+            "ul": [
+              "Start the backup encoder before the rehearsal begins",
+              "Simulate a primary feed loss at a planned transition point",
+              "Confirm the backup appears on the live output without viewer disruption",
+              "Log the time to switch and the person who executed it",
+              "Record the outcome in the post‑rehearsal report"
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How far in advance should the full technical rehearsal be scheduled?",
+        "a": "Plan the full run on the real platform two to five days before the event, leaving enough buffer to fix any discovered issues without rushing the production team."
+      },
+      {
+        "q": "Can a single producer handle the rehearsal for a large hybrid summit?",
+        "a": "A large hybrid summit typically needs a show caller, speaker manager, moderator, and platform operator in addition to a producer; one person cannot cover all cueing and backup responsibilities simultaneously."
+      },
+      {
+        "q": "What is the minimum backup configuration that satisfies a rehearsal sign‑off?",
+        "a": "At minimum you need a second encoder receiving the same program feed, a tested switch command, and a documented hand‑off procedure that the rehearsal owner can execute without hesitation."
+      },
+      {
+        "q": "Should the rehearsal include the audience‑facing registration and landing pages?",
+        "a": "Only the live streaming components require a technical rehearsal; registration flows and landing pages are validated separately during a user‑acceptance test before the event launch."
+      }
+    ]
+  }
+}
