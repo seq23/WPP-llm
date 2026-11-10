@@ -4,16 +4,16 @@
     "Every measured query is in exactly one family; impressions add up to the measured total. top12 marks the families whose primary page must serve the intent (data/seo/demand_pages.json).",
     "Proven by scripts/validators/validate_demand_families.js (fresh and consistent with measured_targets)."
   ],
-  "measured_targets_generated_at": "2026-11-09T11:45:03.616Z",
+  "measured_targets_generated_at": "2026-11-10T11:44:15.231Z",
   "window": "Search Console, 90 days (plus the 28-day rows), as merged by scripts/build_measured_targets.js",
-  "target_count": 218,
-  "impressions_total": 1956,
+  "target_count": 213,
+  "impressions_total": 1782,
   "family_count": 31,
   "top_n": 12,
   "top12": [
     "virtual-event-platforms-comparison",
-    "hybrid-event-platform",
     "webinar-production",
+    "hybrid-event-platform",
     "virtual-event-production",
     "investor-event-production",
     "run-of-show",
@@ -25,11 +25,11 @@
       "family": "virtual-event-platforms-comparison",
       "label": "Best virtual event platforms and production companies",
       "intent": "comparison",
-      "impressions": 395,
+      "impressions": 319,
       "clicks": 0,
-      "query_count": 42,
+      "query_count": 40,
       "best_position": 19.5,
-      "weighted_position": 31.1,
+      "weighted_position": 31.8,
       "head_query": "best virtual event platform",
       "current_page": "/best-virtual-event-platforms",
       "current_page_resolves_to": "/programmatic/best-virtual-event-platforms",
@@ -38,12 +38,12 @@
       "landing_pages": [
         {
           "page": "/best-virtual-event-platforms",
-          "impressions": 390.5,
+          "impressions": 314,
           "resolves_to": "/programmatic/best-virtual-event-platforms"
         },
         {
           "page": "/online-conference-platforms",
-          "impressions": 3.5,
+          "impressions": 4,
           "resolves_to": "/programmatic/online-conference-platforms"
         },
         {
@@ -55,7 +55,7 @@
       "queries": [
         {
           "query": "best virtual event platform",
-          "impressions": 81,
+          "impressions": 65,
           "best_position": 22.2,
           "pages": [
             "/best-virtual-event-platforms"
@@ -63,7 +63,7 @@
         },
         {
           "query": "best virtual event platforms",
-          "impressions": 73,
+          "impressions": 56,
           "best_position": 19.6,
           "pages": [
             "/best-virtual-event-platforms"
@@ -71,48 +71,32 @@
         },
         {
           "query": "virtual event platforms",
-          "impressions": 63,
-          "best_position": 20.9,
+          "impressions": 52,
+          "best_position": 20.2,
           "pages": [
             "/best-virtual-event-platforms"
           ]
         },
         {
           "query": "best hybrid event platforms",
-          "impressions": 14,
-          "best_position": 45.7,
+          "impressions": 11,
+          "best_position": 46.7,
           "pages": [
             "/best-virtual-event-platforms"
           ]
         },
         {
           "query": "virtual event providers",
-          "impressions": 14,
-          "best_position": 37.2,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "top virtual event platforms",
           "impressions": 11,
-          "best_position": 37.3,
+          "best_position": 36.7,
           "pages": [
             "/best-virtual-event-platforms"
           ]
         },
         {
           "query": "best virtual event production companies",
-          "impressions": 10,
-          "best_position": 26.5,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "virtual event platform comparison",
           "impressions": 9,
-          "best_position": 33.1,
+          "best_position": 26,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -126,33 +110,9 @@
           ]
         },
         {
-          "query": "best platforms for virtual events",
+          "query": "top virtual event platforms",
           "impressions": 8,
-          "best_position": 28.4,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "platforms to host virtual events",
-          "impressions": 8,
-          "best_position": 54,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "virtual summit platforms",
-          "impressions": 8,
-          "best_position": 40.4,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "best platform for virtual events",
-          "impressions": 7,
-          "best_position": 50,
+          "best_position": 38.6,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -166,9 +126,17 @@
           ]
         },
         {
-          "query": "virtual event platforms comparison",
+          "query": "platforms to host virtual events",
           "impressions": 7,
-          "best_position": 40,
+          "best_position": 54,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "virtual summit platforms",
+          "impressions": 7,
+          "best_position": 40.5,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -177,6 +145,14 @@
           "query": "what is a virtual event platform",
           "impressions": 7,
           "best_position": 69.6,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "virtual event platform comparison",
+          "impressions": 6,
+          "best_position": 33.7,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -198,12 +174,27 @@
           ]
         },
         {
-          "query": "best platforms for virtual conferences",
+          "query": "best platform for virtual events",
           "impressions": 5,
-          "best_position": 29,
+          "best_position": 50.2,
           "pages": [
-            "/best-virtual-event-platforms",
-            "/online-conference-platforms"
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "best platforms for virtual events",
+          "impressions": 5,
+          "best_position": 28.4,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "virtual event platforms comparison",
+          "impressions": 5,
+          "best_position": 39.6,
+          "pages": [
+            "/best-virtual-event-platforms"
           ]
         },
         {
@@ -215,19 +206,11 @@
           ]
         },
         {
-          "query": "top virtual conference platforms",
-          "impressions": 4,
-          "best_position": 48.3,
+          "query": "best platforms for virtual conferences",
+          "impressions": 3,
+          "best_position": 28.7,
           "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "virtual events platform comparison",
-          "impressions": 4,
-          "best_position": 38.5,
-          "pages": [
-            "/best-virtual-event-platforms"
+            "/online-conference-platforms"
           ]
         },
         {
@@ -247,9 +230,9 @@
           ]
         },
         {
-          "query": "best platform for hybrid events",
-          "impressions": 2,
-          "best_position": 50.5,
+          "query": "virtual events platform comparison",
+          "impressions": 3,
+          "best_position": 37,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -258,22 +241,6 @@
           "query": "best virtual event equipment",
           "impressions": 2,
           "best_position": 44,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "best virtual event platforms 2020",
-          "impressions": 2,
-          "best_position": 36,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "best virtual networking platforms",
-          "impressions": 2,
-          "best_position": 22.5,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -298,6 +265,22 @@
           "query": "platform virtual events -- --",
           "impressions": 2,
           "best_position": 64,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "top virtual conference platforms",
+          "impressions": 2,
+          "best_position": 54,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "best virtual event platforms 2020",
+          "impressions": 1,
+          "best_position": 37,
           "pages": [
             "/best-virtual-event-platforms"
           ]
@@ -396,158 +379,14 @@
       "top12": true
     },
     {
-      "family": "hybrid-event-platform",
-      "label": "Hybrid event platforms and hybrid event production",
-      "intent": "informational",
-      "impressions": 246,
-      "clicks": 0,
-      "query_count": 12,
-      "best_position": 13,
-      "weighted_position": 62.9,
-      "head_query": "hybrid event production",
-      "current_page": "/hybrid-event-platform",
-      "current_page_resolves_to": "/programmatic/hybrid-event-platform",
-      "primary_route": "/programmatic/hybrid-event-platform",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/hybrid-event-platform",
-          "impressions": 163,
-          "resolves_to": "/programmatic/hybrid-event-platform"
-        },
-        {
-          "page": "/programmatic/what-is-hybrid-event-production",
-          "impressions": 66,
-          "resolves_to": "/programmatic/what-is-hybrid-event-production"
-        },
-        {
-          "page": "/best-virtual-event-platforms",
-          "impressions": 12,
-          "resolves_to": "/programmatic/best-virtual-event-platforms"
-        },
-        {
-          "page": "/programmatic/hybrid-event-production-timeline",
-          "impressions": 3,
-          "resolves_to": "/programmatic/hybrid-event-production-timeline"
-        },
-        {
-          "page": "/programmatic/hybrid-event-production-for-enterprise-teams",
-          "impressions": 2,
-          "resolves_to": "/programmatic/hybrid-event-production"
-        }
-      ],
-      "queries": [
-        {
-          "query": "hybrid event production",
-          "impressions": 120,
-          "best_position": 70.8,
-          "pages": [
-            "/hybrid-event-platform",
-            "/programmatic/what-is-hybrid-event-production"
-          ]
-        },
-        {
-          "query": "hybrid event platform",
-          "impressions": 94,
-          "best_position": 50.9,
-          "pages": [
-            "/hybrid-event-platform"
-          ]
-        },
-        {
-          "query": "virtual and hybrid event platform",
-          "impressions": 10,
-          "best_position": 63.1,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "hybrid events production",
-          "impressions": 6,
-          "best_position": 95,
-          "pages": [
-            "/programmatic/what-is-hybrid-event-production"
-          ]
-        },
-        {
-          "query": "hybrid events company",
-          "impressions": 5,
-          "best_position": 82.8,
-          "pages": [
-            "/hybrid-event-platform"
-          ]
-        },
-        {
-          "query": "hybrid events platform",
-          "impressions": 3,
-          "best_position": 61.7,
-          "pages": [
-            "/hybrid-event-platform"
-          ]
-        },
-        {
-          "query": "enterprise hybrid event production partner",
-          "impressions": 2,
-          "best_position": 13,
-          "pages": [
-            "/programmatic/hybrid-event-production-for-enterprise-teams"
-          ]
-        },
-        {
-          "query": "hybrid event timeline",
-          "impressions": 2,
-          "best_position": 47,
-          "pages": [
-            "/programmatic/hybrid-event-production-timeline"
-          ]
-        },
-        {
-          "query": "hybrid event management servicesvirtual & hybrid events",
-          "impressions": 1,
-          "best_position": 82,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "hybrid event planning timeline",
-          "impressions": 1,
-          "best_position": 73,
-          "pages": [
-            "/programmatic/hybrid-event-production-timeline"
-          ]
-        },
-        {
-          "query": "hybrid show platform",
-          "impressions": 1,
-          "best_position": 56,
-          "pages": [
-            "/best-virtual-event-platforms"
-          ]
-        },
-        {
-          "query": "platform for hybrid events",
-          "impressions": 1,
-          "best_position": 59,
-          "pages": [
-            "/hybrid-event-platform"
-          ]
-        }
-      ],
-      "rank": 2,
-      "top12_rank": 2,
-      "top12": true
-    },
-    {
       "family": "webinar-production",
       "label": "Webinar production services",
       "intent": "service",
-      "impressions": 219,
+      "impressions": 207,
       "clicks": 0,
       "query_count": 15,
       "best_position": 10.1,
-      "weighted_position": 53.2,
+      "weighted_position": 53.8,
       "head_query": "webinar production services",
       "current_page": "/programmatic/virtual-event-production-for-saas",
       "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
@@ -556,17 +395,17 @@
       "landing_pages": [
         {
           "page": "/programmatic/virtual-event-production-for-saas",
-          "impressions": 85.5,
+          "impressions": 79.5,
           "resolves_to": "/programmatic/virtual-event-production-for-saas"
         },
         {
           "page": "/programmatic/what-is-webinar-production",
-          "impressions": 69.5,
+          "impressions": 66.5,
           "resolves_to": "/programmatic/what-is-webinar-production"
         },
         {
           "page": "/virtual-event-production-for-professional-services",
-          "impressions": 28.5,
+          "impressions": 25.5,
           "resolves_to": "/programmatic/virtual-event-production-for-professional-services"
         },
         {
@@ -598,7 +437,7 @@
       "queries": [
         {
           "query": "webinar production services",
-          "impressions": 73,
+          "impressions": 67,
           "best_position": 52,
           "pages": [
             "/programmatic/virtual-event-production-for-saas",
@@ -607,8 +446,8 @@
         },
         {
           "query": "professional webinar production services",
-          "impressions": 57,
-          "best_position": 52.1,
+          "impressions": 51,
+          "best_position": 54,
           "pages": [
             "/programmatic/virtual-event-production-for-saas",
             "/virtual-event-production-for-professional-services"
@@ -721,6 +560,134 @@
           ]
         }
       ],
+      "rank": 2,
+      "top12_rank": 2,
+      "top12": true
+    },
+    {
+      "family": "hybrid-event-platform",
+      "label": "Hybrid event platforms and hybrid event production",
+      "intent": "informational",
+      "impressions": 188,
+      "clicks": 0,
+      "query_count": 10,
+      "best_position": 13,
+      "weighted_position": 63.2,
+      "head_query": "hybrid event production",
+      "current_page": "/hybrid-event-platform",
+      "current_page_resolves_to": "/programmatic/hybrid-event-platform",
+      "primary_route": "/programmatic/hybrid-event-platform",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/hybrid-event-platform",
+          "impressions": 120.5,
+          "resolves_to": "/programmatic/hybrid-event-platform"
+        },
+        {
+          "page": "/programmatic/what-is-hybrid-event-production",
+          "impressions": 52.5,
+          "resolves_to": "/programmatic/what-is-hybrid-event-production"
+        },
+        {
+          "page": "/best-virtual-event-platforms",
+          "impressions": 10,
+          "resolves_to": "/programmatic/best-virtual-event-platforms"
+        },
+        {
+          "page": "/programmatic/hybrid-event-production-timeline",
+          "impressions": 3,
+          "resolves_to": "/programmatic/hybrid-event-production-timeline"
+        },
+        {
+          "page": "/programmatic/hybrid-event-production-for-enterprise-teams",
+          "impressions": 2,
+          "resolves_to": "/programmatic/hybrid-event-production"
+        }
+      ],
+      "queries": [
+        {
+          "query": "hybrid event production",
+          "impressions": 93,
+          "best_position": 70.8,
+          "pages": [
+            "/hybrid-event-platform",
+            "/programmatic/what-is-hybrid-event-production"
+          ]
+        },
+        {
+          "query": "hybrid event platform",
+          "impressions": 69,
+          "best_position": 50.8,
+          "pages": [
+            "/hybrid-event-platform"
+          ]
+        },
+        {
+          "query": "virtual and hybrid event platform",
+          "impressions": 9,
+          "best_position": 64.8,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        },
+        {
+          "query": "hybrid events production",
+          "impressions": 6,
+          "best_position": 95,
+          "pages": [
+            "/programmatic/what-is-hybrid-event-production"
+          ]
+        },
+        {
+          "query": "hybrid events company",
+          "impressions": 4,
+          "best_position": 82.8,
+          "pages": [
+            "/hybrid-event-platform"
+          ]
+        },
+        {
+          "query": "enterprise hybrid event production partner",
+          "impressions": 2,
+          "best_position": 13,
+          "pages": [
+            "/programmatic/hybrid-event-production-for-enterprise-teams"
+          ]
+        },
+        {
+          "query": "hybrid event timeline",
+          "impressions": 2,
+          "best_position": 47,
+          "pages": [
+            "/programmatic/hybrid-event-production-timeline"
+          ]
+        },
+        {
+          "query": "hybrid event planning timeline",
+          "impressions": 1,
+          "best_position": 73,
+          "pages": [
+            "/programmatic/hybrid-event-production-timeline"
+          ]
+        },
+        {
+          "query": "hybrid events platform",
+          "impressions": 1,
+          "best_position": 62,
+          "pages": [
+            "/hybrid-event-platform"
+          ]
+        },
+        {
+          "query": "hybrid show platform",
+          "impressions": 1,
+          "best_position": 56,
+          "pages": [
+            "/best-virtual-event-platforms"
+          ]
+        }
+      ],
       "rank": 3,
       "top12_rank": 3,
       "top12": true
@@ -729,11 +696,11 @@
       "family": "virtual-event-production",
       "label": "Virtual event production",
       "intent": "service",
-      "impressions": 186,
+      "impressions": 182,
       "clicks": 0,
       "query_count": 8,
       "best_position": 23,
-      "weighted_position": 66.3,
+      "weighted_position": 66.4,
       "head_query": "virtual events production",
       "current_page": "/programmatic/virtual-event-production-for-saas",
       "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
@@ -742,12 +709,12 @@
       "landing_pages": [
         {
           "page": "/programmatic/virtual-event-production-for-saas",
-          "impressions": 91.5,
+          "impressions": 89,
           "resolves_to": "/programmatic/virtual-event-production-for-saas"
         },
         {
           "page": "/learn/what-is-virtual-event-production",
-          "impressions": 70,
+          "impressions": 69.5,
           "resolves_to": "/learn/what-is-virtual-event-production"
         },
         {
@@ -757,7 +724,7 @@
         },
         {
           "page": "/programmatic/what-is-virtual-event-production",
-          "impressions": 8.5,
+          "impressions": 7.5,
           "resolves_to": "/programmatic/what-is-virtual-event-production"
         },
         {
@@ -784,7 +751,7 @@
       "queries": [
         {
           "query": "virtual events production",
-          "impressions": 140,
+          "impressions": 139,
           "best_position": 69.2,
           "pages": [
             "/learn/what-is-virtual-event-production",
@@ -793,8 +760,8 @@
         },
         {
           "query": "virtual event production",
-          "impressions": 17,
-          "best_position": 61.5,
+          "impressions": 15,
+          "best_position": 63,
           "pages": [
             "/programmatic/virtual-event-production-for-saas",
             "/programmatic/what-is-virtual-event-production"
@@ -802,8 +769,8 @@
         },
         {
           "query": "virtual event production staff",
-          "impressions": 13,
-          "best_position": 76.4,
+          "impressions": 12,
+          "best_position": 76.5,
           "pages": [
             "/programmatic/virtual-event-production-for-saas"
           ]
@@ -857,11 +824,11 @@
       "family": "community-management-outsourcing",
       "label": "Community management outsourcing",
       "intent": "service",
-      "impressions": 128,
+      "impressions": 121,
       "clicks": 0,
       "query_count": 5,
       "best_position": 24.6,
-      "weighted_position": 28,
+      "weighted_position": 27.2,
       "head_query": "community management outsourcing",
       "current_page": "/programmatic/what-is-outsourced-community-management",
       "current_page_resolves_to": "/answers/community-manager-vs-community-agency",
@@ -870,88 +837,77 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-outsourced-community-management",
-          "impressions": 15.9,
+          "impressions": 17,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-best-practices",
-          "impressions": 12.9,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/outsourced-community-management-cost",
-          "impressions": 12.9,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-for-financial-services-teams",
-          "impressions": 12.9,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-for-professional-services-firms",
-          "impressions": 12.9,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-for-small-teams",
-          "impressions": 12.9,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-services",
-          "impressions": 12.9,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-vs-in-house-team",
-          "impressions": 12.9,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/outsourced-community-management-when-to-hire",
-          "impressions": 12.9,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/community-moderation-strategy-for-marketing-teams",
-          "impressions": 2.2,
+          "impressions": 14,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/community-moderation-strategy-for-small-teams",
-          "impressions": 2.2,
+          "impressions": 2,
+          "resolves_to": "/answers/community-manager-vs-community-agency"
+        },
+        {
+          "page": "/programmatic/community-moderation-strategy-for-marketing-teams",
+          "impressions": 1,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/community-moderation-strategy-for-nonprofits",
-          "impressions": 1.2,
+          "impressions": 1,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
           "page": "/programmatic/community-moderation-strategy-how-to-choose",
-          "impressions": 1.2,
-          "resolves_to": "/answers/how-to-build-a-community-around-your-business"
-        },
-        {
-          "page": "/programmatic/community-moderation-strategy-scope-of-work",
-          "impressions": 1.2,
+          "impressions": 1,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
           "page": "/programmatic/what-is-community-moderation-strategy",
-          "impressions": 1.2,
+          "impressions": 1,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         }
       ],
       "queries": [
         {
           "query": "community management outsourcing",
-          "impressions": 116,
+          "impressions": 112,
           "best_position": 24.6,
           "pages": [
             "/programmatic/outsourced-community-management-best-practices",
-            "/programmatic/outsourced-community-management-cost",
             "/programmatic/outsourced-community-management-for-financial-services-teams",
             "/programmatic/outsourced-community-management-for-professional-services-firms",
             "/programmatic/outsourced-community-management-for-small-teams",
@@ -963,14 +919,12 @@
         },
         {
           "query": "moderation and community management",
-          "impressions": 7,
+          "impressions": 4,
           "best_position": 64,
           "pages": [
-            "/programmatic/community-moderation-strategy-for-marketing-teams",
             "/programmatic/community-moderation-strategy-for-nonprofits",
             "/programmatic/community-moderation-strategy-for-small-teams",
             "/programmatic/community-moderation-strategy-how-to-choose",
-            "/programmatic/community-moderation-strategy-scope-of-work",
             "/programmatic/what-is-community-moderation-strategy"
           ]
         },
@@ -1007,11 +961,11 @@
       "family": "content-operations",
       "label": "Content and marketing operations",
       "intent": "service",
-      "impressions": 100,
+      "impressions": 94,
       "clicks": 0,
       "query_count": 16,
       "best_position": 4.5,
-      "weighted_position": 64.6,
+      "weighted_position": 64.5,
       "head_query": "content marketing operation services",
       "current_page": "/programmatic/what-is-ai-content-operations",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
@@ -1020,7 +974,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-ai-content-operations",
-          "impressions": 16.5,
+          "impressions": 20,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -1030,42 +984,37 @@
         },
         {
           "page": "/content-marketing-operations-services",
-          "impressions": 12.8,
+          "impressions": 11.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/query-atlas/content-marketing-operations",
-          "impressions": 9.3,
+          "impressions": 8.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/content-marketing-operations-process",
-          "impressions": 8,
+          "impressions": 7.5,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/content-marketing-operations-for-financial-services-teams",
-          "impressions": 7.3,
+          "impressions": 6.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/content-marketing-operations-for-professional-services-firms",
-          "impressions": 7.3,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/ai-content-operations",
-          "impressions": 6.5,
+          "impressions": 6.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/content-marketing-operations",
-          "impressions": 5.5,
+          "impressions": 5,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/content-marketing-operations-for-marketing-teams",
-          "impressions": 5.5,
+          "impressions": 5,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -1087,12 +1036,17 @@
           "page": "/ai-content-operations-for-enterprise-teams",
           "impressions": 1,
           "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/programmatic/ai-content-operations",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
         }
       ],
       "queries": [
         {
           "query": "content marketing operation services",
-          "impressions": 29,
+          "impressions": 27,
           "best_position": 56,
           "pages": [
             "/content-marketing-operations-services",
@@ -1103,22 +1057,13 @@
         },
         {
           "query": "agency content operations",
-          "impressions": 22,
-          "best_position": 77.5,
+          "impressions": 20,
+          "best_position": 78,
           "pages": [
             "/content-marketing-operations",
             "/content-marketing-operations-for-marketing-teams",
             "/content-marketing-operations-process",
             "/content-marketing-operations-services"
-          ]
-        },
-        {
-          "query": "ai content operations",
-          "impressions": 9,
-          "best_position": 73,
-          "pages": [
-            "/programmatic/ai-content-operations",
-            "/programmatic/what-is-ai-content-operations"
           ]
         },
         {
@@ -1133,6 +1078,14 @@
           "query": "content operations system",
           "impressions": 9,
           "best_position": 77.9,
+          "pages": [
+            "/programmatic/what-is-ai-content-operations"
+          ]
+        },
+        {
+          "query": "ai content operations",
+          "impressions": 8,
+          "best_position": 74.5,
           "pages": [
             "/programmatic/what-is-ai-content-operations"
           ]
@@ -1180,14 +1133,6 @@
           ]
         },
         {
-          "query": "content ops ia",
-          "impressions": 2,
-          "best_position": 80.5,
-          "pages": [
-            "/programmatic/ai-content-operations"
-          ]
-        },
-        {
           "query": "how do i compare marketing measurement vendors objectively?",
           "impressions": 2,
           "best_position": 4.5,
@@ -1225,6 +1170,14 @@
           "best_position": 70,
           "pages": [
             "/programmatic/what-is-ai-content-operations"
+          ]
+        },
+        {
+          "query": "content ops ia",
+          "impressions": 1,
+          "best_position": 78,
+          "pages": [
+            "/programmatic/ai-content-operations"
           ]
         }
       ],
@@ -1388,11 +1341,11 @@
       "family": "community-operations",
       "label": "Community operations and Community as a Service",
       "intent": "service",
-      "impressions": 74,
+      "impressions": 67,
       "clicks": 0,
       "query_count": 18,
-      "best_position": 2.5,
-      "weighted_position": 33.7,
+      "best_position": 3,
+      "weighted_position": 34.6,
       "head_query": "community as a service",
       "current_page": "/programmatic/what-is-community-operations",
       "current_page_resolves_to": "/answers/how-to-build-a-community-around-your-business",
@@ -1416,12 +1369,7 @@
         },
         {
           "page": "/programmatic/community-moderation-strategy-services",
-          "impressions": 5,
-          "resolves_to": "/answers/how-to-build-a-community-around-your-business"
-        },
-        {
-          "page": "/programmatic/customer-community-strategy-consultant",
-          "impressions": 5,
+          "impressions": 4,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
@@ -1475,11 +1423,6 @@
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
-          "page": "/programmatic/customer-community-strategy-checklist",
-          "impressions": 2,
-          "resolves_to": "/answers/how-to-build-a-community-around-your-business"
-        },
-        {
           "page": "/programmatic/community-operations-for-venture-backed-companies",
           "impressions": 1.4,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
@@ -1506,6 +1449,11 @@
         },
         {
           "page": "/programmatic/community-roi-measurement-model",
+          "impressions": 1,
+          "resolves_to": "/answers/how-to-build-a-community-around-your-business"
+        },
+        {
+          "page": "/programmatic/customer-community-strategy-checklist",
           "impressions": 1,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
@@ -1543,15 +1491,6 @@
           ]
         },
         {
-          "query": "community strategy and consultancy",
-          "impressions": 10,
-          "best_position": 37,
-          "pages": [
-            "/programmatic/community-engagement-strategy-consultant",
-            "/programmatic/customer-community-strategy-consultant"
-          ]
-        },
-        {
           "query": "community programming",
           "impressions": 8,
           "best_position": 44,
@@ -1584,14 +1523,6 @@
           ]
         },
         {
-          "query": "community moderation services",
-          "impressions": 5,
-          "best_position": 56.4,
-          "pages": [
-            "/programmatic/community-moderation-strategy-services"
-          ]
-        },
-        {
           "query": "community operations",
           "impressions": 5,
           "best_position": 8.2,
@@ -1606,6 +1537,22 @@
           "pages": [
             "/programmatic/community-operations-scope-of-work",
             "/programmatic/what-is-community-operations"
+          ]
+        },
+        {
+          "query": "community strategy and consultancy",
+          "impressions": 5,
+          "best_position": 52.8,
+          "pages": [
+            "/programmatic/community-engagement-strategy-consultant"
+          ]
+        },
+        {
+          "query": "community moderation services",
+          "impressions": 4,
+          "best_position": 53.8,
+          "pages": [
+            "/programmatic/community-moderation-strategy-services"
           ]
         },
         {
@@ -1642,14 +1589,6 @@
           ]
         },
         {
-          "query": "customer community strategy checklist",
-          "impressions": 2,
-          "best_position": 2.5,
-          "pages": [
-            "/programmatic/customer-community-strategy-checklist"
-          ]
-        },
-        {
           "query": "community operation",
           "impressions": 1,
           "best_position": 34,
@@ -1671,6 +1610,14 @@
           "best_position": 12,
           "pages": [
             "/programmatic/what-is-community-staffing-model"
+          ]
+        },
+        {
+          "query": "customer community strategy checklist",
+          "impressions": 1,
+          "best_position": 3,
+          "pages": [
+            "/programmatic/customer-community-strategy-checklist"
           ]
         },
         {
@@ -2355,12 +2302,12 @@
       "family": "integrated-vs-specialist-agency",
       "label": "Integrated agency vs specialist agencies",
       "intent": "comparison",
-      "impressions": 37,
+      "impressions": 35,
       "clicks": 0,
-      "query_count": 5,
-      "best_position": 5,
-      "weighted_position": 14.9,
-      "head_query": "integrated agency",
+      "query_count": 4,
+      "best_position": 20,
+      "weighted_position": 46.8,
+      "head_query": "integrated agency definition",
       "current_page": "/programmatic/what-is-integrated-agency-vs-specialist-agencies",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
       "primary_route": "/programmatic/integrated-agency-vs-specialist-agencies",
@@ -2368,12 +2315,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-integrated-agency-vs-specialist-agencies",
-          "impressions": 13.8,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/integrated-agency-vs-specialist-agencies-companies",
-          "impressions": 8.5,
+          "impressions": 21.3,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -2392,26 +2334,12 @@
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
-          "page": "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
           "page": "/programmatic/integrated-agency-vs-specialist-agencies-what-a-good-engagement-includes",
           "impressions": 1,
           "resolves_to": "/programmatic/virtual-event-production"
         }
       ],
       "queries": [
-        {
-          "query": "integrated agency",
-          "impressions": 17,
-          "best_position": 5,
-          "pages": [
-            "/programmatic/integrated-agency-vs-specialist-agencies-companies",
-            "/programmatic/what-is-integrated-agency-vs-specialist-agencies"
-          ]
-        },
         {
           "query": "integrated agency definition",
           "impressions": 17,
@@ -2424,19 +2352,19 @@
           ]
         },
         {
+          "query": "integrated agency",
+          "impressions": 16,
+          "best_position": 74.3,
+          "pages": [
+            "/programmatic/what-is-integrated-agency-vs-specialist-agencies"
+          ]
+        },
+        {
           "query": "agency engagement",
           "impressions": 1,
           "best_position": 54,
           "pages": [
             "/programmatic/integrated-agency-vs-specialist-agencies-what-a-good-engagement-includes"
-          ]
-        },
-        {
-          "query": "integrated agency team",
-          "impressions": 1,
-          "best_position": 17,
-          "pages": [
-            "/programmatic/integrated-agency-vs-specialist-agencies-for-marketing-teams"
           ]
         },
         {
@@ -2634,11 +2562,11 @@
       "family": "investor-event-production",
       "label": "Investor relations event production",
       "intent": "service",
-      "impressions": 21,
+      "impressions": 20,
       "clicks": 0,
       "query_count": 2,
       "best_position": 10,
-      "weighted_position": 74.6,
+      "weighted_position": 74.5,
       "head_query": "investor relations event production",
       "current_page": "/investor-event-production",
       "current_page_resolves_to": "/programmatic/investor-event-production",
@@ -2647,15 +2575,15 @@
       "landing_pages": [
         {
           "page": "/investor-event-production",
-          "impressions": 21,
+          "impressions": 20,
           "resolves_to": "/programmatic/investor-event-production"
         }
       ],
       "queries": [
         {
           "query": "investor relations event production",
-          "impressions": 20,
-          "best_position": 77.8,
+          "impressions": 19,
+          "best_position": 77.9,
           "pages": [
             "/investor-event-production"
           ]
@@ -2763,11 +2691,11 @@
       "family": "ai-consultant-vs-agency",
       "label": "AI consultant vs AI agency",
       "intent": "comparison",
-      "impressions": 12,
+      "impressions": 11,
       "clicks": 0,
       "query_count": 2,
       "best_position": 36,
-      "weighted_position": 48.7,
+      "weighted_position": 52.4,
       "head_query": "ai consultant vs ai agency",
       "current_page": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
@@ -2776,27 +2704,22 @@
       "landing_pages": [
         {
           "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-          "impressions": 1.6,
+          "impressions": 1.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
-          "impressions": 1.6,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
-          "impressions": 1.6,
+          "impressions": 1.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
-          "impressions": 1.6,
+          "impressions": 1.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails",
-          "impressions": 1.6,
+          "impressions": 1.8,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -2823,12 +2746,11 @@
       "queries": [
         {
           "query": "ai consultant vs ai agency",
-          "impressions": 8,
-          "best_position": 55,
+          "impressions": 7,
+          "best_position": 61.7,
           "pages": [
             "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
             "/programmatic/ai-consultant-vs-automation-agency-how-to-measure-success",
-            "/programmatic/ai-consultant-vs-automation-agency-vs-in-house-team",
             "/programmatic/ai-consultant-vs-automation-agency-what-a-good-engagement-includes",
             "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
           ]
