@@ -279,7 +279,15 @@ function applyRewrite(html, rec) {
   const committed = plain((s.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '');
   const title = require('./title_brand.js').finishTitle(plain(p.title || p.h1), committed);
   if (!locked) s = s.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
-  const desc = p.description ? fitDescription(plain(p.description)) : '';
+  // Search Readiness b2 also needs at least 120 characters: 20 accepted
+  // rewrites carried 94-119 (audit, 10 Nov 2026: /programmatic/virtual-events-
+  // management served 103) while the committed description was in band. A
+  // rewrite's description wins only inside 120-160; otherwise the committed one
+  // stays when it is in band, else the fitted rewrite.
+  const inBandDesc = (d) => d.length >= 120 && d.length <= 160;
+  const fitted = p.description ? fitDescription(plain(p.description)) : '';
+  const kept = plain((s.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '');
+  const desc = fitted && !inBandDesc(fitted) && inBandDesc(kept) ? kept : fitted;
   if (desc) {
     s = s.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
     s = s.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
