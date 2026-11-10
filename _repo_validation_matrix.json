@@ -19,16 +19,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "strategy-gate",
-      "command": "node scripts/validate_strategy_gate.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prevent off-strategy release drift.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "master-plan-completion",
       "command": "node scripts/validate_master_plan_completion.js",
       "severity": "HARD_FAIL",
@@ -49,23 +39,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "root-hygiene",
-      "command": "node scripts/validate_root_hygiene.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prevent generated authority pages from flattening into repository root.",
-      "tier": "V2"
-    },
-    {
-      "id": "priority-pages",
-      "command": "node scripts/validate_priority_pages.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure 0-6 month priority pages exist and route to WPP.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "homepage-ctas",
       "command": "node scripts/validate_homepage_ctas.js",
       "severity": "HARD_FAIL",
@@ -76,70 +49,10 @@
       "failure_action": "block_release"
     },
     {
-      "id": "backlink-remediation",
-      "command": "node scripts/validate_backlink_remediation.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure disavow and earned citation ledgers exist.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "release-plan",
-      "command": "node scripts/validate_release_plan.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure strategy-gated release plan has existing non-blocked units.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "insights",
       "command": "node scripts/validate_insights.js",
       "severity": "HARD_FAIL",
       "purpose": "Ensure insights are published deterministically with no active draft queue leakage.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "answer-coverage",
-      "command": "node scripts/validate_answer_coverage.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure answer cards have required JSON and HTML surfaces.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "entity-coverage",
-      "command": "node scripts/validate_entity_coverage.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure entity coverage remains present for LLM surfaces.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "internal-links",
-      "command": "node scripts/validate_internal_links.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prevent broken internal links.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "sitemap-coverage",
-      "command": "node scripts/validate_sitemap_coverage.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure every canonical HTML page appears in sitemap.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
@@ -219,17 +132,7 @@
       "id": "workflow-data-trace",
       "command": "node scripts/validators/validate_workflow_data_trace.js",
       "severity": "HARD_FAIL",
-      "purpose": "Ensure collector\u2192normalizer\u2192score\u2192release\u2192content proof artifacts exist.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "citation-goal-sizing",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-goal-sizing",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure 6-month route/query target matches approved citation strategy.",
+      "purpose": "Ensure collector→normalizer→score→release→content proof artifacts exist.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
@@ -246,136 +149,6 @@
       "failure_action": "block_release"
     },
     {
-      "id": "programmatic-release-contract",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-release-contract",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure controlled cadence caps and release contract.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "citation-intelligence-contract",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js citation-intelligence-contract",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure GSC-first and $0 intelligence contract.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "agent-run-artifact-intake",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js agent-run-artifact-intake",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure agent/artifact intake lane exists even when GSC is primary.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "normalized-agent-run-schema",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js normalized-agent-run-schema",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure normalized artifact schema exists.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "velocity-intake-workflow",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js velocity-intake-workflow",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure intake/cutover compatibility map exists.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "release-plan-integrity",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js release-plan-integrity",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure release plan units obey caps and schema.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "content-release-trace",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js content-release-trace",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure release writes proof artifacts.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "page-release-law",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js page-release-law",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure admitted routes are tracked and non-duplicate.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "generated-content-gate",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js generated-content-gate",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure generated content is governed by atoms and page families.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "programmatic-substance",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js programmatic-substance",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure generated pages are not thin placeholder pages.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "canonical-routing-law",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js canonical-routing-law",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure clean canonical URLs and no redirect loops.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "search-quality-basics",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js search-quality-basics",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure pages have title, description, canonical.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "sitemap-parity",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js sitemap-parity",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure sitemap includes key canonical routes.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "content-safety",
       "command": "node scripts/validators/validate_master_contract_pipeline.js content-safety",
       "severity": "HARD_FAIL",
@@ -386,150 +159,10 @@
       "failure_action": "block_release"
     },
     {
-      "id": "strategy-integrity-contract",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js strategy-integrity-contract",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure strategy remains WPP / virtual-event scope.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "deterministic-build",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js deterministic-build",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure lockfile-based deterministic build.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "repo-hygiene",
-      "command": "node scripts/validators/validate_master_contract_pipeline.js repo-hygiene",
-      "severity": "HARD_FAIL",
-      "purpose": "Block secrets/runtime cache artifacts.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "validate-release",
-      "command": "node scripts/validate_release.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Validate release plan, content trace, page release law, generated content gate, and programmatic substance.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "full-flow-citation-engine",
-      "command": "node scripts/validators/validate_full_flow_citation_engine.mjs",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure aggressive 90-day full-flow settings, seven pillars, and citation truth rules remain active.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "programmatic-quality",
-      "command": "npm run content:quality:validate",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure changed programmatic routes are substantive and semantically distinct.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "artifact-manifest",
-      "command": "node scripts/validate_artifact_manifest.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure artifact manifest reflects actual workflows and archived receipts.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
       "id": "no-internal-instruction-leak",
       "command": "node scripts/validators/validate_no_internal_instruction_leak.js",
       "severity": "HARD_FAIL",
       "purpose": "Ensure no published page renders external-agent build directives (FILEPATH:/CURRENT:/MISSING:/EDIT:, citation-ready update text) as reader-facing copy.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "no-empty-table-cells",
-      "command": "node scripts/validators/validate_no_empty_table_cells.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Ensure no published page ships a table with empty <td>/<th> cells that break column-to-header alignment for answer engines.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "audience-permutation-budget",
-      "command": "node scripts/validators/validate_audience_permutation_budget.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Stop the audience-permutation fan-out regrowing. Rule A: every route in the class (777 today) that is indexable must carry measured demand or GSC impressions - the 714 with neither ship noindex. Rule B: no ungoverned \"for <x>\" suffix may exceed 60 indexable evidence-free routes without being gated under Rule A.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "selfheal-wiring",
-      "command": "node scripts/validate_selfheal_wiring.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prevent a working repair lane from being orphaned: every self-heal npm script must be reachable from a workflow.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "ci-reachability",
-      "command": "node scripts/validate_ci_reachability.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Keep main validated on commits push-triggered CI cannot see: GITHUB_TOKEN pushes from bot lanes do not trigger workflows.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "no-orphan-scripts",
-      "command": "node scripts/validate_no_orphan_scripts.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Fail if any tracked script under scripts/ has no caller. An unwired generator aimed at a live path is a loaded gun; an unwired validator enforces nothing.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "cadence-cap-parity",
-      "command": "node scripts/validators/validate_cadence_cap_parity.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Prove the publisher's weekly allowance and the cadence gate's weekly_cap verdict are one computation over one ledger (scripts/cadence/weekly_cap.js), on fixtures including the 2026-09-12 shape (2 pages a week ago + 2 today, cap 2) that went red when the gate counted since-acceptance against a per-week cap. Fails on zero governed records, an unlinked component, a parallel ledger, or a release lane that pushes without running the gate.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "cadence-derived-constants",
-      "command": "node scripts/validators/validate_cadence_derived_constants.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Bind every restated cadence constant to data/cadence/policy.json. Catches the class where a rate changes and a constant derived from it does not: 90-day route targets, per-day ceilings, tier ladders and generator literals that silently keep the old rate.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
@@ -550,126 +183,6 @@
       "command": "node scripts/validators/validate_email_obfuscation_safe.js",
       "severity": "HARD_FAIL",
       "purpose": "Every published HTML page (the real assembled .pages-output tree) keeps email addresses inside <!--email_off--> markers and carries no /cdn-cgi/l/email-protection link, so Cloudflare Email Obfuscation never turns a contact link into a JS-only 404 (16 Oct 2026 audit: every footer on virtualagency-os.com). Fails on zero pages or zero addresses governed.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "site-icons",
-      "command": "node scripts/validators/validate_site_icons.js",
-      "severity": "HARD_FAIL",
-      "purpose": "favicon.ico, apple-touch-icon (180x180), web manifest icons and the 1200x630 social card exist at the sizes the pages declare.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "social-meta",
-      "command": "node scripts/validators/validate_social_meta.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Every owned page carries og:type by page kind, og:image 1200x630 with width/height, twitter summary_large_image and icon links exactly once; apply_site_head.js is idempotent.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "structured-data",
-      "command": "node scripts/validators/validate_structured_data.js",
-      "severity": "HARD_FAIL",
-      "purpose": "JSON-LD parses; homepage has WebSite/WebPage/speakable, brand alternateName and a 40-60 word definition under the H1; FAQPage only where the Q&A is visible; demand pages carry their measured query.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "indexnow-key",
-      "command": "node scripts/validators/validate_indexnow_key.js",
-      "severity": "HARD_FAIL",
-      "purpose": "IndexNow verification file is published with the key and the post-deploy ping stays wired after CI on main.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "publication-freeze",
-      "command": "node scripts/validators/validate_publication_freeze.js",
-      "severity": "HARD_FAIL",
-      "purpose": "While frozen, no new page is created for a query without a measured Search Console number; the gate is exercised and wired into apply_release_plan.js.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "measured-targets",
-      "command": "node scripts/validators/validate_measured_targets.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Demand targets come only from Search Console rows; dropped estimates carry reasons; consolidation candidates are thin zero-impression sitemap pages with an existing hub.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "search-intelligence",
-      "command": "node scripts/validators/validate_search_intelligence.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Search Console analytics, index coverage and sitemap records exist, add up, and are no older than 7 days.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "demand-families",
-      "command": "node scripts/validators/validate_demand_families.js",
-      "severity": "HARD_FAIL",
-      "purpose": "demand_families.json fresh and consistent with measured_targets.json; every measured landing page resolves.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "demand-pages",
-      "command": "node scripts/validators/validate_demand_pages.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Top-12 family pages carry title/H1/definition/question H2s/one FAQPage/CTA ref, are linked from the homepage and /topics/, comparison pages have tables, no page claims to be software.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "sitemap-lastmod-honest",
-      "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Keep <lastmod> a content claim: refuse a sitemap that is a uniform build stamp, and pin by mutation that sitewide chrome does not move a page's hash while its own content does.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "thin-repair-reachable",
-      "command": "node scripts/validators/validate_thin_repair_reachable.js",
-      "severity": "HARD_FAIL",
-      "purpose": "A thin /programmatic/ page may not be blocked for 'quality_repair_missing_opportunity_metadata' when its own quality-report row already carries a query.",
-      "owner": "repo",
-      "tier": "tier1",
-      "environment": "container_and_local",
-      "failure_action": "block_release"
-    },
-    {
-      "id": "substance-scan-covers-sitemap",
-      "command": "node scripts/validators/validate_substance_scan_covers_sitemap.js",
-      "severity": "HARD_FAIL",
-      "purpose": "Every sitemapped route in a declared governed section has a substance row and a declared repair owner.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",

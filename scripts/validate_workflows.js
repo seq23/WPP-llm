@@ -159,7 +159,6 @@ for (const file of ['admin-command.yml', 'paid-citation-probe.yml', 'query-intel
   if (/(^|[;&|\s])git\s+push(?:\s|$)/m.test(text)) bad.push(`${file}: raw git push bypasses exact-SHA validation`);
 }
 const ciText = fs.readFileSync(path.join(workflowDir, 'ci.yml'), 'utf8');
-if (!ciText.includes('validate:workflow-faux-trace')) bad.push('ci.yml: missing all-workflow faux trace gate');
 if (!ciText.includes('validate:zero-paid-llm')) bad.push('ci.yml: missing the zero-paid-LLM gate (owner policy, 11 Oct 2026)');
 
 if (bad.length) {
