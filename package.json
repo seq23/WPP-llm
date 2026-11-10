@@ -108,7 +108,7 @@
     "validate:entity-graph": "node scripts/validators/validate_entity_graph.mjs",
     "entity:watch": "node scripts/entity_backlink_watch.mjs",
     "entity:converge": "node scripts/entity_converge.mjs",
-    "validate:seo-hygiene": "npm run validate:email-obfuscation-safe && npm run validate:entity-graph",
+    "validate:seo-hygiene": "npm run validate:email-obfuscation-safe && npm run validate:entity-graph && npm run validate:structured-data && npm run validate:sitemap-lastmod-honest",
     "redirects:measured:build": "node scripts/build_measured_404_redirects.js",
     "redirects:measured:refresh": "node scripts/build_measured_404_redirects.js && node scripts/update_redirects_clean_to_html.js",
     "live:check:measured-redirects": "node scripts/live_check_measured_redirects.js",
@@ -135,7 +135,9 @@
     "content:rewrite-kept": "node scripts/content/rewrite_kept_pages.js",
     "seo:plan-prune": "node scripts/plan_prune.js",
     "test:prune": "node scripts/test_prune.js --self-test && node scripts/test_prune.js",
-    "test:main-door": "node scripts/test_main_door_links.js --self-test && node scripts/test_main_door_links.js"
+    "test:main-door": "node scripts/test_main_door_links.js --self-test && node scripts/test_main_door_links.js",
+    "validate:structured-data": "node scripts/validators/validate_structured_data.js",
+    "validate:sitemap-lastmod-honest": "node scripts/validators/validate_sitemap_lastmod_honest.js"
   },
   "dependencies": {
     "marked": "^12.0.2"

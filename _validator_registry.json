@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-10",
   "policy": "common-sense validators only; no taste policing; no unregistered validator in release pipeline",
   "validators": [
     {
@@ -161,6 +161,20 @@
       "command": "npm run test:main-door",
       "severity": "HARD_FAIL",
       "purpose": "Every published page's logo, header menu and footer reach westpeekproductions.com (the one main door) and every link labelled with a web address goes to that address (7 Nov 2026: the logo stayed on this site and About's westpeekproductions.com links opened the inquiry form).",
+      "owner": "repo"
+    },
+    {
+      "id": "sitemap-lastmod-honest",
+      "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Sitemap lastmod moves only when page content changes, never as a uniform build stamp (no fake freshness). Restored 10 Nov 2026, hostile review.",
+      "owner": "repo"
+    },
+    {
+      "id": "structured-data-parity",
+      "command": "node scripts/validators/validate_structured_data.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Schema Service prices match the prices visible on the homepage, and FAQPage questions are visible on the page. Trimmed restore 10 Nov 2026, hostile review.",
       "owner": "repo"
     }
   ],

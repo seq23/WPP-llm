@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-11-10",
   "repo_class": "level_2_generated_static_publishing_with_level_3_release_edges",
   "allowed_severities": [
     "HARD_FAIL",
@@ -183,6 +183,26 @@
       "command": "node scripts/validators/validate_email_obfuscation_safe.js",
       "severity": "HARD_FAIL",
       "purpose": "Every published HTML page (the real assembled .pages-output tree) keeps email addresses inside <!--email_off--> markers and carries no /cdn-cgi/l/email-protection link, so Cloudflare Email Obfuscation never turns a contact link into a JS-only 404 (16 Oct 2026 audit: every footer on virtualagency-os.com). Fails on zero pages or zero addresses governed.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "sitemap-lastmod-honest",
+      "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Sitemap lastmod moves only when page content changes, never as a uniform build stamp (no fake freshness). Restored 10 Nov 2026, hostile review.",
+      "owner": "repo",
+      "tier": "tier1",
+      "environment": "container_and_local",
+      "failure_action": "block_release"
+    },
+    {
+      "id": "structured-data-parity",
+      "command": "node scripts/validators/validate_structured_data.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Schema Service prices match the prices visible on the homepage, and FAQPage questions are visible on the page. Trimmed restore 10 Nov 2026, hostile review.",
       "owner": "repo",
       "tier": "tier1",
       "environment": "container_and_local",
