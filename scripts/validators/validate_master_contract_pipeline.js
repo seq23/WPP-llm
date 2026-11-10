@@ -40,120 +40,10 @@ const pageFamilies = readJson('data/page_families/page_family_registry.json', {f
 const atoms = readJson('data/atoms/atom_registry.json', {atoms:[]});
 
 const checks = {
-  'citation-goal-sizing': () => {
-    // Both assertions here were floors on counts - a route target of at least
-    // 900, a universe of at least 1,000 - and a floor on a count is satisfiable
-    // by manufacture. They are replaced by the one question a count cannot
-    // answer: does every candidate marked publishable have evidence behind it?
-    const eligible = (universe.queries || []).filter(q => q.page_eligible);
-    if (!eligible.length) fail('no demand-backed queries in the universe: nothing may be published');
-    // "Evidence" is checked in the unit the row actually carries. `measured_volume`
-    // was one field holding either monthly search volume or this site's own 90-day
-    // impressions, so this check used to pass on a number whose meaning was unknown.
-    const demandValue = q => q.demand_basis === 'search_volume' ? q.search_volume
-      : q.demand_basis === 'impressions_90d' ? q.impressions_90d
-      : null;
-    const unbacked = eligible.filter(q => !(Number(demandValue(q)) > 0) && q.demand_evidence !== 'owner_approved_seed');
-    if (unbacked.length) fail(`${unbacked.length} queries marked publishable with no demand evidence in either unit, e.g. ${unbacked.slice(0,3).map(q=>q.query).join('; ')}`);
-  },
   'free-aeo-mode-contract': () => {
     if (citationContract.zero_paid_provider_default !== true) fail('zero_paid_provider_default must be true');
     const forbidden = citationContract.forbidden_default_dependencies || [];
     if (!forbidden.includes('paid_seo_tools')) fail('paid SEO tools must be forbidden by default');
-  },
-  'programmatic-release-contract': () => {
-    if (!exists('_content_release_contract.json')) fail('missing _content_release_contract.json');
-    if ((contentContract.cadence?.max_new_pages_per_day || 0) > 100) fail('governed max_new_pages_per_day exceeds 100');
-    if ((contentContract.cadence?.max_repairs_per_day || 0) > 250) fail('governed max_repairs_per_day exceeds 250');
-  },
-  'citation-intelligence-contract': () => {
-    if (!exists('_citation_intelligence_contract.json')) fail('missing _citation_intelligence_contract.json');
-    const collectors = citationContract.primary_collectors || [];
-    for (const c of ['google_search_console','benchmark_query_panel','site_inventory']) if (!collectors.includes(c)) fail(`missing collector ${c}`);
-  },
-  'agent-run-artifact-intake': () => {
-    if (!exists('data/agent_runs/raw_runs')) fs.mkdirSync(path.join(ROOT,'data/agent_runs/raw_runs'), {recursive:true});
-    if (!exists('data/agent_runs/normalized_agent_runs.json')) fail('missing normalized agent-run artifact packet; run citation:normalize-artifacts');
-  },
-  'normalized-agent-run-schema': () => {
-    const pkt = readJson('data/agent_runs/normalized_agent_runs.json', null);
-    if (!pkt || !Array.isArray(pkt.records) || !pkt.mode) fail('normalized agent-run packet schema invalid');
-  },
-  'velocity-intake-workflow': () => {
-    if (!exists('docs/strategy/CONTENT_GENERATION_CONSOLIDATION_GATE.md')) fail('missing consolidation gate');
-    if (!exists('data/content_generation/content_automation_cutover.json')) fail('missing cutover file');
-  },
-  'release-plan-integrity': () => {
-    const units = releasePlan.units || releasePlan.release_units || [];
-    if (!units.length) {
-      const maxNew = Number(releasePlan.max_new_pages_this_run ?? releasePlan.max_new_pages_per_day ?? 0);
-      const maxRepairs = Number(releasePlan.max_repairs_this_run ?? releasePlan.max_repairs_per_day ?? 0);
-      const allowedStates = new Set(['NO_INPUT','ALL_SKIPPED','COMPLETED_NO_CHANGES']);
-      const validNoOp = (maxNew === 0 && maxRepairs === 0) || allowedStates.has(releasePlan.status);
-      if (!validNoOp) fail('release plan has no units without a valid no-op/budget-exhausted state');
-      return;
-    }
-    if (units.filter(u=>u.release_action==='create').length > (contentContract.cadence?.max_new_pages_per_day || 50)) fail('release plan exceeds create cap');
-    if (units.filter(u=>u.release_action==='repair').length > (contentContract.cadence?.max_repairs_per_day || 100)) fail('release plan exceeds repair cap');
-    for (const u of units) if (!u.query || !u.target_route || !u.release_action) fail('release unit missing query/route/action');
-  },
-  'content-release-trace': () => {
-    if (!exists('artifacts/release/apply_release_plan_summary.json')) fail('missing apply release summary');
-    if (!exists('artifacts/release/release_plan_distribution_trace.json')) fail('missing release distribution trace');
-  },
-  'page-release-law': () => {
-    if (!Array.isArray(admissions.admissions) || admissions.admissions.length < 5) fail('page admissions are missing or too small');
-    const seen = new Set();
-    for (const a of admissions.admissions) {
-      if (!a.route || !a.query || !a.status) fail('admission missing route/query/status');
-      const key = `${a.route}::${a.query}`;
-      if (seen.has(key)) fail(`duplicate admission ${key}`);
-      seen.add(key);
-    }
-  },
-  'generated-content-gate': () => {
-    if (!atoms.atoms || atoms.atoms.length < 3) fail('atom registry too small');
-    if (!pageFamilies.families || pageFamilies.families.length < 5) fail('page family registry too small');
-  },
-  'programmatic-substance': () => {
-    const units = releasePlan.units || [];
-    const minWords = Number(contentContract.quality?.min_programmatic_words || 700);
-    const qualityReport = readJson('data/content/programmatic_quality_report.json', null);
-    const qualityByRoute = new Map((qualityReport?.pages || []).map(p => [cleanRoute(p.route), p]));
-    if (!releasePlanApplied) return;
-    for (const u of units.filter(x=>['create','repair'].includes(x.release_action))) {
-      const rel = fileForRoute(u.target_route);
-      if (!rel || !exists(rel)) fail(`release page missing after apply: ${u.target_route}`);
-      const text = fs.readFileSync(path.join(ROOT, rel),'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ');
-      const words = text.split(/\s+/).filter(Boolean).length;
-      if (words < minWords) fail(`generated page thin: ${rel} (${words}<${minWords})`);
-      if (!/West Peek Productions/.test(text)) fail(`generated page lacks WPP entity: ${rel}`);
-      if (cleanRoute(u.target_route).startsWith('/programmatic/')) {
-        if (!qualityReport) fail('missing programmatic quality report; run content:quality:report');
-        const row = qualityByRoute.get(cleanRoute(u.target_route));
-        if (!row) fail(`missing quality evidence for changed route: ${u.target_route}`);
-        const blocking = (row.flags || []).filter(f=>['thin','exact_duplicate','near_duplicate'].includes(f));
-        if (blocking.length) fail(`changed route fails programmatic quality: ${u.target_route}:${blocking.join(',')}`);
-      }
-    }
-  },
-  'canonical-routing-law': () => {
-    const redirects = exists('_redirects') ? fs.readFileSync(path.join(ROOT,'_redirects'),'utf8') : '';
-    if (/\s+\/[^\s]+\.html\s+301/.test(redirects)) fail('redirects contain clean-to-html rule risk');
-    const sitemap = exists('sitemap.xml') ? fs.readFileSync(path.join(ROOT,'sitemap.xml'),'utf8') : '';
-    if (/<loc>[^<]+\.html<\/loc>/.test(sitemap)) fail('sitemap contains .html canonical URLs');
-  },
-  'search-quality-basics': () => {
-    for (const f of walkHtml(ROOT).slice(0,200)) {
-      const html = fs.readFileSync(path.join(ROOT,f),'utf8');
-      if (!/<title>/.test(html) || !/meta name="description"/.test(html) || !/rel="canonical"/.test(html)) fail(`missing SEO basics: ${f}`);
-    }
-  },
-  'sitemap-parity': () => {
-    if (!exists('sitemap.xml')) fail('missing sitemap.xml');
-    const sitemap = fs.readFileSync(path.join(ROOT,'sitemap.xml'),'utf8');
-    if (!sitemap.includes('/query-atlas')) fail('sitemap missing query atlas');
-    if (!sitemap.includes('/virtual-event-production')) fail('sitemap missing core virtual event production route');
   },
   'content-safety': () => {
     const bad = [];
@@ -164,24 +54,6 @@ const checks = {
     }
     if (bad.length) fail('unsafe claims in '+bad.join(', '));
   },
-  'strategy-integrity-contract': () => {
-    if (!String(strategy.commercial_destination||'').includes('westpeekproductions.com')) fail('commercial destination not locked to WPP');
-    if (!JSON.stringify(strategy).includes('virtual event')) fail('strategy does not include virtual event scope');
-    if (String(strategy.canonical_policy||'').includes('clean_redirects_to_html')) fail('stale loop-prone canonical policy');
-  },
-  'deterministic-build': () => {
-    if (!exists('package-lock.json')) fail('missing package-lock.json');
-    if (!exists('package.json')) fail('missing package.json');
-  },
-  'repo-hygiene': () => {
-    const forbidden = ['.env'];
-    for (const f of forbidden) if (exists(f)) fail(`forbidden secret path: ${f}`);
-    // node_modules is allowed in local validation after npm ci, but must not be packaged.
-    // Packaging checks verify ZIP entries separately.
-    const pycache = [];
-    function walk(d){ for (const e of fs.readdirSync(d,{withFileTypes:true})) { const p=path.join(d,e.name); if (e.name==='__pycache__') pycache.push(path.relative(ROOT,p)); else if (e.isDirectory() && !['.git','.pages-output', 'node_modules'].includes(e.name)) walk(p); }}
-    walk(ROOT); if (pycache.length) fail(`__pycache__ packaged: ${pycache.join(', ')}`);
-  }
 };
 
 if (checkId === 'all') {

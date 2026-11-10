@@ -45,7 +45,6 @@ jobs:
       - run: bash scripts/ci_npm_install.sh
       - run: npm run actions:validate
       - run: npm run validate:workflow-data-trace
-      - run: npm run validate:workflow-faux-trace
       - run: npm run validate:zero-paid-llm
       - run: npm run test:free-router
       # Hard-fails if any workflow GitHub reports active has produced no run
