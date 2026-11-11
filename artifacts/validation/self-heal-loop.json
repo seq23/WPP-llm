@@ -1,15 +1,10 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-04T16:34:57.655Z",
+  "generated_at": "2026-11-11T16:33:54.828Z",
   "validate_command": "npm run validate:all",
   "max_attempts": 3,
   "dry_run": false,
   "registered_repairs": {
-    "agent-run-artifact-intake": "npm run citation:normalize-artifacts",
-    "normalized-agent-run-schema": "npm run citation:normalize-artifacts",
-    "programmatic-substance": "npm run content:quality:report && npm run release:quality:self-heal",
-    "search-quality-basics": "npm run repairs:diagnose && npm run repairs:apply",
-    "programmatic-quality": "npm run content:quality:report && npm run release:quality:self-heal",
     "entity-graph": "npm run entity:converge"
   },
   "status": "CLEAN",
