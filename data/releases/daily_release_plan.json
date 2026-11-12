@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-11T20:17:58.777Z",
+  "generated_at": "2026-11-12T08:22:15.251Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 531,
-    "candidates_considered": 1302,
+    "candidates_considered": 1294,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-12",
       "2026-11-11",
       "2026-11-10",
       "2026-11-09",
       "2026-11-08",
       "2026-11-07",
-      "2026-11-06",
-      "2026-11-05"
+      "2026-11-06"
     ],
     "usage_source": "data/cadence/known_urls.json",
     "new_pages_used_this_week": 0,
@@ -83,7 +83,7 @@
         "source_type": "gsc_search_analytics",
         "evidence_tier": "T1",
         "search_volume": null,
-        "impressions_90d": 7,
+        "impressions_90d": 6,
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
@@ -250,7 +250,7 @@
         "source_type": "gsc_search_analytics",
         "evidence_tier": "T1",
         "search_volume": null,
-        "impressions_90d": 7,
+        "impressions_90d": 6,
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
@@ -389,7 +389,7 @@
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
-    "opportunities_withheld": 9379
+    "opportunities_withheld": 9383
   },
   "status": "READY"
 }
