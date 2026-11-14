@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-13T20:18:33.058Z",
+  "generated_at": "2026-11-14T08:18:46.358Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 531,
-    "candidates_considered": 1308,
+    "candidates_considered": 1307,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-14",
       "2026-11-13",
       "2026-11-12",
       "2026-11-11",
       "2026-11-10",
       "2026-11-09",
-      "2026-11-08",
-      "2026-11-07"
+      "2026-11-08"
     ],
     "usage_source": "data/cadence/known_urls.json",
     "new_pages_used_this_week": 0,
@@ -53,42 +53,6 @@
   },
   "units": [
     {
-      "opportunity_id": "opp_aHlicmlkIGV2ZW50cyBwcm9k",
-      "query": "hybrid events production",
-      "cluster": "hybrid-event-production",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/hybrid-events-production",
-      "page_family": "operational_guide",
-      "source": "measured_demand_seed",
-      "demand_estimate": 0,
-      "score": 62,
-      "exists": false,
-      "action": "create",
-      "status": "admitted_candidate",
-      "source_route": "/hybrid-events-production",
-      "exists_now": false,
-      "release_action": "create",
-      "quality_reason": null,
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1107,
-        "max_similarity": 0.619501,
-        "nearest_route": "/programmatic/best-hybrid-event-platform",
-        "reasons": []
-      },
-      "release_order": 1,
-      "demand_evidence": {
-        "source_type": "gsc_search_analytics",
-        "evidence_tier": "T1",
-        "search_volume": null,
-        "impressions_90d": 5,
-        "demand_basis": "impressions_90d",
-        "source_file": "data/authority_scale/query_atlas.json"
-      }
-    },
-    {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHBs",
       "query": "event marketing plan timeline",
       "cluster": "event-marketing-strategy",
@@ -114,12 +78,48 @@
         "nearest_route": "/programmatic/event-marketing-strategy-timeline",
         "reasons": []
       },
-      "release_order": 2,
+      "release_order": 1,
       "demand_evidence": {
         "source_type": "gsc_search_analytics",
         "evidence_tier": "T1",
         "search_volume": null,
         "impressions_90d": 4,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_YmVzdCB3YXkgdG8gaG9zdCBh",
+      "query": "best way to host a virtual event",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-way-to-host-a-virtual-event",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/best-way-to-host-a-virtual-event",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1136,
+        "max_similarity": 0.58601,
+        "nearest_route": "/programmatic/top-virtual-event-platforms",
+        "reasons": []
+      },
+      "release_order": 2,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 3,
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
@@ -148,8 +148,8 @@
       "quality_preflight": {
         "ok": true,
         "word_count": 1099,
-        "max_similarity": 0.592862,
-        "nearest_route": "/programmatic/virtual-event-case-studies",
+        "max_similarity": 0.617552,
+        "nearest_route": "/programmatic/best-way-to-host-a-virtual-event",
         "reasons": []
       },
       "metadata_source": "opportunity_record",
@@ -210,8 +210,8 @@
       "quality_preflight": {
         "ok": true,
         "word_count": 1104,
-        "max_similarity": 0.593824,
-        "nearest_route": "/programmatic/hybrid-events-production",
+        "max_similarity": 0.558382,
+        "nearest_route": "/programmatic/hybrid-event-production-for-startups",
         "reasons": []
       },
       "metadata_source": "opportunity_record",
@@ -220,42 +220,6 @@
   ],
   "release_units": [
     {
-      "opportunity_id": "opp_aHlicmlkIGV2ZW50cyBwcm9k",
-      "query": "hybrid events production",
-      "cluster": "hybrid-event-production",
-      "pillar": "experiences",
-      "authority_lane": "CORE",
-      "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/hybrid-events-production",
-      "page_family": "operational_guide",
-      "source": "measured_demand_seed",
-      "demand_estimate": 0,
-      "score": 62,
-      "exists": false,
-      "action": "create",
-      "status": "admitted_candidate",
-      "source_route": "/hybrid-events-production",
-      "exists_now": false,
-      "release_action": "create",
-      "quality_reason": null,
-      "quality_preflight": {
-        "ok": true,
-        "word_count": 1107,
-        "max_similarity": 0.619501,
-        "nearest_route": "/programmatic/best-hybrid-event-platform",
-        "reasons": []
-      },
-      "release_order": 1,
-      "demand_evidence": {
-        "source_type": "gsc_search_analytics",
-        "evidence_tier": "T1",
-        "search_volume": null,
-        "impressions_90d": 5,
-        "demand_basis": "impressions_90d",
-        "source_file": "data/authority_scale/query_atlas.json"
-      }
-    },
-    {
       "opportunity_id": "opp_ZXZlbnQgbWFya2V0aW5nIHBs",
       "query": "event marketing plan timeline",
       "cluster": "event-marketing-strategy",
@@ -281,12 +245,48 @@
         "nearest_route": "/programmatic/event-marketing-strategy-timeline",
         "reasons": []
       },
-      "release_order": 2,
+      "release_order": 1,
       "demand_evidence": {
         "source_type": "gsc_search_analytics",
         "evidence_tier": "T1",
         "search_volume": null,
         "impressions_90d": 4,
+        "demand_basis": "impressions_90d",
+        "source_file": "data/authority_scale/query_atlas.json"
+      }
+    },
+    {
+      "opportunity_id": "opp_YmVzdCB3YXkgdG8gaG9zdCBh",
+      "query": "best way to host a virtual event",
+      "cluster": "virtual-event-production",
+      "pillar": "experiences",
+      "authority_lane": "CORE",
+      "entity_binding": "west_peek_productions",
+      "target_route": "/programmatic/best-way-to-host-a-virtual-event",
+      "page_family": "operational_guide",
+      "source": "measured_demand_seed",
+      "demand_estimate": 0,
+      "score": 80,
+      "exists": false,
+      "action": "create",
+      "status": "admitted_candidate",
+      "source_route": "/best-way-to-host-a-virtual-event",
+      "exists_now": false,
+      "release_action": "create",
+      "quality_reason": null,
+      "quality_preflight": {
+        "ok": true,
+        "word_count": 1136,
+        "max_similarity": 0.58601,
+        "nearest_route": "/programmatic/top-virtual-event-platforms",
+        "reasons": []
+      },
+      "release_order": 2,
+      "demand_evidence": {
+        "source_type": "gsc_search_analytics",
+        "evidence_tier": "T1",
+        "search_volume": null,
+        "impressions_90d": 3,
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
@@ -315,8 +315,8 @@
       "quality_preflight": {
         "ok": true,
         "word_count": 1099,
-        "max_similarity": 0.592862,
-        "nearest_route": "/programmatic/virtual-event-case-studies",
+        "max_similarity": 0.617552,
+        "nearest_route": "/programmatic/best-way-to-host-a-virtual-event",
         "reasons": []
       },
       "metadata_source": "opportunity_record",
@@ -377,8 +377,8 @@
       "quality_preflight": {
         "ok": true,
         "word_count": 1104,
-        "max_similarity": 0.593824,
-        "nearest_route": "/programmatic/hybrid-events-production",
+        "max_similarity": 0.558382,
+        "nearest_route": "/programmatic/hybrid-event-production-for-startups",
         "reasons": []
       },
       "metadata_source": "opportunity_record",
@@ -389,7 +389,7 @@
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
-    "opportunities_withheld": 9365
+    "opportunities_withheld": 9361
   },
   "status": "READY"
 }
