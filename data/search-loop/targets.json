@@ -1,18 +1,91 @@
 {
   "schema": "search-loop-targets-v1",
   "site": "virtualagency-os.com",
-  "week": "2026-W46",
-  "generated_at": "2026-11-09T15:43:17.146Z",
+  "week": "2026-W47",
+  "generated_at": "2026-11-16T09:46:57.377Z",
   "sources": {
     "search_console": "ok: 4 rows",
-    "bing_webmaster": "ok: 73 rows",
+    "bing_webmaster": "ok: 76 rows",
     "easy_wins": "ok: 0 easy win(s) in Search Console",
     "suggestqueries.google.com": "ok",
     "api.bing.com": "ok",
-    "relevance_screen": "ok: kept 11 of 70 (free model)",
-    "top10": "ok: 11 top-10 read(s) via brave"
+    "relevance_screen": "ok: kept 19 of 150 (free model)",
+    "top10": "ok: 15 top-10 read(s) via brave"
   },
   "targets": [
+    {
+      "query": "live broadcast production companies",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.31,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 3,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 22.4
+      },
+      "score": 22.4,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.31): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "how to build an online community for your brand",
+      "variants": [
+        "building an online brand community"
+      ],
+      "signals": {
+        "words": 9,
+        "question": true,
+        "google_suggest": true,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 1,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 1
+          },
+          "reasons": [
+            "top 10: 0 directories, 1 forums, 0 off-target national, 0 thin or old, 1 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 45,
+        "can_be_one": 16
+      },
+      "score": 45,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 score 16 too (taken by the striking lane's turn)"
+      ]
+    },
     {
       "query": "small business virtual event production",
       "variants": [],
@@ -22,7 +95,7 @@
         "bing_suggest": true,
         "top10": {
           "provider": "brave",
-          "weakness": 0.23,
+          "weakness": 0.31,
           "counts": {
             "results": 10,
             "directories": 0,
@@ -38,53 +111,88 @@
       },
       "scores": {
         "striking": 20,
-        "can_be_one": 19.2
+        "can_be_one": 22.4
       },
-      "score": 19.2,
+      "score": 22.4,
       "kind": "new",
       "lane": "can_be_one",
       "reasons": [
-        "weak top 10 (0.23): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
+        "weak top 10 (0.31): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
         "people search it (autocomplete or impressions)"
       ]
     },
     {
-      "query": "virtual event management company",
+      "query": "hybrid event production finland",
       "variants": [],
       "signals": {
         "words": 4,
         "question": false,
-        "google_suggest": true,
+        "bing_suggest": true,
         "top10": {
           "provider": "brave",
-          "weakness": 0.15,
+          "weakness": 0.31,
           "counts": {
             "results": 10,
             "directories": 0,
             "forums": 0,
             "off_target_national": 0,
-            "thin_or_old": 1,
-            "exact_answer": 1
+            "thin_or_old": 3,
+            "exact_answer": 0
           },
           "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 1 answer the exact question"
+            "top 10: 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question"
           ]
         }
       },
       "scores": {
-        "striking": 25,
-        "can_be_one": 16
+        "striking": 20,
+        "can_be_one": 22.4
       },
-      "score": 25,
+      "score": 22.4,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.31): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "how to build an effective online community around a brand",
+      "variants": [],
+      "signals": {
+        "words": 10,
+        "question": true,
+        "google_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.08,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 1,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 1 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 13.2
+      },
+      "score": 30,
       "kind": "new",
       "lane": "striking",
       "reasons": [
         "autocomplete demand (google/bing)",
-        "can-be-#1 score 16 too (taken by the striking lane's turn)"
+        "can-be-#1 evidence too thin (13.2 < 15)"
       ]
     },
     {
-      "query": "hybrid event production finland",
+      "query": "virtual event production finland",
       "variants": [],
       "signals": {
         "words": 4,
@@ -119,11 +227,116 @@
       ]
     },
     {
-      "query": "best event planning services for webinars",
+      "query": "virtual event management company",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 2
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 2 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 1 thin or old, 2 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "what is a virtual town hall",
       "variants": [],
       "signals": {
         "words": 6,
-        "question": false,
+        "question": true,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 10
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 10 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (0 < 15)"
+      ]
+    },
+    {
+      "query": "how to create a run of show",
+      "variants": [],
+      "signals": {
+        "words": 7,
+        "question": true,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 2,
+            "exact_answer": 4
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 4 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 4 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "how brand community practices create value",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": true,
         "bing_suggest": true,
         "top10": {
           "provider": "brave",
@@ -133,59 +346,59 @@
             "directories": 0,
             "forums": 1,
             "off_target_national": 0,
-            "thin_or_old": 1,
-            "exact_answer": 0
+            "thin_or_old": 4,
+            "exact_answer": 6
           },
           "reasons": [
-            "top 10: 0 directories, 1 forums, 0 off-target national, 1 thin or old, 0 answer the exact question"
+            "top 10: 0 directories, 1 forums, 0 off-target national, 4 thin or old, 6 answer the exact question"
           ]
         }
       },
       "scores": {
-        "striking": 20,
+        "striking": 25,
         "can_be_one": 16
       },
       "score": 16,
       "kind": "new",
       "lane": "can_be_one",
       "reasons": [
-        "weak top 10 (0.15): 0 directories, 1 forums, 0 off-target national, 1 thin or old, 0 answer the exact question",
+        "weak top 10 (0.15): 0 directories, 1 forums, 0 off-target national, 4 thin or old, 6 answer the exact question",
         "people search it (autocomplete or impressions)"
       ]
     },
     {
-      "query": "how to hire a virtual event planner",
+      "query": "online brand community examples",
       "variants": [],
       "signals": {
-        "words": 7,
-        "question": true,
-        "bing_suggest": true,
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
         "top10": {
           "provider": "brave",
-          "weakness": 0.08,
+          "weakness": 0,
           "counts": {
             "results": 10,
             "directories": 0,
             "forums": 0,
             "off_target_national": 0,
-            "thin_or_old": 1,
-            "exact_answer": 3
+            "thin_or_old": 0,
+            "exact_answer": 2
           },
           "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 3 answer the exact question"
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 2 answer the exact question"
           ]
         }
       },
       "scores": {
         "striking": 25,
-        "can_be_one": 13.2
+        "can_be_one": 0
       },
       "score": 25,
       "kind": "new",
       "lane": "striking",
       "reasons": [
         "autocomplete demand (google/bing)",
-        "can-be-#1 evidence too thin (13.2 < 15)"
+        "can-be-#1 evidence too thin (0 < 15)"
       ]
     },
     {
@@ -259,12 +472,12 @@
       ]
     },
     {
-      "query": "launching virtual events tips and tricks",
+      "query": "branded community website examples",
       "variants": [],
       "signals": {
-        "words": 6,
+        "words": 4,
         "question": false,
-        "bing_suggest": true,
+        "google_suggest": true,
         "top10": {
           "provider": "brave",
           "weakness": 0,
@@ -282,10 +495,10 @@
         }
       },
       "scores": {
-        "striking": 20,
+        "striking": 25,
         "can_be_one": 0
       },
-      "score": 20,
+      "score": 25,
       "kind": "new",
       "lane": "striking",
       "reasons": [
@@ -294,150 +507,214 @@
       ]
     },
     {
-      "query": "launching virtual events for beginners",
+      "query": "hiring community manager remote",
       "variants": [],
       "signals": {
-        "words": 5,
+        "words": 4,
         "question": false,
-        "bing_suggest": true,
+        "google_suggest": true,
         "top10": {
           "provider": "brave",
-          "weakness": 0.08,
+          "weakness": 0,
           "counts": {
             "results": 10,
             "directories": 0,
-            "forums": 1,
+            "forums": 0,
             "off_target_national": 0,
             "thin_or_old": 0,
-            "exact_answer": 0
+            "exact_answer": 2
           },
           "reasons": [
-            "top 10: 0 directories, 1 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 2 answer the exact question"
           ]
         }
       },
       "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (0 < 15)"
+      ]
+    },
+    {
+      "query": "live stream production finland",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
         "striking": 20,
-        "can_be_one": 13.2
+        "can_be_one": 0
       },
       "score": 20,
       "kind": "new",
       "lane": "striking",
       "reasons": [
-        "autocomplete demand (google/bing)",
-        "can-be-#1 evidence too thin (13.2 < 15)"
+        "autocomplete demand (google/bing)"
       ]
     },
     {
-      "query": "webinar production agency sheffield request a quote",
+      "query": "live stream production services",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "sample run of show for an event",
       "variants": [],
       "signals": {
         "words": 7,
         "question": false,
-        "bing_impressions": 1,
-        "bing_position": 10,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 0,
-            "exact_answer": 0
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
-          ]
-        }
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
       },
       "scores": {
-        "striking": 13,
+        "striking": 20,
         "can_be_one": 0
       },
-      "score": 13,
+      "score": 20,
       "kind": "new",
       "lane": "striking",
       "reasons": [
-        "autocomplete demand (google/bing)",
-        "can-be-#1 evidence too thin (0 < 15)"
+        "autocomplete demand (google/bing)"
       ]
     },
     {
-      "query": "webinar production agency get a quote",
+      "query": "building small business community",
       "variants": [],
       "signals": {
-        "words": 6,
+        "words": 4,
         "question": false,
-        "bing_impressions": 1,
-        "bing_position": 10,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 0,
-            "exact_answer": 0
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
-          ]
-        }
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
       },
       "scores": {
-        "striking": 13,
+        "striking": 20,
         "can_be_one": 0
       },
-      "score": 13,
+      "score": 20,
       "kind": "new",
       "lane": "striking",
       "reasons": [
-        "autocomplete demand (google/bing)",
-        "can-be-#1 evidence too thin (0 < 15)"
+        "autocomplete demand (google/bing)"
       ]
     }
   ],
   "strengthen": [
     {
-      "query": "webinar production agency get a quote",
-      "page": "/programmatic/webinar-production-agency",
-      "url": "https://virtualagency-os.com/programmatic/webinar-production-agency",
-      "score": 13,
+      "query": "building small business community",
+      "page": "/answers/how-to-build-a-community-around-your-business",
+      "url": "https://virtualagency-os.com/answers/how-to-build-a-community-around-your-business",
+      "score": 20,
       "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-09"
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-16"
     },
     {
-      "query": "webinar production agency sheffield request a quote",
-      "page": "/programmatic/webinar-production-agency",
-      "url": "https://virtualagency-os.com/programmatic/webinar-production-agency",
-      "score": 13,
+      "query": "sample run of show for an event",
+      "page": "/programmatic/event-run-of-show-examples",
+      "url": "https://virtualagency-os.com/programmatic/event-run-of-show-examples",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.75 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "live stream production services",
+      "page": "/programmatic/live-stream-production-company",
+      "url": "https://virtualagency-os.com/programmatic/live-stream-production-company",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "live stream production finland",
+      "page": "/programmatic/live-stream-production-company",
+      "url": "https://virtualagency-os.com/programmatic/live-stream-production-company",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "online brand community examples",
+      "page": "/programmatic/brand-community-strategy-examples",
+      "url": "https://virtualagency-os.com/programmatic/brand-community-strategy-examples",
+      "score": 25,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.75 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "how to build an effective online community around a brand",
+      "page": "/programmatic/community-building-for-brands-examples",
+      "url": "https://virtualagency-os.com/programmatic/community-building-for-brands-examples",
+      "score": 30,
       "from": "distinct-gate",
       "matched_by": "same 3 intent words plus modifiers",
-      "at": "2026-11-09"
+      "at": "2026-11-16"
+    },
+    {
+      "query": "how to build an online community for your brand",
+      "page": "/programmatic/community-building-for-brands-examples",
+      "url": "https://virtualagency-os.com/programmatic/community-building-for-brands-examples",
+      "score": 45,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.75 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "how to create a run of show",
+      "page": "/programmatic/run-of-show-meaning",
+      "url": "https://virtualagency-os.com/programmatic/run-of-show-meaning",
+      "score": 16,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.67 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "virtual event production finland",
+      "page": "/programmatic/virtual-event-production-examples",
+      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-examples",
+      "score": 19.2,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.75 >= 0.6)",
+      "at": "2026-11-16"
+    },
+    {
+      "query": "live broadcast production companies",
+      "page": "/programmatic/executive-broadcast-production-companies",
+      "url": "https://virtualagency-os.com/programmatic/executive-broadcast-production-companies",
+      "score": 22.4,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-16"
     },
     {
       "query": "what is virtual production",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": true,
-        "bing_suggest": true,
-        "google_suggest": true
-      },
-      "scores": {
-        "striking": 45,
-        "can_be_one": 0
-      },
-      "score": 45,
-      "page": "/programmatic/best-virtual-event-production-companies"
-    },
-    {
-      "query": "what is event production",
       "variants": [],
       "signals": {
         "words": 4,
@@ -451,6 +728,42 @@
       },
       "score": 45,
       "page": "/programmatic/best-virtual-event-production-companies"
+    },
+    {
+      "query": "how to build a community",
+      "variants": [
+        "ways to build community"
+      ],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 45,
+        "can_be_one": 0
+      },
+      "score": 45,
+      "page": "/programmatic/community-building-for-brands-2026"
+    },
+    {
+      "query": "what is a community manager",
+      "variants": [
+        "what does a community manager do"
+      ],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 45,
+        "can_be_one": 0
+      },
+      "score": 45,
+      "page": "/answers/community-manager-vs-community-agency"
     },
     {
       "query": "virtual event production company",
@@ -469,6 +782,22 @@
       "page": "/programmatic/virtual-event-production-company"
     },
     {
+      "query": "live stream production company",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 40,
+        "can_be_one": 0
+      },
+      "score": 40,
+      "page": "/programmatic/live-stream-production-company"
+    },
+    {
       "query": "virtual event production",
       "variants": [],
       "signals": {
@@ -483,25 +812,6 @@
       },
       "score": 30,
       "page": "/programmatic/best-virtual-event-production-companies"
-    },
-    {
-      "query": "virtual event management",
-      "variants": [
-        "what is virtual event management",
-        "virtual event management tips"
-      ],
-      "signals": {
-        "words": 3,
-        "question": false,
-        "google_suggest": true,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 30,
-        "can_be_one": 0
-      },
-      "score": 30,
-      "page": "/programmatic/virtual-event-management"
     },
     {
       "query": "hybrid event production",
@@ -523,8 +833,7 @@
       "query": "hybrid events examples",
       "variants": [
         "what is a hybrid event",
-        "examples of hybrid events",
-        "what is hybrid events"
+        "examples of hybrid events"
       ],
       "signals": {
         "words": 3,
@@ -540,53 +849,143 @@
       "page": "/programmatic/best-hybrid-event-platform"
     },
     {
-      "query": "what is live webinar",
+      "query": "webinar production",
       "variants": [
-        "is a webinar live",
-        "what is a live webinar",
-        "what are live webinars"
+        "webinar production guide"
       ],
       "signals": {
-        "words": 4,
-        "question": true,
+        "words": 2,
+        "question": false,
+        "google_suggest": true,
         "bing_suggest": true
       },
       "scores": {
-        "striking": 25,
+        "striking": 30,
         "can_be_one": 0
       },
-      "score": 25,
+      "score": 30,
       "page": "/programmatic/live-event-production-webinar"
     },
     {
-      "query": "are webinars live events",
+      "query": "webinar production services",
       "variants": [],
       "signals": {
-        "words": 4,
-        "question": true,
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
         "bing_suggest": true
       },
       "scores": {
-        "striking": 25,
+        "striking": 30,
         "can_be_one": 0
       },
-      "score": 25,
-      "page": "/programmatic/live-event-production-webinar"
+      "score": 30,
+      "page": "/programmatic/professional-webinar-production-services"
     },
     {
-      "query": "what is a webinar event",
-      "variants": [],
+      "query": "virtual production conference",
+      "variants": [
+        "virtual conference production tips",
+        "virtual conference production examples",
+        "virtual conference production guide"
+      ],
       "signals": {
-        "words": 5,
-        "question": true,
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
         "bing_suggest": true
       },
       "scores": {
-        "striking": 25,
+        "striking": 30,
         "can_be_one": 0
       },
-      "score": 25,
-      "page": "/programmatic/live-event-production-webinar"
+      "score": 30,
+      "page": "/programmatic/virtual-conference-production"
+    },
+    {
+      "query": "live stream production",
+      "variants": [
+        "live stream production tips"
+      ],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/programmatic/live-stream-production-company"
+    },
+    {
+      "query": "how to build a community around your business",
+      "variants": [],
+      "signals": {
+        "words": 8,
+        "question": true,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/answers/how-to-build-a-community-around-your-business"
+    },
+    {
+      "query": "how to build a community for your business",
+      "variants": [],
+      "signals": {
+        "words": 8,
+        "question": true,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/answers/how-to-build-a-community-around-your-business"
+    },
+    {
+      "query": "how to build a brand community",
+      "variants": [
+        "brand community building examples"
+      ],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/programmatic/community-building-for-brands-2026"
+    },
+    {
+      "query": "brand community examples",
+      "variants": [
+        "best brand community examples",
+        "what is a brand community",
+        "what is community brands"
+      ],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/programmatic/brand-agency-vs-marketing-agency-for-community-organizations"
     },
     {
       "query": "virtual event production services",
@@ -602,70 +1001,6 @@
       },
       "score": 25,
       "page": "/programmatic/virtual-event-production-services"
-    },
-    {
-      "query": "how does virtual production work",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": true,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "page": "/learn/how-virtual-event-production-works"
-    },
-    {
-      "query": "how to host a virtual event",
-      "variants": [
-        "can you host a virtual event"
-      ],
-      "signals": {
-        "words": 6,
-        "question": true,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "page": "/programmatic/host-virtual-events"
-    },
-    {
-      "query": "what is virtual event",
-      "variants": [
-        "ideas for virtual events"
-      ],
-      "signals": {
-        "words": 4,
-        "question": true,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "page": "/programmatic/best-platform-for-virtual-events"
-    },
-    {
-      "query": "what is an event production company",
-      "variants": [],
-      "signals": {
-        "words": 6,
-        "question": true,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "page": "/programmatic/hybrid-event-production-company"
     },
     {
       "query": "hybrid event production company",
@@ -696,6 +1031,430 @@
       },
       "score": 25,
       "page": "/programmatic/hybrid-event-production-for-professional-services-firms"
+    },
+    {
+      "query": "virtual production summit 2026",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/virtual-summit-production-2026"
+    },
+    {
+      "query": "what is a virtual run event",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/virtual-event-production-run-of-show"
+    },
+    {
+      "query": "what is run of show",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/event-run-of-show-2026"
+    },
+    {
+      "query": "what is virtual event",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/best-platform-for-virtual-events"
+    },
+    {
+      "query": "what is a virtual run",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/virtual-event-production-run-of-show"
+    },
+    {
+      "query": "how to host a virtual event",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/host-virtual-events"
+    },
+    {
+      "query": "how to build community at work",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/community-building-for-brands-scope-of-work"
+    },
+    {
+      "query": "what is a business community",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/answers/how-to-build-a-community-around-your-business"
+    },
+    {
+      "query": "community led growth strategy",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/community-led-growth-strategy-framework"
+    },
+    {
+      "query": "community led growth examples",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/community-led-growth-2026"
+    },
+    {
+      "query": "hire a community manager",
+      "variants": [
+        "how to hire a community manager"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/answers/community-manager-vs-community-agency"
+    },
+    {
+      "query": "what is a community agency",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/agency-rfp-questions-for-community-organizations"
+    },
+    {
+      "query": "what is community management",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/community-management-outsourcing"
+    },
+    {
+      "query": "what is live webinar",
+      "variants": [
+        "is a webinar live",
+        "what is a live webinar"
+      ],
+      "signals": {
+        "words": 4,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/live-event-production-webinar"
+    },
+    {
+      "query": "are webinars live events",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/live-event-production-webinar"
+    },
+    {
+      "query": "how does virtual production work",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/learn/how-virtual-event-production-works"
+    },
+    {
+      "query": "how to do a live stream",
+      "variants": [
+        "how to stream live",
+        "how to start a live stream",
+        "how to live streaming"
+      ],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/live-stream-production-company"
+    },
+    {
+      "query": "how to stream live stream",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/live-stream-production-company"
+    },
+    {
+      "query": "what is broadcast production",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/broadcast-style-virtual-events"
+    },
+    {
+      "query": "how to run an event",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/event-run-of-show-2026"
+    },
+    {
+      "query": "what is your brand examples",
+      "variants": [
+        "examples of a brand",
+        "what is branding with examples",
+        "good examples of branding"
+      ],
+      "signals": {
+        "words": 5,
+        "question": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 0
+      },
+      "score": 25,
+      "page": "/programmatic/ai-content-operations-agency-for-brands"
+    },
+    {
+      "query": "virtual event production checklist",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/programmatic/virtual-event-production-checklist"
+    },
+    {
+      "query": "virtual event run of show template",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/insights/virtual-event-run-of-show-template-that-prevents-chaos"
+    },
+    {
+      "query": "event run of show",
+      "variants": [
+        "run of show events",
+        "run of show examples for event",
+        "what is an event run of show"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/programmatic/event-run-of-show-2026"
+    },
+    {
+      "query": "run of show event template",
+      "variants": [
+        "run of show template for events"
+      ],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/insights/virtual-event-run-of-show-template-that-prevents-chaos"
+    },
+    {
+      "query": "growth strategy of a community",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/programmatic/community-led-growth-strategy-framework"
+    },
+    {
+      "query": "options for community growth",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "page": "/programmatic/community-led-growth-comparison"
     },
     {
       "query": "live event vs webinar teams",
@@ -731,21 +1490,6 @@
       "page": "/programmatic/startup-brand-strategy-agency"
     },
     {
-      "query": "virtual event production checklist",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-event-production-checklist"
-    },
-    {
       "query": "platforms for virtual events production",
       "variants": [],
       "signals": {
@@ -761,24 +1505,6 @@
       "page": "/programmatic/virtual-event-production-platform-stack"
     },
     {
-      "query": "virtual conference production tips",
-      "variants": [
-        "virtual conference production examples",
-        "virtual conference production guide"
-      ],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-conference-production"
-    },
-    {
       "query": "virtual events for work",
       "variants": [],
       "signals": {
@@ -792,134 +1518,6 @@
       },
       "score": 20,
       "page": "/learn/how-virtual-event-production-works"
-    },
-    {
-      "query": "launching virtual events examples",
-      "variants": [
-        "launching virtual events guide"
-      ],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-event-production-launch-plan"
-    },
-    {
-      "query": "virtual events for companies",
-      "variants": [
-        "virtual event ideas for companies"
-      ],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/best-virtual-event-production-companies"
-    },
-    {
-      "query": "best virtual event planning tips",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-event-planning-accessibility"
-    },
-    {
-      "query": "virtual event systems tips",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-event-backup-systems"
-    },
-    {
-      "query": "event marketing strategies for virtual events",
-      "variants": [],
-      "signals": {
-        "words": 6,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-event-marketing"
-    },
-    {
-      "query": "virtual event producer",
-      "variants": [
-        "what is a virtual event producer"
-      ],
-      "signals": {
-        "words": 3,
-        "question": false,
-        "google_suggest": true
-      },
-      "scores": {
-        "striking": 15,
-        "can_be_one": 0
-      },
-      "score": 15,
-      "page": "/programmatic/virtual-event-production-producer-roles"
-    },
-    {
-      "query": "deliverables in a podcast",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_impressions": 1,
-        "bing_position": 9
-      },
-      "scores": {
-        "striking": 13,
-        "can_be_one": 0
-      },
-      "score": 13,
-      "page": "/programmatic/podcast-strategy-consulting-deliverables"
-    },
-    {
-      "query": "creative qa checklist",
-      "variants": [],
-      "signals": {
-        "words": 3,
-        "question": false,
-        "bing_impressions": 1,
-        "bing_position": 10
-      },
-      "scores": {
-        "striking": 3,
-        "can_be_one": 0
-      },
-      "score": 3,
-      "page": "/insights/qa-checklist-for-creative-marketing-deliverables"
     }
   ]
 }
