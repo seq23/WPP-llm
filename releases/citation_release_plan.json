@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-16T20:17:36.061Z",
+  "generated_at": "2026-11-17T08:22:10.571Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -9,7 +9,7 @@
       "data/demand/measured_demand.json"
     ],
     "demand_records_available": 532,
-    "candidates_considered": 1298,
+    "candidates_considered": 1308,
     "refused_for_no_demand": 0,
     "collapsed_synonym_candidates": 0
   },
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-17",
       "2026-11-16",
       "2026-11-15",
       "2026-11-14",
       "2026-11-13",
       "2026-11-12",
-      "2026-11-11",
-      "2026-11-10"
+      "2026-11-11"
     ],
     "usage_source": "data/cadence/known_urls.json",
     "new_pages_used_this_week": 0,
@@ -45,7 +45,7 @@
   "max_repairs_per_day": 100,
   "max_route_mutations_per_day": 102,
   "quality_snapshot": {
-    "corpus_fingerprint": "ca2dc0c6f8343feeb87d17fb95bdd9b7e65f39a39305687e33c6bb7ae358a0c4",
+    "corpus_fingerprint": "ba6309bc2c366b6e90f9ab662ead45436f4561da6de98c1ad455a30ddc0588fd",
     "legacy_backlog": 123,
     "thin_pages": 121,
     "exact_duplicate_pages": 0,
@@ -389,7 +389,7 @@
   "paused_for_consolidation": {
     "ledger": "data/seo/duplicate_family_consolidation.json",
     "families": 30,
-    "opportunities_withheld": 9350
+    "opportunities_withheld": 9321
   },
   "status": "READY"
 }
