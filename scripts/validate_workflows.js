@@ -143,7 +143,10 @@ for (const [file, want] of Object.entries(reusableCallers)) {
   if (!/needs\.[A-Za-z0-9_-]+\.outputs\.allowed == 'true'/.test(String(job.if || ''))) bad.push(`${file}: the engine job must be gated on the runtime guard's allowed output`);
   if (job.uses !== want.uses) bad.push(`${file}: must call ${want.uses} (found ${job.uses || 'no uses:'})`);
   if ((job.with || {}).engine_ref !== want.engineRef) bad.push(`${file}: engine_ref must equal the @ref in uses: (${want.engineRef})`);
-  if (((doc.concurrency || {}).group) !== 'wpp-autonomous-writer-main') bad.push(`${file}: writer is outside the shared main serialization group`);
+  // A pull request's config check (search-loop stage validate, never writes) may take its own group;
+  // every writing run still takes the shared one.
+  const grp = String((doc.concurrency || {}).group || '');
+  if (grp !== 'wpp-autonomous-writer-main' && !/^\$\{\{ github\.event_name == 'pull_request' && .*\|\| 'wpp-autonomous-writer-main' \}\}$/.test(grp)) bad.push(`${file}: writer is outside the shared main serialization group`);
   const commit = String((job.with || {}).commit_command || '');
   if (!commit.includes(want.commitScript)) bad.push(`${file}: commit_command must be ${want.commitScript} (the exact-SHA push helper)`);
   const script = path.join(ROOT, want.commitScript);
