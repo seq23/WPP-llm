@@ -12,6 +12,13 @@ on:
   schedule:
     - cron: '35 3 * * *'  # America/Chicago, all year (the retired release lane's slot)
       timezone: America/Chicago
+  # A change to the engine's config or routing is checked on the PR (search-loop v1.12.0
+  # stage validate: config + model-routing checks only, no network, no model call; peace-be-still
+  # 18 Nov 2026 failed every scheduled run on a routing file nothing checked before merge).
+  pull_request:
+    paths:
+      - search-loop.config.json
+      - .github/workflows/search-loop.yml
   workflow_dispatch:
     inputs:
       stage:
@@ -25,7 +32,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: wpp-autonomous-writer-main
+  group: ${{ github.event_name == 'pull_request' && format('wpp-autonomous-writer-main-pr-{0}', github.ref) || 'wpp-autonomous-writer-main' }}
   cancel-in-progress: false
 
 jobs:
@@ -44,12 +51,13 @@ jobs:
 
   search-loop:
     needs: runtime
-    if: needs.runtime.outputs.allowed == 'true'
+    # A pull request's config check runs whatever the pause state (it never publishes).
+    if: github.event_name == 'pull_request' || needs.runtime.outputs.allowed == 'true'
     uses: seq23/search-loop/.github/workflows/search-loop.yml@v1
     with:
       open_loops_business: west-peek
       engine_ref: v1
-      stage: ${{ inputs.stage || 'auto' }}
+      stage: ${{ github.event_name == 'pull_request' && 'validate' || inputs.stage || 'auto' }}
       setup_command: bash scripts/ci_npm_install.sh
       post_build_command: bash .github/scripts/search_loop_post_build.sh
       commit_command: ./.github/scripts/search_loop_commit.sh
