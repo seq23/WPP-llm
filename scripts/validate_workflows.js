@@ -31,6 +31,10 @@ const reusableCallers = {
   },
 };
 const bad = [];
+// Read-only callers of a shared seq23 check: one job that calls it, no write permission, nothing else.
+const readOnlyCallers = {
+  'ship-ready-baseline.yml': 'seq23/seq-bin/.github/workflows/ship-ready-baseline.yml@v1',
+};
 
 const packageLockPath = path.join(ROOT, 'package-lock.json');
 if (fs.existsSync(packageLockPath)) {
@@ -112,7 +116,7 @@ for (const file of required) {
   }
 }
 
-const allowedWorkflowNames = new Set([...required, ...Object.keys(reusableCallers)]);
+const allowedWorkflowNames = new Set([...required, ...Object.keys(reusableCallers), ...Object.keys(readOnlyCallers)]);
 for (const file of fs.existsSync(workflowDir) ? fs.readdirSync(workflowDir).filter((n) => /\.ya?ml$/.test(n)) : []) {
   if (!allowedWorkflowNames.has(file)) bad.push(`unexpected workflow file: ${file}; keep the action spine explicit`);
 }
@@ -131,6 +135,14 @@ if (fs.existsSync(distribution)) {
   if (!text.includes('INDEXNOW_KEY_VAR') || !text.includes('indexnow_key')) bad.push('distribution.yml missing IndexNow secret/variable fallback wiring');
 }
 
+for (const [file, uses] of Object.entries(readOnlyCallers)) {
+  const full = path.join(workflowDir, file);
+  if (!fs.existsSync(full)) { bad.push(`${file}: read-only caller missing`); continue; }
+  const doc = YAML.parse(fs.readFileSync(full, 'utf8')) || {};
+  const jobs = Object.values(doc.jobs || {});
+  if (jobs.length !== 1 || jobs[0].uses !== uses) bad.push(`${file}: must be exactly one job calling ${uses}`);
+  if (/write/.test(JSON.stringify(doc.permissions || {}) + JSON.stringify(jobs[0].permissions || {}))) bad.push(`${file}: a read-only check asks for no write permission`);
+}
 for (const [file, want] of Object.entries(reusableCallers)) {
   const full = path.join(workflowDir, file);
   if (!fs.existsSync(full)) { bad.push(`${file}: reusable caller missing`); continue; }
