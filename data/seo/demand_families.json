@@ -4,30 +4,30 @@
     "Every measured query is in exactly one family; impressions add up to the measured total. top12 marks the families whose primary page must serve the intent (data/seo/demand_pages.json).",
     "Proven by scripts/validators/validate_demand_families.js (fresh and consistent with measured_targets)."
   ],
-  "measured_targets_generated_at": "2026-11-20T19:17:15.784Z",
+  "measured_targets_generated_at": "2026-11-21T18:12:45.977Z",
   "window": "Search Console, 90 days (plus the 28-day rows), as merged by scripts/build_measured_targets.js",
-  "target_count": 99,
-  "impressions_total": 533,
+  "target_count": 94,
+  "impressions_total": 458,
   "family_count": 31,
   "top_n": 12,
   "top12": [
     "webinar-production",
     "virtual-event-production",
     "investor-event-production",
+    "virtual-event-checklist",
     "hybrid-event-platform",
-    "run-of-show",
-    "virtual-event-checklist"
+    "run-of-show"
   ],
   "families": [
     {
       "family": "webinar-production",
       "label": "Webinar production services",
       "intent": "service",
-      "impressions": 81,
+      "impressions": 72,
       "clicks": 0,
       "query_count": 9,
-      "best_position": 9.9,
-      "weighted_position": 63.1,
+      "best_position": 9,
+      "weighted_position": 64.8,
       "head_query": "live event production webinar",
       "current_page": "/programmatic/virtual-event-production-for-saas",
       "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
@@ -36,7 +36,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/virtual-event-production-for-saas",
-          "impressions": 57.5,
+          "impressions": 51.5,
           "resolves_to": "/programmatic/virtual-event-production-for-saas"
         },
         {
@@ -46,7 +46,7 @@
         },
         {
           "page": "/insights/webinar-production-checklist-for-founders-with-no-time",
-          "impressions": 7,
+          "impressions": 4,
           "resolves_to": "/insights/webinar-production-checklist-for-founders-with-no-time"
         },
         {
@@ -72,24 +72,24 @@
         },
         {
           "query": "webinar production services",
-          "impressions": 25,
-          "best_position": 75,
+          "impressions": 22,
+          "best_position": 75.4,
           "pages": [
             "/programmatic/virtual-event-production-for-saas"
           ]
         },
         {
           "query": "professional webinar production services",
-          "impressions": 18,
-          "best_position": 64.7,
+          "impressions": 15,
+          "best_position": 64.6,
           "pages": [
             "/programmatic/virtual-event-production-for-saas"
           ]
         },
         {
           "query": "webinar production checklist",
-          "impressions": 7,
-          "best_position": 9.9,
+          "impressions": 4,
+          "best_position": 9,
           "pages": [
             "/insights/webinar-production-checklist-for-founders-with-no-time"
           ]
@@ -143,11 +143,11 @@
       "family": "virtual-event-production",
       "label": "Virtual event production",
       "intent": "service",
-      "impressions": 68,
+      "impressions": 55,
       "clicks": 0,
       "query_count": 7,
-      "best_position": 25,
-      "weighted_position": 64.8,
+      "best_position": 39.5,
+      "weighted_position": 66.4,
       "head_query": "virtual events production",
       "current_page": "/programmatic/virtual-event-production-for-saas",
       "current_page_resolves_to": "/programmatic/virtual-event-production-for-saas",
@@ -156,12 +156,12 @@
       "landing_pages": [
         {
           "page": "/programmatic/virtual-event-production-for-saas",
-          "impressions": 32,
+          "impressions": 24.5,
           "resolves_to": "/programmatic/virtual-event-production-for-saas"
         },
         {
           "page": "/learn/what-is-virtual-event-production",
-          "impressions": 28,
+          "impressions": 21.5,
           "resolves_to": "/learn/what-is-virtual-event-production"
         },
         {
@@ -175,9 +175,9 @@
           "resolves_to": "/programmatic/executive-broadcast-production-common-failure-points"
         },
         {
-          "page": "/learn/virtual-event-production-cost",
-          "impressions": 1,
-          "resolves_to": "/learn/virtual-event-production-cost"
+          "page": "/programmatic/virtual-event-management",
+          "impressions": 2,
+          "resolves_to": "/programmatic/virtual-event-management"
         },
         {
           "page": "/programmatic/virtual-event-production-producer-roles",
@@ -193,18 +193,10 @@
       "queries": [
         {
           "query": "virtual events production",
-          "impressions": 56,
-          "best_position": 65.7,
+          "impressions": 43,
+          "best_position": 67,
           "pages": [
             "/learn/what-is-virtual-event-production",
-            "/programmatic/virtual-event-production-for-saas"
-          ]
-        },
-        {
-          "query": "virtual event production staff",
-          "impressions": 4,
-          "best_position": 70.5,
-          "pages": [
             "/programmatic/virtual-event-production-for-saas"
           ]
         },
@@ -217,6 +209,14 @@
           ]
         },
         {
+          "query": "virtual event production staff",
+          "impressions": 3,
+          "best_position": 70,
+          "pages": [
+            "/programmatic/virtual-event-production-for-saas"
+          ]
+        },
+        {
           "query": "common challenges in virtual broadcast production",
           "impressions": 2,
           "best_position": 39.5,
@@ -225,19 +225,19 @@
           ]
         },
         {
+          "query": "virtual event producer",
+          "impressions": 2,
+          "best_position": 72,
+          "pages": [
+            "/programmatic/virtual-event-management"
+          ]
+        },
+        {
           "query": "virtual event producer job description",
           "impressions": 1,
           "best_position": 67,
           "pages": [
             "/programmatic/virtual-event-production-producer-roles"
-          ]
-        },
-        {
-          "query": "virtual event production cost",
-          "impressions": 1,
-          "best_position": 25,
-          "pages": [
-            "/learn/virtual-event-production-cost"
           ]
         },
         {
@@ -257,7 +257,7 @@
       "family": "audience-growth-strategy",
       "label": "Audience growth strategy",
       "intent": "informational",
-      "impressions": 51,
+      "impressions": 47,
       "clicks": 0,
       "query_count": 3,
       "best_position": 2,
@@ -270,7 +270,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-audience-growth-strategy",
-          "impressions": 50,
+          "impressions": 46,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -282,8 +282,8 @@
       "queries": [
         {
           "query": "audience growth strategy",
-          "impressions": 48,
-          "best_position": 23.3,
+          "impressions": 44,
+          "best_position": 23.2,
           "pages": [
             "/programmatic/what-is-audience-growth-strategy"
           ]
@@ -312,11 +312,11 @@
       "family": "brand-navigational",
       "label": "West Peek brand and misspellings",
       "intent": "navigational",
-      "impressions": 43,
+      "impressions": 42,
       "clicks": 0,
       "query_count": 4,
-      "best_position": 74.5,
-      "weighted_position": 75.6,
+      "best_position": 75,
+      "weighted_position": 76,
       "head_query": "west peak",
       "current_page": "/",
       "current_page_resolves_to": "/",
@@ -326,20 +326,20 @@
       "landing_pages": [
         {
           "page": "/",
-          "impressions": 24,
+          "impressions": 23.5,
           "resolves_to": "/"
         },
         {
           "page": "/how-west-peek-helps",
-          "impressions": 19,
+          "impressions": 18.5,
           "resolves_to": "/how-west-peek-helps"
         }
       ],
       "queries": [
         {
           "query": "west peak",
-          "impressions": 38,
-          "best_position": 74.5,
+          "impressions": 37,
+          "best_position": 75,
           "pages": [
             "/",
             "/how-west-peek-helps"
@@ -374,98 +374,14 @@
       "top12": false
     },
     {
-      "family": "community-management-outsourcing",
-      "label": "Community management outsourcing",
-      "intent": "service",
-      "impressions": 35,
-      "clicks": 0,
-      "query_count": 3,
-      "best_position": 23.5,
-      "weighted_position": 26,
-      "head_query": "community management outsourcing",
-      "current_page": "/programmatic/outsourced-community-management-best-practices",
-      "current_page_resolves_to": "/answers/community-manager-vs-community-agency",
-      "primary_route": "/programmatic/outsourced-community-management",
-      "eligible_for_strengthening": false,
-      "landing_pages": [
-        {
-          "page": "/programmatic/outsourced-community-management-best-practices",
-          "impressions": 6.6,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/outsourced-community-management-for-professional-services-firms",
-          "impressions": 6.6,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/outsourced-community-management-services",
-          "impressions": 6.6,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/outsourced-community-management-vs-in-house-team",
-          "impressions": 6.6,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/outsourced-community-management-when-to-hire",
-          "impressions": 6.6,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/what-is-community-moderation-strategy",
-          "impressions": 1,
-          "resolves_to": "/answers/how-to-build-a-community-around-your-business"
-        },
-        {
-          "page": "/programmatic/what-is-outsourced-community-management",
-          "impressions": 1,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        }
-      ],
-      "queries": [
-        {
-          "query": "community management outsourcing",
-          "impressions": 33,
-          "best_position": 23.5,
-          "pages": [
-            "/programmatic/outsourced-community-management-best-practices",
-            "/programmatic/outsourced-community-management-for-professional-services-firms",
-            "/programmatic/outsourced-community-management-services",
-            "/programmatic/outsourced-community-management-vs-in-house-team",
-            "/programmatic/outsourced-community-management-when-to-hire"
-          ]
-        },
-        {
-          "query": "moderation and community management",
-          "impressions": 1,
-          "best_position": 88,
-          "pages": [
-            "/programmatic/what-is-community-moderation-strategy"
-          ]
-        },
-        {
-          "query": "outsourced district management",
-          "impressions": 1,
-          "best_position": 47,
-          "pages": [
-            "/programmatic/what-is-outsourced-community-management"
-          ]
-        }
-      ],
-      "rank": 5,
-      "top12": false
-    },
-    {
       "family": "community-operations",
       "label": "Community operations and Community as a Service",
       "intent": "service",
-      "impressions": 31,
+      "impressions": 29,
       "clicks": 0,
       "query_count": 11,
       "best_position": 3,
-      "weighted_position": 37.6,
+      "weighted_position": 36.9,
       "head_query": "community programming",
       "current_page": "/programmatic/what-is-community-operations",
       "current_page_resolves_to": "/answers/how-to-build-a-community-around-your-business",
@@ -474,7 +390,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-community-operations",
-          "impressions": 13,
+          "impressions": 12,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
@@ -483,12 +399,12 @@
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
-          "page": "/programmatic/what-is-community-platform-selection",
-          "impressions": 3,
+          "page": "/programmatic/community-engagement-strategy-consultant",
+          "impressions": 2,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
         {
-          "page": "/programmatic/community-engagement-strategy-consultant",
+          "page": "/programmatic/what-is-community-platform-selection",
           "impressions": 2,
           "resolves_to": "/answers/how-to-build-a-community-around-your-business"
         },
@@ -529,8 +445,8 @@
         },
         {
           "query": "community operations",
-          "impressions": 5,
-          "best_position": 8.2,
+          "impressions": 4,
+          "best_position": 8,
           "pages": [
             "/programmatic/what-is-community-operations"
           ]
@@ -544,19 +460,19 @@
           ]
         },
         {
-          "query": "community platform definition",
-          "impressions": 3,
-          "best_position": 87.7,
-          "pages": [
-            "/programmatic/what-is-community-platform-selection"
-          ]
-        },
-        {
           "query": "community operations meaning",
           "impressions": 2,
           "best_position": 13,
           "pages": [
             "/programmatic/what-is-community-operations"
+          ]
+        },
+        {
+          "query": "community platform definition",
+          "impressions": 2,
+          "best_position": 89.5,
+          "pages": [
+            "/programmatic/what-is-community-platform-selection"
           ]
         },
         {
@@ -609,14 +525,14 @@
           ]
         }
       ],
-      "rank": 6,
+      "rank": 5,
       "top12": false
     },
     {
       "family": "creative-agency-vs-production-company",
       "label": "Creative agency vs production company",
       "intent": "comparison",
-      "impressions": 30,
+      "impressions": 29,
       "clicks": 0,
       "query_count": 3,
       "best_position": 25,
@@ -629,34 +545,34 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-creative-agency-vs-production-company",
-          "impressions": 7.8,
+          "impressions": 7.6,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/creative-agency-vs-production-company-for-community-organizations",
-          "impressions": 6.3,
+          "impressions": 6.1,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
           "page": "/programmatic/creative-agency-vs-production-company-why-it-fails",
-          "impressions": 6.3,
+          "impressions": 6.1,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/creative-agency-vs-production-company-for-associations",
-          "impressions": 4.8,
+          "impressions": 4.6,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/creative-agency-vs-production-company-for-creative-teams",
-          "impressions": 4.8,
+          "impressions": 4.6,
           "resolves_to": "/programmatic/virtual-event-production"
         }
       ],
       "queries": [
         {
           "query": "production agency definition",
-          "impressions": 24,
+          "impressions": 23,
           "best_position": 44.5,
           "pages": [
             "/programmatic/creative-agency-vs-production-company-for-associations",
@@ -684,18 +600,18 @@
           ]
         }
       ],
-      "rank": 7,
+      "rank": 6,
       "top12": false
     },
     {
       "family": "content-operations",
       "label": "Content and marketing operations",
       "intent": "service",
-      "impressions": 28,
+      "impressions": 25,
       "clicks": 0,
       "query_count": 8,
       "best_position": 4.5,
-      "weighted_position": 66.9,
+      "weighted_position": 65.8,
       "head_query": "agency content operations",
       "current_page": "/programmatic/what-is-ai-content-operations",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
@@ -704,31 +620,31 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-ai-content-operations",
-          "impressions": 12,
+          "impressions": 11,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/content-marketing-operations",
-          "impressions": 3.5,
+          "impressions": 3,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/content-marketing-operations-for-marketing-teams",
-          "impressions": 3.5,
+          "impressions": 3,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/content-marketing-operations-services",
-          "impressions": 2.5,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/query-atlas/content-marketing-operations",
-          "impressions": 2.5,
+          "impressions": 2,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/content-marketing-operations-how-to-compare-vendors",
+          "impressions": 2,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/query-atlas/content-marketing-operations",
           "impressions": 2,
           "resolves_to": "/programmatic/virtual-event-production"
         },
@@ -746,19 +662,11 @@
       "queries": [
         {
           "query": "agency content operations",
-          "impressions": 7,
+          "impressions": 6,
           "best_position": 82.2,
           "pages": [
             "/content-marketing-operations",
             "/content-marketing-operations-for-marketing-teams"
-          ]
-        },
-        {
-          "query": "content operations system",
-          "impressions": 6,
-          "best_position": 72,
-          "pages": [
-            "/programmatic/what-is-ai-content-operations"
           ]
         },
         {
@@ -770,8 +678,16 @@
           ]
         },
         {
-          "query": "content marketing operation services",
+          "query": "content operations system",
           "impressions": 5,
+          "best_position": 72.4,
+          "pages": [
+            "/programmatic/what-is-ai-content-operations"
+          ]
+        },
+        {
+          "query": "content marketing operation services",
+          "impressions": 4,
           "best_position": 77,
           "pages": [
             "/content-marketing-operations-services",
@@ -811,6 +727,71 @@
           ]
         }
       ],
+      "rank": 7,
+      "top12": false
+    },
+    {
+      "family": "community-management-outsourcing",
+      "label": "Community management outsourcing",
+      "intent": "service",
+      "impressions": 21,
+      "clicks": 0,
+      "query_count": 2,
+      "best_position": 21.8,
+      "weighted_position": 25,
+      "head_query": "community management outsourcing",
+      "current_page": "/programmatic/outsourced-community-management-best-practices",
+      "current_page_resolves_to": "/answers/community-manager-vs-community-agency",
+      "primary_route": "/programmatic/outsourced-community-management",
+      "eligible_for_strengthening": false,
+      "landing_pages": [
+        {
+          "page": "/programmatic/outsourced-community-management-best-practices",
+          "impressions": 5,
+          "resolves_to": "/answers/community-manager-vs-community-agency"
+        },
+        {
+          "page": "/programmatic/outsourced-community-management-for-professional-services-firms",
+          "impressions": 5,
+          "resolves_to": "/answers/community-manager-vs-community-agency"
+        },
+        {
+          "page": "/programmatic/outsourced-community-management-services",
+          "impressions": 5,
+          "resolves_to": "/answers/community-manager-vs-community-agency"
+        },
+        {
+          "page": "/programmatic/outsourced-community-management-when-to-hire",
+          "impressions": 5,
+          "resolves_to": "/answers/community-manager-vs-community-agency"
+        },
+        {
+          "page": "/programmatic/what-is-community-moderation-strategy",
+          "impressions": 1,
+          "resolves_to": "/answers/how-to-build-a-community-around-your-business"
+        }
+      ],
+      "queries": [
+        {
+          "query": "community management outsourcing",
+          "impressions": 20,
+          "best_position": 21.8,
+          "pages": [
+            "/programmatic/outsourced-community-management-best-practices",
+            "/programmatic/outsourced-community-management-for-professional-services-firms",
+            "/programmatic/outsourced-community-management-services",
+            "/programmatic/outsourced-community-management-when-to-hire"
+          ]
+        },
+        {
+          "query": "moderation and community management",
+          "impressions": 1,
+          "best_position": 88,
+          "pages": [
+            "/programmatic/what-is-community-moderation-strategy"
+          ]
+        }
+      ],
       "rank": 8,
       "top12": false
     },
@@ -818,11 +799,11 @@
       "family": "creative-strategy-consulting",
       "label": "Creative strategy consulting",
       "intent": "service",
-      "impressions": 24,
+      "impressions": 19,
       "clicks": 0,
-      "query_count": 3,
+      "query_count": 2,
       "best_position": 30.9,
-      "weighted_position": 41,
+      "weighted_position": 36.9,
       "head_query": "creative strategy consulting",
       "current_page": "/programmatic/what-is-creative-strategy-consulting",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
@@ -831,7 +812,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-creative-strategy-consulting",
-          "impressions": 24,
+          "impressions": 19,
           "resolves_to": "/programmatic/virtual-event-production"
         }
       ],
@@ -846,16 +827,8 @@
         },
         {
           "query": "what is creative consulting",
-          "impressions": 6,
-          "best_position": 67.2,
-          "pages": [
-            "/programmatic/what-is-creative-strategy-consulting"
-          ]
-        },
-        {
-          "query": "creative strategy consultant",
-          "impressions": 2,
-          "best_position": 43.5,
+          "impressions": 3,
+          "best_position": 68.7,
           "pages": [
             "/programmatic/what-is-creative-strategy-consulting"
           ]
@@ -865,104 +838,33 @@
       "top12": false
     },
     {
-      "family": "rebrand-and-brand-implementation",
-      "label": "Rebrand strategy and brand implementation",
-      "intent": "informational",
-      "impressions": 22,
-      "clicks": 0,
-      "query_count": 5,
-      "best_position": 56.8,
-      "weighted_position": 63.9,
-      "head_query": "professional services firm rebrand",
-      "current_page": "/programmatic/rebrand-strategy-for-professional-services-firms",
-      "current_page_resolves_to": "/programmatic/virtual-event-production",
-      "primary_route": "/programmatic/rebrand-strategy",
-      "eligible_for_strengthening": false,
-      "landing_pages": [
-        {
-          "page": "/programmatic/rebrand-strategy-for-professional-services-firms",
-          "impressions": 21,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/rebrand-strategy-template",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production"
-        }
-      ],
-      "queries": [
-        {
-          "query": "professional services firm rebrand",
-          "impressions": 8,
-          "best_position": 56.8,
-          "pages": [
-            "/programmatic/rebrand-strategy-for-professional-services-firms"
-          ]
-        },
-        {
-          "query": "how to rebrand a professional services firm",
-          "impressions": 5,
-          "best_position": 63.8,
-          "pages": [
-            "/programmatic/rebrand-strategy-for-professional-services-firms"
-          ]
-        },
-        {
-          "query": "professional services rebranding",
-          "impressions": 5,
-          "best_position": 78.8,
-          "pages": [
-            "/programmatic/rebrand-strategy-for-professional-services-firms"
-          ]
-        },
-        {
-          "query": "rebrand professional services firm",
-          "impressions": 3,
-          "best_position": 59.3,
-          "pages": [
-            "/programmatic/rebrand-strategy-for-professional-services-firms"
-          ]
-        },
-        {
-          "query": "rebranding plan template",
-          "impressions": 1,
-          "best_position": 61,
-          "pages": [
-            "/programmatic/rebrand-strategy-template"
-          ]
-        }
-      ],
-      "rank": 10,
-      "top12": false
-    },
-    {
       "family": "ai-marketing-workflows",
       "label": "AI marketing workflows and workflow consulting",
       "intent": "informational",
-      "impressions": 20,
+      "impressions": 17,
       "clicks": 0,
       "query_count": 4,
-      "best_position": 48.8,
-      "weighted_position": 52.7,
+      "best_position": 49,
+      "weighted_position": 52.5,
       "head_query": "ai creative workflows",
-      "current_page": "/programmatic/what-is-ai-creative-workflows",
+      "current_page": "/programmatic/what-is-ai-marketing-workflows",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
       "primary_route": "/programmatic/ai-marketing-workflows",
       "eligible_for_strengthening": false,
       "landing_pages": [
         {
-          "page": "/programmatic/what-is-ai-creative-workflows",
-          "impressions": 7,
+          "page": "/programmatic/what-is-ai-marketing-workflows",
+          "impressions": 5.5,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
           "page": "/programmatic/community-building-for-brands-vs-in-house-team",
-          "impressions": 6,
+          "impressions": 5,
           "resolves_to": "/answers/community-manager-vs-community-agency"
         },
         {
-          "page": "/programmatic/what-is-ai-marketing-workflows",
-          "impressions": 5.5,
+          "page": "/programmatic/what-is-ai-creative-workflows",
+          "impressions": 5,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -974,16 +876,16 @@
       "queries": [
         {
           "query": "ai creative workflows",
-          "impressions": 7,
-          "best_position": 56.6,
+          "impressions": 5,
+          "best_position": 56.2,
           "pages": [
             "/programmatic/what-is-ai-creative-workflows"
           ]
         },
         {
           "query": "in-house agency operating model",
-          "impressions": 6,
-          "best_position": 48.8,
+          "impressions": 5,
+          "best_position": 49.2,
           "pages": [
             "/programmatic/community-building-for-brands-vs-in-house-team"
           ]
@@ -1006,6 +908,77 @@
           ]
         }
       ],
+      "rank": 10,
+      "top12": false
+    },
+    {
+      "family": "rebrand-and-brand-implementation",
+      "label": "Rebrand strategy and brand implementation",
+      "intent": "informational",
+      "impressions": 17,
+      "clicks": 0,
+      "query_count": 5,
+      "best_position": 59.3,
+      "weighted_position": 66.4,
+      "head_query": "professional services firm rebrand",
+      "current_page": "/programmatic/rebrand-strategy-for-professional-services-firms",
+      "current_page_resolves_to": "/programmatic/virtual-event-production",
+      "primary_route": "/programmatic/rebrand-strategy",
+      "eligible_for_strengthening": false,
+      "landing_pages": [
+        {
+          "page": "/programmatic/rebrand-strategy-for-professional-services-firms",
+          "impressions": 16,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/programmatic/rebrand-strategy-template",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        }
+      ],
+      "queries": [
+        {
+          "query": "professional services firm rebrand",
+          "impressions": 6,
+          "best_position": 59.3,
+          "pages": [
+            "/programmatic/rebrand-strategy-for-professional-services-firms"
+          ]
+        },
+        {
+          "query": "how to rebrand a professional services firm",
+          "impressions": 4,
+          "best_position": 64.8,
+          "pages": [
+            "/programmatic/rebrand-strategy-for-professional-services-firms"
+          ]
+        },
+        {
+          "query": "professional services rebranding",
+          "impressions": 4,
+          "best_position": 80.8,
+          "pages": [
+            "/programmatic/rebrand-strategy-for-professional-services-firms"
+          ]
+        },
+        {
+          "query": "rebrand professional services firm",
+          "impressions": 2,
+          "best_position": 65,
+          "pages": [
+            "/programmatic/rebrand-strategy-for-professional-services-firms"
+          ]
+        },
+        {
+          "query": "rebranding plan template",
+          "impressions": 1,
+          "best_position": 61,
+          "pages": [
+            "/programmatic/rebrand-strategy-template"
+          ]
+        }
+      ],
       "rank": 11,
       "top12": false
     },
@@ -1013,11 +986,11 @@
       "family": "narrative-and-storytelling",
       "label": "Narrative strategy and storytelling",
       "intent": "informational",
-      "impressions": 18,
+      "impressions": 14,
       "clicks": 0,
-      "query_count": 4,
-      "best_position": 61.3,
-      "weighted_position": 65.9,
+      "query_count": 3,
+      "best_position": 59.7,
+      "weighted_position": 64.1,
       "head_query": "narrative strategy",
       "current_page": "/programmatic/what-is-campaign-narrative-strategy",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
@@ -1026,12 +999,7 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-campaign-narrative-strategy",
-          "impressions": 16,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/brand-narrative-strategy-companies",
-          "impressions": 1,
+          "impressions": 13,
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
@@ -1043,18 +1011,10 @@
       "queries": [
         {
           "query": "narrative strategy",
-          "impressions": 15,
-          "best_position": 61.3,
+          "impressions": 12,
+          "best_position": 59.7,
           "pages": [
             "/programmatic/what-is-campaign-narrative-strategy"
-          ]
-        },
-        {
-          "query": "brand narrative agency",
-          "impressions": 1,
-          "best_position": 85,
-          "pages": [
-            "/brand-narrative-strategy-companies"
           ]
         },
         {
@@ -1081,11 +1041,11 @@
       "family": "brand-messaging-architecture",
       "label": "Brand messaging architecture",
       "intent": "informational",
-      "impressions": 14,
+      "impressions": 11,
       "clicks": 0,
       "query_count": 4,
-      "best_position": 41.5,
-      "weighted_position": 51.8,
+      "best_position": 41,
+      "weighted_position": 54.3,
       "head_query": "brand messaging architecture",
       "current_page": "/programmatic/what-is-brand-messaging-architecture",
       "current_page_resolves_to": "/programmatic/virtual-event-production",
@@ -1094,15 +1054,15 @@
       "landing_pages": [
         {
           "page": "/programmatic/what-is-brand-messaging-architecture",
-          "impressions": 14,
+          "impressions": 11,
           "resolves_to": "/programmatic/virtual-event-production"
         }
       ],
       "queries": [
         {
           "query": "brand messaging architecture",
-          "impressions": 11,
-          "best_position": 41.5,
+          "impressions": 8,
+          "best_position": 41,
           "pages": [
             "/programmatic/what-is-brand-messaging-architecture"
           ]
@@ -1136,25 +1096,55 @@
       "top12": false
     },
     {
+      "family": "investor-event-production",
+      "label": "Investor relations event production",
+      "intent": "service",
+      "impressions": 9,
+      "clicks": 0,
+      "query_count": 1,
+      "best_position": 81.2,
+      "weighted_position": 81.2,
+      "head_query": "investor relations event production",
+      "current_page": "/investor-event-production",
+      "current_page_resolves_to": "/programmatic/investor-event-production",
+      "primary_route": "/programmatic/investor-event-production",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/investor-event-production",
+          "impressions": 9,
+          "resolves_to": "/programmatic/investor-event-production"
+        }
+      ],
+      "queries": [
+        {
+          "query": "investor relations event production",
+          "impressions": 9,
+          "best_position": 81.2,
+          "pages": [
+            "/investor-event-production"
+          ]
+        }
+      ],
+      "rank": 14,
+      "top12_rank": 3,
+      "top12": true
+    },
+    {
       "family": "deliverables-scope-and-rfp",
       "label": "Agency deliverables, scope of work and RFP questions",
       "intent": "informational",
-      "impressions": 11,
+      "impressions": 8,
       "clicks": 0,
       "query_count": 5,
       "best_position": 29,
-      "weighted_position": 75.3,
-      "head_query": "branding scope of work",
-      "current_page": "/programmatic/rebrand-strategy-scope-of-work",
-      "current_page_resolves_to": "/programmatic/virtual-event-production",
+      "weighted_position": 76.4,
+      "head_query": "deliverables for broadcast",
+      "current_page": "/programmatic/executive-broadcast-production-deliverables",
+      "current_page_resolves_to": "/programmatic/executive-broadcast-production-deliverables",
       "primary_route": "/programmatic/agency-rfp-questions",
       "eligible_for_strengthening": false,
       "landing_pages": [
-        {
-          "page": "/programmatic/rebrand-strategy-scope-of-work",
-          "impressions": 4,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
         {
           "page": "/programmatic/executive-broadcast-production-deliverables",
           "impressions": 3,
@@ -1171,20 +1161,17 @@
           "resolves_to": "/programmatic/virtual-event-production"
         },
         {
+          "page": "/programmatic/rebrand-strategy-scope-of-work",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
           "page": "/programmatic/startup-brand-strategy-deliverables",
           "impressions": 1,
           "resolves_to": "/programmatic/virtual-event-production"
         }
       ],
       "queries": [
-        {
-          "query": "branding scope of work",
-          "impressions": 4,
-          "best_position": 71.5,
-          "pages": [
-            "/programmatic/rebrand-strategy-scope-of-work"
-          ]
-        },
         {
           "query": "deliverables for broadcast",
           "impressions": 3,
@@ -1210,6 +1197,14 @@
           ]
         },
         {
+          "query": "branding scope of work",
+          "impressions": 1,
+          "best_position": 69,
+          "pages": [
+            "/programmatic/rebrand-strategy-scope-of-work"
+          ]
+        },
+        {
           "query": "creative rfp",
           "impressions": 1,
           "best_position": 29,
@@ -1218,176 +1213,7 @@
           ]
         }
       ],
-      "rank": 14,
-      "top12": false
-    },
-    {
-      "family": "investor-event-production",
-      "label": "Investor relations event production",
-      "intent": "service",
-      "impressions": 11,
-      "clicks": 0,
-      "query_count": 2,
-      "best_position": 10,
-      "weighted_position": 74.4,
-      "head_query": "investor relations event production",
-      "current_page": "/investor-event-production",
-      "current_page_resolves_to": "/programmatic/investor-event-production",
-      "primary_route": "/programmatic/investor-event-production",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/investor-event-production",
-          "impressions": 11,
-          "resolves_to": "/programmatic/investor-event-production"
-        }
-      ],
-      "queries": [
-        {
-          "query": "investor relations event production",
-          "impressions": 10,
-          "best_position": 80.8,
-          "pages": [
-            "/investor-event-production"
-          ]
-        },
-        {
-          "query": "investor conference event production services us",
-          "impressions": 1,
-          "best_position": 10,
-          "pages": [
-            "/investor-event-production"
-          ]
-        }
-      ],
       "rank": 15,
-      "top12_rank": 3,
-      "top12": true
-    },
-    {
-      "family": "ai-consultant-vs-agency",
-      "label": "AI consultant vs AI agency",
-      "intent": "comparison",
-      "impressions": 7,
-      "clicks": 0,
-      "query_count": 2,
-      "best_position": 36,
-      "weighted_position": 46.7,
-      "head_query": "ai consultant vs automation agency south africa",
-      "current_page": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-      "current_page_resolves_to": "/programmatic/virtual-event-production",
-      "primary_route": "/programmatic/ai-consultant-vs-automation-agency",
-      "eligible_for_strengthening": false,
-      "landing_pages": [
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-          "impressions": 1.5,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-why-it-fails",
-          "impressions": 1.5,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
-          "impressions": 1,
-          "resolves_to": "/answers/community-manager-vs-community-agency"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production"
-        }
-      ],
-      "queries": [
-        {
-          "query": "ai consultant vs automation agency south africa",
-          "impressions": 4,
-          "best_position": 36,
-          "pages": [
-            "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
-            "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
-            "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
-            "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams"
-          ]
-        },
-        {
-          "query": "ai consultant vs ai agency",
-          "impressions": 3,
-          "best_position": 61,
-          "pages": [
-            "/programmatic/ai-consultant-vs-automation-agency-how-to-compare-vendors",
-            "/programmatic/ai-consultant-vs-automation-agency-why-it-fails"
-          ]
-        }
-      ],
-      "rank": 16,
-      "top12": false
-    },
-    {
-      "family": "brand-positioning",
-      "label": "Brand positioning strategy",
-      "intent": "informational",
-      "impressions": 7,
-      "clicks": 0,
-      "query_count": 3,
-      "best_position": 8,
-      "weighted_position": 27.1,
-      "head_query": "how do i compare vendors for positioning testing",
-      "current_page": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
-      "current_page_resolves_to": "/programmatic/virtual-event-production",
-      "primary_route": "/programmatic/brand-positioning-strategy",
-      "eligible_for_strengthening": false,
-      "landing_pages": [
-        {
-          "page": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
-          "impressions": 4,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/programmatic/brand-positioning-strategy-for-professional-services-firms",
-          "impressions": 3,
-          "resolves_to": "/programmatic/virtual-event-production"
-        }
-      ],
-      "queries": [
-        {
-          "query": "how do i compare vendors for positioning testing",
-          "impressions": 4,
-          "best_position": 8,
-          "pages": [
-            "/programmatic/brand-positioning-strategy-how-to-compare-vendors"
-          ]
-        },
-        {
-          "query": "professional services brand positioning",
-          "impressions": 2,
-          "best_position": 54,
-          "pages": [
-            "/programmatic/brand-positioning-strategy-for-professional-services-firms"
-          ]
-        },
-        {
-          "query": "brand positioning professional services",
-          "impressions": 1,
-          "best_position": 50,
-          "pages": [
-            "/programmatic/brand-positioning-strategy-for-professional-services-firms"
-          ]
-        }
-      ],
-      "rank": 17,
       "top12": false
     },
     {
@@ -1440,7 +1266,165 @@
           ]
         }
       ],
+      "rank": 16,
+      "top12": false
+    },
+    {
+      "family": "brand-positioning",
+      "label": "Brand positioning strategy",
+      "intent": "informational",
+      "impressions": 6,
+      "clicks": 0,
+      "query_count": 3,
+      "best_position": 8,
+      "weighted_position": 30.3,
+      "head_query": "how do i compare vendors for positioning testing",
+      "current_page": "/programmatic/brand-positioning-strategy-for-professional-services-firms",
+      "current_page_resolves_to": "/programmatic/virtual-event-production",
+      "primary_route": "/programmatic/brand-positioning-strategy",
+      "eligible_for_strengthening": false,
+      "landing_pages": [
+        {
+          "page": "/programmatic/brand-positioning-strategy-for-professional-services-firms",
+          "impressions": 3,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/programmatic/brand-positioning-strategy-how-to-compare-vendors",
+          "impressions": 3,
+          "resolves_to": "/programmatic/virtual-event-production"
+        }
+      ],
+      "queries": [
+        {
+          "query": "how do i compare vendors for positioning testing",
+          "impressions": 3,
+          "best_position": 8,
+          "pages": [
+            "/programmatic/brand-positioning-strategy-how-to-compare-vendors"
+          ]
+        },
+        {
+          "query": "professional services brand positioning",
+          "impressions": 2,
+          "best_position": 54,
+          "pages": [
+            "/programmatic/brand-positioning-strategy-for-professional-services-firms"
+          ]
+        },
+        {
+          "query": "brand positioning professional services",
+          "impressions": 1,
+          "best_position": 50,
+          "pages": [
+            "/programmatic/brand-positioning-strategy-for-professional-services-firms"
+          ]
+        }
+      ],
+      "rank": 17,
+      "top12": false
+    },
+    {
+      "family": "virtual-event-checklist",
+      "label": "Virtual event checklist, planning and hosting",
+      "intent": "informational",
+      "impressions": 5,
+      "clicks": 0,
+      "query_count": 3,
+      "best_position": 75,
+      "weighted_position": 84.8,
+      "head_query": "virtual event production checklist",
+      "current_page": "/programmatic/virtual-event-planning",
+      "current_page_resolves_to": "/programmatic/virtual-event-planning",
+      "primary_route": "/programmatic/how-to-host-a-virtual-event",
+      "eligible_for_strengthening": true,
+      "landing_pages": [
+        {
+          "page": "/programmatic/virtual-event-planning",
+          "impressions": 5,
+          "resolves_to": "/programmatic/virtual-event-planning"
+        }
+      ],
+      "queries": [
+        {
+          "query": "virtual event production checklist",
+          "impressions": 2,
+          "best_position": 75,
+          "pages": [
+            "/programmatic/virtual-event-planning"
+          ]
+        },
+        {
+          "query": "virtual events checklist",
+          "impressions": 2,
+          "best_position": 87,
+          "pages": [
+            "/programmatic/virtual-event-planning"
+          ]
+        },
+        {
+          "query": "virtual meeting planning checklist",
+          "impressions": 1,
+          "best_position": 100,
+          "pages": [
+            "/programmatic/virtual-event-planning"
+          ]
+        }
+      ],
       "rank": 18,
+      "top12_rank": 4,
+      "top12": true
+    },
+    {
+      "family": "ai-consultant-vs-agency",
+      "label": "AI consultant vs AI agency",
+      "intent": "comparison",
+      "impressions": 4,
+      "clicks": 0,
+      "query_count": 1,
+      "best_position": 36,
+      "weighted_position": 36,
+      "head_query": "ai consultant vs automation agency south africa",
+      "current_page": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+      "current_page_resolves_to": "/answers/community-manager-vs-community-agency",
+      "primary_route": "/programmatic/ai-consultant-vs-automation-agency",
+      "eligible_for_strengthening": false,
+      "landing_pages": [
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+          "impressions": 1,
+          "resolves_to": "/answers/community-manager-vs-community-agency"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        }
+      ],
+      "queries": [
+        {
+          "query": "ai consultant vs automation agency south africa",
+          "impressions": 4,
+          "best_position": 36,
+          "pages": [
+            "/programmatic/ai-consultant-vs-automation-agency-for-community-organizations",
+            "/programmatic/ai-consultant-vs-automation-agency-for-creative-teams",
+            "/programmatic/ai-consultant-vs-automation-agency-for-executive-leadership-teams",
+            "/programmatic/ai-consultant-vs-automation-agency-for-financial-services-teams"
+          ]
+        }
+      ],
+      "rank": 19,
       "top12": false
     },
     {
@@ -1487,7 +1471,7 @@
           ]
         }
       ],
-      "rank": 19,
+      "rank": 20,
       "top12": false
     },
     {
@@ -1542,8 +1526,8 @@
           ]
         }
       ],
-      "rank": 20,
-      "top12_rank": 4,
+      "rank": 21,
+      "top12_rank": 5,
       "top12": true
     },
     {
@@ -1598,106 +1582,7 @@
           ]
         }
       ],
-      "rank": 21,
-      "top12_rank": 5,
-      "top12": true
-    },
-    {
-      "family": "auto-brand-strategy-consulting",
-      "label": "brand strategy consulting",
-      "intent": "informational",
-      "impressions": 3,
-      "clicks": 0,
-      "query_count": 2,
-      "best_position": 22,
-      "weighted_position": 47.3,
-      "head_query": "enterprise brand experience consulting",
-      "current_page": "/brand-strategy-consulting-for-enterprise-teams",
-      "current_page_resolves_to": "/programmatic/virtual-event-production",
-      "primary_route": "/programmatic/virtual-event-production",
-      "eligible_for_strengthening": false,
-      "auto_family": true,
-      "landing_pages": [
-        {
-          "page": "/brand-strategy-consulting-for-enterprise-teams",
-          "impressions": 2,
-          "resolves_to": "/programmatic/virtual-event-production"
-        },
-        {
-          "page": "/brand-strategy-consulting-for-startups",
-          "impressions": 1,
-          "resolves_to": "/programmatic/virtual-event-production"
-        }
-      ],
-      "queries": [
-        {
-          "query": "enterprise brand experience consulting",
-          "impressions": 2,
-          "best_position": 22,
-          "pages": [
-            "/brand-strategy-consulting-for-enterprise-teams"
-          ]
-        },
-        {
-          "query": "brand consulting for startups",
-          "impressions": 1,
-          "best_position": 98,
-          "pages": [
-            "/brand-strategy-consulting-for-startups"
-          ]
-        }
-      ],
       "rank": 22,
-      "top12": false
-    },
-    {
-      "family": "virtual-event-checklist",
-      "label": "Virtual event checklist, planning and hosting",
-      "intent": "informational",
-      "impressions": 3,
-      "clicks": 0,
-      "query_count": 3,
-      "best_position": 75,
-      "weighted_position": 91.7,
-      "head_query": "virtual event production checklist",
-      "current_page": "/programmatic/virtual-event-planning",
-      "current_page_resolves_to": "/programmatic/virtual-event-planning",
-      "primary_route": "/programmatic/how-to-host-a-virtual-event",
-      "eligible_for_strengthening": true,
-      "landing_pages": [
-        {
-          "page": "/programmatic/virtual-event-planning",
-          "impressions": 3,
-          "resolves_to": "/programmatic/virtual-event-planning"
-        }
-      ],
-      "queries": [
-        {
-          "query": "virtual event production checklist",
-          "impressions": 1,
-          "best_position": 75,
-          "pages": [
-            "/programmatic/virtual-event-planning"
-          ]
-        },
-        {
-          "query": "virtual events checklist",
-          "impressions": 1,
-          "best_position": 100,
-          "pages": [
-            "/programmatic/virtual-event-planning"
-          ]
-        },
-        {
-          "query": "virtual meeting planning checklist",
-          "impressions": 1,
-          "best_position": 100,
-          "pages": [
-            "/programmatic/virtual-event-planning"
-          ]
-        }
-      ],
-      "rank": 23,
       "top12_rank": 6,
       "top12": true
     },
@@ -1736,6 +1621,54 @@
           "pages": [
             "/programmatic/brand-agency-vs-marketing-agency-for-creative-teams",
             "/programmatic/what-is-brand-agency-vs-marketing-agency"
+          ]
+        }
+      ],
+      "rank": 23,
+      "top12": false
+    },
+    {
+      "family": "auto-brand-strategy-consulting",
+      "label": "brand strategy consulting",
+      "intent": "informational",
+      "impressions": 2,
+      "clicks": 0,
+      "query_count": 2,
+      "best_position": 19,
+      "weighted_position": 58.5,
+      "head_query": "brand consulting for startups",
+      "current_page": "/brand-strategy-consulting-for-enterprise-teams",
+      "current_page_resolves_to": "/programmatic/virtual-event-production",
+      "primary_route": "/programmatic/virtual-event-production",
+      "eligible_for_strengthening": false,
+      "auto_family": true,
+      "landing_pages": [
+        {
+          "page": "/brand-strategy-consulting-for-enterprise-teams",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        },
+        {
+          "page": "/brand-strategy-consulting-for-startups",
+          "impressions": 1,
+          "resolves_to": "/programmatic/virtual-event-production"
+        }
+      ],
+      "queries": [
+        {
+          "query": "brand consulting for startups",
+          "impressions": 1,
+          "best_position": 98,
+          "pages": [
+            "/brand-strategy-consulting-for-startups"
+          ]
+        },
+        {
+          "query": "enterprise brand experience consulting",
+          "impressions": 1,
+          "best_position": 19,
+          "pages": [
+            "/brand-strategy-consulting-for-enterprise-teams"
           ]
         }
       ],
