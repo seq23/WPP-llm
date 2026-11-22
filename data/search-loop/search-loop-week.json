@@ -2,13 +2,13 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W47",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-21T16:55:09.299Z",
+  "generated_at": "2026-11-22T17:26:59.838Z",
   "state": "running",
-  "published": 2,
+  "published": 3,
   "indexed": 0,
   "pace": 10,
   "ai_visitors": 0,
-  "ai_bot_hits": 1104,
+  "ai_bot_hits": 1079,
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
   "wins": 0,
   "undone": 0,
@@ -78,12 +78,13 @@
   ],
   "cap": {
     "max_live_pages": 28,
-    "live": 13,
-    "room": 15,
+    "live": 14,
+    "room": 14,
     "why": "up from 25 to 28: Google impressions 34 in the last 28 days beat 26 in the 28 before"
   },
   "notes": [
-    "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued"
+    "BUILD gate notes (not blocking): 1 published page(s) are outside a length or style aim; each is listed under gate_notes in pages.json",
+    "IndexNow: 1 new page(s) not live yet; submitted when they answer 200"
   ],
   "lanes": {
     "ratio": {
@@ -97,7 +98,7 @@
       "hit_rate": "not read: no page in this lane has reached its 2-week check yet"
     },
     "striking": {
-      "pages": 13,
+      "pages": 14,
       "measured": 11,
       "top3": 0,
       "hit_rate": 0
@@ -111,5 +112,5 @@
     "weight_changes": [],
     "competition": "ok: 15 top-10 read(s) via brave"
   },
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/44927095911"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45048727852"
 }
