@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-22T00:19:20.013Z",
+  "generated_at": "2026-11-22T16:19:01.655Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -89,29 +89,29 @@
       }
     },
     {
-      "opportunity_id": "opp_YmVzdCB3YXkgdG8gaG9zdCBh",
-      "query": "best way to host a virtual event",
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event producer",
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "authority_lane": "CORE",
       "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/best-way-to-host-a-virtual-event",
+      "target_route": "/programmatic/virtual-event-producer",
       "page_family": "operational_guide",
       "source": "measured_demand_seed",
       "demand_estimate": 0,
-      "score": 80,
+      "score": 62,
       "exists": false,
       "action": "create",
       "status": "admitted_candidate",
-      "source_route": "/best-way-to-host-a-virtual-event",
+      "source_route": "/virtual-event-producer",
       "exists_now": false,
       "release_action": "create",
       "quality_reason": null,
       "quality_preflight": {
         "ok": true,
-        "word_count": 1136,
-        "max_similarity": 0.58601,
-        "nearest_route": "/programmatic/top-virtual-event-platforms",
+        "word_count": 1081,
+        "max_similarity": 0.572747,
+        "nearest_route": "/programmatic/virtual-event-streaming-platforms",
         "reasons": []
       },
       "release_order": 2,
@@ -119,7 +119,7 @@
         "source_type": "gsc_search_analytics",
         "evidence_tier": "T1",
         "search_volume": null,
-        "impressions_90d": 3,
+        "impressions_90d": 4,
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
@@ -148,8 +148,8 @@
       "quality_preflight": {
         "ok": true,
         "word_count": 1099,
-        "max_similarity": 0.617552,
-        "nearest_route": "/programmatic/best-way-to-host-a-virtual-event",
+        "max_similarity": 0.661667,
+        "nearest_route": "/programmatic/virtual-event-producer",
         "reasons": []
       },
       "metadata_source": "opportunity_record",
@@ -256,29 +256,29 @@
       }
     },
     {
-      "opportunity_id": "opp_YmVzdCB3YXkgdG8gaG9zdCBh",
-      "query": "best way to host a virtual event",
+      "opportunity_id": "opp_dmlydHVhbCBldmVudCBwcm9k",
+      "query": "virtual event producer",
       "cluster": "virtual-event-production",
       "pillar": "experiences",
       "authority_lane": "CORE",
       "entity_binding": "west_peek_productions",
-      "target_route": "/programmatic/best-way-to-host-a-virtual-event",
+      "target_route": "/programmatic/virtual-event-producer",
       "page_family": "operational_guide",
       "source": "measured_demand_seed",
       "demand_estimate": 0,
-      "score": 80,
+      "score": 62,
       "exists": false,
       "action": "create",
       "status": "admitted_candidate",
-      "source_route": "/best-way-to-host-a-virtual-event",
+      "source_route": "/virtual-event-producer",
       "exists_now": false,
       "release_action": "create",
       "quality_reason": null,
       "quality_preflight": {
         "ok": true,
-        "word_count": 1136,
-        "max_similarity": 0.58601,
-        "nearest_route": "/programmatic/top-virtual-event-platforms",
+        "word_count": 1081,
+        "max_similarity": 0.572747,
+        "nearest_route": "/programmatic/virtual-event-streaming-platforms",
         "reasons": []
       },
       "release_order": 2,
@@ -286,7 +286,7 @@
         "source_type": "gsc_search_analytics",
         "evidence_tier": "T1",
         "search_volume": null,
-        "impressions_90d": 3,
+        "impressions_90d": 4,
         "demand_basis": "impressions_90d",
         "source_file": "data/authority_scale/query_atlas.json"
       }
@@ -315,8 +315,8 @@
       "quality_preflight": {
         "ok": true,
         "word_count": 1099,
-        "max_similarity": 0.617552,
-        "nearest_route": "/programmatic/best-way-to-host-a-virtual-event",
+        "max_similarity": 0.661667,
+        "nearest_route": "/programmatic/virtual-event-producer",
         "reasons": []
       },
       "metadata_source": "opportunity_record",
