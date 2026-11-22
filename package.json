@@ -98,7 +98,7 @@
     "validate:query-atlas": "node scripts/atlas/validate_query_atlas.mjs",
     "validate:repo-work-os-upgrade": "npm run validate:admin-command-center",
     "validate:workflow-data-trace": "node scripts/validators/validate_workflow_data_trace.js",
-    "validate:workflow-liveness": "node scripts/validate_workflow_liveness.js",
+    "validate:workflow-liveness": "node scripts/validate_workflow_liveness.js --self-test && node scripts/validate_workflow_liveness.js",
     "validate:wpp-cta-attribution": "node scripts/validators/validate_wpp_cta_attribution.js",
     "search:intelligence": "python3 distribution_scripts/gsc_search_intelligence.py",
     "seo:measured-targets": "node scripts/build_measured_targets.js",
