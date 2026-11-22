@@ -141,7 +141,9 @@ for (const [file, uses] of Object.entries(readOnlyCallers)) {
   const doc = YAML.parse(fs.readFileSync(full, 'utf8')) || {};
   const jobs = Object.values(doc.jobs || {});
   if (jobs.length !== 1 || jobs[0].uses !== uses) bad.push(`${file}: must be exactly one job calling ${uses}`);
-  if (/write/.test(JSON.stringify(doc.permissions || {}) + JSON.stringify(jobs[0].permissions || {}))) bad.push(`${file}: a read-only check asks for no write permission`);
+  // Read-only means it says so: without a permissions block the token falls back to the repo default.
+  if (JSON.stringify(doc.permissions) !== JSON.stringify({ contents: 'read' })) bad.push(`${file}: a read-only check sets exactly permissions: contents: read`);
+  if (jobs[0] && jobs[0].permissions && /write/.test(JSON.stringify(jobs[0].permissions))) bad.push(`${file}: a read-only check asks for no write permission`);
 }
 for (const [file, want] of Object.entries(reusableCallers)) {
   const full = path.join(workflowDir, file);
