@@ -55,8 +55,9 @@ their route is listed in `data/release/active_mutation_scope.json`
   `npm run test:page-finish` (reads the assembled site).
 - **Inquiries go through `/go/plan`** (`go/plan.html`): counted by Web Analytics,
   then the West Peek Productions Google Form with source and service pre-filled.
-- **The site is ~290 kept pages** (`data/seo/prune_ledger.json`, rule in
-  `scripts/lib/prune.js`, re-plan with `npm run seo:plan-prune`). Every other
+- **The prune ledger keeps 134 pages; the sitemap carries ~176 URLs** (22 Nov
+  2026: the kept pages plus hubs and the search-loop question pages)
+  (`data/seo/prune_ledger.json`, rule in `scripts/lib/prune.js`, re-plan with `npm run seo:plan-prune`). Every other
   /programmatic/, /query-atlas/, /topics/, off-topic /answers/, /insights/ and
   /learn/ page stays in the repo, is left out of the deploy and the sitemap, and
   redirects to its topic's strongest page: `update_redirects_clean_to_html.js`
@@ -72,6 +73,17 @@ their route is listed in `data/release/active_mutation_scope.json`
   Proof: `npm run test:prune` (every URL Google ever showed answers a page or one 301).
 - **Recovery line**: `data/search_intelligence/daily_totals.json` (impressions and
   clicks per day, refreshed by the query-intelligence job).
+
+## Duplicate consolidation (`data/seo/duplicate_family_consolidation.json`)
+
+`scripts/consolidate_duplicate_families.js --plan` 301s a /programmatic/
+duplicate only on a fresh verdict: Google's `lastCrawlTime` on or after the date
+the page's content last changed (`data/cadence/lastmod_ledger.json`). Stale or
+undated verdicts go to `unresolved`; retirements already made are carried
+forward. `npm run validate:duplicate-consolidation` (in `validate:seo-hygiene`)
+writes the measured check-in to `data/seo/duplicate_consolidation_status.json`;
+`npm run test:consolidation-fresh-verdict` proves the break cases.
+Record: `docs/duplicate-consolidation-checkin-2026-11-22.md`.
 
 ## Search loop pages (`questions/`)
 
