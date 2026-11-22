@@ -31,6 +31,19 @@
  *     (scripts/lib/consolidated_families.js), so the release lane can neither
  *     recreate a retired URL nor rewrite the keeper underneath the merge.
  *
+ * Fresh evidence only (22 Nov 2026): a duplicate retires only when Google's
+ * verdict was formed on the page as it now stands - its lastCrawlTime is on or
+ * after the date its content last changed (data/cadence/lastmod_ledger.json,
+ * else the page's own dateModified). A verdict on content that no longer exists,
+ * or with no readable crawl date, sends the page to `unresolved` with both dates;
+ * it is never 301'd. (The 22 Nov check-in found all 24-27 duplicates crawled in
+ * Jul-Sep, before the 26 Oct-3 Nov rewrites; the old rule would have retired 18
+ * kept, rewritten pages.)
+ *
+ * Retirements already made stay in the ledger on a re-plan: a retired variant is
+ * no longer on disk and Google no longer reports it as a duplicate, so without
+ * carrying it forward a re-plan would drop its 301.
+ *
  * Pages on the thin ledger (data/seo/consolidation_candidates.json) are not
  * touched, as keeper or as duplicate: that ledger is re-read on 2 Nov 2026,
  * once URL Inspection has covered the whole sitemap.
@@ -52,9 +65,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.resolve(__dirname, '..');
+// CONSOLIDATE_ROOT points the script at a fixture tree (the --self-test of
+// scripts/test_consolidation_requires_fresh_verdict.js); never set in a build.
+const ROOT = process.env.CONSOLIDATE_ROOT ? path.resolve(process.env.CONSOLIDATE_ROOT) : path.resolve(__dirname, '..');
 const HOST = 'https://virtualagency-os.com';
 const LEDGER = 'data/seo/duplicate_family_consolidation.json';
+const COVERAGE = 'data/search_intelligence/index_coverage.json';
+const LASTMOD = 'data/cadence/lastmod_ledger.json';
+const STATUS = 'data/seo/duplicate_consolidation_status.json';
 const SCOPE = 'data/release/active_mutation_scope.json';
 const ADMISSIONS = 'data/content/page_admission_registry.json';
 const DUP_STATE = 'Duplicate, Google chose different canonical than user';
@@ -91,8 +109,66 @@ function answerOf(html) {
   return { question: text(h1[1]), answer: text(rec[1]) };
 }
 
+const DAY = /^\d{4}-\d{2}-\d{2}$/;
+const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/;
+
+// Named stop: the coverage file is missing, unreadable or has no inspected
+// URL. Nothing is planned or written from no evidence.
+function loadCoverage(root = ROOT) {
+  const abs = path.join(root, COVERAGE);
+  let doc = null;
+  try { doc = JSON.parse(fs.readFileSync(abs, 'utf8')); } catch (e) { doc = null; }
+  const urls = doc && doc.urls && typeof doc.urls === 'object' ? doc.urls : {};
+  if (!Object.keys(urls).length) {
+    const err = new Error(`COVERAGE_EMPTY: ${COVERAGE} is missing, unreadable or has zero inspected URLs`);
+    err.stop = 'COVERAGE_EMPTY';
+    throw err;
+  }
+  return doc;
+}
+
+// When this route's content last changed: the content-hash lastmod ledger,
+// else the page's own WebPage dateModified. null when neither is readable.
+function contentDateOf(route, { root = ROOT, lastmod } = {}) {
+  const entries = (lastmod || readJsonAt(root, LASTMOD, { entries: {} })).entries || {};
+  const hit = entries[`${HOST}${route}`] || entries[`${HOST}${route}/`];
+  if (hit && DAY.test(String(hit.lastmod || ''))) return hit.lastmod;
+  const abs = path.join(root, fileOf(route));
+  if (fs.existsSync(abs)) {
+    const m = fs.readFileSync(abs, 'utf8').match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+// Was Google's verdict formed on the content as it now stands? Missing or
+// malformed evidence is never fresh evidence.
+function verdictFreshness(route, inspection, opts = {}) {
+  const crawl = String((inspection && inspection.lastCrawlTime) || '');
+  const crawled = ISO.test(crawl) && !Number.isNaN(Date.parse(crawl)) ? crawl.slice(0, 10) : null;
+  const contentChanged = contentDateOf(route, opts);
+  let fresh = false; let reason = null;
+  if (!crawled) reason = 'no readable crawl date on the verdict';
+  else if (!contentChanged) reason = 'no recorded date for the current content';
+  else if (crawled < contentChanged) reason = 'verdict predates the current content';
+  else fresh = true;
+  return { fresh, reason, last_crawl: crawled || (crawl || null), content_changed: contentChanged };
+}
+
+function readJsonAt(root, rel, fallback) {
+  const abs = path.join(root, rel);
+  return fs.existsSync(abs) ? JSON.parse(fs.readFileSync(abs, 'utf8')) : fallback;
+}
+
 function plan() {
-  const coverage = readJson('data/search_intelligence/index_coverage.json', { urls: {} }).urls;
+  let coverageDoc;
+  try { coverageDoc = loadCoverage(); } catch (e) {
+    if (!e.stop) throw e;
+    console.error(e.message);
+    process.exit(1);
+  }
+  const coverage = coverageDoc.urls;
+  const lastmod = readJson(LASTMOD, { entries: {} });
   const admissions = new Map(readJson(ADMISSIONS, { admissions: [] }).admissions.map((a) => [a.route, a]));
   const thin = new Set((JSON.stringify(readJson('data/seo/consolidation_candidates.json', {}))
     .match(/\/programmatic\/[a-z0-9-]+/g) || []));
@@ -106,8 +182,9 @@ function plan() {
   ]);
   // Answers already extracted are carried over, so a re-plan after the variant
   // pages are gone loses nothing.
+  const priorLedger = readJson(LEDGER, { families: [] });
   const prior = new Map();
-  for (const f of readJson(LEDGER, { families: [] }).families || []) for (const m of f.merged || []) if (m.answer) prior.set(m.route, m);
+  for (const f of priorLedger.families || []) for (const m of f.merged || []) if (m.answer) prior.set(m.route, m);
 
   const fromAnalytics = new Map();
   for (const r of readJson('data/search_intelligence/search_analytics_28d.json', { rows: [] }).rows || []) {
@@ -143,6 +220,8 @@ function plan() {
     if (thin.has(route)) { excluded.push(route); continue; }
     if (primaries.has(route)) { excludedPrimaries.push(route); continue; }
     if (!onDisk(route)) { unresolved.push({ route, reason: 'no rendered page on disk' }); continue; }
+    const age = verdictFreshness(route, coverage[`${HOST}${route}`] || coverage[`${HOST}${route}/`], { lastmod });
+    if (!age.fresh) { unresolved.push({ route, reason: age.reason, last_crawl: age.last_crawl, content_changed: age.content_changed }); continue; }
     const brief = prefix(route, 3);
     const cluster = admissions.get(route)?.cluster;
     const candidates = [
@@ -165,16 +244,35 @@ function plan() {
     fam.merged.push({ route, impressions: impressions(route), ...(was ? { question: was.question, answer: was.answer } : {}) });
   }
 
+  // Retirements already made stand: a merged variant whose page is gone keeps
+  // its family and its 301, whatever Google now says about the URL.
+  const planned = new Set([...families.values()].flatMap((f) => f.merged.map((m) => m.route)));
+  let carried = 0;
+  for (const f of priorLedger.families || []) {
+    const gone = (f.merged || []).filter((m) => !planned.has(m.route) && !onDisk(m.route));
+    if (!gone.length) continue;
+    if (!families.has(f.keeper)) {
+      families.set(f.keeper, { family: f.family, basis: f.basis, pause_prefix: f.pause_prefix, keeper: f.keeper, keeper_impressions: f.keeper_impressions, merged: [] });
+    }
+    const fam = families.get(f.keeper);
+    if (f.pause_prefix && f.pause_prefix.length < fam.pause_prefix.length) fam.pause_prefix = f.pause_prefix;
+    fam.merged.push(...gone.map((m) => ({ ...m })));
+    if (f.merged_answers !== undefined && fam.merged_answers === undefined) fam.merged_answers = f.merged_answers;
+    carried += gone.length;
+  }
+  for (const f of families.values()) f.merged.sort((a, b) => a.route.localeCompare(b.route));
+
   const list = [...families.values()].sort((a, b) => a.keeper.localeCompare(b.keeper));
   const ledger = {
     schema_version: '1.0',
     measured_from: {
-      index_coverage: 'data/search_intelligence/index_coverage.json',
-      index_coverage_generated_at: readJson('data/search_intelligence/index_coverage.json', {}).generated_at || null,
+      index_coverage: COVERAGE,
+      index_coverage_generated_at: coverageDoc.generated_at || null,
+      content_dates: LASTMOD,
       impressions: ['data/search_intelligence/search_analytics_28d.json', 'data/signals/gsc_query_signals.json'],
     },
-    rule: `Every /programmatic/ URL whose coverageState is "${DUP_STATE}" with googleCanonical ${HOST}/ is 301'd to the indexed member of its family with the most measured impressions; its distinct answer is merged into that page. Thin-ledger pages are left for the 2 Nov 2026 re-read.`,
-    measurement: { duplicates_at_plan: dups.length, target: 'By 22 Nov 2026: duplicates (all states) under 150 and indexed share among inspected >= 70%.' },
+    rule: `Every /programmatic/ URL whose coverageState is "${DUP_STATE}" with googleCanonical ${HOST}/ is 301'd to the indexed member of its family with the most measured impressions, and only when Google's verdict is fresh: its lastCrawlTime is on or after the date the page's content last changed (${LASTMOD}, else the page's dateModified). A stale or undated verdict goes to unresolved, never to a 301. Its distinct answer is merged into the keeper. Retirements already made are carried forward. Thin-ledger pages and demand-family primaries are left up.`,
+    measurement: { duplicates_at_plan: dups.length, status: `${STATUS} (written by scripts/validators/validate_duplicate_consolidation.js)` },
     duplicate_families_by_brief_key: new Set(dups.map((r) => prefix(r, 3))).size,
     keepers: list.length,
     consolidated_count: list.reduce((n, f) => n + f.merged.length, 0),
@@ -184,7 +282,7 @@ function plan() {
     unresolved,
   };
   writeJson(LEDGER, ledger);
-  console.log(JSON.stringify({ command: 'plan', duplicates: dups.length, brief_families: ledger.duplicate_families_by_brief_key, keepers: list.length, consolidated: ledger.consolidated_count, excluded_thin_ledger: excluded.length, excluded_demand_primaries: excludedPrimaries.length, unresolved: unresolved.length }, null, 2));
+  console.log(JSON.stringify({ command: 'plan', duplicates: dups.length, brief_families: ledger.duplicate_families_by_brief_key, keepers: list.length, consolidated: ledger.consolidated_count, excluded_thin_ledger: excluded.length, excluded_demand_primaries: excludedPrimaries.length, unresolved: unresolved.length, stale_verdicts: unresolved.filter((u) => u.content_changed !== undefined).length, retirements_carried: carried }, null, 2));
 }
 
 function mergedBlock(keeperHtml, answers) {
@@ -322,6 +420,10 @@ function relink() {
   console.log(JSON.stringify({ command: 'relink', rules: rules.length, pages_scanned: files.length, pages_changed: changed.length }, null, 2));
 }
 
-const cmd = ['apply', 'plan', 'relink'].find((c) => process.argv.includes(`--${c}`));
-if (!cmd) { console.error('Usage: --plan | --apply | --relink [--write-scope]'); process.exit(2); }
-({ plan, apply, relink })[cmd]();
+module.exports = { HOST, COVERAGE, LASTMOD, STATUS, DUP_STATE, loadCoverage, contentDateOf, verdictFreshness };
+
+if (require.main === module) {
+  const cmd = ['apply', 'plan', 'relink'].find((c) => process.argv.includes(`--${c}`));
+  if (!cmd) { console.error('Usage: --plan | --apply | --relink [--write-scope]'); process.exit(2); }
+  ({ plan, apply, relink })[cmd]();
+}

@@ -164,6 +164,13 @@
       "owner": "repo"
     },
     {
+      "id": "duplicate-consolidation",
+      "command": "node scripts/validators/validate_duplicate_consolidation.js",
+      "severity": "HARD_FAIL",
+      "purpose": "Duplicate-consolidation check-in measured by code: writes data/seo/duplicate_consolidation_status.json (duplicates by state, indexed share against its 70% floor, reported not enforced) and stops on COVERAGE_EMPTY, COVERAGE_STALE (>18 days), DUPLICATES_OVER_CEILING (>188, ceiling 150) and CONSOLIDATION_WOULD_RETIRE_FRESH_PAGE (a live page planned to 301 on a verdict Google formed before its content last changed). Added 22 Nov 2026.",
+      "owner": "repo"
+    },
+    {
       "id": "sitemap-lastmod-honest",
       "command": "node scripts/validators/validate_sitemap_lastmod_honest.js",
       "severity": "HARD_FAIL",

@@ -2,18 +2,19 @@
   "schema_version": "1.0",
   "measured_from": {
     "index_coverage": "data/search_intelligence/index_coverage.json",
-    "index_coverage_generated_at": "2026-10-25T14:33:00.445713Z",
+    "index_coverage_generated_at": "2026-11-21T18:10:40.487892Z",
+    "content_dates": "data/cadence/lastmod_ledger.json",
     "impressions": [
       "data/search_intelligence/search_analytics_28d.json",
       "data/signals/gsc_query_signals.json"
     ]
   },
-  "rule": "Every /programmatic/ URL whose coverageState is \"Duplicate, Google chose different canonical than user\" with googleCanonical https://virtualagency-os.com/ is 301'd to the indexed member of its family with the most measured impressions; its distinct answer is merged into that page. Thin-ledger pages are left for the 2 Nov 2026 re-read.",
+  "rule": "Every /programmatic/ URL whose coverageState is \"Duplicate, Google chose different canonical than user\" with googleCanonical https://virtualagency-os.com/ is 301'd to the indexed member of its family with the most measured impressions, and only when Google's verdict is fresh: its lastCrawlTime is on or after the date the page's content last changed (data/cadence/lastmod_ledger.json, else the page's dateModified). A stale or undated verdict goes to unresolved, never to a 301. Its distinct answer is merged into the keeper. Retirements already made are carried forward. Thin-ledger pages and demand-family primaries are left up.",
   "measurement": {
-    "duplicates_at_plan": 454,
-    "target": "By 22 Nov 2026: duplicates (all states) under 150 and indexed share among inspected >= 70%."
+    "duplicates_at_plan": 23,
+    "status": "data/seo/duplicate_consolidation_status.json (written by scripts/validators/validate_duplicate_consolidation.js)"
   },
-  "duplicate_families_by_brief_key": 90,
+  "duplicate_families_by_brief_key": 11,
   "keepers": 30,
   "consolidated_count": 424,
   "families": [
@@ -2862,43 +2863,137 @@
       "merged_answers": 2
     }
   ],
-  "excluded_thin_ledger": [
-    "/programmatic/ai-consultant-vs-automation-agency",
-    "/programmatic/ai-consultant-vs-automation-agency-companies",
-    "/programmatic/ai-consultant-vs-automation-agency-for-marketing-teams",
-    "/programmatic/ai-consultant-vs-automation-agency-for-small-teams",
-    "/programmatic/ai-consultant-vs-automation-agency-mistakes",
-    "/programmatic/ai-consultant-vs-automation-agency-services",
-    "/programmatic/ai-marketing-workflows-strategy-framework",
-    "/programmatic/audience-growth-strategy-best-practices",
-    "/programmatic/best-virtual-event-platforms",
-    "/programmatic/brand-narrative-strategy-consultant",
-    "/programmatic/brand-positioning-strategy-examples",
-    "/programmatic/brand-positioning-strategy-for-marketing-teams",
-    "/programmatic/brand-positioning-strategy-for-startups",
-    "/programmatic/brand-strategy-consulting-pricing",
-    "/programmatic/campaign-narrative-strategy-for-founders",
-    "/programmatic/content-marketing-operations-deliverables",
-    "/programmatic/content-marketing-operations-services",
-    "/programmatic/content-marketing-operations-workflow",
-    "/programmatic/creative-agency-vs-production-company-for-marketing-teams",
-    "/programmatic/creative-operations-for-enterprise-teams",
-    "/programmatic/creative-operations-process",
-    "/programmatic/creative-operations-services",
-    "/programmatic/daily-backup-event-systems"
-  ],
+  "excluded_thin_ledger": [],
   "excluded_demand_primaries": [
-    "/programmatic/agency-rfp-questions",
-    "/programmatic/audience-growth-strategy",
-    "/programmatic/brand-messaging-architecture",
-    "/programmatic/campaign-narrative-strategy",
-    "/programmatic/creative-operations",
-    "/programmatic/event-marketing-strategy"
+    "/programmatic/best-virtual-event-platforms",
+    "/programmatic/hybrid-event-platform"
   ],
   "unresolved": [
     {
       "route": "/programmatic/broadcast-style-virtual-events",
-      "reason": "no indexed page in its family, cluster or two-word prefix"
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-marketing-strategy-deliverables",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-marketing-strategy-for-enterprise-teams",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-run-of-show-comparison",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-09-06",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-run-of-show-for-marketing-teams",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-24",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-run-of-show-template",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-09-09",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-run-of-show-timeline",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/event-run-of-show-workflow",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/executive-broadcast-production-common-failure-points",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-09-09",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/host-virtual-events",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-26",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/online-conference-platforms",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-08-02",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-companies",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-10-26"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-for-biotech",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-for-government",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-producer-roles",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-09-09",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-production-team",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-rfp-questions",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-services",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-production-technical-rehearsal",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-services",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
+    },
+    {
+      "route": "/programmatic/virtual-event-trends-2026",
+      "reason": "verdict predates the current content",
+      "last_crawl": "2026-07-23",
+      "content_changed": "2026-11-03"
     }
   ]
 }

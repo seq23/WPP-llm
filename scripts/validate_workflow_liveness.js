@@ -67,6 +67,31 @@ const notes = [];
 const fail = (m) => errors.push(m);
 const rel = (p) => path.relative(ROOT, p);
 
+// An active workflow with no file here is pending (not dead) only when an open
+// same-repo pull request's head still carries its file. Returns that PR or null.
+function pendingWorkflowPr(wfPath, openPrs, headHasFile) {
+  for (const pr of openPrs || []) {
+    if (pr && pr.head && pr.head.sha && headHasFile(pr)) return pr;
+  }
+  return null;
+}
+
+if (process.argv.includes('--self-test')) {
+  const pr = (number, sha) => ({ number, head: { sha } });
+  const has = (shas) => (p) => shas.includes(p.head.sha);
+  const cases = [
+    ['open PR carries the file -> pending', pendingWorkflowPr('w.yml', [pr(1, 'a'), pr(2, 'b')], has(['b'])), 2],
+    ['no open PRs (PR closed or branch deleted) -> orphan', pendingWorkflowPr('w.yml', [], has(['a'])), null],
+    ['open PR whose head dropped the file -> orphan', pendingWorkflowPr('w.yml', [pr(3, 'c')], has([])), null],
+    ['PR with no head sha -> orphan', pendingWorkflowPr('w.yml', [{ number: 4, head: {} }], () => true), null],
+  ];
+  const bad = cases.filter(([, got, want]) => (got ? got.number : null) !== want);
+  for (const [name] of bad) console.error(`self-test FAIL: ${name}`);
+  if (bad.length) process.exit(1);
+  console.log(`validate:workflow-liveness self-test OK: ${cases.length} cases (pending on an open PR passes; closed, deleted or dropped is still an orphan)`);
+  process.exit(0);
+}
+
 // --- 0. contract -----------------------------------------------------------
 if (!fs.existsSync(CONTRACT)) {
   console.error(`workflow liveness FAILED: missing ${rel(CONTRACT)} - the retirement ledger is the only record of why a workflow stopped.`);
@@ -290,11 +315,35 @@ if (credentialed) {
     if (!remote.length) {
       fail(`GitHub reports zero workflows for ${repo}. An empty workflow list is an emergency, not a clean bill of health.`);
     }
+    // GitHub registers a workflow the moment its file is pushed to ANY branch,
+    // so a workflow still under review on an open pull request is active with
+    // no file on this checkout. That is a pending lane, not a dead one - but
+    // only while the PR is open and its head still carries the file. A closed
+    // PR, a deleted branch or a file removed from the head leaves it orphaned,
+    // and it fails exactly as before. (22 Nov 2026: PR #103 added
+    // ship-ready-baseline.yml, and every CI run in the repo went red on it.)
+    let openPrs = null;
+    const pendingOn = (wfPath) => {
+      if (openPrs === null) {
+        try {
+          openPrs = api(`repos/${repo}/pulls?state=open&per_page=100`)
+            .filter((pr) => pr && pr.head && pr.head.repo && pr.head.repo.full_name === repo);
+        } catch (e) {
+          fail(`GitHub API refused the open pull request list (${String(e.stderr || e.message).trim().split('\n')[0]}). Cannot tell a pending workflow from a dead one.`);
+          openPrs = [];
+        }
+      }
+      return pendingWorkflowPr(wfPath, openPrs, (pr) => {
+        try { return api(`repos/${repo}/contents/${wfPath}?ref=${pr.head.sha}`).type === 'file'; } catch { return false; }
+      });
+    };
     for (const wf of remote) {
       if (wf.state !== 'active') continue;
       if (onDisk.has(wf.path)) continue;
       if (retiredPaths.has(wf.path)) { notes.push(`${wf.path}: retired on the record (id ${wf.id}), GitHub still lists it active - expected`); continue; }
-      fail(`${wf.path} (id ${wf.id}) is state=active on GitHub but has no file in .github/workflows and no retired[] entry. It cannot run, so it can never go red; it will sit on its last result forever. Restore it or retire it with a reason.`);
+      const pr = pendingOn(wf.path);
+      if (pr) { notes.push(`${wf.path}: pending on open PR #${pr.number} (its head carries the file) - not on this branch yet`); continue; }
+      fail(`${wf.path} (id ${wf.id}) is state=active on GitHub but has no file in .github/workflows, no retired[] entry and no open pull request carrying it. It cannot run, so it can never go red; it will sit on its last result forever. Restore it or retire it with a reason.`);
     }
 
     let addedCache = null;
