@@ -1,14 +1,14 @@
 {
   "schema": "search-loop-week-v1",
-  "week": "2026-W47",
+  "week": "2026-W48",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-22T17:26:59.838Z",
+  "generated_at": "2026-11-23T21:38:13.802Z",
   "state": "running",
-  "published": 3,
+  "published": 2,
   "indexed": 0,
   "pace": 10,
   "ai_visitors": 0,
-  "ai_bot_hits": 1079,
+  "ai_bot_hits": 991,
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
   "wins": 0,
   "undone": 0,
@@ -16,75 +16,53 @@
   "held_by_cap": 0,
   "redirected": [
     {
-      "query": "live broadcast production companies",
-      "strengthen": "https://virtualagency-os.com/programmatic/executive-broadcast-production-companies",
+      "query": "hybrid event management companies",
+      "strengthen": "https://virtualagency-os.com/programmatic/hybrid-event-production-companies",
       "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
+      "at": "2026-11-23"
     },
     {
-      "query": "virtual event production finland",
-      "strengthen": "https://virtualagency-os.com/programmatic/virtual-event-production-examples",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "how to create a run of show",
-      "strengthen": "https://virtualagency-os.com/programmatic/run-of-show-meaning",
-      "matched_by": "high token overlap (0.67 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "how to build an online community for your brand",
-      "strengthen": "https://virtualagency-os.com/programmatic/community-building-for-brands-examples",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "how to build an effective online community around a brand",
-      "strengthen": "https://virtualagency-os.com/programmatic/community-building-for-brands-examples",
-      "matched_by": "same 3 intent words plus modifiers",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "online brand community examples",
-      "strengthen": "https://virtualagency-os.com/programmatic/brand-community-strategy-examples",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "live stream production finland",
-      "strengthen": "https://virtualagency-os.com/programmatic/live-stream-production-company",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "live stream production services",
-      "strengthen": "https://virtualagency-os.com/programmatic/live-stream-production-company",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "sample run of show for an event",
-      "strengthen": "https://virtualagency-os.com/programmatic/event-run-of-show-examples",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "building small business community",
+      "query": "build online business community",
       "strengthen": "https://virtualagency-os.com/answers/how-to-build-a-community-around-your-business",
       "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
+      "at": "2026-11-23"
+    },
+    {
+      "query": "launching virtual events checklist",
+      "strengthen": "https://virtualagency-os.com/programmatic/virtual-event-checklist",
+      "matched_by": "high token overlap (0.75 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "virtual event program template",
+      "strengthen": "https://virtualagency-os.com/programmatic/virtual-event-production-rfp-questions",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "virtual event program agenda",
+      "strengthen": "https://virtualagency-os.com/questions/virtual-event-program-design",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "virtual conference production checklist",
+      "strengthen": "https://virtualagency-os.com/programmatic/virtual-event-production-checklist",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-23"
     }
   ],
   "cap": {
-    "max_live_pages": 28,
-    "live": 14,
-    "room": 14,
-    "why": "up from 25 to 28: Google impressions 34 in the last 28 days beat 26 in the 28 before"
+    "max_live_pages": 25,
+    "live": 15,
+    "room": 10,
+    "why": "down from 28 to 25: Google impressions fell to 37 in the last 28 days from 42 in the 28 before"
   },
   "notes": [
-    "BUILD gate notes (not blocking): 1 published page(s) are outside a length or style aim; each is listed under gate_notes in pages.json",
-    "IndexNow: 1 new page(s) not live yet; submitted when they answer 200"
+    "not read: AI answer misses (Boss OS does not know virtualagency-os.com (HTTP 404)); could not tell this run",
+    "cap: down from 28 to 25: Google impressions fell to 37 in the last 28 days from 42 in the 28 before",
+    "BUILD distinct gate: 6 search(es) had the same intent as an existing page and became strengthen briefs, not new pages (pages.json \"redirected\")",
+    "BUILD gate notes (not blocking): 1 published page(s) are outside a length or style aim; each is listed under gate_notes in pages.json"
   ],
   "lanes": {
     "ratio": {
@@ -98,7 +76,7 @@
       "hit_rate": "not read: no page in this lane has reached its 2-week check yet"
     },
     "striking": {
-      "pages": 14,
+      "pages": 15,
       "measured": 11,
       "top3": 0,
       "hit_rate": 0
@@ -112,5 +90,15 @@
     "weight_changes": [],
     "competition": "ok: 15 top-10 read(s) via brave"
   },
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45048727852"
+  "ai_misses": {
+    "read": "not read: Boss OS does not know virtualagency-os.com (HTTP 404)",
+    "week": null,
+    "misses": 0,
+    "strengthened": [],
+    "new_candidates": [],
+    "skipped": [],
+    "rejected": [],
+    "could_not_tell": 1
+  },
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45271522340"
 }

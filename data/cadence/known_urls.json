@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22",
+  "generated_at": "2026-11-23",
   "_note": "Baseline of URLs the cadence gate treats as existing. first_seen/sources are recorded for every URL added after 2026-09-12: source governed_release means the release lane created it inside policy and recorded it in the same run; source accepted means a human ran cadence:accept with a reason; source reindexed_existing means a pre-gate page the noindex policy had withheld was indexed again on new evidence (not a publication); source search_loop means the shared search loop published it under /questions/ (paced by the loop, owner ruling 1 Nov 2026). URLs with no first_seen predate the record and are baseline. See scripts/cadence/weekly_cap.js.",
   "urls": [
     "https://virtualagency-os.com/",
@@ -3379,6 +3379,7 @@
     "https://virtualagency-os.com/questions/online-event-production",
     "https://virtualagency-os.com/questions/prepare-a-live-webinar",
     "https://virtualagency-os.com/questions/rise-of-hybrid-events",
+    "https://virtualagency-os.com/questions/virtual-event-program-design",
     "https://virtualagency-os.com/questions/what-is-a-virtual-town-hall",
     "https://virtualagency-os.com/selected-work",
     "https://virtualagency-os.com/started-business",
@@ -3496,6 +3497,7 @@
     "https://virtualagency-os.com/questions/online-event-production": "2026-11-07",
     "https://virtualagency-os.com/questions/prepare-a-live-webinar": "2026-11-07",
     "https://virtualagency-os.com/questions/rise-of-hybrid-events": "2026-11-07",
+    "https://virtualagency-os.com/questions/virtual-event-program-design": "2026-11-23",
     "https://virtualagency-os.com/questions/what-is-a-virtual-town-hall": "2026-11-22"
   },
   "sources": {
@@ -3536,6 +3538,7 @@
     "https://virtualagency-os.com/questions/online-event-production": "search_loop",
     "https://virtualagency-os.com/questions/prepare-a-live-webinar": "search_loop",
     "https://virtualagency-os.com/questions/rise-of-hybrid-events": "search_loop",
+    "https://virtualagency-os.com/questions/virtual-event-program-design": "search_loop",
     "https://virtualagency-os.com/questions/what-is-a-virtual-town-hall": "search_loop"
   }
 }

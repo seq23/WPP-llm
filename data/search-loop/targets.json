@@ -1,15 +1,15 @@
 {
   "schema": "search-loop-targets-v1",
   "site": "virtualagency-os.com",
-  "week": "2026-W47",
-  "generated_at": "2026-11-16T09:46:57.377Z",
+  "week": "2026-W48",
+  "generated_at": "2026-11-23T21:38:13.802Z",
   "sources": {
-    "search_console": "ok: 4 rows",
-    "bing_webmaster": "ok: 76 rows",
+    "search_console": "ok: 10 rows",
+    "bing_webmaster": "ok: 79 rows",
     "easy_wins": "ok: 0 easy win(s) in Search Console",
     "suggestqueries.google.com": "ok",
     "api.bing.com": "ok",
-    "relevance_screen": "ok: kept 19 of 150 (free model)",
+    "relevance_screen": "ok: kept 27 of 150 (free model)",
     "top10": "ok: 15 top-10 read(s) via brave"
   },
   "targets": [
@@ -22,29 +22,29 @@
         "google_suggest": true,
         "top10": {
           "provider": "brave",
-          "weakness": 0.31,
+          "weakness": 0.46,
           "counts": {
             "results": 10,
             "directories": 0,
             "forums": 0,
             "off_target_national": 0,
-            "thin_or_old": 3,
+            "thin_or_old": 4,
             "exact_answer": 0
           },
           "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question"
+            "top 10: 0 directories, 0 forums, 0 off-target national, 4 thin or old, 0 answer the exact question"
           ]
         }
       },
       "scores": {
         "striking": 25,
-        "can_be_one": 22.4
+        "can_be_one": 28.4
       },
-      "score": 22.4,
+      "score": 28.4,
       "kind": "new",
       "lane": "can_be_one",
       "reasons": [
-        "weak top 10 (0.31): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
+        "weak top 10 (0.46): 0 directories, 0 forums, 0 off-target national, 4 thin or old, 0 answer the exact question",
         "people search it (autocomplete or impressions)"
       ]
     },
@@ -87,42 +87,7 @@
       ]
     },
     {
-      "query": "small business virtual event production",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0.31,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 3,
-            "exact_answer": 0
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question"
-          ]
-        }
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 22.4
-      },
-      "score": 22.4,
-      "kind": "new",
-      "lane": "can_be_one",
-      "reasons": [
-        "weak top 10 (0.31): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
-        "people search it (autocomplete or impressions)"
-      ]
-    },
-    {
-      "query": "hybrid event production finland",
+      "query": "virtual event production finland",
       "variants": [],
       "signals": {
         "words": 4,
@@ -130,29 +95,172 @@
         "bing_suggest": true,
         "top10": {
           "provider": "brave",
-          "weakness": 0.31,
+          "weakness": 0.23,
           "counts": {
             "results": 10,
             "directories": 0,
             "forums": 0,
             "off_target_national": 0,
-            "thin_or_old": 3,
+            "thin_or_old": 2,
             "exact_answer": 0
           },
           "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question"
+            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question"
           ]
         }
       },
       "scores": {
         "striking": 20,
-        "can_be_one": 22.4
+        "can_be_one": 19.2
       },
-      "score": 22.4,
+      "score": 19.2,
       "kind": "new",
       "lane": "can_be_one",
       "reasons": [
-        "weak top 10 (0.31): 0 directories, 0 forums, 0 off-target national, 3 thin or old, 0 answer the exact question",
+        "weak top 10 (0.23): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "hybrid event management companies",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 1
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 1 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 1 thin or old, 1 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "build online business community",
+      "variants": [
+        "how to build an online community for your business"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "google_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 0,
+            "exact_answer": 2
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 2 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 40,
+        "can_be_one": 0
+      },
+      "score": 40,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (0 < 15)"
+      ]
+    },
+    {
+      "query": "how to create a town hall",
+      "variants": [],
+      "signals": {
+        "words": 6,
+        "question": true,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "how to create a run of show",
+      "variants": [],
+      "signals": {
+        "words": 7,
+        "question": true,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 2,
+            "exact_answer": 4
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 4 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 25,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 4 answer the exact question",
         "people search it (autocomplete or impressions)"
       ]
     },
@@ -192,146 +300,6 @@
       ]
     },
     {
-      "query": "virtual event production finland",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0.23,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 2,
-            "exact_answer": 0
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question"
-          ]
-        }
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 19.2
-      },
-      "score": 19.2,
-      "kind": "new",
-      "lane": "can_be_one",
-      "reasons": [
-        "weak top 10 (0.23): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question",
-        "people search it (autocomplete or impressions)"
-      ]
-    },
-    {
-      "query": "virtual event management company",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "google_suggest": true,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0.15,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 1,
-            "exact_answer": 2
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 2 answer the exact question"
-          ]
-        }
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 16
-      },
-      "score": 16,
-      "kind": "new",
-      "lane": "can_be_one",
-      "reasons": [
-        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 1 thin or old, 2 answer the exact question",
-        "people search it (autocomplete or impressions)"
-      ]
-    },
-    {
-      "query": "what is a virtual town hall",
-      "variants": [],
-      "signals": {
-        "words": 6,
-        "question": true,
-        "bing_suggest": true,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 0,
-            "exact_answer": 10
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 10 answer the exact question"
-          ]
-        }
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "kind": "new",
-      "lane": "striking",
-      "reasons": [
-        "autocomplete demand (google/bing)",
-        "can-be-#1 evidence too thin (0 < 15)"
-      ]
-    },
-    {
-      "query": "how to create a run of show",
-      "variants": [],
-      "signals": {
-        "words": 7,
-        "question": true,
-        "bing_suggest": true,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0.15,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 2,
-            "exact_answer": 4
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 4 answer the exact question"
-          ]
-        }
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 16
-      },
-      "score": 16,
-      "kind": "new",
-      "lane": "can_be_one",
-      "reasons": [
-        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 4 answer the exact question",
-        "people search it (autocomplete or impressions)"
-      ]
-    },
-    {
       "query": "how brand community practices create value",
       "variants": [],
       "signals": {
@@ -347,10 +315,10 @@
             "forums": 1,
             "off_target_national": 0,
             "thin_or_old": 4,
-            "exact_answer": 6
+            "exact_answer": 7
           },
           "reasons": [
-            "top 10: 0 directories, 1 forums, 0 off-target national, 4 thin or old, 6 answer the exact question"
+            "top 10: 0 directories, 1 forums, 0 off-target national, 4 thin or old, 7 answer the exact question"
           ]
         }
       },
@@ -362,12 +330,47 @@
       "kind": "new",
       "lane": "can_be_one",
       "reasons": [
-        "weak top 10 (0.15): 0 directories, 1 forums, 0 off-target national, 4 thin or old, 6 answer the exact question",
+        "weak top 10 (0.15): 0 directories, 1 forums, 0 off-target national, 4 thin or old, 7 answer the exact question",
         "people search it (autocomplete or impressions)"
       ]
     },
     {
-      "query": "online brand community examples",
+      "query": "small business virtual event production",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.15,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 2,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 16
+      },
+      "score": 16,
+      "kind": "new",
+      "lane": "can_be_one",
+      "reasons": [
+        "weak top 10 (0.15): 0 directories, 0 forums, 0 off-target national, 2 thin or old, 0 answer the exact question",
+        "people search it (autocomplete or impressions)"
+      ]
+    },
+    {
+      "query": "virtual event management company",
       "variants": [],
       "signals": {
         "words": 4,
@@ -437,10 +440,10 @@
       ]
     },
     {
-      "query": "hybrid event production company europe",
+      "query": "hybrid event production finland",
       "variants": [],
       "signals": {
-        "words": 5,
+        "words": 4,
         "question": false,
         "bing_suggest": true,
         "top10": {
@@ -472,42 +475,7 @@
       ]
     },
     {
-      "query": "branded community website examples",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "google_suggest": true,
-        "top10": {
-          "provider": "brave",
-          "weakness": 0,
-          "counts": {
-            "results": 10,
-            "directories": 0,
-            "forums": 0,
-            "off_target_national": 0,
-            "thin_or_old": 0,
-            "exact_answer": 0
-          },
-          "reasons": [
-            "top 10: 0 directories, 0 forums, 0 off-target national, 0 thin or old, 0 answer the exact question"
-          ]
-        }
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "kind": "new",
-      "lane": "striking",
-      "reasons": [
-        "autocomplete demand (google/bing)",
-        "can-be-#1 evidence too thin (0 < 15)"
-      ]
-    },
-    {
-      "query": "hiring community manager remote",
+      "query": "online brand community examples",
       "variants": [],
       "signals": {
         "words": 4,
@@ -539,6 +507,61 @@
       "reasons": [
         "autocomplete demand (google/bing)",
         "can-be-#1 evidence too thin (0 < 15)"
+      ]
+    },
+    {
+      "query": "hybrid event production company europe",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
+        "bing_suggest": true,
+        "top10": {
+          "provider": "brave",
+          "weakness": 0.08,
+          "counts": {
+            "results": 10,
+            "directories": 0,
+            "forums": 0,
+            "off_target_national": 0,
+            "thin_or_old": 1,
+            "exact_answer": 0
+          },
+          "reasons": [
+            "top 10: 0 directories, 0 forums, 0 off-target national, 1 thin or old, 0 answer the exact question"
+          ]
+        }
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 13.2
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)",
+        "can-be-#1 evidence too thin (13.2 < 15)"
+      ]
+    },
+    {
+      "query": "free webinar production tips",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
       ]
     },
     {
@@ -620,98 +643,205 @@
       "reasons": [
         "autocomplete demand (google/bing)"
       ]
+    },
+    {
+      "query": "launching virtual events checklist",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "virtual event program planning",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "virtual event program design",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "virtual event program ideas",
+      "variants": [
+        "virtual event program examples",
+        "virtual event program tips"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "virtual event program template",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "virtual event program agenda",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
+    },
+    {
+      "query": "virtual conference production checklist",
+      "variants": [],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "bing_suggest": true,
+        "top10": "not read: outside this run's top-10 budget"
+      },
+      "scores": {
+        "striking": 20,
+        "can_be_one": 0
+      },
+      "score": 20,
+      "kind": "new",
+      "lane": "striking",
+      "reasons": [
+        "autocomplete demand (google/bing)"
+      ]
     }
   ],
   "strengthen": [
     {
-      "query": "building small business community",
+      "query": "virtual conference production checklist",
+      "page": "/programmatic/virtual-event-production-checklist",
+      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-checklist",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "virtual event program agenda",
+      "page": "/questions/virtual-event-program-design",
+      "url": "https://virtualagency-os.com/questions/virtual-event-program-design",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "virtual event program template",
+      "page": "/programmatic/virtual-event-production-rfp-questions",
+      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-rfp-questions",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.60 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "launching virtual events checklist",
+      "page": "/programmatic/virtual-event-checklist",
+      "url": "https://virtualagency-os.com/programmatic/virtual-event-checklist",
+      "score": 20,
+      "from": "distinct-gate",
+      "matched_by": "high token overlap (0.75 >= 0.6)",
+      "at": "2026-11-23"
+    },
+    {
+      "query": "build online business community",
       "page": "/answers/how-to-build-a-community-around-your-business",
       "url": "https://virtualagency-os.com/answers/how-to-build-a-community-around-your-business",
-      "score": 20,
+      "score": 40,
       "from": "distinct-gate",
       "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
+      "at": "2026-11-23"
     },
     {
-      "query": "sample run of show for an event",
-      "page": "/programmatic/event-run-of-show-examples",
-      "url": "https://virtualagency-os.com/programmatic/event-run-of-show-examples",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "live stream production services",
-      "page": "/programmatic/live-stream-production-company",
-      "url": "https://virtualagency-os.com/programmatic/live-stream-production-company",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "live stream production finland",
-      "page": "/programmatic/live-stream-production-company",
-      "url": "https://virtualagency-os.com/programmatic/live-stream-production-company",
-      "score": 20,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "online brand community examples",
-      "page": "/programmatic/brand-community-strategy-examples",
-      "url": "https://virtualagency-os.com/programmatic/brand-community-strategy-examples",
-      "score": 25,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "how to build an effective online community around a brand",
-      "page": "/programmatic/community-building-for-brands-examples",
-      "url": "https://virtualagency-os.com/programmatic/community-building-for-brands-examples",
-      "score": 30,
-      "from": "distinct-gate",
-      "matched_by": "same 3 intent words plus modifiers",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "how to build an online community for your brand",
-      "page": "/programmatic/community-building-for-brands-examples",
-      "url": "https://virtualagency-os.com/programmatic/community-building-for-brands-examples",
-      "score": 45,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "how to create a run of show",
-      "page": "/programmatic/run-of-show-meaning",
-      "url": "https://virtualagency-os.com/programmatic/run-of-show-meaning",
+      "query": "hybrid event management companies",
+      "page": "/programmatic/hybrid-event-production-companies",
+      "url": "https://virtualagency-os.com/programmatic/hybrid-event-production-companies",
       "score": 16,
       "from": "distinct-gate",
-      "matched_by": "high token overlap (0.67 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "virtual event production finland",
-      "page": "/programmatic/virtual-event-production-examples",
-      "url": "https://virtualagency-os.com/programmatic/virtual-event-production-examples",
-      "score": 19.2,
-      "from": "distinct-gate",
-      "matched_by": "high token overlap (0.75 >= 0.6)",
-      "at": "2026-11-16"
-    },
-    {
-      "query": "live broadcast production companies",
-      "page": "/programmatic/executive-broadcast-production-companies",
-      "url": "https://virtualagency-os.com/programmatic/executive-broadcast-production-companies",
-      "score": 22.4,
-      "from": "distinct-gate",
       "matched_by": "high token overlap (0.60 >= 0.6)",
-      "at": "2026-11-16"
+      "at": "2026-11-23"
     },
     {
       "query": "what is virtual production",
@@ -728,6 +858,26 @@
       },
       "score": 45,
       "page": "/programmatic/best-virtual-event-production-companies"
+    },
+    {
+      "query": "what is virtual event",
+      "variants": [
+        "virtual events examples",
+        "ideas for virtual events",
+        "what is a virtual event"
+      ],
+      "signals": {
+        "words": 4,
+        "question": true,
+        "bing_suggest": true,
+        "google_suggest": true
+      },
+      "scores": {
+        "striking": 45,
+        "can_be_one": 0
+      },
+      "score": 45,
+      "page": "/programmatic/best-platform-for-virtual-events"
     },
     {
       "query": "how to build a community",
@@ -798,6 +948,25 @@
       "page": "/programmatic/live-stream-production-company"
     },
     {
+      "query": "virtual event planning checklist",
+      "variants": [
+        "checklist virtual event planning",
+        "best virtual event planning checklist"
+      ],
+      "signals": {
+        "words": 4,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 40,
+        "can_be_one": 0
+      },
+      "score": 40,
+      "page": "/programmatic/virtual-event-planning-checklist"
+    },
+    {
       "query": "virtual event production",
       "variants": [],
       "signals": {
@@ -812,6 +981,22 @@
       },
       "score": 30,
       "page": "/programmatic/best-virtual-event-production-companies"
+    },
+    {
+      "query": "virtual event producer",
+      "variants": [],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/programmatic/virtual-event-production-producer-roles"
     },
     {
       "query": "hybrid event production",
@@ -988,6 +1173,25 @@
       "page": "/programmatic/brand-agency-vs-marketing-agency-for-community-organizations"
     },
     {
+      "query": "virtual event planner",
+      "variants": [
+        "virtual event planning",
+        "best virtual event planning tips"
+      ],
+      "signals": {
+        "words": 3,
+        "question": false,
+        "google_suggest": true,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 30,
+        "can_be_one": 0
+      },
+      "score": 30,
+      "page": "/programmatic/virtual-event-planning-accessibility"
+    },
+    {
       "query": "virtual event production services",
       "variants": [],
       "signals": {
@@ -1076,21 +1280,6 @@
       },
       "score": 25,
       "page": "/programmatic/event-run-of-show-2026"
-    },
-    {
-      "query": "what is virtual event",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": true,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 25,
-        "can_be_one": 0
-      },
-      "score": 25,
-      "page": "/programmatic/best-platform-for-virtual-events"
     },
     {
       "query": "what is a virtual run",
@@ -1184,9 +1373,7 @@
     },
     {
       "query": "hire a community manager",
-      "variants": [
-        "how to hire a community manager"
-      ],
+      "variants": [],
       "signals": {
         "words": 4,
         "question": false,
@@ -1232,8 +1419,7 @@
     {
       "query": "what is live webinar",
       "variants": [
-        "is a webinar live",
-        "what is a live webinar"
+        "is a webinar live"
       ],
       "signals": {
         "words": 4,
@@ -1366,6 +1552,23 @@
       "signals": {
         "words": 4,
         "question": false,
+        "bing_impressions": 1,
+        "bing_position": 9,
+        "bing_suggest": true
+      },
+      "scores": {
+        "striking": 23,
+        "can_be_one": 0
+      },
+      "score": 23,
+      "page": "/programmatic/virtual-event-production-checklist"
+    },
+    {
+      "query": "virtual and hybrid event production",
+      "variants": [],
+      "signals": {
+        "words": 5,
+        "question": false,
         "bing_suggest": true
       },
       "scores": {
@@ -1373,7 +1576,7 @@
         "can_be_one": 0
       },
       "score": 20,
-      "page": "/programmatic/virtual-event-production-checklist"
+      "page": "/programmatic/virtual-event-production-hybrid-av"
     },
     {
       "query": "virtual event run of show template",
@@ -1455,69 +1658,6 @@
       },
       "score": 20,
       "page": "/programmatic/community-led-growth-comparison"
-    },
-    {
-      "query": "live event vs webinar teams",
-      "variants": [
-        "teams webinars vs live events",
-        "teams live events vs webinar"
-      ],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/questions/live-event-webinar-support-team"
-    },
-    {
-      "query": "branding agency for startups",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/startup-brand-strategy-agency"
-    },
-    {
-      "query": "platforms for virtual events production",
-      "variants": [],
-      "signals": {
-        "words": 5,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/programmatic/virtual-event-production-platform-stack"
-    },
-    {
-      "query": "virtual events for work",
-      "variants": [],
-      "signals": {
-        "words": 4,
-        "question": false,
-        "bing_suggest": true
-      },
-      "scores": {
-        "striking": 20,
-        "can_be_one": 0
-      },
-      "score": 20,
-      "page": "/learn/how-virtual-event-production-works"
     }
   ]
 }
