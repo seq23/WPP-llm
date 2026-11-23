@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T18:44:32.617Z",
-  "workflow_count": 10,
+  "generated_at": "2026-11-23T00:50:04.816Z",
+  "workflow_count": 11,
   "workflows": [
     "admin-command.yml",
     "ci.yml",
@@ -11,7 +11,8 @@
     "query-intelligence.yml",
     "search-loop.yml",
     "search-repair-retest.yml",
-    "self-heal.yml"
+    "self-heal.yml",
+    "ship-ready-baseline.yml"
   ],
   "traces": [
     {
@@ -1187,6 +1188,36 @@
       "direct_paths": [
         "./.github/scripts/search_loop_commit.sh"
       ],
+      "env_keys": []
+    },
+    {
+      "workflow": "ship-ready-baseline.yml",
+      "workflow_name": "ship-ready-baseline",
+      "job": "ship-ready-baseline",
+      "step": "setup_command",
+      "name": "",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ship-ready-baseline.yml",
+      "workflow_name": "ship-ready-baseline",
+      "job": "ship-ready-baseline",
+      "step": "post_build_command",
+      "name": "",
+      "npm_script": null,
+      "direct_paths": [],
+      "env_keys": []
+    },
+    {
+      "workflow": "ship-ready-baseline.yml",
+      "workflow_name": "ship-ready-baseline",
+      "job": "ship-ready-baseline",
+      "step": "commit_command",
+      "name": "",
+      "npm_script": null,
+      "direct_paths": [],
       "env_keys": []
     }
   ],

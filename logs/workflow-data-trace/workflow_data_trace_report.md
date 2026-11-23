@@ -1,8 +1,8 @@
 # GitHub Workflow Data Trace
 
-Generated: 2026-11-22T18:44:32.617Z
+Generated: 2026-11-23T00:50:04.816Z
 
-Workflows: 10
+Workflows: 11
 
 ## Required persistent data files
 - PASS _citation_intelligence_contract.json
@@ -126,6 +126,9 @@ Workflows: 10
 - search-loop.yml :: search-loop #setup_command :: bash scripts/ci_npm_install.sh :: paths:scripts/ci_npm_install.sh
 - search-loop.yml :: search-loop #post_build_command :: bash .github/scripts/search_loop_post_build.sh :: paths:.github/scripts/search_loop_post_build.sh
 - search-loop.yml :: search-loop #commit_command :: ./.github/scripts/search_loop_commit.sh :: paths:./.github/scripts/search_loop_commit.sh
+- ship-ready-baseline.yml :: ship-ready-baseline #setup_command :: 
+- ship-ready-baseline.yml :: ship-ready-baseline #post_build_command :: 
+- ship-ready-baseline.yml :: ship-ready-baseline #commit_command :: 
 
 ## Errors
 - none
