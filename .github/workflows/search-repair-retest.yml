@@ -8,7 +8,8 @@ on:
         type: boolean
         default: true
   schedule:
-    - cron: '40 5 * * *'  # America/Chicago, all year
+    # Weekly since 23 Nov 2026 (owner rule: daily only when something changes daily AND someone acts on it daily).
+    - cron: "40 5 * * 2"
       timezone: America/Chicago
 
 permissions:
