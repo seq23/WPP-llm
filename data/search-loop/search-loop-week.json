@@ -2,13 +2,13 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W48",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-23T21:38:13.802Z",
+  "generated_at": "2026-11-24T20:18:39.804Z",
   "state": "running",
   "published": 2,
   "indexed": 0,
   "pace": 10,
   "ai_visitors": 0,
-  "ai_bot_hits": 991,
+  "ai_bot_hits": 518,
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
   "wins": 0,
   "undone": 0,
@@ -60,9 +60,7 @@
   },
   "notes": [
     "not read: AI answer misses (Boss OS does not know virtualagency-os.com (HTTP 404)); could not tell this run",
-    "cap: down from 28 to 25: Google impressions fell to 37 in the last 28 days from 42 in the 28 before",
-    "BUILD distinct gate: 6 search(es) had the same intent as an existing page and became strengthen briefs, not new pages (pages.json \"redirected\")",
-    "BUILD gate notes (not blocking): 1 published page(s) are outside a length or style aim; each is listed under gate_notes in pages.json"
+    "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued"
   ],
   "lanes": {
     "ratio": {
@@ -98,7 +96,7 @@
     "new_candidates": [],
     "skipped": [],
     "rejected": [],
-    "could_not_tell": 1
+    "could_not_tell": 2
   },
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45271522340"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45479230078"
 }
