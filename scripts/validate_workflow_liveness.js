@@ -67,6 +67,20 @@ const notes = [];
 const fail = (m) => errors.push(m);
 const rel = (p) => path.relative(ROOT, p);
 
+// Which gh to run. On her Mac ~/bin/gh is the shared GitHub allowance (seq-bin gh-share: one cache, the
+// 300-call floor kept for merges, a share per caller). Running plain `gh` from a shell whose PATH puts
+// Homebrew first went around it: measured 22 Nov 2026, this validator was the one direct REST caller
+// left on the Mac (24 core calls in 10 min). Where there is no ~/bin/gh (GitHub Actions), plain gh.
+function ghBin(home, isFile) {
+  const shared = home ? path.join(home, 'bin', 'gh') : '';
+  return shared && isFile(shared) ? shared : 'gh';
+}
+const isFile = (p) => { try { return fs.statSync(p).isFile(); } catch { return false; } };
+const GH = ghBin(require('os').homedir(), isFile);
+// The wrapper's wait for a reset is bounded to this run: past it, gh exits 75 "rate limit:" and the
+// live check fails as unreachable (refused, never a pass).
+const GH_ENV = { ...process.env, GH_SHARE_UNTIL: String(Math.floor(Date.now() / 1000) + 120) };
+
 // An active workflow with no file here is pending (not dead) only when an open
 // same-repo pull request's head still carries its file. Returns that PR or null.
 function pendingWorkflowPr(wfPath, openPrs, headHasFile) {
@@ -86,6 +100,13 @@ if (process.argv.includes('--self-test')) {
     ['PR with no head sha -> orphan', pendingWorkflowPr('w.yml', [{ number: 4, head: {} }], () => true), null],
   ];
   const bad = cases.filter(([, got, want]) => (got ? got.number : null) !== want);
+  // the shared allowance is used whenever ~/bin/gh exists; plain gh only where it does not
+  const ghCases = [
+    ['~/bin/gh present -> the shared wrapper', ghBin('/h', (p) => p === '/h/bin/gh'), '/h/bin/gh'],
+    ['no ~/bin/gh (Actions) -> plain gh', ghBin('/h', () => false), 'gh'],
+  ];
+  for (const [name, got, want] of ghCases) if (got !== want) bad.push([`${name} (got ${got})`]);
+  cases.push(...ghCases);
   for (const [name] of bad) console.error(`self-test FAIL: ${name}`);
   if (bad.length) process.exit(1);
   console.log(`validate:workflow-liveness self-test OK: ${cases.length} cases (pending on an open PR passes; closed, deleted or dropped is still an orphan)`);
@@ -284,12 +305,12 @@ function crons(doc) {
 // --- 5. liveness against the GitHub API ------------------------------------
 function api(route) {
   const args = ['api', '-H', 'Accept: application/vnd.github+json', route];
-  return JSON.parse(execFileSync('gh', args, { cwd: ROOT, maxBuffer: 32 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).toString());
+  return JSON.parse(execFileSync(GH, args, { cwd: ROOT, env: GH_ENV, maxBuffer: 32 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] }).toString());
 }
 
 let credentialed = false;
 try {
-  execFileSync('gh', ['auth', 'status'], { stdio: 'ignore' });
+  execFileSync(GH, ['auth', 'status'], { env: GH_ENV, stdio: 'ignore' });
   credentialed = true;
 } catch { credentialed = Boolean(process.env.GH_TOKEN || process.env.GITHUB_TOKEN); }
 
