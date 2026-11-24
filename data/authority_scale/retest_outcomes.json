@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-23T22:55:49.101Z",
+  "updated_at": "2026-11-24T21:31:36.698Z",
   "outcomes": [
     "IMPROVED",
     "UNCHANGED",
@@ -13015,119 +13015,206 @@
       "evaluated_at": "2026-11-23T22:55:49.093Z",
       "evidence_before": [],
       "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/ai-workflow-consulting",
+      "query": null,
+      "repair_id": "repair_ed1de7fcff37",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.685Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/community-as-a-service",
+      "query": null,
+      "repair_id": "repair_a19347bbc13b",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.686Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/community-launch-strategy",
+      "query": null,
+      "repair_id": "repair_1bf9184046fe",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.686Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/community-marketing",
+      "query": null,
+      "repair_id": "repair_7c345d73a823",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.686Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/community-operations",
+      "query": null,
+      "repair_id": "repair_fa36d32ca872",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.686Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/community-staffing-model",
+      "query": null,
+      "repair_id": "repair_ea6f974776f7",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.686Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/event-marketing-strategy",
+      "query": null,
+      "repair_id": "repair_8ecf7c177c82",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.686Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/host-virtual-events",
+      "query": null,
+      "repair_id": "repair_36aa6273c803",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.687Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/hybrid-event-production",
+      "query": null,
+      "repair_id": "repair_82cc878bd3cc",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.687Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/presentation-storytelling",
+      "query": null,
+      "repair_id": "repair_cdbd0f29754b",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.687Z",
+      "evidence_before": [],
+      "evidence_after": []
+    },
+    {
+      "route": "/query-atlas/webinar-production",
+      "query": null,
+      "repair_id": "repair_fca6631a6054",
+      "outcome": "INCONCLUSIVE",
+      "reason": "no_evidence_arrived_within_stale_window",
+      "stale_after_days": 45,
+      "age_days": 45.5,
+      "evaluated_at": "2026-11-24T21:31:36.687Z",
+      "evidence_before": [],
+      "evidence_after": []
     }
   ],
   "truth_rule": "IMPROVED/REGRESSED require dated before and after evidence for the same route/query. Missing or provider-degraded evidence on either side must be recorded as INCONCLUSIVE, never inferred from page edits, build success, or validator status.",
   "last_sweep": {
-    "swept_at": "2026-11-23T22:55:49.101Z",
-    "eligible": 74,
-    "promoted": 5,
+    "swept_at": "2026-11-24T21:31:36.698Z",
+    "eligible": 54,
+    "promoted": 0,
     "retested_from_evidence": 0,
-    "closed_inconclusive_stale": 20,
-    "still_awaiting_evidence": 54,
+    "closed_inconclusive_stale": 11,
+    "still_awaiting_evidence": 43,
     "signal_records_matching_queue_routes": 8,
     "outcomes_recorded": {
-      "INCONCLUSIVE": 20
+      "INCONCLUSIVE": 11
     },
     "aged_out_inconclusive": [
       {
-        "route": "/programmatic/brand-messaging-architecture-for-professional-services-firms",
-        "repair_id": "repair_8f54cd05f639",
+        "route": "/query-atlas/ai-workflow-consulting",
+        "repair_id": "repair_ed1de7fcff37",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-for-saas-companies",
-        "repair_id": "repair_aea00f556b86",
+        "route": "/query-atlas/community-as-a-service",
+        "repair_id": "repair_a19347bbc13b",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-for-small-teams",
-        "repair_id": "repair_cf2a6da96958",
+        "route": "/query-atlas/community-launch-strategy",
+        "repair_id": "repair_1bf9184046fe",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-for-startups",
-        "repair_id": "repair_73383c0755dc",
+        "route": "/query-atlas/community-marketing",
+        "repair_id": "repair_7c345d73a823",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-for-venture-backed-companies",
-        "repair_id": "repair_bc8a77cdb852",
+        "route": "/query-atlas/community-operations",
+        "repair_id": "repair_fa36d32ca872",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-how-to-choose",
-        "repair_id": "repair_87511ac35023",
+        "route": "/query-atlas/community-staffing-model",
+        "repair_id": "repair_ea6f974776f7",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-how-to-compare-vendors",
-        "repair_id": "repair_171e8337af56",
+        "route": "/query-atlas/event-marketing-strategy",
+        "repair_id": "repair_8ecf7c177c82",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-implementation-guide",
-        "repair_id": "repair_3a6166c49813",
+        "route": "/query-atlas/host-virtual-events",
+        "repair_id": "repair_36aa6273c803",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-measurement",
-        "repair_id": "repair_6f6c0b8fc365",
+        "route": "/query-atlas/hybrid-event-production",
+        "repair_id": "repair_82cc878bd3cc",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-mistakes",
-        "repair_id": "repair_2701000b2c57",
+        "route": "/query-atlas/presentation-storytelling",
+        "repair_id": "repair_cdbd0f29754b",
         "age_days": 45.5
       },
       {
-        "route": "/programmatic/brand-messaging-architecture-operating-model",
-        "repair_id": "repair_7788e627c137",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-pricing",
-        "repair_id": "repair_a2fc83db7581",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-process",
-        "repair_id": "repair_c111b04cc5fc",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-questions-to-ask",
-        "repair_id": "repair_3eaa38a1dbf5",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-red-flags",
-        "repair_id": "repair_f7da43d23cdc",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-roi-factors",
-        "repair_id": "repair_1e17721c71e7",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-scope-of-work",
-        "repair_id": "repair_f94eda3042a2",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-services",
-        "repair_id": "repair_a1b81ee3aa90",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-strategy-framework",
-        "repair_id": "repair_868708ec2911",
-        "age_days": 45.5
-      },
-      {
-        "route": "/programmatic/brand-messaging-architecture-template",
-        "repair_id": "repair_614cece79e70",
+        "route": "/query-atlas/webinar-production",
+        "repair_id": "repair_fca6631a6054",
         "age_days": 45.5
       }
     ],

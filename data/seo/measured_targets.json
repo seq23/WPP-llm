@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-23T22:55:32.437Z",
+  "generated_at": "2026-11-24T21:31:14.696Z",
   "rule": "A target exists only where a Search Console row measured impressions for the query. Rebuilt by `npm run seo:measured-targets`; read by the publication freeze gate (scripts/lib/publication_freeze.js).",
   "sources": [
     {
       "id": "gsc_28d_query_page",
-      "window": "2026-10-25..2026-11-21",
-      "rows": 10
+      "window": "2026-10-26..2026-11-22",
+      "rows": 11
     },
     {
       "id": "gsc_28d_export",
@@ -14,16 +14,16 @@
     },
     {
       "id": "gsc_90d_query_page",
-      "window": "90 days to 2026-11-23",
-      "rows": 98
+      "window": "90 days to 2026-11-24",
+      "rows": 88
     }
   ],
   "excluded_operator_probe_rows": 0,
-  "target_count": 82,
+  "target_count": 75,
   "targets": [
     {
       "query": "west peak",
-      "impressions": 35,
+      "impressions": 33,
       "clicks": 0,
       "best_position": 77.8,
       "pages": [
@@ -35,42 +35,31 @@
         "gsc_28d_export",
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_28d_query_page": 3,
+      "impressions_gsc_28d_query_page": 2,
       "impressions_gsc_28d_export": 6,
-      "impressions_gsc_90d_query_page": 35
+      "impressions_gsc_90d_query_page": 33
     },
     {
-      "query": "virtual events production",
-      "impressions": 27,
+      "query": "live event production webinar",
+      "impressions": 19,
       "clicks": 0,
-      "best_position": 68.9,
+      "best_position": 77.1,
       "pages": [
-        "/learn/what-is-virtual-event-production",
-        "/programmatic/virtual-event-production-for-saas"
+        "/programmatic/virtual-event-production-for-saas",
+        "/virtual-event-production-for-manufacturing"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 27
-    },
-    {
-      "query": "audience growth strategy",
-      "impressions": 23,
-      "clicks": 0,
-      "best_position": 20.7,
-      "pages": [
-        "/programmatic/what-is-audience-growth-strategy"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 23
+      "impressions_gsc_28d_query_page": 1,
+      "impressions_gsc_90d_query_page": 19
     },
     {
       "query": "production agency definition",
-      "impressions": 23,
+      "impressions": 19,
       "clicks": 0,
-      "best_position": 44.5,
+      "best_position": 46.3,
       "pages": [
         "/programmatic/creative-agency-vs-production-company-for-associations",
         "/programmatic/creative-agency-vs-production-company-for-community-organizations",
@@ -81,116 +70,75 @@
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 23
+      "impressions_gsc_90d_query_page": 19
     },
     {
-      "query": "live event production webinar",
-      "impressions": 21,
+      "query": "virtual events production",
+      "impressions": 16,
       "clicks": 0,
-      "best_position": 69.8,
+      "best_position": 67.6,
       "pages": [
-        "/programmatic/virtual-event-production-for-saas",
-        "/virtual-event-production-for-manufacturing"
+        "/learn/what-is-virtual-event-production",
+        "/programmatic/virtual-event-production-for-saas"
       ],
       "sources": [
-        "gsc_28d_query_page",
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_28d_query_page": 2,
-      "impressions_gsc_90d_query_page": 21
+      "impressions_gsc_90d_query_page": 16
+    },
+    {
+      "query": "audience growth strategy",
+      "impressions": 14,
+      "clicks": 0,
+      "best_position": 19.5,
+      "pages": [
+        "/programmatic/what-is-audience-growth-strategy"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 14
     },
     {
       "query": "webinar production services",
-      "impressions": 15,
+      "impressions": 9,
       "clicks": 0,
-      "best_position": 76.5,
+      "best_position": 74.2,
       "pages": [
         "/programmatic/virtual-event-production-for-saas"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 15
-    },
-    {
-      "query": "creative strategy consulting",
-      "impressions": 10,
-      "clicks": 0,
-      "best_position": 29.9,
-      "pages": [
-        "/programmatic/what-is-creative-strategy-consulting"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 10
+      "impressions_gsc_90d_query_page": 9
     },
     {
       "query": "narrative strategy",
-      "impressions": 9,
+      "impressions": 7,
       "clicks": 0,
-      "best_position": 59.8,
+      "best_position": 60.3,
       "pages": [
         "/programmatic/what-is-campaign-narrative-strategy"
       ],
       "sources": [
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 9
-    },
-    {
-      "query": "professional webinar production services",
-      "impressions": 9,
-      "clicks": 0,
-      "best_position": 65.3,
-      "pages": [
-        "/programmatic/virtual-event-production-for-saas"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 9
-    },
-    {
-      "query": "investor relations event production",
-      "impressions": 7,
-      "clicks": 0,
-      "best_position": 82.7,
-      "pages": [
-        "/investor-event-production"
-      ],
-      "sources": [
-        "gsc_28d_export",
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_28d_export": 3,
       "impressions_gsc_90d_query_page": 7
     },
     {
-      "query": "brand messaging architecture",
-      "impressions": 6,
+      "query": "virtual event producer",
+      "impressions": 7,
       "clicks": 0,
-      "best_position": 39.2,
+      "best_position": 68.4,
       "pages": [
-        "/programmatic/what-is-brand-messaging-architecture"
+        "/programmatic/virtual-event-management"
       ],
       "sources": [
+        "gsc_28d_query_page",
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 6
-    },
-    {
-      "query": "community programming",
-      "impressions": 6,
-      "clicks": 0,
-      "best_position": 44.3,
-      "pages": [
-        "/programmatic/what-is-community-programming"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 6
+      "impressions_gsc_28d_query_page": 7,
+      "impressions_gsc_90d_query_page": 7
     },
     {
       "query": "integrated agency definition",
@@ -207,34 +155,32 @@
       "impressions_gsc_90d_query_page": 6
     },
     {
-      "query": "community management outsourcing",
-      "impressions": 5,
+      "query": "investor relations event production",
+      "impressions": 6,
       "clicks": 0,
-      "best_position": 25,
+      "best_position": 83.8,
       "pages": [
-        "/programmatic/outsourced-community-management-best-practices",
-        "/programmatic/outsourced-community-management-services",
-        "/programmatic/outsourced-community-management-when-to-hire"
+        "/investor-event-production"
       ],
       "sources": [
+        "gsc_28d_export",
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_90d_query_page": 5
+      "impressions_gsc_28d_export": 3,
+      "impressions_gsc_90d_query_page": 6
     },
     {
-      "query": "virtual event producer",
-      "impressions": 5,
+      "query": "professional webinar production services",
+      "impressions": 6,
       "clicks": 0,
-      "best_position": 69.8,
+      "best_position": 65.5,
       "pages": [
-        "/programmatic/virtual-event-management"
+        "/programmatic/virtual-event-production-for-saas"
       ],
       "sources": [
-        "gsc_28d_query_page",
         "gsc_90d_query_page"
       ],
-      "impressions_gsc_28d_query_page": 5,
-      "impressions_gsc_90d_query_page": 5
+      "impressions_gsc_90d_query_page": 6
     },
     {
       "query": "virtual events checklist",
@@ -250,20 +196,6 @@
       ],
       "impressions_gsc_28d_query_page": 5,
       "impressions_gsc_90d_query_page": 5
-    },
-    {
-      "query": "agency content operations",
-      "impressions": 4,
-      "clicks": 0,
-      "best_position": 81,
-      "pages": [
-        "/content-marketing-operations",
-        "/content-marketing-operations-for-marketing-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 4
     },
     {
       "query": "ai consultant vs automation agency south africa",
@@ -295,12 +227,12 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "in-house agency operating model",
+      "query": "community programming",
       "impressions": 4,
       "clicks": 0,
-      "best_position": 49.3,
+      "best_position": 44.3,
       "pages": [
-        "/programmatic/community-building-for-brands-vs-in-house-team"
+        "/programmatic/what-is-community-programming"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -308,12 +240,13 @@
       "impressions_gsc_90d_query_page": 4
     },
     {
-      "query": "ai creative workflows",
+      "query": "agency content operations",
       "impressions": 3,
       "clicks": 0,
-      "best_position": 54.7,
+      "best_position": 81.5,
       "pages": [
-        "/programmatic/what-is-ai-creative-workflows"
+        "/content-marketing-operations",
+        "/content-marketing-operations-for-marketing-teams"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -327,58 +260,6 @@
       "best_position": 57,
       "pages": [
         "/programmatic/what-is-ai-marketing-workflows"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "content operations system",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 75,
-      "pages": [
-        "/programmatic/what-is-ai-content-operations"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "how to rebrand a professional services firm",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 66.3,
-      "pages": [
-        "/programmatic/rebrand-strategy-for-professional-services-firms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "professional services firm rebrand",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 66.7,
-      "pages": [
-        "/programmatic/rebrand-strategy-for-professional-services-firms"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 3
-    },
-    {
-      "query": "professional services rebranding",
-      "impressions": 3,
-      "clicks": 0,
-      "best_position": 81,
-      "pages": [
-        "/programmatic/rebrand-strategy-for-professional-services-firms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -433,12 +314,12 @@
       "impressions_gsc_90d_query_page": 3
     },
     {
-      "query": "ai content operations",
+      "query": "ai creative workflows",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 54.5,
+      "best_position": 55,
       "pages": [
-        "/programmatic/what-is-ai-content-operations"
+        "/programmatic/what-is-ai-creative-workflows"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -460,12 +341,25 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "community strategy and consultancy",
+      "query": "content operations system",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 53,
+      "best_position": 74.5,
       "pages": [
-        "/programmatic/community-engagement-strategy-consultant"
+        "/programmatic/what-is-ai-content-operations"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 2
+    },
+    {
+      "query": "creative strategy consulting",
+      "impressions": 2,
+      "clicks": 0,
+      "best_position": 31.5,
+      "pages": [
+        "/programmatic/what-is-creative-strategy-consulting"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -488,12 +382,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "how do i compare vendors for positioning testing",
+      "query": "how to rebrand a professional services firm",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 8,
+      "best_position": 69.5,
       "pages": [
-        "/programmatic/brand-positioning-strategy-how-to-compare-vendors"
+        "/programmatic/rebrand-strategy-for-professional-services-firms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -514,12 +408,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "marketing roi consulting",
+      "query": "professional services firm rebrand",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 57.5,
+      "best_position": 74,
       "pages": [
-        "/programmatic/marketing-strategy-consulting-roi-factors"
+        "/programmatic/rebrand-strategy-for-professional-services-firms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -527,13 +421,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "playbook in ai content workflows definition",
+      "query": "professional services rebranding",
       "impressions": 2,
       "clicks": 0,
-      "best_position": 47,
+      "best_position": 81.5,
       "pages": [
-        "/programmatic/what-is-ai-content-operations",
-        "/programmatic/what-is-ai-marketing-workflows"
+        "/programmatic/rebrand-strategy-for-professional-services-firms"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -612,19 +505,6 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "virtual event production staff",
-      "impressions": 2,
-      "clicks": 0,
-      "best_position": 70,
-      "pages": [
-        "/programmatic/virtual-event-production-for-saas"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 2
-    },
-    {
       "query": "webinar production checklist",
       "impressions": 2,
       "clicks": 0,
@@ -651,12 +531,12 @@
       "impressions_gsc_90d_query_page": 2
     },
     {
-      "query": "ai content operations for teams",
+      "query": "ai content operations",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 63,
+      "best_position": 58,
       "pages": [
-        "/ai-content-operations-for-enterprise-teams"
+        "/programmatic/what-is-ai-content-operations"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -664,12 +544,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "ai content ops platform",
+      "query": "ai content operations for teams",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 83,
+      "best_position": 63,
       "pages": [
-        "/programmatic/what-is-ai-content-operations"
+        "/ai-content-operations-for-enterprise-teams"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -716,6 +596,19 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
+      "query": "brand messaging architecture",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 42,
+      "pages": [
+        "/programmatic/what-is-brand-messaging-architecture"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
       "query": "brand positioning professional services",
       "impressions": 1,
       "clicks": 0,
@@ -755,6 +648,19 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
+      "query": "community management outsourcing",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 54,
+      "pages": [
+        "/programmatic/outsourced-community-management-when-to-hire"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
       "query": "community operations",
       "impressions": 1,
       "clicks": 0,
@@ -787,19 +693,6 @@
       "best_position": 95,
       "pages": [
         "/programmatic/what-is-community-platform-selection"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "community staffing",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 12,
-      "pages": [
-        "/programmatic/what-is-community-staffing-model"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -859,19 +752,6 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "enterprise brand experience consulting",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 19,
-      "pages": [
-        "/brand-strategy-consulting-for-enterprise-teams"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
       "query": "enterprise hybrid event production partner",
       "impressions": 1,
       "clicks": 0,
@@ -898,6 +778,19 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
+      "query": "how do i compare vendors for positioning testing",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 7,
+      "pages": [
+        "/programmatic/brand-positioning-strategy-how-to-compare-vendors"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
       "query": "hybrid event planning timeline",
       "impressions": 1,
       "clicks": 0,
@@ -911,12 +804,12 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "messaging architecture",
+      "query": "in-house agency operating model",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 90,
+      "best_position": 43,
       "pages": [
-        "/programmatic/what-is-brand-messaging-architecture"
+        "/programmatic/community-building-for-brands-vs-in-house-team"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -924,12 +817,25 @@
       "impressions_gsc_90d_query_page": 1
     },
     {
-      "query": "moderation and community management",
+      "query": "marketing roi consulting",
       "impressions": 1,
       "clicks": 0,
-      "best_position": 88,
+      "best_position": 52,
       "pages": [
-        "/programmatic/what-is-community-moderation-strategy"
+        "/programmatic/marketing-strategy-consulting-roi-factors"
+      ],
+      "sources": [
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "messaging architecture",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 90,
+      "pages": [
+        "/programmatic/what-is-brand-messaging-architecture"
       ],
       "sources": [
         "gsc_90d_query_page"
@@ -962,6 +868,21 @@
       "sources": [
         "gsc_90d_query_page"
       ],
+      "impressions_gsc_90d_query_page": 1
+    },
+    {
+      "query": "planning a virtual conference checklist",
+      "impressions": 1,
+      "clicks": 0,
+      "best_position": 80,
+      "pages": [
+        "/programmatic/virtual-event-planning"
+      ],
+      "sources": [
+        "gsc_28d_query_page",
+        "gsc_90d_query_page"
+      ],
+      "impressions_gsc_28d_query_page": 1,
       "impressions_gsc_90d_query_page": 1
     },
     {
@@ -1116,19 +1037,6 @@
       "best_position": 22,
       "pages": [
         "/programmatic/what-is-community-operations"
-      ],
-      "sources": [
-        "gsc_90d_query_page"
-      ],
-      "impressions_gsc_90d_query_page": 1
-    },
-    {
-      "query": "what is creative consulting",
-      "impressions": 1,
-      "clicks": 0,
-      "best_position": 70,
-      "pages": [
-        "/programmatic/what-is-creative-strategy-consulting"
       ],
       "sources": [
         "gsc_90d_query_page"
