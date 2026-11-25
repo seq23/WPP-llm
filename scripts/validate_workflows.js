@@ -22,10 +22,10 @@ const required = [
 // Callers of a shared reusable workflow carry no steps of their own, so the
 // setup-node/npm-install checks below cannot apply; they get their own, stricter
 // shape check instead. search-loop.yml (owner ruling 1 Nov 2026) replaced
-// programmatic-release.yml: the shared engine seq23/search-loop pinned at @v1.
+// programmatic-release.yml: the shared engine stays @v1 and the credential wrapper is pinned by commit.
 const reusableCallers = {
   'search-loop.yml': {
-    uses: 'seq23/search-loop/.github/workflows/search-loop.yml@v1',
+    uses: 'seq23/search-loop/.github/workflows/search-loop.yml@56a1b11eb0262dd00dd4c379db7ff45dfebde4b6',
     engineRef: 'v1',
     commitScript: '.github/scripts/search_loop_commit.sh',
   },
@@ -155,8 +155,9 @@ for (const [file, want] of Object.entries(reusableCallers)) {
   const guard = Object.values(doc.jobs || {}).find((j) => j && (j.steps || []).some((st) => String(st.run || '').includes('scripts/runtime_guard.mjs')));
   if (!guard) bad.push(`${file}: no job runs scripts/runtime_guard.mjs, so pause / emergency stop cannot reach this writer`);
   if (!/needs\.[A-Za-z0-9_-]+\.outputs\.allowed == 'true'/.test(String(job.if || ''))) bad.push(`${file}: the engine job must be gated on the runtime guard's allowed output`);
+  if (job.secrets !== undefined) bad.push(`${file}: the engine must resolve credentials in its reviewed-main environment`);
   if (job.uses !== want.uses) bad.push(`${file}: must call ${want.uses} (found ${job.uses || 'no uses:'})`);
-  if ((job.with || {}).engine_ref !== want.engineRef) bad.push(`${file}: engine_ref must equal the @ref in uses: (${want.engineRef})`);
+  if ((job.with || {}).engine_ref !== want.engineRef) bad.push(`${file}: engine_ref must remain at the site engine ref (${want.engineRef})`);
   // A pull request's config check (search-loop stage validate, never writes) may take its own group;
   // every writing run still takes the shared one.
   const grp = String((doc.concurrency || {}).group || '');
