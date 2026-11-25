@@ -25,6 +25,8 @@ concurrency:
 
 jobs:
   collect_score:
+    if: github.ref == 'refs/heads/main'
+    environment: reviewed-main
     timeout-minutes: 30  # ~3x median 4.1m plus up to ~12m of free-router rewrites (2 Nov 2026); fault detector, not a budget
     runs-on: ubuntu-latest
     steps:

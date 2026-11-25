@@ -25,6 +25,8 @@ concurrency:
 
 jobs:
   probe:
+    if: github.ref == 'refs/heads/main'
+    environment: reviewed-main
     timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
