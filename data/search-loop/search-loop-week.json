@@ -2,13 +2,13 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W48",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-24T20:18:39.804Z",
+  "generated_at": "2026-11-25T19:31:49.579Z",
   "state": "running",
   "published": 2,
   "indexed": 0,
   "pace": 10,
   "ai_visitors": 0,
-  "ai_bot_hits": 518,
+  "ai_bot_hits": 303,
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
   "wins": 0,
   "undone": 0,
@@ -59,8 +59,10 @@
     "why": "down from 28 to 25: Google impressions fell to 37 in the last 28 days from 42 in the 28 before"
   },
   "notes": [
-    "not read: AI answer misses (Boss OS does not know virtualagency-os.com (HTTP 404)); could not tell this run",
-    "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued"
+    "not read: AI answer misses (no BOSS_OPEN_LOOPS_TOKEN in this run (pass it in the caller's secrets: block)); could not tell this run",
+    "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued",
+    "not read: Search Console page data (no Search Console property configured (gsc.site_url / its env var))",
+    "not read: index status for the pages 14-42 days old (URL Inspection: GSC_SERVICE_ACCOUNT_JSON is not set)"
   ],
   "lanes": {
     "ratio": {
@@ -89,14 +91,14 @@
     "competition": "ok: 15 top-10 read(s) via brave"
   },
   "ai_misses": {
-    "read": "not read: Boss OS does not know virtualagency-os.com (HTTP 404)",
+    "read": "not read: no BOSS_OPEN_LOOPS_TOKEN in this run (pass it in the caller's secrets: block)",
     "week": null,
     "misses": 0,
     "strengthened": [],
     "new_candidates": [],
     "skipped": [],
     "rejected": [],
-    "could_not_tell": 2
+    "could_not_tell": 3
   },
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45479230078"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45685961970"
 }
