@@ -24,6 +24,8 @@ concurrency:
 
 jobs:
   diagnose_repair_retest:
+    if: github.ref == 'refs/heads/main'
+    environment: reviewed-main
     timeout-minutes: 14  # ~3x median 3.2m over 8 green runs + ~1.5m for 150 URL inspections at 8 in parallel; fault detector, not a budget
     runs-on: ubuntu-latest
     steps:
