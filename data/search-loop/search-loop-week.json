@@ -2,13 +2,13 @@
   "schema": "search-loop-week-v1",
   "week": "2026-W48",
   "site": "virtualagency-os.com",
-  "generated_at": "2026-11-25T19:31:49.579Z",
-  "state": "running",
+  "generated_at": "2026-11-26T19:14:34.077Z",
+  "state": "stopped",
   "published": 2,
   "indexed": 0,
   "pace": 10,
   "ai_visitors": 0,
-  "ai_bot_hits": 303,
+  "ai_bot_hits": 251,
   "conversions": "not read: no conversion source configured for this site (form fills / checkouts)",
   "wins": 0,
   "undone": 0,
@@ -60,7 +60,7 @@
   },
   "notes": [
     "not read: AI answer misses (no BOSS_OPEN_LOOPS_TOKEN in this run (pass it in the caller's secrets: block)); could not tell this run",
-    "BUILD published 0 of quota 10: 0 draft(s) failed the gate and were dropped; 0 got no answer from the free model and stay queued",
+    "NAMED STOP [FREE_MODEL_KEY_MISSING] no free model lane has a credential (GEMINI_API_KEY, OPENROUTER_API_KEY, CLOUDFLARE_*); BUILD wrote nothing, CHECK and the report still run",
     "not read: Search Console page data (no Search Console property configured (gsc.site_url / its env var))",
     "not read: index status for the pages 14-42 days old (URL Inspection: GSC_SERVICE_ACCOUNT_JSON is not set)"
   ],
@@ -98,7 +98,7 @@
     "new_candidates": [],
     "skipped": [],
     "rejected": [],
-    "could_not_tell": 3
+    "could_not_tell": 4
   },
-  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45685961970"
+  "run_url": "https://github.com/seq23/WPP-llm/actions/runs/45882063618"
 }
