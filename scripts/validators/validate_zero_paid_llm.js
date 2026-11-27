@@ -15,7 +15,7 @@
  *   E. a scheduled workflow passes a model key other than OPENROUTER_API_KEY,
  *      or passes OPENROUTER_API_KEY anywhere but a step that runs a registered
  *      free-router consumer or the secrets: of a job calling the shared search
- *      engine pinned at SHARED_ENGINE (seq23/search-loop: $0 lanes only,
+ *      engine pinned at SHARED_ENGINE (@v1 or a full commit sha; seq23/search-loop: $0 lanes only,
  *      max_cost_usd 0, no paid fallback, a non-zero usage.cost fails loud).
  * Usage: node validate_zero_paid_llm.js [repo-root]
  */
@@ -119,18 +119,39 @@ function stepOf(lines, i) {
   return null;
 }
 
-// The one reusable workflow a job may hand OPENROUTER_API_KEY to, in its
-// secrets: block. Any other ref (a branch, another version, a fork) fails.
-const SHARED_ENGINE = 'seq23/search-loop/.github/workflows/search-loop.yml@v1';
+// The one reusable workflow a job may hand OPENROUTER_API_KEY to, in its secrets: block: @v1 or a
+// full 40-character commit sha of seq23/search-loop's own workflow (boss-os #574 pins callers that
+// way; a sha is stricter than a moving tag). Any other ref (a branch, a short sha, another version,
+// a fork, another workflow path) fails.
+const SHARED_ENGINE = /^uses: seq23\/search-loop\/\.github\/workflows\/search-loop\.yml@(?:v1|[0-9a-f]{40})$/;
+const ENGINE_CALLER = /^\s+uses:\s*seq23\/search-loop\/\.github\/workflows\/search-loop\.yml@(?:v\d+|[0-9a-f]{40})\s*$/m;
 function sharedEngineSecret(lines, i) {
   let start = i;
   while (start > 0 && !/^ {2}[A-Za-z0-9_-]+:\s*$/.test(lines[start])) start -= 1;
   let end = i + 1;
   while (end < lines.length && !/^ {2}[A-Za-z0-9_-]+:\s*$/.test(lines[end]) && !/^\S/.test(lines[end])) end += 1;
   const job = lines.slice(start, end);
-  const usesOk = job.some((l) => l.trim() === `uses: ${SHARED_ENGINE}`);
+  const usesOk = job.some((l) => SHARED_ENGINE.test(l.trim()));
   const secretsAt = job.findIndex((l) => /^ {4}secrets:\s*$/.test(l));
   return usesOk && secretsAt >= 0 && (i - start) > secretsAt;
+}
+
+// Engine-ref self-test: the real sharedEngineSecret() and ENGINE_CALLER on synthetic callers, so a
+// rule loosened to another repo, path, branch or short sha (or tightened back to @v1 only) fails.
+{
+  const SHA = '56a1b11eb0262dd00dd4c379db7ff45dfebde4b6';
+  const W = 'seq23/search-loop/.github/workflows/search-loop.yml';
+  const cases = [
+    [`${W}@${SHA}`, true], [`${W}@v1`, true],
+    [`seq23/other-loop/.github/workflows/search-loop.yml@${SHA}`, false],
+    [`seq23/search-loop/.github/workflows/other.yml@${SHA}`, false],
+    [`${W}@main`, false], [`${W}@${SHA.slice(0, 12)}`, false], [`${W}@${SHA}0`, false],
+  ];
+  for (const [ref, want] of cases) {
+    const lines = ['jobs:', '  search-loop:', `    uses: ${ref}`, '    secrets:', '      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}'];
+    if (sharedEngineSecret(lines, 4) !== want) fail(`engine-ref self-test: sharedEngineSecret should be ${want} for ${ref}`);
+    if (ENGINE_CALLER.test(lines.join('\n')) !== want) fail(`engine-ref self-test: ENGINE_CALLER should be ${want} for ${ref}`);
+  }
 }
 
 for (const wf of wfs) {
@@ -153,7 +174,7 @@ for (const wf of wfs) {
   // The search-loop engine's Gemini lane is $0 only with the vetted no-billing key: the one line
   // `GEMINI_API_KEY: ${{ secrets.SEARCH_LOOP_GEMINI_API_KEY }}` in an engine caller is that lane.
   // Any other Gemini/OpenAI/Anthropic/Perplexity key, or that line outside an engine caller, fails.
-  const engineCaller = /^\s+uses:\s*seq23\/search-loop\/\.github\/workflows\/search-loop\.yml@v\d+\s*$/m.test(text);
+  const engineCaller = ENGINE_CALLER.test(text);
   const keyText = engineCaller ? text.split('\n').filter((l) => !/^\s+GEMINI_API_KEY:\s*\$\{\{\s*secrets\.SEARCH_LOOP_GEMINI_API_KEY\s*\}\}\s*$/.test(l)).join('\n') : text;
   if (OTHER_MODEL_KEYS.test(keyText)) fail(`${wf} is scheduled and passes a non-router model key (${keyText.match(OTHER_MODEL_KEYS)[1]})`);
   const lines = text.split('\n');
