@@ -31,6 +31,32 @@ const reusableCallers = {
   },
 };
 const bad = [];
+// The engine job may pass secrets only one by one, by name, from the engine's own declared list
+// (seq23/search-loop's on.workflow_call.secrets). GitHub resolves an environment secret the
+// caller does not pass to an empty string, so with no block every run printed SECRET_MISSING
+// (approvalprep run 46045180821, 27 Nov 2026). `secrets: inherit`, an unlisted name, or a value
+// that is not one `${{ secrets.NAME }}` reference still fails.
+const ENGINE_SECRETS = new Set(['SEARCH_LOOP_CF_ACCOUNT_ID', 'SEARCH_LOOP_CF_WORKERS_AI_TOKEN', 'SEARCH_LOOP_GEMINI_API_KEY',
+  'OPENROUTER_API_KEY', 'GSC_SERVICE_ACCOUNT_JSON', 'GSC_SITE_URL', 'BING_WEBMASTER_API_KEY', 'CLOUDFLARE_API_TOKEN',
+  'CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_WORKERS_AI_TOKEN', 'GEMINI_API_KEY', 'INDEXNOW_KEY', 'BRAVE_SEARCH_API_KEY', 'BOSS_OPEN_LOOPS_TOKEN']);
+function engineSecretsProblem(secrets) {
+  if (secrets === undefined) return null;
+  if (!secrets || typeof secrets !== 'object' || Array.isArray(secrets)) return `secrets must name each engine secret one by one, never ${JSON.stringify(secrets)}`;
+  for (const [name, value] of Object.entries(secrets)) {
+    if (!ENGINE_SECRETS.has(name)) return `secrets passes ${name}, which the engine does not declare`;
+    if (!/^\$\{\{ secrets\.[A-Z][A-Z0-9_]* \}\}$/.test(String(value))) return `secrets.${name} must be one \${{ secrets.NAME }} reference`;
+  }
+  return null;
+}
+// Each way, on every run: a by-name block passes; inherit, an unlisted name or a built value fails.
+for (const [label, secrets, ok] of [
+  ['no block', undefined, true],
+  ['by name', { OPENROUTER_API_KEY: '${{ secrets.OPENROUTER_API_KEY }}', CLOUDFLARE_API_TOKEN: '${{ secrets.SEARCH_LOOP_CF_USAGE_TOKEN }}' }, true],
+  ['inherit', 'inherit', false],
+  ['unlisted name', { OPENROUTER_API_KEY: '${{ secrets.OPENROUTER_API_KEY }}', GITHUB_PAT: '${{ secrets.GITHUB_PAT }}' }, false],
+  ['built value', { GSC_SITE_URL: '${{ secrets.GSC_SITE_URL }}-x' }, false],
+  ['two references', { GSC_SITE_URL: '${{ secrets.A }}${{ secrets.B }}' }, false],
+]) if ((engineSecretsProblem(secrets) === null) !== ok) bad.push(`engine secrets self-test: "${label}" should ${ok ? 'pass' : 'fail'}`);
 // Read-only callers of a shared seq23 check: one job that calls it, no write permission, nothing else.
 const readOnlyCallers = {
   'ship-ready-baseline.yml': 'seq23/seq-bin/.github/workflows/ship-ready-baseline.yml@v1',
@@ -155,7 +181,8 @@ for (const [file, want] of Object.entries(reusableCallers)) {
   const guard = Object.values(doc.jobs || {}).find((j) => j && (j.steps || []).some((st) => String(st.run || '').includes('scripts/runtime_guard.mjs')));
   if (!guard) bad.push(`${file}: no job runs scripts/runtime_guard.mjs, so pause / emergency stop cannot reach this writer`);
   if (!/needs\.[A-Za-z0-9_-]+\.outputs\.allowed == 'true'/.test(String(job.if || ''))) bad.push(`${file}: the engine job must be gated on the runtime guard's allowed output`);
-  if (job.secrets !== undefined) bad.push(`${file}: the engine must resolve credentials in its reviewed-main environment`);
+  const secretsProblem = engineSecretsProblem(job.secrets);
+  if (secretsProblem) bad.push(`${file}: ${secretsProblem}`);
   if (job.uses !== want.uses) bad.push(`${file}: must call ${want.uses} (found ${job.uses || 'no uses:'})`);
   if ((job.with || {}).engine_ref !== want.engineRef) bad.push(`${file}: engine_ref must remain at the site engine ref (${want.engineRef})`);
   // A pull request's config check (search-loop stage validate, never writes) may take its own group;
