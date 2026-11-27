@@ -25,7 +25,7 @@ const required = [
 // programmatic-release.yml: the shared engine stays @v1 and the credential wrapper is pinned by commit.
 const reusableCallers = {
   'search-loop.yml': {
-    uses: 'seq23/search-loop/.github/workflows/search-loop.yml@56a1b11eb0262dd00dd4c379db7ff45dfebde4b6',
+    uses: 'seq23/search-loop/.github/workflows/search-loop.yml@00894c9ac41385d33297eee905a6ced10b32acc7',
     engineRef: 'v1',
     commitScript: '.github/scripts/search_loop_commit.sh',
   },

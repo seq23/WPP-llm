@@ -53,7 +53,7 @@ jobs:
     needs: runtime
     # A pull request's config check runs whatever the pause state (it never publishes).
     if: github.event_name == 'pull_request' || needs.runtime.outputs.allowed == 'true'
-    uses: seq23/search-loop/.github/workflows/search-loop.yml@56a1b11eb0262dd00dd4c379db7ff45dfebde4b6
+    uses: seq23/search-loop/.github/workflows/search-loop.yml@00894c9ac41385d33297eee905a6ced10b32acc7
     with:
       open_loops_business: west-peek
       engine_ref: v1
