@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0-quality-gated",
-  "generated_at": "2026-11-24T19:29:58.877Z",
+  "generated_at": "2026-11-27T18:30:09.112Z",
   "mode": "demand_gated_then_quality_gated",
   "target_semantics": "a create requires a demand record before it is judged on quality; ceilings are a safety cap for a bad run, and the run ends when demand-backed candidates are exhausted, not when a count is reached",
   "demand_gate": {
@@ -19,13 +19,13 @@
     "new_pages_per_week": 2,
     "window_days": 7,
     "window_dates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-25",
       "2026-11-24",
       "2026-11-23",
       "2026-11-22",
-      "2026-11-21",
-      "2026-11-20",
-      "2026-11-19",
-      "2026-11-18"
+      "2026-11-21"
     ],
     "usage_source": "data/cadence/known_urls.json",
     "new_pages_used_this_week": 0,
